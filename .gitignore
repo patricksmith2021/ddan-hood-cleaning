@@ -1,0 +1,8 @@
+﻿node_modules/
+dist/
+.astro/
+.env
+feedback-screenshots/
+*.log
+.DS_Store
+Thumbs.db
