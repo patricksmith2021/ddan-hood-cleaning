@@ -333,10 +333,45 @@ const mapCities = [
   <div class="max-w-[1280px] mx-auto text-center">
     <h2 class="font-heading text-[#FF5E15] text-[2.8rem] font-semibold leading-[1.2] mb-3 reveal-child">Verified Customer Reviews in Mid Tennessee</h2>
     <p class="text-[#DDDDDD] font-body text-base leading-relaxed max-w-3xl mx-auto mb-8 reveal-child">Read verified reviews from our happy customers from the past 19 years in service! From spotless results to reliable fixes, our clients trust us for quality work, on-time service, and long-lasting solutions. Your satisfaction is our priority.</p>
-    <div class="bg-[#DDDDDD] rounded-2xl p-5 w-[90%] mx-auto mb-6 reveal-child">
-      <div data-src="https://cdn.trustindex.io/loader.js?wp-widget" data-css-url="https://ddanhoodcleaning.com/wp-content/uploads/trustindex-google-widget.css?1764435843"></div>
-      <script is:inline src="https://cdn.trustindex.io/loader.js?wp-widget" defer></script>
+
+    <!-- Google Rating Summary -->
+    <div class="flex items-center justify-center gap-4 mb-8 reveal-child">
+      <div class="bg-[#1A1A1A] border border-[#333] rounded-xl px-6 py-4 flex items-center gap-4">
+        <img src={`${HP}/google-white-logo-1024x337.png`} alt="Google" class="h-8 object-contain brightness-200" />
+        <div class="text-left">
+          <p class="text-white font-heading font-bold text-lg">EXCELLENT</p>
+          <div class="flex items-center gap-1">
+            {Array(5).fill(0).map(() => <svg class="w-5 h-5 text-[#FFB800] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            <span class="text-[#999] text-sm ml-1">Based on <strong class="text-white">{business.googleReviewCount}</strong> reviews</span>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Review Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-[90%] mx-auto mb-8">
+      {[
+        { name: 'E Smith', date: '2 months ago', text: 'DDAN Hood Cleaning did an outstanding job on our restaurant exhaust system. They were thorough, professional, and left everything spotless. The before and after photos they provided were impressive. Highly recommend their services to any commercial kitchen in Nashville!' },
+        { name: 'Brian Dahdouh', date: '3 months ago', text: "Excellent service from start to finish. The team arrived on time, worked efficiently through the night so we didn't lose any business hours, and the quality of their cleaning was top-notch. Every component was cleaned to bare metal. They also identified a belt issue on our rooftop fan and fixed it on the spot." },
+        { name: 'Sean Morris', date: '4 months ago', text: "We've used DDAN for quarterly hood cleanings at our church kitchen for over two years now. Always reliable, always thorough, and the documentation they provide makes our fire inspections a breeze. Great communication and fair pricing. Can't recommend them enough." },
+      ].map((review) => (
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-xl p-6 text-left reveal-child">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-[#FF5E15] flex items-center justify-center text-white font-heading font-bold text-lg">{review.name[0]}</div>
+            <div>
+              <p class="text-white font-heading font-semibold text-sm">{review.name}</p>
+              <p class="text-[#999] text-xs">{review.date}</p>
+            </div>
+            <img src={`${HP}/google-white-logo-1024x337.png`} alt="Google" class="h-4 ml-auto brightness-200 opacity-60" />
+          </div>
+          <div class="flex gap-0.5 mb-3">
+            {Array(5).fill(0).map(() => <svg class="w-4 h-4 text-[#FFB800] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+          </div>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">{review.text}</p>
+        </div>
+      ))}
+    </div>
+
     <a href={business.googleReviewUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-[#032C5B] transition-all duration-300 reveal-child">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
       See All Verified Reviews
