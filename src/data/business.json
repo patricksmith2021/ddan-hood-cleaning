@@ -1,0 +1,48 @@
+{
+  "name": "DDAN Hood Cleaning and Repair",
+  "phone": "(615) 881-6968",
+  "phoneRaw": "6158816968",
+  "email": "service@ddanhoodcleaning.com",
+  "address": {
+    "street": "2914 Melbourne Terrace",
+    "city": "Mt. Juliet",
+    "state": "TN",
+    "zip": "37122",
+    "serviceArea": "Middle Tennessee",
+    "suppressStreetAddress": true
+  },
+  "founded": 2007,
+  "yearsExperience": "18+",
+  "googleReviewCount": "42+",
+  "googleReviewRating": "4.9",
+  "googleReviewUrl": "https://maps.app.goo.gl/rACthq6ZGdbt1Zcg8",
+  "googleMapsUrl": "https://maps.app.goo.gl/yjpmrjPSsJ3a9voQ7",
+  "googleMapsEmbed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d412338.0839596535!2d-86.65677194999999!3d36.157032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x82af1afeed7bbd2d%3A0xbd183359e04e6910!2sDDAN%20Hood%20Cleaning%20and%20Repair!5e0!3m2!1sen!2sus!4v1774910102054!5m2!1sen!2sus\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+  "bilingual": true,
+  "bilingualNote": "Se Habla Espanol",
+  "credentials": ["Licensed", "Bonded", "Insured"],
+  "emergencyService": true,
+  "compliance": "NFPA 96",
+  "identity": "Christian, family-owned",
+  "descriptions": {
+    "short": "DDAN Hood Cleaning and Repair provides complete commercial kitchen exhaust system services throughout Mt. Juliet, Nashville, and surrounding areas. From hood cleaning and duct maintenance to equipment repair, new installations, fire suppression systems, rooftop grease containment, and replacement parts — we cover the full lifecycle of your kitchen exhaust system. (615) 881-6968",
+    "long": "DDAN Hood Cleaning and Repair provides complete commercial kitchen exhaust system services throughout Mt. Juliet, Nashville, and surrounding areas. From hood cleaning and duct maintenance to equipment repair, new installations, fire suppression systems, rooftop grease containment, and replacement parts — we cover the full lifecycle of your kitchen exhaust system.\n\nDDAN Hood Cleaning and Repair\nMt. Juliet, TN 37122\n(615) 881-6968\n\nWhy Choose Us:\n1. 24 Hour Services\n2. Every job is fully documented with photos for your records and compliance needs.\n3. We service, repair, and maintain all components — not just clean — giving you complete system care.\n\nBased in Mt. Juliet, we serve Nashville and surrounding areas including Hendersonville, Goodlettsville, Lebanon, La Vergne, and Smyrna."
+  },
+  "socialLinks": {
+    "facebook": "https://www.facebook.com/ddaservices",
+    "yelp": "https://www.yelp.com/biz/ddan-hood-cleaning-and-repair-mt-juliet",
+    "linkedin": "https://www.linkedin.com/company/ddan-hood-cleaning-and-repair",
+    "youtube": "https://www.youtube.com/@DDANHoodCleaning",
+    "instagram": "https://www.instagram.com/ddanhoodservices",
+    "tiktok": "https://tiktok.com/@ddanhoodcleaningservices",
+    "twitter": "https://x.com/DDANHoodService",
+    "pinterest": "https://pinterest.com/ddanhoodcleaningservices",
+    "linktree": "https://linktr.ee/ddanhoodservices",
+    "soundcloud": "https://soundcloud.com/ddan-hood-services",
+    "bingMaps": "https://www.bing.com/maps/search?mkt=en-us&ss=id.ypid%3AYN873x3551296652658480784&cp=36.200001%7E-86.510002&lvl=16&style=r",
+    "appleMaps": "https://maps.apple.com/place?auid=15941710736212101169",
+    "google": "https://maps.app.goo.gl/TZ6x7WT4vnuGGQxG6",
+    "yellowPages": "https://www.yellowpages.com/mount-juliet-tn/mip/ddan-hood-cleaning-repair-579079180",
+    "bbb": "https://www.bbb.org/us/tn/mt-juliet/profile/commercial-cleaning-services/ddan-hood-cleaning-and-repair-0573-37380240"
+  }
+}

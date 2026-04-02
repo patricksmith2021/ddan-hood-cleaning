@@ -1,0 +1,139 @@
+---
+import business from '../data/business.json';
+
+const quickLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about-ddan-hood-cleaning-and-repair/' },
+  { label: 'NFPA Standards', href: '/nfpa-code-96-standards/' },
+  { label: 'Reviews', href: '/verified-reviews/' },
+  { label: 'Gallery', href: '/gallery/' },
+  { label: 'Contact', href: '/contact/' },
+  { label: 'FAQ', href: '/kitchen-exhaust-faq/' },
+  { label: 'Privacy Policy', href: '/privacy-policy/' },
+];
+
+const serviceLinks = [
+  { label: 'Hood Cleaning', href: '/kitchen-hood-cleaning-services/' },
+  { label: 'Hood Repair', href: '/commercial-hood-repair/' },
+  { label: 'Kitchen Exhaust Installation', href: '/kitchen-exhaust-installation-services/' },
+  { label: 'Grease Containment', href: '/grease-containment/' },
+  { label: 'Exhaust Fan Parts', href: '/restaurant-exhaust-fan-parts/' },
+  { label: 'Hinge Kit Installation', href: '/exhaust-fan-hinge-kit-installation/' },
+  { label: 'Belt & Motor Repair', href: '/exhaust-fan-belt-motor-repair/' },
+  { label: 'Access Panel Installation', href: '/access-panel-installation/' },
+  { label: 'Fire Suppression', href: '/restaurant-fire-suppression-systems/' },
+];
+
+const socialIcons = [
+  { name: 'Facebook', url: business.socialLinks.facebook, icon: 'M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z' },
+  { name: 'Yelp', url: business.socialLinks.yelp, icon: 'M42.9 240.32l99.62 48.61c19.2 9.4 16.2 37.51-4.5 42.71L30.5 358.45a22.79 22.79 0 01-28.21-19.6 197.16 197.16 0 019-85.32 22.8 22.8 0 0131.61-13.21zm44 239.25a199.45 199.45 0 0079.42 46.51 22.78 22.78 0 0027.29-15.74l30.94-105.59c5.72-19.53-14.36-33.83-30.14-21.42l-87.93 69.05a22.8 22.8 0 00-19.58 27.19zm231.26-83.36L226.52 317a22.8 22.8 0 01-8.8-33.36 198.65 198.65 0 0177.92-55.05 22.81 22.81 0 0131.22 10.87l42.68 100.2c8.76 20.58-12.76 39.64-31.36 26.91zM205.8 219.48l10.11-112.36c1.76-19.57 28.82-22.72 34.77-4L293 204.73c7.14 19.2-12.36 36.94-29.22 26.58l-46.7-28.78c-7.88-4.86-12.08-12.56-11.28-20.05zM242 0C114.62 0 8 106.62 8 234a233.21 233.21 0 0034 121.14l-4.18-12.83A22.79 22.79 0 0156 321.61L165.55 270a22.82 22.82 0 018.79 33.36l-49.55 85.87A199.45 199.45 0 00242 468c131.38 0 238-106.62 238-234S373.38 0 242 0z' },
+  { name: 'LinkedIn', url: business.socialLinks.linkedin, icon: 'M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z' },
+  { name: 'YouTube', url: business.socialLinks.youtube, icon: 'M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z' },
+  { name: 'Instagram', url: business.socialLinks.instagram, icon: 'M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z' },
+  { name: 'TikTok', url: business.socialLinks.tiktok, icon: 'M448 209.91a210.06 210.06 0 01-122.77-39.25V349.38A162.55 162.55 0 11185 188.31V278.2a74.62 74.62 0 1052.23 71.18V0l88 0a121.18 121.18 0 00122.77 121.33V209.91z' },
+];
+---
+
+<footer class="bg-dark-base text-body-text">
+  <div class="container-narrow section-padding">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Column 1: Logo & About -->
+      <div>
+        <a href="/">
+          <img src="/images/logos/ddan-logo-white.png" alt={business.name} width="120" height="120" class="w-24 mb-4" />
+        </a>
+        <p class="text-sm mb-4">{business.descriptions.short.split('.')[0]}.</p>
+        <div class="flex flex-wrap gap-3 mt-4">
+          {socialIcons.map((social) => (
+            <a
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-9 h-9 flex items-center justify-center bg-secondary rounded hover:bg-primary transition-colors"
+              aria-label={social.name}
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 512 512"><path d={social.icon} /></svg>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div>
+        <h3 class="text-primary font-heading font-semibold text-lg mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          {quickLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-body-text hover:text-primary transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Column 3: Our Services -->
+      <div>
+        <h3 class="text-primary font-heading font-semibold text-lg mb-4">Our Services</h3>
+        <ul class="space-y-2">
+          {serviceLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-body-text hover:text-primary transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact Us -->
+      <div>
+        <h3 class="text-primary font-heading font-semibold text-lg mb-4">Contact Us</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-primary mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+            <a href={`tel:${business.phoneRaw}`} class="hover:text-primary transition-colors">{business.phone}</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-primary mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            <a href={`mailto:${business.email}`} class="hover:text-primary transition-colors">{business.email}</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-primary mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+            <span>{business.address.city}, {business.address.state} {business.address.zip}</span>
+          </li>
+        </ul>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {business.credentials.map((cred: string) => (
+            <span class="text-xs bg-secondary px-2 py-1 rounded text-body-text">{cred}</span>
+          ))}
+        </div>
+        <!-- BBB Badge -->
+        <a href={business.socialLinks.bbb} target="_blank" rel="noopener noreferrer" class="inline-block mt-4">
+          <div class="bg-white text-dark-base px-3 py-2 rounded text-xs font-heading font-bold flex items-center gap-1">
+            <span class="text-blue-700 text-lg font-bold">BBB</span>
+            <span>Accredited</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Payment Methods -->
+    <div class="mt-10 pt-6 border-t border-border-subtle">
+      <p class="text-xs text-muted-text mb-3 text-center">We Accept</p>
+      <div class="flex flex-wrap justify-center gap-3 text-xs text-muted-text">
+        {['Visa', 'Mastercard', 'Amex', 'Discover', 'PayPal', 'Venmo', 'Cash App', 'Zelle', 'Stripe'].map((method) => (
+          <span class="bg-secondary px-3 py-1.5 rounded">{method}</span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-8 pt-6 border-t border-border-subtle text-center text-xs text-muted-text">
+      <p>&copy; {new Date().getFullYear()} {business.name}. All rights reserved.</p>
+      <p class="mt-2">
+        Built with Love by <a href="https://nashvillebusinessfoundry.com" target="_blank" rel="noopener" class="hover:text-primary transition-colors">Nashville Business Foundry</a>
+      </p>
+    </div>
+  </div>
+</footer>

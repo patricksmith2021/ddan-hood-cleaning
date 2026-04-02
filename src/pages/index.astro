@@ -1,0 +1,684 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import business from '../data/business.json';
+
+const services = [
+  {
+    title: 'Hood Cleaning',
+    image: '/images/services/hood-cleaning.jpg',
+    description: 'Our NFPA 96 compliant commercial hood cleaning is thorough and efficient, designed to keep your kitchen compliant with health inspectors, fire marshals, and insurance requirements.',
+    href: '/kitchen-hood-cleaning-services/',
+  },
+  {
+    title: 'Hood Repair',
+    image: '/images/services/hood-repair.jpg',
+    description: 'From failing motors to electrical issues or vibration problems, we repair every major hood system component.',
+    href: '/commercial-hood-repair/',
+  },
+  {
+    title: 'Kitchen Exhaust Installation',
+    image: '/images/services/kitchen-exhaust-installation.jpg',
+    description: 'We install full kitchen exhaust systems that meet fire code and perform under daily kitchen conditions.',
+    href: '/kitchen-exhaust-installation-services/',
+  },
+  {
+    title: 'Grease Containment',
+    image: '/images/services/grease-containment.webp',
+    description: 'Rooftop grease management protects your roof and keeps you code-compliant.',
+    href: '/grease-containment/',
+  },
+  {
+    title: 'Kitchen Exhaust Fan Parts',
+    image: '/images/services/exhaust-fan-parts.webp',
+    description: 'We stock essential replacement parts for most commercial ventilation systems.',
+    href: '/restaurant-exhaust-fan-parts/',
+  },
+  {
+    title: 'Exhaust Fan Hinge Kit Installation',
+    image: '/images/services/hinge-kit-installation.jpg',
+    description: 'Hinge kits are required for proper fan cleaning and inspection.',
+    href: '/exhaust-fan-hinge-kit-installation/',
+  },
+  {
+    title: 'Exhaust Fan Belt & Motor Repair',
+    image: '/images/services/belt-motor-repair.jpg',
+    description: "If your fan is noisy, slow, or non-functional, we'll get it back in shape fast.",
+    href: '/exhaust-fan-belt-motor-repair/',
+  },
+  {
+    title: 'Access Panel Installation',
+    image: '/images/services/access-panel-installation.png',
+    description: 'Duct access panels are required for proper cleaning and inspection.',
+    href: '/access-panel-installation/',
+  },
+  {
+    title: 'Restaurant Fire Suppression Systems',
+    image: '/images/services/fire-suppression.jpg',
+    description: 'We install and integrate UL 300-compliant fire suppression systems as part of your overall commercial kitchen ventilation.',
+    href: '/restaurant-fire-suppression-systems/',
+  },
+];
+
+const areas = [
+  { city: 'Mt. Juliet, TN', zips: '37122, 37121' },
+  { city: 'Lebanon, TN', zips: '37087, 37090' },
+  { city: 'Smyrna, TN', zips: '37167' },
+  { city: 'Gallatin, TN', zips: '37066' },
+  { city: 'La Vergne, TN', zips: '37086' },
+  { city: 'Goodlettsville, TN', zips: '37072' },
+  { city: 'Hendersonville, TN', zips: '37075, 37077' },
+  { city: 'Nashville, TN', zips: '37201-37221, 37228-37250' },
+  { city: 'Brentwood, TN', zips: '37027, 37024' },
+  { city: 'Franklin, TN', zips: '37064, 37067, 37069' },
+  { city: 'Murfreesboro, TN', zips: '37127-37130' },
+  { city: 'Bellevue, TN', zips: '37221, 37209' },
+];
+
+const faqs = [
+  {
+    q: 'How often do I need my commercial kitchen hood cleaned?',
+    a: 'Most high-volume commercial kitchens, especially restaurants, require cleaning every 3 months (quarterly) to stay code-compliant with NFPA 96 and fire-safe. Some lower-use facilities can extend to 6 months, but we consistently recommend quarterly service for optimal safety and compliance.',
+  },
+  {
+    q: 'Do you service all types of commercial kitchens, including restaurants, churches, and schools?',
+    a: 'Yes! We specialize in and proudly serve commercial kitchens of all types, including quick-service restaurants, full-service restaurants, church kitchens, school cafeterias, hotel kitchens, and commissaries.',
+  },
+  {
+    q: 'What if something is found broken or damaged during a cleaning service?',
+    a: "Transparency is key. We'll immediately show you the issue, document it thoroughly with photos, and provide you with clear, no-pressure options for repair or replacement before proceeding.",
+  },
+  {
+    q: 'Do you provide compliance certificates?',
+    a: 'While Tennessee itself may not always mandate formal "hood cleaning certificates," we clean all systems to the full NFPA 96 standards and provide comprehensive digital photo evidence and detailed reports that consistently satisfy local fire marshals, health inspectors, and insurance requirements.',
+  },
+  {
+    q: 'How quickly can I get service, especially for an emergency?',
+    a: 'For emergencies, we offer 24/7 same-day response to get your kitchen back online as quickly as possible. For scheduled work, we typically book appointments within 1-3 business days, often accommodating urgent requests.',
+  },
+  {
+    q: 'Do you handle everything, or do I need multiple contractors for cleaning, repair, and installation?',
+    a: "DDAN is your all-in-one solution. We expertly handle cleaning, repairs, installation, and parts sales for commercial kitchen exhaust systems. You'll only deal with one trusted, professional team \u2013 no subcontractors, no delays, and consistent quality across all services.",
+  },
+];
+
+const beforeAfterPairs = [
+  { after: '/images/before-after/1-after.jpg', before: '/images/before-after/1-before.jpg' },
+  { after: '/images/before-after/2-after.jpg', before: '/images/before-after/2-before.jpg' },
+  { after: '/images/before-after/3-after.jpg', before: '/images/before-after/3-before.jpg' },
+  { after: '/images/before-after/4-after.jpg', before: '/images/before-after/4-before.jpg' },
+];
+
+const galleryImages = Array.from({ length: 12 }, (_, i) => `/images/gallery/gallery-${i + 1}.jpg`);
+
+const processSteps = [
+  {
+    num: '01',
+    title: 'Free Inspection & Quote',
+    desc: 'Schedule your free inspection with a veteran of the industry since 2007. No obligations.',
+    cta: 'Free Quote',
+  },
+  {
+    num: '02',
+    title: 'Schedule Your Service',
+    desc: 'We completely accommodate your business hours to remove and minimize any disruption to your operations.',
+    cta: 'Get Schedule',
+  },
+  {
+    num: '03',
+    title: 'Get a Report',
+    desc: "You'll receive before and after photos for every cleaning, as well as recommendations on repairs if we assess any issues.",
+    cta: 'Get a Report',
+  },
+];
+
+const mapCities = [
+  { city: 'Mt Juliet TN', zips: '37121, 37122, 37138' },
+  { city: 'Nashville TN', zips: '37201-37250' },
+  { city: 'Lebanon TN', zips: '37087, 37090' },
+  { city: 'Hendersonville TN', zips: '37075, 37077' },
+  { city: 'Goodlettsville TN', zips: '37072' },
+  { city: 'Gallatin TN', zips: '37066' },
+  { city: 'Smyrna TN', zips: '37167' },
+  { city: 'La Vergne TN', zips: '37086' },
+  { city: 'Murfreesboro TN', zips: '37127-37130' },
+  { city: 'Brentwood TN', zips: '37024, 37027' },
+  { city: 'Franklin TN', zips: '37064, 37067, 37069' },
+  { city: 'Bellevue TN', zips: '37209, 37221' },
+];
+---
+
+<BaseLayout
+  title="Commercial Kitchen Hood Cleaning and Repair in Nashville, TN"
+  description="Commercial kitchen hood cleaning and repair in Mt Juliet and the greater Nashville Metro. Full-service, NFPA 96 compliant, 24/7 emergency service."
+>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section class="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden" id="hero">
+    <!-- Slideshow Background -->
+    <div class="absolute inset-0 z-0">
+      <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-500" style="background: url('/images/hero/hero-1.jpg') center/cover no-repeat;"></div>
+      <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-500" style="background: url('/images/hero/hero-2.jpg') center/cover no-repeat;"></div>
+      <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-500" style="background: url('/images/hero/hero-3.jpg') center/cover no-repeat;"></div>
+      <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-500" style="background: url('/images/hero/hero-4.jpg') center/cover no-repeat;"></div>
+      <!-- Gradient Overlay -->
+      <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.7) 70%);"></div>
+    </div>
+
+    <div class="container-narrow relative z-10 py-20 text-white">
+      <p class="font-heading text-sm md:text-base mb-2 opacity-90">{business.name}</p>
+
+      <h1 class="font-display text-3xl md:text-5xl font-bold leading-tight mb-4">
+        Commercial Kitchen Exhaust
+        <span id="typing-text" class="text-primary typing-cursor"></span><br class="hidden md:block" />
+        <span class="block mt-1"> Installation &amp; Parts</span>
+      </h1>
+
+      <p class="font-heading font-bold text-sm md:text-base mb-6 max-w-lg">
+        Serving Mt. Juliet and the Nashville Metro | 24/7 Emergency Response
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 mb-10">
+        <a href={`tel:${business.phoneRaw}`} class="btn-primary">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="btn-ghost popup-trigger">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Get Service Today
+        </button>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="flex flex-wrap items-center gap-6 md:gap-10">
+        <div class="text-center">
+          <img src="/images/trust/google-logo.png" alt="Google Reviews" class="h-6 md:h-8 mx-auto mb-1 brightness-200" />
+          <div class="flex gap-0.5 justify-center">
+            {Array(5).fill(0).map(() => <span class="text-star-rating text-sm">&#9733;</span>)}
+          </div>
+        </div>
+        <div class="text-center">
+          <img src="/images/trust/facebook-logo.png" alt="Facebook Reviews" class="h-6 md:h-8 mx-auto mb-1 brightness-200" />
+          <div class="flex gap-0.5 justify-center">
+            {Array(5).fill(0).map(() => <span class="text-star-rating text-sm">&#9733;</span>)}
+          </div>
+        </div>
+        <div class="text-center">
+          <img src="/images/trust/yelp-logo.png" alt="Yelp Reviews" class="h-6 md:h-8 mx-auto mb-1 brightness-200" />
+          <div class="flex gap-0.5 justify-center">
+            {Array(5).fill(0).map(() => <span class="text-star-rating text-sm">&#9733;</span>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTRO SECTION 1 ============ -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="reveal-child">
+          <h2 class="section-headline mb-4">Keep Your Commercial Kitchen Running Smoothly</h2>
+          <p class="text-body-text mb-6">
+            Welcome to DDAN Hood Cleaning and Repair — Middle Tennessee's trusted partner in commercial kitchen exhaust system care. We specialize in NFPA 96 compliant:
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="check-item">Restaurant Hood Cleaning</li>
+            <li class="check-item">Restaurant Hood Repair</li>
+            <li class="check-item">Full Kitchen Ventilation System Installation</li>
+            <li class="check-item">Rooftop Grease Containment Solutions</li>
+            <li class="check-item">Commercial Kitchen Exhaust Fan Part Sales</li>
+          </ul>
+          <a href="/about-ddan-hood-cleaning-and-repair/" class="btn-primary">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Learn More About Us
+          </a>
+        </div>
+        <div class="reveal-child">
+          <img
+            src="/images/intro-cleaning.jpg"
+            alt="Grease hood cleaning service in Nashville, TN"
+            class="w-full rounded"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTRO SECTION 2 ============ -->
+  <section class="bg-secondary section-padding border-t border-border-subtle">
+    <div class="container-narrow reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="order-2 md:order-1 reveal-child">
+          <img
+            src="/images/intro-certified.webp"
+            alt="Certified hood cleaning company in Nashville, TN"
+            class="w-full rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="order-1 md:order-2 reveal-child">
+          <p class="text-body-text mb-6">
+            Whether you need emergency exhaust fan repair, a complete hood system installation, or scheduled quarterly cleanings, DDAN's your one-stop shop for comprehensive kitchen exhaust system services.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="check-item">Over 18 Years of Experience</li>
+            <li class="check-item">Serving Restaurants, Churches, Schools, and more</li>
+            <li class="check-item">Helping the Nashville area stay clean, operational, and inspection-ready</li>
+            <li class="check-item">24/7 Emergency Repair Services</li>
+            <li class="check-item">Rapid Overnight Cleans to Keep You 100% Operational</li>
+          </ul>
+          <a href="/kitchen-exhaust-services-overview/" class="btn-primary">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            See Our Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS STEPS (top cards) ============ -->
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        {[
+          { title: 'Free Inspection & Quote', desc: 'Get a 100% free, no-obligation estimate for businesses within 15 miles of Mt. Juliet.' },
+          { title: 'Schedule Your Service', desc: 'We prioritize accommodating your business hours.' },
+          { title: 'Full Service & Comprehensive Report', desc: "Our certified team delivers complete, professional work \u2014 whether it's meticulous cleaning, expert repair, or precision installation." },
+        ].map((card) => (
+          <div class="bg-secondary p-6 border-t-2 border-primary hover:-translate-y-3 transition-transform duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.title}</h3>
+            <p class="text-body-text text-sm">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center">
+        <button type="button" class="btn-primary popup-trigger">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Get Started
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY CHOOSE ============ -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div class="reveal-child">
+          <h2 class="section-headline mb-2">Why Choose DDAN Hood Cleaning and Repair?</h2>
+          <h3 class="sub-headline mb-4">We do more than just clean; we fix, install, and protect your commercial kitchen's most vital system.</h3>
+          <p class="text-body-text mb-6">
+            Unlike many "hood cleaners" who only provide surface-level work, DDAN offers end-to-end commercial kitchen exhaust system care. We meticulously clean every component to bare metal, expertly repair exhaust fan failures, professionally install new restaurant hood systems, and proactively solve ventilation problems before they can shut you down. Our work consistently meets and exceeds all health, fire, and safety standards, and every service is thoroughly documented with photos for your records.
+          </p>
+          <a href="/contact/" class="btn-primary">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Get Service Today
+          </a>
+        </div>
+        <div class="reveal-child">
+          <img
+            src="/images/why-choose.jpg"
+            alt="Restaurant hood cleaning in Nashville, TN"
+            class="w-full rounded mb-6"
+            loading="lazy"
+          />
+          <h4 class="text-primary font-heading font-semibold mb-4">What sets DDAN apart</h4>
+          <div class="space-y-3">
+            {[
+              'Over 18 years of proven results',
+              '24-hour emergency service',
+              'Everything to NFPA 96 standards',
+              'Verified completion of every service',
+              'We are problem solvers, not invoice hunters',
+              'Fully licensed and insured for your peace of mind',
+            ].map((item) => (
+              <div class="check-item text-body-text reveal-child">{item}</div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS (Trustindex) ============ -->
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow text-center reveal">
+      <h2 class="section-headline mb-2">Verified Customer Reviews in Mid Tennessee</h2>
+      <p class="text-body-text max-w-2xl mx-auto mb-8 reveal-child">
+        Read verified reviews from our happy customers from the past 19 years in service! From spotless results to reliable fixes, our clients trust us for quality work, on-time service, and long-lasting solutions. Your satisfaction is our priority.
+      </p>
+      <div class="bg-secondary rounded p-6 mb-6 reveal-child">
+        <!-- Trustindex Widget Embed -->
+        <div id="trustindex-widget">
+          <script type="text/javascript" src="https://cdn.trustindex.io/loader.js?wp-widget" defer></script>
+        </div>
+        <p class="text-muted-text text-sm mt-4">Google Reviews Widget</p>
+      </div>
+      <a href={business.googleReviewUrl} target="_blank" rel="noopener" class="btn-primary reveal-child">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        See All Verified Reviews
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES GRID ============ -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-2">Full-Service Commercial Kitchen Exhaust System Service</h2>
+      <p class="text-body-text text-center max-w-2xl mx-auto mb-10 reveal-child">
+        DDAN provides comprehensive lifecycle service for your restaurant's kitchen exhaust system, ensuring optimal performance and compliance.
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <div class="bg-dark-base border border-border-subtle hover:border-primary transition-colors group reveal-child">
+            <div class="overflow-hidden">
+              <img
+                src={service.image}
+                alt={service.title}
+                class="w-full h-48 object-cover border-b-3 border-primary"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-semibold text-white text-lg mb-2">{service.title}</h3>
+              <p class="text-body-text text-sm mb-4">{service.description}</p>
+              <a href={service.href} class="btn-outline-primary text-sm">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                Read More
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AREAS WE SERVE ============ -->
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-2">Areas We Serve</h2>
+      <p class="text-body-text text-center max-w-2xl mx-auto mb-10 reveal-child">
+        DDAN Hood Cleaning and Repair is dedicated to keeping commercial kitchens safe and compliant across <a href="/locations/" class="text-primary hover:underline">Middle Tennessee</a>. We proudly serve businesses in:
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {areas.map((area) => (
+          <div class="flex items-start gap-2 p-3 bg-secondary rounded reveal-child">
+            <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+            <div>
+              <p class="text-white font-heading font-medium text-sm">{area.city}</p>
+              <p class="text-muted-text text-xs">({area.zips})</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="text-body-text text-sm text-center mt-6 reveal-child">
+        And surrounding communities throughout Middle Tennessee! Located elsewhere in Tennessee? <a href="/contact/" class="text-primary font-semibold hover:underline">Contact us</a> to inquire about custom scheduling or contract services in your area. We're often able to accommodate.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ BEFORE/AFTER SECTION ============ -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-2">See Our Work: <span class="text-white">Before &amp; After Photo Documentation</span></h2>
+      <p class="text-body-text text-center max-w-3xl mx-auto mb-10 text-sm reveal-child">
+        Every service we perform includes detailed before-and-after photo documentation. These photos provide invaluable visual records for your kitchen's ongoing maintenance log, insurance needs, and preparation for any fire or health inspection.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {beforeAfterPairs.map((pair, i) => (
+          <div class="ba-slider rounded overflow-hidden reveal-child" data-ba-index={i}>
+            <div class="ba-before">
+              <img src={pair.after} alt={`Hood cleaning results - After (pair ${i + 1})`} loading="lazy" />
+            </div>
+            <div class="ba-after" style="width: 50%;">
+              <img src={pair.before} alt={`Hood cleaning results - Before (pair ${i + 1})`} loading="lazy" />
+              <span class="ba-label ba-label-before">BEFORE</span>
+            </div>
+            <span class="ba-label ba-label-after">AFTER</span>
+            <div class="ba-handle" style="left: 50%;"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK GALLERY ============ -->
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-8">Our Work Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {galleryImages.map((img, i) => (
+          <div class="overflow-hidden rounded reveal-child">
+            <img
+              src={img}
+              alt={`DDAN Hood Cleaning work photo ${i + 1}`}
+              class="w-full h-48 object-cover border-3 border-primary hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-6">
+        <a href="/gallery/" class="btn-primary">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          See More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OUR PROCESS (numbered) ============ -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-2">Our Process</h2>
+      <p class="text-body-text text-center max-w-xl mx-auto mb-10 text-sm reveal-child">
+        We make commercial kitchen exhaust system service easy and stress-free for your business.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {processSteps.map((step) => (
+          <div class="relative bg-dark-base p-6 pt-12 border border-border-subtle reveal-child">
+            <span class="absolute top-3 left-4 text-4xl font-display font-bold text-primary/20">{step.num}</span>
+            <h4 class="font-heading font-semibold text-white text-lg mb-3">{step.title}</h4>
+            <p class="text-body-text text-sm mb-4">{step.desc}</p>
+            <button type="button" class="btn-primary text-sm popup-trigger">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              {step.cta}
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ACCORDION ============ -->
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h3 class="section-headline text-center mb-8">Frequently Asked Questions</h3>
+
+      <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        {faqs.map((faq, i) => (
+          <details class="faq-item bg-secondary border border-border-subtle rounded group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-4 cursor-pointer">
+              <span class="font-heading font-medium text-white text-sm">{faq.q}</span>
+              <svg class="faq-icon w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-4 pb-4">
+              <p class="text-body-text text-sm">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ URGENCY CTA — TRUCK DRIVE-IN ============ -->
+  <section
+    class="relative section-padding overflow-hidden"
+    style="background: url('/images/hero/hero-1.jpg') center/cover no-repeat fixed;"
+    id="urgency-cta"
+  >
+    <div class="absolute inset-0 bg-dark-base/80"></div>
+    <div class="container-narrow relative z-10 reveal">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="reveal-child">
+          <h2 class="font-heading font-bold text-2xl md:text-3xl text-white mb-2">
+            Don't Wait Until You're <span class="text-primary">Fined or Shut Down!</span>
+          </h2>
+          <div class="w-16 h-1 bg-primary mb-4"></div>
+          <p class="text-body-text mb-6">
+            Whether you need a one-time deep clean, an urgent emergency repair, or a complete kitchen exhaust system installation, <strong class="text-white">{business.name}</strong> is here to keep you up and running.
+          </p>
+          <div class="flex items-center gap-3 mb-4">
+            <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-2 text-white font-heading font-bold text-lg hover:text-primary transition-colors">
+              <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+              Call Now: {business.phone}
+            </a>
+          </div>
+          <button type="button" class="btn-primary popup-trigger">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Request Service Online
+          </button>
+        </div>
+        <div class="flex justify-end">
+          <img
+            src="/images/truck.png"
+            alt="DDAN Hood Cleaning truck"
+            class="truck-drive-in max-w-full"
+            id="truck-img"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MAP / LOCATION FOOTER ============ -->
+  <section class="section-padding" style="background: url('/images/hero/hero-3.jpg') center/cover no-repeat fixed;">
+    <div class="absolute inset-0 bg-dark-base/85"></div>
+    <div class="container-narrow relative z-10 reveal">
+      <h2 class="font-heading font-bold text-xl md:text-2xl text-white text-center mb-8">
+        {business.name} Serving All of Middle Tennessee<br />
+        <span class="text-body-text text-base font-normal">{business.address.city}, {business.address.state} {business.address.zip} | {business.credentials.join(' | ')}</span>
+      </h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {mapCities.map((city) => (
+          <div class="flex items-start gap-2 reveal-child">
+            <svg class="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+            <div>
+              <p class="text-white font-heading font-medium text-sm">{city.city}</p>
+              <p class="text-muted-text text-xs">{city.zips}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<!-- ============ CLIENT-SIDE SCRIPTS ============ -->
+<script>
+  // === Hero Slideshow ===
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length === 0) return;
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('opacity-100');
+      slides[current].classList.add('opacity-0');
+      current = (current + 1) % slides.length;
+      slides[current].classList.remove('opacity-0');
+      slides[current].classList.add('opacity-100');
+    }, 3500);
+  });
+
+  // === Typing Animation ===
+  document.addEventListener('DOMContentLoaded', () => {
+    const el = document.getElementById('typing-text');
+    if (!el) return;
+    const text = ' Cleaning & Repair,';
+    let i = 0;
+    setTimeout(() => {
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          el.textContent += text[i];
+          i++;
+        } else {
+          clearInterval(interval);
+          el.classList.remove('typing-cursor');
+        }
+      }, 150);
+    }, 3000);
+  });
+
+  // === Truck Drive-In ===
+  document.addEventListener('DOMContentLoaded', () => {
+    const truck = document.getElementById('truck-img');
+    if (!truck) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            truck.classList.add('driven-in');
+            observer.unobserve(truck);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(truck);
+  });
+
+  // === Before/After Slider ===
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.ba-slider').forEach((slider) => {
+      const afterDiv = slider.querySelector('.ba-after') as HTMLElement;
+      const handle = slider.querySelector('.ba-handle') as HTMLElement;
+      if (!afterDiv || !handle) return;
+
+      let isDragging = false;
+
+      const updatePosition = (x: number) => {
+        const rect = slider.getBoundingClientRect();
+        let pos = ((x - rect.left) / rect.width) * 100;
+        pos = Math.max(0, Math.min(100, pos));
+        afterDiv.style.width = pos + '%';
+        handle.style.left = pos + '%';
+      };
+
+      const onStart = (e: MouseEvent | TouchEvent) => {
+        isDragging = true;
+        e.preventDefault();
+      };
+
+      const onMove = (e: MouseEvent | TouchEvent) => {
+        if (!isDragging) return;
+        const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
+        updatePosition(x);
+      };
+
+      const onEnd = () => {
+        isDragging = false;
+      };
+
+      handle.addEventListener('mousedown', onStart);
+      handle.addEventListener('touchstart', onStart, { passive: false });
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('touchmove', onMove, { passive: false });
+      window.addEventListener('mouseup', onEnd);
+      window.addEventListener('touchend', onEnd);
+
+      // Click anywhere on slider
+      slider.addEventListener('click', (e: Event) => {
+        const mouseEvent = e as MouseEvent;
+        updatePosition(mouseEvent.clientX);
+      });
+    });
+  });
+</script>

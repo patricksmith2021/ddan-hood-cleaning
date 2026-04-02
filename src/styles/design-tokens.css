@@ -1,0 +1,143 @@
+:root {
+  /* --- Colors --- */
+  --color-primary:          #FF5E15;
+  --color-primary-dark:     #E54F0D;
+  --color-secondary:        #1A1A1A;
+  --color-dark-base:        #111111;
+  --color-light-base:       #FFFFFF;
+  --color-body-text-dark:   #D4D4D4;
+  --color-body-text-light:  #333333;
+  --color-muted-text:       #999999;
+  --color-surface-1:        #FFFFFF;
+  --color-surface-2:        #1A1A1A;
+  --color-surface-3:        #111111;
+  --color-accent:           #FF5E15;
+  --color-cta:              #FF5E15;
+  --color-cta-secondary:    #000000;
+  --color-border-accent:    #FF5E15;
+  --color-border-subtle:    #333333;
+  --color-star-rating:      #FFB800;
+  --color-utility-bar:      #FF5E15;
+  --color-hero-overlay:     rgba(255, 94, 21, 0.15);
+  --color-hero-overlay-dark: rgba(17, 17, 17, 0.6);
+  --color-check-icon:       #FF5E15;
+
+  /* --- Typography --- */
+  --font-display:           'Fira Sans Condensed', sans-serif;
+  --font-heading:           'Poppins', sans-serif;
+  --font-body:              'Heebo', sans-serif;
+
+  --fs-hero-headline:       clamp(2rem, 5vw, 3rem);
+  --fw-hero-headline:       700;
+  --fs-section-headline:    clamp(1.5rem, 3vw, 2.25rem);
+  --fw-section-headline:    600;
+  --fs-sub-headline:        clamp(1.25rem, 2vw, 1.5rem);
+  --fw-sub-headline:        600;
+  --fs-body:                1rem;
+  --fw-body:                400;
+  --fs-nav:                 0.9375rem;
+  --fw-nav:                 500;
+  --fs-button:              0.9375rem;
+  --fw-button:              600;
+  --fs-utility:             0.8125rem;
+  --fw-utility:             500;
+  --fs-footer-heading:      1.125rem;
+  --fw-footer-heading:      600;
+  --fs-small:               0.875rem;
+
+  --lh-body:                1.7;
+  --lh-heading:             1.3;
+
+  --tracking-normal:        0;
+  --tracking-wide:          0.05em;
+  --tracking-breadcrumb:    0.1em;
+
+  /* --- Spacing --- */
+  --max-content-width:      1200px;
+  --section-padding-y:      4.5rem;
+  --section-padding-y-sm:   3rem;
+  --card-gap:               1.5rem;
+  --component-padding:      1.5rem;
+  --component-padding-lg:   2rem;
+  --sidebar-width:          35%;
+  --content-width:          65%;
+
+  /* --- Border Radius --- */
+  --radius-none:            0px;
+  --radius-sm:              4px;
+  --radius-md:              6px;
+  --radius-lg:              8px;
+
+  /* --- Shadows --- */
+  --shadow-none:            none;
+  --shadow-card:            none;
+
+  /* --- Buttons --- */
+  --btn-padding:            0.75rem 1.75rem;
+  --btn-radius:             4px;
+  --btn-primary-bg:         var(--color-primary);
+  --btn-primary-text:       #FFFFFF;
+  --btn-primary-hover:      #E54F0D;
+  --btn-secondary-bg:       #000000;
+  --btn-secondary-text:     #FFFFFF;
+  --btn-secondary-border:   none;
+  --btn-ghost-bg:           transparent;
+  --btn-ghost-text:         #FFFFFF;
+  --btn-ghost-border:       2px solid #FFFFFF;
+
+  /* --- Navigation --- */
+  --nav-height:             60px;
+  --nav-bg:                 #FFFFFF;
+  --nav-text:               #333333;
+  --nav-active:             #FF5E15;
+  --utility-bar-height:     40px;
+  --utility-bar-bg:         #FF5E15;
+  --utility-bar-text:       #FFFFFF;
+  --total-header-height:    100px;
+
+  /* --- Hero --- */
+  --hero-overlay:           linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.7) 70%);
+  --hero-text:              #FFFFFF;
+  --hero-accent-text:       #FF5E15;
+  --hero-breadcrumb-text:   #FFFFFF;
+  --hero-slideshow-speed:   3500ms;
+  --hero-slide-transition:  fade 500ms;
+
+  /* --- Forms (Sidebar) --- */
+  --form-bg:                #1A1A1A;
+  --form-heading-color:     #FF5E15;
+  --form-field-bg:          #FFFFFF;
+  --form-field-border:      1px solid #CCCCCC;
+  --form-field-radius:      4px;
+  --form-submit-bg:         #FF5E15;
+  --form-submit-text:       #FFFFFF;
+  --form-submit-radius:     4px;
+
+  /* --- Service Page Layout --- */
+  --service-content-bg:     #FFFFFF;
+  --service-sidebar-bg:     #1A1A1A;
+  --service-split:          65% 35%;
+
+  /* --- Gallery --- */
+  --gallery-columns:        4;
+  --gallery-image-border:   3px solid #FF5E15;
+  --gallery-gap:            12px;
+
+  /* --- Footer --- */
+  --footer-bg:              #111111;
+  --footer-text:            #D4D4D4;
+  --footer-heading:         #FF5E15;
+  --footer-link:            #D4D4D4;
+  --footer-link-hover:      #FF5E15;
+  --footer-border-top:      none;
+
+  /* --- Icons --- */
+  --icon-check-color:       #FF5E15;
+  --icon-pin-color:         #FF5E15;
+  --icon-phone-color:       #FF5E15;
+
+  /* --- Transitions --- */
+  --transition-fast:        150ms ease;
+  --transition-base:        250ms ease;
+  --transition-slow:        400ms ease;
+}

@@ -2,7 +2,11 @@
 dist/
 .astro/
 .env
+.env.production
+.env.local
 feedback-screenshots/
 *.log
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
