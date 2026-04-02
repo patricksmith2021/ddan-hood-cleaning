@@ -1,5 +1,4 @@
 ---
-import PopupForm from '../components/PopupForm.astro';
 import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
 import business from '../data/business.json';
 import '../styles/global.css';
@@ -663,7 +662,84 @@ const mapCities = [
   </div>
 </footer>
 
-<PopupForm />
+<!-- Inline Popup Form (preview-only: email field + bigger badges) -->
+<div id="popup-form" class="popup-overlay" role="dialog" aria-modal="true" aria-label="Request Service">
+  <div class="popup-content">
+    <button type="button" class="absolute top-3 right-3 text-primary text-2xl font-bold hover:opacity-80 transition-opacity" id="popup-close" aria-label="Close form">&times;</button>
+    <h2 class="font-heading font-bold text-xl text-white mb-1">Get Service <span class="text-primary">Fast!</span></h2>
+    <p class="text-sm text-muted-text mb-4">Fill out the form and we'll get back to you ASAP.</p>
+    <form id="service-form" class="space-y-3">
+      <input type="text" class="hidden" name="website" tabindex="-1" autocomplete="off" />
+      <input type="hidden" name="_loaded_at" />
+      <p class="text-xs text-primary font-heading font-semibold uppercase tracking-wide">Your Info</p>
+      <div class="grid grid-cols-2 gap-3">
+        <input type="text" name="firstName" placeholder="First Name" required class="bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+        <input type="text" name="lastName" placeholder="Last Name" required class="bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+      </div>
+      <input type="tel" name="phone" placeholder="Phone" required class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+      <input type="email" name="email" placeholder="Email" class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+      <p class="text-xs text-primary font-heading font-semibold uppercase tracking-wide pt-2">Business Info</p>
+      <input type="text" name="businessName" placeholder="Business Name" class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+      <input type="text" name="businessAddress" placeholder="Business Address" class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+      <select name="service" required class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary">
+        <option value="">Select Service...</option>
+        <option value="Hood Cleaning">Hood Cleaning</option>
+        <option value="Filter Cleaning">Filter Cleaning</option>
+        <option value="Hood Repair">Hood Repair</option>
+        <option value="Grease Containment">Grease Containment</option>
+        <option value="New Installation">New Installation</option>
+        <option value="Looking for Parts">Looking for Parts</option>
+        <option value="Other">Other</option>
+      </select>
+      <div class="flex items-center gap-4 text-sm text-white">
+        <span>Multiple locations?</span>
+        <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="yes" /> Yes</label>
+        <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="no" checked /> No</label>
+      </div>
+      <div class="flex items-center gap-4 text-sm text-white">
+        <span>Flat roof?</span>
+        <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="yes" /> Yes</label>
+        <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="no" checked /> No</label>
+      </div>
+      <button type="submit" class="btn-primary w-full justify-center mt-2">Request Callback ASAP</button>
+    </form>
+    <!-- Review Badges — 60% bigger -->
+    <div class="flex justify-center gap-8 mt-6 pt-4 border-t border-border-subtle">
+      <div class="text-center">
+        <img src="/images/trust/google-logo.png" alt="Google Reviews" class="h-8 mx-auto mb-1.5 opacity-90" />
+        <div class="flex gap-1 justify-center">
+          {Array(5).fill(0).map(() => <span class="text-star-rating text-lg">&#9733;</span>)}
+        </div>
+      </div>
+      <div class="text-center">
+        <img src="/images/trust/facebook-logo.png" alt="Facebook Reviews" class="h-8 mx-auto mb-1.5 opacity-90" />
+        <div class="flex gap-1 justify-center">
+          {Array(5).fill(0).map(() => <span class="text-star-rating text-lg">&#9733;</span>)}
+        </div>
+      </div>
+      <div class="text-center">
+        <img src="/images/trust/yelp-logo.png" alt="Yelp Reviews" class="h-8 mx-auto mb-1.5 opacity-90" />
+        <div class="flex gap-1 justify-center">
+          {Array(5).fill(0).map(() => <span class="text-star-rating text-lg">&#9733;</span>)}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('popup-form');
+    const closeBtn = document.getElementById('popup-close');
+    const loadedAt = document.querySelector('input[name="_loaded_at"]') as HTMLInputElement;
+    if (loadedAt) loadedAt.value = String(Date.now());
+    document.querySelectorAll('.popup-trigger').forEach((btn) => {
+      btn.addEventListener('click', () => { popup?.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    });
+    closeBtn?.addEventListener('click', () => { popup?.classList.remove('active'); document.body.style.overflow = ''; });
+    popup?.addEventListener('click', (e) => { if (e.target === popup) { popup.classList.remove('active'); document.body.style.overflow = ''; } });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && popup?.classList.contains('active')) { popup.classList.remove('active'); document.body.style.overflow = ''; } });
+  });
+</script>
 
 <!-- Scroll Reveal -->
 <script>
