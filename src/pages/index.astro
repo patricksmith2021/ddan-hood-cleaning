@@ -351,7 +351,7 @@ const mapCities = [
       <div class="bg-secondary rounded p-6 mb-6 reveal-child">
         <!-- Trustindex Widget Embed -->
         <div id="trustindex-widget">
-          <script type="text/javascript" src="https://cdn.trustindex.io/loader.js?wp-widget" defer></script>
+          <script is:inline type="text/javascript" src="https://cdn.trustindex.io/loader.js?wp-widget" defer></script>
         </div>
         <p class="text-muted-text text-sm mt-4">Google Reviews Widget</p>
       </div>
@@ -501,7 +501,7 @@ const mapCities = [
       <h3 class="section-headline text-center mb-8">Frequently Asked Questions</h3>
 
       <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-        {faqs.map((faq, i) => (
+        {faqs.map((faq) => (
           <details class="faq-item bg-secondary border border-border-subtle rounded group reveal-child">
             <summary class="flex items-center justify-between gap-3 p-4 cursor-pointer">
               <span class="font-heading font-medium text-white text-sm">{faq.q}</span>

@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroBanner from './HeroBanner.astro';
-import BottomCTA from './BottomCTA.astro';
 import business from '../data/business.json';
 
 interface FAQ {
@@ -184,7 +182,7 @@ const introParagraphs = intro.split('\n\n');
       </p>
       <div class="bg-secondary rounded p-6 mb-6 reveal-child">
         <div id={`trustindex-widget-${slug}`}>
-          <script type="text/javascript" src="https://cdn.trustindex.io/loader.js?wp-widget" defer></script>
+          <script is:inline type="text/javascript" src="https://cdn.trustindex.io/loader.js?wp-widget" defer></script>
         </div>
       </div>
       <a href={business.googleReviewUrl} target="_blank" rel="noopener" class="btn-primary reveal-child">
