@@ -209,7 +209,7 @@ const mapCities = [
     <h1 class="hidden md:block font-display text-white text-2xl md:text-[4.4rem] leading-[1.3] font-semibold">
       Commercial Kitchen Exhaust <span id="typing-text" class="text-[#FF5E15]"></span><span id="typing-cursor" class="text-[#FF5E15]">|</span><br/> Installation &amp; Parts
     </h1>
-    <h2 class="md:hidden font-display text-white text-xl md:text-[2.1rem] leading-[1.5] font-semibold">
+    <h2 class="md:hidden font-display text-white text-3xl leading-[1.3] font-bold">
       Commercial Kitchen Exhaust Fan <span class="text-[#FF5E15]">Cleaning &amp; Repair</span>, Installation &amp; Parts
     </h2>
     <p class="text-white font-body text-base md:text-lg font-bold text-center w-full md:w-[70%] max-w-[1000px] mx-auto animate-fadeInUp" style="animation-delay:0.3s">
@@ -225,16 +225,16 @@ const mapCities = [
         Get Service Today
       </button>
     </div>
-    <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-8 animate-fadeInUp" style="animation-delay:0.7s">
+    <div class="flex flex-row items-center justify-center gap-3 md:gap-10 mt-6 md:mt-8 animate-fadeInUp" style="animation-delay:0.7s">
       {[
         { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
         { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
         { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
       ].map((badge) => (
-        <div class="flex flex-col items-center gap-1.5 border-2 border-[#FF5E15] rounded-2xl px-6 py-2.5">
-          <img src={badge.img} alt="" class="h-10 md:h-11 object-contain" style={`width:${badge.w};max-width:220px`} loading="lazy" />
-          <div class="flex gap-1">
-            {Array(5).fill(0).map(() => <svg class="w-6 h-6 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+        <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-6 md:py-2.5">
+          <img src={badge.img} alt="" class="h-5 md:h-11 object-contain" style={`width:${badge.w};max-width:220px`} loading="lazy" />
+          <div class="flex gap-0.5 md:gap-1">
+            {Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-6 md:h-6 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
           </div>
         </div>
       ))}
@@ -298,8 +298,8 @@ const mapCities = [
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 mt-8">
       {[
         { num: '01', title: 'Free Inspection & Quote', desc: 'Get a 100% free, no-obligation estimate for businesses within 15 miles of Mt. Juliet.', cta: 'Free Quote' },
-        { num: '02', title: 'Schedule Your Service', desc: 'We prioritize accommodating your business hours.', cta: 'Get Schedule' },
-        { num: '03', title: 'Full Service & Comprehensive Report', desc: "Our certified team delivers complete, professional work \u2014 whether it's meticulous cleaning, expert repair, or precision installation.", cta: 'Get Report' },
+        { num: '02', title: 'Get Scheduled Right Away', desc: 'We prioritize accommodating your business hours.', cta: 'Get Schedule' },
+        { num: '03', title: 'Satisfaction Guaranteed', desc: "Our certified team delivers complete, professional work \u2014 whether it's meticulous cleaning, expert repair, or precision installation.", cta: 'Get Report' },
       ].map((card) => (
         <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
           <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
@@ -346,9 +346,7 @@ const mapCities = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {['Over 18 years of proven results','24-hour emergency service','Everything to NFPA 96 standards','Verified completion of every service','We are problem solvers, not invoice hunters','Fully licensed and insured for your peace of mind'].map((item) => (
         <div class="flex items-start gap-3 border border-[#FF5E15] rounded-2xl p-5 hover:border-white transition-all duration-300 reveal-child">
-          <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#FF5E15] rounded-lg">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="1" y="1" width="22" height="22" rx="4" stroke="#FF5E15" stroke-width="2" fill="none"/><path d="M7 12.5l3 3 7-7" stroke="#FF5E15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-          </div>
+          <svg class="flex-shrink-0" width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="1" y="1" width="22" height="22" rx="4" stroke="#FF5E15" stroke-width="2" fill="none"/><path d="M7 12.5l3 3 7-7" stroke="#FF5E15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
           <p class="text-white font-heading text-base font-medium">{item}</p>
         </div>
       ))}
@@ -374,11 +372,16 @@ const mapCities = [
           </div>
         </div>
       </div>
-      <div class="bg-[#FF5E15] rounded-xl px-6 py-4 flex items-center gap-3">
-        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 576 512"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3L288.1 439.8 416.2 508.3c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.2 329l104.3-103.1c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L382.2 150.3 316.9 18z"/></svg>
-        <div class="text-left">
-          <p class="text-white font-heading font-bold text-lg leading-tight">Top Rated Company</p>
-          <p class="text-white/80 text-sm font-heading">in Tennessee</p>
+      <div class="bg-gradient-to-r from-[#FF5E15] to-[#E54F0D] rounded-xl px-6 py-4 flex items-center gap-4 border-2 border-white/20 shadow-lg shadow-[#FF5E15]/20">
+        <div class="flex flex-col items-center">
+          <span class="text-white font-heading font-black text-3xl leading-none">#1</span>
+          <div class="flex gap-0.5 mt-1">
+            {Array(5).fill(0).map(() => <svg class="w-3 h-3 text-[#FFB800] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+          </div>
+        </div>
+        <div class="text-left border-l-2 border-white/30 pl-4">
+          <p class="text-white font-heading font-black text-lg leading-tight uppercase tracking-wide">Rated Hood Company</p>
+          <p class="text-white/90 text-sm font-heading font-semibold">in Tennessee</p>
         </div>
       </div>
     </div>
@@ -436,8 +439,8 @@ const mapCities = [
         Request Service Online
       </button>
     </div>
-    <div class="lg:w-[60%] flex justify-end items-end -mb-2.5">
-      <img src={`${HP}/truck-removebg-preview.png`} alt="DDAN Hood Cleaning truck" class="truck-drive-in max-w-full" id="truck-img" loading="lazy" />
+    <div class="w-full lg:w-[60%] flex justify-center lg:justify-end items-end -mb-2.5">
+      <img src={`${HP}/truck-removebg-preview.png`} alt="DDAN Hood Cleaning truck" class="md:truck-drive-in max-w-full w-full md:w-auto" id="truck-img" loading="lazy" />
     </div>
   </div>
 </section>
@@ -530,7 +533,7 @@ const mapCities = [
     <div class="flex flex-col md:flex-row gap-10 md:gap-5 justify-center">
       {[
         { num: '01', title: 'Free Inspection & Quote', desc: 'Schedule your free inspection with a veteran of the industry since 2007. No obligations.', cta: 'Free Quote' },
-        { num: '02', title: 'Schedule Your Service', desc: 'We completely accommodate your business hours to remove and minimize any disruption to your operations.', cta: 'Get Schedule' },
+        { num: '02', title: 'Get Scheduled Right Away', desc: 'We completely accommodate your business hours to remove and minimize any disruption to your operations.', cta: 'Get Schedule' },
         { num: '03', title: 'Get a Report', desc: "You'll receive before and after photos for every cleaning, as well as recommendations on repairs if we assess any issues.", cta: 'Get a Report' },
       ].map((step) => (
         <div class="relative w-full md:w-[32%] border-2 border-[#FF5E15] rounded-2xl p-8 pt-14 text-center md:text-left reveal-child">
