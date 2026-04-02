@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import ServiceSidebar from '../components/ServiceSidebar.astro';
+import InlineCTA from '../components/InlineCTA.astro';
+import ServiceAreaGrid from '../components/ServiceAreaGrid.astro';
+import BottomCTA from '../components/BottomCTA.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Exhaust Fan Hinge Kit Installation | DDAN Hood Cleaning"
+  description="Install NFPA 96-compliant exhaust fan hinge kits for safe rooftop access and cleaning. Protect your fans and meet code. We install in one visit."
+>
+  <HeroBanner
+    headline="Exhaust Fan Hinge Kit Installation"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Exhaust Fan Hinge Kit Installation' },
+    ]}
+  />
+
+  <!-- 65/35 Split -->
+  <section class="bg-white">
+    <div class="container-narrow">
+      <div class="grid lg:grid-cols-[65%_35%]">
+        <!-- Content Column -->
+        <div class="p-6 md:p-10 text-body-text-light">
+
+          <div class="reveal">
+            <p class="font-heading font-semibold text-lg text-dark-base mb-4 reveal-child">Code-Compliant. Easy to Clean. Built for Safety.</p>
+            <h2 class="section-headline reveal-child">What Happens Without a Proper Exhaust Fan Hinge</h2>
+            <img
+              src="/images/services/hinge-kit-hero.jpg"
+              alt="exhaust fan hinge kit installation Nashville TN - DDAN Hood Cleaning and Repair"
+              class="w-full rounded mb-6 reveal-child"
+              loading="eager"
+            />
+            <p class="mb-4 reveal-child">If your rooftop exhaust fan isn't mounted on a hinge, you're setting yourself up for problems. A non-hinged fan makes cleaning dangerous, damages your wiring, and can lead to costly fines or fire hazards. NFPA 96 requires all upblast exhaust fans to be hinged — and for good reason.</p>
+            <p class="mb-6 reveal-child">At DDAN Hood Cleaning and Repair, we install heavy-duty, NFPA 96-compliant hinge kits that allow your fan to open safely for cleaning and maintenance. Our hinge installs are secure, rust-resistant, and built to last under real commercial kitchen conditions.</p>
+          </div>
+
+          <div class="reveal mt-8">
+            <h2 class="section-headline reveal-child">What a Proper Hinge Kit Does</h2>
+            <ul class="space-y-2 mb-6">
+              <li class="check-item reveal-child">Allows rooftop exhaust fans to tilt open for interior cleaning access</li>
+              <li class="check-item reveal-child">Protects electrical wiring from stretching or tearing during service</li>
+              <li class="check-item reveal-child">Prevents water and grease from leaking into your ductwork</li>
+              <li class="check-item reveal-child">Reduces risk of injury during cleaning or maintenance</li>
+              <li class="check-item reveal-child">Satisfies NFPA 96 and local fire code requirements</li>
+            </ul>
+            <p class="mb-6 reveal-child">Not sure if your fan has a hinge? If it lifts straight off or is bolted down, it probably doesn't.</p>
+          </div>
+
+          <div class="reveal mt-8">
+            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Exhaust Fan Hinge Kit Installation Services</h3>
+            <ul class="space-y-2 mb-6">
+              <li class="check-item reveal-child">Includes brackets, pins, hardware, and sealing materials</li>
+              <li class="check-item reveal-child">Mounting on curb or stack bases depending on fan type</li>
+              <li class="check-item reveal-child">Weather-sealed to prevent leaks after installation</li>
+              <li class="check-item reveal-child">Low-profile options available for space-restricted rooftops</li>
+              <li class="check-item reveal-child">Rust-resistant hardware to withstand harsh rooftop conditions</li>
+            </ul>
+            <p class="mb-6 reveal-child">We carry hinge kits for most brands: CaptiveAire, Greenheck, PennBarry, and more.</p>
+          </div>
+
+          <div class="reveal mt-8">
+            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Common Issues We Fix</h3>
+            <ul class="space-y-2 mb-6">
+              <li class="check-item reveal-child">Fan disconnected and laid on the roof during cleaning</li>
+              <li class="check-item reveal-child">Damaged or severed electrical connections</li>
+              <li class="check-item reveal-child">Grease leaks into ductwork or onto roof</li>
+              <li class="check-item reveal-child">Fans not sealed properly after maintenance</li>
+              <li class="check-item reveal-child">Failed inspections due to missing hinges</li>
+            </ul>
+          </div>
+
+          <InlineCTA headline="Request Exhaust Fan Parts Now" />
+
+        </div>
+        <!-- Sidebar -->
+        <ServiceSidebar />
+      </div>
+    </div>
+  </section>
+
+  <!-- Split text/image section -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="section-headline reveal-child">Installation Cost, Timeline & Availability</h2>
+          <ul class="space-y-2 mb-6">
+            <li class="check-item reveal-child">Install Time: Most installs completed in under 2 hours</li>
+            <li class="check-item reveal-child">Cost Range: $300-$700 depending on fan type and accessibility</li>
+            <li class="check-item reveal-child">Emergency Service Available: Need it before inspection? We can help</li>
+          </ul>
+          <a href="/contact/" class="btn-primary reveal-child">Request Service Online</a>
+        </div>
+        <div class="reveal-child">
+          <img
+            src="/images/services/hinge-kit-split.png"
+            alt="exhaust fan hinge kit installation detail - DDAN Hood Cleaning and Repair"
+            class="w-full rounded"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ServiceAreaGrid
+    headline="Service Area"
+    intro="We provide exhaust fan hinge kit installation across Middle Tennessee."
+  />
+
+  <BottomCTA
+    headline="Get a Hinge Kit Installation Quote"
+    body="A missing hinge is more than a code issue — it's a safety hazard. Get yours installed by the pros who know your system inside and out."
+    subtext="Fast Local Service | Licensed, Bonded & Insured"
+  />
+</BaseLayout>

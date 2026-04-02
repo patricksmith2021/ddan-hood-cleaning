@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Contact Us | DDAN Hood Cleaning and Repair"
+  description="Contact DDAN Hood Cleaning and Repair for commercial kitchen exhaust services. Call (615) 881-6968 or fill out our form for a fast callback."
+>
+  <HeroBanner
+    headline="Contact DDAN Hood Cleaning and Repair"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Contact' },
+    ]}
+  />
+
+  <!-- Intro -->
+  <section class="section-padding">
+    <div class="container-narrow reveal">
+      <p class="text-center max-w-2xl mx-auto text-body-text reveal-child">Ready to schedule a service, request a quote, or ask a question? Reach out to DDAN Hood Cleaning and Repair — we're here to help keep your commercial kitchen safe, compliant, and running smoothly.</p>
+    </div>
+  </section>
+
+  <!-- 3 Contact Cards -->
+  <section class="pb-12">
+    <div class="container-narrow">
+      <div class="grid md:grid-cols-3 gap-6 reveal">
+        <!-- Phone -->
+        <div class="bg-secondary p-6 border-t-2 border-primary text-center reveal-child">
+          <div class="flex justify-center mb-3">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-white mb-2">Call Us</h3>
+          <a href={`tel:${business.phoneRaw}`} class="text-primary font-heading font-bold text-xl hover:underline">{business.phone}</a>
+          <p class="text-muted-text text-sm mt-2">Available 24/7 for emergencies</p>
+        </div>
+
+        <!-- Email -->
+        <div class="bg-secondary p-6 border-t-2 border-primary text-center reveal-child">
+          <div class="flex justify-center mb-3">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-white mb-2">Email Us</h3>
+          <a href={`mailto:${business.email}`} class="text-primary font-heading font-semibold hover:underline">{business.email}</a>
+          <p class="text-muted-text text-sm mt-2">We respond within 1 business day</p>
+        </div>
+
+        <!-- Location -->
+        <div class="bg-secondary p-6 border-t-2 border-primary text-center reveal-child">
+          <div class="flex justify-center mb-3">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-white mb-2">Visit Us</h3>
+          <p class="text-white font-heading font-semibold">{business.address.city}, {business.address.state} {business.address.zip}</p>
+          <p class="text-muted-text text-sm mt-2">Serving all of Middle Tennessee</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form + Map -->
+  <section class="section-padding border-t border-border-subtle">
+    <div class="container-narrow">
+      <div class="grid md:grid-cols-2 gap-8 reveal">
+        <!-- Inline Form -->
+        <div class="reveal-child">
+          <h2 class="section-headline mb-6">Request a Callback</h2>
+          <form id="contact-form" class="space-y-4">
+            <input type="text" class="hidden" name="website" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="_loaded_at" />
+
+            <p class="text-xs text-primary font-heading font-semibold uppercase tracking-wide">Your Info</p>
+            <div class="grid grid-cols-2 gap-4">
+              <input type="text" name="firstName" placeholder="First Name" required
+                class="bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+              <input type="text" name="lastName" placeholder="Last Name" required
+                class="bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+            </div>
+            <input type="tel" name="phone" placeholder="Phone" required
+              class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+
+            <p class="text-xs text-primary font-heading font-semibold uppercase tracking-wide pt-2">Business Info</p>
+            <input type="text" name="businessName" placeholder="Business Name"
+              class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+            <input type="text" name="businessAddress" placeholder="Business Address"
+              class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+
+            <select name="service" required
+              class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary">
+              <option value="">Select Service...</option>
+              <option value="Hood Cleaning">Hood Cleaning</option>
+              <option value="Filter Cleaning">Filter Cleaning</option>
+              <option value="Hood Repair">Hood Repair</option>
+              <option value="Grease Containment">Grease Containment</option>
+              <option value="New Installation">New Installation</option>
+              <option value="Looking for Parts">Looking for Parts</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <div class="flex items-center gap-4 text-sm text-white">
+              <span>Multiple locations?</span>
+              <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="yes" /> Yes</label>
+              <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="no" checked /> No</label>
+            </div>
+
+            <div class="flex items-center gap-4 text-sm text-white">
+              <span>Flat roof?</span>
+              <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="yes" /> Yes</label>
+              <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="no" checked /> No</label>
+            </div>
+
+            <button type="submit" class="btn-primary w-full justify-center mt-2">
+              Request Callback ASAP
+            </button>
+          </form>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="reveal-child rounded overflow-hidden" set:html={business.googleMapsEmbed} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Set loaded_at timestamp for spam check
+  document.addEventListener('DOMContentLoaded', () => {
+    const loadedAt = document.querySelector('#contact-form input[name="_loaded_at"]') as HTMLInputElement;
+    if (loadedAt) loadedAt.value = String(Date.now());
+  });
+</script>

@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import BottomCTA from '../components/BottomCTA.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Project Gallery | DDAN Hood Cleaning and Repair"
+  description="View photos of our commercial kitchen hood cleaning, repair, and installation work across Nashville and Middle Tennessee."
+>
+  <HeroBanner
+    headline="Gallery"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Gallery' },
+    ]}
+  />
+
+  <!-- Work Gallery -->
+  <section class="section-padding bg-dark-base">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-10 reveal-child">Our Work Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {Array.from({length: 12}, (_, i) => `/images/gallery/gallery-${i+1}.jpg`).map((img, i) => (
+          <div class="overflow-hidden rounded reveal-child">
+            <img
+              src={img}
+              alt={`DDAN Hood Cleaning work photo ${i+1}`}
+              class="w-full h-48 object-cover border-[3px] border-primary hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <BottomCTA
+    headline="Need Hood Cleaning, Repair, or Installation?"
+    body="Contact DDAN today for professional commercial kitchen exhaust services."
+    subtext="Free Estimates | Licensed, Bonded & Insured"
+  />
+</BaseLayout>

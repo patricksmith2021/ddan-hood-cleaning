@@ -1,0 +1,37 @@
+---
+import business from '../data/business.json';
+
+interface Props {
+  headline?: string;
+  body?: string;
+  subtext?: string;
+}
+
+const {
+  headline = 'Get Your Free Quote Today!',
+  body = '',
+  subtext = `Free Estimates Within 15 Miles of Mt. Juliet | Emergency Service Available 24/7`,
+} = Astro.props;
+---
+
+<section
+  class="relative section-padding overflow-hidden"
+  style="background: url('/images/hero/hero-1.jpg') center/cover no-repeat fixed;"
+>
+  <div class="absolute inset-0 bg-dark-base/85"></div>
+  <div class="container-narrow relative z-10 text-center reveal">
+    <h2 class="font-heading font-bold text-2xl md:text-3xl text-white mb-4 reveal-child">{headline}</h2>
+    {body && <p class="text-body-text max-w-2xl mx-auto mb-4 reveal-child">{body}</p>}
+    <p class="text-sm text-muted-text mb-6 reveal-child">{subtext}</p>
+
+    <a href={`tel:${business.phoneRaw}`} class="flex items-center justify-center gap-2 text-white font-heading font-bold text-xl mb-4 hover:text-primary transition-colors reveal-child">
+      <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+      Call Now: {business.phone}
+    </a>
+
+    <p class="text-white font-heading font-semibold mb-1 reveal-child">{business.name}</p>
+    <p class="text-muted-text text-sm reveal-child">
+      {business.address.city}, {business.address.state} {business.address.zip} | Serving All of Middle Tennessee | {business.credentials.join(' | ')}
+    </p>
+  </div>
+</section>

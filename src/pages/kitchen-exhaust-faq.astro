@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import BottomCTA from '../components/BottomCTA.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  {
+    q: 'How often does a commercial kitchen hood need to be cleaned?',
+    a: 'It depends on your cooking volume and type. Most restaurants require quarterly cleaning (every 3 months) per NFPA 96. High-volume operations using solid fuel or charbroiling may need monthly service. Lower-use facilities like churches or seasonal kitchens may qualify for semi-annual cleaning.',
+  },
+  {
+    q: 'How much does commercial hood cleaning cost?',
+    a: 'Pricing depends on system size, grease buildup, and number of components. General ranges: Small systems (1-2 hoods): $350-$500, Mid-size systems (2-4 hoods): $500-$850, Large or multi-hood systems: $850-$1,500+. Contact us for a free, no-obligation estimate.',
+  },
+  {
+    q: "What's included in a hood cleaning service?",
+    a: 'A full DDAN hood cleaning includes: hood canopy and plenum cleaning, grease filter cleaning or replacement, duct cleaning from hood to rooftop fan, exhaust fan cleaning, before-and-after photo documentation, written service report for your records.',
+  },
+  {
+    q: 'Is a filter cleaning the same as a full hood cleaning?',
+    a: 'No. Filter cleaning only addresses the grease filters inside the hood. A full hood cleaning covers the entire exhaust system — hoods, plenums, ducts, and fans. NFPA 96 requires full system cleaning, not just filter service.',
+  },
+  {
+    q: 'Do you clean rooftop exhaust fans?',
+    a: 'Yes. Rooftop exhaust fan cleaning is included in every full hood cleaning service. We clean fan blades, housings, and motor areas to restore airflow and reduce fire risk.',
+  },
+  {
+    q: 'What are access panels and hinge kits, and do I need them?',
+    a: 'Access panels are doors installed in your ductwork every 12 feet and at every turn to allow proper cleaning. Hinge kits allow rooftop exhaust fans to tilt open safely. Both are required by NFPA 96. If your system is missing either, we can install them.',
+  },
+  {
+    q: 'How do I know if my system is NFPA 96 compliant?',
+    a: 'DDAN performs a full system inspection and provides a detailed report noting any compliance issues. We document everything with photos and written recommendations so you know exactly where you stand.',
+  },
+  {
+    q: 'Do you offer emergency or same-day service?',
+    a: 'Yes. We provide 24/7 emergency repair service for critical exhaust system failures. For scheduled cleanings, we typically book within 1-3 business days.',
+  },
+  {
+    q: 'Do you work with fire suppression systems?',
+    a: 'Yes. We install and service UL 300-compliant fire suppression systems. We coordinate with licensed fire contractors for new installations and handle ongoing maintenance, inspections, and recharges.',
+  },
+  {
+    q: 'What areas do you serve?',
+    a: 'We serve all of Middle Tennessee, including Mt. Juliet, Nashville, Hendersonville, Goodlettsville, Lebanon, La Vergne, Smyrna, Gallatin, Murfreesboro, Franklin, Brentwood, and Bellevue.',
+  },
+  {
+    q: 'How do I schedule service or get a quote?',
+    a: `Call us at ${business.phone} or fill out our online form. We'll respond quickly with a free, no-obligation estimate based on your system.`,
+  },
+];
+---
+
+<BaseLayout
+  title="Restaurant Kitchen Exhaust Fan Questions? DDAN Hood Services"
+  description="Answers to common questions about commercial kitchen hood cleaning, exhaust fan repair, NFPA 96 compliance, and pricing."
+>
+  <HeroBanner
+    headline="Commercial Kitchen Exhaust & Hood Cleaning FAQ"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'FAQ' },
+    ]}
+  />
+
+  <!-- FAQ Accordion -->
+  <section class="section-padding bg-dark-base">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-10 reveal-child">Frequently Asked Questions</h2>
+      <div class="max-w-3xl mx-auto space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-secondary border border-border-subtle rounded group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-4 cursor-pointer">
+              <span class="font-heading font-medium text-white text-sm">{faq.q}</span>
+              <svg class="faq-icon w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-4 pb-4">
+              <p class="text-body-text text-sm">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <BottomCTA
+    headline="Have More Questions?"
+    body="Contact DDAN Hood Cleaning and Repair — we're happy to answer any questions about your commercial kitchen exhaust system."
+    subtext="Free Estimates | 24/7 Emergency Service"
+  />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>

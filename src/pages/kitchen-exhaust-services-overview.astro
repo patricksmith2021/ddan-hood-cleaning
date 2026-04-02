@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import BottomCTA from '../components/BottomCTA.astro';
+import business from '../data/business.json';
+
+const services = [
+  {
+    title: 'Hood Cleaning',
+    href: '/kitchen-hood-cleaning-services/',
+    description: 'NFPA 96 compliant commercial hood cleaning for restaurants and commercial kitchens.',
+    bullets: [
+      'Full hood-to-fan cleaning',
+      'Grease removal to bare metal',
+      'Before-and-after photo documentation',
+      'Flexible scheduling including nights and weekends',
+    ],
+    image: '/images/services/hood-cleaning.jpg',
+  },
+  {
+    title: 'Hood Repair',
+    href: '/commercial-hood-repair/',
+    description: 'Expert diagnosis and repair for all commercial kitchen exhaust system components.',
+    bullets: [
+      'Exhaust fan motor and belt repair',
+      'Ductwork sealing and repair',
+      '24/7 emergency service available',
+      'NFPA 96 compliant repairs',
+    ],
+    image: '/images/services/hood-repair.jpg',
+  },
+  {
+    title: 'Kitchen Ventilation Installation',
+    href: '/kitchen-exhaust-installation-services/',
+    description: 'Complete kitchen exhaust system installation from hood to rooftop fan.',
+    bullets: [
+      'Custom system design and layout',
+      'Hoods, ducts, fans, and MUA units',
+      'NFPA 96 code compliant',
+      'New construction and remodels',
+    ],
+    image: '/images/services/kitchen-exhaust-installation.jpg',
+  },
+  {
+    title: 'Grease Containment',
+    href: '/grease-containment/',
+    description: 'Rooftop grease containment systems to protect your roof and meet fire code.',
+    bullets: [
+      'Grease box and pad installation',
+      'Scheduled pad replacement',
+      'Prevents roof damage',
+      'Code compliant',
+    ],
+    image: '/images/services/grease-containment.webp',
+  },
+  {
+    title: 'Kitchen Exhaust Fan Parts',
+    href: '/restaurant-exhaust-fan-parts/',
+    description: 'Commercial-grade replacement parts for kitchen exhaust systems.',
+    bullets: [
+      'Motors, belts, and impellers',
+      'Filters and grease cups',
+      'Access panels',
+      'Local delivery available',
+    ],
+    image: '/images/services/exhaust-fan-parts.webp',
+  },
+  {
+    title: 'Exhaust Fan Hinge Kit Installation',
+    href: '/exhaust-fan-hinge-kit-installation/',
+    description: 'NFPA 96-required hinge kits for safe fan access and cleaning.',
+    bullets: [
+      'Heavy-duty construction',
+      'Weather-sealed installation',
+      'Compatible with all major brands',
+    ],
+    image: '/images/services/hinge-kit-installation.jpg',
+  },
+  {
+    title: 'Exhaust Fan Belt & Motor Repair',
+    href: '/exhaust-fan-belt-motor-repair/',
+    description: 'Fast repair for failing exhaust fan motors and belts.',
+    bullets: [
+      'Same-day repair available',
+      'Motor and belt replacement',
+      'On-site diagnostics',
+    ],
+    image: '/images/services/belt-motor-repair.jpg',
+  },
+  {
+    title: 'Access Panel Installation',
+    href: '/access-panel-installation/',
+    description: 'Code-compliant duct access panels for safe cleaning and inspection.',
+    bullets: [
+      'NFPA 96 spacing requirements',
+      'Fire-rated panels',
+      'Grease-tight seals',
+    ],
+    image: '/images/services/access-panel-installation.png',
+  },
+  {
+    title: 'Restaurant Fire Suppression Systems',
+    href: '/restaurant-fire-suppression-systems/',
+    description: 'UL 300-compliant fire suppression system installation and service.',
+    bullets: [
+      'Nozzle placement and agent tanks',
+      'Detection lines and fusible links',
+      'Semi-annual inspections',
+    ],
+    image: '/images/services/fire-suppression.jpg',
+  },
+];
+---
+
+<BaseLayout
+  title="Services - DDAN Hood Cleaning and Repair"
+  description="Complete commercial kitchen exhaust system services: cleaning, repair, installation, grease containment, parts, and fire suppression."
+>
+  <HeroBanner
+    headline="DDAN Kitchen Exhaust Fan & Hood System Services Overview"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Services' },
+    ]}
+  />
+
+  <!-- Intro -->
+  <section class="section-padding bg-secondary">
+    <div class="container-narrow reveal">
+      <p class="text-body-text text-center max-w-3xl mx-auto text-lg reveal-child">
+        {business.name} provides comprehensive commercial kitchen exhaust system services throughout Mt. Juliet, Nashville, and all of Middle Tennessee. From routine hood cleaning to emergency repairs and full system installations — we handle it all.
+      </p>
+    </div>
+  </section>
+
+  <!-- Service Cards Grid -->
+  <section class="section-padding bg-secondary">
+    <div class="container-narrow">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+        {services.map((service) => (
+          <div class="bg-dark-base border border-border-subtle rounded overflow-hidden hover:border-primary transition-colors reveal-child flex flex-col">
+            <img
+              src={service.image}
+              alt={`${service.title} - ${business.name}`}
+              class="w-full h-48 object-cover border-b-[3px] border-primary"
+              loading="lazy"
+            />
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-heading font-semibold text-lg text-white mb-2">{service.title}</h3>
+              <p class="text-body-text text-sm mb-4">{service.description}</p>
+              <ul class="space-y-2 mb-6 flex-1">
+                {service.bullets.map((bullet) => (
+                  <li class="check-item text-body-text text-sm">{bullet}</li>
+                ))}
+              </ul>
+              <a href={service.href} class="btn-outline-primary text-sm self-start">
+                Read More
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <BottomCTA
+    headline="Need Commercial Kitchen Exhaust Service?"
+    body="Contact DDAN Hood Cleaning and Repair for a free quote on any service."
+    subtext="Free Estimates | 24/7 Emergency Service | Licensed, Bonded & Insured"
+  />
+</BaseLayout>

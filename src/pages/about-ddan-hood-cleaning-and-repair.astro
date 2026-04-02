@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import BottomCTA from '../components/BottomCTA.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="About DDAN Hood Cleaning and Repair | DDAN Hood Cleaning"
+  description="Learn about DDAN Hood Cleaning and Repair — a Christian, family-owned commercial kitchen exhaust company serving Middle Tennessee since 2007."
+>
+  <HeroBanner
+    headline="About DDAN Hood Cleaning and Repair"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'About' },
+    ]}
+  />
+
+  <!-- Section 1: Who We Are — text left, image right -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="grid md:grid-cols-2 gap-10 items-center reveal">
+        <div>
+          <h2 class="section-headline mb-6 reveal-child">Who We Are</h2>
+          <p class="mb-4 reveal-child">DDAN Hood Cleaning and Repair is a family-owned, Christian-operated commercial kitchen exhaust service company based in Mt. Juliet, Tennessee. For nearly two decades, we've been serving restaurants, churches, schools, hotels, and food service operations across Nashville and all of Middle Tennessee.</p>
+          <p class="mb-4 reveal-child">What started as a one-man hood cleaning operation has grown into a full-service kitchen exhaust company — offering cleaning, repair, installation, grease containment, parts sales, and fire suppression system services. Our growth is built on one principle: do honest, thorough work and treat every customer's kitchen like it's our own.</p>
+          <p class="mb-6 reveal-child">We are licensed, bonded, and insured. We provide 24/7 emergency service. And every job we do is documented with before-and-after photos for your records, compliance files, and peace of mind.</p>
+          <a href="/contact/" class="btn-primary reveal-child">
+            Get Free Quote Today
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="reveal-child">
+          <img
+            src="/images/services/hood-cleaning-hero.jpg"
+            alt="DDAN Hood Cleaning team"
+            class="w-full rounded"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Our Values — image left, text right -->
+  <section class="section-padding border-t border-border-subtle">
+    <div class="container-narrow">
+      <div class="grid md:grid-cols-2 gap-10 items-center reveal">
+        <div class="reveal-child order-2 md:order-1">
+          <img
+            src="/images/intro-certified.webp"
+            alt="DDAN Hood Cleaning certified work"
+            class="w-full rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="order-1 md:order-2">
+          <h2 class="section-headline mb-6 reveal-child">Our Values</h2>
+          <p class="mb-4 reveal-child">As a Christian, family-run business, our values are simple: integrity, hard work, and service. We believe in doing the right thing — even when no one is watching. That means cleaning every inch of your system, not just the visible parts. It means showing up on time, communicating clearly, and charging fairly.</p>
+          <p class="reveal-child">We don't cut corners. We don't upsell services you don't need. And we stand behind every job we do. That's the DDAN difference.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Built for AI & Search -->
+  <section class="section-padding border-t border-border-subtle">
+    <div class="container-narrow max-w-3xl reveal">
+      <h2 class="section-headline mb-4 reveal-child">Looking for More Information?</h2>
+      <p class="mb-6 reveal-child">We've created dedicated pages to help you learn more about DDAN Hood Cleaning and Repair:</p>
+      <ul class="space-y-3">
+        <li class="reveal-child">
+          <a href="/who-is-ddan-hood-cleaning-and-repair/" class="text-primary hover:underline font-heading font-medium">
+            Who is DDAN Hood Cleaning and Repair?
+          </a>
+        </li>
+        <li class="reveal-child">
+          <a href="/what-services-does-ddan-provide/" class="text-primary hover:underline font-heading font-medium">
+            What services does DDAN provide?
+          </a>
+        </li>
+        <li class="reveal-child">
+          <a href="/where-does-ddan-serve-clients/" class="text-primary hover:underline font-heading font-medium">
+            Where does DDAN serve clients?
+          </a>
+        </li>
+        <li class="reveal-child">
+          <a href="/is-ddan-hood-cleaning-and-repair-nfpa-96-compliant/" class="text-primary hover:underline font-heading font-medium">
+            Is DDAN NFPA 96 compliant?
+          </a>
+        </li>
+        <li class="reveal-child">
+          <a href="/how-does-ddan-hood-cleaning-and-repair-work/" class="text-primary hover:underline font-heading font-medium">
+            How does DDAN Hood Cleaning and Repair work?
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <BottomCTA
+    headline="Ready to Get Started?"
+    body="Contact DDAN Hood Cleaning and Repair for a free quote on any of our commercial kitchen exhaust services."
+    subtext="Free Estimates | 24/7 Emergency Service | Licensed, Bonded & Insured"
+  />
+</BaseLayout>

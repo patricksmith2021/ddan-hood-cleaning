@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import BottomCTA from '../components/BottomCTA.astro';
+import business from '../data/business.json';
+
+const cities = [
+  { name: 'Nashville', state: 'Tennessee', slug: 'nashville-tn' },
+  { name: 'Mt. Juliet', state: 'Tennessee', slug: 'mt-juliet-tn' },
+  { name: 'Goodlettsville', state: 'Tennessee', slug: 'goodlettsville-tn' },
+  { name: 'Hendersonville', state: 'Tennessee', slug: 'hendersonville-tn' },
+  { name: 'Murfreesboro', state: 'Tennessee', slug: 'murfreesboro-tn' },
+  { name: 'Franklin', state: 'Tennessee', slug: 'franklin-tn' },
+  { name: 'Smyrna', state: 'Tennessee', slug: 'smyrna-tn' },
+  { name: 'Gallatin', state: 'Tennessee', slug: 'gallatin-tn' },
+  { name: 'Bellevue', state: 'Tennessee', slug: 'bellevue-tn' },
+  { name: 'Brentwood', state: 'Tennessee', slug: 'brentwood-tn' },
+  { name: 'La Vergne', state: 'Tennessee', slug: 'la-vergne-tn' },
+  { name: 'Lebanon', state: 'Tennessee', slug: 'lebanon-tn' },
+];
+---
+
+<BaseLayout
+  title="Service Areas | Mid Tennessee | DDAN Hood Cleaning and Repair"
+  description="DDAN Hood Cleaning serves all of Middle Tennessee — Nashville, Mt. Juliet, and 10+ surrounding cities. Find your location."
+>
+  <HeroBanner
+    headline="Serving All of Mid Tennessee"
+    subheadline="If you own or manage a commercial kitchen in Mid Tennessee, we can help."
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Service Areas' },
+    ]}
+  />
+
+  <!-- City Cards Grid -->
+  <section class="section-padding bg-secondary">
+    <div class="container-narrow">
+      <h2 class="section-headline text-center mb-10 reveal">Our Service Areas</h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 reveal">
+        {cities.map((city) => (
+          <a
+            href={`/locations/${city.slug}/`}
+            class="bg-dark-base border border-border-subtle p-6 rounded text-center hover:border-primary transition-colors group reveal-child block"
+          >
+            <!-- Map Pin Icon -->
+            <svg class="w-8 h-8 text-primary mx-auto mb-2" fill="currentColor" viewBox="0 0 384 512">
+              <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/>
+            </svg>
+            <h3 class="font-heading font-semibold text-white group-hover:text-primary transition-colors">{city.name}</h3>
+            <p class="text-muted-text text-sm">{city.state}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <BottomCTA
+    headline="Need Service in Your Area?"
+    body="Contact DDAN Hood Cleaning and Repair — we serve all of Middle Tennessee with professional kitchen exhaust services."
+    subtext="Free Estimates | 24/7 Emergency Service"
+  />
+</BaseLayout>

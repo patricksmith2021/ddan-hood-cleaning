@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Privacy Policy | DDAN Hood Cleaning and Repair"
+  description="Privacy policy for DDAN Hood Cleaning and Repair website."
+>
+  <HeroBanner
+    headline="Privacy Policy"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Privacy Policy' },
+    ]}
+  />
+
+  <section class="bg-dark-base py-16">
+    <div class="container-narrow max-w-3xl mx-auto space-y-10">
+
+      <div>
+        <h2 class="font-heading font-semibold text-xl text-white mb-3">Information We Collect</h2>
+        <p class="text-body-text leading-relaxed">
+          When you submit a form on our website, we collect the information you provide, including your name, phone number, email address, business name, business address, and service interests. We also collect basic technical information such as your IP address and browser type.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-semibold text-xl text-white mb-3">How We Use Your Information</h2>
+        <p class="text-body-text leading-relaxed">
+          We use the information you provide to respond to your service inquiries, schedule appointments, provide quotes, and communicate with you about our services. We do not sell, rent, or share your personal information with third parties for marketing purposes.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-semibold text-xl text-white mb-3">Cookies and Tracking</h2>
+        <p class="text-body-text leading-relaxed">
+          Our website may use cookies and similar technologies to improve your browsing experience and analyze site traffic. You can control cookie settings through your browser preferences.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-semibold text-xl text-white mb-3">Third-Party Services</h2>
+        <p class="text-body-text leading-relaxed">
+          Our website may include embedded content from third-party services such as Google Maps, Google Reviews widgets, and social media platforms. These services may collect information about your visit according to their own privacy policies.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-semibold text-xl text-white mb-3">Data Security</h2>
+        <p class="text-body-text leading-relaxed">
+          We take reasonable measures to protect the personal information you provide from unauthorized access, use, or disclosure. However, no method of transmission over the internet is 100% secure.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-semibold text-xl text-white mb-3">Your Rights</h2>
+        <p class="text-body-text leading-relaxed">
+          You may contact us at any time to request access to, correction of, or deletion of your personal information. Contact us at <a href={`mailto:${business.email}`} class="text-primary hover:underline">{business.email}</a> or <a href={`tel:${business.phoneRaw}`} class="text-primary hover:underline">{business.phone}</a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-semibold text-xl text-white mb-3">Changes to This Policy</h2>
+        <p class="text-body-text leading-relaxed">
+          We may update this privacy policy from time to time. Any changes will be posted on this page with an updated effective date.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-semibold text-xl text-white mb-3">Contact Us</h2>
+        <p class="text-body-text leading-relaxed mb-3">
+          If you have questions about this privacy policy, contact us at:
+        </p>
+        <ul class="space-y-2 text-body-text">
+          <li>
+            <a href={`tel:${business.phoneRaw}`} class="text-primary hover:underline">{business.phone}</a>
+          </li>
+          <li>
+            <a href={`mailto:${business.email}`} class="text-primary hover:underline">{business.email}</a>
+          </li>
+          <li>{business.address.city}, {business.address.state} {business.address.zip}</li>
+        </ul>
+      </div>
+
+      <p class="text-muted text-sm">Last updated: April 2026</p>
+
+    </div>
+  </section>
+</BaseLayout>

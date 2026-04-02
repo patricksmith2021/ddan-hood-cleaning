@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import ServiceSidebar from '../components/ServiceSidebar.astro';
+import InlineCTA from '../components/InlineCTA.astro';
+import ServiceAreaGrid from '../components/ServiceAreaGrid.astro';
+import BottomCTA from '../components/BottomCTA.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Exhaust Fan Belt Motor Repair | DDAN Hood Cleaning and Repair"
+  description="Exhaust fan belt and motor repair for restaurants and commercial kitchens. Same-day service, 24/7 availability, and commercial-grade replacement parts."
+>
+  <HeroBanner
+    headline="Exhaust Fan Belt & Motor Repair"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Exhaust Fan Belt & Motor Repair' },
+    ]}
+  />
+
+  <!-- 65/35 Split -->
+  <section class="bg-white">
+    <div class="container-narrow">
+      <div class="grid lg:grid-cols-[65%_35%]">
+        <!-- Content Column -->
+        <div class="p-6 md:p-10 text-body-text-light">
+
+          <div class="reveal">
+            <p class="font-heading font-semibold text-lg text-dark-base mb-4 reveal-child">Fix Fan Failures Fast. Restore Proper Airflow. Keep Your Business Running.</p>
+            <h2 class="section-headline reveal-child">What Keeps Your Exhaust System Running</h2>
+            <img
+              src="/images/services/belt-motor-hero.jpg"
+              alt="exhaust fan belt and motor repair Nashville TN - DDAN Hood Cleaning and Repair"
+              class="w-full rounded mb-6 reveal-child"
+              loading="eager"
+            />
+            <p class="mb-4 reveal-child">In a commercial kitchen, your exhaust fan system does more than move air — it keeps your operation safe and compliant. Two of the most critical parts are the motor and the fan belt. If either one fails, your entire ventilation system is compromised.</p>
+            <p class="mb-6 reveal-child">At DDAN Hood Cleaning and Repair, we specialize in fast, reliable exhaust fan belt and motor repair. Whether your fan is rattling, humming, or completely dead, we diagnose the problem quickly and get it fixed — usually the same day.</p>
+          </div>
+
+          <div class="reveal mt-8">
+            <h2 class="section-headline reveal-child">Signs of a Belt or Motor Problem</h2>
+            <ul class="space-y-2 mb-6">
+              <li class="check-item reveal-child">Squealing or screeching noises coming from the rooftop unit</li>
+              <li class="check-item reveal-child">Weak airflow or suction from your kitchen hood</li>
+              <li class="check-item reveal-child">Fan not turning on or running intermittently</li>
+              <li class="check-item reveal-child">Visible belt wear: fraying, cracks, or looseness</li>
+              <li class="check-item reveal-child">Fan blades turning slowly or unevenly</li>
+              <li class="check-item reveal-child">Motor overheating, humming, or tripping breakers</li>
+            </ul>
+            <p class="mb-6 reveal-child">If you notice any of these issues, don't wait — a small part failure can turn into a system-wide shutdown fast.</p>
+          </div>
+
+          <div class="reveal mt-8">
+            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Exhaust Fan Belt Replacement</h3>
+            <p class="mb-4 reveal-child">Fan belts transfer power from your motor to your fan blades. If a belt wears out, your airflow disappears.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="check-item reveal-child">Inspection and tension testing of existing fan belts</li>
+              <li class="check-item reveal-child">On-site replacement using high-quality commercial belts</li>
+              <li class="check-item reveal-child">Proper alignment and tensioning to prevent premature wear</li>
+              <li class="check-item reveal-child">Compatible belts for all major exhaust fan brands and models</li>
+            </ul>
+          </div>
+
+          <InlineCTA headline="Request Exhaust Fan Parts Now" />
+
+          <div class="reveal mt-8">
+            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Exhaust Fan Motor Repair & Replacement</h3>
+            <p class="mb-4 reveal-child">Your motor is the heart of your fan system. When it fails, your kitchen airflow grinds to a halt.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="check-item reveal-child">On-site diagnostics for motor failures or power issues</li>
+              <li class="check-item reveal-child">Motor replacement for upblast, downblast, and utility fan types</li>
+              <li class="check-item reveal-child">Proper sizing and wiring to meet system demands</li>
+              <li class="check-item reveal-child">Quiet, efficient motor performance with durable components</li>
+            </ul>
+          </div>
+
+          <div class="reveal mt-8">
+            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Emergency Fan Repair & System Restoration</h3>
+            <p class="mb-4 reveal-child">Downtime costs money. A failed fan system can shut down your kitchen during a lunch rush or dinner service.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="check-item reveal-child">24/7 emergency repair for exhaust fans, belts, and motors</li>
+              <li class="check-item reveal-child">Local parts stocked for faster service turnaround</li>
+              <li class="check-item reveal-child">Same-day repairs available in most cases</li>
+              <li class="check-item reveal-child">Temporary airflow solutions if part replacement requires follow-up</li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- Sidebar -->
+        <ServiceSidebar />
+      </div>
+    </div>
+  </section>
+
+  <!-- Split text/image section -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="section-headline reveal-child">Repair Cost, Timeline & Availability</h2>
+          <ul class="space-y-2 mb-6">
+            <li class="check-item reveal-child">Typical Repair Time: 1-2 hours</li>
+            <li class="check-item reveal-child">Cost Range: $125-$450 depending on issue and parts</li>
+            <li class="check-item reveal-child">Availability: Emergency or scheduled repairs across Middle Tennessee</li>
+          </ul>
+          <p class="text-body-text mb-6 reveal-child">We'll give you a clear diagnosis, upfront pricing, and proof of work with photos.</p>
+          <a href="/contact/" class="btn-primary reveal-child">Request Service Online</a>
+        </div>
+        <div class="reveal-child">
+          <img
+            src="/images/services/upblast-fan-motor.jpg"
+            alt="upblast exhaust fan motor repair - DDAN Hood Cleaning and Repair"
+            class="w-full rounded"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <BottomCTA
+    headline="Get Commercial Exhaust Fan Repair Today"
+    body="Whether it's a squealing belt or a motor that just gave out, we'll fix it fast. One call to DDAN and you're back in business."
+    subtext="Emergency Response | Licensed, Bonded & Insured"
+  />
+</BaseLayout>

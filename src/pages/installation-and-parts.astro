@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import BottomCTA from '../components/BottomCTA.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Commercial Kitchen Hood Installation and Parts in Nashville Metro"
+  description="Commercial kitchen hood installation and replacement parts. Free sourcing consult for exhaust fans, filters, motors, belts, and more."
+>
+  <HeroBanner
+    headline="Commercial Kitchen Installation & Parts"
+    subheadline="Free Sourcing Consult | Full System Installation | Commercial-Grade Parts"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Installation and Parts' },
+    ]}
+  />
+
+  <!-- Don't Know What You Need -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow">
+      <div class="reveal">
+        <h2 class="section-headline reveal-child">Don't Know What You Need? We'll Help.</h2>
+        <p class="text-body-text mb-4 reveal-child">Whether you're building out a new kitchen, replacing a failed component, or trying to identify the right part, DDAN Hood Cleaning and Repair is your one-stop resource. We provide free sourcing consultations for commercial kitchen exhaust system parts and full installation services across Mt. Juliet, Nashville, and Middle Tennessee.</p>
+        <p class="text-body-text mb-4 reveal-child">We work with restaurants, food trucks, schools, churches, hotels, and commissary kitchens to get the right parts — fast.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Install & Supply -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow">
+      <div class="reveal">
+        <h2 class="section-headline text-center mb-10 reveal-child">What We Install & Supply</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div class="bg-dark-base border-t-2 border-primary p-6 reveal-child">
+            <h3 class="font-heading font-semibold text-lg text-white mb-3">Complete System Installation</h3>
+            <p class="text-body-text text-sm">Full kitchen exhaust systems from hood to rooftop fan. Designed to NFPA 96 code, built for performance.</p>
+            <p class="text-primary text-sm mt-3 font-heading font-semibold">Get More Info: <a href={`tel:${business.phoneRaw}`} class="hover:underline">{business.phone}</a></p>
+          </div>
+
+          <div class="bg-dark-base border-t-2 border-primary p-6 reveal-child">
+            <h3 class="font-heading font-semibold text-lg text-white mb-3">Exhaust Fans, Motors, Belts & Hinges</h3>
+            <p class="text-body-text text-sm">Replacement parts for upblast, downblast, and utility exhaust fans. Motors, belts, hinge kits, and impellers.</p>
+            <p class="text-primary text-sm mt-3 font-heading font-semibold">Get More Info: <a href={`tel:${business.phoneRaw}`} class="hover:underline">{business.phone}</a></p>
+          </div>
+
+          <div class="bg-dark-base border-t-2 border-primary p-6 reveal-child">
+            <h3 class="font-heading font-semibold text-lg text-white mb-3">Filters, Grease Cups & Access Panels</h3>
+            <p class="text-body-text text-sm">Baffle filters, spark arrestors, grease cups, and code-compliant duct access panels.</p>
+            <p class="text-primary text-sm mt-3 font-heading font-semibold">Get More Info: <a href={`tel:${business.phoneRaw}`} class="hover:underline">{business.phone}</a></p>
+          </div>
+
+          <div class="bg-dark-base border-t-2 border-primary p-6 reveal-child">
+            <h3 class="font-heading font-semibold text-lg text-white mb-3">Grease Trap Systems</h3>
+            <p class="text-body-text text-sm">Rooftop grease containment: pads, trays, boxes, and full containment kits.</p>
+            <p class="text-primary text-sm mt-3 font-heading font-semibold">Get More Info: <a href={`tel:${business.phoneRaw}`} class="hover:underline">{business.phone}</a></p>
+          </div>
+
+          <div class="bg-dark-base border-t-2 border-primary p-6 reveal-child">
+            <h3 class="font-heading font-semibold text-lg text-white mb-3">Makeup Air Unit Parts</h3>
+            <p class="text-body-text text-sm">MAU components including dampers, heating elements, filters, and controls.</p>
+            <p class="text-primary text-sm mt-3 font-heading font-semibold">Get More Info: <a href={`tel:${business.phoneRaw}`} class="hover:underline">{business.phone}</a></p>
+          </div>
+
+          <div class="bg-dark-base border-t-2 border-primary p-6 reveal-child">
+            <h3 class="font-heading font-semibold text-lg text-white mb-3">Control Panels & Switches</h3>
+            <p class="text-body-text text-sm">Fan speed controllers, power switches, and electrical components for ventilation systems.</p>
+            <p class="text-primary text-sm mt-3 font-heading font-semibold">Get More Info: <a href={`tel:${business.phoneRaw}`} class="hover:underline">{business.phone}</a></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parts We Stock & Source -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow">
+      <div class="reveal">
+        <h2 class="section-headline reveal-child">Parts We Stock & Source</h2>
+        <p class="text-body-text mb-6 reveal-child">We carry and source these common commercial kitchen exhaust system parts:</p>
+        <div class="grid md:grid-cols-2 gap-x-8 gap-y-2">
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Exhaust fan motors</p>
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Fan belts (A, B, AX, BX)</p>
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Hinge kits</p>
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Grease filters</p>
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Baffle filters</p>
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Spark arrestor filters</p>
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Access panels</p>
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Grease containment pads</p>
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Fan blades & impellers</p>
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Control panels</p>
+          <p class="text-body-text flex items-start gap-2 reveal-child"><span class="text-primary font-bold mt-1">&#9679;</span> Makeup air unit components</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <BottomCTA
+    headline="Need Parts or an Installation Quote?"
+    body="Don't let a broken part take your kitchen offline. Call DDAN for fast sourcing, expert installation, and commercial-grade components."
+    subtext="Free Sourcing Consult | Local Pickup Available | Licensed, Bonded & Insured"
+  />
+</BaseLayout>

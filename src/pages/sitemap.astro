@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import business from '../data/business.json';
+
+const pageGroups = [
+  {
+    title: 'Main Pages',
+    pages: [
+      { label: 'Home', href: '/' },
+      { label: 'About', href: '/about-ddan-hood-cleaning-and-repair/' },
+      { label: 'Contact', href: '/contact/' },
+      { label: 'Reviews', href: '/verified-reviews/' },
+      { label: 'Gallery', href: '/gallery/' },
+      { label: 'News', href: '/news/' },
+      { label: 'FAQ', href: '/kitchen-exhaust-faq/' },
+      { label: 'NFPA 96 Standards', href: '/nfpa-code-96-standards/' },
+      { label: 'How Your System Works', href: '/how-your-kitchen-ventilation-system-works/' },
+    ],
+  },
+  {
+    title: 'Services',
+    pages: [
+      { label: 'Services Overview', href: '/kitchen-exhaust-services-overview/' },
+      { label: 'Hood Cleaning', href: '/kitchen-hood-cleaning-services/' },
+      { label: 'Hood Repair', href: '/commercial-hood-repair/' },
+      { label: 'Kitchen Exhaust Installation', href: '/kitchen-exhaust-installation-services/' },
+      { label: 'Installation and Parts', href: '/installation-and-parts/' },
+      { label: 'Grease Containment', href: '/grease-containment/' },
+      { label: 'Exhaust Fan Parts', href: '/restaurant-exhaust-fan-parts/' },
+      { label: 'Exhaust Fan Hinge Kit Installation', href: '/exhaust-fan-hinge-kit-installation/' },
+      { label: 'Exhaust Fan Belt & Motor Repair', href: '/exhaust-fan-belt-motor-repair/' },
+      { label: 'Access Panel Installation', href: '/access-panel-installation/' },
+      { label: 'Fire Suppression Systems', href: '/restaurant-fire-suppression-systems/' },
+    ],
+  },
+  {
+    title: 'Service Areas',
+    pages: [
+      { label: 'All Service Areas', href: '/locations/' },
+    ],
+  },
+  {
+    title: 'Resources',
+    pages: [
+      { label: 'Who Is DDAN?', href: '/who-is-ddan-hood-cleaning-and-repair/' },
+      { label: 'What Services Does DDAN Provide?', href: '/what-services-does-ddan-provide/' },
+      { label: 'Where Does DDAN Serve?', href: '/where-does-ddan-serve-clients/' },
+      { label: 'Is DDAN NFPA 96 Compliant?', href: '/is-ddan-hood-cleaning-and-repair-nfpa-96-compliant/' },
+      { label: 'How Does DDAN Work?', href: '/how-does-ddan-hood-cleaning-and-repair-work/' },
+    ],
+  },
+  {
+    title: 'Legal',
+    pages: [
+      { label: 'Privacy Policy', href: '/privacy-policy/' },
+      { label: 'Sitemap', href: '/sitemap/' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Sitemap | DDAN Hood Cleaning and Repair"
+  description="Complete sitemap for DDAN Hood Cleaning and Repair website."
+>
+  <HeroBanner
+    headline="Sitemap"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Sitemap' },
+    ]}
+  />
+
+  <section class="bg-dark-base py-16">
+    <div class="container-narrow">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {pageGroups.map((group) => (
+          <div>
+            <h2 class="text-primary font-heading font-semibold text-lg mb-3">{group.title}</h2>
+            <ul>
+              {group.pages.map((page) => (
+                <li>
+                  <a
+                    href={page.href}
+                    class="text-body-text hover:text-primary transition-colors text-sm py-1 block"
+                  >
+                    {page.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

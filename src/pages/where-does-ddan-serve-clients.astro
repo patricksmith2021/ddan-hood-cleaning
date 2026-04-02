@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import business from '../data/business.json';
+
+const title = "Where Does DDAN Serve Clients?";
+const description = "DDAN serves commercial kitchens across Middle Tennessee — Nashville, Mt. Juliet, and 10+ surrounding cities.";
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Where We Serve" }
+];
+
+const primaryCities = [
+  "Mt. Juliet", "Nashville", "Goodlettsville", "Hendersonville",
+  "La Vergne", "Smyrna", "Murfreesboro", "Brentwood", "Franklin", "Bellevue"
+];
+
+const nashvilleAreas = [
+  "Downtown Nashville", "East Nashville", "North Nashville", "West Nashville",
+  "Bellevue", "Antioch", "Madison", "Donelson", "Hermitage",
+  "The Nations", "Sylvan Park", "Berry Hill"
+];
+
+const additionalAreas = [
+  "Green Hill", "Lebanon", "Hartsville", "Nolensville",
+  "and additional service areas upon request"
+];
+
+const clientTypes = [
+  "Restaurants & fast-food chains",
+  "Food trucks & trailers",
+  "Hotels & resorts",
+  "Schools & universities",
+  "Churches",
+  "Bars & breweries",
+  "Hospitals & assisted living facilities",
+  "Corporate cafeterias",
+  "Commissary & shared kitchens"
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <HeroBanner title={title} breadcrumbs={breadcrumbs} />
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <p class="text-body-text leading-relaxed">
+        DDAN Hood Cleaning &amp; Repair provides commercial kitchen exhaust system services across Middle Tennessee, with our headquarters located in Mt. Juliet. We serve restaurants and commercial kitchens throughout Nashville, Mt. Juliet, Goodlettsville, Hendersonville, La Vergne, Smyrna, Murfreesboro, Brentwood, Franklin, Bellevue, and surrounding areas.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Based in Mt. Juliet, Serving All Surrounding Cities</h2>
+      <p class="text-body-text leading-relaxed mb-6">
+        DDAN was founded and built in Mt. Juliet, and we continue to serve as one of the region's leading kitchen exhaust system service providers.
+      </p>
+      <ul class="space-y-2">
+        {primaryCities.map((city) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {city}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Serving the Greater Nashville Region</h2>
+      <p class="text-body-text leading-relaxed mb-6">
+        DDAN serves the broader Nashville area including:
+      </p>
+      <ul class="space-y-2">
+        {nashvilleAreas.map((area) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {area}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Middle Tennessee Coverage</h2>
+      <p class="text-body-text leading-relaxed mb-6">
+        In addition to the major cities, DDAN supports facilities across the surrounding Middle Tennessee region including:
+      </p>
+      <ul class="space-y-2">
+        {additionalAreas.map((area) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {area}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Who We Serve Across This Region</h2>
+      <ul class="space-y-2">
+        {clientTypes.map((type) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {type}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Summary</h2>
+      <p class="text-body-text leading-relaxed">
+        DDAN Hood Cleaning &amp; Repair is based in Mt. Juliet and proudly serves Nashville, Mt. Juliet, Goodlettsville, Hendersonville, La Vergne, Smyrna, Murfreesboro, Brentwood, Franklin, Bellevue, and all surrounding Middle Tennessee communities.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow text-center reveal">
+      <a href={`tel:${business.phoneRaw}`} class="btn-primary mb-4">
+        Call Us: {business.phone}
+      </a>
+      <br/><br/>
+      <button type="button" class="btn-ghost popup-trigger">
+        Request Service Online
+      </button>
+    </div>
+  </section>
+</BaseLayout>

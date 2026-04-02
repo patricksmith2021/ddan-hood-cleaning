@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import business from '../data/business.json';
+
+const title = "Is DDAN Hood Cleaning & Repair NFPA 96 Compliant?";
+const description = "Yes. DDAN Hood Cleaning & Repair is fully NFPA 96 compliant. Every service follows fire safety standards with full documentation.";
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "NFPA 96 Compliance" }
+];
+
+const nfpa96Governs = [
+  "Grease removal",
+  "Hood and duct cleaning frequencies",
+  "Exhaust fan access and hinge requirements",
+  "Fire suppression systems",
+  "Ventilation performance",
+  "Installation standards",
+  "Access panels every 12 feet and at every turn"
+];
+
+const cleaningIncludes = [
+  "Before-and-after photos",
+  "Documentation for fire inspection or insurance",
+  "Notes on deficiencies or repair needs",
+  "Service tags placed on the hood",
+  "Recommendations for frequency compliance"
+];
+
+const repairStandards = [
+  "Proper welding and sealing of grease ducts",
+  "UL 300 fire suppression systems",
+  "Code-compliant access panel installation",
+  "Correct sizing of exhaust fans and ductwork",
+  "Required hinge kits on upblast fans",
+  "Fire-rated, grease-tight ductwork",
+  "Rooftop grease containment systems"
+];
+
+const fireSuppressionItems = [
+  "Proper nozzle placement",
+  "Fusible link routing",
+  "Detection lines",
+  "Agent tanks",
+  "Appliance-specific coverage",
+  "System interlocks and shutdowns"
+];
+
+const documentationItems = [
+  "Time-stamped photos",
+  "Service reports",
+  "Inspection notes",
+  "Deficiency reports",
+  "Compliance confirmations",
+  "Suggested maintenance timelines"
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <HeroBanner title={title} breadcrumbs={breadcrumbs} />
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <p class="text-body-text leading-relaxed">
+        Yes. DDAN Hood Cleaning &amp; Repair is fully NFPA 96 compliant, and every service we provide is performed according to the National Fire Protection Association's Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">What NFPA 96 Compliance Means</h2>
+      <p class="text-body-text leading-relaxed mb-6">
+        NFPA 96 outlines the rules governing:
+      </p>
+      <ul class="space-y-2">
+        {nfpa96Governs.map((item) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">NFPA 96-Compliant Hood Cleaning</h2>
+      <p class="text-body-text leading-relaxed mb-4">
+        DDAN removes grease to bare metal, reaching hoods, filters, ducts, fans, and all accessible areas.
+      </p>
+      <p class="text-body-text leading-relaxed mb-6">
+        Every cleaning visit includes:
+      </p>
+      <ul class="space-y-2">
+        {cleaningIncludes.map((item) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">NFPA 96-Compliant Repairs and Installations</h2>
+      <p class="text-body-text leading-relaxed mb-6">
+        Our repairs and installations meet or exceed NFPA 96 requirements:
+      </p>
+      <ul class="space-y-2">
+        {repairStandards.map((item) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Fire Suppression Systems Built to UL 300 Standards</h2>
+      <p class="text-body-text leading-relaxed mb-6">
+        DDAN installs UL 300-compliant systems with:
+      </p>
+      <ul class="space-y-2">
+        {fireSuppressionItems.map((item) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Compliance Documentation</h2>
+      <p class="text-body-text leading-relaxed mb-6">
+        We document every job thoroughly. Your documentation includes:
+      </p>
+      <ul class="space-y-2">
+        {documentationItems.map((item) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Summary</h2>
+      <p class="text-body-text leading-relaxed">
+        DDAN Hood Cleaning &amp; Repair is fully NFPA 96 compliant, providing commercial kitchen exhaust cleaning, repairs, installations, and maintenance with full documentation. Based in Mt. Juliet, we proudly serve all of Middle Tennessee.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow text-center reveal">
+      <a href={`tel:${business.phoneRaw}`} class="btn-primary mb-4">
+        Call Us: {business.phone}
+      </a>
+      <br/><br/>
+      <button type="button" class="btn-ghost popup-trigger">
+        Request Service Online
+      </button>
+    </div>
+  </section>
+</BaseLayout>

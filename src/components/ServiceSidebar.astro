@@ -1,0 +1,79 @@
+---
+import business from '../data/business.json';
+
+const sidebarCities = [
+  'Mt. Juliet, TN',
+  'Lebanon, TN',
+  'Smyrna, TN',
+  'Gallatin, TN',
+  'La Vergne, TN',
+  'Goodlettsville, TN',
+  'Hendersonville, TN',
+  'Nashville, TN',
+];
+---
+
+<aside class="bg-secondary p-6 lg:sticky lg:top-[100px] self-start">
+  <!-- Form -->
+  <h3 class="font-heading font-bold text-xl text-white mb-4">
+    Get Service <span class="text-primary">Fast!</span>
+  </h3>
+
+  <form class="space-y-3" id="sidebar-form">
+    <input type="text" class="hidden" name="website" tabindex="-1" autocomplete="off" />
+    <input type="hidden" name="_loaded_at" />
+
+    <p class="text-xs text-primary font-heading font-semibold uppercase tracking-wide">Your Info</p>
+    <input type="text" name="firstName" placeholder="First Name" required
+      class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+    <input type="text" name="lastName" placeholder="Last Name" required
+      class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+    <input type="email" name="email" placeholder="Email" required
+      class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+    <input type="tel" name="phone" placeholder="Phone" required
+      class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+
+    <p class="text-xs text-primary font-heading font-semibold uppercase tracking-wide pt-2">Business Info</p>
+    <input type="text" name="businessName" placeholder="Business Name" required
+      class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+    <input type="text" name="businessAddress" placeholder="Business Address" required
+      class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+
+    <select name="service" required
+      class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary">
+      <option value="">What Service(s) Are You Interested In?</option>
+      <option value="Hood Cleaning">Hood Cleaning</option>
+      <option value="Filter Cleaning">Filter Cleaning</option>
+      <option value="Hood Repair">Hood Repair</option>
+      <option value="Grease Containment">Grease Containment</option>
+      <option value="New Installation">New Installation</option>
+      <option value="Looking for Parts">Looking for Parts</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <div class="flex items-center gap-4 text-sm text-white">
+      <span>Multiple locations?</span>
+      <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="yes" /> Yes</label>
+      <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="no" checked /> No</label>
+    </div>
+
+    <button type="submit" class="btn-primary w-full justify-center mt-2">
+      Request Callback ASAP
+    </button>
+  </form>
+
+  <!-- Areas We Serve -->
+  <div class="mt-8 pt-6 border-t border-border-subtle">
+    <h4 class="font-heading font-semibold text-white text-lg mb-4">
+      Areas We <span class="text-primary">Serve</span>
+    </h4>
+    <ul class="space-y-2">
+      {sidebarCities.map((city) => (
+        <li class="flex items-center gap-2 text-body-text text-sm">
+          <svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+          {city}
+        </li>
+      ))}
+    </ul>
+  </div>
+</aside>

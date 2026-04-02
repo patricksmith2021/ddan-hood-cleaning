@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import business from '../data/business.json';
+
+const title = "What Services Does DDAN Provide?";
+const description = "DDAN provides complete commercial kitchen exhaust services: cleaning, repair, installation, parts, fire suppression, and maintenance across Middle Tennessee.";
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "What Services?" }
+];
+
+const services = [
+  {
+    name: "Hood Cleaning (NFPA 96 Compliant)",
+    text: "We provide full-system hood cleaning for restaurants and commercial kitchens, including hoods, grease filters, ducts, and exhaust fans. Every job delivers before-and-after photos and full compliance documentation."
+  },
+  {
+    name: "Hood Repair",
+    text: "Our technicians repair damaged hood systems by fixing welds, replacing filter tracks, sealing gaps, repairing duct connections, and restoring airflow performance."
+  },
+  {
+    name: "Kitchen Ventilation System Installation",
+    text: "We install complete commercial kitchen ventilation systems, including hoods, ductwork, exhaust fans, makeup air units, and fire suppression components."
+  },
+  {
+    name: "Grease Containment Installation",
+    text: "We install rooftop grease containment units to protect roofs from chemical damage, grease runoff, and fire hazards."
+  },
+  {
+    name: "Exhaust Fan Hinge Kit Installation",
+    text: "DDAN installs NFPA 96-required hinge kits on upblast exhaust fans to allow safe access for cleaning and inspection."
+  },
+  {
+    name: "Exhaust Fan Belt Replacement",
+    text: "When belts wear out or break, airflow drops and motors overheat. We replace belts, set proper tension, and align pulleys."
+  },
+  {
+    name: "Exhaust Fan Motor Replacement",
+    text: "We replace rooftop and inline fan motors with correctly sized commercial-grade units. The service includes wiring, balancing, and testing."
+  },
+  {
+    name: "Access Panel Installation",
+    text: "NFPA 96 requires access panels every 12 feet and at every turn in grease ducts. We install code-compliant access panels."
+  },
+  {
+    name: "Fire Suppression System Installation",
+    text: "We install UL 300-compliant fire suppression systems for commercial kitchen hoods, complete with nozzles, fusible links, agent tanks, and testing."
+  },
+  {
+    name: "Kitchen Exhaust Fan Replacement",
+    text: "We replace damaged or undersized exhaust fans with properly sized, balanced, and correctly mounted units."
+  },
+  {
+    name: "Hood Filter Replacement",
+    text: "We replace damaged or clogged hood filters with stainless steel or aluminum baffle filters designed for proper grease capture."
+  },
+  {
+    name: "Ductwork Repair",
+    text: "We repair leaking or grease-saturated ductwork using professional welding and resealing methods to NFPA 96 standards."
+  },
+  {
+    name: "Ductwork Installation",
+    text: "We design, fabricate, and install new grease duct systems for commercial kitchens built for proper airflow and cleanability."
+  },
+  {
+    name: "Makeup Air Unit Installation",
+    text: "We install makeup air units to balance airflow in commercial kitchens, including ducting, controls, and heating/cooling options."
+  },
+  {
+    name: "Grease Duct Cleaning",
+    text: "We provide deep cleaning of grease ducts from hood to fan using pressure washing, scraping, and degreasing methods."
+  },
+  {
+    name: "Rooftop Grease Containment Maintenance",
+    text: "We clean, maintain, and replace grease containment pads and systems to prevent rooftop fires and membrane damage."
+  },
+  {
+    name: "Kitchen Exhaust System Inspection",
+    text: "We inspect hoods, ducts, fans, access panels, grease containment, and fire suppression components with photo reports."
+  },
+  {
+    name: "Exhaust Fan Cleaning",
+    text: "We clean exhaust fans, blades, and housings to restore airflow, reduce fire hazards, and prevent overheating."
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <HeroBanner title={title} breadcrumbs={breadcrumbs} />
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <p class="text-body-text leading-relaxed">
+        DDAN Hood Cleaning &amp; Repair provides complete commercial kitchen exhaust system services, including cleaning, repair, installation, parts, and maintenance. Based in Mt. Juliet and serving Nashville and surrounding Middle Tennessee, we help commercial kitchens stay safe, compliant, and fully operational. All services follow NFPA 96 standards and include full photographic documentation.
+      </p>
+    </div>
+  </section>
+
+  {services.map((service) => (
+    <section class="bg-dark-base section-padding">
+      <div class="container-narrow reveal">
+        <h3 class="text-primary font-heading text-sub-headline font-semibold mb-4">{service.name}</h3>
+        <p class="text-body-text leading-relaxed">{service.text}</p>
+      </div>
+    </section>
+  ))}
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <p class="text-body-text leading-relaxed font-semibold">
+        Serving Middle Tennessee — Based in Mt. Juliet, DDAN proudly serves Nashville and all surrounding Middle Tennessee communities with complete kitchen exhaust system services.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow text-center reveal">
+      <a href={`tel:${business.phoneRaw}`} class="btn-primary mb-4">
+        Call Us: {business.phone}
+      </a>
+      <br/><br/>
+      <button type="button" class="btn-ghost popup-trigger">
+        Request Service Online
+      </button>
+    </div>
+  </section>
+</BaseLayout>

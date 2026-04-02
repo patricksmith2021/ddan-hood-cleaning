@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import ServiceSidebar from '../components/ServiceSidebar.astro';
+import BottomCTA from '../components/BottomCTA.astro';
+import business from '../data/business.json';
+
+const components = [
+  {
+    title: 'Exhaust Hood',
+    body: 'The hood sits above your cooking equipment and captures smoke, steam, grease vapors, and heat. Proper sizing ensures complete capture of cooking emissions.',
+  },
+  {
+    title: 'Grease Filters',
+    body: 'Baffle or mesh filters sit inside the hood and trap grease particles before they enter the ductwork. Regular cleaning or replacement is essential.',
+  },
+  {
+    title: 'Plenum',
+    body: 'The plenum is the chamber behind the filters where air pressure equalizes before entering the ductwork. Grease accumulates here and requires thorough cleaning.',
+  },
+  {
+    title: 'Grease Ductwork',
+    body: 'Ducts carry grease-laden air from the hood to the rooftop exhaust fan. They must be properly sealed, pitched for drainage, and equipped with access panels every 12 feet.',
+  },
+  {
+    title: 'Exhaust Fan',
+    body: 'The rooftop exhaust fan pulls air through the entire system. It must be properly sized for your kitchen\'s airflow needs and hinged for cleaning access.',
+  },
+  {
+    title: 'Makeup Air Unit',
+    body: 'A makeup air unit (MAU) replaces the air exhausted from your kitchen with fresh, tempered air. This maintains proper air pressure and prevents backdrafts.',
+  },
+  {
+    title: 'Fire Suppression System',
+    body: 'Installed inside the hood, this UL 300-compliant system automatically detects dangerous temperatures and discharges fire-suppressing agents to contain grease fires.',
+  },
+  {
+    title: 'Grease Containment',
+    body: 'Rooftop grease containment systems capture grease expelled by the exhaust fan, preventing roof damage and environmental contamination.',
+  },
+];
+
+const airflowSteps = [
+  'Cooking produces smoke, steam, and grease vapors',
+  'The exhaust hood captures these emissions',
+  'Grease filters trap large particles',
+  'Air enters the plenum and ductwork',
+  'The exhaust fan pulls air up and out through the roof',
+  'Makeup air replaces the exhausted air',
+];
+
+const warningSigns = [
+  'Visible grease buildup on hood surfaces or filters',
+  'Smoke not being captured effectively',
+  'Unusual fan noise (grinding, squealing, vibration)',
+  'Grease dripping from ductwork or hood',
+  'Failed fire or health inspection',
+  'Strong cooking odors in dining areas',
+];
+---
+
+<BaseLayout
+  title="How Your Restaurant Kitchen Ventilation Works"
+  description="Learn how commercial kitchen ventilation systems work — from exhaust hoods to rooftop fans. Understand your system with DDAN Hood Cleaning."
+>
+  <HeroBanner
+    headline="How Your Commercial Kitchen Ventilation System Works"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'How Your System Works' },
+    ]}
+  />
+
+  <!-- 65/35 Split -->
+  <section class="bg-white">
+    <div class="container-narrow">
+      <div class="grid lg:grid-cols-[65%_35%]">
+        <!-- Content Column -->
+        <div class="p-6 md:p-10 text-body-text-light">
+
+          <div class="reveal">
+            <h2 class="section-headline mb-4 reveal-child">Understanding Your Kitchen's Exhaust System</h2>
+            <p class="mb-8 reveal-child">
+              Your commercial kitchen ventilation system is a critical piece of equipment that protects your staff, customers, and business from fire hazards, smoke, and heat. Understanding how it works helps you maintain it properly and avoid costly breakdowns.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <h2 class="section-headline mb-6 reveal-child">The Core Components</h2>
+
+            {components.map((comp) => (
+              <div class="mb-6 reveal-child">
+                <h3 class="font-heading font-semibold text-lg text-dark-base mb-2">{comp.title}</h3>
+                <p>{comp.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="reveal">
+            <h2 class="section-headline mb-4 reveal-child">The Airflow Path</h2>
+            <p class="mb-4 reveal-child">Understanding how air moves through your system helps you identify problems early:</p>
+            <ol class="list-decimal list-inside space-y-2 mb-8 reveal-child">
+              {airflowSteps.map((step) => (
+                <li>{step}</li>
+              ))}
+            </ol>
+          </div>
+
+          <div class="reveal">
+            <h2 class="section-headline mb-4 reveal-child">Warning Signs Your System Needs Attention</h2>
+            <ul class="space-y-2 mb-8 reveal-child">
+              {warningSigns.map((sign) => (
+                <li class="check-item">{sign}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="reveal">
+            <h2 class="section-headline mb-4 reveal-child">Regular Maintenance Keeps Your System Safe</h2>
+            <p class="reveal-child">
+              NFPA 96 requires regular cleaning and inspection of your entire exhaust system. The frequency depends on your cooking volume — most restaurants need quarterly service. {business.name} provides comprehensive maintenance to keep your system running safely and in compliance.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Sidebar -->
+        <ServiceSidebar />
+      </div>
+    </div>
+  </section>
+
+  <BottomCTA
+    headline="Questions About Your Kitchen Ventilation System?"
+    body="Contact DDAN Hood Cleaning and Repair — we're happy to inspect, explain, and service your entire exhaust system."
+    subtext="Free Estimates | 24/7 Emergency Service"
+  />
+</BaseLayout>

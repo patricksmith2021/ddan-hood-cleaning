@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import BottomCTA from '../components/BottomCTA.astro';
+import business from '../data/business.json';
+
+const nfpaCards = [
+  {
+    title: 'Exhaust Hoods',
+    desc: 'Design, sizing, and placement of commercial exhaust hoods. Proper capture area and airflow for your cooking equipment.',
+  },
+  {
+    title: 'Ductwork',
+    desc: 'Grease duct construction, materials, sealing, and required access panels every 12 feet and at every turn.',
+  },
+  {
+    title: 'Exhaust Fans',
+    desc: 'Fan sizing, placement, hinge kit requirements, and maintenance for upblast and utility exhaust fans.',
+  },
+  {
+    title: 'Grease Containment',
+    desc: 'Rooftop grease containment systems to prevent roof damage and environmental contamination.',
+  },
+  {
+    title: 'Fire Suppression',
+    desc: 'UL 300-compliant wet chemical fire suppression systems with proper nozzle placement and detection lines.',
+  },
+  {
+    title: 'Cleaning & Maintenance',
+    desc: 'Required cleaning frequencies based on cooking volume, plus documentation and inspection requirements.',
+  },
+];
+
+const complianceChecklist = [
+  'Hood-to-fan cleaning with full grease removal to bare metal',
+  'Before-and-after photo documentation for every service',
+  'Written inspection reports and compliance recommendations',
+];
+---
+
+<BaseLayout
+  title="NFPA Code 96 Standards in Tennessee"
+  description="Learn about NFPA 96 fire safety standards for commercial kitchens in Tennessee. DDAN Hood Cleaning ensures full compliance."
+>
+  <HeroBanner
+    headline="NFPA 96 Code Standards in Tennessee"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'NFPA Standards' },
+    ]}
+  />
+
+  <!-- What Is NFPA 96 -->
+  <section class="section-padding bg-dark-base">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline mb-6 reveal-child">What Is NFPA 96?</h2>
+      <p class="text-body-text mb-4 reveal-child">NFPA 96 is the National Fire Protection Association's Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations. It sets the requirements for the design, installation, operation, inspection, and maintenance of all commercial kitchen cooking equipment, exhaust hoods, grease ducts, exhaust fans, fire suppression systems, and grease removal devices.</p>
+      <p class="text-body-text reveal-child">In Tennessee, local fire marshals and health departments enforce NFPA 96 standards. Failing to comply can result in fines, failed inspections, insurance claim denials, and forced shutdowns.</p>
+    </div>
+  </section>
+
+  <!-- What NFPA 96 Covers -->
+  <section class="section-padding bg-dark-base">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-10 reveal-child">What NFPA 96 Covers</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {nfpaCards.map((card) => (
+          <div class="bg-dark-base border border-border-subtle p-6 rounded hover:border-primary transition-colors reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-3">{card.title}</h3>
+            <p class="text-body-text text-sm">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What Tennessee Kitchens Need to Know -->
+  <section class="section-padding bg-dark-base">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline mb-8 reveal-child">What Tennessee Kitchens Need to Know</h2>
+
+      <div class="mb-8 reveal-child">
+        <h3 class="font-heading font-semibold text-white text-lg mb-3">Local Enforcement</h3>
+        <p class="text-body-text">Tennessee fire marshals actively enforce NFPA 96 during routine inspections. Non-compliant systems can be shut down immediately. DDAN ensures your system passes every inspection.</p>
+      </div>
+
+      <div class="mb-8 reveal-child">
+        <h3 class="font-heading font-semibold text-white text-lg mb-3">Insurance Requirements</h3>
+        <p class="text-body-text">Most commercial insurance policies require documented NFPA 96-compliant maintenance. Without it, grease fire claims can be denied. DDAN provides detailed documentation for every service visit.</p>
+      </div>
+
+      <div class="reveal-child">
+        <h3 class="font-heading font-semibold text-white text-lg mb-3">Safety & Liability</h3>
+        <p class="text-body-text">A grease fire in your kitchen can injure staff, damage property, and close your business. Regular NFPA 96-compliant maintenance is the most effective prevention.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How DDAN Ensures Compliance -->
+  <section class="section-padding bg-dark-base">
+    <div class="container-narrow reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="section-headline mb-6 reveal-child">How DDAN Ensures Compliance</h2>
+          <p class="text-body-text mb-6 reveal-child">Every service DDAN performs follows NFPA 96 standards:</p>
+          <ul class="space-y-3 mb-8">
+            {complianceChecklist.map((item) => (
+              <li class="flex items-start gap-3 reveal-child">
+                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-body-text">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/about-ddan-hood-cleaning-and-repair/" class="btn-primary reveal-child">Learn More About Us</a>
+        </div>
+        <div class="reveal-child">
+          <img
+            src="/images/hero/hero-1.jpg"
+            alt="DDAN technician performing NFPA 96 compliant hood cleaning"
+            class="w-full rounded border-[3px] border-primary"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <BottomCTA
+    headline="Schedule Your NFPA 96 Compliance Service"
+    body="Don't risk fines, shutdowns, or fire hazards. Contact DDAN for NFPA 96-compliant cleaning, repair, and installation."
+    subtext="Free Consultation | Licensed, Bonded & Insured"
+  />
+</BaseLayout>

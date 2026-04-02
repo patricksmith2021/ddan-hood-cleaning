@@ -1,0 +1,40 @@
+---
+interface Props {
+  headline?: string;
+  intro?: string;
+  outro?: string;
+}
+
+const { headline = 'Areas We Serve', intro = '', outro = '' } = Astro.props;
+
+const areas = [
+  { city: 'Mt. Juliet, TN', zips: '37122, 37121' },
+  { city: 'Lebanon, TN', zips: '37087, 37090' },
+  { city: 'Smyrna, TN', zips: '37167' },
+  { city: 'Gallatin, TN', zips: '37066' },
+  { city: 'La Vergne, TN', zips: '37086' },
+  { city: 'Goodlettsville, TN', zips: '37072' },
+  { city: 'Hendersonville, TN', zips: '37075, 37077' },
+  { city: 'Nashville, TN', zips: '37201-37221, 37228-37250' },
+];
+---
+
+<section class="bg-secondary section-padding">
+  <div class="container-narrow reveal">
+    <h2 class="section-headline text-center mb-2">{headline}</h2>
+    {intro && <p class="text-body-text text-center max-w-2xl mx-auto mb-8 reveal-child">{intro}</p>}
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      {areas.map((area) => (
+        <div class="flex items-start gap-2 p-3 bg-dark-base rounded reveal-child">
+          <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+          <div>
+            <p class="text-white font-heading font-medium text-sm">{area.city}</p>
+            <p class="text-muted-text text-xs">({area.zips})</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    {outro && <p class="text-body-text text-sm text-center mt-6 reveal-child">{outro}</p>}
+  </div>
+</section>

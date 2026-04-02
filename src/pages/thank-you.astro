@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Thank You | DDAN Hood Cleaning and Repair"
+  description="Thank you for contacting DDAN Hood Cleaning and Repair. We'll get back to you shortly."
+  noindex={true}
+>
+  <HeroBanner
+    headline="Thank You!"
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Thank You' },
+    ]}
+  />
+
+  <section class="bg-dark-base py-20">
+    <div class="container-narrow text-center max-w-2xl mx-auto">
+      <p class="font-heading text-xl md:text-2xl text-white mb-4">
+        Your request has been received! A member of our team will be in touch with you shortly.
+      </p>
+
+      <p class="text-body-text text-lg mb-6">
+        For immediate assistance, call us directly:
+      </p>
+
+      <a
+        href={`tel:${business.phoneRaw}`}
+        class="inline-block font-heading font-semibold text-lg bg-primary text-white px-7 py-3 rounded-sm hover:bg-primary-dark transition-colors duration-150 hover:scale-95 transform mb-8"
+      >
+        {business.phone}
+      </a>
+
+      <p class="text-muted text-sm mb-8">
+        We typically respond within 1 business hour during normal business hours. For emergencies, we offer 24/7 phone support.
+      </p>
+
+      <a
+        href="/"
+        class="inline-block font-heading font-semibold text-sm text-white border-2 border-white px-7 py-3 rounded-sm hover:text-primary hover:border-primary transition-colors duration-150"
+      >
+        Return to Home
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import business from '../data/business.json';
+
+const title = "How Does DDAN Hood Cleaning & Repair Work?";
+const description = "Learn DDAN's 6-step process: schedule, assess, clean/repair, document, guide, and support your commercial kitchen exhaust system.";
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "How We Work" }
+];
+
+const step3Services = [
+  "Hood cleaning to bare metal",
+  "Grease duct cleaning",
+  "Exhaust fan cleaning",
+  "Motor and belt replacement",
+  "Hinge kit installation",
+  "Access panel installation",
+  "Fire suppression installation",
+  "Grease containment setup",
+  "Equipment repairs or part replacement"
+];
+
+const step4Documentation = [
+  "Before-and-after photos",
+  "Notes on system deficiencies",
+  "Repair recommendations",
+  "Inspection compliance notes",
+  "NFPA 96 frequency guidance",
+  "Service tags placed on the hood"
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <HeroBanner title={title} breadcrumbs={breadcrumbs} />
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <p class="text-body-text leading-relaxed">
+        DDAN Hood Cleaning &amp; Repair provides end-to-end commercial kitchen exhaust system services — from cleaning and repairs to installations and full-system upgrades. We follow NFPA 96 standards on every job to keep commercial kitchens safe, compliant, and fully operational.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Step 1: Schedule a Service Appointment</h2>
+      <p class="text-body-text leading-relaxed">
+        Clients can request service through our website or by calling {business.phone}. We offer routine maintenance scheduling as well as 24/7 emergency service. Once scheduled, our technicians prepare all required equipment and documentation.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Step 2: On-Site Inspection and System Assessment</h2>
+      <p class="text-body-text leading-relaxed">
+        When our team arrives, we begin with a thorough on-site assessment of the hood, ducts, fans, grease containment, access panels, filters, and fire suppression components. This ensures we understand your system's condition and all NFPA 96 requirements.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Step 3: Perform NFPA 96-Compliant Cleaning or Repairs</h2>
+      <p class="text-body-text leading-relaxed mb-6">
+        Depending on the service requested, DDAN performs:
+      </p>
+      <ul class="space-y-2">
+        {step3Services.map((item) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Step 4: Full Photo Documentation</h2>
+      <p class="text-body-text leading-relaxed mb-6">
+        Every job includes detailed photographic documentation:
+      </p>
+      <ul class="space-y-2">
+        {step4Documentation.map((item) => (
+          <li class="text-body-text flex items-center gap-3">
+            <span class="text-primary">&#10003;</span> {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Step 5: Provide Compliance Guidance</h2>
+      <p class="text-body-text leading-relaxed">
+        After service, our team explains your current NFPA 96 compliance status, recommended cleaning intervals, any issues found during inspection, and a customized maintenance plan.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Step 6: Ongoing Maintenance and 24/7 Support</h2>
+      <p class="text-body-text leading-relaxed">
+        DDAN offers routine maintenance schedules and 24/7 emergency service throughout Middle Tennessee. Whether your kitchen needs regular cleaning, sudden repairs, or a full system replacement, our team is available whenever you need us.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="text-primary font-heading text-section-headline font-semibold mb-6">Summary</h2>
+      <p class="text-body-text leading-relaxed">
+        DDAN Hood Cleaning &amp; Repair follows a clear, professional, NFPA 96-compliant process: schedule, assess, clean/repair, document, guide, support.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow text-center reveal">
+      <a href={`tel:${business.phoneRaw}`} class="btn-primary mb-4">
+        Call Us: {business.phone}
+      </a>
+      <br/><br/>
+      <button type="button" class="btn-ghost popup-trigger">
+        Request Service Online
+      </button>
+    </div>
+  </section>
+</BaseLayout>
