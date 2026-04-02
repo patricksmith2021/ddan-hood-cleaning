@@ -401,19 +401,16 @@ const mapCities = [
     <p class="text-[#DDDDDD] font-body text-base leading-relaxed w-[80%] mx-auto mb-10 reveal-child">Every service we perform includes detailed before-and-after photo documentation. These photos provide invaluable visual records for your kitchen's ongoing maintenance log, insurance needs, and preparation for any fire or health inspection.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       {beforeAfter.map((pair, idx) => (
-        <div class="ba-container relative rounded-xl overflow-hidden h-[458px] cursor-ew-resize select-none reveal-child" data-ba-index={idx}>
-          {/* After image — bottom layer, always fully visible */}
-          <img src={pair.after} alt={`After ${idx+1}`} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-          <span class="ba-label ba-label-after">AFTER</span>
-          {/* Before image — top layer, inside a clip wrapper */}
-          <div class="ba-clip absolute top-0 left-0 h-full overflow-hidden" style="width:50%">
-            <img src={pair.before} alt={`Before ${idx+1}`} class="absolute top-0 left-0 h-full object-cover" style="width:var(--ba-container-w)" loading="lazy" />
-            <span class="ba-label ba-label-before">BEFORE</span>
+        <div class="ba-slider reveal-child" style="position:relative; overflow:hidden; width:100%; aspect-ratio:4/3; border-radius:12px; cursor:ew-resize; user-select:none;">
+          <img src={pair.after} alt={`After ${idx+1}`} style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;" loading="lazy" />
+          <div class="ba-before-wrap" style="position:absolute; top:0; left:0; width:50%; height:100%; overflow:hidden;">
+            <img src={pair.before} alt={`Before ${idx+1}`} style="display:block; height:100%; object-fit:cover;" loading="lazy" />
           </div>
-          {/* Drag handle */}
-          <div class="ba-handle absolute top-0 bottom-0 w-1 bg-[#FF5E15] cursor-ew-resize z-10" style="left:50%">
-            <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-[#FF5E15] rounded-full border-[3px] border-white flex items-center justify-center text-white font-bold text-sm">&harr;</span>
+          <div class="ba-handle" style="position:absolute; top:0; left:50%; width:4px; height:100%; background:#FF5E15; cursor:ew-resize; transform:translateX(-50%); z-index:10;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:40px; height:40px; border-radius:50%; background:#FF5E15; display:flex; align-items:center; justify-content:center; color:white; font-size:18px; box-shadow:0 2px 8px rgba(0,0,0,0.3);">&harr;</div>
           </div>
+          <span style="position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.7); color:white; padding:4px 12px; border-radius:4px; font-size:13px; z-index:5;">BEFORE</span>
+          <span style="position:absolute; top:12px; left:12px; background:rgba(0,0,0,0.7); color:white; padding:4px 12px; border-radius:4px; font-size:13px; z-index:5;">AFTER</span>
         </div>
       ))}
     </div>
@@ -744,38 +741,39 @@ const mapCities = [
     observer.observe(truck);
   });
 
-  // Before/After Sliders — clip-wrapper approach (no image distortion)
+  // Before/After Sliders — fixed pixel width on before image prevents distortion
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.ba-container').forEach((container) => {
-      const clip = container.querySelector('.ba-clip') as HTMLElement;
+    document.querySelectorAll('.ba-slider').forEach((container) => {
+      const beforeWrap = container.querySelector('.ba-before-wrap') as HTMLElement;
+      const beforeImg = beforeWrap?.querySelector('img') as HTMLImageElement;
       const handle = container.querySelector('.ba-handle') as HTMLElement;
-      if (!clip || !handle) return;
+      if (!beforeWrap || !beforeImg || !handle) return;
 
-      // Set the before image width to match the full container
-      const setImgWidth = () => {
-        (container as HTMLElement).style.setProperty('--ba-container-w', container.clientWidth + 'px');
-      };
-      setImgWidth();
-      window.addEventListener('resize', setImgWidth);
+      // CRITICAL: before image width = container width in pixels, NOT percentages
+      function setImageWidth() {
+        beforeImg.style.width = (container as HTMLElement).offsetWidth + 'px';
+      }
+      setImageWidth();
+      window.addEventListener('resize', setImageWidth);
 
       let isDragging = false;
-      const update = (x: number) => {
+      function updateSlider(x: number) {
         const rect = container.getBoundingClientRect();
-        let pos = ((x - rect.left) / rect.width) * 100;
-        pos = Math.max(0, Math.min(100, pos));
-        clip.style.width = pos + '%';
-        handle.style.left = pos + '%';
-      };
-      const start = (e: MouseEvent | TouchEvent) => { isDragging = true; e.preventDefault(); };
-      const move = (e: MouseEvent | TouchEvent) => { if (!isDragging) return; update('touches' in e ? e.touches[0].clientX : e.clientX); };
-      const end = () => { isDragging = false; };
-      handle.addEventListener('mousedown', start);
-      handle.addEventListener('touchstart', start, { passive: false });
-      window.addEventListener('mousemove', move);
-      window.addEventListener('touchmove', move, { passive: false });
-      window.addEventListener('mouseup', end);
-      window.addEventListener('touchend', end);
-      container.addEventListener('click', (e: Event) => update((e as MouseEvent).clientX));
+        let pos = (x - rect.left) / rect.width;
+        pos = Math.max(0.05, Math.min(0.95, pos));
+        beforeWrap.style.width = (pos * 100) + '%';
+        handle.style.left = (pos * 100) + '%';
+      }
+
+      handle.addEventListener('mousedown', () => isDragging = true);
+      container.addEventListener('mousedown', (e) => { isDragging = true; updateSlider((e as MouseEvent).clientX); });
+      window.addEventListener('mouseup', () => isDragging = false);
+      window.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e.clientX); });
+
+      handle.addEventListener('touchstart', (e) => { isDragging = true; e.preventDefault(); }, { passive: false });
+      container.addEventListener('touchstart', (e) => { isDragging = true; updateSlider((e as TouchEvent).touches[0].clientX); });
+      window.addEventListener('touchend', () => isDragging = false);
+      window.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0].clientX); });
     });
   });
 </script>
