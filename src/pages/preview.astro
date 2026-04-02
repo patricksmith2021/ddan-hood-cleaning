@@ -110,7 +110,7 @@ const mapCities = [
   <div class="max-w-[1280px] mx-auto px-5 h-full flex items-center justify-between">
     <!-- Left: Badges -->
     <ul class="flex items-center gap-8 text-base font-heading font-bold">
-      {['24HR Service', 'Cleaning & Repair', `Est. ${business.founded}`].map((badge) => (
+      {['24HR Service', 'Cleaning & Repair', `Est. ${business.founded}`, 'Top Rated in Tennessee'].map((badge) => (
         <li class="flex items-center gap-2">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 448 512"><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm0 400H48V80h352v352zm-35.864-241.724L191.547 361.48c-4.705 4.667-12.303 4.637-16.97-.068l-90.781-91.516c-4.667-4.705-4.637-12.303.069-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l59.792 60.277 141.352-140.216c4.705-4.667 12.303-4.637 16.97.068l22.536 22.718c4.667 4.706 4.637 12.304-.068 16.971z"/></svg>
           {badge}
@@ -334,8 +334,8 @@ const mapCities = [
     <h2 class="font-heading text-[#FF5E15] text-[2.8rem] font-semibold leading-[1.2] mb-3 reveal-child">Verified Customer Reviews in Mid Tennessee</h2>
     <p class="text-[#DDDDDD] font-body text-base leading-relaxed max-w-3xl mx-auto mb-8 reveal-child">Read verified reviews from our happy customers from the past 19 years in service! From spotless results to reliable fixes, our clients trust us for quality work, on-time service, and long-lasting solutions. Your satisfaction is our priority.</p>
 
-    <!-- Google Rating Summary -->
-    <div class="flex items-center justify-center gap-4 mb-8 reveal-child">
+    <!-- Google Rating Summary + Top Rated Badge -->
+    <div class="flex flex-wrap items-center justify-center gap-4 mb-8 reveal-child">
       <div class="bg-[#1A1A1A] border border-[#333] rounded-xl px-6 py-4 flex items-center gap-4">
         <img src={`${HP}/google-white-logo-1024x337.png`} alt="Google" class="h-8 object-contain brightness-200" />
         <div class="text-left">
@@ -344,6 +344,13 @@ const mapCities = [
             {Array(5).fill(0).map(() => <svg class="w-5 h-5 text-[#FFB800] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
             <span class="text-[#999] text-sm ml-1">Based on <strong class="text-white">{business.googleReviewCount}</strong> reviews</span>
           </div>
+        </div>
+      </div>
+      <div class="bg-[#FF5E15] rounded-xl px-6 py-4 flex items-center gap-3">
+        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 576 512"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3L288.1 439.8 416.2 508.3c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.2 329l104.3-103.1c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L382.2 150.3 316.9 18z"/></svg>
+        <div class="text-left">
+          <p class="text-white font-heading font-bold text-lg leading-tight">Top Rated Company</p>
+          <p class="text-white/80 text-sm font-heading">in Tennessee</p>
         </div>
       </div>
     </div>
