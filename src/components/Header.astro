@@ -5,176 +5,117 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about-ddan-hood-cleaning-and-repair/' },
   { label: 'NFPA Standards', href: '/nfpa-code-96-standards/' },
-  {
-    label: 'Services',
-    href: '/kitchen-exhaust-services-overview/',
-    children: [
-      { label: 'Hood Cleaning', href: '/kitchen-hood-cleaning-services/' },
-      { label: 'Hood Repair', href: '/commercial-hood-repair/' },
-      { label: 'Kitchen Exhaust Installation', href: '/kitchen-exhaust-installation-services/' },
-      { label: 'Grease Containment', href: '/grease-containment/' },
-      { label: 'Kitchen Exhaust Fan Parts', href: '/restaurant-exhaust-fan-parts/' },
-      { label: 'Exhaust Fan Hinge Kit Installation', href: '/exhaust-fan-hinge-kit-installation/' },
-      { label: 'Exhaust Fan Belt & Motor Repair', href: '/exhaust-fan-belt-motor-repair/' },
-      { label: 'Access Panel Installation', href: '/access-panel-installation/' },
-      { label: 'Restaurant Fire Suppression Systems', href: '/restaurant-fire-suppression-systems/' },
-    ],
-  },
+  { label: 'Services', href: '/kitchen-exhaust-services-overview/', children: [
+    { label: 'Hood Cleaning', href: '/kitchen-hood-cleaning-services/' },
+    { label: 'Hood Repair', href: '/commercial-hood-repair/' },
+    { label: 'Kitchen Exhaust Installation', href: '/kitchen-exhaust-installation-services/' },
+    { label: 'Grease Containment', href: '/grease-containment/' },
+    { label: 'Kitchen Exhaust Fan Parts', href: '/restaurant-exhaust-fan-parts/' },
+    { label: 'Exhaust Fan Hinge Kit', href: '/exhaust-fan-hinge-kit-installation/' },
+    { label: 'Belt & Motor Repair', href: '/exhaust-fan-belt-motor-repair/' },
+    { label: 'Access Panel Installation', href: '/access-panel-installation/' },
+    { label: 'Fire Suppression', href: '/restaurant-fire-suppression-systems/' },
+  ]},
   { label: 'Reviews', href: '/verified-reviews/' },
   { label: 'Gallery', href: '/gallery/' },
   { label: 'News', href: '/news/' },
   { label: 'Contact', href: '/contact/' },
 ];
-
-const currentPath = Astro.url.pathname;
 ---
 
-<!-- Utility Bar -->
-<div class="bg-primary text-white hidden md:block" style="height: var(--utility-bar-height);">
-  <div class="container-narrow h-full flex items-center justify-between">
-    <button
-      type="button"
-      class="popup-trigger flex items-center gap-2 text-white border border-white rounded px-3 py-1 text-xs font-heading font-medium hover:bg-white/10 transition-colors"
-      aria-label="Request Service Online"
-    >
-      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 320 512"><path d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"/></svg>
+<!-- Utility Bar — Orange (desktop only) -->
+<div class="bg-[#FF5E15] text-white hidden md:block sticky top-0 z-50" style="height:56px;">
+  <div class="max-w-[1280px] mx-auto px-5 h-full flex items-center justify-between">
+    <ul class="flex items-center gap-8 text-base font-heading font-bold">
+      {['24HR Service', 'Cleaning & Repair', `Est. ${business.founded}`, 'Top Rated in Tennessee'].map((badge) => (
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 448 512"><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm0 400H48V80h352v352zm-35.864-241.724L191.547 361.48c-4.705 4.667-12.303 4.637-16.97-.068l-90.781-91.516c-4.667-4.705-4.637-12.303.069-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l59.792 60.277 141.352-140.216c4.705-4.667 12.303-4.637 16.97.068l22.536 22.718c4.667 4.706 4.637 12.304-.068 16.971z"/></svg>
+          {badge}
+        </li>
+      ))}
+    </ul>
+    <span class="font-heading font-bold text-lg border-2 border-white/60 rounded px-5 py-1.5">{business.bilingualNote}!</span>
+    <button type="button" class="popup-trigger flex items-center gap-2.5 bg-black text-white text-base font-heading font-bold px-6 py-2.5 rounded hover:bg-white hover:text-black transition-all duration-300">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 320 512"><path d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"/></svg>
       Request Service Online
     </button>
-
-    <span class="font-heading font-medium text-sm border border-white rounded px-3 py-1">
-      {business.bilingualNote}!
-    </span>
-
-    <ul class="flex items-center gap-6 text-xs font-heading font-medium">
-      <li class="flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 448 512"><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm0 400H48V80h352v352zm-35.864-241.724L191.547 361.48c-4.705 4.667-12.303 4.637-16.97-.068l-90.781-91.516c-4.667-4.705-4.637-12.303.069-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l59.792 60.277 141.352-140.216c4.705-4.667 12.303-4.637 16.97.068l22.536 22.718c4.667 4.706 4.637 12.304-.068 16.971z"/></svg>
-        24HR Service
-      </li>
-      <li class="flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 448 512"><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm0 400H48V80h352v352zm-35.864-241.724L191.547 361.48c-4.705 4.667-12.303 4.637-16.97-.068l-90.781-91.516c-4.667-4.705-4.637-12.303.069-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l59.792 60.277 141.352-140.216c4.705-4.667 12.303-4.637 16.97.068l22.536 22.718c4.667 4.706 4.637 12.304-.068 16.971z"/></svg>
-        Cleaning &amp; Repair
-      </li>
-      <li class="flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 448 512"><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm0 400H48V80h352v352zm-35.864-241.724L191.547 361.48c-4.705 4.667-12.303 4.637-16.97-.068l-90.781-91.516c-4.667-4.705-4.637-12.303.069-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l59.792 60.277 141.352-140.216c4.705-4.667 12.303-4.637 16.97.068l22.536 22.718c4.667 4.706 4.637 12.304-.068 16.971z"/></svg>
-        Est. {business.founded}
-      </li>
-    </ul>
   </div>
 </div>
 
-<!-- Main Nav -->
-<nav class="bg-white sticky top-0 z-50 shadow-sm" style="height: var(--nav-height);">
-  <div class="container-narrow h-full flex items-center justify-between">
-    <!-- Logo -->
+<!-- Main Nav Bar — Dark (desktop only) -->
+<nav class="bg-[#111111] hidden md:block" style="height:84px;">
+  <div class="max-w-[1280px] mx-auto px-5 h-full flex items-center justify-between">
     <a href="/" class="flex-shrink-0">
-      <img
-        src="/images/logos/ddan-logo-square.png"
-        alt={business.name}
-        width="50"
-        height="50"
-        class="w-12 h-12 object-contain"
-      />
+      <img src="/images/logos/DDAN Hood Cleaning and Repair Logo PNG.png" alt={business.name} width="200" height="60" class="h-14 w-auto object-contain" />
     </a>
-
-    <!-- Desktop Nav Links -->
-    <ul class="hidden lg:flex items-center gap-5 font-heading text-sm font-medium text-body-text-light">
+    <ul class="hidden lg:flex items-center gap-5 font-heading text-base font-medium text-white">
       {navLinks.map((link) => (
         <li class="relative group">
-          <a
-            href={link.href}
-            class:list={[
-              'py-2 transition-colors hover:text-primary',
-              currentPath === link.href && 'text-primary',
-            ]}
-          >
+          <a href={link.href} class="py-1.5 px-2.5 rounded-lg transition-all duration-300 hover:text-[#FF5E15] hover:border-[#FF5E15] border-2 border-transparent">
             {link.label}
-            {link.children && (
-              <svg class="inline w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
-            )}
+            {link.children && <svg class="inline w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>}
           </a>
           {link.children && (
-            <ul class="absolute left-0 top-full bg-white shadow-lg rounded py-2 min-w-[280px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+            <ul class="absolute left-0 top-full bg-[#111111] border border-[#333333] rounded py-2 min-w-[260px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
               {link.children.map((child) => (
-                <li>
-                  <a href={child.href} class="block px-4 py-2 text-sm text-body-text-light hover:text-primary hover:bg-gray-50 transition-colors">
-                    {child.label}
-                  </a>
-                </li>
+                <li><a href={child.href} class="block px-4 py-2 text-sm text-white hover:text-white hover:bg-[#FF5E15] transition-all duration-300 border-b border-[#FF5E15]/20 last:border-0">{child.label}</a></li>
               ))}
             </ul>
           )}
         </li>
       ))}
     </ul>
-
-    <!-- Phone CTA -->
-    <a href={`tel:${business.phoneRaw}`} class="hidden md:flex items-center gap-2 text-body-text-light hover:text-primary transition-colors">
-      <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-      <span class="font-heading text-sm font-medium">
-        <span class="text-xs text-muted-text">Call For Booking</span><br>
-        {business.phone}
+    <a href={`tel:${business.phoneRaw}`} class="hidden md:flex items-center gap-3 group">
+      <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full transition-all duration-300 group-hover:scale-110 group-hover:brightness-110">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+      </span>
+      <span class="font-heading text-base text-white transition-all duration-300 group-hover:text-[#FF5E15]">
+        <span class="text-xs text-[#999999] block leading-none">Call For Booking</span>
+        <span class="font-semibold">{business.phone}</span>
       </span>
     </a>
-
-    <!-- Mobile Hamburger -->
-    <button
-      type="button"
-      class="lg:hidden flex flex-col gap-1.5 p-2"
-      id="mobile-menu-btn"
-      aria-label="Open menu"
-    >
-      <span class="w-6 h-0.5 bg-body-text-light"></span>
-      <span class="w-6 h-0.5 bg-body-text-light"></span>
-      <span class="w-6 h-0.5 bg-body-text-light"></span>
-    </button>
   </div>
 </nav>
 
-<!-- Mobile Nav Overlay -->
-<div id="mobile-menu" class="fixed inset-0 bg-secondary z-[999] translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
-  <div class="flex items-center justify-between p-4 border-b border-border-subtle">
-    <a href="/">
-      <img src="/images/logos/ddan-logo-square.png" alt={business.name} width="40" height="40" class="w-10 h-10" />
+<!-- Mobile Header -->
+<div class="md:hidden sticky top-0 z-50 bg-[#1A1A1A] h-14 flex items-center justify-between px-4">
+  <a href="/" class="flex-shrink-0">
+    <img src="/images/logos/DDAN Hood Cleaning and Repair Logo PNG.png" alt={business.name} class="h-8 w-auto object-contain" />
+  </a>
+  <div class="flex items-center gap-3">
+    <a href={`tel:${business.phoneRaw}`} class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full">
+      <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
     </a>
-    <button type="button" id="mobile-menu-close" class="text-primary text-2xl font-bold p-2" aria-label="Close menu">X</button>
-  </div>
-  <ul class="p-4 space-y-1 font-heading text-white">
-    {navLinks.map((link) => (
-      <li>
-        <a href={link.href} class="block py-3 border-b border-border-subtle hover:text-primary transition-colors">
-          {link.label}
-        </a>
-        {link.children && (
-          <ul class="pl-4">
-            {link.children.map((child) => (
-              <li>
-                <a href={child.href} class="block py-2 text-sm text-body-text hover:text-primary transition-colors">
-                  {child.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
-      </li>
-    ))}
-  </ul>
-  <div class="p-4">
-    <a href={`tel:${business.phoneRaw}`} class="btn-primary w-full justify-center">
-      Call {business.phone}
-    </a>
+    <button type="button" id="mobile-menu-btn" aria-label="Open menu" class="w-10 h-10 flex flex-col items-center justify-center gap-1.5">
+      <span class="block w-6 h-0.5 bg-white"></span>
+      <span class="block w-6 h-0.5 bg-white"></span>
+      <span class="block w-6 h-0.5 bg-white"></span>
+    </button>
   </div>
 </div>
 
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-[#1A1A1A]/95 z-[999] hidden flex-col items-center justify-center">
+  <button type="button" id="mobile-menu-close" aria-label="Close menu" class="absolute top-4 right-4 text-[#FF5E15] text-3xl font-bold">&times;</button>
+  <nav class="flex flex-col items-center gap-0 w-full px-8 max-h-[80vh] overflow-y-auto">
+    {navLinks.map((link) => (
+      <a href={link.href} class="mobile-nav-link block w-full text-center text-white text-lg font-heading font-medium py-3 border-b border-[#333]">{link.label}</a>
+    ))}
+    <button type="button" class="popup-trigger mt-6 w-full py-3 bg-[#FF5E15] text-white text-lg font-heading font-bold rounded">Request Service Online</button>
+  </nav>
+</div>
+
 <script>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const closeBtn = document.getElementById('mobile-menu-close');
-
-  btn?.addEventListener('click', () => {
-    menu?.classList.remove('translate-x-full');
-  });
-
-  closeBtn?.addEventListener('click', () => {
-    menu?.classList.add('translate-x-full');
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menuOverlay = document.getElementById('mobile-menu-overlay');
+    const menuClose = document.getElementById('mobile-menu-close');
+    if (menuBtn && menuOverlay) {
+      menuBtn.addEventListener('click', () => { menuOverlay.classList.remove('hidden'); menuOverlay.classList.add('flex'); document.body.style.overflow = 'hidden'; });
+      menuClose?.addEventListener('click', () => { menuOverlay.classList.add('hidden'); menuOverlay.classList.remove('flex'); document.body.style.overflow = ''; });
+      menuOverlay.querySelectorAll('.mobile-nav-link').forEach((link) => {
+        link.addEventListener('click', () => { menuOverlay.classList.add('hidden'); menuOverlay.classList.remove('flex'); document.body.style.overflow = ''; });
+      });
+    }
   });
 </script>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
 import business from '../data/business.json';
 
 const HP = '/images/homepage';
@@ -40,20 +41,13 @@ const faqs = [
   { q: 'Do you handle everything, or do I need multiple contractors for cleaning, repair, and installation?', a: "DDAN is your <strong>all-in-one solution</strong>. We expertly handle <strong>cleaning, repairs, installation, and parts sales</strong> for commercial kitchen exhaust systems. You'll only deal with one trusted, professional team \u2013 no subcontractors, no delays, and consistent quality across all services." },
 ];
 
-const beforeAfter = [
-  { after: `${HP}/484303716_1393752738353089_8141754902918181360_n-e1752434270970-768x725.jpg`, before: `${HP}/484228403_1393752375019792_506057596076959451_n-e1752434231691.jpg` },
-  { after: `${HP}/494512892_1437622623966100_4044307143311864352_n.jpg`, before: `${HP}/495006042_1437620400632989_3401255195250514154_n.jpg` },
-  { after: `${HP}/3_After-768x576.jpg`, before: `${HP}/3_Before-768x576.jpg` },
-  { after: `${HP}/2_After.jpg`, before: `${HP}/2_Before.jpg` },
-];
-
 const galleryImgs = [
   `${HP}/gallery-1.jpg`,
-  `${HP}/119280791_180137593554824_8912214928319172354_n.jpg` ,
-  `${HP}/461794000_1271556883906009_7916879387880277431_n.jpg` ,
-  `${HP}/469778380_1098682555033652_455391933703696342_n.jpg` ,
-  `${HP}/469797908_1098664541702120_287504172955796308_n.jpg` ,
-  `${HP}/469805687_1098682605033647_3324071844564978738_n.jpg` ,
+  `${HP}/119280791_180137593554824_8912214928319172354_n.jpg`,
+  `${HP}/461794000_1271556883906009_7916879387880277431_n.jpg`,
+  `${HP}/469778380_1098682555033652_455391933703696342_n.jpg`,
+  `${HP}/469797908_1098664541702120_287504172955796308_n.jpg`,
+  `${HP}/469805687_1098682605033647_3324071844564978738_n.jpg`,
   `${HP}/484228403_1393752375019792_506057596076959451_n-e1752434231691.jpg`,
   `${HP}/484303716_1393752738353089_8141754902918181360_n-e1752434270970-768x725.jpg`,
   `${HP}/gallery-9.jpg`,
@@ -71,7 +65,6 @@ const mapCities = [
   { city: 'La Vergne TN', zips: '37086, 37089' },
   { city: 'Smyrna TN', zips: '37086, 37129, 37167' },
 ];
-
 ---
 
 <BaseLayout
@@ -80,57 +73,45 @@ const mapCities = [
 >
 
 <!-- ===================== SECTION 1: HERO SLIDESHOW ===================== -->
-<section class="relative min-h-[90vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden" id="hero">
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden" id="hero">
   <div class="absolute inset-0 z-0">
-    <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-500 bg-cover bg-center" style={`background-image:url('${HP}/hero-slide-1.jpg')`}></div>
-    <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-500 bg-cover bg-center" style={`background-image:url('${HP}/hero-slide-2.jpg')`}></div>
-    <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-500 bg-cover bg-center" style={`background-image:url('${HP}/hero-slide-3.jpg')`}></div>
-    <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-500 bg-cover bg-center" style={`background-image:url('${HP}/hero-slide-4.jpg')`}></div>
+    <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-500 bg-cover bg-center" style="background-image:url('/images/homepage-hero/kitchen-exhaust-cleaning-services-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg')"></div>
+    <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-500 bg-cover bg-center" style="background-image:url('/images/homepage-hero/vent-hood-cleaning-service-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg')"></div>
+    <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-500 bg-cover bg-center" style="background-image:url('/images/homepage-hero/restaurant-hood-fan-repair-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg')"></div>
+    <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-500 bg-cover bg-center" style="background-image:url('/images/homepage-hero/kitchen-hood-motor-repair-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg')"></div>
     <div class="absolute inset-0 bg-black/70"></div>
   </div>
-
   <div class="relative z-10 w-full max-w-[1280px] mx-auto px-5 py-12 flex flex-col items-center text-center gap-2.5">
-    <!-- Company Name -->
     <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide animate-fadeInUp">DDAN Hood Cleaning and Repair</p>
-
-    <!-- Desktop Animated H1 -->
-    <h1 class="hidden md:block font-display text-white text-[4.4rem] leading-[1.3] font-semibold">
+    <h1 class="hidden md:block font-display text-white text-2xl md:text-[4.4rem] leading-[1.3] font-semibold">
       Commercial Kitchen Exhaust <span id="typing-text" class="text-[#FF5E15]"></span><span id="typing-cursor" class="text-[#FF5E15]">|</span><br/> Installation &amp; Parts
     </h1>
-
-    <!-- Mobile Static H2 -->
-    <h2 class="md:hidden font-display text-white text-[2.1rem] leading-[1.5] font-semibold">
+    <h2 class="md:hidden font-display text-white text-3xl leading-[1.3] font-bold">
       Commercial Kitchen Exhaust Fan <span class="text-[#FF5E15]">Cleaning &amp; Repair</span>, Installation &amp; Parts
     </h2>
-
-    <!-- Subtitle -->
-    <p class="text-white font-body text-base md:text-lg font-bold text-center w-[70%] md:w-[70%] max-w-[1000px] mx-auto animate-fadeInUp" style="animation-delay:0.3s">
+    <p class="text-white font-body text-base md:text-lg font-bold text-center w-full md:w-[70%] max-w-[1000px] mx-auto animate-fadeInUp" style="animation-delay:0.3s">
       Serving Mt. Juliet and the Nashville Metro | 24/7 Emergency Response
     </p>
-
-    <!-- CTA Buttons -->
-    <div class="flex flex-col-reverse sm:flex-row items-center justify-center gap-3 mt-4 animate-fadeInUp" style="animation-delay:0.5s">
-      <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-[1.2rem] font-medium rounded hover:bg-[#FF5E15] transition-colors">
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4 animate-fadeInUp w-full sm:w-auto" style="animation-delay:0.5s">
+      <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center justify-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-[1.2rem] font-medium rounded hover:bg-[#FF5E15] transition-all duration-300 w-full sm:w-auto">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         Call Us: {business.phone}
       </a>
-      <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-colors">
+      <button type="button" class="popup-trigger inline-flex items-center justify-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300 w-full sm:w-auto">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         Get Service Today
       </button>
     </div>
-
-    <!-- Trust Badges -->
-    <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-6 animate-fadeInUp" style="animation-delay:0.7s">
+    <div class="flex flex-row items-center justify-center gap-3 md:gap-10 mt-6 md:mt-8 animate-fadeInUp" style="animation-delay:0.7s">
       {[
         { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
         { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
         { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
       ].map((badge) => (
-        <div class="flex flex-col items-center gap-1 border border-[#FF5E15] rounded-2xl px-4 py-1">
-          <img src={badge.img} alt="" class="h-6 md:h-7 object-contain" style={`width:${badge.w};max-width:140px`} loading="lazy" />
-          <div class="flex gap-0.5">
-            {Array(5).fill(0).map(() => <svg class="w-4 h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+        <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-6 md:py-2.5">
+          <img src={badge.img} alt="" class="h-5 md:h-11 object-contain" style={`width:${badge.w};max-width:220px`} loading="lazy" />
+          <div class="flex gap-0.5 md:gap-1">
+            {Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-6 md:h-6 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
           </div>
         </div>
       ))}
@@ -139,69 +120,77 @@ const mapCities = [
 </section>
 
 <!-- ===================== SECTION 2: KEEP YOUR KITCHEN RUNNING ===================== -->
-<section class="bg-black pt-16 pb-0 px-4 reveal">
-  <div class="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-8 items-start justify-between">
+<!-- CHANGE 2: Increased padding py-16 md:py-20 -->
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
+  <div class="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-10 items-start justify-between">
     <div class="lg:w-[55%]">
-      <h2 class="font-display text-[#FF5E15] text-[3rem] md:text-[3rem] font-semibold leading-[1.2] mb-4 reveal-child">Keep Your Commercial Kitchen Running Smoothly</h2>
-      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-4 w-[93%] reveal-child">Welcome to DDAN Hood Cleaning and Repair — Middle Tennessee's trusted partner in commercial kitchen exhaust system care. We specialize in NFPA 96 compliant:</p>
+      <h2 class="font-heading text-[#FF5E15] text-xl md:text-[3rem] font-semibold leading-[1.2] mb-4 text-center md:text-left reveal-child">Keep Your Commercial Kitchen Running Smoothly</h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-4 w-full md:w-[93%] reveal-child">Welcome to DDAN Hood Cleaning and Repair — Middle Tennessee's trusted partner in commercial kitchen exhaust system care. We specialize in NFPA 96 compliant:</p>
       <ul class="space-y-2 mb-6 reveal-child">
         {['Restaurant Hood Cleaning','Restaurant Hood Repair','Full Kitchen Ventilation System Installation','Rooftop Grease Containment Solutions','Commercial Kitchen Exhaust Fan Part Sales'].map((item) => (
           <li class="flex items-center gap-2 text-white text-[15px] font-medium font-heading">
-            <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <svg class="flex-shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="1" y="1" width="22" height="22" rx="4" stroke="#FF5E15" stroke-width="2" fill="none"/><path d="M7 12.5l3 3 7-7" stroke="#FF5E15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
             {item}
           </li>
         ))}
       </ul>
-      <a href="/about-ddan-hood-cleaning-and-repair/" class="inline-flex items-center flex-row-reverse gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-base font-medium rounded hover:bg-[#FF5E15] transition-colors mt-2 reveal-child">
+      <a href="/about-ddan-hood-cleaning-and-repair/" class="inline-flex items-center flex-row-reverse gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-base font-medium rounded hover:bg-[#FF5E15] transition-all duration-300 mt-2 reveal-child">
         Learn More About Us
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
-    <div class="lg:w-[45%] border-[3px] border-[#FF5E15] rounded-2xl p-5 flex items-center justify-center reveal-child">
-      <img src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`} alt="grease hood cleaning near me nashville tn - DDAN Hood Cleaning and Repair (615) 881-6968" class="w-full h-[400px] object-cover rounded-2xl" loading="lazy" />
+    <div class="lg:w-[45%] border-[3px] border-[#FF5E15] rounded-2xl p-5 flex items-center justify-center mb-6 lg:mb-0 reveal-child">
+      <img src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`} alt="grease hood cleaning near me nashville tn" class="w-full h-[400px] object-cover rounded-2xl" loading="lazy" />
     </div>
   </div>
 </section>
 
 <!-- ===================== SECTION 3: EXPERIENCE + SERVICES LIST ===================== -->
-<section class="bg-black pt-8 pb-0 px-4 reveal">
-  <div class="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-8 items-start justify-between">
-    <div class="lg:w-[55%] order-2 lg:order-1">
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
+  <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="border-[3px] border-[#FF5E15] rounded-2xl p-5 flex items-center justify-center reveal-child">
+      <img src={`${HP}/certified-hood-cleaning-company-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp`} alt="certified hood cleaning company nashville tn" class="w-full max-h-[500px] object-cover rounded-2xl" loading="lazy" />
+    </div>
+    <div>
       <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-4 reveal-child">Whether you need emergency exhaust fan repair, a complete hood system installation, or scheduled quarterly cleanings, DDAN's your one-stop shop for comprehensive kitchen exhaust system services.</p>
       <ul class="space-y-2 mb-6 reveal-child">
         {['Over 18 Years of Experience','Serving Restaurants, Churches, Schools, and more','Helping the Nashville area stay clean, operational, and inspection-ready','24/7 Emergency Repair Services','Rapid Overnight Cleans to Keep You 100% Operational'].map((item) => (
           <li class="flex items-center gap-2 text-white text-[15px] font-medium font-heading">
-            <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <svg class="flex-shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="1" y="1" width="22" height="22" rx="4" stroke="#FF5E15" stroke-width="2" fill="none"/><path d="M7 12.5l3 3 7-7" stroke="#FF5E15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
             {item}
           </li>
         ))}
       </ul>
-      <a href="/kitchen-exhaust-services-overview/" class="inline-flex items-center flex-row-reverse gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-base font-medium rounded hover:bg-[#FF5E15] transition-colors reveal-child">
+      <a href="/kitchen-exhaust-services-overview/" class="inline-flex items-center flex-row-reverse gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-base font-medium rounded hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
         See Our Services
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-    </div>
-    <div class="lg:w-[45%] order-1 lg:order-2 border-[3px] border-[#FF5E15] rounded-2xl p-5 flex items-center justify-center reveal-child">
-      <img src={`${HP}/certified-hood-cleaning-company-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp`} alt="certified hood cleaning company nashville tn - DDAN Hood Cleaning and Repair (615) 881-6968" class="w-full h-[400px] object-cover rounded-2xl" loading="lazy" />
     </div>
   </div>
 </section>
 
 <!-- ===================== SECTION 4: THREE PROCESS CARDS ===================== -->
-<section class="bg-black pt-4 pb-16 px-4">
-  <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row flex-wrap gap-5 items-stretch justify-center reveal">
-    {[
-      { title: 'Free Inspection & Quote', desc: 'Get a 100% free, no-obligation estimate for businesses within 15 miles of Mt. Juliet.', bg: 'bg-[#032C5B]', mt: 'mt-[50px] md:mt-[50px]' },
-      { title: 'Schedule Your Service', desc: 'We prioritize accommodating your business hours.', bg: 'bg-[#FF5E15]', mt: 'mt-0' },
-      { title: 'Full Service & Comprehensive Report', desc: "Our certified team delivers complete, professional work \u2014 whether it's meticulous cleaning, expert repair, or precision installation.", bg: 'bg-[#032C5B]', mt: 'mt-[50px] md:mt-[50px]' },
-    ].map((card) => (
-      <div class={`${card.bg} ${card.mt} w-full md:w-[31%] lg:w-[31%] rounded-[25px] p-8 text-white hover:-translate-y-4 transition-transform duration-300 reveal-child`}>
-        <h3 class="font-body text-[1.8rem] font-semibold leading-[1.2] mb-3">{card.title}</h3>
-        <p class="text-white/90 text-lg">{card.desc}</p>
-      </div>
-    ))}
-    <div class="w-full text-center mt-6">
-      <button type="button" class="popup-trigger inline-flex items-center gap-2 px-[100px] py-5 bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-colors reveal-child">
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5">
+  <div class="max-w-[1280px] mx-auto reveal">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 mt-8">
+      {[
+        { num: '01', title: 'Free Inspection & Quote', desc: 'Get a 100% free, no-obligation estimate for businesses within 15 miles of Mt. Juliet.', cta: 'Free Quote' },
+        { num: '02', title: 'Get Scheduled Right Away', desc: 'We prioritize accommodating your business hours.', cta: 'Get Schedule' },
+        { num: '03', title: 'Satisfaction Guaranteed', desc: "Our certified team delivers complete, professional work \u2014 whether it's meticulous cleaning, expert repair, or precision installation.", cta: 'Get Report' },
+      ].map((card) => (
+        <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+          <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+          <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          <button type="button" class="popup-trigger inline-flex items-center gap-2 text-white font-heading text-sm font-medium hover:text-[#FF5E15] transition-all duration-300 text-left">
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            {card.cta}
+          </button>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-10">
+      <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         Get Started
       </button>
@@ -210,33 +199,31 @@ const mapCities = [
 </section>
 
 <!-- ===================== SECTION 5: WHY CHOOSE DDAN ===================== -->
-<section class="bg-black py-16 px-4 reveal">
-  <div class="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-10 items-start">
-    <div class="lg:w-[55%]">
-      <h2 class="font-display text-[#FF5E15] text-[3rem] font-semibold leading-[1.2] mb-3 reveal-child">Why Choose DDAN Hood Cleaning and Repair?</h2>
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
+  <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="font-heading text-[#FF5E15] text-xl md:text-[3rem] font-semibold leading-[1.2] mb-3 text-center md:text-left reveal-child">Why Choose DDAN Hood Cleaning and Repair?</h2>
       <h3 class="font-heading text-white text-xl md:text-2xl font-semibold leading-snug mb-4 reveal-child">We do more than just clean; we fix, install, and protect your commercial kitchen's most vital system.</h3>
       <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-6 reveal-child">Unlike many "hood cleaners" who only provide surface-level work, DDAN offers end-to-end commercial kitchen exhaust system care. We meticulously clean every component to bare metal, expertly repair exhaust fan failures, professionally install new restaurant hood systems, and proactively solve ventilation problems before they can shut you down. Our work consistently meets and exceeds all health, fire, and safety standards, and every service is thoroughly documented with photos for your records.</p>
-      <a href="/contact/" class="inline-flex items-center flex-row-reverse gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-base font-medium rounded hover:bg-[#FF5E15] transition-colors reveal-child">
+      <a href="/contact/" class="inline-flex items-center flex-row-reverse gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-base font-medium rounded hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
         Get Service Today
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
-    <div class="lg:w-[45%] reveal-child">
-      <img src={`${HP}/restaurant-hood-cleaning-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg`} alt="restaurant hood cleaning nashville tn - DDAN Hood Cleaning and Repair (615) 881-6968" class="w-full rounded-2xl" loading="lazy" />
+    <div class="reveal-child">
+      <img src={`${HP}/restaurant-hood-cleaning-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg`} alt="restaurant hood cleaning nashville tn" class="w-full max-h-[560px] object-cover rounded-xl" loading="lazy" />
     </div>
   </div>
 </section>
 
 <!-- ===================== SECTION 6: WHAT SETS DDAN APART ===================== -->
-<section class="bg-black py-12 px-4 reveal">
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
   <div class="max-w-[1280px] mx-auto">
-    <h4 class="text-[#FF5E15] font-heading text-[22px] font-medium capitalize leading-snug mb-6 reveal-child">What sets DDAN apart</h4>
+    <h4 class="text-[#FF5E15] font-heading text-[22px] font-semibold capitalize leading-snug mb-6 reveal-child">What sets DDAN apart</h4>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {['Over 18 years of proven results','24-hour emergency service','Everything to NFPA 96 standards','Verified completion of every service','We are problem solvers, not invoice hunters','Fully licensed and insured for your peace of mind'].map((item) => (
-        <div class="flex items-start gap-3 border border-[#FF5E15] rounded-2xl p-5 hover:border-white transition-colors reveal-child">
-          <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#FF5E15] rounded-lg">
-            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          </div>
+        <div class="flex items-start gap-3 border border-[#FF5E15] rounded-2xl p-5 hover:border-white transition-all duration-300 reveal-child">
+          <svg class="flex-shrink-0" width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="1" y="1" width="22" height="22" rx="4" stroke="#FF5E15" stroke-width="2" fill="none"/><path d="M7 12.5l3 3 7-7" stroke="#FF5E15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
           <p class="text-white font-heading text-base font-medium">{item}</p>
         </div>
       ))}
@@ -244,36 +231,109 @@ const mapCities = [
   </div>
 </section>
 
-<!-- ===================== SECTION 7: VERIFIED REVIEWS (Trustindex) ===================== -->
-<section class="bg-black py-16 px-4 reveal">
+<!-- ===================== SECTION 7: VERIFIED REVIEWS ===================== -->
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
   <div class="max-w-[1280px] mx-auto text-center">
-    <h2 class="font-display text-[#FF5E15] text-[2.8rem] font-semibold leading-[1.2] mb-3 reveal-child">Verified Customer Reviews in Mid Tennessee</h2>
+    <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-3 reveal-child">Verified Customer Reviews in Mid Tennessee</h2>
     <p class="text-[#DDDDDD] font-body text-base leading-relaxed max-w-3xl mx-auto mb-8 reveal-child">Read verified reviews from our happy customers from the past 19 years in service! From spotless results to reliable fixes, our clients trust us for quality work, on-time service, and long-lasting solutions. Your satisfaction is our priority.</p>
-    <div class="bg-[#DDDDDD] rounded-2xl p-5 w-[90%] mx-auto mb-6 reveal-child" style="--overlay-opacity:0.6">
-      <div id="trustindex-widget">
-        <script is:inline type="text/javascript" src="https://cdn.trustindex.io/loader.js?wp-widget" defer></script>
+
+    <!-- Google Rating Summary + Top Rated Badge -->
+    <div class="flex flex-wrap items-center justify-center gap-4 mb-8 reveal-child">
+      <div class="bg-[#1A1A1A] border border-[#333] rounded-xl px-6 py-4 flex items-center gap-4">
+        <img src={`${HP}/google-white-logo-1024x337.png`} alt="Google" class="h-8 object-contain brightness-200" />
+        <div class="text-left">
+          <p class="text-white font-heading font-bold text-lg">EXCELLENT</p>
+          <div class="flex items-center gap-1">
+            {Array(5).fill(0).map(() => <svg class="w-5 h-5 text-[#FFB800] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            <span class="text-[#999] text-sm ml-1">Based on <strong class="text-white">{business.googleReviewCount}</strong> reviews</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gradient-to-r from-[#FF5E15] to-[#E54F0D] rounded-xl px-6 py-4 flex items-center gap-4 border-2 border-white/20 shadow-lg shadow-[#FF5E15]/20">
+        <div class="flex flex-col items-center">
+          <span class="text-white font-heading font-black text-3xl leading-none">#1</span>
+          <div class="flex gap-0.5 mt-1">
+            {Array(5).fill(0).map(() => <svg class="w-3 h-3 text-[#FFB800] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+          </div>
+        </div>
+        <div class="text-left border-l-2 border-white/30 pl-4">
+          <p class="text-white font-heading font-black text-lg leading-tight uppercase tracking-wide">Rated Hood Company</p>
+          <p class="text-white/90 text-sm font-heading font-semibold">in Tennessee</p>
+        </div>
       </div>
     </div>
-    <a href={business.googleReviewUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-[#032C5B] transition-colors reveal-child">
+
+    <!-- Review Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full md:w-[90%] mx-auto mb-8">
+      {[
+        { name: 'E Smith', date: '2 months ago', text: 'DDAN Hood Cleaning did an outstanding job on our restaurant exhaust system. They were thorough, professional, and left everything spotless. The before and after photos they provided were impressive. Highly recommend their services to any commercial kitchen in Nashville!' },
+        { name: 'Brian Dahdouh', date: '3 months ago', text: "Excellent service from start to finish. The team arrived on time, worked efficiently through the night so we didn't lose any business hours, and the quality of their cleaning was top-notch. Every component was cleaned to bare metal. They also identified a belt issue on our rooftop fan and fixed it on the spot." },
+        { name: 'Sean Morris', date: '4 months ago', text: "We've used DDAN for quarterly hood cleanings at our church kitchen for over two years now. Always reliable, always thorough, and the documentation they provide makes our fire inspections a breeze. Great communication and fair pricing. Can't recommend them enough." },
+      ].map((review) => (
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-xl p-6 text-left reveal-child">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-[#FF5E15] flex items-center justify-center text-white font-heading font-bold text-lg">{review.name[0]}</div>
+            <div>
+              <p class="text-white font-heading font-semibold text-sm">{review.name}</p>
+              <p class="text-[#999] text-xs">{review.date}</p>
+            </div>
+            <img src={`${HP}/google-white-logo-1024x337.png`} alt="Google" class="h-4 ml-auto brightness-200 opacity-60" />
+          </div>
+          <div class="flex gap-0.5 mb-3">
+            {Array(5).fill(0).map(() => <svg class="w-4 h-4 text-[#FFB800] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+          </div>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">{review.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <a href={business.googleReviewUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-[#032C5B] transition-all duration-300 reveal-child">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
       See All Verified Reviews
     </a>
   </div>
 </section>
 
-<!-- ===================== SECTION 8: 9 SERVICE CARDS ===================== -->
-<section class="bg-black py-16 px-4 reveal">
-  <div class="max-w-[1280px] mx-auto">
-    <h2 class="font-display text-[#FF5E15] text-[2.8rem] font-semibold leading-[1.2] w-[58%] md:w-[58%] mb-2 reveal-child">Full-Service Commercial Kitchen Exhaust System Service</h2>
-    <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">DDAN provides comprehensive lifecycle service for your restaurant's kitchen exhaust system, ensuring optimal performance and compliance.</p>
+<!-- ===================== DON'T WAIT CTA + TRUCK ===================== -->
+<section class="relative overflow-hidden bg-black reveal" id="urgency-cta">
+  <div class="absolute inset-0 bg-cover bg-top bg-no-repeat" style={`background-image:url('${HP}/495006042_1437620400632989_3401255195250514154_n.jpg')`}></div>
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, #FF5E158F 0%, #000000 100%); opacity:0.78"></div>
+  <div class="relative z-10 max-w-[1280px] mx-auto px-5 pt-20 pb-0 flex flex-col lg:flex-row items-end">
+    <div class="lg:w-[66%] pb-12 flex flex-col gap-2.5 reveal-child">
+      <h2 class="font-heading text-white text-xl md:text-[45px] font-semibold capitalize leading-[1.1] mb-2">
+        Don't Wait Until You're <span class="text-white">Fined or Shut Down!</span>
+      </h2>
+      <div class="w-16 h-0.5 bg-[#FF5E15] my-2"></div>
+      <p class="text-[#E0E0E0] font-heading text-base mb-4">Whether you need a one-time deep clean, an urgent emergency repair, or a complete kitchen exhaust system installation, <strong class="text-white">DDAN Hood Cleaning and Repair</strong> is here to keep you up and running.</p>
+      <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-3 mb-3">
+        <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-xl">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+        </span>
+        <span class="text-white font-heading text-lg font-semibold hover:text-[#FF5E15] transition-all duration-300">Call Now: {business.phone}</span>
+      </a>
+      <button type="button" class="popup-trigger inline-flex items-center gap-2 w-fit px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Request Service Online
+      </button>
+    </div>
+    <div class="w-full lg:w-[60%] flex justify-center lg:justify-end items-end -mb-2.5">
+      <img src={`${HP}/truck-removebg-preview.png`} alt="DDAN Hood Cleaning truck" class="md:truck-drive-in max-w-full w-full md:w-auto" id="truck-img" loading="lazy" />
+    </div>
+  </div>
+</section>
 
+<!-- ===================== SECTION 8: 9 SERVICE CARDS ===================== -->
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
+  <div class="max-w-[1280px] mx-auto">
+    <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] w-full md:w-[58%] mb-2 reveal-child">Full-Service Commercial Kitchen Exhaust System Service</h2>
+    <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-12 reveal-child">DDAN provides comprehensive lifecycle service for your restaurant's kitchen exhaust system, ensuring optimal performance and compliance.</p>
     <div class="flex flex-wrap gap-y-[50px] gap-x-5 justify-start">
       {services.map((svc) => (
         <div class={`${svc.bg} w-full md:w-[48%] lg:w-[32%] rounded-[30px] p-4 text-white overflow-hidden reveal-child`}>
           <img src={svc.img} alt={svc.alt} class="w-full h-[270px] object-cover rounded-2xl mb-4" loading="lazy" />
-          <h3 class="font-display text-white text-[1.6rem] font-semibold leading-[1.2] mb-2">{svc.title}</h3>
+          <h3 class="font-heading text-white text-[1.6rem] font-semibold leading-[1.2] mb-2">{svc.title}</h3>
           <p class="text-white/90 text-sm mb-4">{svc.desc}</p>
-          <a href={svc.href} class={`inline-flex items-center gap-2 px-5 py-2.5 ${svc.btnBg} text-white text-sm font-heading font-medium rounded hover:bg-black transition-colors`}>
+          <a href={svc.href} class={`inline-flex items-center gap-2 px-5 py-2.5 ${svc.btnBg} text-white text-sm font-heading font-medium rounded hover:bg-black transition-all duration-300`}>
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             Read More
           </a>
@@ -284,15 +344,15 @@ const mapCities = [
 </section>
 
 <!-- ===================== SECTION 9: AREAS WE SERVE ===================== -->
-<section class="bg-black pt-16 pb-0 px-4 reveal">
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
   <div class="max-w-[1280px] mx-auto">
-    <h2 class="font-display text-[#FF5E15] text-[2.2rem] font-semibold leading-[1.3] mb-2 reveal-child">Areas We Serve</h2>
+    <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.3] mb-2 reveal-child">Areas We Serve</h2>
     <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-8 reveal-child">DDAN Hood Cleaning and Repair is dedicated to keeping commercial kitchens safe and compliant across <a href="/locations/" class="text-[#FF5E15] hover:underline">Middle Tennessee</a>. We proudly serve businesses in:</p>
     <div class="flex flex-wrap gap-5">
       {areas.map((area) => (
-        <div class="w-full sm:w-[31%] border border-[#FF5E15] rounded-2xl p-5 hover:border-white transition-colors reveal-child">
+        <div class="w-full sm:w-[31%] border border-[#FF5E15] rounded-2xl p-5 hover:border-white transition-all duration-300 reveal-child">
           <div class="flex items-start gap-3">
-            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#FF5E15] rounded-full border border-[#FF5E15]">
+            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#FF5E15] rounded-full">
               <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
             </div>
             <div>
@@ -303,70 +363,61 @@ const mapCities = [
         </div>
       ))}
     </div>
-    <p class="text-[#DDDDDD] text-sm mt-6 reveal-child">And surrounding communities throughout Middle Tennessee! Located elsewhere in Tennessee? <strong class="text-white">Contact us</strong> to inquire about custom scheduling or contract services in your area. We're often able to accommodate.</p>
+    <p class="text-[#DDDDDD] text-sm mt-6 reveal-child">And surrounding communities throughout Middle Tennessee! Located elsewhere in Tennessee? <strong class="text-white">Contact us</strong> to inquire about custom scheduling or contract services in your area.</p>
   </div>
 </section>
 
-<!-- ===================== SECTION 10-11-12: BEFORE & AFTER ===================== -->
-<section class="bg-black py-16 px-4 reveal">
+<!-- ===================== SECTION 10: BEFORE & AFTER ===================== -->
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
   <div class="max-w-[1280px] mx-auto text-center">
-    <h2 class="font-display text-white text-[3rem] md:text-[3.1rem] font-semibold capitalize leading-[1.2] w-[86%] mx-auto mb-2 reveal-child">
+    <h2 class="font-heading text-white text-[1.75rem] md:text-[3.1rem] font-semibold capitalize leading-[1.2] w-full md:w-[86%] mx-auto mb-2 reveal-child">
       See Our Work: <span class="text-[#FF5E15] font-heading">Before &amp; After Photo Documentation</span>
     </h2>
     <div class="w-16 h-0.5 bg-[#FF5E15] mx-auto my-4"></div>
-    <p class="text-[#DDDDDD] font-body text-base leading-relaxed w-[80%] mx-auto mb-10 reveal-child">Every service we perform includes detailed before-and-after photo documentation. These photos provide invaluable visual records for your kitchen's ongoing maintenance log, insurance needs, and preparation for any fire or health inspection. Whether it's a simple fan belt replacement or a full kitchen hood system degreasing, you'll have clear visual proof of work done right.</p>
-
+    <p class="text-[#DDDDDD] font-body text-base leading-relaxed w-full md:w-[80%] mx-auto mb-10 reveal-child">Every service we perform includes detailed before-and-after photo documentation. These photos provide invaluable visual records for your kitchen's ongoing maintenance log, insurance needs, and preparation for any fire or health inspection.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-      {beforeAfter.map((pair, idx) => (
-        <div class="ba-slider rounded-xl overflow-hidden h-[458px] relative reveal-child" data-ba-index={idx}>
-          <div class="ba-before"><img src={pair.after} alt={`Hood cleaning results - After ${idx+1}`} loading="lazy" /></div>
-          <div class="ba-after" style="width:50%">
-            <img src={pair.before} alt={`Hood cleaning results - Before ${idx+1}`} loading="lazy" />
-            <span class="ba-label ba-label-before">BEFORE</span>
-          </div>
-          <span class="ba-label ba-label-after">AFTER</span>
-          <div class="ba-handle" style="left:50%"></div>
-        </div>
-      ))}
+      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/484228403_1393752375019792_506057596076959451_n-e1752434231691.jpg`} afterSrc={`${HP}/484303716_1393752738353089_8141754902918181360_n-e1752434270970-768x725.jpg`} beforeAlt="Hood before cleaning" afterAlt="Hood after cleaning" /></div>
+      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/495006042_1437620400632989_3401255195250514154_n.jpg`} afterSrc={`${HP}/494512892_1437622623966100_4044307143311864352_n.jpg`} beforeAlt="Duct before cleaning" afterAlt="Duct after cleaning" /></div>
+      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/3_Before-768x576.jpg`} afterSrc={`${HP}/3_After-768x576.jpg`} beforeAlt="System before service" afterAlt="System after service" /></div>
+      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/2_Before.jpg`} afterSrc={`${HP}/2_After.jpg`} beforeAlt="Equipment before repair" afterAlt="Equipment after repair" /></div>
     </div>
   </div>
 </section>
 
-<!-- ===================== SECTION 13: WORK GALLERY ===================== -->
-<section class="bg-black py-16 px-4 reveal">
+<!-- ===================== SECTION 11: WORK GALLERY ===================== -->
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
   <div class="max-w-[1280px] mx-auto text-center">
-    <h2 class="font-display text-[#FF5E15] text-[3rem] font-semibold leading-[1.5] mb-6 reveal-child">Our Work Gallery</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[15px]">
+    <h2 class="font-heading text-[#FF5E15] text-xl md:text-[3rem] font-semibold leading-[1.5] mb-6 reveal-child">Our Work Gallery</h2>
+    <div class="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-[15px] overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-hide">
       {galleryImgs.map((img, i) => (
-        <div class="overflow-hidden rounded-2xl border-2 border-[#FF5E15] aspect-[9/16] reveal-child">
-          <img src={img} alt={`DDAN Hood Cleaning work photo ${i+1}`} class="w-full h-full object-cover hover:scale-105 transition-transform duration-[800ms]" loading="lazy" />
+        <div class="min-w-[280px] md:min-w-0 snap-start overflow-hidden rounded-2xl border-2 border-[#FF5E15] aspect-[9/16] reveal-child">
+          <img src={img} alt={`DDAN work photo ${i+1}`} class="w-full h-full object-cover hover:scale-105 transition-transform duration-[800ms]" loading="lazy" />
         </div>
       ))}
     </div>
-    <a href="/gallery/" class="inline-flex items-center flex-row-reverse gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-[1.2rem] font-medium rounded mt-8 hover:bg-[#FF5E15] transition-colors reveal-child">
+    <a href="/gallery/" class="inline-flex items-center flex-row-reverse gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-[1.2rem] font-medium rounded mt-8 hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
       See More
       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
 </section>
 
-<!-- ===================== SECTION 14-15: OUR PROCESS ===================== -->
-<section class="bg-black pt-0 pb-16 px-4 reveal">
+<!-- ===================== SECTION 12: OUR PROCESS ===================== -->
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
   <div class="max-w-[1280px] mx-auto text-center">
-    <h2 class="font-display text-[#FF5E15] text-[3rem] font-semibold mb-2 reveal-child">Our Process</h2>
-    <p class="text-[#DDDDDD] font-body text-base w-[50%] mx-auto mb-12 reveal-child">We make commercial kitchen exhaust system service easy and stress-free for your business.</p>
-
-    <div class="flex flex-col md:flex-row gap-5 justify-center">
+    <h2 class="font-heading text-[#FF5E15] text-xl md:text-[3rem] font-semibold mb-2 reveal-child">Our Process</h2>
+    <p class="text-[#DDDDDD] font-body text-base w-full md:w-[50%] mx-auto mb-12 reveal-child">We make commercial kitchen exhaust system service easy and stress-free for your business.</p>
+    <div class="flex flex-col md:flex-row gap-10 md:gap-5 justify-center">
       {[
         { num: '01', title: 'Free Inspection & Quote', desc: 'Schedule your free inspection with a veteran of the industry since 2007. No obligations.', cta: 'Free Quote' },
-        { num: '02', title: 'Schedule Your Service', desc: 'We completely accommodate your business hours to remove and minimize any disruption to your operations.', cta: 'Get Schedule' },
+        { num: '02', title: 'Get Scheduled Right Away', desc: 'We completely accommodate your business hours to remove and minimize any disruption to your operations.', cta: 'Get Schedule' },
         { num: '03', title: 'Get a Report', desc: "You'll receive before and after photos for every cleaning, as well as recommendations on repairs if we assess any issues.", cta: 'Get a Report' },
       ].map((step) => (
-        <div class="relative w-full md:w-[32%] border-2 border-[#FF5E15] rounded-2xl p-8 pt-14 text-left reveal-child">
+        <div class="relative w-full md:w-[32%] border-2 border-[#FF5E15] rounded-2xl p-8 pt-14 text-center md:text-left reveal-child">
           <span class="absolute -top-6 left-1/2 -translate-x-1/2 bg-[#FF5E15] text-white font-heading text-[50px] font-semibold px-5 py-1 rounded-xl leading-none">{step.num}</span>
-          <h4 class="font-display text-[#FF5E15] text-[1.5rem] font-semibold leading-[1.2] mb-3">{step.title}</h4>
+          <h4 class="font-heading text-[#FF5E15] text-[1.5rem] font-semibold leading-[1.2] mb-3">{step.title}</h4>
           <p class="text-white font-body text-base mb-4">{step.desc}</p>
-          <button type="button" class="popup-trigger inline-flex items-center gap-2 text-white font-body text-[1.2rem] font-medium hover:text-[#FF5E15] transition-colors">
+          <button type="button" class="popup-trigger inline-flex items-center gap-2 text-white font-body text-[1.2rem] font-medium hover:text-[#FF5E15] transition-all duration-300">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             {step.cta}
           </button>
@@ -376,11 +427,11 @@ const mapCities = [
   </div>
 </section>
 
-<!-- ===================== SECTION 16-17: FAQ ACCORDION ===================== -->
-<section class="bg-black pt-4 pb-12 px-4 reveal">
+<!-- ===================== SECTION 13: FAQ ACCORDION ===================== -->
+<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
   <div class="max-w-[1280px] mx-auto">
-    <h3 class="font-display text-[#FF5E15] text-[3rem] font-semibold text-center mb-8 reveal-child">Frequently Asked Questions</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 max-w-5xl mx-auto">
+    <h3 class="font-heading text-[#FF5E15] text-xl md:text-[3rem] font-semibold text-center mb-8 reveal-child">Frequently Asked Questions</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
       {faqs.map((faq) => (
         <details class="faq-item bg-black border border-white rounded-2xl mb-1 group reveal-child">
           <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
@@ -396,42 +447,13 @@ const mapCities = [
   </div>
 </section>
 
-<!-- ===================== SECTION 18: DON'T WAIT CTA + TRUCK ===================== -->
-<section class="relative overflow-hidden bg-black reveal" id="urgency-cta">
-  <div class="absolute inset-0 bg-cover bg-top bg-no-repeat" style={`background-image:url('${HP}/495006042_1437620400632989_3401255195250514154_n.jpg')`}></div>
-  <div class="absolute inset-0" style="background:linear-gradient(180deg, #FF5E158F 0%, #000000 100%); opacity:0.78"></div>
-
-  <div class="relative z-10 max-w-[1280px] mx-auto px-5 pt-20 pb-0 flex flex-col lg:flex-row items-end">
-    <div class="lg:w-[66%] pb-12 flex flex-col gap-2.5 reveal-child">
-      <h2 class="font-heading text-white text-[45px] md:text-[45px] font-semibold capitalize leading-[1.1] mb-2">
-        Don't Wait Until You're <span class="text-white">Fined or Shut Down!</span>
-      </h2>
-      <div class="w-16 h-0.5 bg-[#FF5E15] my-2"></div>
-      <p class="text-[#E0E0E0] font-heading text-base mb-4">Whether you need a one-time deep clean, an urgent emergency repair, or a complete kitchen exhaust system installation, <strong class="text-white">DDAN Hood Cleaning and Repair</strong> is here to keep you up and running.</p>
-      <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-3 mb-3">
-        <span class="w-12 h-12 flex items-center justify-center bg-white rounded-xl">
-          <svg class="w-6 h-6 text-[#FF5E15]" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-        </span>
-        <span class="text-white font-heading text-lg font-semibold hover:text-[#FF5E15] transition-colors">Call Now: {business.phone}</span>
-      </a>
-      <button type="button" class="popup-trigger inline-flex items-center gap-2 w-fit px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        Request Service Online
-      </button>
-    </div>
-    <div class="lg:w-[60%] flex justify-end items-end -mb-2.5">
-      <img src={`${HP}/truck-removebg-preview.png`} alt="DDAN Hood Cleaning truck" class="truck-drive-in max-w-full" id="truck-img" loading="lazy" />
-    </div>
-  </div>
-</section>
-
-<!-- ===================== SECTION 20: SERVICE AREA MAP/ZIPS ===================== -->
-<section class="relative py-16 px-4 bg-fixed bg-cover bg-center" style={`background-image:url('${HP}/495006042_1437620400632989_3401255195250514154_n.jpg')`}>
+<!-- ===================== SECTION 15: SERVICE AREA MAP/ZIPS ===================== -->
+<section class="relative py-10 md:py-16 lg:py-20 px-5 bg-fixed bg-cover bg-center" style={`background-image:url('${HP}/495006042_1437620400632989_3401255195250514154_n.jpg')`}>
   <div class="absolute inset-0 bg-black/80"></div>
   <div class="relative z-10 max-w-[1280px] mx-auto reveal">
-    <div class="border-2 border-[#FF5E15] rounded-2xl p-8 w-[90%] mx-auto">
-      <h2 class="font-display text-[#FF5E15] text-[2.8rem] font-semibold leading-[1.2] mb-6 text-center reveal-child">DDAN Hood Cleaning and Repair<br/>Serving All of Middle Tennessee<br/><span class="text-white text-lg font-heading font-normal">Mt. Juliet, TN 37122 | Licensed | Bonded | Insured</span></h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 border-b border-[#EEF0F6] pb-4">
+    <div class="border-2 border-[#FF5E15] rounded-2xl p-5 md:p-8 w-full md:w-[90%] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-6 text-center reveal-child">DDAN Hood Cleaning and Repair<br/>Serving All of Middle Tennessee<br/><span class="text-white text-lg font-heading font-normal">Mt. Juliet, TN 37122 | Licensed | Bonded | Insured</span></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {mapCities.map((c) => (
           <div class="flex items-start gap-3 p-2 reveal-child">
             <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#FF5E15] rounded-full">
@@ -450,15 +472,11 @@ const mapCities = [
 
 </BaseLayout>
 
-<!-- ===================== CLIENT SCRIPTS ===================== -->
 <style>
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translate3d(0, 30px, 0); }
-    to { opacity: 1; transform: none; }
-  }
-  .animate-fadeInUp {
-    animation: fadeInUp 0.6s ease-out both;
-  }
+  @keyframes fadeInUp { from { opacity: 0; transform: translate3d(0, 30px, 0); } to { opacity: 1; transform: none; } }
+  .animate-fadeInUp { animation: fadeInUp 0.6s ease-out both; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { scrollbar-width: none; }
 </style>
 
 <script>
@@ -485,13 +503,8 @@ const mapCities = [
     let i = 0;
     setTimeout(() => {
       const interval = setInterval(() => {
-        if (i < text.length) {
-          el.textContent += text[i];
-          i++;
-        } else {
-          clearInterval(interval);
-          if (cursor) cursor.style.display = 'none';
-        }
+        if (i < text.length) { el.textContent += text[i]; i++; }
+        else { clearInterval(interval); if (cursor) cursor.style.display = 'none'; }
       }, 150);
     }, 3000);
   });
@@ -501,46 +514,9 @@ const mapCities = [
     const truck = document.getElementById('truck-img');
     if (!truck) return;
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            truck.classList.add('driven-in');
-            observer.unobserve(truck);
-          }
-        });
-      },
+      (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { truck.classList.add('driven-in'); observer.unobserve(truck); } }); },
       { threshold: 0.2 }
     );
     observer.observe(truck);
-  });
-
-  // Before/After Sliders
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.ba-slider').forEach((slider) => {
-      const afterDiv = slider.querySelector('.ba-after') as HTMLElement;
-      const handle = slider.querySelector('.ba-handle') as HTMLElement;
-      if (!afterDiv || !handle) return;
-      let isDragging = false;
-      const update = (x: number) => {
-        const rect = slider.getBoundingClientRect();
-        let pos = ((x - rect.left) / rect.width) * 100;
-        pos = Math.max(0, Math.min(100, pos));
-        afterDiv.style.width = pos + '%';
-        handle.style.left = pos + '%';
-      };
-      const start = (e: MouseEvent | TouchEvent) => { isDragging = true; e.preventDefault(); };
-      const move = (e: MouseEvent | TouchEvent) => {
-        if (!isDragging) return;
-        update('touches' in e ? e.touches[0].clientX : e.clientX);
-      };
-      const end = () => { isDragging = false; };
-      handle.addEventListener('mousedown', start);
-      handle.addEventListener('touchstart', start, { passive: false });
-      window.addEventListener('mousemove', move);
-      window.addEventListener('touchmove', move, { passive: false });
-      window.addEventListener('mouseup', end);
-      window.addEventListener('touchend', end);
-      slider.addEventListener('click', (e: Event) => update((e as MouseEvent).clientX));
-    });
   });
 </script>

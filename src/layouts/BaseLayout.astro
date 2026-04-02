@@ -52,9 +52,9 @@ const isStaging = Astro.site?.hostname?.includes('pages.dev');
   />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/images/logos/ddan-logo-square.png" />
+  <link rel="icon" type="image/png" href="/images/logos/DDAN Hood Cleaning and Repair Logo Black BG.png" />
 </head>
-<body>
+<body style="background:#000000;">
   <Header />
   <main id="content">
     <slot />
@@ -70,7 +70,6 @@ const isStaging = Astro.site?.hostname?.includes('pages.dev');
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('revealed');
-              // Stagger children
               const children = entry.target.querySelectorAll('.reveal-child');
               children.forEach((child, i) => {
                 setTimeout(() => {
@@ -83,7 +82,6 @@ const isStaging = Astro.site?.hostname?.includes('pages.dev');
         },
         { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
       );
-
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     });
   </script>

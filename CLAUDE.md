@@ -737,3 +737,19 @@ When I say "wrap up" or "save everything" or "end session":
 4. `git push origin main`
 → Verify Cloudflare shows Production deploy.
 Never skip this step.
+
+---
+
+## LESSONS LEARNED (from homepage build)
+
+- astro check treats hints as errors — clean up ALL unused imports, add is:inline to external scripts
+- Trustindex widgets are domain-locked — use static review cards on staging
+- Before/after sliders: use clip-path:inset() approach in BeforeAfterSlider.astro component, never custom wrapper-width code
+- font-display (Fira Sans Condensed) is hero-only — section headings use font-heading (Poppins)
+- Mobile-first responsive: never use fixed rem/px without responsive overrides (text-xl md:text-3rem pattern)
+- Use proven libraries for interactive components — don't reinvent sliders, lightboxes, carousels
+- Preview page pattern: copy to /preview/, iterate there, merge when approved
+- Black body background (#000000) prevents grey flash during scroll reveal animations
+- Social icons: wireframe/outline style (transparent bg, orange border) looks more industrial than solid fills
+- Footer: darker bg (#080808) with subtle grid texture overlay adds depth without being obvious
+- Review count is 51 (updated from 42+), business is "#1 Rated Hood Company in Tennessee"
