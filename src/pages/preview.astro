@@ -1,5 +1,6 @@
 ---
 import PopupForm from '../components/PopupForm.astro';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
 import business from '../data/business.json';
 import '../styles/global.css';
 
@@ -60,13 +61,6 @@ const faqs = [
   { q: 'Do you provide compliance certificates?', a: 'While Tennessee itself may not always mandate formal "hood cleaning certificates," we clean all systems to the <strong>full NFPA 96 standards</strong> and provide <strong>comprehensive digital photo evidence and detailed reports</strong> that consistently satisfy local fire marshals, health inspectors, and insurance requirements.' },
   { q: 'How quickly can I get service, especially for an emergency?', a: 'For <strong>emergencies</strong>, we offer <strong>24/7 same-day response</strong> to get your kitchen back online as quickly as possible. For scheduled work, we typically book appointments within 1\u20133 business days, often accommodating urgent requests.' },
   { q: 'Do you handle everything, or do I need multiple contractors for cleaning, repair, and installation?', a: "DDAN is your <strong>all-in-one solution</strong>. We expertly handle <strong>cleaning, repairs, installation, and parts sales</strong> for commercial kitchen exhaust systems. You'll only deal with one trusted, professional team \u2013 no subcontractors, no delays, and consistent quality across all services." },
-];
-
-const beforeAfter = [
-  { after: `${HP}/484303716_1393752738353089_8141754902918181360_n-e1752434270970-768x725.jpg`, before: `${HP}/484228403_1393752375019792_506057596076959451_n-e1752434231691.jpg` },
-  { after: `${HP}/494512892_1437622623966100_4044307143311864352_n.jpg`, before: `${HP}/495006042_1437620400632989_3401255195250514154_n.jpg` },
-  { after: `${HP}/3_After-768x576.jpg`, before: `${HP}/3_Before-768x576.jpg` },
-  { after: `${HP}/2_After.jpg`, before: `${HP}/2_Before.jpg` },
 ];
 
 const galleryImgs = [
@@ -139,7 +133,7 @@ const mapCities = [
   <div class="max-w-[1280px] mx-auto px-5 h-full flex items-center justify-between">
     <!-- Logo -->
     <a href="/" class="flex-shrink-0">
-      <img src="/images/logos/ddan-logo-square.png" alt={business.name} width="50" height="50" class="w-12 h-12 object-contain" />
+      <img src="/images/logos/ddan-full-logo.png" alt={business.name} width="160" height="50" class="h-10 w-auto object-contain" />
     </a>
     <!-- Nav Links — dark text on white -->
     <ul class="hidden lg:flex items-center gap-5 font-heading text-sm font-medium text-[#333333]">
@@ -400,19 +394,10 @@ const mapCities = [
     <div class="w-16 h-0.5 bg-[#FF5E15] mx-auto my-4"></div>
     <p class="text-[#DDDDDD] font-body text-base leading-relaxed w-[80%] mx-auto mb-10 reveal-child">Every service we perform includes detailed before-and-after photo documentation. These photos provide invaluable visual records for your kitchen's ongoing maintenance log, insurance needs, and preparation for any fire or health inspection.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-      {beforeAfter.map((pair, idx) => (
-        <div class="ba-slider reveal-child" style="position:relative; overflow:hidden; width:100%; aspect-ratio:4/3; border-radius:12px; cursor:ew-resize; user-select:none;">
-          <img src={pair.after} alt={`After ${idx+1}`} style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;" loading="lazy" />
-          <div class="ba-before-wrap" style="position:absolute; top:0; left:0; width:50%; height:100%; overflow:hidden;">
-            <img src={pair.before} alt={`Before ${idx+1}`} style="display:block; height:100%; object-fit:cover;" loading="lazy" />
-          </div>
-          <div class="ba-handle" style="position:absolute; top:0; left:50%; width:4px; height:100%; background:#FF5E15; cursor:ew-resize; transform:translateX(-50%); z-index:10;">
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:40px; height:40px; border-radius:50%; background:#FF5E15; display:flex; align-items:center; justify-content:center; color:white; font-size:18px; box-shadow:0 2px 8px rgba(0,0,0,0.3);">&harr;</div>
-          </div>
-          <span style="position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.7); color:white; padding:4px 12px; border-radius:4px; font-size:13px; z-index:5;">BEFORE</span>
-          <span style="position:absolute; top:12px; left:12px; background:rgba(0,0,0,0.7); color:white; padding:4px 12px; border-radius:4px; font-size:13px; z-index:5;">AFTER</span>
-        </div>
-      ))}
+      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/484228403_1393752375019792_506057596076959451_n-e1752434231691.jpg`} afterSrc={`${HP}/484303716_1393752738353089_8141754902918181360_n-e1752434270970-768x725.jpg`} beforeAlt="Hood before cleaning" afterAlt="Hood after cleaning" /></div>
+      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/495006042_1437620400632989_3401255195250514154_n.jpg`} afterSrc={`${HP}/494512892_1437622623966100_4044307143311864352_n.jpg`} beforeAlt="Duct before cleaning" afterAlt="Duct after cleaning" /></div>
+      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/3_Before-768x576.jpg`} afterSrc={`${HP}/3_After-768x576.jpg`} beforeAlt="System before service" afterAlt="System after service" /></div>
+      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/2_Before.jpg`} afterSrc={`${HP}/2_After.jpg`} beforeAlt="Equipment before repair" afterAlt="Equipment after repair" /></div>
     </div>
   </div>
 </section>
@@ -543,7 +528,7 @@ const mapCities = [
       <!-- COL 1: Brand -->
       <div>
         <a href="/">
-          <img src="/images/logos/ddan-logo.png" alt={business.name} width="280" height="280" class="w-56 mb-5" style="filter:drop-shadow(0 0 8px rgba(255,94,21,0.3));" />
+          <img src="/images/logos/ddan-full-logo.png" alt={business.name} width="280" height="100" class="w-56 mb-5" style="filter:drop-shadow(0 0 8px rgba(255,94,21,0.3));" />
         </a>
         <a href={business.googleMapsUrl} target="_blank" rel="noopener" class="block text-base leading-relaxed text-[#E0E0E0] hover:text-[#FF5E15] transition-colors mb-6">
           Commercial Kitchen Exhaust System Experts: Cleaning, Repair, Installation &amp; Parts Sales in the Nashville Metro Area
@@ -741,41 +726,7 @@ const mapCities = [
     observer.observe(truck);
   });
 
-  // Before/After Sliders — fixed pixel width on before image prevents distortion
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.ba-slider').forEach((container) => {
-      const beforeWrap = container.querySelector('.ba-before-wrap') as HTMLElement;
-      const beforeImg = beforeWrap?.querySelector('img') as HTMLImageElement;
-      const handle = container.querySelector('.ba-handle') as HTMLElement;
-      if (!beforeWrap || !beforeImg || !handle) return;
-
-      // CRITICAL: before image width = container width in pixels, NOT percentages
-      function setImageWidth() {
-        beforeImg.style.width = (container as HTMLElement).offsetWidth + 'px';
-      }
-      setImageWidth();
-      window.addEventListener('resize', setImageWidth);
-
-      let isDragging = false;
-      function updateSlider(x: number) {
-        const rect = container.getBoundingClientRect();
-        let pos = (x - rect.left) / rect.width;
-        pos = Math.max(0.05, Math.min(0.95, pos));
-        beforeWrap.style.width = (pos * 100) + '%';
-        handle.style.left = (pos * 100) + '%';
-      }
-
-      handle.addEventListener('mousedown', () => isDragging = true);
-      container.addEventListener('mousedown', (e) => { isDragging = true; updateSlider((e as MouseEvent).clientX); });
-      window.addEventListener('mouseup', () => isDragging = false);
-      window.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e.clientX); });
-
-      handle.addEventListener('touchstart', (e) => { isDragging = true; e.preventDefault(); }, { passive: false });
-      container.addEventListener('touchstart', (e) => { isDragging = true; updateSlider((e as TouchEvent).touches[0].clientX); });
-      window.addEventListener('touchend', () => isDragging = false);
-      window.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0].clientX); });
-    });
-  });
+  // Before/After sliders are now handled by BeforeAfterSlider.astro component (clip-path approach)
 </script>
 
 </body>
