@@ -198,16 +198,16 @@ const mapCities = [
         Get Service Today
       </button>
     </div>
-    <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-6 animate-fadeInUp" style="animation-delay:0.7s">
+    <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-8 animate-fadeInUp" style="animation-delay:0.7s">
       {[
         { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
         { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
         { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
       ].map((badge) => (
-        <div class="flex flex-col items-center gap-1 border border-[#FF5E15] rounded-2xl px-4 py-1">
-          <img src={badge.img} alt="" class="h-6 md:h-7 object-contain" style={`width:${badge.w};max-width:140px`} loading="lazy" />
-          <div class="flex gap-0.5">
-            {Array(5).fill(0).map(() => <svg class="w-4 h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+        <div class="flex flex-col items-center gap-1.5 border-2 border-[#FF5E15] rounded-2xl px-6 py-2.5">
+          <img src={badge.img} alt="" class="h-10 md:h-11 object-contain" style={`width:${badge.w};max-width:220px`} loading="lazy" />
+          <div class="flex gap-1">
+            {Array(5).fill(0).map(() => <svg class="w-6 h-6 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
           </div>
         </div>
       ))}
