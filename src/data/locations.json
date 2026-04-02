@@ -1,0 +1,327 @@
+[
+  {
+    "slug": "mt-juliet-tn",
+    "city": "Mt. Juliet",
+    "state": "TN",
+    "zips": ["37122", "37121"],
+    "driveTime": "Home base — 0 minutes",
+    "heroImage": "/images/locations/mt-juliet-tn-hero.jpg",
+    "serviceImage": "/images/locations/mt-juliet-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Mt. Juliet, TN",
+    "description": "DDAN Hood Cleaning and Repair is based in Mt. Juliet, TN. NFPA 96 compliant hood cleaning, repair, installation, and 24/7 emergency service for commercial kitchens.",
+    "intro": "Mt. Juliet's Providence Marketplace and the bustling restaurant corridor along North Mt. Juliet Road are home to dozens of commercial kitchens that depend on reliable exhaust system maintenance. As the fastest-growing city in Tennessee, Mt. Juliet sees new restaurants opening every month — and every one of them needs NFPA 96-compliant ventilation service from day one.\n\nDDAN Hood Cleaning and Repair is headquartered right here in Mt. Juliet, making us your neighbor and your go-to kitchen exhaust experts. We've been serving this community since 2007, long before the growth boom transformed our city. From the established BBQ joints near the Town Center to the new fast-casual concepts at Providence, we know Mt. Juliet's commercial kitchen landscape better than anyone.\n\nBecause we're local, Mt. Juliet businesses get the fastest response times in our service area — often same-day for emergencies and next-day for scheduled cleanings. No travel surcharges, no long wait times. Just professional, documented, NFPA 96-compliant service from the team that built its reputation in this city.",
+    "whyChoose": [
+      "Headquartered in Mt. Juliet — zero travel time means fastest response in the region",
+      "Serving Mt. Juliet commercial kitchens since 2007, before the city's major growth period",
+      "Free on-site inspections and estimates for all businesses within city limits",
+      "Deep relationships with local fire marshals and health department inspectors",
+      "24/7 emergency service with guaranteed rapid response for Mt. Juliet businesses",
+      "Overnight and off-hours scheduling to avoid disrupting your lunch and dinner rushes"
+    ],
+    "neighborhoods": ["Providence Marketplace", "Town Center", "North Mt. Juliet Road Corridor", "Charlie Daniels Park Area", "West Division Street", "Mt. Juliet Industrial Park", "Lebanon Road Commercial District"],
+    "faqs": [
+      { "q": "How quickly can DDAN respond to an emergency in Mt. Juliet?", "a": "Since DDAN is headquartered in Mt. Juliet, we can typically arrive within 30-45 minutes for emergency calls. We offer 24/7 emergency service for critical exhaust system failures." },
+      { "q": "Do Mt. Juliet restaurants need NFPA 96 hood cleaning?", "a": "Yes. The Wilson County Fire Marshal enforces NFPA 96 standards for all commercial kitchens in Mt. Juliet. Most restaurants need quarterly cleaning to maintain compliance and pass inspections." },
+      { "q": "Does DDAN offer free estimates in Mt. Juliet?", "a": "Absolutely. We provide free on-site inspections and detailed estimates for all commercial kitchens in Mt. Juliet and within a 15-mile radius — no obligation, no hidden fees." },
+      { "q": "Can you clean our hood system overnight to avoid disrupting our restaurant?", "a": "Yes. We specialize in overnight and off-hours cleaning specifically to avoid disrupting your operations. Most Mt. Juliet restaurants schedule service between 10 PM and 6 AM." },
+      { "q": "What zip codes does DDAN serve in Mt. Juliet?", "a": "We serve all of Mt. Juliet including zip codes 37122 and 37121. Our headquarters is centrally located for fast access to every commercial kitchen in the city." }
+    ]
+  },
+  {
+    "slug": "nashville-tn",
+    "city": "Nashville",
+    "state": "TN",
+    "zips": ["37201-37221", "37228-37250"],
+    "driveTime": "20-35 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/nashville-tn-hero.jpg",
+    "serviceImage": "/images/locations/nashville-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Nashville, TN",
+    "description": "DDAN Hood Cleaning serves Nashville's thriving restaurant scene with NFPA 96 compliant hood cleaning, repair, and installation. 24/7 emergency service available.",
+    "intro": "Nashville's restaurant scene is one of the fastest-growing in the country, with Lower Broadway, The Gulch, East Nashville, and Germantown packed with commercial kitchens running at full capacity. From hot chicken joints on Gallatin Pike to fine dining in Midtown, every Nashville restaurant needs a clean, code-compliant kitchen exhaust system to stay open.\n\nDDAN Hood Cleaning and Repair serves all of Nashville and Davidson County from our Mt. Juliet headquarters, just 20-35 minutes from most Nashville locations. We understand the unique pressures Nashville restaurants face — high cooking volumes, demanding inspection schedules, and the need to keep service running during one of the busiest dining markets in the Southeast.\n\nWhether you operate a single restaurant on 12 South or manage multiple locations across the metro, DDAN provides consistent, documented, NFPA 96-compliant exhaust system service that keeps your kitchens safe, your inspectors satisfied, and your doors open.",
+    "whyChoose": [
+      "Serving Nashville's restaurant industry for over 18 years across all neighborhoods",
+      "Experience with high-volume Nashville kitchens running 14+ hours daily",
+      "Familiar with Metro Nashville Fire Marshal inspection requirements and schedules",
+      "Multi-location service plans for restaurant groups and franchise operators",
+      "Flexible scheduling around Nashville's peak dining hours and event calendar",
+      "Full-service capability: cleaning, repair, installation, and parts — one team, one call"
+    ],
+    "neighborhoods": ["Downtown / Lower Broadway", "The Gulch", "East Nashville", "Germantown", "Midtown", "12 South", "The Nations", "Sylvan Park", "Berry Hill", "Antioch", "Madison", "Donelson-Hermitage", "Green Hills", "West End", "Belmont-Hillsboro"],
+    "faqs": [
+      { "q": "Does DDAN service all Nashville neighborhoods?", "a": "Yes. We serve every Nashville neighborhood and all Davidson County zip codes from 37201 through 37250. No area of Nashville is outside our service range." },
+      { "q": "How does the Metro Nashville Fire Marshal enforce hood cleaning?", "a": "Metro Nashville Fire inspectors conduct routine inspections and require proof of NFPA 96-compliant cleaning. DDAN provides detailed service reports with before-and-after photos that satisfy all Metro Nashville inspection requirements." },
+      { "q": "Can DDAN handle multiple Nashville restaurant locations?", "a": "Absolutely. We offer multi-location service plans with coordinated scheduling, consistent quality, and centralized documentation for restaurant groups operating across Nashville." },
+      { "q": "What's the typical cost for hood cleaning in Nashville?", "a": "Nashville hood cleaning costs range from $350-$1,500+ depending on system size, grease buildup, and number of components. Contact us for a free, no-obligation estimate specific to your kitchen." }
+    ]
+  },
+  {
+    "slug": "hendersonville-tn",
+    "city": "Hendersonville",
+    "state": "TN",
+    "zips": ["37075", "37077"],
+    "driveTime": "25-30 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/hendersonville-tn-hero.jpg",
+    "serviceImage": "/images/locations/hendersonville-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Hendersonville, TN",
+    "description": "DDAN provides NFPA 96 compliant hood cleaning, exhaust fan repair, and kitchen ventilation services to Hendersonville, TN restaurants and commercial kitchens.",
+    "intro": "Hendersonville's Indian Lake Boulevard and Main Street corridors have transformed into a dining destination, with restaurants ranging from family-owned eateries to national chains drawing customers from across Sumner County. Every one of those commercial kitchens relies on a properly maintained exhaust system to stay compliant and operational.\n\nDDAN Hood Cleaning and Repair reaches Hendersonville in about 25-30 minutes from our Mt. Juliet base, giving us quick response times for both scheduled service and emergency calls. We've cleaned and maintained hood systems for Hendersonville restaurants, churches, school cafeterias, and hospitality kitchens for years — and we understand the specific compliance requirements enforced by Sumner County fire officials.\n\nFrom the lakeside restaurants near Old Hickory Lake to the growing commercial district along Vietnam Veterans Boulevard, DDAN keeps Hendersonville's kitchens safe, inspected, and running at peak performance.",
+    "whyChoose": [
+      "Just 25-30 minutes from Mt. Juliet — fast response for Sumner County businesses",
+      "Experienced with Sumner County fire marshal inspection protocols",
+      "Trusted by Hendersonville restaurants, schools, and church kitchens",
+      "Same-day emergency repair available for critical exhaust system failures",
+      "Before-and-after photo documentation accepted by all local inspectors",
+      "Overnight cleaning available to protect your busiest service hours"
+    ],
+    "neighborhoods": ["Indian Lake Boulevard", "Main Street District", "Vietnam Veterans Boulevard", "Saundersville Road Area", "New Shackle Island Road", "Gallatin Pike Corridor", "Old Hickory Lake Commercial Area"],
+    "faqs": [
+      { "q": "How far is DDAN from Hendersonville?", "a": "DDAN's Mt. Juliet headquarters is approximately 25-30 minutes from most Hendersonville locations. We serve all of Sumner County with no travel surcharges for Hendersonville businesses." },
+      { "q": "Does DDAN work with Hendersonville schools and churches?", "a": "Yes. We regularly service commercial kitchens in Hendersonville schools, churches, and institutional facilities. These kitchens have specific NFPA 96 cleaning frequency requirements that we help manage." },
+      { "q": "What Hendersonville zip codes does DDAN cover?", "a": "We serve all of Hendersonville including zip codes 37075 and 37077, plus the surrounding Sumner County area." },
+      { "q": "Can DDAN install a new hood system in my Hendersonville restaurant?", "a": "Absolutely. We handle complete kitchen exhaust system installations — hoods, ductwork, exhaust fans, makeup air units, and grease containment — all built to NFPA 96 code." }
+    ]
+  },
+  {
+    "slug": "goodlettsville-tn",
+    "city": "Goodlettsville",
+    "state": "TN",
+    "zips": ["37072"],
+    "driveTime": "25-35 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/goodlettsville-tn-hero.jpg",
+    "serviceImage": "/images/locations/goodlettsville-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Goodlettsville, TN",
+    "description": "DDAN serves Goodlettsville, TN with NFPA 96 hood cleaning, exhaust system repair, and commercial kitchen ventilation services. 24/7 emergency available.",
+    "intro": "Goodlettsville sits at the crossroads of I-65 and Dickerson Pike, creating a commercial corridor filled with restaurants, truck stops, and food service operations that need dependable exhaust system maintenance. The city's unique position straddling both Davidson and Sumner counties means businesses here must navigate compliance requirements from two different jurisdictions.\n\nDDAN Hood Cleaning and Repair serves Goodlettsville from our Mt. Juliet headquarters, about 25-35 minutes away depending on traffic. We're familiar with the compliance landscape in both Davidson and Sumner counties, so whether your restaurant is on the Nashville side or the Sumner County side of Goodlettsville, we know exactly what your fire inspector expects.\n\nFrom Long Hollow Pike's growing restaurant scene to the Rivergate Mall area's established dining options, DDAN provides thorough, documented hood cleaning and repair service that keeps Goodlettsville kitchens compliant and fire-safe.",
+    "whyChoose": [
+      "Experienced with both Davidson County and Sumner County inspection requirements",
+      "Familiar with Goodlettsville's unique dual-jurisdiction compliance landscape",
+      "Quick access via I-65 from our Mt. Juliet base for efficient service",
+      "Serving Goodlettsville restaurants, diners, and food service operations for years",
+      "Emergency repair available 24/7 with priority response for existing clients",
+      "Complete documentation package that satisfies both county fire departments"
+    ],
+    "neighborhoods": ["Rivergate Mall Area", "Long Hollow Pike Corridor", "Dickerson Pike Commercial District", "Conference Drive Business Park", "Downtown Goodlettsville", "I-65 Corridor"],
+    "faqs": [
+      { "q": "Does Goodlettsville fall under Nashville or Sumner County fire codes?", "a": "Goodlettsville straddles Davidson and Sumner counties. DDAN is familiar with both jurisdictions' inspection requirements and provides documentation that satisfies either county's fire marshal." },
+      { "q": "How quickly can DDAN get to Goodlettsville for emergency service?", "a": "We can typically reach Goodlettsville within 35-45 minutes for emergency calls. For critical failures, we prioritize same-day response to minimize your kitchen downtime." },
+      { "q": "Does DDAN provide hood cleaning near the Rivergate area?", "a": "Yes. We serve all of Goodlettsville including the Rivergate Mall area, Long Hollow Pike, Dickerson Pike, and all surrounding commercial districts in zip code 37072." },
+      { "q": "What types of commercial kitchens does DDAN service in Goodlettsville?", "a": "We service restaurants, fast-food operations, church kitchens, truck stop facilities, hotel kitchens, and any commercial cooking operation in the Goodlettsville area." }
+    ]
+  },
+  {
+    "slug": "murfreesboro-tn",
+    "city": "Murfreesboro",
+    "state": "TN",
+    "zips": ["37127", "37128", "37129", "37130"],
+    "driveTime": "35-45 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/murfreesboro-tn-hero.jpg",
+    "serviceImage": "/images/locations/murfreesboro-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Murfreesboro, TN",
+    "description": "DDAN provides commercial kitchen hood cleaning, repair, and exhaust system services to Murfreesboro, TN. NFPA 96 compliant with 24/7 emergency availability.",
+    "intro": "Murfreesboro's Medical Center Parkway and Memorial Boulevard form one of the densest restaurant corridors in Rutherford County, with hundreds of commercial kitchens serving the city's rapidly expanding population. As one of Tennessee's fastest-growing cities and home to Middle Tennessee State University, Murfreesboro's food service demand drives a constant need for professional exhaust system maintenance.\n\nDDAN Hood Cleaning and Repair serves Murfreesboro from our Mt. Juliet headquarters, approximately 35-45 minutes via I-24 or Highway 231. We provide the same thorough, NFPA 96-compliant service to Murfreesboro that our Mt. Juliet and Nashville clients have relied on for over 18 years.\n\nWhether you're running a restaurant near the Stones River Mall, operating a campus dining facility at MTSU, or managing a commercial kitchen in Murfreesboro's growing Gateway district, DDAN delivers complete exhaust system care — cleaning, repair, installation, and parts — backed by full photo documentation for your Rutherford County fire inspection records.",
+    "whyChoose": [
+      "Regular service routes to Murfreesboro ensure consistent scheduling and availability",
+      "Familiar with Rutherford County fire marshal requirements and inspection cycles",
+      "Serving Murfreesboro's growing restaurant market with 18+ years of experience",
+      "Emergency response available for urgent exhaust system failures",
+      "Multi-location plans for Murfreesboro restaurant chains and franchise groups",
+      "Full photo documentation accepted by all Rutherford County inspectors"
+    ],
+    "neighborhoods": ["Medical Center Parkway", "Memorial Boulevard", "Stones River Mall Area", "Gateway District", "MTSU Campus Area", "Old Fort Parkway", "South Church Street", "Broad Street Downtown"],
+    "faqs": [
+      { "q": "Does DDAN travel to Murfreesboro regularly?", "a": "Yes. We maintain regular service routes to Murfreesboro and schedule multiple clients per trip to ensure availability and efficient service for Rutherford County businesses." },
+      { "q": "What are Murfreesboro's hood cleaning requirements?", "a": "Rutherford County enforces NFPA 96 standards for all commercial kitchens. Most Murfreesboro restaurants need quarterly hood cleaning. DDAN provides the documentation required for Rutherford County fire inspections." },
+      { "q": "Can DDAN service MTSU campus dining facilities?", "a": "Yes. We have experience servicing institutional kitchens including university dining halls, hospital cafeterias, and large-scale food service operations in the Murfreesboro area." },
+      { "q": "How far is Murfreesboro from DDAN's base?", "a": "Murfreesboro is approximately 35-45 minutes from our Mt. Juliet headquarters via I-24 or Highway 231. We serve all Murfreesboro zip codes: 37127, 37128, 37129, and 37130." }
+    ]
+  },
+  {
+    "slug": "franklin-tn",
+    "city": "Franklin",
+    "state": "TN",
+    "zips": ["37064", "37067", "37069"],
+    "driveTime": "40-50 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/franklin-tn-hero.jpg",
+    "serviceImage": "/images/locations/franklin-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Franklin, TN",
+    "description": "DDAN Hood Cleaning serves Franklin, TN's upscale restaurant market with NFPA 96 compliant hood cleaning, exhaust repair, and kitchen ventilation services.",
+    "intro": "Franklin's Main Street Historic District and the Cool Springs commercial area represent two of Williamson County's most concentrated dining markets, with upscale restaurants, boutique eateries, and national chains all operating high-volume commercial kitchens. Franklin's reputation as one of Tennessee's most desirable cities means restaurant quality expectations — and regulatory standards — are exceptionally high.\n\nDDAN Hood Cleaning and Repair serves Franklin from our Mt. Juliet headquarters, approximately 40-50 minutes via I-24 or I-65. We understand that Franklin's restaurant operators demand a higher standard of service — and that's exactly what we deliver. Every cleaning is performed to bare metal, every repair meets or exceeds NFPA 96 specifications, and every job is documented with professional before-and-after photography.\n\nFrom the historic downtown restaurants on Main Street to the busy kitchens along Mallory Lane and McEwen Drive in Cool Springs, DDAN provides the caliber of exhaust system service that Franklin's culinary community requires.",
+    "whyChoose": [
+      "Experience serving Franklin's upscale restaurant market and high-end kitchen operations",
+      "Familiar with Williamson County fire marshal standards and inspection expectations",
+      "Professional documentation package that meets the standards Franklin operators expect",
+      "Flexible scheduling around Franklin's peak dining hours and weekend brunch traffic",
+      "Complete service offering eliminates the need for multiple contractors",
+      "Consistent, repeatable results that protect your investment and reputation"
+    ],
+    "neighborhoods": ["Main Street Historic District", "Cool Springs", "Mallory Lane Corridor", "McEwen Drive", "Carothers Parkway", "Columbia Avenue", "Berry Farms", "Westhaven"],
+    "faqs": [
+      { "q": "Does DDAN provide hood cleaning for upscale Franklin restaurants?", "a": "Yes. We service all types of commercial kitchens in Franklin, from fine dining establishments on Main Street to high-volume kitchens in Cool Springs. Our work meets the exacting standards Franklin operators expect." },
+      { "q": "What does Williamson County require for hood cleaning compliance?", "a": "Williamson County enforces NFPA 96 standards. DDAN provides all required documentation including before-and-after photos, service reports, and compliance recommendations that satisfy Williamson County fire inspectors." },
+      { "q": "How far is Franklin from DDAN's headquarters?", "a": "Franklin is approximately 40-50 minutes from our Mt. Juliet base. We maintain regular service routes to Williamson County and schedule efficiently to serve multiple Franklin clients per trip." },
+      { "q": "Does DDAN offer after-hours cleaning for Franklin restaurants?", "a": "Absolutely. Most Franklin restaurants prefer overnight or early-morning service to avoid disrupting dinner and brunch service. We accommodate your schedule completely." }
+    ]
+  },
+  {
+    "slug": "smyrna-tn",
+    "city": "Smyrna",
+    "state": "TN",
+    "zips": ["37167"],
+    "driveTime": "25-30 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/smyrna-tn-hero.jpg",
+    "serviceImage": "/images/locations/smyrna-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Smyrna, TN",
+    "description": "DDAN serves Smyrna, TN with professional hood cleaning, exhaust system repair, and NFPA 96 compliant kitchen ventilation services. Emergency service available.",
+    "intro": "Smyrna's Sam Ridley Parkway serves as the commercial backbone of this Rutherford County city, with restaurants, fast-food chains, and food service operations lining the corridor from I-24 to the Nissan manufacturing district. The steady flow of workers from Smyrna's industrial plants creates consistent demand for quick-service and sit-down restaurants — all of which need properly maintained exhaust systems.\n\nDDAN Hood Cleaning and Repair is just 25-30 minutes from Smyrna, making us one of the closest professional hood cleaning providers in the area. We serve Smyrna's diverse mix of commercial kitchens — from the quick-service restaurants near the Sam Ridley corridor to church kitchens and school cafeterias throughout the community.\n\nOur technicians are experienced with Rutherford County fire inspection requirements and provide the detailed documentation Smyrna businesses need to demonstrate NFPA 96 compliance at every inspection cycle.",
+    "whyChoose": [
+      "Only 25-30 minutes away — one of the closest professional hood cleaning providers to Smyrna",
+      "Experienced with Smyrna's mix of quick-service, industrial, and institutional kitchens",
+      "Familiar with Rutherford County fire department inspection protocols",
+      "Emergency and same-day service available for Smyrna businesses",
+      "Overnight scheduling to avoid disrupting high-traffic lunch and dinner periods",
+      "Complete cleaning, repair, and installation services — no need for multiple vendors"
+    ],
+    "neighborhoods": ["Sam Ridley Parkway", "Nissan Drive Industrial Area", "Lowry Street", "Enon Springs Road", "Almaville Road", "Old Nashville Highway"],
+    "faqs": [
+      { "q": "How close is DDAN to Smyrna?", "a": "DDAN's Mt. Juliet headquarters is only 25-30 minutes from Smyrna, making us one of the most accessible hood cleaning providers for Rutherford County's northern corridor." },
+      { "q": "Does DDAN service restaurants near the Nissan plant in Smyrna?", "a": "Yes. We serve all commercial kitchens in Smyrna including those along Sam Ridley Parkway, near the Nissan manufacturing district, and throughout the 37167 zip code area." },
+      { "q": "What hood cleaning schedule does Smyrna require?", "a": "Rutherford County follows NFPA 96 standards. Most Smyrna restaurants need quarterly cleaning, though high-volume cooking operations may need monthly service. DDAN helps you determine the right frequency." },
+      { "q": "Can DDAN handle emergency exhaust fan repair in Smyrna?", "a": "Absolutely. We provide 24/7 emergency repair service and can typically reach Smyrna within 30-40 minutes for critical exhaust system failures." }
+    ]
+  },
+  {
+    "slug": "gallatin-tn",
+    "city": "Gallatin",
+    "state": "TN",
+    "zips": ["37066"],
+    "driveTime": "20-25 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/gallatin-tn-hero.jpg",
+    "serviceImage": "/images/locations/gallatin-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Gallatin, TN",
+    "description": "DDAN provides hood cleaning, exhaust repair, and NFPA 96 compliant kitchen ventilation services to Gallatin, TN and surrounding Sumner County areas.",
+    "intro": "Gallatin's historic downtown square and the expanding Nashville Pike commercial corridor have made this Sumner County seat a growing hub for restaurants and food service operations. With new dining concepts opening alongside Gallatin's established local favorites, the demand for professional kitchen exhaust maintenance continues to rise in this community.\n\nDDAN Hood Cleaning and Repair is just 20-25 minutes from Gallatin via Highway 109, making us exceptionally well-positioned to serve this market with minimal travel time. We've worked with Gallatin restaurants, churches, and institutional kitchens for years and have strong familiarity with Sumner County fire department inspection expectations.\n\nFrom the restaurants clustered around Gallatin's town square to the newer commercial developments along Nashville Pike, DDAN delivers professional exhaust system service — cleaning to bare metal, full photo documentation, and complete NFPA 96 compliance — that Gallatin business owners can rely on every quarter.",
+    "whyChoose": [
+      "Just 20-25 minutes from Gallatin — among our shortest service routes",
+      "Long-standing relationships with Gallatin commercial kitchen operators",
+      "Experienced with Sumner County fire department protocols and documentation needs",
+      "Quick turnaround for scheduled cleanings and emergency repairs",
+      "Serving Gallatin since well before the city's recent restaurant growth",
+      "No travel surcharges for Gallatin and surrounding Sumner County locations"
+    ],
+    "neighborhoods": ["Downtown Square", "Nashville Pike Corridor", "Highway 109 Commercial Area", "Steam Plant District", "Albert Gallatin Avenue", "Long Hollow Pike North"],
+    "faqs": [
+      { "q": "How close is DDAN to Gallatin?", "a": "DDAN is only 20-25 minutes from Gallatin via Highway 109. Gallatin is one of our closest service areas, and we provide no-surcharge service for all businesses in zip code 37066." },
+      { "q": "Does DDAN serve the restaurants near Gallatin's town square?", "a": "Yes. We serve all of Gallatin including the downtown square area, Nashville Pike, Highway 109 corridor, and all surrounding commercial districts in Sumner County." },
+      { "q": "What fire code compliance does Gallatin require?", "a": "Gallatin falls under Sumner County fire jurisdiction, which enforces NFPA 96 standards. DDAN provides full cleaning documentation with before-and-after photos that meet all Sumner County requirements." },
+      { "q": "Can DDAN install grease containment on my Gallatin restaurant's roof?", "a": "Absolutely. We install rooftop grease containment systems, hinge kits, access panels, and complete exhaust systems for Gallatin commercial kitchens — all built to NFPA 96 code." }
+    ]
+  },
+  {
+    "slug": "bellevue-tn",
+    "city": "Bellevue",
+    "state": "TN",
+    "zips": ["37221", "37209"],
+    "driveTime": "35-45 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/bellevue-tn-hero.jpg",
+    "serviceImage": "/images/locations/bellevue-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Bellevue, TN",
+    "description": "DDAN serves Bellevue, TN with commercial hood cleaning, exhaust system repair, and NFPA 96 compliant kitchen ventilation services.",
+    "intro": "Bellevue's Highway 70 South corridor and the One Bellevue Place development have established this West Nashville community as a thriving suburban dining market. With a loyal neighborhood customer base and steady growth in both independent restaurants and national chains, Bellevue's commercial kitchens need reliable exhaust system service to maintain their operations and compliance records.\n\nDDAN Hood Cleaning and Repair serves Bellevue from our Mt. Juliet headquarters, approximately 35-45 minutes via I-40 West. We service the full spectrum of Bellevue's commercial kitchens — from the family restaurants along Highway 70 to the newer concepts in the Bellevue commercial district.\n\nAs part of Metro Nashville-Davidson County, Bellevue businesses must comply with Metro fire marshal inspections. DDAN provides the thorough cleaning, detailed photo documentation, and professional service reports that Metro Nashville inspectors require — keeping your Bellevue kitchen compliant and fire-safe.",
+    "whyChoose": [
+      "Regular service routes to West Nashville ensure consistent Bellevue scheduling",
+      "Familiar with Metro Nashville-Davidson County inspection requirements for Bellevue",
+      "Trusted by Bellevue's mix of independent restaurants and chain operations",
+      "After-hours and weekend scheduling to accommodate Bellevue dining traffic",
+      "Emergency service available with same-day response for critical failures",
+      "Full-service provider: cleaning, repair, installation, and parts from one team"
+    ],
+    "neighborhoods": ["Highway 70 South Corridor", "One Bellevue Place", "Harpeth Village", "Old Harding Pike", "Sawyer Brown Road", "Coley Davis Road Area"],
+    "faqs": [
+      { "q": "Does DDAN serve the Bellevue area regularly?", "a": "Yes. We maintain regular service routes to Bellevue and West Nashville. Scheduling is consistent and reliable for all Bellevue commercial kitchens." },
+      { "q": "What inspection authority covers Bellevue restaurants?", "a": "Bellevue falls under Metro Nashville-Davidson County fire jurisdiction. DDAN provides documentation that meets all Metro Nashville fire marshal requirements for NFPA 96 compliance." },
+      { "q": "What zip codes does DDAN serve in Bellevue?", "a": "We serve all of Bellevue including zip codes 37221 and 37209, plus the surrounding West Nashville areas." },
+      { "q": "Can DDAN repair my restaurant's exhaust fan in Bellevue?", "a": "Absolutely. We repair exhaust fan motors, belts, hinge kits, and all exhaust system components. Emergency repair is available 24/7 for Bellevue businesses." }
+    ]
+  },
+  {
+    "slug": "brentwood-tn",
+    "city": "Brentwood",
+    "state": "TN",
+    "zips": ["37027", "37024"],
+    "driveTime": "35-45 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/brentwood-tn-hero.jpg",
+    "serviceImage": "/images/locations/brentwood-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Brentwood, TN",
+    "description": "DDAN provides hood cleaning, exhaust repair, and NFPA 96 kitchen ventilation services to Brentwood, TN's premium restaurant and hospitality market.",
+    "intro": "Brentwood's Maryland Farms business park and the dining options along Franklin Road serve one of Middle Tennessee's most affluent communities, where restaurant operators invest heavily in quality — and expect the same caliber from their service providers. The city's strict zoning and high-end commercial developments mean Brentwood kitchens often feature premium equipment that demands professional-grade exhaust maintenance.\n\nDDAN Hood Cleaning and Repair serves Brentwood from our Mt. Juliet headquarters, approximately 35-45 minutes away. We bring the same attention to detail and professional documentation that has earned us the trust of commercial kitchen operators across Middle Tennessee.\n\nWhether you operate a restaurant in Maryland Farms, a private club kitchen in Brentwood Hills, or a hospitality venue along Moores Lane, DDAN provides exhaust system service that reflects the standards your Brentwood operation demands — thorough, documented, and fully NFPA 96 compliant.",
+    "whyChoose": [
+      "Experienced with Brentwood's premium commercial kitchen equipment and systems",
+      "Professional documentation and communication standards expected by Brentwood operators",
+      "Familiar with Williamson County fire inspection requirements for Brentwood businesses",
+      "Discreet, professional service that reflects your establishment's standards",
+      "Flexible scheduling including early mornings and late evenings",
+      "One provider for all exhaust system needs — cleaning, repair, parts, and installation"
+    ],
+    "neighborhoods": ["Maryland Farms", "Franklin Road Corridor", "Moores Lane", "Brentwood Hills", "Meadow Lake", "Wilson Pike Area", "Old Hickory Boulevard"],
+    "faqs": [
+      { "q": "Does DDAN service premium restaurant kitchens in Brentwood?", "a": "Yes. We have extensive experience with Brentwood's upscale commercial kitchen operations, including high-end restaurants, private clubs, and hospitality venues. Our service quality matches the standards Brentwood operators expect." },
+      { "q": "Which fire department inspects Brentwood restaurants?", "a": "Brentwood falls under Williamson County fire jurisdiction. DDAN provides complete documentation packages that satisfy all Williamson County NFPA 96 inspection requirements." },
+      { "q": "What zip codes does DDAN cover in Brentwood?", "a": "We serve all of Brentwood including zip codes 37027 and 37024, extending into the surrounding Williamson County area." },
+      { "q": "Does DDAN offer scheduled maintenance plans for Brentwood kitchens?", "a": "Yes. We offer quarterly, semi-annual, and custom maintenance plans for Brentwood commercial kitchens, with automated scheduling reminders and consistent documentation." }
+    ]
+  },
+  {
+    "slug": "la-vergne-tn",
+    "city": "La Vergne",
+    "state": "TN",
+    "zips": ["37086"],
+    "driveTime": "20-25 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/la-vergne-tn-hero.jpg",
+    "serviceImage": "/images/locations/la-vergne-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in La Vergne, TN",
+    "description": "DDAN provides hood cleaning, exhaust fan repair, and NFPA 96 compliant kitchen services to La Vergne, TN commercial kitchens. Fast local service.",
+    "intro": "La Vergne's Murfreesboro Road corridor and the surrounding industrial-commercial zones support a steady stream of restaurants, convenience stores with food prep areas, and warehouse-district eateries that serve the area's manufacturing workforce. As a gateway between Nashville and Murfreesboro along I-24, La Vergne's food service operations face high daily traffic and the grease accumulation that comes with constant cooking.\n\nDDAN Hood Cleaning and Repair reaches La Vergne in just 20-25 minutes from our Mt. Juliet headquarters, making service calls quick and efficient. We understand La Vergne's commercial kitchen landscape — the lunch-heavy restaurants near the industrial parks, the quick-service operations along Murfreesboro Road, and the growing number of independent eateries in the community.\n\nEvery service visit includes full NFPA 96-compliant cleaning, before-and-after photo documentation, and a written service report — everything La Vergne businesses need to satisfy Rutherford County fire inspectors and maintain their insurance compliance.",
+    "whyChoose": [
+      "Only 20-25 minutes from La Vergne — fast arrival for scheduled and emergency service",
+      "Understanding of La Vergne's high-turnover commercial kitchen environment",
+      "Familiar with Rutherford County inspection requirements for La Vergne businesses",
+      "Budget-friendly service without sacrificing thoroughness or compliance",
+      "24/7 emergency repair for critical exhaust system breakdowns",
+      "Efficient scheduling that minimizes disruption to your peak lunch hours"
+    ],
+    "neighborhoods": ["Murfreesboro Road Corridor", "Stones River Road", "Old Nashville Highway", "La Vergne Industrial Park Area", "Lake Forest Estates Commercial", "Waldron Road"],
+    "faqs": [
+      { "q": "How quickly can DDAN reach La Vergne?", "a": "DDAN's Mt. Juliet headquarters is just 20-25 minutes from La Vergne. For emergencies, we can typically arrive within 30-35 minutes." },
+      { "q": "Which fire department covers La Vergne restaurants?", "a": "La Vergne falls under Rutherford County fire jurisdiction. DDAN provides all NFPA 96 documentation required by Rutherford County fire inspectors." },
+      { "q": "Does DDAN service the restaurants along Murfreesboro Road in La Vergne?", "a": "Yes. We serve all La Vergne commercial kitchens including the Murfreesboro Road corridor, industrial park areas, and all locations within zip code 37086." },
+      { "q": "Is DDAN affordable for small La Vergne restaurant operations?", "a": "Yes. We provide honest, upfront pricing with no hidden fees. Most La Vergne hood cleanings start at $350 depending on system size. We also offer free estimates." }
+    ]
+  },
+  {
+    "slug": "lebanon-tn",
+    "city": "Lebanon",
+    "state": "TN",
+    "zips": ["37087", "37090"],
+    "driveTime": "15-20 minutes from our Mt. Juliet headquarters",
+    "heroImage": "/images/locations/lebanon-tn-hero.jpg",
+    "serviceImage": "/images/locations/lebanon-tn-service.jpg",
+    "title": "Commercial Kitchen Hood Cleaning & Repair in Lebanon, TN",
+    "description": "DDAN serves Lebanon, TN with fast, NFPA 96 compliant hood cleaning, exhaust repair, and commercial kitchen ventilation services. Just 15 minutes away.",
+    "intro": "Lebanon's Public Square and the West Main Street commercial district anchor Wilson County's dining scene, with a growing mix of restaurants, cafes, and food service operations that reflect the city's expanding population. As the Wilson County seat and home to Cumberland University, Lebanon supports a diverse commercial kitchen landscape that ranges from college-area eateries to established downtown restaurants.\n\nDDAN Hood Cleaning and Repair is just 15-20 minutes from Lebanon — making this one of our closest and most frequently served markets. We've built strong relationships with Lebanon restaurant owners, Wilson County fire officials, and local health inspectors over our 18+ years of operation.\n\nFrom the Public Square's growing restaurant scene to the newer commercial developments along South Hartmann Drive, DDAN keeps Lebanon's kitchens clean, compliant, and operational. Our proximity means faster response, more flexible scheduling, and the kind of personal service that comes from being a neighbor — not a distant contractor.",
+    "whyChoose": [
+      "Just 15-20 minutes away — our closest service area outside Mt. Juliet",
+      "Deep relationships with Wilson County fire officials and health inspectors",
+      "Serving Lebanon's commercial kitchens since 2007 with consistent quality",
+      "Same-day emergency service with some of the fastest response times in our network",
+      "No-surcharge service for all Lebanon and Wilson County locations",
+      "Personal, neighbor-level service from a team that knows your community"
+    ],
+    "neighborhoods": ["Public Square Downtown", "West Main Street", "South Hartmann Drive", "Castle Heights Area", "Cumberland University Area", "Highway 231 North Corridor", "Leeville Pike"],
+    "faqs": [
+      { "q": "How close is DDAN to Lebanon?", "a": "DDAN's Mt. Juliet headquarters is only 15-20 minutes from Lebanon, making us one of the fastest-responding hood cleaning providers in Wilson County." },
+      { "q": "Does DDAN serve restaurants around Lebanon's Public Square?", "a": "Yes. We serve all of Lebanon including the Public Square, West Main Street, South Hartmann Drive, and all surrounding areas in zip codes 37087 and 37090." },
+      { "q": "What are Wilson County's hood cleaning requirements?", "a": "Wilson County enforces NFPA 96 standards for all commercial kitchens. DDAN provides complete documentation — photos, service reports, and compliance recommendations — that meets all Wilson County fire inspection requirements." },
+      { "q": "Does DDAN work with Cumberland University's campus kitchens?", "a": "We service all types of commercial kitchens in the Lebanon area, including university dining facilities, school cafeterias, church kitchens, and institutional operations." }
+    ]
+  }
+]

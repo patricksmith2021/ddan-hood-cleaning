@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from './HeroBanner.astro';
+import BottomCTA from './BottomCTA.astro';
+import business from '../data/business.json';
+
+interface FAQ {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  city: string;
+  state: string;
+  slug: string;
+  zips: string[];
+  driveTime: string;
+  heroImage: string;
+  serviceImage: string;
+  title: string;
+  description: string;
+  intro: string;
+  whyChoose: string[];
+  neighborhoods: string[];
+  faqs: FAQ[];
+}
+
+const {
+  city, state, slug, zips, driveTime, heroImage, serviceImage,
+  title, description, intro, whyChoose, neighborhoods, faqs,
+} = Astro.props;
+
+const services = [
+  { name: 'Hood Cleaning', href: '/kitchen-hood-cleaning-services/', desc: 'NFPA 96 compliant commercial hood cleaning — hoods, ducts, fans, and filters cleaned to bare metal with full photo documentation.' },
+  { name: 'Hood Repair', href: '/commercial-hood-repair/', desc: 'Expert diagnosis and repair for exhaust fan motors, belts, ductwork, and all hood system components. 24/7 emergency service.' },
+  { name: 'Kitchen Exhaust Installation', href: '/kitchen-exhaust-installation-services/', desc: 'Complete kitchen ventilation system installation — hoods, ductwork, exhaust fans, makeup air units, and grease containment.' },
+  { name: 'Grease Containment', href: '/grease-containment/', desc: 'Rooftop grease containment systems to protect your roof, prevent fire hazards, and maintain code compliance.' },
+  { name: 'Exhaust Fan Parts', href: '/restaurant-exhaust-fan-parts/', desc: 'Commercial-grade replacement parts: motors, belts, filters, impellers, and more. Local delivery available.' },
+  { name: 'Hinge Kit Installation', href: '/exhaust-fan-hinge-kit-installation/', desc: 'NFPA 96-required hinge kits for safe rooftop exhaust fan access during cleaning and inspection.' },
+  { name: 'Belt & Motor Repair', href: '/exhaust-fan-belt-motor-repair/', desc: 'Fast repair for failing exhaust fan motors and belts. Same-day service available.' },
+  { name: 'Access Panel Installation', href: '/access-panel-installation/', desc: 'Code-compliant duct access panels installed every 12 feet for proper cleaning access.' },
+  { name: 'Fire Suppression Systems', href: '/restaurant-fire-suppression-systems/', desc: 'UL 300-compliant fire suppression system installation, inspection, and maintenance.' },
+];
+
+const introParagraphs = intro.split('\n\n');
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- HERO -->
+  <section class="relative min-h-[400px] md:min-h-[450px] flex items-center overflow-hidden">
+    <div class="absolute inset-0" style={`background: url('${heroImage}') center/cover no-repeat;`}></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="container-narrow relative z-10 py-16 text-white">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+          <li class="text-primary">/</li>
+          <li><a href="/locations/" class="hover:text-primary transition-colors">Locations</a></li>
+          <li class="text-primary">/</li>
+          <li class="text-white">{city}, {state}</li>
+        </ol>
+      </nav>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Commercial Kitchen Hood Cleaning &amp; Repair in <span class="text-primary">{city}, {state}</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-body-text max-w-2xl mb-6">
+        NFPA 96 Compliant | {driveTime} | 24/7 Emergency Service
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href={`tel:${business.phoneRaw}`} class="btn-primary">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="btn-ghost popup-trigger">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service Today
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="section-headline mb-4">
+            Why {city} Restaurants Trust DDAN
+          </h2>
+          {introParagraphs.map((p: string) => (
+            <p class="text-body-text mb-4 reveal-child">{p}</p>
+          ))}
+        </div>
+        <div class="reveal-child">
+          <img
+            src={serviceImage}
+            alt={`Commercial kitchen hood cleaning service in ${city}, ${state}`}
+            class="w-full rounded border-3 border-primary"
+            loading="lazy"
+          />
+          <div class="mt-4 bg-dark-base border border-border-subtle rounded p-4">
+            <p class="text-primary font-heading font-semibold text-sm mb-1">Serving {city}</p>
+            <p class="text-body-text text-sm">Zip codes: {zips.join(', ')}</p>
+            <p class="text-muted-text text-xs mt-1">{driveTime}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES LIST -->
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-2">
+        Our Services in {city}
+      </h2>
+      <p class="text-body-text text-center max-w-2xl mx-auto mb-10 reveal-child">
+        DDAN provides every commercial kitchen exhaust service your {city} business needs — from routine cleaning to emergency repairs and full system installations.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {services.map((svc) => (
+          <a href={svc.href} class="block bg-secondary border border-border-subtle p-5 rounded hover:border-primary transition-colors group reveal-child">
+            <h3 class="font-heading font-semibold text-white text-base mb-2 group-hover:text-primary transition-colors">{svc.name}</h3>
+            <p class="text-body-text text-sm">{svc.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="section-headline mb-4">
+            Why Choose DDAN for {city} Commercial Kitchens?
+          </h2>
+          <div class="space-y-3">
+            {whyChoose.map((item: string) => (
+              <div class="check-item text-body-text reveal-child">{item}</div>
+            ))}
+          </div>
+          <div class="mt-6">
+            <button type="button" class="btn-primary popup-trigger reveal-child">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Get a Free Quote
+            </button>
+          </div>
+        </div>
+        <div class="bg-dark-base border border-border-subtle rounded p-6 reveal-child">
+          <h3 class="font-heading font-semibold text-primary text-lg mb-2">{business.name}</h3>
+          <p class="text-body-text text-sm mb-3">Serving {city} and all of Middle Tennessee</p>
+          <ul class="space-y-2 text-sm text-body-text">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+              <a href={`tel:${business.phoneRaw}`} class="hover:text-primary transition-colors">{business.phone}</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+              <a href={`mailto:${business.email}`} class="hover:text-primary transition-colors">{business.email}</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+              {business.address.city}, {business.address.state} {business.address.zip}
+            </li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {business.credentials.map((cred: string) => (
+              <span class="text-xs bg-secondary px-2 py-1 rounded border border-border-subtle text-body-text">{cred}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow text-center reveal">
+      <h2 class="section-headline mb-2">What {city} Customers Say</h2>
+      <p class="text-body-text max-w-2xl mx-auto mb-8 reveal-child">
+        Read verified reviews from commercial kitchen operators across Middle Tennessee who trust DDAN for their exhaust system service.
+      </p>
+      <div class="bg-secondary rounded p-6 mb-6 reveal-child">
+        <div id={`trustindex-widget-${slug}`}>
+          <script type="text/javascript" src="https://cdn.trustindex.io/loader.js?wp-widget" defer></script>
+        </div>
+      </div>
+      <a href={business.googleReviewUrl} target="_blank" rel="noopener" class="btn-primary reveal-child">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        See All Reviews on Google
+      </a>
+    </div>
+  </section>
+
+  <!-- AREAS WITHIN CITY -->
+  <section class="bg-secondary section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-2">
+        Areas We Serve in {city}
+      </h2>
+      <p class="text-body-text text-center max-w-2xl mx-auto mb-8 reveal-child">
+        DDAN provides commercial kitchen exhaust services throughout {city} and surrounding areas, including:
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {neighborhoods.map((n: string) => (
+          <div class="flex items-center gap-2 p-3 bg-dark-base rounded reveal-child">
+            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+            <span class="text-white font-heading text-sm">{n}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-muted-text text-sm text-center mt-4 reveal-child">
+        Zip codes served: {zips.join(', ')}
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-dark-base section-padding">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline text-center mb-8">
+        {city} Hood Cleaning FAQ
+      </h2>
+      <div class="max-w-3xl mx-auto space-y-4">
+        {faqs.map((faq: FAQ) => (
+          <details class="faq-item bg-secondary border border-border-subtle rounded group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-4 cursor-pointer">
+              <span class="font-heading font-medium text-white text-sm">{faq.q}</span>
+              <svg class="faq-icon w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-4 pb-4">
+              <p class="text-body-text text-sm">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- URGENCY CTA -->
+  <section
+    class="relative section-padding overflow-hidden"
+    style={`background: url('${heroImage}') center/cover no-repeat fixed;`}
+    id={`urgency-cta-${slug}`}
+  >
+    <div class="absolute inset-0 bg-dark-base/80"></div>
+    <div class="container-narrow relative z-10 reveal">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="reveal-child">
+          <h2 class="font-heading font-bold text-2xl md:text-3xl text-white mb-2">
+            Don't Wait Until You're <span class="text-primary">Fined or Shut Down!</span>
+          </h2>
+          <div class="w-16 h-1 bg-primary mb-4"></div>
+          <p class="text-body-text mb-6">
+            {city} commercial kitchens depend on properly maintained exhaust systems to pass inspections and prevent fires. <strong class="text-white">{business.name}</strong> provides the fast, thorough, NFPA 96-compliant service your kitchen needs.
+          </p>
+          <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-2 text-white font-heading font-bold text-lg mb-4 hover:text-primary transition-colors">
+            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+            Call Now: {business.phone}
+          </a>
+          <button type="button" class="btn-primary popup-trigger">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Request Service Online
+          </button>
+        </div>
+        <div class="flex justify-end">
+          <img
+            src="/images/truck.png"
+            alt="DDAN Hood Cleaning truck"
+            class="truck-drive-in max-w-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Truck drive-in for this location page
+  document.addEventListener('DOMContentLoaded', () => {
+    const trucks = document.querySelectorAll('.truck-drive-in');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('driven-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    trucks.forEach((t) => observer.observe(t));
+  });
+</script>
