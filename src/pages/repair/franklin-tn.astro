@@ -1,0 +1,408 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: "Can you clean the exhaust systems in historic downtown Franklin buildings?",
+    a: "Absolutely. Historic downtown Franklin's 150-year-old structures require careful, experienced handling. We navigate non-standard ductwork hidden in brick walls, tight mechanical chases, and limited rooftop access. Our crews are trained to work in preservation-sensitive environments without damaging historic materials — and we repair any system deficiencies we find along the way.",
+  },
+  {
+    q: "My Cool Springs landlord requires proof of rooftop grease containment. Can you provide this?",
+    a: "Yes. We install and document rooftop grease containment systems with photo evidence, manufacturer specs, and service records specifically formatted for commercial property managers. Cool Springs landlords receive a complete compliance package that satisfies both their lease requirements and NFPA 96 standards.",
+  },
+  {
+    q: "Do you repair fire suppression systems in Franklin?",
+    a: "Yes. We service, repair, and re-route Ansul and other wet chemical fire suppression systems in Franklin restaurants. This includes nozzle replacement, fusible link inspection, line repairs, and full system recharging. Every repair is documented for your Williamson County fire inspector.",
+  },
+  {
+    q: "Do you offer maintenance contracts?",
+    a: "Yes. Franklin's upscale restaurants rely on preventative maintenance to avoid any downtime during the lucrative dinner season. Our maintenance contracts include scheduled inspections, priority emergency response, and documented service history for your Williamson County fire inspector and property manager.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/hero/hero-3.jpg`,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Franklin, TN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": business.googleReviewRating,
+        "reviewCount": "51"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Restaurant Hood & Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Franklin, TN"
+      },
+      "description": "Expert hood and exhaust fan repair for Franklin's historic Main Street and Cool Springs kitchens. 24/7 emergency service, Williamson County compliant."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Franklin, TN" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Franklin Restaurant Hood Repair Service | DDAN"
+  description="Expert exhaust fan repair for Franklin's historic Main Street and Cool Springs kitchens. Williamson County compliant. 24/7. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-3.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Franklin, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Franklin, TN Restaurant Hood & <span class="text-[#FF5E15]">Exhaust Fan Repair</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Historic Main Street's hidden ductwork and Cool Springs' premium kitchens — precision repair for every challenge
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Franklin's Kitchens Demand Precision Repair
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Franklin's Main Street Historic District and Cool Springs commercial area represent two of Williamson County's most concentrated dining markets. Upscale restaurants, boutique eateries, premium steakhouses, and national chains all operate high-volume kitchens with exacting standards. A failed exhaust fan or a broken fire suppression link doesn't just create a code violation in Franklin — it shuts down a Friday night service that generates thousands in revenue. Franklin operators demand zero-downtime repair service, and that's exactly what DDAN delivers.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Historic downtown Franklin presents unique challenges that most repair companies aren't equipped to handle. The buildings along Main Street are 100 to 150 years old, with complex ductwork hidden behind original brick walls, running through non-standard mechanical chases, and terminating on rooftops with limited access points. You can't just tear into a historic structure to reach a failed fan motor or a disconnected duct joint. It takes experience, planning, and the right tools to diagnose and repair exhaust systems in these environments without damaging the building — and without leaving the restaurant dark for days while you figure it out.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Cool Springs features massive corporate-owned buildings with pristine white TPO roofs that landlords protect aggressively. A single grease stain on a Cool Springs rooftop can trigger lease violation notices and fines that cost more than the repair itself. The CoolSprings Galleria area, The Factory at Franklin, and the McEwen Northside development all add commercial kitchen demand to a market that already runs at capacity. Every one of these kitchens needs an exhaust repair provider that understands both the equipment and the business stakes.
+          </p>
+          <p class="text-[#FF5E15] font-heading font-semibold text-base reveal-child">
+            DDAN provides 24/7 emergency hood and exhaust fan repair across all of Franklin and Williamson County — precision service for premium kitchens.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Commercial hood and exhaust fan repair in Franklin TN - DDAN Hood Cleaning and Repair"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Exhaust fan failures are the most common emergency call we receive from Franklin restaurants. We stock parts for all major brands and resolve most fan problems on the first visit.
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Fan repair services:
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {[
+          { title: 'Motor Replacement', desc: 'Burned-out or overheating motors replaced same-day with OEM-spec units' },
+          { title: 'Belt Replacement', desc: 'Worn, cracked, or slipping belts that reduce airflow and cause squealing' },
+          { title: 'Bearing Repair', desc: 'Failed bearings that cause grinding, vibration, and eventual motor seizure' },
+          { title: 'Impeller Rebalancing', desc: 'Grease-clogged or damaged impeller wheels that cause dangerous vibration' },
+          { title: 'Hinge Kit Installation', desc: 'Heavy-duty hinge kits for safe rooftop fan access during cleaning and maintenance' },
+          { title: 'Wiring & Controls', desc: 'Damaged wiring, failed contactors, speed controllers, and relay replacements' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Beyond fans, we also repair:
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child">Hood canopy damage — dented plenums, broken hinges, warped drip trays</li>
+        <li class="check-item reveal-child">Ductwork issues — loose joints, failed dampers, missing <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a></li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression systems</a> — nozzle replacement, line re-routing, Ansul system service</li>
+        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease containment</a> — rooftop grease box replacement, drain line repair, custom containment installation</li>
+        <li class="check-item reveal-child">Make-up air units — damper repair, heating element replacement, filter service, control diagnostics</li>
+      </ul>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Need a deeper dive into belt and motor service? See our dedicated <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt & motor repair</a> page. For hinge kit details: <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit installation</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-bold mb-4">
+          24/7 Emergency Dispatch for Franklin
+        </h2>
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          Exhaust fan down during a packed Friday dinner? Kitchen filling with smoke in the middle of a private event? We dispatch emergency repair crews to Franklin and all of Williamson County around the clock. No answering service — you get a real technician on the line.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-10 py-4 bg-[#FF5E15] text-white font-heading text-xl font-bold rounded hover:bg-[#E54F0D] hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN FRANKLIN -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Failures in Franklin
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.962-.833-2.732 0L4.072 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Historic Ductwork Challenges</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Downtown Franklin restaurants struggle with winding, non-standard ductwork hidden in 150-year-old walls. Accessing fans and duct runs for repair requires careful planning — you can't just tear into a historic structure. Failed joints, corroded sections, and missing <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> go undetected for years because no one can see them. DDAN's experienced crews navigate these complex systems efficiently, diagnosing and repairing without damaging the building.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Cool Springs Roof Lease Violations</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Cool Springs corporate landlords heavily fine restaurant tenants if exhaust fans leak grease onto expensive white TPO membranes. A failing fan seal or degraded <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">containment system</a> can trigger lease violations that cost more than the repair itself. DDAN repairs the fan, replaces the seals, and installs containment systems that keep landlords satisfied and tenants in compliance.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Pre-Holiday Belt & Motor Failures</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Pre-holiday rushes in October and November drive massive demand for preventative <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt replacements</a> before Franklin's lucrative fine-dining season peaks. Operators who wait until December find their systems failing at the worst possible time — a snapped belt on Christmas Eve costs ten times what a preventative replacement costs in October. DDAN keeps Franklin's premium kitchens running through the entire holiday season.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Franklin Compliance — Williamson County Fire & Property Management
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The Franklin Fire Department's Fire Prevention Division is extremely strict — especially in the historic downtown district. Connected 150-year-old structures create catastrophic fire risk: a grease fire in one kitchen can spread through shared walls to adjacent buildings before crews arrive. This isn't theoretical. It's why Franklin fire inspectors scrutinize every component of your exhaust system, from the hood filters to the rooftop fan. A failed motor, a disconnected suppression line, or a missing access panel isn't just an equipment problem — it's a fire code violation with serious consequences.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The City of Franklin Water Management operates a strict Fats, Oils, and Grease (FOG) program that monitors commercial kitchen waste discharge. Rooftop grease from failed containment systems that reaches storm drains triggers environmental citations and municipal fines. Franklin's premium positioning as a destination dining market makes these enforcement actions particularly damaging to restaurant reputations.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Cool Springs property managers add a third layer of enforcement. Major commercial landlords self-enforce rooftop maintenance standards that often exceed NFPA 96 requirements. Lease agreements commonly require quarterly documentation of exhaust system condition, grease containment status, and fire suppression compliance. DDAN provides the repair service and the documentation package that satisfies fire inspectors, water management, and property managers simultaneously.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+            Learn more about the standards we follow: <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 Code Standards</a>
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-6 reveal-child">
+          <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-4">Franklin Enforcement Summary</h3>
+          <ul class="space-y-3">
+            <li class="check-item">Franklin Fire Prevention Division — extremely strict in historic downtown</li>
+            <li class="check-item">Connected 150-year-old structures create catastrophic shared-wall fire risk</li>
+            <li class="check-item">Failed equipment triggers code violations and potential kitchen shutdowns</li>
+            <li class="check-item">City of Franklin Water Management monitors FOG discharge</li>
+            <li class="check-item">Cool Springs landlords self-enforce rooftop maintenance standards</li>
+            <li class="check-item">DDAN documentation satisfies fire, water, and property management requirements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed italic">
+          "A premium steakhouse in Cool Springs was receiving lease violation notices because grease was leaking from their rooftop exhaust fan onto the building's white TPO membrane. The landlord was threatening fines. DDAN diagnosed a failed fan bearing that was causing excessive vibration and breaking the containment seal. We replaced the bearing, installed a new grease containment system, sealed the fan housing, and provided a complete photo report to the property manager. The violation was cleared within 48 hours."
+        </p>
+        <p class="text-[#FF5E15] font-heading font-semibold text-sm mt-4">— DDAN Hood Cleaning and Repair, Franklin Service Area</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 reveal-child">
+        We carry parts and have direct experience repairing exhaust systems from every major commercial kitchen ventilation manufacturer.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] rounded-xl px-5 py-3 text-[#D4D4D4] font-heading font-medium text-sm reveal-child">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Franklin Service Area
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Also in Franklin: <a href="/cleaning/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot; <a href="/parts/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Also serving nearby <a href="/repair/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>, Thompsons Station, and Nolensville
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Franklin Hood Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#1A1A1A] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA URGENCY -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center mb-8">
+      <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed reveal-child">
+        Pre-holiday rushes in <span class="text-[#FF5E15] font-semibold">October/November</span> drive massive demand. Schedule preventative maintenance now — don't wait for December.
+      </p>
+      <div class="mt-6">
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Schedule Repair Service
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
