@@ -1,0 +1,343 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Why do Shelbyville restaurant exhaust fans fail so often?',
+    a: 'Shelbyville\'s restaurant scene is driven by two forces that destroy exhaust fans: the Tyson Foods plant generates massive concentrated lunch demand that pushes motors to thermal limits during peak shifts, and heavy BBQ and Southern cooking produces thick, sticky grease that coats pulleys, impellers, and bearings faster than standard maintenance schedules can address. Older diners on Highway 231 compound the problem with concealed ductwork and outdated equipment.',
+  },
+  {
+    q: 'How quickly can DDAN respond to an emergency fan failure in Shelbyville?',
+    a: `Shelbyville is within our Middle Tennessee service area. We provide 24/7 emergency dispatch and carry common fan motors, belts, and bearings on every truck. Most Shelbyville emergency calls receive same-day response. Call ${business.phone} any time — we understand that Bedford County kitchens can't afford downtime, especially during event season.`,
+  },
+  {
+    q: 'Do you service restaurants in older Shelbyville buildings along Highway 231?',
+    a: 'Yes. Many of Shelbyville\'s most established diners and BBQ joints operate in older buildings along Highway 231 with concealed ductwork hidden behind walls and ceilings. These buildings often lack access panels required for proper NFPA 96 maintenance. We install fire-rated access panels, upgrade undersized equipment, and bring legacy systems into modern compliance without gutting the building.',
+  },
+  {
+    q: 'Can you schedule preventive maintenance before a major event?',
+    a: 'Absolutely. The Tennessee Walking Horse Celebration drives massive dining surges in Shelbyville. We recommend scheduling preventive belt and motor inspections 2-4 weeks before the event to catch failing components before they strand you during your most profitable week.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Shelbyville",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Shelbyville",
+        "addressRegion": "TN"
+      },
+      "description": "Exhaust fan repair for Shelbyville's BBQ and Southern kitchens. Tyson plant lunch rush and Walking Horse Celebration surge service. 24/7 emergency dispatch."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Shelbyville, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/shelbyville-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Shelbyville Kitchen Fan Repair | Horse Country | DDAN"
+  description="Tyson plant lunch rush and Walking Horse Celebration surge. Exhaust fan repair for Shelbyville's BBQ and Southern kitchens. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-4.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Shelbyville, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Shelbyville Exhaust Fan Repair — <span class="text-[#FF5E15]">Bedford County Kitchens</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Tyson workforce dining and Walking Horse Celebration surges — Shelbyville's exhaust fans take a beating
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Shelbyville's Industrial and Event Economy Destroys Exhaust Fans
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Shelbyville anchors Bedford County with two powerful forces that punish commercial kitchen exhaust systems: the Tyson Foods plant drives massive industrial lunch volume year-round, and the Tennessee Walking Horse National Celebration brings huge seasonal surges that push systems from normal load to absolute maximum capacity overnight. BBQ joints, Southern diners, and heavy-fryer operations dominate the restaurant scene, producing thick, sticky grease loads that coat every component from impeller to containment box. Highway 231 is lined with established restaurants that have served Bedford County for decades — and many of those kitchens are running on exhaust equipment that's just as old.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Tyson plant workforce creates concentrated lunch-rush demand that mirrors the industrial corridor pattern — thousands of workers hitting restaurants simultaneously for 30-minute breaks. Motors slam from idle to full power, belts stretch under sudden load, and the thermal shock cycle repeats daily. Older diners on Highway 231 compound the problem with concealed ductwork hidden behind walls and ceilings, often without the access panels required for proper NFPA 96 maintenance. When you can't access the ductwork, you can't clean it properly. When you can't clean it properly, grease builds until it becomes a fire hazard.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Then comes the Walking Horse Celebration — Shelbyville's biggest annual event — and restaurants that were barely keeping up with normal demand are suddenly serving twice their usual volume. Systems that were running hot under normal load now run past their thermal limits. The motor that was "a little loud" seizes. The belt that was "slipping sometimes" snaps. And it happens during the most profitable week of the year. DDAN provides the preventive inspections, emergency repairs, and system upgrades that keep Bedford County kitchens running through both the daily grind and the annual surge.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Shelbyville's BBQ smoke and industrial lunch demand create specific exhaust fan failures. Here's what we fix:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Manufacturing lunch-rush thermal cycling and heavy BBQ smoke loads push motors past their thermal limits. We install commercial-grade units rated for Bedford County demand.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Sudden peak-load lunches stretch OEM belts past recovery. Commercial-grade notched V-belts with proper tensioning handle Shelbyville\'s start-stop cycling.' },
+          { title: 'Bearing Replacement', desc: 'Heavy BBQ grease and smoke residue accelerate bearing contamination. Sealed high-heat bearings rated for continuous heavy-grease environments.' },
+          { title: 'Access Panel Installation', desc: 'Older Highway 231 diners have concealed ductwork with no access. Fire-rated access panels enable proper cleaning and inspection without demolition.' },
+          { title: 'Impeller Cleaning & Balancing', desc: 'BBQ smoke and fryer grease build asymmetric deposits on impeller blades, creating vibration that destroys bearings and loosens housing bolts.' },
+          { title: 'Full Fan Replacement', desc: 'When decades-old equipment can\'t be economically repaired, we install a properly rated replacement matched to your actual cooking operation.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork damage, disconnections, and grease-saturated seams</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Access panel installation</a> for Shelbyville's older concealed ductwork</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — our most-requested Shelbyville service</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Died? Kitchen Shut Down? We're On It.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for Shelbyville</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day motor and belt replacement. We carry common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in Shelbyville
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Tyson plant manufacturing lunch-rush pushes motors past their rated limits every single day. Thousands of workers break for lunch simultaneously, and Shelbyville's restaurants go from idle to maximum output in minutes. This daily thermal shock cycle — full power, cool down, full power again — fatigues motor windings and stretches belts past their adjustment range within months. Older BBQ joints and Southern diners add heavy smoke and grease loads that coat pulleys and impellers, accelerating every mechanical failure. DDAN provides emergency <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> with commercial-grade components rated for Shelbyville's demanding peak-load patterns.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Concealed ductwork in older Highway 231 buildings is Shelbyville's second most common exhaust failure catalyst. When cleaning crews can't access ductwork properly, grease accumulates in hidden sections that nobody can see or reach. That hidden grease restricts airflow, forcing the fan to work harder — accelerating motor and belt wear from the inside out. The Walking Horse Celebration then pushes these already-stressed systems to absolute maximum capacity. DDAN installs fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> that make proper maintenance possible and keep your system ready for Bedford County's busiest week.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Shelbyville Exhaust Repair Compliance — Bedford County Fire Department
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Shelbyville Fire Department enforces NFPA 96 compliance across Bedford County, with particular attention to the older restaurant buildings along Highway 231 where concealed ductwork and legacy equipment create elevated fire risk. A non-functional exhaust fan or inaccessible ductwork section isn't just a maintenance issue — it's a code violation that can trigger shutdown orders. During the Walking Horse Celebration, increased inspection activity targets restaurants handling surge volumes to ensure systems are functioning properly under maximum load.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Every DDAN repair includes photo documentation and a detailed service report that demonstrates compliance with NFPA 96 requirements. When we install access panels in concealed ductwork, we document the locations and provide your records for future inspections. When we replace motors or belts, we document the specifications to prove the components are rated for your actual cooking operation. Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "Right before the massive influx of visitors for the Tennessee Walking Horse National Celebration, a high-volume diner on Highway 231 had their main exhaust fan belt snap. DDAN's emergency crew arrived same-day, installed a commercial-grade replacement belt, and verified the motor tension, ensuring the kitchen was ready for the busiest week of the year."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in Shelbyville kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Shelbyville Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair across all of Shelbyville and Bedford County, including Highway 231, the downtown square, industrial park corridors, and the Celebration grounds area. Whether your restaurant is a decades-old diner or a newer chain operation, we respond to emergency fan failures day and night with common parts on every truck.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Murfreesboro</a> and
+            <a href="/repair/lewisburg-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lewisburg</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Shelbyville Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        The Walking Horse Celebration doesn't wait for your exhaust fan to be ready. Neither does the Tyson lunch rush. Every week you delay maintenance, bearings wear and belts stretch. Call now.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
