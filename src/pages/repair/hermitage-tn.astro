@@ -1,0 +1,396 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Can you fix a vibrating, noisy exhaust fan on my Hermitage restaurant?',
+    a: "Yes. Severe vibration in a commercial exhaust fan usually means one of three things: an imbalanced impeller wheel from grease buildup, a failing bearing, or a worn-out belt that's slipping. In Hermitage's older restaurants, corroded impeller blades are the most common cause — the uneven weight throws the wheel off balance and the vibration destroys bearings and loosens mounting hardware. We diagnose and repair on-site, often same-day, and can replace corroded impellers with new commercial-grade wheels when repair isn't cost-effective.",
+  },
+  {
+    q: 'What does the Metro Nashville Fire Marshal look for in Hermitage?',
+    a: "Metro Nashville Fire Marshal inspectors enforce NFPA 96 standards across all Hermitage commercial kitchens, regardless of the building's age. They check exhaust hood and ductwork cleanliness, fire suppression system functionality, grease filter condition, fan operation, and access panel installation. Aging infrastructure doesn't get a pass — older buildings are held to the same modern standards as new construction. DDAN provides photo-documented service records that satisfy Metro inspectors and can schedule repair work to align with your inspection timeline.",
+  },
+  {
+    q: 'Do you offer emergency restaurant exhaust repair in Hermitage?',
+    a: "Yes. We dispatch 24/7 emergency repair crews to Hermitage and all of Davidson County. When your exhaust fan goes down during service, call (615) 881-6968 and you'll reach a real technician — not an answering service. We carry the most common replacement parts on our service vehicles for same-visit repairs whenever possible.",
+  },
+  {
+    q: 'Is it worth repairing a 15-year-old exhaust fan?',
+    a: "It depends on the unit's condition. If the housing is structurally sound and the issue is a motor or belt, repair is often cost-effective. But if the housing is severely corroded, the curb is deteriorating, or you've had multiple major repairs, replacement with a properly sized modern unit is the better investment. We'll give you an honest assessment — we don't push replacements when repair makes sense.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/hero/hero-4.jpg`,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Hermitage, TN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": business.googleReviewRating,
+        "reviewCount": "51"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Hermitage, TN"
+      },
+      "description": "24/7 exhaust fan repair for Hermitage's aging Lebanon Pike restaurant corridor. Restoring older systems to full performance. NFPA 96 compliant."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Hermitage, TN" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Hermitage Exhaust Fan Repair — Aging Systems Fixed | DDAN"
+  description="Aging Lebanon Pike exhaust fans fail without warning. 24/7 repair in Hermitage near Percy Priest Lake. Metro Nashville compliant. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-4.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Hermitage, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Hermitage Exhaust Fan Repair — <span class="text-[#FF5E15]">Restoring Aging Systems</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Lebanon Pike's aging exhaust systems need expert care — not patch jobs. We restore them to full performance.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Hermitage's Aging Infrastructure Demands Expert Repair
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Hermitage's restaurant corridor runs along Lebanon Pike and Old Hickory Boulevard, anchored by TriStar Summit Medical Center and surrounded by dense residential neighborhoods driving heavy takeout and delivery volume. The cuisine is a solid mix of fast-food chains, local meat-and-three restaurants, and casual dining — consistent high-volume frying that puts relentless demand on exhaust systems. But Hermitage's defining repair challenge is infrastructure age. Many restaurants operate in older strip centers with built-up roofing and modified bitumen, running exhaust fans that are well past their useful life.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Percy Priest Lake proximity adds humidity that accelerates equipment corrosion. Fan housings that would last 15 years in a dry climate show severe rust and structural deterioration in under a decade along the Lebanon Pike corridor. Bearings corrode faster, electrical connections develop oxidation, and rooftop curbs deteriorate from constant moisture exposure. These aren't systems that failed from misuse — they're simply old, operating in an environment that ages equipment faster than most operators expect.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The hospital district around TriStar Summit adds institutional food service demand — cafeterias, coffee shops, and quick-service restaurants that serve medical staff and visitors across all shifts. These operations don't get a day off, and their exhaust systems run continuously. Combined with the residential density driving high takeout volume through delivery apps, Hermitage kitchens push their equipment harder than the building age suggests they should. The result is a steady stream of unexpected fan failures — motors that don't give warning signs before they seize, bearings that go from quiet to grinding overnight, and belts that snap without the gradual squealing that normally signals replacement time.
+          </p>
+          <p class="text-[#FF5E15] font-heading font-semibold text-base reveal-child">
+            DDAN provides 24/7 emergency exhaust fan repair across all of Hermitage — restoring aging systems to full performance with commercial-grade parts.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Commercial exhaust fan repair in Hermitage TN - DDAN Hood Cleaning and Repair"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Exhaust fan failures account for the majority of our Hermitage emergency calls. Aging equipment makes quick diagnosis and quality parts critical.
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Fan repair services:
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {[
+          { title: 'Motor Replacement', desc: 'Burned-out or overheating motors replaced same-day with OEM-spec commercial units' },
+          { title: 'Belt Replacement', desc: 'Worn, cracked, or slipping belts that reduce airflow and cause squealing' },
+          { title: 'Bearing Repair', desc: 'Corroded or failed bearings that cause grinding, vibration, and motor seizure' },
+          { title: 'Impeller Rebalancing', desc: 'Grease-clogged or corroded impeller wheels that cause dangerous vibration' },
+          { title: 'Hinge Kit Installation', desc: 'Heavy-duty hinge kits for safe rooftop fan access during cleaning and maintenance' },
+          { title: 'Wiring & Controls', desc: 'Oxidized wiring, failed contactors, speed controllers, and relay replacements' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Beyond fans, we also repair:
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child">Hood canopy damage — dented plenums, broken hinges, warped drip trays</li>
+        <li class="check-item reveal-child">Ductwork issues — loose joints, failed dampers, missing <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a></li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression systems</a> — nozzle replacement, line re-routing, Ansul system service</li>
+        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease containment</a> — rooftop grease box replacement, drain line repair, custom containment installation</li>
+        <li class="check-item reveal-child">Make-up air units — damper repair, heating element replacement, filter service, control diagnostics</li>
+      </ul>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Need a deeper dive into belt and motor service? See our dedicated <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt & motor repair</a> page. For hinge kit details: <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit installation</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-bold mb-4">
+          24/7 Emergency Dispatch for Hermitage
+        </h2>
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          Old fan motor just seized? Kitchen filling with smoke? We dispatch emergency repair crews to Hermitage and all of Davidson County around the clock. No answering service — you get a real technician on the line.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-10 py-4 bg-[#FF5E15] text-white font-heading text-xl font-bold rounded hover:bg-[#E54F0D] hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN HERMITAGE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Failures in Hermitage
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.962-.833-2.732 0L4.072 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Aging Infrastructure Failures</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Aging infrastructure is the primary issue. Restaurants along Lebanon Pike and Old Hickory Blvd operate with fans past their useful life — severe vibrations, frequent belt snaps, total motor failures. These motors don't give warning signs; they simply stop. Corroded housings, deteriorating curbs, and oxidized wiring compound the problem. When a 15-year-old motor seizes, it often takes damaged wiring and a failed contactor with it, turning a simple motor swap into a multi-component repair. DDAN technicians diagnose the full failure chain, not just the obvious symptom, and install commercial-grade <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motors and belts</a> rated for the actual operating conditions.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Deteriorating Rooftop Grease Containment</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Deteriorating rooftop grease boxes on older BUR roofing are a constant problem in Hermitage. Old containment systems leak, and built-up roofing is especially vulnerable to grease penetration — it softens the asphalt layers, causing structural roof damage that's far more expensive than any exhaust repair. Many older strip centers along Lebanon Pike have grease containment systems that are original to the building and well past failure. DDAN replaces deteriorated <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> with modern units designed to protect sensitive roofing membranes and satisfy property management requirements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Hermitage Compliance — Metro Nashville & Percy Priest Lake
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The Metro Nashville Fire Marshal's Office holds aging infrastructure to the same modern NFPA 96 standards as new construction. There's no grandfather clause for old equipment — if your exhaust system doesn't meet current code, you'll hear about it at your next inspection. For Hermitage restaurants operating in older buildings with aging exhaust systems, this means every repair has compliance implications. A motor replacement isn't just about restoring airflow — it's an opportunity to bring the entire fan assembly up to current standards, including proper hinge kit installation, access panel compliance, and fire suppression linkage verification.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Metro Water Services enforces FOG (Fats, Oils, and Grease) compliance aggressively in the Percy Priest Lake watershed. Hermitage sits squarely in this zone, and restaurants that allow grease overflow from deteriorating rooftop containment systems face significant municipal fines. The combination of aging grease containment equipment and heightened environmental scrutiny near the lake creates a compliance pressure that many Hermitage restaurant operators underestimate until their first violation notice.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+            Learn more about the standards we follow: <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 Code Standards</a>
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-6 reveal-child">
+          <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-4">Hermitage Enforcement Summary</h3>
+          <ul class="space-y-3">
+            <li class="check-item">Metro Nashville Fire Marshal enforces modern standards on aging buildings</li>
+            <li class="check-item">No grandfather clause for older exhaust equipment</li>
+            <li class="check-item">Every repair is an opportunity to restore full code compliance</li>
+            <li class="check-item">Metro Water Services enforces FOG in Percy Priest Lake watershed</li>
+            <li class="check-item">Deteriorating grease containment triggers environmental violations</li>
+            <li class="check-item">DDAN repair documentation satisfies both fire and water inspectors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed italic">
+          "A high-volume meat-and-three on Lebanon Pike was dealing with a severely rattling exhaust fan that was driving away customers and threatening to fail. DDAN technicians arrived same-day, discovered a failing motor bearing and massive grease buildup, scraped the system clean, and installed a new, heavy-duty 3-phase motor, instantly restoring quiet, efficient airflow."
+        </p>
+        <p class="text-[#FF5E15] font-heading font-semibold text-sm mt-4">— DDAN Hood Cleaning and Repair, Hermitage Service Area</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 reveal-child">
+        We carry parts and have direct experience repairing exhaust systems from every major commercial kitchen ventilation manufacturer.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] rounded-xl px-5 py-3 text-[#D4D4D4] font-heading font-medium text-sm reveal-child">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Hermitage Service Area
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Also in Hermitage: <a href="/cleaning/hermitage-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot; <a href="/parts/hermitage-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Also serving nearby <a href="/repair/mount-juliet-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Mount Juliet</a>, <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>, and <a href="/repair/madison-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Madison</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Hermitage Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#1A1A1A] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA URGENCY -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center mb-8">
+      <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed reveal-child">
+        <span class="text-[#FF5E15] font-semibold">Year-round demand with spikes in late spring and summer</span> as Percy Priest Lake traffic drives up dining volume.
+      </p>
+      <div class="mt-6">
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Schedule Emergency Repair
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
