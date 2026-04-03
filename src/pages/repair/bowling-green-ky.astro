@@ -1,0 +1,361 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Do you service large institutional kitchens at WKU or local factories?',
+    a: 'Yes. We repair exhaust systems at institutional scale — university dining halls, factory cafeterias, hospital kitchens. Our technicians carry heavy-duty 3-phase motors and commercial-grade belts sized for high-CFM industrial fans.',
+  },
+  {
+    q: 'How quickly can you replace a snapped fan belt in Bowling Green?',
+    a: 'We maintain emergency response capability across our full service area, including Bowling Green. For critical failures, we dispatch same-day and carry common belt sizes in stock for on-site replacement.',
+  },
+  {
+    q: 'What is required to pass a Bowling Green Fire Department hood inspection?',
+    a: 'Bowling Green inspectors (and the Kentucky State Fire Marshal for larger facilities) require your entire exhaust system to be cleaned to bare metal, with functional fire suppression, proper hinge kits, and documented service history. DDAN provides all documentation.',
+  },
+  {
+    q: "What's the average cost of a fan motor replacement?",
+    a: 'Most common exhaust fan motor replacements range from $250 to $600 depending on horsepower, phase (single vs 3-phase), and motor type (ODP vs TEFC). Institutional-scale motors for WKU-type facilities may be higher. We provide upfront pricing after diagnosis — no surprises.',
+  },
+];
+
+const siteUrl = import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": siteUrl,
+      "image": `${siteUrl}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Bowling Green",
+        "addressRegion": "KY"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${siteUrl}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Bowling Green",
+        "addressRegion": "KY"
+      },
+      "description": "24/7 emergency exhaust fan repair for Bowling Green restaurants, WKU campus dining, and industrial cafeterias. Motor replacement, belt repair, bearing service, and full system diagnostics."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${siteUrl}/commercial-hood-repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Bowling Green, KY", "item": `${siteUrl}/repair/bowling-green-ky/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="24/7 Kitchen Exhaust Repair in Bowling Green, KY | DDAN"
+  description="Emergency exhaust fan repair for Bowling Green restaurants and WKU dining. GM Corvette plant workforce. Kentucky compliant. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-4.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/commercial-hood-repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Bowling Green, KY</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        24/7 Kitchen Exhaust Fan Repair in <span class="text-[#FF5E15]">Bowling Green, Kentucky</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        WKU campus kitchens and Corvette country's busiest restaurants — DDAN crosses the state line for 24/7 service
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Bowling Green's Restaurant and Institutional Kitchens Need Specialized Exhaust Repair
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Bowling Green is southern Kentucky's largest city and the northernmost point in DDAN's service territory. With a population exceeding 80,000 and a metropolitan area approaching 200,000, Bowling Green punches well above its weight in commercial kitchen density. Western Kentucky University brings roughly 16,000 students to campus each fall, and every one of them eats. WKU operates multiple large-scale dining halls — Fresh Food Company, Subway, Chick-fil-A, Starbucks, and a rotating cast of campus eateries — all running institutional-grade exhaust systems at full capacity during the academic year. When a motor fails in one of those dining halls, it doesn't affect one restaurant — it disrupts the feeding infrastructure for thousands of students.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Beyond the university, the General Motors Corvette Assembly Plant anchors Bowling Green's industrial economy and drives enormous lunchtime dining demand along the Scottsville Road corridor. That stretch of road is packed wall-to-wall with restaurants, fast food chains, and casual dining operations serving the plant's workforce, university students, and the surrounding residential population. BBQ joints, steakhouses, Mexican restaurants, and high-volume chain operations dominate — all producing extreme grease output that hammers exhaust fan motors, shreds belts, and overwhelms factory-installed grease containment systems. The cooking styles here are heavy: charbroiling, deep frying, and open-flame grilling generate the kind of sustained grease vapor that causes rapid fan component degradation.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Bowling Green's commercial roofing landscape presents its own challenges for exhaust system repair. Standard EPDM and metal roofing on the Scottsville Road commercial strip requires careful grease containment management — uncontained grease runoff damages membrane roofing materials and creates slip hazards. The heavier industrial roofs on manufacturing commissaries and institutional buildings demand technicians who understand how to service large-format exhaust fans mounted on reinforced curbs with oversized ductwork below. These aren't standard restaurant fans — they're industrial units running at CFM levels two to three times higher than a typical commercial kitchen.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Bowling Green may sit across the Kentucky state line, but it falls squarely within our standard service radius. Kentucky's restaurant owners face the same exhaust system failures as our Tennessee clients — worn-out motors, snapped belts, failed bearings, and grease containment breakdowns — and they deserve the same quality of emergency repair service that DDAN has delivered for {business.yearsExperience} years across Middle Tennessee. We cross the state line because Bowling Green needs us, and because we don't believe geography should determine the quality of exhaust repair available to your kitchen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First, Full System Second
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Exhaust fan failures cause the most immediate damage to your kitchen operations. When the fan stops, airflow stops, and your kitchen fills with smoke, grease vapor, and heat within minutes. That's why fan repair is always our first priority.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Single-phase and 3-phase motor sourcing and installation. ODP and TEFC types for standard restaurant and institutional-scale applications.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Worn, stretched, and snapped belt replacement. Proper tensioning to manufacturer spec prevents premature wear and reduces noise.' },
+          { title: 'Fan Wheel & Impeller Service', desc: 'Grease-caked impellers reduce CFM and cause dangerous imbalance. We clean, rebalance, or replace damaged wheels on-site.' },
+          { title: 'Bearing Replacement', desc: 'Worn bearings cause grinding, vibration, and eventual motor damage. We replace pillow block and flange bearings to restore smooth operation.' },
+          { title: 'VFD & Speed Control Repair', desc: 'Variable frequency drive diagnostics and replacement for systems with adjustable fan speed controls.' },
+          { title: 'Full Fan Replacement', desc: 'When repair costs exceed replacement value, we source and install new exhaust fans — upblast, utility, and inline models from all major manufacturers.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-[#FF5E15] text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-white text-xl font-semibold mb-4 reveal-child">Beyond the Fan — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork repair and sealing — leaks waste energy and spread grease to building cavities</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> — required for proper fan access and NFPA 96 compliance</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor diagnostics</a> — identifying the root cause, not just replacing parts</li>
+        <li class="check-item reveal-child">Hood canopy and plenum repair — dents, failed welds, grease trap damage</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> inspection and service referral</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-4 reveal-child">
+        24/7 Emergency Dispatch for Bowling Green, KY
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-2xl mx-auto reveal-child">
+        Your exhaust fan doesn't care that it's 2 AM or that you're mid-service on a Saturday night. Neither do we. Call now and we dispatch.
+      </p>
+      <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-3 px-10 py-4 bg-[#FF5E15] text-white font-heading text-2xl md:text-3xl font-bold rounded hover:bg-[#E54F0D] hover:scale-95 transition-all duration-300 reveal-child">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        {business.phone}
+      </a>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN BOWLING GREEN -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust System Failures in Bowling Green
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Industrial commissaries and college dining halls run exhaust systems at maximum capacity for 16 or more hours daily. Fan belts dry rot, stretch, and snap frequently under this sustained load — factory-grade belts simply aren't built for continuous industrial operation. The Scottsville Road restaurant corridor compounds this problem: high-volume kitchens running back-to-back shifts with minimal downtime push exhaust components past their designed lifespan months ahead of schedule. When a belt snaps during dinner service, the kitchen fills with smoke in under five minutes, and every minute of downtime costs revenue.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Severe grease volume from Bowling Green's BBQ joints and steakhouse operations overwhelms cheap, factory-installed grease boxes. When containment fails, grease saturates roofing membranes, pools around rooftop equipment, and creates code violations that Kentucky State Fire Marshal inspectors take very seriously. We've seen commercial strips along Scottsville Road where multiple restaurants share a roof, and one kitchen's failed grease containment damages the roofing over a neighboring tenant's space. Proper grease box sizing, regular pad replacement, and drip guard maintenance prevent this entirely.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          WKU cafeteria systems operate at institutional scale — larger motors, higher CFM fans, and heavier-duty belts than you'll find in any typical restaurant. These are 3-phase, high-horsepower units mounted on reinforced curbs with oversized ductwork running through multi-story buildings. When one of these fans fails, the entire campus dining operation is affected. Repairs must be fast, precise, and performed by technicians who carry the right inventory. A standard restaurant motor won't fit, a standard belt won't reach, and a technician who only works on small commercial systems won't understand the electrical requirements. DDAN carries institutional-grade components and our crews have the experience to diagnose and repair these systems correctly the first time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Bowling Green Exhaust System Compliance — Dual Jurisdiction
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Bowling Green commercial kitchens operate under dual fire safety jurisdiction: the Bowling Green Fire Department handles routine inspections and code enforcement for most restaurants, while the Kentucky State Fire Marshal's Office oversees larger institutional facilities including university buildings, hospitals, and industrial cafeterias. Both agencies enforce NFPA 96, but the State Fire Marshal applies additional scrutiny to high-occupancy and institutional kitchens — the kind of facilities where an exhaust system failure could affect hundreds or thousands of people.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Inspectors in both jurisdictions check for functional exhaust fan operation, proper belt tension, clean fan housings and impellers, operational fire suppression systems, hinge kit installation for fan access, and documented maintenance history. A fan that's technically running but pulling reduced CFM due to a worn belt or clogged impeller will fail inspection just as surely as a dead motor. BGMU (Bowling Green Municipal Utilities) also monitors grease interceptors and wastewater discharge, adding a third compliance layer for restaurants with rooftop grease containment issues.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides complete documentation for every repair — before-and-after photos, service reports, parts manifests, and compliance confirmation. This documentation satisfies both the Bowling Green Fire Department and the Kentucky State Fire Marshal simultaneously. Read our full guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a> to understand exactly what inspectors look for during hood and exhaust system evaluations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#1A1A1A] p-6 rounded max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "Right before the fall semester rush, a massive university dining facility in Bowling Green suffered a total exhaust fan motor failure, filling the kitchen with smoke. DDAN dispatched an emergency crew, replaced the heavy-duty 3-phase motor, and calibrated the fan belts on the spot, allowing the cafeteria to open safely for the incoming student body."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair, rebuild, and replace exhaust fans from every major commercial and institutional manufacturer. If it's on your roof, we can fix it.
+      </p>
+      <div class="flex flex-wrap gap-3 max-w-4xl">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-heading text-sm font-medium px-4 py-2 rounded reveal-child">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Bowling Green Exhaust Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN serves all of Bowling Green and Warren County — from the WKU campus and Scottsville Road corridor to the industrial parks surrounding the GM Corvette Assembly Plant. Whether your restaurant is in the heart of downtown, along the 31-W Bypass, or in the growing commercial districts near I-65, we provide the same thorough, documented exhaust repair service with full compliance support.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Bowling Green:</span>
+            <a href="/cleaning/bowling-green-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/parts/bowling-green-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a> and
+            <a href="/repair/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Clarksville</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Bowling Green Exhaust Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Major service spikes just before the WKU fall semester begins. Every hour your kitchen exhaust is down costs revenue and risks code violations.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
