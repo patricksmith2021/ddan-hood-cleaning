@@ -1,0 +1,349 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Why do Antioch restaurant exhaust fans fail differently than other Nashville areas?',
+    a: 'Antioch\'s diverse restaurant scene produces unique exhaust challenges. High-heat wok cooking generates baked-on carbon that bonds to fan impellers — not regular grease that standard cleaning can remove. Open-flame grilling produces intense thermal stress on motors. Heavy spice coatings create sticky residue that accelerates bearing wear. Each cooking style attacks exhaust components differently, and many Antioch restaurants combine multiple high-heat methods in the same kitchen.',
+  },
+  {
+    q: 'How quickly can DDAN respond to an emergency fan failure in Antioch?',
+    a: `Antioch is within our core Metro Nashville service area. We provide 24/7 emergency dispatch and carry common fan motors, belts, and bearings on every truck. Most Antioch emergency calls receive same-day response. Call ${business.phone} any time — we understand that Bell Road\'s restaurants can't afford to lose dinner service.`,
+  },
+  {
+    q: 'Do you work with restaurants in older Antioch strip centers?',
+    a: 'Yes. Many of Antioch\'s most popular restaurants operate in older strip center buildings along Bell Road and Murfreesboro Pike. These buildings often have undersized exhaust systems inherited from previous tenants — a motor designed for a sandwich shop can\'t handle a charbroil or wok operation. We assess the existing equipment, upgrade components to match actual cooking demands, and bring the system into NFPA 96 compliance.',
+  },
+  {
+    q: 'Can you remove baked-on carbon from exhaust fan blades?',
+    a: 'Yes. High-heat wok cooking and open-flame grilling produce hardened carbon scale that bonds to fan impellers. Standard cleaning can\'t remove it — we use specialized scraping tools and commercial-grade degreasers to restore the blades to bare metal, eliminating the vibration that destroys bearings.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Antioch",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Antioch",
+        "addressRegion": "TN"
+      },
+      "description": "24/7 emergency exhaust fan repair for Antioch's diverse commercial kitchens. Carbon removal, motor replacement, and belt repair for Bell Road and Murfreesboro Pike restaurants."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Antioch, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/antioch-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Antioch Diverse Kitchen Exhaust Fan Repair | DDAN"
+  description="Wok carbon and high-heat grease destroy Antioch's exhaust fans. 24/7 repair for Bell Road's diverse restaurant corridor. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-2.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Antioch, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Antioch Exhaust Fan Repair — <span class="text-[#FF5E15]">Bell Road's Diverse Kitchens</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Latin American, Asian, Middle Eastern kitchens — every cooking style breaks exhaust fans differently in Antioch
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Antioch's Diverse Restaurant Scene Destroys Exhaust Fans Faster
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Antioch has one of Nashville's most ethnically diverse restaurant scenes, and that diversity translates directly into unique exhaust system demands that standard service companies don't understand. Bell Road and Murfreesboro Pike are lined with authentic Latin American, Asian, and Middle Eastern restaurants — each cooking tradition producing distinctly different byproducts that attack exhaust fan components in different ways. High-heat wok cooking generates baked-on carbon that bonds to fan impellers like welded steel. Open-flame grills produce intense thermal cycling that fatigues motor windings and cracks housings. Heavy spice preparations create sticky, corrosive residue that accelerates bearing wear and coats pulleys until belts can't track.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Global Mall at the Crossings drives heavy foot traffic to surrounding restaurants, pushing already-stressed exhaust systems through peak loads that last for hours. Many of Antioch's most popular restaurants operate in older strip center buildings along Bell Road — buildings originally designed for light retail or sandwich shops that have been converted into full-service kitchens without upgrading the exhaust infrastructure. The motor designed for the previous tenant's deli can't handle a charbroil or commercial wok operation. It overheats within weeks, the belt stretches past adjustment, and carbon from high-heat cooking throws the impeller off balance before the first grease cleaning is even due.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          New restaurant concepts frequently move into these older buildings without assessing or upgrading the inherited exhaust equipment. The excitement of opening a new location overshadows the reality that the existing motor, belt, and containment system were sized for a completely different operation. By the time the exhaust fan starts grinding, smoking, or losing airflow, the damage has already cascaded — carbon-coated impellers have destroyed bearings, grease has escaped containment onto the roof, and the fire marshal is asking questions about the system's last service date. DDAN provides the full scope of repair, upgrade, and compliance documentation that Antioch's diverse kitchens demand.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Antioch's diverse cooking styles generate unique exhaust fan failures. Here's what we fix:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Undersized motors inherited from previous tenants overheat under high-heat wok and charbroil loads. We upgrade to properly rated commercial units.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Carbon and grease coat pulleys, causing belts to slip and snap. Commercial-grade notched V-belts with proper tensioning restore reliable operation.' },
+          { title: 'Impeller & Carbon Removal', desc: 'Baked-on wok carbon bonds to impeller blades, creating dangerous imbalance. Specialized scraping and degreasing restores blades to bare metal.' },
+          { title: 'Bearing Replacement', desc: 'Carbon-induced vibration destroys bearings faster than standard grease buildup. Sealed high-heat units rated for diverse cooking environments.' },
+          { title: 'VFD & Speed Control Repair', desc: 'Variable frequency drives control fan speed and efficiency. Voltage fluctuations in older Antioch strip centers damage sensitive VFD electronics.' },
+          { title: 'Full Fan Replacement', desc: 'When an undersized inherited system can\'t be economically upgraded, we install a properly rated replacement matched to your actual cooking operation.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork damage, disconnections, and failed seams from thermal cycling</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for fans bolted to curbs without service access</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — our most-requested Antioch service</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Died? Kitchen Shut Down? We're On It.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for Antioch</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day motor and belt replacement. We carry common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN ANTIOCH -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in Antioch
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          New restaurant concepts moving into older Bell Road buildings without upgrading undersized exhaust systems is the single most common cause of fan failure in Antioch. The motor overheats because it was sized for the previous tenant's light-duty operation, not your commercial wok station or charbroil line. The belt stretches because it's a standard-weight OEM part trying to drive an overloaded motor. And carbon from high-heat cooking throws the impeller off balance — all within weeks of opening. The cascade from "the fan seems a little loud" to "the motor seized and the kitchen is full of smoke" happens fast in high-heat kitchens. DDAN provides emergency <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> with commercial-grade components sized for actual cooking loads, not the previous tenant's menu.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          High-heat wok cooking produces baked-on carbon that is fundamentally different from standard restaurant grease. This isn't a film that wipes off during routine cleaning. It's hardened carbon scale that bonds to fan impellers like welded material, building up asymmetrically until the blade imbalance becomes severe. That imbalance generates progressive vibration — vibration that doesn't just make noise. It hammers shaft bearings out of alignment, loosens motor mounting bolts, cracks fan housings, and eventually causes the catastrophic bearing seizure that kills the motor entirely. The cycle from "slight rattle" to "dead fan" in a busy Antioch wok kitchen can be as short as 4 to 6 weeks without intervention. DDAN uses specialized scraping tools and commercial-grade degreasers to restore impeller blades to bare metal, then installs <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> to make future carbon removal dramatically faster and less expensive.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Antioch Exhaust Repair Compliance — Metro Fire Marshal & MWS
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Metro Nashville Fire Marshal's Office aggressively targets older repurposed spaces in Antioch where restaurant concepts have moved into buildings without upgrading exhaust infrastructure. A non-functional fan, undersized motor, or carbon-clogged impeller isn't just an inconvenience — it's a code violation that can trigger an immediate shutdown order. When the fan stops pulling adequate CFM, grease-laden vapor accumulates in ductwork and hoods, creating the exact fire hazard that NFPA 96 exists to prevent. Inspectors don't care that the previous tenant's equipment passed inspection — they care that your current cooking operation isn't being properly ventilated.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Metro Water Services' F.O.G. Management Program adds grease containment enforcement on top of fire code compliance. When exhaust fan bearings fail, housings vibrate loose, and grease escapes containment systems onto roof surfaces and into storm drains. MWS issues significant fines for grease discharge violations in the Antioch area. Every DDAN repair includes photo documentation and a service report to demonstrate compliance with both fire code and grease management requirements. Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "A busy Asian fusion restaurant on Bell Road kept burning out exhaust fan motors due to heavy carbon buildup throwing the fan blades off balance. DDAN came in, scraped the entire system down to bare metal, installed a proper high-capacity motor, and fitted a new rooftop grease containment box — permanently solving their airflow and maintenance nightmare."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in Antioch kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Antioch Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair across all of Antioch, including Bell Road, Murfreesboro Pike, Hickory Hollow, and the Global Mall at the Crossings area. Whether your restaurant is in an older strip center or a newer commercial development, we respond to emergency fan failures day and night with common parts on every truck.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Antioch:</span>
+            <a href="/cleaning/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/parts/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>,
+            <a href="/repair/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Smyrna</a>, and
+            <a href="/locations/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">La Vergne</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Antioch Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Steady year-round demand with upticks during summer heatwaves that push aging fan motors past failure. Every week you wait, carbon builds and bearings wear. Call now.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
