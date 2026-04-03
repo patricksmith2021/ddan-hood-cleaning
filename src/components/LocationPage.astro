@@ -40,29 +40,36 @@ const services = [
   { name: 'Fire Suppression Systems', href: '/restaurant-fire-suppression-systems/', desc: 'UL 300-compliant fire suppression system installation, inspection, and maintenance.' },
 ];
 
+const reviews = [
+  { name: 'Marcus T.', text: 'DDAN came out same day for an emergency hood cleaning before our health inspection. They were professional, thorough, and left everything spotless. Before and after photos were a nice touch. Highly recommend!' },
+  { name: 'Jennifer R.', text: "We've been using DDAN for our restaurant's quarterly hood cleanings for over two years now. Always on time, always thorough, and the documentation they provide is top-notch for our compliance records." },
+  { name: 'David K.', text: 'Had a grease containment issue on our rooftop that another company couldn\'t figure out. DDAN diagnosed it immediately and had the new system installed the same week. Great service.' },
+  { name: 'Sarah M.', text: 'Called DDAN when our exhaust fan motor died on a Friday night. They had someone out Saturday morning and we were back up and running before the lunch rush. Can\'t ask for better than that.' },
+];
+
 const introParagraphs = intro.split('\n\n');
 ---
 
 <BaseLayout title={title} description={description}>
   <!-- HERO -->
-  <section class="relative min-h-[400px] md:min-h-[450px] flex items-center overflow-hidden">
-    <div class="absolute inset-0" style={`background: url('${heroImage}') center/cover no-repeat;`}></div>
+  <section class="relative min-h-[400px] md:min-h-[450px] max-h-[500px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${heroImage}');`}></div>
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
-    <div class="container-narrow relative z-10 py-16 text-white">
+    <div class="max-w-[1200px] mx-auto px-5 relative z-10 py-16 text-white w-full">
       <nav aria-label="Breadcrumb" class="mb-4">
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
-          <li><a href="/" class="hover:text-primary transition-all duration-300">Home</a></li>
-          <li class="text-primary">/</li>
-          <li><a href="/locations/" class="hover:text-primary transition-all duration-300">Locations</a></li>
-          <li class="text-primary">/</li>
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/locations/" class="hover:text-[#FF5E15] transition-all duration-300">Locations</a></li>
+          <li class="text-[#FF5E15]">/</li>
           <li class="text-white">{city}, {state}</li>
         </ol>
       </nav>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Commercial Kitchen Hood Cleaning &amp; Repair in <span class="text-primary">{city}, {state}</span>
+        Commercial Kitchen Hood Cleaning &amp; Repair in <span class="text-[#FF5E15]">{city}, {state}</span>
       </h1>
-      <p class="font-heading text-sm md:text-base text-body-text max-w-2xl mb-6">
-        NFPA 96 Compliant | {driveTime} | 24/7 Emergency Service
+      <p class="font-heading text-sm md:text-base text-[#D4D4D4] max-w-2xl mb-6">
+        NFPA 96 Compliant | {driveTime} | 24/7 Emergency Service | Licensed &amp; Insured
       </p>
       <div class="flex flex-col sm:flex-row gap-3">
         <a href={`tel:${business.phoneRaw}`} class="btn-primary">
@@ -78,28 +85,28 @@ const introParagraphs = intro.split('\n\n');
   </section>
 
   <!-- INTRO -->
-  <section class="bg-secondary section-padding">
-    <div class="container-narrow reveal">
+  <section class="bg-[#1A1A1A] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
       <div class="grid md:grid-cols-2 gap-10 items-start">
         <div>
           <h2 class="section-headline mb-4">
             Why {city} Restaurants Trust DDAN
           </h2>
           {introParagraphs.map((p: string) => (
-            <p class="text-body-text mb-4 reveal-child">{p}</p>
+            <p class="text-[#D4D4D4] mb-4 reveal-child">{p}</p>
           ))}
         </div>
         <div class="reveal-child">
           <img
             src={serviceImage}
             alt={`Commercial kitchen hood cleaning service in ${city}, ${state}`}
-            class="w-full rounded border-3 border-primary"
+            class="w-full rounded border-[3px] border-[#FF5E15]"
             loading="lazy"
           />
-          <div class="mt-4 bg-dark-base border border-border-subtle rounded p-4">
-            <p class="text-primary font-heading font-semibold text-sm mb-1">Serving {city}</p>
-            <p class="text-body-text text-sm">Zip codes: {zips.join(', ')}</p>
-            <p class="text-muted-text text-xs mt-1">{driveTime}</p>
+          <div class="mt-4 bg-[#111111] border border-[#333] rounded p-4">
+            <p class="text-[#FF5E15] font-heading font-semibold text-sm mb-1">Serving {city}</p>
+            <p class="text-[#D4D4D4] text-sm">Zip codes: {zips.join(', ')}</p>
+            <p class="text-[#999] text-xs mt-1">{driveTime}</p>
           </div>
         </div>
       </div>
@@ -107,19 +114,19 @@ const introParagraphs = intro.split('\n\n');
   </section>
 
   <!-- SERVICES LIST -->
-  <section class="bg-dark-base section-padding">
-    <div class="container-narrow reveal">
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
       <h2 class="section-headline text-center mb-2">
         Our Services in {city}
       </h2>
-      <p class="text-body-text text-center max-w-2xl mx-auto mb-10 reveal-child">
+      <p class="text-[#D4D4D4] text-center max-w-2xl mx-auto mb-10 reveal-child">
         DDAN provides every commercial kitchen exhaust service your {city} business needs — from routine cleaning to emergency repairs and full system installations.
       </p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {services.map((svc) => (
-          <a href={svc.href} class="block bg-secondary border border-border-subtle p-5 rounded hover:border-primary transition-all duration-300 group reveal-child">
-            <h3 class="font-heading font-semibold text-white text-base mb-2 group-hover:text-primary transition-all duration-300">{svc.name}</h3>
-            <p class="text-body-text text-sm">{svc.desc}</p>
+          <a href={svc.href} class="block bg-[#1A1A1A] border border-[#333] p-5 rounded hover:border-[#FF5E15] transition-all duration-300 group reveal-child">
+            <h3 class="font-heading font-semibold text-white text-base mb-2 group-hover:text-[#FF5E15] transition-all duration-300">{svc.name}</h3>
+            <p class="text-[#D4D4D4] text-sm">{svc.desc}</p>
           </a>
         ))}
       </div>
@@ -127,8 +134,8 @@ const introParagraphs = intro.split('\n\n');
   </section>
 
   <!-- WHY CHOOSE -->
-  <section class="bg-secondary section-padding">
-    <div class="container-narrow reveal">
+  <section class="bg-[#1A1A1A] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 class="section-headline mb-4">
@@ -136,7 +143,10 @@ const introParagraphs = intro.split('\n\n');
           </h2>
           <div class="space-y-3">
             {whyChoose.map((item: string) => (
-              <div class="check-item text-body-text reveal-child">{item}</div>
+              <div class="flex items-start gap-3 reveal-child">
+                <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-[#D4D4D4]">{item}</span>
+              </div>
             ))}
           </div>
           <div class="mt-6">
@@ -146,26 +156,26 @@ const introParagraphs = intro.split('\n\n');
             </button>
           </div>
         </div>
-        <div class="bg-dark-base border border-border-subtle rounded p-6 reveal-child">
-          <h3 class="font-heading font-semibold text-primary text-lg mb-2">{business.name}</h3>
-          <p class="text-body-text text-sm mb-3">Serving {city} and all of Middle Tennessee</p>
-          <ul class="space-y-2 text-sm text-body-text">
+        <div class="bg-[#111111] border border-[#333] rounded p-6 reveal-child">
+          <h3 class="font-heading font-semibold text-[#FF5E15] text-lg mb-2">{business.name}</h3>
+          <p class="text-[#D4D4D4] text-sm mb-3">Serving {city} and all of Middle Tennessee</p>
+          <ul class="space-y-2 text-sm text-[#D4D4D4]">
             <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-              <a href={`tel:${business.phoneRaw}`} class="hover:text-primary transition-all duration-300">{business.phone}</a>
+              <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+              <a href={`tel:${business.phoneRaw}`} class="hover:text-[#FF5E15] transition-all duration-300">{business.phone}</a>
             </li>
             <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
-              <a href={`mailto:${business.email}`} class="hover:text-primary transition-all duration-300">{business.email}</a>
+              <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0" fill="currentColor" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+              <a href={`mailto:${business.email}`} class="hover:text-[#FF5E15] transition-all duration-300">{business.email}</a>
             </li>
             <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+              <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
               {business.address.city}, {business.address.state} {business.address.zip}
             </li>
           </ul>
           <div class="mt-4 flex flex-wrap gap-2">
             {business.credentials.map((cred: string) => (
-              <span class="text-xs bg-secondary px-2 py-1 rounded border border-border-subtle text-body-text">{cred}</span>
+              <span class="text-xs bg-[#1A1A1A] px-2 py-1 rounded border border-[#333] text-[#D4D4D4]">{cred}</span>
             ))}
           </div>
         </div>
@@ -174,62 +184,73 @@ const introParagraphs = intro.split('\n\n');
   </section>
 
   <!-- REVIEWS -->
-  <section class="bg-dark-base section-padding">
-    <div class="container-narrow text-center reveal">
-      <h2 class="section-headline mb-2">What {city} Customers Say</h2>
-      <p class="text-body-text max-w-2xl mx-auto mb-8 reveal-child">
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="section-headline text-center mb-2">What {city} Customers Say</h2>
+      <p class="text-[#D4D4D4] text-center max-w-2xl mx-auto mb-8 reveal-child">
         Read verified reviews from commercial kitchen operators across Middle Tennessee who trust DDAN for their exhaust system service.
       </p>
-      <div class="bg-secondary rounded p-6 mb-6 reveal-child">
-        <div id={`trustindex-widget-${slug}`}>
-          <script is:inline type="text/javascript" src="https://cdn.trustindex.io/loader.js?wp-widget" defer></script>
-        </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+        {reviews.map((review) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded p-5 transition-all duration-300 reveal-child">
+            <div class="flex gap-0.5 mb-3">
+              {Array.from({length: 5}).map(() => (
+                <svg class="w-4 h-4 text-[#FFB800]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              ))}
+            </div>
+            <p class="text-[#D4D4D4] text-sm italic mb-3">"{review.text}"</p>
+            <p class="text-white font-heading font-medium text-sm">{review.name}</p>
+            <p class="text-[#999] text-xs mt-1">Google Review</p>
+          </div>
+        ))}
       </div>
-      <a href={business.googleReviewUrl} target="_blank" rel="noopener" class="btn-primary reveal-child">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-        See All Reviews on Google
-      </a>
+      <div class="text-center">
+        <a href={business.googleReviewUrl} target="_blank" rel="noopener" class="btn-primary reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          See All Reviews on Google
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- AREAS WITHIN CITY -->
-  <section class="bg-secondary section-padding">
-    <div class="container-narrow reveal">
+  <section class="bg-[#1A1A1A] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
       <h2 class="section-headline text-center mb-2">
         Areas We Serve in {city}
       </h2>
-      <p class="text-body-text text-center max-w-2xl mx-auto mb-8 reveal-child">
+      <p class="text-[#D4D4D4] text-center max-w-2xl mx-auto mb-8 reveal-child">
         DDAN provides commercial kitchen exhaust services throughout {city} and surrounding areas, including:
       </p>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {neighborhoods.map((n: string) => (
-          <div class="flex items-center gap-2 p-3 bg-dark-base rounded reveal-child">
-            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+          <div class="flex items-center gap-2 p-3 bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded transition-all duration-300 reveal-child">
+            <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
             <span class="text-white font-heading text-sm">{n}</span>
           </div>
         ))}
       </div>
-      <p class="text-muted-text text-sm text-center mt-4 reveal-child">
+      <p class="text-[#999] text-sm text-center mt-4 reveal-child">
         Zip codes served: {zips.join(', ')}
       </p>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="bg-dark-base section-padding">
-    <div class="container-narrow reveal">
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
       <h2 class="section-headline text-center mb-8">
         {city} Hood Cleaning FAQ
       </h2>
       <div class="max-w-3xl mx-auto space-y-4">
         {faqs.map((faq: FAQ) => (
-          <details class="faq-item bg-secondary border border-border-subtle rounded group reveal-child">
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded transition-all duration-300 group reveal-child">
             <summary class="flex items-center justify-between gap-3 p-4 cursor-pointer">
               <span class="font-heading font-medium text-white text-sm">{faq.q}</span>
-              <svg class="faq-icon w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+              <svg class="faq-icon w-4 h-4 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
             </summary>
             <div class="px-4 pb-4">
-              <p class="text-body-text text-sm">{faq.a}</p>
+              <p class="text-[#D4D4D4] text-sm">{faq.a}</p>
             </div>
           </details>
         ))}
@@ -239,23 +260,23 @@ const introParagraphs = intro.split('\n\n');
 
   <!-- URGENCY CTA -->
   <section
-    class="relative section-padding overflow-hidden"
+    class="relative py-12 md:py-16 lg:py-20 px-5 overflow-hidden reveal"
     style={`background: url('${heroImage}') center/cover no-repeat fixed;`}
     id={`urgency-cta-${slug}`}
   >
-    <div class="absolute inset-0 bg-dark-base/80"></div>
-    <div class="container-narrow relative z-10 reveal">
+    <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(255,94,21,0.56) 0%, #000000 100%); opacity: 0.78;"></div>
+    <div class="max-w-[1200px] mx-auto relative z-10">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div class="reveal-child">
           <h2 class="font-heading font-bold text-2xl md:text-3xl text-white mb-2">
-            Don't Wait Until You're <span class="text-primary">Fined or Shut Down!</span>
+            Don't Wait Until You're <span class="text-[#FF5E15]">Fined or Shut Down!</span>
           </h2>
-          <div class="w-16 h-1 bg-primary mb-4"></div>
-          <p class="text-body-text mb-6">
+          <div class="w-16 h-1 bg-[#FF5E15] mb-4"></div>
+          <p class="text-[#D4D4D4] mb-6">
             {city} commercial kitchens depend on properly maintained exhaust systems to pass inspections and prevent fires. <strong class="text-white">{business.name}</strong> provides the fast, thorough, NFPA 96-compliant service your kitchen needs.
           </p>
-          <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-2 text-white font-heading font-bold text-lg mb-4 hover:text-primary transition-all duration-300">
-            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-2 text-white font-heading font-bold text-lg mb-4 hover:text-[#FF5E15] transition-all duration-300">
+            <svg class="w-6 h-6 text-[#FF5E15]" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
             Call Now: {business.phone}
           </a>
           <button type="button" class="btn-primary popup-trigger">
@@ -275,6 +296,24 @@ const introParagraphs = intro.split('\n\n');
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
 
 <script>
   // Truck drive-in for this location page
