@@ -1,0 +1,382 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'What happens if Murfreesboro Fire Rescue finds my hood non-compliant?',
+    a: "MFRD's Community Risk Reduction Division can issue citations, mandate immediate remediation, or in severe cases, shut down your kitchen until the violation is corrected. DDAN provides documented, NFPA 96-compliant cleaning that satisfies MFRD inspectors.",
+  },
+  {
+    q: 'Can you fix a vibrating exhaust fan on my Murfreesboro restaurant?',
+    a: 'Yes. Severe vibration usually indicates an imbalanced impeller wheel (due to grease buildup), a failing bearing, or a worn-out belt. We diagnose and repair on-site, often same-day.',
+  },
+  {
+    q: 'Why do I need an access panel installed in my kitchen ductwork?',
+    a: 'NFPA 96 code requires fire-rated access panels at every change of direction in your ductwork so technicians can reach every surface for bare-metal cleaning. Without them, grease builds up in unreachable sections.',
+  },
+  {
+    q: 'What does NFPA 96 require for hood cleaning?',
+    a: 'NFPA 96 requires all grease-laden surfaces cleaned to bare metal — hoods, plenums, ductwork, exhaust fans, and filters. The cleaning must be documented with before-and-after evidence. Murfreesboro Fire Rescue actively enforces these standards.',
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/hero/hero-2.jpg`,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Murfreesboro, TN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": business.googleReviewRating,
+        "reviewCount": "51"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Kitchen Hood Cleaning",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Murfreesboro, TN"
+      },
+      "description": "NFPA 96 compliant commercial kitchen hood cleaning for restaurants and commercial kitchens in Murfreesboro, TN. 24/7 emergency service with full photo documentation."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/` },
+        { "@type": "ListItem", "position": 3, "name": "Murfreesboro, TN" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Murfreesboro Commercial Kitchen Hood Cleaning | DDAN"
+  description="NFPA 96 hood cleaning near MTSU and The Avenue. Murfreesboro Fire Rescue enforces strict compliance. 24/7 emergency service. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-2.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/cleaning/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Murfreesboro, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Murfreesboro Restaurant Hood Cleaning — <span class="text-[#FF5E15]">NFPA 96 Certified</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Serving MTSU's campus kitchens, The Avenue sports bars, and every commercial kitchen in Rutherford County
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Murfreesboro Restaurants Need Expert Hood Cleaning
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Murfreesboro is one of Tennessee's fastest-growing cities with a rapidly expanding restaurant scene. Medical Center Parkway and Memorial Boulevard form Rutherford County's densest restaurant corridors, stretching from the Stones River Mall area through downtown and out toward the interstate. The Avenue Murfreesboro and the surrounding retail zone are packed with high-volume casual dining spots, sports bars, and national chain restaurants — all operating heavy-duty kitchen exhaust systems that demand regular, thorough cleaning to stay compliant and fire-safe.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Middle Tennessee State University — the largest undergraduate enrollment in the state — drives massive food service demand across the city. Campus dining halls, surrounding pizza joints, wing restaurants, and fast-casual chains serve tens of thousands of students daily. The heavy fryer usage from sports bars and wing spots creates extreme grease loads that overwhelm factory-grade grease catchers within weeks. Without professional-grade cleaning on a disciplined schedule, these kitchens face accelerated grease buildup in ductwork, fan housings, and rooftop containment systems that puts them squarely in the crosshairs of fire code enforcement.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Newer construction along The Avenue corridor uses white TPO and PVC single-ply roof membranes that are especially vulnerable to grease damage. When rooftop exhaust fans expel grease-laden air, the runoff pools on these membranes and chemically attacks the material, leading to thousands of dollars in roof repair costs. Without proper rooftop grease containment systems in place, restaurant owners face a compounding problem: fire code violations from dirty ductwork above, and structural roof damage from grease runoff below.
+          </p>
+          <p class="text-[#FF5E15] font-heading font-semibold text-base reveal-child">
+            DDAN delivers thorough, NFPA 96-compliant hood cleaning across all of Murfreesboro and Rutherford County.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Commercial kitchen hood cleaning in Murfreesboro TN - DDAN Hood Cleaning and Repair"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE CLEAN -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Clean — Hood to Rooftop
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        DDAN's hood cleaning service covers every grease-bearing component of your commercial kitchen exhaust system. We clean to bare metal per NFPA 96 — not just the visible surfaces.
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Every cleaning visit includes:
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child">Hood canopies and plenums — where grease vapors collect and create the highest fire risk</li>
+        <li class="check-item reveal-child">Exhaust ductwork — hard-to-reach sections where grease accumulates invisibly</li>
+        <li class="check-item reveal-child">Exhaust fans and motors — grease on fan blades restricts airflow and strains motors</li>
+        <li class="check-item reveal-child">Grease filters and baffles — first line of defense against grease entering your duct system</li>
+        <li class="check-item reveal-child">Rooftop grease containment — prevents runoff from damaging your roof membrane</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit inspection</a> — ensuring safe fan access for cleaning and maintenance</li>
+        <li class="check-item reveal-child">Before-and-after photo documentation for compliance, insurance, and inspection records</li>
+      </ul>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Your kitchen's ventilation system does more than remove smoke — it protects your staff, customers, and business from fire hazards. We've spent 18+ years perfecting our process.
+      </p>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Murfreesboro Compliance — MFRD Community Risk Reduction
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The Murfreesboro Fire Rescue Department (MFRD) operates one of Middle Tennessee's most proactive fire prevention programs. Their Community Risk Reduction Division doesn't wait for fires to happen — they actively track commercial kitchen compliance using modern digital tracking systems that flag overdue inspections and lapsed cleaning documentation. If your hood cleaning records aren't current, MFRD will find out.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            MFRD aggressively pursues NFPA 96 violations, and Murfreesboro's rapid restaurant growth means more kitchens are entering their system every quarter. Citations can result in mandatory remediation, operational restrictions, or in severe cases, a full kitchen shutdown until the violation is corrected. Having current, documented, NFPA 96-compliant cleaning records is not optional in Murfreesboro — it's a business survival requirement.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            On top of fire code enforcement, the Murfreesboro Water Resources Department operates a strict Fats, Oils, and Grease (FOG) program. Rooftop grease leaks that reach storm drains trigger severe municipal fines and environmental citations. Restaurants along Medical Center Parkway and The Avenue are especially scrutinized because of their proximity to the Stones River watershed. DDAN's cleaning and containment services address both fire code and water resource compliance in a single visit.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+            Learn more about the standards we follow: <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 Code Standards</a>
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-6 reveal-child">
+          <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-4">Murfreesboro Enforcement Summary</h3>
+          <ul class="space-y-3">
+            <li class="check-item">MFRD Community Risk Reduction uses digital tracking for compliance</li>
+            <li class="check-item">Overdue cleaning documentation triggers automatic follow-up</li>
+            <li class="check-item">Citations can shut down your kitchen until corrected</li>
+            <li class="check-item">Water Resources FOG program monitors rooftop grease runoff</li>
+            <li class="check-item">Storm drain contamination carries severe municipal fines</li>
+            <li class="check-item">DDAN documentation satisfies both fire and water resource inspectors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON PROBLEMS IN MURFREESBORO -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Problems in Murfreesboro Kitchens
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.962-.833-2.732 0L4.072 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Extreme Grease on TPO Roofs</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Heavy fryer usage from MTSU-area sports bars and wing spots creates extreme grease runoff that overwhelms cheap factory grease catchers. The expelled grease pools on white TPO and PVC single-ply membranes and chemically eats through the material, causing thousands of dollars in roof damage. DDAN installs custom-fit rooftop containment systems that stop the damage at the source.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Wind-Damaged Exhaust Fans</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            High winds across the flat, open parking lots of The Avenue corridor and Memorial Boulevard create dangerous conditions for improperly secured upblast fans. Without a properly installed heavy-duty <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit</a>, exhaust fans can be ripped off their curbs during cleaning, maintenance, or severe weather events.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Dual-Threat: Fire + Roof Damage</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            The combination of high-volume cooking and newer flat-roof construction means Murfreesboro restaurants face dual threats: grease fire risk from clogged systems AND structural roof damage from grease runoff. DDAN addresses both with comprehensive cleaning and <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment</a> solutions that protect your kitchen from the inside out and your building from the top down.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#1A1A1A] rounded-r-2xl p-6 md:p-8 reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed italic">
+          "A high-volume wing restaurant near The Avenue was facing thousands in roof repairs due to grease pooling on their white TPO membrane. DDAN conducted a deep hood cleaning, installed a custom-fit, multi-layer rooftop grease containment system, and retrofitted a heavy-duty hinge kit — completely halting the roof degradation and satisfying local inspectors."
+        </p>
+        <p class="text-[#FF5E15] font-heading font-semibold text-sm mt-4">— DDAN Hood Cleaning and Repair, Murfreesboro Service Area</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEANING PROCESS — 3 Step Cards -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Our Cleaning Process
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        Three steps to a safe, compliant, fully documented kitchen exhaust system.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {[
+          { num: '01', title: 'Inspection & Quote', desc: 'We assess your entire exhaust system — hood, ducts, fans, filters, and containment. You get a free, no-obligation estimate. Free within 15 miles of Mt. Juliet.' },
+          { num: '02', title: 'Overnight Deep Clean', desc: 'Our crew works around your schedule — typically 10 PM to 6 AM. Every component cleaned to bare metal per NFPA 96. Eco-friendly degreasers, no shortcuts.' },
+          { num: '03', title: 'Documentation & Report', desc: 'Before-and-after photos, written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Ready for any inspector.' },
+        ].map((card) => (
+          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Schedule Your Cleaning
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Murfreesboro Service Area
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Also in Murfreesboro: <a href="/repair/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Exhaust Fan Repair</a> &middot; <a href="/parts/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Also serving nearby <a href="/cleaning/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Smyrna</a> and <a href="/cleaning/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">La Vergne</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Murfreesboro Hood Cleaning FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#1A1A1A] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DON'T WAIT CTA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center mb-8">
+      <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed reveal-child">
+        Demand surges align with the MTSU academic calendar — <span class="text-[#FF5E15] font-semibold">August, September, and January</span>. Schedule your cleaning before the rush hits.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
