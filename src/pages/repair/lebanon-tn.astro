@@ -1,0 +1,396 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Can you clean exhaust systems for Lebanon BBQ restaurants and smokers?',
+    a: "Yes. BBQ smoker exhaust requires specialized cleaning beyond standard hood service. Wood-fired smokers produce thick carbon creosote that bonds to ductwork and fan impellers — it can't be removed with standard degreasing chemicals. DDAN uses mechanical scraping, high-pressure hot water, and specialized solvents to strip creosote down to bare metal, restoring full airflow and eliminating the fire hazard.",
+  },
+  {
+    q: "My Lebanon restaurant's exhaust fan is vibrating loudly. What is wrong?",
+    a: "Severe vibration in a commercial exhaust fan usually means one of three things: an imbalanced impeller wheel from grease or carbon buildup, a failing bearing, or a worn-out belt that's slipping. In BBQ restaurants, carbon creosote bonded to impeller blades is the most common cause — the uneven weight throws the wheel off balance and the vibration destroys bearings and loosens mounting hardware. We diagnose and repair on-site, often same-day.",
+  },
+  {
+    q: 'Do you install hinge kits on commercial exhaust fans in Lebanon?',
+    a: "Yes. Hinge kits are essential for safe rooftop fan access during cleaning and maintenance. We install heavy-duty commercial hinge kits on upblast fans of all sizes. A properly installed hinge kit lets cleaning crews safely tilt the fan for full impeller and housing access without disconnecting wiring or risking damage to the roof curb.",
+  },
+  {
+    q: 'Can you source hard-to-find replacement parts?',
+    a: "Yes. We maintain relationships with all major commercial exhaust equipment distributors. For common parts — motors, belts, bearings — we stock locally for same-day replacement. For specialty or discontinued parts, we source through our commercial network within 24-48 hours.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/hero/hero-4.jpg`,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Lebanon, TN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": business.googleReviewRating,
+        "reviewCount": "51"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Hood & Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Lebanon, TN"
+      },
+      "description": "24/7 hood and exhaust fan repair for Lebanon BBQ restaurants, commissaries, and commercial kitchens. BBQ carbon and creosote specialists. NFPA 96 compliant."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Lebanon, TN" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Hood & Fan Repair in Lebanon, TN | BBQ Experts | DDAN"
+  description="BBQ carbon destroys exhaust fans faster in Lebanon. 24/7 repair for smokers, commissaries, and restaurants near Cracker Barrel HQ. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-4.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Lebanon, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Hood & Exhaust Fan Repair in Lebanon — <span class="text-[#FF5E15]">BBQ Country Experts</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Wood smoker carbon and commissary fan belt snaps — Lebanon's exhaust systems need specialists who understand the grease.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Lebanon's BBQ Culture Destroys Exhaust Equipment
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Lebanon's restaurant landscape is shaped by two forces: Southern BBQ culture and massive industrial logistics. The historic Public Square and West Main Street are lined with BBQ smokehouses and country cooking restaurants that have been feeding Wilson County for generations. The cuisine leans heavily on solid-fuel wood smokers and heavy fryers, producing intense carbon and grease that's dramatically harder on exhaust equipment than standard restaurant cooking. Where a typical fryer produces grease vapor, a wood-fired smoker produces thick, hardened carbon creosote that bonds to every surface it touches — fan impellers, ductwork walls, grease filters, and containment systems.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The other side of Lebanon's exhaust repair demand comes from industrial logistics. Amazon, Cracker Barrel's corporate headquarters, and other massive distribution centers near the interstate create enormous workforce dining demand. Commissary kitchens and high-volume franchise restaurants feed thousands of warehouse and logistics workers across multiple shifts. These operations run their exhaust systems continuously — not the typical lunch-dinner cycle of a standard restaurant — wearing through fan belts and bearings at accelerated rates that catch operators off guard.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Cumberland University adds campus food service to the mix, with dining halls and campus restaurants that run during academic sessions. The combination of BBQ smokehouses, industrial commissaries, franchise restaurants, and institutional kitchens creates a repair market where one-size-fits-all service doesn't work. A BBQ smokehouse with carbon-clogged impellers needs a completely different repair approach than a franchise with a snapped fan belt, and a commissary running 20 hours a day needs heavy-duty commercial parts, not factory replacements designed for 8-hour operation.
+          </p>
+          <p class="text-[#FF5E15] font-heading font-semibold text-base reveal-child">
+            DDAN provides 24/7 emergency hood and exhaust fan repair across all of Lebanon and Wilson County — BBQ carbon specialists with same-day parts.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Commercial exhaust fan repair in Lebanon TN - DDAN Hood Cleaning and Repair"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Exhaust fan failures account for the majority of our Lebanon emergency calls. We stock common parts and can diagnose most fan problems on the first visit.
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Fan repair services:
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {[
+          { title: 'Motor Replacement', desc: 'Burned-out or overheating motors replaced same-day with OEM-spec units' },
+          { title: 'Belt Replacement', desc: 'Worn, cracked, or slipping belts that reduce airflow and cause squealing' },
+          { title: 'Bearing Repair', desc: 'Failed bearings that cause grinding, vibration, and eventual motor seizure' },
+          { title: 'Impeller Rebalancing', desc: 'Carbon-clogged or damaged impeller wheels that cause dangerous vibration' },
+          { title: 'Hinge Kit Installation', desc: 'Heavy-duty hinge kits for safe rooftop fan access during cleaning and maintenance' },
+          { title: 'Wiring & Controls', desc: 'Damaged wiring, failed contactors, speed controllers, and relay replacements' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Beyond fans, we also repair:
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child">Hood canopy damage — dented plenums, broken hinges, warped drip trays</li>
+        <li class="check-item reveal-child">Ductwork issues — loose joints, failed dampers, missing <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a></li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression systems</a> — nozzle replacement, line re-routing, Ansul system service</li>
+        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease containment</a> — rooftop grease box replacement, drain line repair, custom containment installation</li>
+        <li class="check-item reveal-child">Make-up air units — damper repair, heating element replacement, filter service, control diagnostics</li>
+      </ul>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Need a deeper dive into belt and motor service? See our dedicated <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt & motor repair</a> page. For hinge kit details: <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit installation</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-bold mb-4">
+          24/7 Emergency Dispatch for Lebanon
+        </h2>
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          Exhaust fan down during the dinner rush? Smoker filling the kitchen with carbon? We dispatch emergency repair crews to Lebanon and all of Wilson County around the clock. No answering service — you get a real technician on the line.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-10 py-4 bg-[#FF5E15] text-white font-heading text-xl font-bold rounded hover:bg-[#E54F0D] hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN LEBANON -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Failures in Lebanon
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.962-.833-2.732 0L4.072 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">BBQ Carbon Creosote on Impellers</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            BBQ smokers produce thick, hardened carbon creosote that bonds to fan impellers and throws them off balance. The vibration from unbalanced blades destroys bearings and can crack motor mounts. This isn't regular grease buildup — it requires specialized scraping before any motor or bearing repair is meaningful. Standard degreasing chemicals don't touch baked-on creosote. DDAN technicians mechanically scrape impellers, rebalance the wheel, and then address the underlying motor or bearing damage that the vibration caused. Without the scraping step first, any motor replacement is a temporary fix.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Commissary Continuous-Run Belt Failure</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Massive industrial commissaries near the interstate run exhaust systems continuously, leading to frequent fan belt snapping and bearing failures from non-stop operation. These facilities need heavy-duty commercial belts, not OEM replacements designed for standard restaurant duty cycles. Factory belts rated for 8-12 hour operation fail within weeks under 20-hour commissary demands. DDAN installs commercial-grade <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">notched V-belts</a> and high-temperature bearings rated for continuous industrial operation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Lebanon Compliance — Fire Department & Water/Wastewater
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The Lebanon Fire Department is highly proactive on commercial kitchen compliance, particularly for the industrial facilities and interstate dining establishments that make up a significant portion of Wilson County's restaurant base. Interstate-adjacent restaurants and commissaries receive heightened scrutiny because of their high volume and continuous operation. BBQ restaurants with wood-fired smokers face additional attention because solid-fuel cooking creates a significantly higher fire risk than gas-only operations — the carbon creosote produced by wood smoke is far more flammable than standard kitchen grease.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The City of Lebanon Water and Wastewater Department monitors grease interceptors and enforces FOG compliance across all commercial food service operations. BBQ restaurants are among the highest-volume grease producers in any market, and the combination of rendered fat from smoked meats and fryer grease creates extreme demands on grease interceptors and rooftop containment systems. Restaurants that allow grease overflow to reach storm drains or sanitary sewer connections face significant municipal fines and mandatory corrective action.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+            Learn more about the standards we follow: <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 Code Standards</a>
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-6 reveal-child">
+          <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-4">Lebanon Enforcement Summary</h3>
+          <ul class="space-y-3">
+            <li class="check-item">Lebanon Fire Department proactive on industrial and interstate facilities</li>
+            <li class="check-item">Solid-fuel BBQ operations face heightened fire code scrutiny</li>
+            <li class="check-item">Carbon creosote classified as higher fire risk than standard grease</li>
+            <li class="check-item">City Water/Wastewater enforces FOG compliance on all food service</li>
+            <li class="check-item">BBQ restaurants among highest-volume grease producers</li>
+            <li class="check-item">DDAN repair documentation satisfies both fire and wastewater inspectors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed italic">
+          "During the peak of the Wilson County Fair, a high-volume diner near the fairgrounds had their main exhaust fan belt snap, filling the kitchen with smoke. DDAN's emergency repair team arrived within an hour, installed a commercial-grade notched V-belt, and verified the motor tension, saving their most profitable weekend of the year."
+        </p>
+        <p class="text-[#FF5E15] font-heading font-semibold text-sm mt-4">— DDAN Hood Cleaning and Repair, Lebanon Service Area</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 reveal-child">
+        We carry parts and have direct experience repairing exhaust systems from every major commercial kitchen ventilation manufacturer.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] rounded-xl px-5 py-3 text-[#D4D4D4] font-heading font-medium text-sm reveal-child">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Lebanon Service Area
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Also in Lebanon: <a href="/cleaning/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot; <a href="/parts/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Also serving nearby <a href="/repair/mt-juliet-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Mount Juliet</a>, <a href="/repair/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a>, and Hartsville
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Lebanon Hood & Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#1A1A1A] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA URGENCY -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center mb-8">
+      <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed reveal-child">
+        <span class="text-[#FF5E15] font-semibold">Wilson County Fair drives massive dining surges.</span> Schedule preventive maintenance before the fair — don't risk your most profitable weekend.
+      </p>
+      <div class="mt-6">
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Schedule Emergency Repair
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
