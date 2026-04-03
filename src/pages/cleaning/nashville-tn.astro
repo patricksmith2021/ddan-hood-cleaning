@@ -1,0 +1,337 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'What does the Metro Nashville Fire Marshal look for during a hood inspection?',
+    a: 'The Metro Nashville Fire Marshal checks for bare-metal cleanliness on all grease-bearing surfaces — hoods, plenums, ductwork, and exhaust fans. They verify that cleaning documentation is current, fire suppression systems are tagged and operational, access panels are installed on all horizontal duct runs, and grease filters are properly seated. On Broadway and in historic districts, inspectors are especially strict because shared walls and high foot traffic multiply fire risk.',
+  },
+  {
+    q: 'Can heavy grease void my commercial roof warranty in Nashville?',
+    a: 'Yes. Grease runoff from rooftop exhaust fans is one of the most common causes of TPO and EPDM roof membrane failure in Nashville\'s newer commercial buildings. Grease degrades the membrane material, voids manufacturer warranties, and creates slip hazards for rooftop maintenance crews. Proper grease containment systems — grease boxes, pads, and drip guards — prevent this damage entirely. DDAN installs and maintains rooftop grease containment as part of our cleaning service.',
+  },
+  {
+    q: 'Do you install hinge kits on older Nashville buildings?',
+    a: 'Yes. Many older buildings on Lower Broadway and throughout East Nashville have exhaust fans bolted directly to curbs with no hinge mechanism, making thorough cleaning impossible without a full fan removal. We install NFPA 96-compliant hinge kits that allow the fan to swing open for complete access to the interior and ductwork below. This dramatically improves cleaning quality and reduces future service time and cost.',
+  },
+  {
+    q: 'How often should my hood be cleaned?',
+    a: `It depends on cooking volume. NFPA 96 Table 11.4 sets the standard: monthly for 24-hour or charbroiling operations, quarterly for most restaurants, semi-annually for moderate kitchens. Nashville's high-volume hot chicken joints typically need monthly service. Call ${business.phone} and we'll assess your kitchen's specific needs.`,
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Nashville",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Hood Cleaning",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Nashville",
+        "addressRegion": "TN"
+      },
+      "description": "NFPA 96 compliant commercial kitchen hood cleaning for Nashville restaurants, hotels, and institutional kitchens. Bare-metal cleaning with full photo documentation."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/` },
+        { "@type": "ListItem", "position": 3, "name": "Nashville, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/nashville-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Hood Cleaning Services in Nashville, TN | DDAN"
+  description="NFPA 96 hood cleaning for Nashville's 3,000+ commercial kitchens. From Broadway honky-tonks to Vanderbilt dining halls. Call (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/hood-cleaning-hero.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/cleaning/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Nashville, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Commercial Hood Cleaning Services in <span class="text-[#FF5E15]">Nashville, Tennessee</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        From Broadway's busiest honky-tonks to Vanderbilt's dining halls — NFPA 96 bare-metal cleaning with full photo documentation
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Nashville's 3,000+ Commercial Kitchens Depend on Professional Hood Cleaning
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Nashville's restaurant scene has exploded over the past decade, and every new opening adds another commercial kitchen exhaust system that demands regular, professional cleaning. From the neon-lit honky-tonks lining Lower Broadway to the upscale dining rooms in The Gulch, from East Nashville's creative chef-driven kitchens to Germantown's boutique restaurants, the city now operates well over 3,000 commercial kitchens. And Nashville's signature cuisine makes hood cleaning here uniquely demanding. Hot chicken — the dish that put this city on the culinary map — relies on solid shortening heated to extreme temperatures in high-capacity fryers. That cooking method produces aggressive grease accumulation that clogs standard baffle filters faster than virtually any other cooking style. If your kitchen serves hot chicken, your exhaust system works harder and dirties faster than the national average.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The scale of Nashville's commercial kitchen operations is staggering. The Broadway honky-tonks run 18 or more hours daily, seven days a week, pushing exhaust systems to their absolute limits. Music City Center hosts massive conventions and events with institutional-grade kitchens feeding thousands. Vanderbilt University operates multiple high-volume dining halls serving students around the clock. The Opryland Resort complex runs several full-service restaurants simultaneously. Every one of these operations requires bare-metal NFPA 96 cleaning on strict, documented schedules — and the consequences of falling behind are severe. A grease fire on Lower Broadway, with its packed crowds and shared historic walls, would be catastrophic.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Nashville's growth also means new restaurants are opening in buildings that present very different hood cleaning challenges. The Gulch and Midtown feature modern construction with TPO-roofed buildings where rooftop grease containment is critical to protecting expensive roofing membranes. Lower Broadway and the historic districts, by contrast, present complex multi-story structures where ductwork runs through shared walls and ceilings, often lacking proper fire-rated access panels. Both scenarios demand experienced technicians who understand the specific challenges each building type presents — not a generic cleaning crew running through a checklist.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides the thorough, documented, NFPA 96-compliant cleaning Nashville's commercial kitchens demand.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE CLEAN -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Clean — Hood to Rooftop
+      </h2>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Hood canopies and plenums</li>
+        <li class="check-item reveal-child">Exhaust ductwork — including sections accessed through <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">fire-rated access panels</a></li>
+        <li class="check-item reveal-child">Exhaust fans and motors</li>
+        <li class="check-item reveal-child">Grease filters and baffles</li>
+        <li class="check-item reveal-child">Rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> — grease boxes, pads, and drip guards</li>
+        <li class="check-item reveal-child">Before-and-after photo documentation for compliance, insurance, and fire marshal inspections</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Nashville Hood Cleaning Compliance — Metro Nashville Fire Marshal
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Metro Nashville Fire Marshal's Office enforces NFPA 96 with zero tolerance, and for good reason. Nashville's density — especially on Broadway and in the historic districts — means shared walls, high foot traffic, and buildings that were never designed for modern commercial kitchen operations. A grease fire in one of these structures doesn't just threaten the restaurant that caused it; it threatens every business sharing that wall and every person on that sidewalk. The Fire Marshal requires documented proof that your exhaust system has been cleaned to bare metal on the schedule specified by NFPA 96 Table 11.4. No documentation means no compliance, regardless of how clean the system looks.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Beyond fire code, Nashville's Metro Water Services (MWS) F.O.G. Management Program adds another layer of scrutiny specifically targeting rooftop grease containment. MWS actively inspects commercial kitchens to prevent grease from entering the stormwater system, and they issue significant fines for violations. This means your rooftop grease containment — grease boxes, drip pads, and fan guards — must be flawless. DDAN inspects and services grease containment on every cleaning visit, keeping you compliant with both the Fire Marshal and Metro Water Services simultaneously.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Understanding and meeting these overlapping compliance requirements is what separates professional hood cleaning from amateur work. Read our full guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a> to see exactly what inspectors look for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON PROBLEMS IN NASHVILLE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Hood Cleaning Problems in Nashville
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Lower Broadway bars and honky-tonks suffer from a problem most cities never encounter: burned-out exhaust fan motors caused by 18-hour daily runtimes. Standard commercial exhaust fan motors are designed for 8 to 12 hours of daily operation. When you push them to 18 hours or more, every single day, they overheat, bearings fail, and belts snap. DDAN sees this constantly on Broadway. If your fan motor is struggling — vibrating excessively, making grinding noises, or pulling inadequate airflow — it needs immediate attention before a complete failure shuts down your kitchen during peak hours. Our team handles <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan belt and motor repair</a> alongside every cleaning service.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Hot chicken grease presents a uniquely Nashville problem for rooftop equipment. The extreme use of solid shortening at high temperatures produces thick, aggressive grease deposits that accumulate rapidly on rooftop fan housings, curbs, and surrounding roof surfaces. On the white TPO membrane roofs common in Midtown, The Nations, and newer Gulch construction, this grease doesn't just sit on the surface — it actively degrades the membrane material, voids manufacturer warranties, and creates permanent staining. Without properly maintained grease containment, a single hot chicken kitchen can cause thousands of dollars in roof damage within months.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Historic buildings on Lower Broadway and throughout downtown Nashville frequently lack proper fire-rated access panels in their ductwork. Many of these buildings were converted to restaurant use decades ago, and the original exhaust system installations didn't include access points for thorough cleaning. Without access panels, it's physically impossible to clean the horizontal runs of ductwork where grease accumulates most heavily. This means your system can look clean at the hood and fan but harbor dangerous grease deposits in the middle sections. DDAN provides <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panel installation</a> to bring older systems into full compliance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "During the CMA Fest rush, a high-volume Broadway honky-tonk experienced a catastrophic exhaust fan motor failure. DDAN's emergency repair team sourced the exact 3-phase motor, navigated downtown road closures, and completed the installation by 4:00 AM, ensuring the kitchen didn't miss a single shift."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEANING PROCESS -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Our Cleaning Process
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        Three steps to a safe, compliant, fully documented kitchen exhaust system.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {[
+          { num: '01', title: 'Inspection & Quote', desc: 'We assess your entire exhaust system — hood, ducts, fans, filters, and containment. You get a free, no-obligation estimate with a clear scope of work and pricing.' },
+          { num: '02', title: 'Overnight Deep Clean', desc: 'Our crew works around your schedule — typically 10 PM to 6 AM. Every component cleaned to bare metal per NFPA 96. Eco-friendly degreasers, no shortcuts, no disruption to your business.' },
+          { num: '03', title: 'Documentation & Report', desc: 'Before-and-after photos, written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Ready for any Metro Nashville Fire Marshal inspection.' },
+        ].map((card) => (
+          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Nashville Hood Cleaning Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN serves all of Metro Nashville and Davidson County — every neighborhood, every zip code. Whether your restaurant is on Lower Broadway, in the heart of Midtown, tucked into a Germantown storefront, or operating in an East Nashville converted warehouse, we provide the same thorough, NFPA 96-compliant hood cleaning service with full documentation. Our crews know Nashville's streets, parking challenges, building access quirks, and the specific fire marshal expectations for each district.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          We cover Downtown, The Gulch, Midtown, East Nashville, Germantown, The Nations, Sylvan Park, Berry Hill, Donelson, Bellevue, Antioch, Whites Creek, Joelton, Old Hickory, and every neighborhood in between. If your commercial kitchen is in Davidson County, we'll be there.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Nashville:</span>
+            <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Exhaust Fan Repair</a> &middot;
+            <a href="/parts/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/cleaning/hermitage-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hermitage</a>,
+            <a href="/cleaning/madison-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Madison</a>, and
+            <a href="/cleaning/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Nashville Hood Cleaning FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-black py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Peak emergency demand hits Nashville during CMA Fest and summer tourism surges. Don't wait until your system fails during the busiest weekend of the year.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
