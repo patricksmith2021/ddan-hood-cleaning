@@ -1,0 +1,330 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Can you fix a vibrating, noisy exhaust fan on my Hermitage restaurant?',
+    a: 'Yes. Severe vibration is usually caused by an aging fan motor bearing failing or heavy grease throwing the impeller off balance. We diagnose and repair on-site, often same-day, and carry common motors and bearings in stock.',
+  },
+  {
+    q: 'What does the Metro Nashville Fire Marshal look for in Hermitage?',
+    a: 'Metro Nashville inspectors require your entire system to be cleaned to bare metal. They also strictly check for proper hinge kits, fire-rated access panels, and current service documentation with before-and-after photos.',
+  },
+  {
+    q: 'Do you offer emergency restaurant exhaust repair in Hermitage?',
+    a: `Absolutely. When an exhaust fan belt snaps during the dinner rush, you can't wait for business hours. Our 24/7 emergency team can reach Hermitage from our Mt. Juliet base in about 15 minutes. Call ${business.phone} any time.`,
+  },
+  {
+    q: 'Will you provide documentation my insurance company accepts?',
+    a: 'Yes. Every cleaning includes timestamped before-and-after photos, a written service report, deficiency notes, and a compliance confirmation. Insurance companies in the Nashville metro routinely accept our documentation as proof of NFPA 96-compliant maintenance.',
+  },
+];
+
+const siteUrl = import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": siteUrl,
+      "image": `${siteUrl}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Hermitage",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Hood Cleaning",
+      "provider": { "@id": `${siteUrl}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Hermitage",
+        "addressRegion": "TN"
+      },
+      "description": "NFPA 96 compliant commercial kitchen hood cleaning for Hermitage restaurants and commercial kitchens. Bare-metal cleaning with full photo documentation."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+        { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${siteUrl}/cleaning/` },
+        { "@type": "ListItem", "position": 3, "name": "Hermitage, TN", "item": `${siteUrl}/cleaning/hermitage-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Hermitage Hood Cleaning — Aging Systems, Expert Care | DDAN"
+  description="Hood cleaning for Hermitage's aging Lebanon Pike restaurants. Metro Nashville compliant. Percy Priest Lake area. 24/7 emergency. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-4.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/cleaning/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Hermitage, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Hermitage Hood Cleaning — <span class="text-[#FF5E15]">Aging Systems Deserve Expert Care</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Restoring aging exhaust systems along Lebanon Pike and Old Hickory Blvd — Metro Nashville compliant
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Hermitage Restaurants Need Specialized Hood Cleaning
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Hermitage's restaurant landscape runs along Lebanon Pike and Old Hickory Boulevard, anchored by TriStar Summit Medical Center and surrounded by dense residential neighborhoods that drive heavy takeout and delivery volume. The cuisine is a solid mix of fast-food chains, local meat-and-three restaurants, and casual dining — consistent, high-volume frying puts continuous strain on exhaust components. But Hermitage's biggest challenge is infrastructure age. Many restaurants here operate in older strip centers with built-up roofing (BUR) and modified bitumen, while newer outparcels use TPO. The exhaust systems in these older buildings have often been running for decades, with fans well past their useful life.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Percy Priest Lake proximity adds humidity that accelerates equipment corrosion, causing fan housings, curbs, and ductwork connections to deteriorate faster than in drier areas. DDAN brings {business.yearsExperience} years of experience restoring aging systems to modern NFPA 96 standards. We understand the unique challenges of working on older Hermitage commercial buildings — from fragile roofing membranes to outdated fan mounting systems — and we bring the right tools and parts to handle every situation.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Whether your kitchen is a decades-old meat-and-three staple or a newer outparcel restaurant, DDAN provides thorough, NFPA 96-compliant hood cleaning with full before-and-after photo documentation — keeping your Hermitage restaurant compliant, safe, and ready for any Metro Nashville inspection.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE CLEAN -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Clean — Hood to Rooftop
+      </h2>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Hood canopies and plenums</li>
+        <li class="check-item reveal-child">Exhaust ductwork — including sections accessed through <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">fire-rated access panels</a></li>
+        <li class="check-item reveal-child">Exhaust fans and motors — including aging units past their useful life</li>
+        <li class="check-item reveal-child">Grease filters and baffles</li>
+        <li class="check-item reveal-child">Rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> — grease boxes, pads, and drip guards</li>
+        <li class="check-item reveal-child">Before-and-after photo documentation for compliance, insurance, and fire marshal inspections</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Hermitage Hood Cleaning Compliance
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Hermitage falls under the Metro Nashville Fire Marshal's Office jurisdiction. Inspectors hold aging infrastructure to modern NFPA 96 standards, and they do not give a pass just because a building is old. Restaurants in older Hermitage strip centers are frequently cited for missing hinge kits, inaccessible ductwork, and outdated fire suppression links. If your exhaust system was installed 20 years ago and has never been brought up to current code, the Fire Marshal will notice.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Metro Water Services rigorously enforces FOG (fats, oils, and grease) regulations to protect Percy Priest Lake and the surrounding watershed. Grease runoff from restaurant rooftops is a constant concern, and restaurants with deteriorating containment systems face fines and mandatory remediation. DDAN inspects your rooftop grease containment on every cleaning visit and recommends replacements before they become violations.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our full guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a> to understand exactly what Metro Nashville inspectors look for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON PROBLEMS IN HERMITAGE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Hood Cleaning Problems in Hermitage
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Aging infrastructure is the primary issue. Restaurants along Lebanon Pike and Old Hickory Blvd operate with exhaust fans past their useful life — severe vibrations, frequent belt snaps, total motor failures. These aren't failing because of misuse; they're simply old. Decades of continuous operation, combined with the humidity from Percy Priest Lake, have corroded housings and worn out bearings that should have been replaced years ago. DDAN sees a steady stream of <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan belt and motor repair</a> calls from Hermitage, and our technicians carry the most common replacement parts for same-day service.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Deteriorating rooftop grease boxes on older commercial roofs threaten the building structure itself. Old BUR (built-up roofing) is especially vulnerable to grease penetration — once grease seeps through the membrane, it saturates the insulation layer and causes leaks into the restaurant below. Many Hermitage strip centers have rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> that are rusted through or missing entirely. DDAN installs high-capacity, weather-resistant containment systems designed to protect aging roofs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "A high-volume meat-and-three on Lebanon Pike was dealing with a severely rattling exhaust fan that was driving away customers and threatening to fail. DDAN technicians arrived same-day, discovered a failing motor bearing and massive grease buildup, scraped the system clean, and installed a new, heavy-duty 3-phase motor, instantly restoring quiet, efficient airflow."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEANING PROCESS -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Our Cleaning Process
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        Three steps to a safe, compliant, fully documented kitchen exhaust system.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {[
+          { num: '01', title: 'Inspection & Quote', desc: 'We assess your entire exhaust system — hood, ducts, fans, filters, and containment. You get a free, no-obligation estimate with a clear scope of work and pricing.' },
+          { num: '02', title: 'Overnight Deep Clean', desc: 'Our crew works around your schedule — typically 10 PM to 6 AM. Every component cleaned to bare metal per NFPA 96. Eco-friendly degreasers, no shortcuts, no disruption to your business.' },
+          { num: '03', title: 'Documentation & Report', desc: 'Before-and-after photos, written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Ready for any fire marshal inspection.' },
+        ].map((card) => (
+          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Hermitage Hood Cleaning Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN serves all of Hermitage and the surrounding Metro Nashville area. Whether your restaurant is on Lebanon Pike, Old Hickory Boulevard, near TriStar Summit Medical Center, or anywhere in the Hermitage community, we provide the same thorough, NFPA 96-compliant hood cleaning service with full photo documentation. Our Mt. Juliet base is just 15 minutes away, making Hermitage one of the fastest areas we can reach for emergency service.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Hermitage:</span>
+            <a href="/repair/hermitage-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Exhaust Fan Repair</a> &middot;
+            <a href="/parts/hermitage-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/cleaning/mount-juliet-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Mount Juliet</a>,
+            <a href="/cleaning/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>, and
+            <a href="/cleaning/madison-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Madison</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Hermitage Hood Cleaning FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-black py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Year-round demand with spikes in late spring and summer as Percy Priest Lake traffic drives up local dining volume and ambient heat stresses old motors. Schedule preventive cleaning now.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
