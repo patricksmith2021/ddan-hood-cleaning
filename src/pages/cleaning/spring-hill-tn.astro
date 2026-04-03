@@ -1,0 +1,328 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'My restaurant in Spring Hill is brand new. Do I really need hood cleaning yet?',
+    a: 'Yes. Depending on your cooking volume, NFPA 96 code may require professional cleaning within the first 3-6 months of operation. New kitchens accumulate grease faster than owners expect, and your first fire marshal inspection will require documented proof of service.',
+  },
+  {
+    q: 'Can you protect the white TPO roof on my Spring Hill restaurant from grease?',
+    a: 'Absolutely. Corporate landlords in new developments like The Crossings are increasingly strict about roof damage from grease runoff. We install high-capacity rooftop grease containment systems that capture expelled grease before it touches your membrane.',
+  },
+  {
+    q: 'Do you repair broken commercial exhaust fans?',
+    a: `Yes. If your exhaust fan goes down, your kitchen fills with smoke and you cannot operate. We provide 24/7 emergency fan motor and belt repair with same-day service from local parts stock. Call ${business.phone} any time.`,
+  },
+  {
+    q: 'Can you clean systems with no existing access panels?',
+    a: 'Yes, but we strongly recommend installing fire-rated access panels first. Without them, technicians can\'t reach interior duct sections for bare-metal cleaning. We can install NFPA 96-compliant panels and clean the system in a single visit.',
+  },
+];
+
+const siteUrl = import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": siteUrl,
+      "image": `${siteUrl}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Spring Hill",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Hood Cleaning",
+      "provider": { "@id": `${siteUrl}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Spring Hill",
+        "addressRegion": "TN"
+      },
+      "description": "NFPA 96 compliant commercial kitchen hood cleaning for Spring Hill restaurants and commercial kitchens. Bare-metal cleaning with full photo documentation."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+        { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${siteUrl}/cleaning/` },
+        { "@type": "ListItem", "position": 3, "name": "Spring Hill, TN", "item": `${siteUrl}/cleaning/spring-hill-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Restaurant Hood Cleaning in Spring Hill | 24/7 | DDAN"
+  description="Hood cleaning for Spring Hill's fast-growing restaurant scene. Protect new TPO roofs from grease. GM workforce dining. Call (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-1.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/cleaning/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Spring Hill, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Restaurant Hood Cleaning in <span class="text-[#FF5E15]">Spring Hill, Tennessee</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Protecting new-build kitchens and pristine TPO roofs across Maury and Williamson Counties
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Hood Cleaning for Spring Hill's Fastest-Growing Restaurant Scene
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Spring Hill is one of Middle Tennessee's fastest-growing cities, and its restaurant scene is expanding right alongside the population. The GM Spring Hill Manufacturing Plant drives a massive industrial workforce that fuels heavy lunch and dinner volume at restaurants along Main Street and Port Royal Road. Family-style casual dining, pizza joints, fast-food drive-thrus, and Mexican restaurants dominate the local food landscape — all high-grease, high-volume cooking operations that push exhaust systems hard every single day.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Crossings development has brought new national chains and fast-casual concepts to Spring Hill, adding even more commercial kitchens that require professional maintenance from day one. What makes Spring Hill unique from a hood cleaning perspective is the roofing. Almost all commercial roofing here is newer white TPO and PVC single-ply membrane — pristine but extremely vulnerable to grease damage from poorly maintained rooftop exhaust systems. A single season of unchecked grease runoff can permanently stain and degrade a brand-new TPO roof, voiding the manufacturer's warranty and triggering costly repairs that landlords will pass directly to the tenant.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides thorough, NFPA 96-compliant hood cleaning throughout Spring Hill and across Maury and Williamson Counties. We clean every component from hood canopy to rooftop fan, document everything with before-and-after photos, and inspect your grease containment system on every visit to protect your kitchen, your compliance record, and your roof.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE CLEAN -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Clean — Hood to Rooftop
+      </h2>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Hood canopies and plenums</li>
+        <li class="check-item reveal-child">Exhaust ductwork — including sections accessed through <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">fire-rated access panels</a></li>
+        <li class="check-item reveal-child">Exhaust fans and motors</li>
+        <li class="check-item reveal-child">Grease filters and baffles</li>
+        <li class="check-item reveal-child">Rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> — grease boxes, pads, and drip guards</li>
+        <li class="check-item reveal-child">Before-and-after photo documentation for compliance, insurance, and fire marshal inspections</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Spring Hill Hood Cleaning Compliance
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Spring Hill Fire Department is rigorous on new builds, with a strong focus on ensuring that initial installations — hinge kits, access panels, and fire suppression systems — are built to code from the start. With so much new construction in Spring Hill, the fire department pays close attention to whether exhaust systems are installed correctly and maintained on schedule. If your restaurant is in a new development, expect inspectors to ask for documented cleaning records and proof that your system meets NFPA 96 standards.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Beyond fire code, Spring Hill Water enforces strict grease trap and interceptor rules. Restaurants are required to maintain functional grease traps and prevent fats, oils, and grease from entering the municipal sewer system. This means your entire grease management chain — from the hood and ductwork to the rooftop containment and the grease trap — must work together. DDAN addresses the exhaust side of this equation on every cleaning visit, ensuring your rooftop grease containment is functioning properly alongside your freshly cleaned system.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our full guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a> to understand exactly what inspectors look for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON PROBLEMS IN SPRING HILL -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Hood Cleaning Problems in Spring Hill
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          New construction in Spring Hill comes with an equipment problem most restaurant owners don't see coming: cheap OEM fan belts and motors installed by builders to cut costs. General contractors building out new restaurant spaces almost always use the cheapest factory parts available to stay within budget. These bargain-bin fan belts and motors are rated for light-duty use and consistently fail within one to three years under real commercial cooking loads. When a belt snaps or a motor burns out during a Friday dinner rush, it shuts your kitchen down completely. DDAN handles <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan belt and motor repair</a> with heavy-duty commercial-grade replacements that are built to last.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The second major problem in Spring Hill is rapid grease saturation on pristine white TPO roofs, especially at The Crossings and other newer retail developments. Corporate landlords and property management companies are aggressive about protecting their roofing investment and will hold tenants fully accountable for any grease damage to the membrane. Standard factory grease catchers installed with the original exhaust system are rarely adequate for the volume of grease a busy commercial kitchen produces. DDAN installs high-capacity <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">rooftop grease containment systems</a> that capture expelled grease before it ever touches your roof.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "A brand-new fast-casual franchise in Spring Hill had their cheap, factory-installed exhaust fan belt snap right before the Friday dinner rush. DDAN arrived within the hour, upgraded the unit to a heavy-duty notched V-belt, and calibrated the motor tension, allowing the kitchen to reopen safely with minimal downtime."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEANING PROCESS -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Our Cleaning Process
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        Three steps to a safe, compliant, fully documented kitchen exhaust system.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {[
+          { num: '01', title: 'Inspection & Quote', desc: 'We assess your entire exhaust system — hood, ducts, fans, filters, and containment. You get a free, no-obligation estimate with a clear scope of work and pricing.' },
+          { num: '02', title: 'Overnight Deep Clean', desc: 'Our crew works around your schedule — typically 10 PM to 6 AM. Every component cleaned to bare metal per NFPA 96. Eco-friendly degreasers, no shortcuts, no disruption to your business.' },
+          { num: '03', title: 'Documentation & Report', desc: 'Before-and-after photos, written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Ready for any fire marshal inspection.' },
+        ].map((card) => (
+          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Spring Hill Hood Cleaning Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN serves all of Spring Hill and the surrounding areas across Maury and Williamson Counties. Whether your restaurant is on Main Street, Port Royal Road, in The Crossings development, or along the US-31 corridor, we provide the same thorough, NFPA 96-compliant hood cleaning service with full photo documentation. Our crews know the Spring Hill area and can coordinate service around your kitchen's schedule.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Spring Hill:</span>
+            <a href="/repair/spring-hill-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Exhaust Fan Repair</a> &middot;
+            <a href="/parts/spring-hill-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/cleaning/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Spring Hill Hood Cleaning FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-black py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Steady year-round demand as new restaurant owners realize the limitations of their factory-installed exhaust equipment. Don't wait for a failure to find out your system isn't up to the job.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
