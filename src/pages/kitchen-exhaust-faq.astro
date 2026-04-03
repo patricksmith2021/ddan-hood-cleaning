@@ -58,6 +58,7 @@ const faqs = [
 >
   <HeroBanner
     headline="Commercial Kitchen Exhaust & Hood Cleaning FAQ"
+    subheadline="Common questions about commercial kitchen exhaust services"
     backgroundImage="/images/services/hood-cleaning-hero.jpg"
     breadcrumbs={[
       { label: 'Home', href: '/' },
@@ -65,10 +66,8 @@ const faqs = [
     ]}
   />
 
-  <!-- FAQ Accordion -->
-  <section class="section-padding bg-[#111111]">
-    <div class="container-narrow reveal">
-      <h2 class="section-headline text-center mb-10 reveal-child">Frequently Asked Questions</h2>
+  <section class="py-12 md:py-16 lg:py-20 px-5 bg-[#111111] reveal">
+    <div class="max-w-[1200px] mx-auto">
       <div class="max-w-3xl mx-auto space-y-4">
         {faqs.map((faq) => (
           <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded transition-all duration-300 group reveal-child">
