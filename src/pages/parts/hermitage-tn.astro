@@ -1,0 +1,370 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Can you fix a vibrating, noisy exhaust fan on my Hermitage restaurant?',
+    a: 'Yes. Severe vibration is usually caused by an aging fan motor bearing failing or heavy grease throwing the fan blades off balance. We diagnose the issue on-site, scrape the blades clean, and install new heavy-duty bearings or a replacement motor if needed — same day from our local parts stock.',
+  },
+  {
+    q: 'What does the Metro Nashville Fire Marshal look for regarding exhaust equipment in Hermitage?',
+    a: 'Metro Nashville inspectors require your entire exhaust system to meet current NFPA 96 standards. They strictly check for compliant hinge kits on rooftop fans, fully operational fire suppression links, properly installed fire-rated access panels, and equipment in good working order. Every part we install comes with documentation for your compliance file.',
+  },
+  {
+    q: 'Do you offer emergency exhaust fan parts in Hermitage?',
+    a: 'Absolutely. When an exhaust fan belt snaps or a motor dies during the dinner rush, you can\'t wait for business hours. DDAN provides 24/7 emergency parts and installation service to Hermitage, arriving with the exact commercial parts needed to get your kitchen pulling air again.',
+  },
+  {
+    q: 'Can you replace parts on aging exhaust systems?',
+    a: 'Yes — aging infrastructure is Hermitage\'s number one exhaust issue. Many restaurants along Lebanon Pike and Old Hickory Blvd are running exhaust systems well past their useful life. We source compatible motors, belts, bearings, and fan wheels for older units from all major brands, and we can upgrade individual components without replacing the entire system.',
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/hero/hero-1.jpg`,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "City", "name": "Hermitage, TN" }
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Kitchen Exhaust Fan Parts & Installation",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": { "@type": "City", "name": "Hermitage, TN" },
+      "description": "Hood fan parts and professional installation for Hermitage restaurants — motors, belts, bearings, filters, grease containment, and make-up air units."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
+        { "@type": "ListItem", "position": 3, "name": "Hermitage, TN" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Hermitage Hood Fan Parts & Installation | DDAN"
+  description="Hood fan parts and professional installation for Hermitage, TN restaurants. Motors, belts, bearings, grease containment. 24/7 emergency service. Call (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/exhaust-fan-parts.webp');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Hermitage, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        <span class="text-[#FF5E15]">Hermitage</span> Hood Fan Parts &amp; Professional Installation
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Replacing aging exhaust components along Lebanon Pike and Old Hickory Blvd — same-day parts from our nearby Mt. Juliet warehouse
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Free Consult: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Parts
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROP BANNER -->
+  <section class="bg-[#FF5E15] py-4 px-5">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-white font-heading font-semibold text-sm md:text-base">
+      <div class="flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>
+        Same-Day Parts
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        All Major Brands
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        24/7 Emergency
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        Photo Documentation
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+            Hermitage Exhaust Parts — Upgrading Aging Infrastructure
+          </h2>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Hermitage has a thriving dining scene anchored by established strip centers along Lebanon Pike and Old Hickory Blvd. But many of those commercial spaces are running exhaust systems that are well past their useful life. Worn bearings cause vibrations, stretched belts snap under load, and aging motors eventually seize — shutting down your kitchen at the worst possible moment.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            DDAN stocks the motors, belts, bearings, and fan wheels needed to bring these aging systems back to full performance. We carry parts for CaptiveAire, Loren Cook, Greenheck, Canarm, NAKS, Accurex, PennBarry, Dayton, and Fantech — covering virtually every commercial exhaust unit operating in Hermitage today.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+            Our Mt. Juliet warehouse is minutes away, which means Hermitage restaurants get same-day parts availability and rapid installation. No waiting for shipments, no guessing on compatibility — we verify fit before the part leaves our shop.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Exhaust fan parts and installation in Hermitage TN - DDAN Hood Cleaning"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHAUST FANS — MAIN SECTION -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Parts for Hermitage Restaurants
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Hermitage's older strip centers push aging equipment to the limit. Continuous frying at local meat-and-threes and fast-food franchises accelerates wear on every moving component. Here's what we replace most often:
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child"><strong>Motors</strong> — Single-phase and 3-phase upblast fan motors. Aging Hermitage units often need upgraded motors rated for higher ambient temperatures.</li>
+        <li class="check-item reveal-child"><strong>Belts</strong> — Heat-resistant notched V-belts that outlast factory belts in continuous-operation environments.</li>
+        <li class="check-item reveal-child"><strong>Bearings</strong> — Sealed pillow-block bearings that resist the grease infiltration common in older Hermitage rooftop units.</li>
+        <li class="check-item reveal-child"><strong>Fan Wheels & Impellers</strong> — Balanced replacements that restore proper airflow and eliminate the vibration plaguing older systems.</li>
+        <li class="check-item reveal-child"><strong>Hinge Kits</strong> — NFPA 96 compliant hinge kits — many older Hermitage rooftop fans lack these entirely, triggering Metro Nashville citations.</li>
+        <li class="check-item reveal-child"><strong>Speed Controllers</strong> — Variable-speed controllers to extend the life of aging motors by matching exhaust to cooking demand.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- OTHER PARTS — MUA, FILTERS, GREASE CONTAINMENT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Beyond Exhaust Fans — Complete Parts Inventory
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-3">Make-Up Air Units</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Replacement components for make-up air systems — filters, motors, dampers, and controls. Proper make-up air is critical for exhaust efficiency, and many older Hermitage buildings were designed without adequate replacement air.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-3">Hood Filters & Baffles</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Stainless steel baffle filters, mesh grease filters, and charcoal odor-control filters. We match exact dimensions for your hood canopy — critical for the high-volume frying operations common in Hermitage's dining corridors.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-3">Grease Containment</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Rooftop grease boxes, containment pads, and drain lines. Deteriorating grease boxes on Hermitage's older commercial roofs threaten both roof integrity and Metro Water Services <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">F.O.G. compliance</a> near Percy Priest Lake.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALLATION UPSELL -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-black p-6 rounded-r-xl reveal-child">
+        <h2 class="font-heading text-[#FF5E15] text-xl font-semibold mb-3">Need More Than Parts?</h2>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
+          If your Hermitage exhaust system needs diagnosis, repair, or a complete overhaul — not just a component swap — our repair team handles everything from motor replacements to full system rebuilds.
+        </p>
+        <a href="/repair/hermitage-tn/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold hover:text-white transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Hood Repair Services in Hermitage
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON EQUIPMENT ISSUES -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Issues in Hermitage
+      </h2>
+      <div class="space-y-6">
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-2">Aging Motor & Bearing Failures</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            Many restaurants along Lebanon Pike and Old Hickory Blvd are operating with exhaust fans that are past their useful life. Failing bearings cause severe vibrations, frequent belt snaps, and total motor failures. DDAN carries heavy-duty replacement motors and sealed bearings that extend the life of your existing system without a full replacement.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-2">Deteriorating Rooftop Grease Boxes</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            Hermitage's older commercial roofs are especially vulnerable to grease damage from deteriorating containment systems. Metro Water Services rigorously enforces F.O.G. regulations to protect nearby Percy Priest Lake. We install modern, high-capacity <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> that replace failing boxes and protect your roof investment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Who Buys Parts From DDAN in Hermitage?
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-3">Restaurant Owners & Managers</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Your aging exhaust fan is rattling, your belt just snapped, or Metro Nashville inspectors flagged a missing hinge kit. You need the right commercial part delivered and installed fast, with documentation for your compliance file. We handle it same day.
+          </p>
+        </div>
+        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-3">Property Managers & Landlords</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            You need tenants to maintain code-compliant exhaust equipment and protect your roofing investment. We supply and install the grease containment systems, hinge kits, and access panels your properties require, with photo documentation for your management file.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA LINKS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Hermitage Service Area & Nearby Cities
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Year-round consistency with noticeable spikes in late spring and summer as Percy Priest Lake traffic drives up local dining volume and ambient heat stresses old motors.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        <div class="reveal-child">
+          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Other Services in Hermitage</p>
+          <ul class="space-y-2">
+            <li><a href="/cleaning/hermitage-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning — Hermitage, TN</a></li>
+            <li><a href="/repair/hermitage-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hood Repair — Hermitage, TN</a></li>
+          </ul>
+        </div>
+        <div class="reveal-child">
+          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Nearby Cities</p>
+          <ul class="space-y-2">
+            <li><a href="/parts/mount-juliet-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Mount Juliet, TN</a></li>
+            <li><a href="/parts/nashville-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Nashville, TN</a></li>
+            <li><a href="/parts/madison-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Madison, TN</a></li>
+          </ul>
+        </div>
+        <div class="reveal-child">
+          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Service Hub</p>
+          <ul class="space-y-2">
+            <li><a href="/parts/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">All Parts & Installation Areas</a></li>
+            <li><a href="/restaurant-exhaust-fan-parts/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Exhaust Fan Parts Overview</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Hermitage Parts & Installation FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-black rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUCK CTA -->
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>

@@ -1,0 +1,389 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Can you get me a replacement exhaust fan motor same-day on Sam Ridley Parkway?',
+    a: "Yes. We stock the most common single-phase and 3-phase exhaust fan motors locally. For Sam Ridley Parkway restaurants feeding the Nissan plant workforce, we understand that every hour of downtime costs real money. Same-day motor delivery and installation is our standard for Smyrna.",
+  },
+  {
+    q: 'My Smyrna restaurant\'s rooftop grease catcher is overflowing — what parts do I need?',
+    a: "You likely need a complete grease containment upgrade — not just a replacement pad. Factory grease catchers along Sam Ridley Parkway are undersized for the heavy fryer output Smyrna restaurants produce. We install high-capacity grease boxes with multi-layer filter systems, drain pans, and hydrophobic pads that capture grease before it reaches your TPO or EPDM roofing membrane.",
+  },
+  {
+    q: 'Do you supply parts for industrial commissary kitchens near the Nissan plant?',
+    a: "Yes. Industrial commissaries near the Nissan facility require heavy-duty components — 3-phase motors, oversized belts, high-CFM fan wheels, and commercial-grade grease containment. We source and install parts for large institutional exhaust systems, not just standard restaurant equipment.",
+  },
+  {
+    q: 'Is there a discount for buying parts and installation together?',
+    a: "Yes. When you purchase parts through DDAN and have us install them, you receive discounted installation labor. We also verify fit and compatibility before ordering, so you never receive the wrong part. If you source your own parts, we will still install them — but the bundled pricing is the better deal.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/hero/hero-2.jpg`,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Smyrna, TN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": business.googleReviewRating,
+        "reviewCount": "51"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Kitchen Exhaust Parts & Installation",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Smyrna, TN"
+      },
+      "description": "Same-day commercial kitchen exhaust fan parts, motors, belts, grease containment, and professional installation for restaurants in Smyrna, TN."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
+        { "@type": "ListItem", "position": 3, "name": "Smyrna, TN" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Commercial Kitchen Parts in Smyrna, TN | DDAN"
+  description="Same-day exhaust fan motors, belts, and grease containment parts for Smyrna restaurants. Discounted install with purchase. Sam Ridley Parkway service. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-2.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Smyrna, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Commercial Kitchen Exhaust Parts in <span class="text-[#FF5E15]">Smyrna, TN</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Sam Ridley Parkway's kitchens burn through parts faster than anywhere in Rutherford County. We stock what you need and deliver same-day.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Parts Quote
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROP BANNER -->
+  <section class="bg-[#111111] border-y border-[#333] py-6 px-5">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      {[
+        { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Same-Day Parts' },
+        { icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Discounted Install' },
+        { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', label: 'Parts Warranty' },
+        { icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z', label: 'Free Consult' },
+      ].map((item) => (
+        <div class="flex flex-col items-center gap-2">
+          <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d={item.icon}/></svg>
+          <span class="text-white font-heading text-sm font-semibold">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Smyrna Restaurants Burn Through Parts Faster
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Smyrna's Sam Ridley Parkway is the commercial artery of Rutherford County, driven by the Nissan Smyrna Vehicle Assembly Plant — the largest auto manufacturing facility in North America. Thousands of workers across multiple shifts flood the corridor's restaurants during concentrated shift-change windows, and every fryer, grill, and flat-top runs at maximum output simultaneously. This kind of sustained peak-load cooking puts extraordinary stress on exhaust system components that were designed for average-volume restaurants, not industrial-workforce feeding operations.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            StoneCrest Medical Center adds institutional kitchen demand to the mix, with cafeteria exhaust systems running continuously around the clock. The combination of industrial workforce dining and institutional food service creates a uniquely punishing environment for fan motors, belts, and bearings. During July and August, ambient rooftop temperatures on Smyrna's flat commercial roofs compound the problem — TPO and EPDM membranes absorb and radiate heat, pushing already-stressed components past their rated thermal limits.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Heavy grease output from relentless fryer usage overwhelms factory-grade rooftop containment systems within weeks. Smyrna's restaurants need high-capacity containment parts, not the standard units that came with the building. When factory grease catchers overflow, grease damages the roof membrane and creates code violations that the Smyrna Fire Department enforces aggressively.
+          </p>
+          <p class="text-[#FF5E15] font-heading font-semibold text-base reveal-child">
+            DDAN stocks and delivers same-day exhaust fan parts across all of Smyrna — motors, belts, bearings, grease containment, and filters. Buy parts through us and get discounted installation.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Commercial kitchen exhaust parts in Smyrna TN - DDAN Hood Cleaning and Repair"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHAUST FANS — MAIN PARTS SECTION -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Parts We Stock & Install
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        When your exhaust fan goes down on Sam Ridley Parkway during the Nissan lunch rush, you need parts immediately — not in 3–5 business days. We maintain local inventory of the components Smyrna restaurants burn through most frequently.
+      </p>
+      <h3 class="font-heading text-white text-xl font-semibold mb-4 reveal-child">Fan Types We Service</h3>
+      <div class="grid sm:grid-cols-3 gap-4 mb-8">
+        {[
+          { title: 'Upblast Fans', desc: 'The dominant exhaust fan type along Sam Ridley Parkway — rooftop-mounted units that pull grease-laden air vertically through the duct system and exhaust it above the roofline.' },
+          { title: 'Downblast Fans', desc: 'Used in multi-story buildings and facilities with rooftop clearance restrictions near the Nissan plant. Exhaust is directed downward rather than vertically.' },
+          { title: 'Inline Fans', desc: 'Mounted within the ductwork for kitchens where rooftop mounting is impractical. Common in Smyrna strip-mall configurations with shared roof structures.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h4 class="font-heading font-semibold text-white text-lg mb-2">{card.title}</h4>
+            <p class="text-[#D4D4D4] text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-white text-xl font-semibold mb-4 reveal-child">Parts We Carry</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {[
+          { title: 'Fan Motors', desc: 'Heat-rated single-phase and 3-phase motors designed for continuous high-load operation — not the budget units that burn out in Smyrna summers' },
+          { title: 'Fan Belts', desc: 'Heavy-duty notched V-belts and cogged belts that handle sustained peak-load stress without slipping or snapping' },
+          { title: 'Bearings & Pillow Blocks', desc: 'Sealed bearing assemblies that resist grease infiltration and thermal degradation on hot Smyrna rooftops' },
+          { title: 'Fan Wheels & Impellers', desc: 'Balanced replacement impellers for upblast, downblast, and inline fans — matched to your motor specs and CFM requirements' },
+          { title: 'Hinge Kits', desc: 'NFPA 96 compliant heavy-duty hinge kits for safe rooftop fan access — required for cleaning and maintenance' },
+          { title: 'Wiring & Controls', desc: 'Speed controllers, contactors, relays, and wiring harnesses for fan motor electrical systems' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER PARTS — MUA, FILTERS, GREASE CONTAINMENT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Beyond Fans — Full System Parts
+      </h2>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child"><strong>Make-Up Air Units:</strong> Damper motors, heating elements, filters, and control boards — critical for balanced airflow in Smyrna's high-volume kitchens</li>
+        <li class="check-item reveal-child"><strong>Hood Filters:</strong> Stainless steel baffle filters, mesh grease filters, and charcoal odor filters — standard and custom sizes for every hood configuration</li>
+        <li class="check-item reveal-child"><strong><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease Containment:</a></strong> High-capacity rooftop grease boxes, drain pans, and hydrophobic filter pads sized for Smyrna's heavy fryer output</li>
+        <li class="check-item reveal-child"><strong><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Access Panels:</a></strong> Fire-rated duct access doors for NFPA 96 compliant cleaning and inspection access</li>
+        <li class="check-item reveal-child"><strong><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire Suppression:</a></strong> Ansul system nozzles, fusible links, wet chemical agents, and replacement cartridges</li>
+        <li class="check-item reveal-child"><strong>Ductwork Components:</strong> Grease duct sections, transitions, dampers, and cleanout covers</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INSTALLATION UPSELL -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-bold mb-4">
+          Need More Than Parts? We Do Full Repairs Too.
+        </h2>
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          If your exhaust system needs diagnostics, rewiring, ductwork modifications, or emergency fan replacement — our Smyrna repair team handles it all. 24/7 emergency dispatch with 45-minute response on Sam Ridley Parkway.
+        </p>
+        <a href="/repair/smyrna-tn/" class="inline-flex items-center gap-2.5 px-10 py-4 bg-[#FF5E15] text-white font-heading text-lg font-bold rounded hover:bg-[#E54F0D] hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Smyrna Repair Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON EQUIPMENT ISSUES -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Parts Failures in Smyrna
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.962-.833-2.732 0L4.072 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Nissan Lunch-Rush Motor Burnouts</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            The concentrated peak-load stress from thousands of Nissan plant workers flooding Sam Ridley's restaurants during shift changes pushes exhaust fan motors past their thermal limits. Motors that might last years under normal cycling burn out in months under this sustained abuse. DDAN stocks heat-rated 3-phase replacement motors designed specifically for continuous high-load operation — the same motors we install across Smyrna's busiest corridors.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Grease Containment Overflow</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Heavy grease from relentless fryer usage overwhelms factory grease catchers within weeks. TPO and EPDM single-ply roofing along Sam Ridley is especially vulnerable to grease penetration — once the membrane is compromised, water infiltration follows. DDAN stocks commercial-grade <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment parts</a> — high-capacity boxes, replacement pads, and drain systems — sized for actual Smyrna restaurant output, not manufacturer estimates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Who We Supply Parts To
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-xl font-semibold mb-4">Restaurant Owners & Managers</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
+            Your exhaust fan motor burned out during the lunch rush and you need to reopen before the dinner shift. We stock the most common motors, belts, bearings, and filters locally for same-day delivery to Smyrna. Buy through us and installation is discounted — or bring your own part and we will install it.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-xl font-semibold mb-4">Other Hood Companies & Contractors</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
+            If you clean hoods but do not carry parts or do installation work, we are your Smyrna supply and install partner. OEM-spec components, same-day availability, and professional installation for the jobs your crew cannot handle. Wholesale pricing for volume accounts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA + CROSS-LINKS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Smyrna Service Area
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Also in Smyrna: <a href="/cleaning/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot; <a href="/repair/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Also serving nearby <a href="/parts/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Murfreesboro</a> and <a href="/parts/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">La Vergne</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Smyrna Parts & Installation FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#1A1A1A] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA URGENCY -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center mb-8">
+      <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed reveal-child">
+        Emergency parts calls spike during <span class="text-[#FF5E15] font-semibold">July and August heat</span> when overworked Smyrna fan motors finally burn out. Stock up before peak season.
+      </p>
+      <div class="mt-6">
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Get a Free Parts Quote
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>

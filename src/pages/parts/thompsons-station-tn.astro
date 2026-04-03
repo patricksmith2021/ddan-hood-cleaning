@@ -1,0 +1,340 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'My Thompson\'s Station landlord requires proof of proper grease containment. Can you supply and install it?',
+    a: `Absolutely. Property managers in developments like Tollgate Village are exceptionally strict about roof damage. We supply and install high-capacity, multi-layer rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white">grease containment systems</a> designed specifically to protect white TPO membranes. Every installation includes detailed photo reports proving your roof is protected.`,
+  },
+  {
+    q: 'Why are factory-installed fan parts failing in my Thompson\'s Station restaurant?',
+    a: 'General contractors building new restaurant spaces in Thompson\'s Station select the cheapest OEM components that meet minimum building code — not parts rated for real commercial kitchen use. Factory-installed smooth V-belts stretch and crack within 18 months under sustained cooking loads. Motors are sized to minimum CFM code, not the actual demands of a busy kitchen running 12 to 16 hours daily. We replace these with commercial-grade parts rated for real-world performance.',
+  },
+  {
+    q: 'What does Williamson County Fire/Rescue look for regarding exhaust parts?',
+    a: `WCFR inspectors expect flawless <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white">NFPA 96 compliance</a>. This means your exhaust system must have functional hinge kits on all upblast fans, fire-rated access panels installed at every duct direction change, clean fire suppression links, and all components in proper working order. We supply and install every part needed to pass.`,
+  },
+  {
+    q: 'Is there a warranty when I buy parts and installation together?',
+    a: `Yes. New motors carry the manufacturer's warranty (typically 1-3 years depending on brand), and our installation labor is backed by our workmanship guarantee. We document every installation with photos and a detailed service report for your records. Buying parts and installation together from DDAN means one point of accountability — if anything goes wrong, you call us and we handle it. Call ${business.phone} for details.`,
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Thompson's Station",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Exhaust Fan Parts & Installation",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Thompson's Station",
+        "addressRegion": "TN"
+      },
+      "description": "Commercial kitchen exhaust fan parts, OEM upgrades, and professional installation for Thompson's Station restaurants. Belts, motors, grease containment for Williamson County kitchens."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
+        { "@type": "ListItem", "position": 3, "name": "Thompson's Station, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/thompsons-station-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Thompson's Station Kitchen Fan Parts | DDAN"
+  description="Commercial kitchen exhaust fan parts and installation for Thompson's Station restaurants. OEM upgrades, belts, motors, grease containment. Williamson County 24/7 service. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-2.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Thompson's Station, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Thompson's Station Kitchen Fan Parts <span class="text-[#FF5E15]">& Installation</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        OEM replacement parts, commercial-grade upgrades, and professional installation for Williamson County's premium kitchens
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROP BANNER -->
+  <section class="bg-[#111111] border-b border-[#333] py-6 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      {[
+        { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', label: '24/7 Parts & Service' },
+        { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', label: 'NFPA 96 Compliant' },
+        { icon: 'M5 13l4 4L19 7', label: 'Licensed & Insured' },
+        { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', label: 'OEM & Commercial Parts' },
+      ].map((item) => (
+        <div class="flex flex-col items-center gap-2 reveal-child">
+          <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d={item.icon}/></svg>
+          <span class="text-white font-heading text-xs md:text-sm font-semibold">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Commercial Kitchen Exhaust Parts for Thompson's Station
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Thompson's Station is experiencing explosive commercial growth, with master-planned developments like Tollgate Village and high-end outparcels along Columbia Pike attracting premium dining concepts, artisan cafes, and upscale casual restaurants. Nearly every new commercial build sits beneath an expensive white TPO roof membrane — and Williamson County property managers enforce zero-tolerance policies for grease stains, roof damage, and any visible sign of exhaust system neglect. A single containment failure can trigger a lease violation that costs far more than the parts themselves.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN Hood Cleaning and Repair supplies and installs the commercial-grade <a href="/restaurant-exhaust-fan-parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan parts</a> that Thompson's Station kitchens actually need — not the budget OEM components that builders install to save on construction costs. From heavy-duty fan belts and motors to complete grease containment systems, we deliver the right parts and handle the professional installation so your kitchen stays running, your roof stays clean, and your fire inspection passes without a question.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHAUST FAN PARTS -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Parts We Supply & Install
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Factory-installed components are the most common failure point in Thompson's Station's new restaurant buildings. We stock and install commercial-grade replacements:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Fan Motors', desc: 'Commercial-grade 1-phase and 3-phase motors sized for real cooking volume. Direct replacements for undersized builder-installed units.' },
+          { title: 'Fan Belts', desc: 'Heavy-duty notched V-belts that resist heat, grease, and stretching. Replace cheap factory belts that snap under commercial load.' },
+          { title: 'Bearings & Pillow Blocks', desc: 'Sealed commercial bearings rated for high-heat environments. OEM bearings run hot under real loads and seize prematurely.' },
+          { title: 'Impellers & Fan Wheels', desc: 'Balanced replacement impellers and fan wheels. Grease buildup throws factory impellers off-balance, destroying motors.' },
+          { title: 'Grease Containment Systems', desc: 'Multi-tier rooftop grease catchers for Thompson\'s Station\'s pristine TPO roofs. Protect your lease and your roof investment.' },
+          { title: 'Hinge Kits', desc: 'NFPA 96-required hinge kits for rooftop upblast fans. Allow safe cleaning access without lifting the entire fan unit.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER PARTS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Additional Parts & Components
+      </h2>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child"><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire-rated duct access panels</a> — required by NFPA 96 at every change of duct direction</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression</a> links, nozzles, and fusible alloy replacements</li>
+        <li class="check-item reveal-child">Stainless steel baffle grease filters for hood canopies</li>
+        <li class="check-item reveal-child">Duct connectors, transitions, and replacement sections</li>
+        <li class="check-item reveal-child">Speed controllers and VFDs for exhaust fan systems</li>
+        <li class="check-item reveal-child">Rooftop grease pads and curb adapters</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INSTALLATION UPSELL -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-[#111111] border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts + Installation in One Visit</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-4">Save time. Save money. One point of accountability.</p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-3xl">
+          Every part we supply gets installed by our certified technicians on the same trip. No waiting for a second contractor. No coordination headaches. We show up with the right parts, install them to NFPA 96 standards, and document everything with photos for Williamson County Fire/Rescue and your property manager. One call handles the entire job — parts, labor, warranty, and compliance documentation.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON EQUIPMENT ISSUES -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Issues in Thompson's Station
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Because almost all commercial infrastructure in Thompson's Station is newly built, property managers in Tollgate Village and along Columbia Pike are ruthless regarding grease stains on expensive white TPO roofs. New restaurant owners often discover that cheaper OEM fan belts installed by builders fail rapidly under heavy commercial use. The factory-installed smooth V-belts stretch and crack within 18 months, and the undersized motors overheat when pushed to actual cooking-volume demands for extended daily runtimes.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Thompson's Station's premium dining establishments rely on strict preventative maintenance to avoid any risk of downtime. When a fan component fails, the cascade is immediate — kitchen fills with smoke, fire suppression risks triggering, and the landlord's pristine roof is exposed to uncontained grease. We stock the <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">commercial-grade belts and motors</a> that prevent these failures before they happen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Who We Supply Parts For in Thompson's Station
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
+        {[
+          'Upscale casual dining restaurants',
+          'Artisan cafes and specialty food concepts',
+          'High-end pizza restaurants',
+          'Fast-casual and QSR franchises',
+          'Corporate food concepts in mixed-use developments',
+          'Tollgate Village and Columbia Pike restaurants',
+        ].map((item) => (
+          <div class="check-item reveal-child">{item}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Thompson's Station Parts & Installation Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 commercial kitchen exhaust parts and installation across all of Thompson's Station and southern Williamson County. Whether your restaurant is in Tollgate Village, along Columbia Pike, or in a new development off I-65, we deliver and install the parts your kitchen needs — day or night.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Thompson's Station:</span>
+            <a href="/cleaning/thompsons-station-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/thompsons-station-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/parts/spring-hill-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Spring Hill</a> and
+            <a href="/parts/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Franklin</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Thompson's Station Parts & Installation FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-black rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>

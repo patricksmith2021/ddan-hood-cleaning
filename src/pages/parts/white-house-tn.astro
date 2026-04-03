@@ -1,0 +1,347 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'What exhaust fan parts fail fastest at White House I-65 restaurants?',
+    a: 'Fan belts and motor bearings fail most frequently. The sheer volume of interstate travelers means White House fryers run non-stop, and the constant high heat rapidly stretches and snaps standard OEM fan belts. Motor bearings accumulate thermal fatigue without rest cycles and seize during summer when rooftop temperatures compound the heat load. We install commercial-grade components specifically rated for continuous-duty operation.',
+  },
+  {
+    q: 'Can you protect my White House restaurant\'s TPO roof during installation?',
+    a: 'Yes. Corporate landlords off Exit 108 have zero tolerance for grease staining on white TPO roofs. During every parts installation, we protect the membrane from grease contact and install or upgrade multi-tier rooftop containment systems that prevent future runoff. This protects both your compliance and your lease agreement.',
+  },
+  {
+    q: 'How quickly can DDAN install parts at a White House restaurant?',
+    a: `We carry common motors, belts, bearings, hinge kits, and grease containment components on every truck. Most White House emergency parts installations are completed same-day. Call ${business.phone} any time — 24/7 dispatch for I-65 corridor emergencies.`,
+  },
+  {
+    q: 'Do you stock parts for 24/7 fast-food operations?',
+    a: 'Yes. Standard OEM parts are designed for restaurants that close overnight. White House\'s 24/7 fast-food operations need commercial-grade components rated for continuous duty — notched V-belts that resist non-stop stretching, sealed bearings that survive without rest cycles, and motors with thermal overload protection for perpetual operation. We stock these specifically for I-65 corridor clients.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "White House",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Exhaust Parts & Installation",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "White House",
+        "addressRegion": "TN"
+      },
+      "description": "Exhaust fan parts and installation for White House's I-65 corridor franchises. Continuous-duty motors, belts, and grease containment for 24/7 fast-food operations."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
+        { "@type": "ListItem", "position": 3, "name": "White House, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/white-house-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Exhaust Fan Parts White House, TN | DDAN"
+  description="Exhaust fan parts for White House I-65 corridor restaurants. Continuous-duty motors, belts, bearings, grease containment. Same-day installation. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-4.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">White House, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        White House I-65 Restaurant <span class="text-[#FF5E15]">Exhaust Fan Parts</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Exit 108 franchises run 24/7 — continuous-duty parts sourced and installed before the next shift starts
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROP BANNER -->
+  <section class="bg-[#111111] py-8 px-5 border-b border-[#333] reveal">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      {[
+        { icon: '⚡', label: 'Same-Day Parts' },
+        { icon: '🔧', label: 'Expert Installation' },
+        { icon: '📋', label: 'NFPA 96 Compliant' },
+        { icon: '🕐', label: '24/7 Emergency' },
+      ].map((item) => (
+        <div class="flex flex-col items-center gap-2 reveal-child">
+          <span class="text-2xl">{item.icon}</span>
+          <span class="text-[#D4D4D4] font-heading text-sm font-semibold">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why White House's I-65 Franchises Need Commercial-Grade Parts
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          White House sits at the I-65 Exit 108 interchange with a massive concentration of standalone highway franchises and strip centers. Continuous interstate traffic feeds a relentless demand for fast food, quick service, and family dining — and the exhaust systems behind those kitchens bear the full weight of that demand. Fryers running non-stop produce immense volumes of vaporized grease, fans operate at peak RPM for hours without pause, and standard OEM components simply aren't rated for this kind of punishment.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Generic parts catalogs sell you the same factory belts and bearings that failed in three months. DDAN sources commercial-grade components specifically rated for the continuous-duty demands of White House's I-65 corridor — notched V-belts that resist non-stop stretching, sealed high-heat bearings that survive perpetual operation, and motors with thermal protection designed for fans that never stop. Every part is delivered, installed, and documented to satisfy the White House Fire Department's strict NFPA 96 enforcement.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Corporate landlords in the newer developments off Exit 108 add another dimension — white TPO roofs with zero tolerance for grease staining. When containment components fail, grease escapes onto the membrane and the landlord sends a bill. DDAN installs multi-tier grease containment systems alongside every fan parts installation, protecting both your equipment compliance and your lease.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHAUST FANS (MAIN SECTION) -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Parts — Rated for White House's Relentless Volume
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        I-65 Exit 108 restaurants push their exhaust systems harder than almost anywhere in Middle Tennessee. Every part we install is rated for the actual duty cycle:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Continuous-Duty Motors', desc: 'Non-stop fryer operation burns through standard motors. We install units with thermal overload protection specifically rated for the perpetual duty cycles of I-65 corridor fast-food operations.' },
+          { title: 'Commercial V-Belts', desc: 'OEM belts stretch and snap within months under continuous load. Notched V-belts resist the stretching caused by 24/7 operation and maintain proper tension longer.' },
+          { title: 'Sealed High-Heat Bearings', desc: 'Summer rooftop temperatures compound the heat from continuous operation. Sealed bearings rated for commercial kitchen environments resist seizure under extreme thermal loads.' },
+          { title: 'Grease Containment Systems', desc: 'Multi-tier rooftop catchers that protect Exit 108\'s white TPO roofs. Prevents the corporate landlord fines that hit White House operators when containment fails.' },
+          { title: 'Hinge Kits', desc: 'NFPA 96 requires service access via hinge kits on upblast fans. Quick-build franchise installations often skip them — we retrofit to ensure safe, code-compliant service access.' },
+          { title: 'Fan Wheels & Impellers', desc: 'Non-stop frying coats impellers with thick grease, destroying balance and accelerating bearing wear. We clean or replace with properly balanced assemblies.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER PARTS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Beyond Fans — Complete Exhaust System Parts
+      </h2>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Rooftop grease containment</a> — multi-tier systems to protect TPO roofs from landlord fines</li>
+        <li class="check-item reveal-child">Fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">duct access panels</a> for inspection and cleaning access</li>
+        <li class="check-item reveal-child">Baffle filters, mesh filters, and spark arrestor screens</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression</a> links, nozzles, and fusible elements</li>
+        <li class="check-item reveal-child">Duct clamps, transitions, and cleanout ports</li>
+        <li class="check-item reveal-child">Speed controllers and VFD units</li>
+        <li class="check-item reveal-child">Hood light fixtures and make-up air dampers</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INSTALLATION UPSELL -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-[#111111] border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts Without Installation Is Just a Box on Your Roof</h2>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 max-w-3xl">
+          Incorrect installation voids warranties, fails White House Fire Department inspections, and causes premature failure. Every DDAN parts order includes professional installation with full NFPA 96 documentation. Need diagnostics or full system repair instead?
+        </p>
+        <a href="/repair/white-house-tn/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold hover:text-white transition-all duration-300">
+          White House Exhaust Repair Services
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON EQUIPMENT ISSUES -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Issues in White House Kitchens
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The sheer volume of interstate travelers means White House fryers are running non-stop. This constant high heat rapidly stretches and snaps standard OEM fan belts and overwhelms cheap factory grease catchers. During summer months, rooftop temperatures add to the thermal load on motors and bearings that are already running without rest cycles. The result is predictable — belts snap during the busiest shift, motors overheat and seize, and grease overflows containment systems onto the roof below.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Corporate landlords off Exit 108 issue massive fines for TPO roof grease stains — fines that can run several thousand dollars per incident. When fan bearings fail, the housing vibrates loose, and grease escapes containment. DDAN installs upgraded <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> alongside every parts installation to prevent this scenario. The White House Utility District also enforces rigorous F.O.G. standards — poor rooftop containment triggers penalties from both the landlord and the utility.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Who Needs Exhaust Parts in White House?
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { title: 'I-65 Fast-Food Franchises', desc: 'Non-stop operations off Exit 108 that destroy OEM components at an accelerated rate. Continuous-duty commercial parts are the only solution.' },
+          { title: 'Family Dining Restaurants', desc: 'High-volume dinner service generates heavy grease loads. Upgraded containment and commercial-grade fan components prevent failures during peak hours.' },
+          { title: 'Pizza & Chain Operations', desc: 'Continuous fryer and oven operation in White House strip centers demands parts that survive without rest cycles.' },
+          { title: 'Highway 31W Local Diners', desc: 'Established restaurants with aging equipment that needs proactive parts replacement before components fail during the busiest hours.' },
+          { title: 'New Franchise Builds', desc: 'Builder-installed components are cheapest available. Upgrade before the first OEM belt snaps and fills the kitchen with smoke.' },
+          { title: 'Multi-Location Operators', desc: 'Standardized commercial-grade parts across multiple White House locations eliminates the unpredictability of staggered OEM failures.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        White House Parts & Installation Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN delivers and installs commercial kitchen exhaust parts across all of White House — the I-65 Exit 108 franchise cluster, Highway 31W corridor, and surrounding strip centers. We carry common parts on every truck for same-day emergency installation.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/parts/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Springfield</a>,
+            <a href="/parts/portland-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Portland</a>, and
+            <a href="/parts/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">All DDAN services in White House:</span>
+            <a href="/repair/white-house-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        White House Exhaust Parts FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-black rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>

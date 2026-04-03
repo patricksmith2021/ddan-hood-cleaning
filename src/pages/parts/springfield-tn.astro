@@ -1,0 +1,348 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'What exhaust fan parts do Springfield restaurants need most often?',
+    a: 'Springfield\'s historic square restaurants and Highway 431 fast-food corridor create two distinct demand patterns. Historic buildings need custom curb adapters, fire-rated access panels, and non-standard mounting hardware. Highway corridor franchises burn through fan belts, motor bearings, and grease containment pads at an accelerated rate due to continuous high-volume frying.',
+  },
+  {
+    q: 'How quickly can DDAN deliver and install exhaust parts in Springfield?',
+    a: `We carry common fan motors, belts, bearings, hinge kits, and grease containment components on every truck. Most Springfield parts-and-install jobs are completed same-day. For specialty parts like custom curb adapters for historic buildings, we source and install within 48 hours. Call ${business.phone} any time — 24/7 emergency dispatch.`,
+  },
+  {
+    q: 'Do you install parts on exhaust systems you didn\'t originally build?',
+    a: 'Yes. We install replacement parts on any commercial kitchen exhaust system regardless of who built or previously serviced it. Springfield\'s older buildings often have systems cobbled together by multiple contractors over decades — we diagnose the current state, source the correct parts, and bring the entire system into NFPA 96 compliance.',
+  },
+  {
+    q: 'Can you retrofit parts into historic buildings?',
+    a: 'Absolutely. Springfield\'s historic square contains 19th-century buildings with non-standard ductwork routing and curb dimensions. We fabricate custom adapters, install fire-rated access panels in century-old wall cavities, and retrofit modern hinge kits onto non-standard curbs — all without altering the historic structure. This is one of our specialties in Robertson County.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Springfield",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Exhaust Parts & Installation",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Springfield",
+        "addressRegion": "TN"
+      },
+      "description": "Restaurant exhaust fan parts and installation for Springfield's historic square and Highway 431 corridor. Custom curb adapters for 19th-century buildings. 24/7 emergency service."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
+        { "@type": "ListItem", "position": 3, "name": "Springfield, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/springfield-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Restaurant Exhaust Parts Near Springfield | DDAN"
+  description="Exhaust fan parts and installation for Springfield's historic square and Hwy 431 corridor. Custom curb adapters, motors, belts, hinge kits. 24/7 service. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-1.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Springfield, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Restaurant Exhaust Fan Parts Near <span class="text-[#FF5E15]">Springfield, TN</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Custom curb adapters for historic buildings, heavy-duty belts for Hwy 431 franchises — parts sourced and installed same-day
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROP BANNER -->
+  <section class="bg-[#111111] py-8 px-5 border-b border-[#333] reveal">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      {[
+        { icon: '⚡', label: 'Same-Day Parts' },
+        { icon: '🔧', label: 'Expert Installation' },
+        { icon: '📋', label: 'NFPA 96 Compliant' },
+        { icon: '🕐', label: '24/7 Emergency' },
+      ].map((item) => (
+        <div class="flex flex-col items-center gap-2 reveal-child">
+          <span class="text-2xl">{item.icon}</span>
+          <span class="text-[#D4D4D4] font-heading text-sm font-semibold">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Springfield Kitchens Need a Dedicated Parts Source
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Springfield's commercial kitchen landscape splits into two worlds: the historic square with 19th-century buildings housing modern restaurants, and the Highway 431 fast-food corridor feeding Robertson County's growing workforce. Both environments destroy exhaust components — but for entirely different reasons. Historic buildings have non-standard curb dimensions, concealed ductwork requiring specialty access panels, and improvised mounting configurations that prevent off-the-shelf replacement parts from fitting. Highway corridor franchises run fans at peak capacity during rush periods, shredding OEM belts and burning through motor windings at double the expected rate.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Generic parts suppliers ship you a box and wish you luck. DDAN sources the exact part, delivers it to your Springfield location, and installs it with full NFPA 96 documentation that satisfies the Springfield Fire Department. For historic square restaurants, we fabricate custom curb adapters and install fire-rated access panels that bring century-old infrastructure into modern compliance. For highway corridor franchises, we stock commercial-grade notched V-belts, high-heat bearings, and continuous-duty motors that actually survive the volume.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          NorthCrest Medical Center and expanding manufacturing hubs add institutional demand with heavy-duty exhaust systems running higher CFM than typical restaurants. When institutional kitchen parts fail, the supply chain complexity multiplies — 3-phase motors, oversized impellers, specialty mounting hardware. DDAN handles it all, from sourcing to installation to compliance documentation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHAUST FANS (MAIN SECTION) -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Parts — Springfield's Most-Replaced Components
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Exhaust fans take the hardest beating in any commercial kitchen. Springfield's mix of historic infrastructure and high-volume highway dining accelerates wear on every component:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Fan Motors', desc: 'Continuous-duty motors rated for 24/7 operation. Springfield\'s Hwy 431 franchises burn through standard motors in months — we install commercial-grade replacements that handle the actual duty cycle.' },
+          { title: 'Fan Belts', desc: 'Commercial-grade notched V-belts that resist the stretching and snapping caused by non-stop fast-food volume. Proper tensioning included with every installation.' },
+          { title: 'Bearings & Pillow Blocks', desc: 'Sealed high-heat bearings rated for commercial kitchen environments. We replace worn bearings before they seize and destroy the entire fan assembly.' },
+          { title: 'Hinge Kits', desc: 'NFPA 96 requires hinge kits on upblast fans for safe service access. Many Springfield rooftop fans lack them — we retrofit kits to standard and non-standard curbs.' },
+          { title: 'Impellers & Fan Wheels', desc: 'Grease-coated impellers throw fans out of balance, destroying bearings and housings. We clean or replace impellers and rebalance the entire assembly.' },
+          { title: 'Custom Curb Adapters', desc: 'Historic square buildings have non-standard curb dimensions from a century of renovations. Custom adapters bridge old infrastructure to modern fan equipment.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER PARTS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Beyond Fans — Complete Exhaust System Parts
+      </h2>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease containment systems</a> — rooftop pads, boxes, and multi-tier catchers</li>
+        <li class="check-item reveal-child">Fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">duct access panels</a> — critical for Springfield's concealed historic ductwork</li>
+        <li class="check-item reveal-child">Baffle filters, mesh filters, and spark arrestor screens</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression</a> links, nozzles, and fusible elements</li>
+        <li class="check-item reveal-child">Duct clamps, transitions, and cleanout ports</li>
+        <li class="check-item reveal-child">Speed controllers and VFD units</li>
+        <li class="check-item reveal-child">Hood light fixtures and make-up air dampers</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INSTALLATION UPSELL -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-[#111111] border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts Without Installation Is Just a Box on Your Roof</h2>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 max-w-3xl">
+          Incorrect installation voids warranties, fails inspections, and causes premature failure. Every DDAN parts order includes professional installation with full NFPA 96 documentation. Need repair instead? Our Springfield repair crews handle everything from emergency motor swaps to full system overhauls.
+        </p>
+        <a href="/repair/springfield-tn/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold hover:text-white transition-all duration-300">
+          Springfield Exhaust Repair Services
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON EQUIPMENT ISSUES -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Issues in Springfield Kitchens
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Retrofitting modern NFPA 96 compliance into 19th-century buildings is Springfield's defining parts challenge. Concealed ductwork hidden behind century-old walls can't be accessed for cleaning without access panels — and most historic square restaurants don't have them. Non-standard curbs from a century of renovations mean replacement fans don't fit without custom adapters. Improvised wiring from decades of tenant changes creates safety hazards during any parts installation. DDAN fabricates custom solutions that bring these historic systems into modern compliance without altering the building's structure.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          On the Highway 431 corridor, the problems are simpler but more frequent: belts shred from non-stop operation, motors accumulate thermal fatigue from continuous peak-load duty, and cheap factory grease catchers overflow within weeks. The Springfield Fire Department enforces NFPA 96 with particular scrutiny on both the historic square and the growing franchise corridor, so every part must be installed correctly and documented thoroughly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Who Needs Exhaust Parts in Springfield?
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { title: 'Historic Square Restaurants', desc: 'Century-old buildings with non-standard ductwork, curbs, and mounting configurations that require custom parts and careful installation.' },
+          { title: 'Hwy 431 Fast-Food Franchises', desc: 'High-volume operations that destroy OEM components faster than supply chains can replace them. Heavy-duty commercial-grade parts are essential.' },
+          { title: 'NorthCrest Medical Center Area', desc: 'Institutional kitchens running higher CFM systems with 3-phase motors, oversized impellers, and specialty grease containment requirements.' },
+          { title: 'Southern Diners & BBQ Joints', desc: 'Heavy frying and smoking produce aggressive grease loads that overwhelm standard filtration and containment — upgraded parts are mandatory.' },
+          { title: 'New Franchise Builds', desc: 'Builder-installed exhaust components are often the cheapest available. We upgrade to commercial-grade parts before the first inspection failure.' },
+          { title: 'Multi-Location Operators', desc: 'Standardized parts inventory across multiple Springfield locations reduces downtime and simplifies maintenance scheduling.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Springfield Parts & Installation Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN delivers and installs commercial kitchen exhaust parts across all of Springfield and Robertson County — the historic square, NorthCrest Medical Center corridor, Highway 431 franchise strip, and surrounding industrial parks. We carry common parts on every truck for same-day emergency installation and source specialty components within 48 hours.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/parts/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>,
+            <a href="/parts/white-house-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">White House</a>, and
+            <a href="/parts/portland-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Portland</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">All DDAN services in Springfield:</span>
+            <a href="/cleaning/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Springfield Exhaust Parts FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-black rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>

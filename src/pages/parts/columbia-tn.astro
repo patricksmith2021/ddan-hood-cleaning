@@ -1,0 +1,437 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Can you clean the exhaust systems in historic Columbia buildings?',
+    a: 'Yes. Historic buildings on the Columbia square often have complex, concealed ductwork. Our technicians are experts at installing fire-rated access panels that allow us to clean hard-to-reach areas down to bare metal, ensuring you pass Columbia Fire & Rescue inspections.',
+  },
+  {
+    q: 'Do you repair broken restaurant exhaust fans in Columbia?',
+    a: 'Absolutely. A broken exhaust fan means your kitchen fills with smoke and must shut down. We offer 24/7 emergency repair in Columbia, arriving with the heavy-duty commercial belts, bearings, and 3-phase motors needed to get you back up and running immediately.',
+  },
+  {
+    q: 'Why do I need a rooftop grease containment system?',
+    a: 'NFPA 96 code requires it, and the Columbia Wastewater Department strictly monitors Fats, Oils, and Grease (F.O.G.) to protect local infrastructure. We install multi-layer rooftop systems that capture grease before it damages your commercial roof or washes into the storm drains.',
+  },
+  {
+    q: 'Do you deliver parts to rural areas?',
+    a: `Yes. We deliver exhaust fan parts throughout Maury County and the surrounding rural areas. Whether your restaurant is on the Columbia square or out on a rural highway, we bring the parts to you and install them the same day. Call ${business.phone} for a free fitting consult.`,
+  },
+];
+
+const siteUrl = import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev';
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": siteUrl,
+      "image": `${siteUrl}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Columbia",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Exhaust Parts and Installation",
+      "provider": { "@id": `${siteUrl}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Columbia",
+        "addressRegion": "TN"
+      },
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Columbia's commercial kitchens. Muletown square to Carmack Blvd."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
+        { "@type": "ListItem", "position": 3, "name": "Columbia, TN", "item": `${siteUrl}/parts/columbia-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Columbia Commercial Kitchen Parts & Install | DDAN"
+  description="Same-day exhaust fan parts for Columbia's commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Muletown square to Carmack Blvd. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/exhaust-fan-parts.webp');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Columbia, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Columbia Muletown Kitchen Parts &amp; <span class="text-[#FF5E15]">Installation</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Columbia's historic square kitchens and Carmack Blvd diners need parts that match their heavy Southern output. We stock locally and install the same day.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Free Consult: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITION BANNER -->
+  <section class="bg-[#111111] py-10 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { icon: 'bolt', label: 'Same-Day Parts' },
+          { icon: 'tools', label: 'Discounted Installation' },
+          { icon: 'shield', label: 'Warranty on Parts & Labor' },
+          { icon: 'phone', label: 'Free Fitting Consult' },
+        ].map((item) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 text-center transition-all duration-300 reveal-child">
+            <div class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full mx-auto mb-3">
+              {item.icon === 'bolt' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>}
+              {item.icon === 'tools' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>}
+              {item.icon === 'shield' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
+              {item.icon === 'phone' && <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>}
+            </div>
+            <p class="text-white font-heading font-semibold text-sm">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Columbia's Commercial Kitchens Need Fast Parts Access
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Columbia's incredible historic revitalization has brought a surge of new restaurants to the Muletown square and the US-31 corridor. But operating a commercial kitchen inside a 150-year-old building on the square means your exhaust system faces challenges that newer construction never encounters. Winding, non-standard grease ductwork hidden behind drop ceilings, older upblast fans bolted directly to curbs without hinge kits, and aging motors running on borrowed time. When a part fails in one of these historic kitchens, you need a supplier who can identify the exact replacement and install it the same day.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Columbia's culinary identity leans heavily into Southern comfort food, craft breweries, BBQ, and classic diners. These cooking styles produce thick, sticky grease from solid-fuel smoking and heavy frying that migrates into fan housings, coats impeller blades, and creates the kind of progressive imbalance that destroys bearings in weeks. The Columbia Wastewater Department aggressively monitors F.O.G. levels, meaning your rooftop grease containment components need regular replacement to avoid municipal fines and roof damage.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Along Carmack Blvd, older diners that have been running for decades frequently operate upblast fans with failing bearings and snapped belts due to age and constant use. The humid Tennessee summers push overworked fan motors past their breaking point, causing emergency failures during the busiest shifts. Meanwhile, the growing industrial parks and Maury Regional Medical Center add institutional-scale exhaust systems with their own parts demands. Every commercial kitchen in Columbia needs a parts supplier who stocks locally and can get a technician on-site the same day.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Columbia Fire & Rescue strictly enforces NFPA 96 in the downtown historic overlay, where connected buildings make grease fires exceptionally dangerous. If your system is missing access panels, running without a hinge kit, or operating with worn-out components, you are at risk of citation or shutdown. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Maury County for same-day installation. When your part fails during the Friday dinner rush, you need a local partner, not a tracking number.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHAUST FANS — THE MAIN EVENT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Exhaust Fans for Columbia Kitchens
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
+        Columbia's Southern comfort kitchens and heavy BBQ operations demand exhaust fans that can handle relentless use and thick grease output. We stock, source, and install every type of commercial kitchen exhaust fan.
+      </p>
+
+      <!-- Upblast -->
+      <div class="mb-12 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">Direct drive — sealed motor, less maintenance, more energy efficient</li>
+          <li class="check-item reveal-child">Belt drive — quieter operation, cheaper upfront, adjustable speed via pulleys</li>
+          <li class="check-item reveal-child">High-speed direct drive (CaptiveAire DU series and equivalents)</li>
+          <li class="check-item reveal-child">Sizes from 400 CFM to 6,000+ CFM — matched to your kitchen's requirements</li>
+        </ul>
+      </div>
+
+      <!-- Downblast -->
+      <div class="mb-12 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">Discharges air downward along the rooftop for quieter operation</li>
+          <li class="check-item reveal-child">Direct and belt drive options for different performance needs</li>
+        </ul>
+      </div>
+
+      <!-- Inline -->
+      <div class="mb-12 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">Ideal for interior installations and multi-floor exhaust runs</li>
+          <li class="check-item reveal-child">Available in grease-rated and general ventilation configurations</li>
+        </ul>
+      </div>
+
+      <!-- Fan Replacement Parts -->
+      <div class="mb-8 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            'Motors (ODP, TEFC, single & 3-phase)',
+            'Fan wheels & blade assemblies',
+            'Belts & drive kits',
+            'Bearings & pillow blocks',
+            'Roof curbs & adapters',
+            'Hinge kits (NFPA 96 required)',
+            'Speed controllers & VFDs',
+            'Electrical disconnects & switches',
+          ].map((part) => (
+            <div class="flex items-start gap-2 bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 transition-all duration-300 reveal-child">
+              <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-[#D4D4D4] text-sm font-heading">{part}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <p class="text-[#999] text-sm reveal-child">Not sure what you need? <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call for a free fitting consult — {business.phone}</a></p>
+    </div>
+  </section>
+
+  <!-- OTHER PARTS: MUA, FILTERS, GREASE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Make-Up Air Units
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Your exhaust system can't function without proper make-up air. If your front doors slam shut or you feel negative pressure, you need a MUA unit.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        {[
+          { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter to maintain comfort and airflow balance.' },
+          { title: 'Unheated / Ambient', desc: 'Simpler installation for mild climates or seasonal operations. Brings in outside air without conditioning.' },
+          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
+        ].map((item) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Filters &amp; Baffles
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Wrong filter = fire hazard + failed inspection. We match exact specs for your hood system. Standard sizes in stock, custom sizes sourced within 24-48 hours.
+      </p>
+      <ul class="space-y-3 mb-12">
+        <li class="check-item reveal-child">Stainless steel baffle filters — Type 304 or 430, dishwasher safe</li>
+        <li class="check-item reveal-child">Mesh grease filters — aluminum or galvanized steel for lower-grease applications</li>
+        <li class="check-item reveal-child">Charcoal / carbon filters — odor control for ventless and recirculating systems</li>
+      </ul>
+
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Grease Containment
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        The Columbia Wastewater Department aggressively monitors F.O.G. levels. We supply and install complete containment systems to protect your roof and avoid fines.
+      </p>
+      <ul class="space-y-3">
+        <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
+        <li class="check-item reveal-child">Grease cups, drip pans, and overflow protection</li>
+        <li class="check-item reveal-child">Grease pillows and absorbent pads — replaceable media</li>
+        <li class="check-item reveal-child">Grease duct access doors — NFPA 96 required every 12 feet</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INSTALLATION UPSELL -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
+        <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-4">
+          Discounted Installation When You Buy From Us
+        </h2>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
+          Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
+          Need a full repair instead of just parts? Visit our <a href="/repair/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Columbia exhaust fan repair</a> page for diagnostic and repair services.
+        </p>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Schedule Installation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON EQUIPMENT ISSUES IN COLUMBIA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Issues in Columbia
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Revitalized historic buildings on the Columbia square often hide winding, non-standard grease ductwork behind drop ceilings. These older systems frequently lack the fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> required by NFPA 96, making them technically non-compliant during Columbia Fire & Rescue inspections. Installing custom access panels in these historic spaces requires expertise that most generic contractors lack.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Older diners along Carmack Blvd frequently run upblast fans with failing bearings and snapped belts due to age and constant use. The heavy BBQ and Southern comfort food culture produces thick, hardened grease that coats fan impellers and throws them off balance, accelerating <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motor and belt</a> failure. Many older rooftop installations also lack <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, turning simple maintenance into expensive, time-consuming projects that risk damaging the roof.
+        </p>
+      </div>
+
+      <!-- PROOF POINT -->
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "A popular new restaurant opening on the historic Columbia square failed their initial fire inspection because their concealed ductwork lacked access points. DDAN arrived the next day, strategically installed fire-rated duct access panels, performed a deep bare-metal clean, and secured the NFPA 96 compliance they needed to open on time."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[900px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
+          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Restaurant Owners</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            Need a part fast? Don't know what fits? We handle everything — identify the part, verify compatibility, deliver it, and install it. One call, one team, zero guesswork.
+          </p>
+        </div>
+        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
+          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Maury County.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Columbia Parts &amp; Installation Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN delivers exhaust fan parts and professional installation across all of Columbia and Maury County. Whether your restaurant is on the historic Muletown square, along the US-31 corridor, near Maury Regional Medical Center, or out on Carmack Blvd, we stock the parts Columbia kitchens need and install them the same day.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Columbia:</span>
+            <a href="/cleaning/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Spring Hill</a> and
+            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lewisburg</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Columbia Parts &amp; Installation FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>

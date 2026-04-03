@@ -1,0 +1,438 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Can you clean exhaust systems for Lebanon BBQ restaurants and smokers?',
+    a: 'Yes. Wood-fired smokers and heavy BBQ operations produce a tough carbon creosote that standard pressure washing cannot remove. Our crews use specialized heavy-duty scrapers and chemical treatments to strip your entire exhaust system down to bare metal, drastically reducing your fire risk.',
+  },
+  {
+    q: 'My Lebanon restaurant\'s exhaust fan is vibrating loudly. What is wrong?',
+    a: 'Severe vibration is usually caused by heavy grease buildup throwing the fan impeller off balance, or a failing motor bearing. Left unchecked, this will destroy the fan. DDAN will immediately diagnose the issue, scrape the fan blades clean, and replace any worn belts or bearings.',
+  },
+  {
+    q: 'Do you install hinge kits on commercial exhaust fans in Lebanon?',
+    a: 'Absolutely. NFPA 96 code requires that upblast exhaust fans be equipped with hinge kits so they can be safely tilted open for cleaning without damaging the roof or the fan wiring. We install heavy-duty hinge kits on rooftops across Lebanon.',
+  },
+  {
+    q: 'Do I need to know my exact fan model to order parts?',
+    a: `No. If you can read us the data plate on the fan housing, we can identify the exact motor, belt, and bearing specs. If the plate is unreadable — which is common on Lebanon's older BBQ hoods — send us a photo and we'll match it from the housing dimensions and wiring configuration. Call ${business.phone} for a free fitting consult.`,
+  },
+];
+
+const siteUrl = import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev';
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": siteUrl,
+      "image": `${siteUrl}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Lebanon",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Exhaust Parts and Installation",
+      "provider": { "@id": `${siteUrl}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Lebanon",
+        "addressRegion": "TN"
+      },
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Lebanon's BBQ and commercial kitchens. Historic square to I-40 corridor."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
+        { "@type": "ListItem", "position": 3, "name": "Lebanon, TN", "item": `${siteUrl}/parts/lebanon-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Commercial Kitchen Parts in Lebanon, TN | DDAN"
+  description="Same-day exhaust fan parts for Lebanon's BBQ and commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Historic square to I-40 corridor. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/exhaust-fan-parts.webp');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Lebanon, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Lebanon Kitchen Exhaust Parts — <span class="text-[#FF5E15]">BBQ &amp; Commercial</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Lebanon's famous BBQ and smoker operations create carbon buildup that destroys standard parts. We stock heavy-duty replacements and install same day.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Free Consult: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITION BANNER -->
+  <section class="bg-[#111111] py-10 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { icon: 'bolt', label: 'Same-Day Parts' },
+          { icon: 'tools', label: 'Discounted Installation' },
+          { icon: 'shield', label: 'Warranty on Parts & Labor' },
+          { icon: 'phone', label: 'Free Fitting Consult' },
+        ].map((item) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 text-center transition-all duration-300 reveal-child">
+            <div class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full mx-auto mb-3">
+              {item.icon === 'bolt' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>}
+              {item.icon === 'tools' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>}
+              {item.icon === 'shield' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
+              {item.icon === 'phone' && <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>}
+            </div>
+            <p class="text-white font-heading font-semibold text-sm">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Lebanon Kitchens Burn Through Parts Faster
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Lebanon is famous for its Southern comfort food and heavy BBQ, and those cooking styles create equipment challenges that standard commercial kitchens never face. Wood-fired smokers and heavy fryers produce a thick, hardened carbon creosote that coats fan impellers unevenly, throws them out of balance, and destroys bearings in weeks rather than months. This intense grease and carbon output quickly clogs standard exhaust filters and burns out motors that were never designed for this level of abuse.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The massive industrial parks and logistics hubs off I-40 — including the Cracker Barrel headquarters campus and Amazon distribution centers — house commissary and cafeteria kitchens that run exhaust systems continuously. These industrial-scale operations snap fan belts and seize bearings at rates that require a local parts supplier who can deliver the same day, not a national distributor shipping from a warehouse in another state.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Lebanon Fire Department strictly enforces NFPA 96 standards across both the historic downtown square and the high-traffic I-40 interchange dining spots. City of Lebanon Water and Wastewater closely monitors grease interceptors, driving the need for pristine rooftop grease containment to prevent stormwater pollution. Every restaurant in Wilson County needs reliable access to replacement parts and professional installation.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Major service demand spikes coincide with the Wilson County Fair — the largest in Tennessee — when local dining volume explodes and every exhaust system is pushed past its limits. DDAN is based in nearby Mt. Juliet and delivers parts across Lebanon for same-day installation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHAUST FANS — THE MAIN EVENT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Exhaust Fans for Lebanon Kitchens
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
+        Lebanon's heavy BBQ and industrial cafeteria operations demand exhaust fans built for extreme grease and carbon loads. We stock, source, and install every type of commercial kitchen exhaust fan.
+      </p>
+
+      <!-- Upblast -->
+      <div class="mb-12 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">Direct drive — sealed motor, less maintenance, more energy efficient</li>
+          <li class="check-item reveal-child">Belt drive — quieter operation, cheaper upfront, adjustable speed via pulleys</li>
+          <li class="check-item reveal-child">High-speed direct drive (CaptiveAire DU series and equivalents)</li>
+          <li class="check-item reveal-child">Sizes from 400 CFM to 6,000+ CFM — matched to your kitchen's requirements</li>
+        </ul>
+      </div>
+
+      <!-- Downblast -->
+      <div class="mb-12 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">Discharges air downward along the rooftop for quieter operation</li>
+          <li class="check-item reveal-child">Direct and belt drive options for different performance needs</li>
+        </ul>
+      </div>
+
+      <!-- Inline -->
+      <div class="mb-12 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">Ideal for interior installations and multi-floor exhaust runs</li>
+          <li class="check-item reveal-child">Available in grease-rated and general ventilation configurations</li>
+        </ul>
+      </div>
+
+      <!-- Fan Replacement Parts -->
+      <div class="mb-8 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            'Motors (ODP, TEFC, single & 3-phase)',
+            'Fan wheels & blade assemblies',
+            'Belts & drive kits',
+            'Bearings & pillow blocks',
+            'Roof curbs & adapters',
+            'Hinge kits (NFPA 96 required)',
+            'Speed controllers & VFDs',
+            'Electrical disconnects & switches',
+          ].map((part) => (
+            <div class="flex items-start gap-2 bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 transition-all duration-300 reveal-child">
+              <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-[#D4D4D4] text-sm font-heading">{part}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <p class="text-[#999] text-sm reveal-child">Not sure what you need? <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call for a free fitting consult — {business.phone}</a></p>
+    </div>
+  </section>
+
+  <!-- OTHER PARTS: MUA, FILTERS, GREASE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Make-Up Air Units
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Your exhaust system can't function without proper make-up air. If your front doors slam shut or you feel negative pressure, you need a MUA unit.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        {[
+          { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter to maintain comfort and airflow balance.' },
+          { title: 'Unheated / Ambient', desc: 'Simpler installation for mild climates or seasonal operations. Brings in outside air without conditioning.' },
+          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
+        ].map((item) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Filters &amp; Baffles
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Wrong filter = fire hazard + failed inspection. We match exact specs for your hood system. Standard sizes in stock, custom sizes sourced within 24-48 hours.
+      </p>
+      <ul class="space-y-3 mb-12">
+        <li class="check-item reveal-child">Stainless steel baffle filters — Type 304 or 430, dishwasher safe</li>
+        <li class="check-item reveal-child">Mesh grease filters — aluminum or galvanized steel for lower-grease applications</li>
+        <li class="check-item reveal-child">Charcoal / carbon filters — odor control for ventless and recirculating systems</li>
+      </ul>
+
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Grease Containment
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        City of Lebanon Water and Wastewater closely monitors grease interceptors. We supply and install complete containment systems to protect your roof and prevent stormwater violations.
+      </p>
+      <ul class="space-y-3">
+        <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
+        <li class="check-item reveal-child">Grease cups, drip pans, and overflow protection</li>
+        <li class="check-item reveal-child">Grease pillows and absorbent pads — replaceable media</li>
+        <li class="check-item reveal-child">Grease duct access doors — NFPA 96 required every 12 feet</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INSTALLATION UPSELL -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
+        <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-4">
+          Discounted Installation When You Buy From Us
+        </h2>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
+          Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
+          Need a full repair instead of just parts? Visit our <a href="/repair/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lebanon exhaust fan repair</a> page for diagnostic and repair services.
+        </p>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Schedule Installation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON EQUIPMENT ISSUES IN LEBANON -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Issues in Lebanon
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Lebanon's famous BBQ and smoking operations produce a thick, hardened carbon scale that requires specialized scraping and heavy-duty fan motors to pull properly. This carbon creosote coats impeller blades unevenly, throws the fan out of balance, and destroys bearings far ahead of schedule. Standard commercial motors burn out under the strain, requiring upgrades to heat-rated, heavy-duty replacements. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for specifications.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The massive industrial commissaries along the I-40 corridor run continuously, leading to frequent fan belt snapping and bearing failures that require immediate response. Many older downtown restaurants near the Lebanon square also lack properly installed <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> and fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a>, making compliance with Lebanon Fire Department inspections a constant challenge.
+        </p>
+      </div>
+
+      <!-- PROOF POINT -->
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "During the peak of the Wilson County Fair, a high-volume diner near the fairgrounds had their main exhaust fan belt snap, filling the kitchen with smoke. DDAN's emergency repair team arrived within an hour, installed a commercial-grade notched V-belt, and verified the motor tension, saving their most profitable weekend of the year."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[900px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
+          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Restaurant Owners</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            Need a part fast? Don't know what fits? We handle everything — identify the part, verify compatibility, deliver it, and install it. One call, one team, zero guesswork.
+          </p>
+        </div>
+        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
+          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet — right next door to Lebanon. Same-day pickup or delivery across Wilson County.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Lebanon Parts &amp; Installation Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN delivers exhaust fan parts and professional installation across all of Lebanon and Wilson County. Whether your kitchen is on the historic downtown square, near Cumberland University, at the Lebanon Premium Outlets, or along the major I-40 interchanges, we stock the parts you need and install them the same day.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Lebanon:</span>
+            <a href="/cleaning/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/parts/mount-juliet-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Mount Juliet</a>,
+            <a href="/parts/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a>, and
+            <a href="/parts/hartsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hartsville</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Lebanon Parts &amp; Installation FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>

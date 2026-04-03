@@ -1,0 +1,389 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'My Spring Hill restaurant is brand new — do I already need replacement parts?',
+    a: "Often, yes. Many new-build restaurants in Spring Hill use cheap OEM fan belts and motors that builders installed to cut costs during construction. These factory-grade components frequently fail within the first year under real commercial kitchen loads. We replace them with heavy-duty commercial-grade parts that actually match your cooking volume.",
+  },
+  {
+    q: 'Can you protect my Spring Hill restaurant\'s white TPO roof from grease damage?',
+    a: "Absolutely. Corporate landlords in developments like The Crossings are strict about roof damage. We install multi-layer, high-capacity rooftop grease containment systems — including grease boxes, drain pans, and hydrophobic filter pads — that prevent grease from ever reaching your roofing membrane.",
+  },
+  {
+    q: 'Do you carry parts for exhaust fans on newer Spring Hill buildings?',
+    a: "Yes. Spring Hill's commercial infrastructure is predominantly under 10 years old, which means most systems use current-generation components from CaptiveAire, Greenheck, and Loren Cook. We stock the most common motors, belts, bearings, and filters for these brands and can source specialty parts within 24–48 hours.",
+  },
+  {
+    q: "What's included in the free fitting consult?",
+    a: "We send a technician to your location to inspect your current exhaust system, identify the exact parts needed (model numbers, dimensions, electrical specs), verify roof access and mounting compatibility, and provide a written quote for parts and installation — all at no charge. This eliminates the risk of ordering the wrong part.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/hero/hero-2.jpg`,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Spring Hill, TN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": business.googleReviewRating,
+        "reviewCount": "51"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Kitchen Exhaust Parts & Installation",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Spring Hill, TN"
+      },
+      "description": "Same-day commercial kitchen exhaust fan parts, motors, belts, filters, and professional installation for restaurants in Spring Hill, TN."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
+        { "@type": "ListItem", "position": 3, "name": "Spring Hill, TN" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Spring Hill Restaurant Hood Parts | Same-Day | DDAN"
+  description="Same-day exhaust fan parts for Spring Hill restaurants. Motors, belts, filters, grease containment — discounted install with purchase. Free fitting consult. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-2.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Spring Hill, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Spring Hill Restaurant Hood Parts — <span class="text-[#FF5E15]">Same-Day Delivery</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        New builds need better parts. We replace factory-grade components with commercial-grade equipment that matches your actual cooking volume.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Parts Quote
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROP BANNER -->
+  <section class="bg-[#111111] border-y border-[#333] py-6 px-5">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      {[
+        { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Same-Day Parts' },
+        { icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Discounted Install' },
+        { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', label: 'Parts Warranty' },
+        { icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z', label: 'Free Consult' },
+      ].map((item) => (
+        <div class="flex flex-col items-center gap-2">
+          <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d={item.icon}/></svg>
+          <span class="text-white font-heading text-sm font-semibold">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Spring Hill's New Kitchens Need Better Parts
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Spring Hill is experiencing explosive commercial growth, driven by the General Motors Spring Hill Manufacturing Plant and the wave of residential development surrounding it. New restaurants are opening rapidly across developments like The Crossings of Spring Hill, Saturn Parkway corridors, and Main Street retail — but many of these new-build kitchens are running on the cheapest possible exhaust system components that builders installed to cut construction costs. Factory-grade fan belts snap within months under real commercial cooking loads. Budget motors overheat during sustained peak service. Original grease containment systems overflow well before the first year is out.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The cuisine profile in Spring Hill — heavy family-style casual dining, pizza ovens, fast-food drive-thrus, and Mexican restaurants — generates consistent, high-volume grease output that demands commercial-grade equipment from day one. The GM plant workforce drives massive lunch and dinner volume through concentrated rush periods, and every fryer runs at maximum capacity during those windows. Factory-installed components simply cannot handle this kind of sustained thermal and mechanical stress.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Spring Hill's commercial roofing is almost exclusively new white TPO and PVC single-ply membranes — pristine and expensive. When factory grease catchers fail and grease migrates across these membranes, it causes permanent staining and structural degradation that triggers severe landlord penalties. Commercial property managers in Spring Hill's new developments have zero tolerance for roof damage from kitchen exhaust systems.
+          </p>
+          <p class="text-[#FF5E15] font-heading font-semibold text-base reveal-child">
+            DDAN supplies and installs commercial-grade replacement parts across Spring Hill — same-day delivery on common components, free fitting consultation, and discounted installation when you buy parts through us.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Commercial kitchen exhaust parts and installation in Spring Hill TN - DDAN Hood Cleaning and Repair"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHAUST FANS — MAIN PARTS SECTION -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Parts We Stock & Install
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Exhaust fans are the heart of your kitchen ventilation system. When a fan component fails, your kitchen fills with smoke and you cannot legally operate. We stock the most common parts locally for same-day delivery to Spring Hill.
+      </p>
+      <h3 class="font-heading text-white text-xl font-semibold mb-4 reveal-child">Fan Types We Service</h3>
+      <div class="grid sm:grid-cols-3 gap-4 mb-8">
+        {[
+          { title: 'Upblast Fans', desc: 'The most common commercial kitchen exhaust fan — mounted on rooftop curbs, these pull grease-laden air vertically through the duct system.' },
+          { title: 'Downblast Fans', desc: 'Used in specific configurations where exhaust must be directed downward. Common in multi-story buildings and facilities with rooftop clearance restrictions.' },
+          { title: 'Inline Fans', desc: 'Mounted within the ductwork itself rather than on the roof. Used in kitchens where rooftop mounting is impossible or impractical.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h4 class="font-heading font-semibold text-white text-lg mb-2">{card.title}</h4>
+            <p class="text-[#D4D4D4] text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-white text-xl font-semibold mb-4 reveal-child">Parts We Carry</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {[
+          { title: 'Fan Motors', desc: 'Single-phase and 3-phase replacement motors — heat-rated for continuous commercial kitchen operation' },
+          { title: 'Fan Belts', desc: 'Heavy-duty notched V-belts and cogged belts that outlast factory originals by 3–5x under high-load conditions' },
+          { title: 'Bearings & Pillow Blocks', desc: 'Sealed bearings and pillow block assemblies — the first component to fail from grease and heat exposure' },
+          { title: 'Fan Wheels & Impellers', desc: 'Replacement impeller wheels for upblast, downblast, and inline configurations — balanced and matched to your motor' },
+          { title: 'Hinge Kits', desc: 'NFPA 96 compliant heavy-duty hinge kits for safe rooftop fan access during cleaning and maintenance' },
+          { title: 'Fan Speed Controllers', desc: 'Variable speed controllers, contactors, and relay replacements for precise airflow management' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER PARTS — MUA, FILTERS, GREASE CONTAINMENT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Beyond Fans — Full System Parts
+      </h2>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child"><strong>Make-Up Air Units:</strong> Damper motors, heating elements, filters, and control boards for balanced kitchen airflow</li>
+        <li class="check-item reveal-child"><strong>Hood Filters:</strong> Stainless steel baffle filters, mesh grease filters, and charcoal odor filters — standard and custom sizes</li>
+        <li class="check-item reveal-child"><strong><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease Containment:</a></strong> Rooftop grease boxes, drain pans, hydrophobic filter pads, and complete containment systems</li>
+        <li class="check-item reveal-child"><strong><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Access Panels:</a></strong> Fire-rated duct access doors for NFPA 96 compliant inspection and cleaning access</li>
+        <li class="check-item reveal-child"><strong><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire Suppression:</a></strong> Ansul system nozzles, fusible links, wet chemical agents, and replacement cartridges</li>
+        <li class="check-item reveal-child"><strong>Ductwork Components:</strong> Grease duct sections, transitions, dampers, and cleanout covers</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INSTALLATION UPSELL -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-bold mb-4">
+          Need More Than Parts? We Do Full Repairs Too.
+        </h2>
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          If your exhaust system needs more than a part swap — motor rewiring, ductwork modifications, fan replacement, or emergency diagnostics — our repair team handles it. Parts customers get priority scheduling.
+        </p>
+        <a href="/repair/spring-hill-tn/" class="inline-flex items-center gap-2.5 px-10 py-4 bg-[#FF5E15] text-white font-heading text-lg font-bold rounded hover:bg-[#E54F0D] hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Spring Hill Repair Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON EQUIPMENT ISSUES -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Issues in Spring Hill
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.962-.833-2.732 0L4.072 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Factory OEM Belt & Motor Failures</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Spring Hill's newer construction means most kitchens are running on the cheapest components builders could source. These factory-grade fan belts and single-phase motors were never designed for sustained commercial cooking loads — they were designed to pass the building inspection. Under real-world conditions with high-volume fryers and flat-top grills running 12+ hours daily, these budget components fail within months. We replace them with commercial-rated notched V-belts and heat-rated motors designed for continuous operation.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Grease Containment Overflow on New TPO Roofs</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            The rapid grease saturation on Spring Hill's pristine white TPO roofs is a major point of contention with commercial landlords. Factory-installed grease catchers at locations like The Crossings are undersized for actual restaurant output — they overflow within weeks during peak operation. Once grease reaches the TPO membrane, it causes permanent discoloration and structural degradation that can cost thousands in roof repair or lease penalties. DDAN installs high-capacity commercial <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> sized for your real grease output.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Who We Supply Parts To
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-xl font-semibold mb-4">Restaurant Owners & Managers</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
+            Your exhaust fan motor just died and you need to reopen tomorrow. We stock the most common replacement motors, belts, bearings, and filters locally and can deliver same-day to Spring Hill. Buy the part through us and we discount the installation labor. Or bring your own part — we will install it regardless.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-xl font-semibold mb-4">Other Hood Companies & Contractors</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
+            If you clean hoods but do not do repairs, we are your parts and installation partner. We supply OEM-spec components to other hood companies across Middle Tennessee and handle the installation work they cannot. Wholesale pricing available for volume accounts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA + CROSS-LINKS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Spring Hill Service Area
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Also in Spring Hill: <a href="/cleaning/spring-hill-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot; <a href="/repair/spring-hill-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Also serving nearby <a href="/parts/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>, <a href="/parts/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Columbia</a>, and <a href="/repair/thompsons-station-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Thompsons Station</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Spring Hill Parts & Installation FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#1A1A1A] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA URGENCY -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center mb-8">
+      <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed reveal-child">
+        Spring Hill's new kitchens are running on <span class="text-[#FF5E15] font-semibold">builder-grade parts that were never designed for commercial cooking loads</span>. Upgrade before they fail.
+      </p>
+      <div class="mt-6">
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Get a Free Parts Quote
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
