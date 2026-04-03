@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
-import ServiceSidebar from '../components/ServiceSidebar.astro';
 import InlineCTA from '../components/InlineCTA.astro';
 import BottomCTA from '../components/BottomCTA.astro';
+import TruckCTA from '../components/TruckCTA.astro';
 ---
 
 <BaseLayout
@@ -12,87 +12,81 @@ import BottomCTA from '../components/BottomCTA.astro';
 >
   <HeroBanner
     headline="Kitchen Ventilation Access Panel Installation"
+    backgroundImage="/images/services/access-panel-hero.jpg"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'Access Panel Installation' },
     ]}
   />
 
-  <!-- 65/35 Split -->
-  <section class="bg-white">
-    <div class="container-narrow">
-      <div class="grid lg:grid-cols-[65%_35%]">
-        <!-- Content Column -->
-        <div class="p-6 md:p-10 text-body-text-light">
+  <!-- Main Content -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
 
-          <div class="reveal">
-            <p class="font-heading font-semibold text-lg text-dark-base mb-4 reveal-child">Code-Compliant Access. Clean Ducts Safely. Prevent Fires or Fines.</p>
-            <h2 class="section-headline reveal-child">What Access Panels Do for Your Kitchen</h2>
-            <img
-              src="/images/services/access-panel-hero.jpg"
-              alt="grease duct access panel installation Nashville TN - DDAN Hood Cleaning and Repair"
-              class="w-full rounded mb-6 reveal-child"
-              loading="eager"
-            />
-            <p class="mb-4 reveal-child">Access panels aren't optional — they're required for safe, code-compliant duct cleaning. These panels are installed directly into your grease ductwork and provide safe entry points for cleaning crews to reach interior sections. Without them, your system can't be fully cleaned, and grease buildup becomes a major fire hazard.</p>
-            <p class="mb-4 reveal-child">NFPA 96 requires access panels:</p>
-            <ul class="space-y-2 mb-4">
-              <li class="check-item reveal-child">No more than 12 feet on horizontal duct runs</li>
-              <li class="check-item reveal-child">At every change of direction</li>
-              <li class="check-item reveal-child">Near duct-mounted fans or bends</li>
-            </ul>
-            <p class="mb-6 reveal-child">If your kitchen exhaust ducts lack proper access, DDAN Hood Cleaning and Repair can fix that. We install and upgrade access panels that meet all code and fire safety requirements.</p>
-          </div>
-
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">Signs You Need Access Panel Installation or Repair</h2>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Your ducts have no visible access panels or only one at the base of the hood</li>
-              <li class="check-item reveal-child">Cleaning crews can't reach interior duct sections and skip full cleanings</li>
-              <li class="check-item reveal-child">Grease streaks or buildup along the exterior of ducts</li>
-              <li class="check-item reveal-child">You recently failed or nearly failed inspection due to access or cleaning limitations</li>
-              <li class="check-item reveal-child">Your panels are damaged, leaking, or missing seals</li>
-            </ul>
-            <p class="mb-6 reveal-child">Poor access is one of the biggest causes of dangerous grease buildup inside kitchen exhaust systems.</p>
-          </div>
-
-          <InlineCTA headline="Request a Quote for Access Panel Installation" />
-
-          <div class="reveal mt-8">
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Commercial Grease Duct Access Panel Installation</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">NFPA 96-compliant placement and spacing for full cleaning access</li>
-              <li class="check-item reveal-child">Liquid-tight installation to prevent grease leaks and fire hazards</li>
-              <li class="check-item reveal-child">Fire-rated panels that withstand high temps and resist warping</li>
-              <li class="check-item reveal-child">Low-profile and custom-fit options for tight duct spaces</li>
-              <li class="check-item reveal-child">Sealed with fire-safe gaskets and riveted hardware for long-term performance</li>
-            </ul>
-            <p class="mb-6 reveal-child">We install access panels for all duct sizes and types — including welded, spiral, and single-wall ducts.</p>
-          </div>
-
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">Why It Matters: Grease Fire Prevention</h2>
-            <p class="mb-4 reveal-child">Without access panels, grease-laden vapor builds up where you can't reach it. Over time, this layer of flammable residue becomes a major fire risk.</p>
-            <p class="mb-4 reveal-child">Code-compliant access means:</p>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Cleaner ducts with full access to interior walls</li>
-              <li class="check-item reveal-child">Lower fire risk and insurance liability</li>
-              <li class="check-item reveal-child">Easier, faster, and cheaper cleaning over time</li>
-              <li class="check-item reveal-child">Higher chance of passing inspections without delays or shutdowns</li>
-            </ul>
-            <p class="mb-6 reveal-child">A few small access doors can prevent thousands in fines, shutdowns, or fire damage.</p>
-          </div>
-
-        </div>
-        <!-- Sidebar -->
-        <ServiceSidebar />
+      <div class="reveal">
+        <p class="font-heading font-semibold text-lg text-white mb-4 reveal-child">Code-Compliant Access. Clean Ducts Safely. Prevent Fires or Fines.</p>
+        <h2 class="section-headline reveal-child">What Access Panels Do for Your Kitchen</h2>
+        <img
+          src="/images/services/access-panel-hero.jpg"
+          alt="grease duct access panel installation Nashville TN - DDAN Hood Cleaning and Repair"
+          class="w-full rounded mb-6 reveal-child"
+          loading="eager"
+        />
+        <p class="text-[#D4D4D4] mb-4 reveal-child">Access panels aren't optional — they're required for safe, code-compliant duct cleaning. These panels are installed directly into your grease ductwork and provide safe entry points for cleaning crews to reach interior sections. Without them, your system can't be fully cleaned, and grease buildup becomes a major fire hazard.</p>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">NFPA 96 requires access panels:</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">No more than 12 feet on horizontal duct runs</li>
+          <li class="check-item reveal-child">At every change of direction</li>
+          <li class="check-item reveal-child">Near duct-mounted fans or bends</li>
+        </ul>
+        <p class="text-[#D4D4D4] mb-6 reveal-child">If your kitchen exhaust ducts lack proper access, DDAN Hood Cleaning and Repair can fix that. We install and upgrade access panels that meet all code and fire safety requirements.</p>
       </div>
+
+      <div class="reveal mt-8">
+        <h2 class="section-headline reveal-child">Signs You Need Access Panel Installation or Repair</h2>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Your ducts have no visible access panels or only one at the base of the hood</li>
+          <li class="check-item reveal-child">Cleaning crews can't reach interior duct sections and skip full cleanings</li>
+          <li class="check-item reveal-child">Grease streaks or buildup along the exterior of ducts</li>
+          <li class="check-item reveal-child">You recently failed or nearly failed inspection due to access or cleaning limitations</li>
+          <li class="check-item reveal-child">Your panels are damaged, leaking, or missing seals</li>
+        </ul>
+        <p class="text-[#D4D4D4] mb-6 reveal-child">Poor access is one of the biggest causes of dangerous grease buildup inside kitchen exhaust systems.</p>
+      </div>
+
+      <InlineCTA headline="Request a Quote for Access Panel Installation" />
+
+      <div class="reveal mt-8">
+        <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Commercial Grease Duct Access Panel Installation</h3>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">NFPA 96-compliant placement and spacing for full cleaning access</li>
+          <li class="check-item reveal-child">Liquid-tight installation to prevent grease leaks and fire hazards</li>
+          <li class="check-item reveal-child">Fire-rated panels that withstand high temps and resist warping</li>
+          <li class="check-item reveal-child">Low-profile and custom-fit options for tight duct spaces</li>
+          <li class="check-item reveal-child">Sealed with fire-safe gaskets and riveted hardware for long-term performance</li>
+        </ul>
+        <p class="text-[#D4D4D4] mb-6 reveal-child">We install access panels for all duct sizes and types — including welded, spiral, and single-wall ducts.</p>
+      </div>
+
+      <div class="reveal mt-8">
+        <h2 class="section-headline reveal-child">Why It Matters: Grease Fire Prevention</h2>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">Without access panels, grease-laden vapor builds up where you can't reach it. Over time, this layer of flammable residue becomes a major fire risk.</p>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">Code-compliant access means:</p>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Cleaner ducts with full access to interior walls</li>
+          <li class="check-item reveal-child">Lower fire risk and insurance liability</li>
+          <li class="check-item reveal-child">Easier, faster, and cheaper cleaning over time</li>
+          <li class="check-item reveal-child">Higher chance of passing inspections without delays or shutdowns</li>
+        </ul>
+        <p class="text-[#D4D4D4] mb-6 reveal-child">A few small access doors can prevent thousands in fines, shutdowns, or fire damage.</p>
+      </div>
+
     </div>
   </section>
 
   <!-- Split text/image section -->
-  <section class="bg-secondary section-padding">
-    <div class="container-narrow reveal">
+  <section class="bg-[#1A1A1A] py-12 md:py-16 lg:py-20 px-5">
+    <div class="max-w-[1200px] mx-auto reveal">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 class="section-headline reveal-child">Installation Timeline, Cost & Availability</h2>
@@ -101,8 +95,8 @@ import BottomCTA from '../components/BottomCTA.astro';
             <li class="check-item reveal-child">Typical Cost: $250-$600 per panel installed</li>
             <li class="check-item reveal-child">Emergency and after-hours installation available to avoid downtime</li>
           </ul>
-          <p class="text-body-text mb-6 reveal-child">We provide free quotes and code reviews to assess exactly what you need.</p>
-          <a href="/contact/" class="btn-primary reveal-child">Request Service Online</a>
+          <p class="text-[#D4D4D4] mb-6 reveal-child">We provide free quotes and code reviews to assess exactly what you need.</p>
+          <button type="button" class="btn-primary popup-trigger reveal-child">Request Service Online</button>
         </div>
         <div class="reveal-child">
           <img
@@ -115,6 +109,8 @@ import BottomCTA from '../components/BottomCTA.astro';
       </div>
     </div>
   </section>
+
+  <TruckCTA />
 
   <BottomCTA
     headline="Request a Quote for Access Panel Installation"

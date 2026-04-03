@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
-import ServiceSidebar from '../components/ServiceSidebar.astro';
 import InlineCTA from '../components/InlineCTA.astro';
 import ServiceAreaGrid from '../components/ServiceAreaGrid.astro';
 import BottomCTA from '../components/BottomCTA.astro';
+import TruckCTA from '../components/TruckCTA.astro';
 ---
 
 <BaseLayout
@@ -13,130 +13,152 @@ import BottomCTA from '../components/BottomCTA.astro';
 >
   <HeroBanner
     headline="Kitchen Hood Cleaning Services in Nashville, TN"
+    backgroundImage="/images/services/hood-cleaning-hero.jpg"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'Hood Cleaning' },
     ]}
   />
 
-  <!-- 65/35 Split -->
-  <section class="bg-white">
-    <div class="container-narrow">
-      <div class="grid lg:grid-cols-[65%_35%]">
-        <!-- Content Column -->
-        <div class="p-6 md:p-10 text-body-text-light">
+  <!-- Hero image + Why Nashville Restaurants Trust -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
 
-          <div class="reveal">
-            <img
-              src="/images/services/hood-cleaning-hero.jpg"
-              alt="exhaust hood system repair nashville tn - DDAN Hood Cleaning and Repair (615) 881-6968"
-              class="w-full rounded mb-8 reveal-child"
-              loading="eager"
-            />
-          </div>
-
-          <div class="reveal">
-            <h2 class="section-headline reveal-child">Why Nashville Restaurants Trust Our Kitchen Hood Cleaning?</h2>
-            <p class="mb-4 reveal-child">Running a commercial kitchen in Nashville means maintaining the highest standards of cleanliness and safety. At DDAN Hood Cleaning, we specialize in comprehensive exhaust system maintenance that keeps your kitchen safe, compliant, and operating at peak efficiency. Our certified technicians serve restaurants, catering facilities, and foodservice operations throughout Nashville and surrounding areas.</p>
-            <p class="mb-4 reveal-child">What sets our commercial kitchen hood cleaning service apart:</p>
-            <ul class="space-y-2 mb-4">
-              <li class="check-item reveal-child">Certified technicians with specialized training in exhaust system maintenance.</li>
-              <li class="check-item reveal-child">Comprehensive cleaning from hood to rooftop fan, not just surface-level wiping.</li>
-              <li class="check-item reveal-child">Eco-friendly methods that protect your kitchen and the environment.</li>
-              <li class="check-item reveal-child">Flexible scheduling including nights and weekends to avoid disrupting service.</li>
-              <li class="check-item reveal-child">Detailed documentation of all work performed for your compliance records.</li>
-            </ul>
-            <p class="mb-6 reveal-child">Your kitchen's ventilation system does more than just remove smoke — it protects your staff, customers and business from fire hazards. We've spent years perfecting our kitchen hood cleaning service to deliver results that exceed NFPA 96 standards and local fire codes.</p>
-          </div>
-
-          <InlineCTA headline="Get Your Kitchen Hood Cleaned Today!" />
-
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">Complete Commercial Kitchen Hood Cleaning Services</h2>
-            <p class="mb-6 reveal-child">Our kitchen exhaust hood cleaning service addresses every component of your ventilation system. We don't cut corners — from the intake hood to the exhaust fan, we ensure thorough grease removal and optimal airflow throughout your entire system.</p>
-
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Hood Canopies and Plenums</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">We thoroughly clean inside hood canopies and plenums where grease vapors collect and create the highest fire risk.</li>
-              <li class="check-item reveal-child">Visible surfaces are scrubbed clean to remove carbon deposits and grease film for a professional appearance.</li>
-              <li class="check-item reveal-child">Commercial-grade degreasers remove soft grease buildup and hardened carbon deposits that could ignite during cooking.</li>
-            </ul>
-
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Exhaust Ductwork</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">We access hard-to-reach ductwork sections where grease accumulates invisibly and creates the primary ignition source for kitchen fires.</li>
-              <li class="check-item reveal-child">Specialized tools remove thick grease layers from duct walls and joints that standard cleaning methods cannot reach.</li>
-              <li class="check-item reveal-child">Thorough duct cleaning eliminates hidden fire hazards and restores proper airflow throughout your entire exhaust system.</li>
-            </ul>
-
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Exhaust Fans and Motors</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">We remove grease buildup from fan blades and motor housings that restrict airflow and force your exhaust system to work harder.</li>
-              <li class="check-item reveal-child">Clean fans operate more efficiently, reducing energy costs while maintaining consistent ventilation during peak cooking hours.</li>
-              <li class="check-item reveal-child">Regular fan maintenance prevents premature motor failure and extends equipment lifespan by reducing strain on mechanical components.</li>
-            </ul>
-
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Grease Filters</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Clean filters trap grease particles at the source, preventing them from traveling into ductwork where they create fire hazards.</li>
-              <li class="check-item reveal-child">Properly maintained filters improve air circulation, reducing heat buildup and creating a more comfortable working environment for kitchen staff.</li>
-              <li class="check-item reveal-child">Regular filter cleaning extends the time between full system cleanings and reduces overall maintenance costs for your exhaust system.</li>
-            </ul>
-          </div>
-
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">Restaurant Kitchen Hood Cleaning That Protects Your Business</h2>
-            <p class="mb-4 reveal-child">In restaurant kitchens, your exhaust system runs constantly during service, accumulating grease faster than most other commercial environments. Our restaurant kitchen hood cleaning services are scheduled based on your cooking volume and methods — high-volume operations cooking with solid fuel need monthly service, while moderate kitchens typically require quarterly cleanings.</p>
-            <p class="mb-4 reveal-child">We help you determine the right cleaning frequency based on:</p>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Type of cooking (charbroiling creates more grease than baking)</li>
-              <li class="check-item reveal-child">Daily operating hours.</li>
-              <li class="check-item reveal-child">Volume of food prepared.</li>
-              <li class="check-item reveal-child">Fuel sources used.</li>
-            </ul>
-          </div>
-
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">Fire Safety Through Professional Kitchen Hood Vent Cleaning</h2>
-            <p class="mb-4 reveal-child">The National Fire Protection Association reports that nearly one-third of restaurant fires start in the cooking area, with grease-laden exhaust systems being a primary cause. Our kitchen hood vent cleaning service directly addresses this risk.</p>
-            <p class="mb-4 reveal-child">During each service visit, we:</p>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Remove all accessible grease deposits per NFPA 96 guidelines.</li>
-              <li class="check-item reveal-child">Inspect system components for damage or wear.</li>
-              <li class="check-item reveal-child">Test airflow to ensure proper ventilation.</li>
-              <li class="check-item reveal-child">Provide written documentation with before/after photos.</li>
-              <li class="check-item reveal-child">Alert you to any potential issues requiring attention.</li>
-            </ul>
-          </div>
-
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">Why Regular Kitchen Hoods Cleaning Services Matter?</h2>
-            <p class="mb-4 reveal-child">Many Nashville restaurant owners ask us about cleaning frequency. The answer depends on your operation, but here's what we know: waiting too long between cleanings doesn't just create fire risks — it costs you money.</p>
-            <p class="mb-4 reveal-child">Benefits of maintaining a regular schedule:</p>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Grease buildup is fuel. Regular removal eliminates the primary cause of kitchen fires.</li>
-              <li class="check-item reveal-child">A clean exhaust system removes smoke, heat, and odors more efficiently, creating a more comfortable environment for your staff.</li>
-              <li class="check-item reveal-child">Fans caked with grease work harder and fail sooner. Clean systems last longer and operate more efficiently.</li>
-              <li class="check-item reveal-child">Nashville fire marshals and health inspectors require documented proof of regular cleaning. We provide detailed service reports for your records.</li>
-              <li class="check-item reveal-child">Many commercial insurance providers offer reduced premiums for kitchens with documented maintenance schedules.</li>
-            </ul>
-          </div>
-
-        </div>
-        <!-- Sidebar -->
-        <ServiceSidebar />
+      <div class="reveal">
+        <img
+          src="/images/services/hood-cleaning-hero.jpg"
+          alt="exhaust hood system repair nashville tn - DDAN Hood Cleaning and Repair (615) 881-6968"
+          class="w-full rounded mb-8 reveal-child"
+          loading="eager"
+        />
       </div>
+
+      <div class="reveal">
+        <h2 class="section-headline reveal-child">Why Nashville Restaurants Trust Our Kitchen Hood Cleaning?</h2>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">Running a commercial kitchen in Nashville means maintaining the highest standards of cleanliness and safety. At DDAN Hood Cleaning, we specialize in comprehensive exhaust system maintenance that keeps your kitchen safe, compliant, and operating at peak efficiency. Our certified technicians serve restaurants, catering facilities, and foodservice operations throughout Nashville and surrounding areas.</p>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">What sets our commercial kitchen hood cleaning service apart:</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">Certified technicians with specialized training in exhaust system maintenance.</li>
+          <li class="check-item reveal-child">Comprehensive cleaning from hood to rooftop fan, not just surface-level wiping.</li>
+          <li class="check-item reveal-child">Eco-friendly methods that protect your kitchen and the environment.</li>
+          <li class="check-item reveal-child">Flexible scheduling including nights and weekends to avoid disrupting service.</li>
+          <li class="check-item reveal-child">Detailed documentation of all work performed for your compliance records.</li>
+        </ul>
+        <p class="text-[#D4D4D4] mb-6 reveal-child">Your kitchen's ventilation system does more than just remove smoke — it protects your staff, customers and business from fire hazards. We've spent years perfecting our kitchen hood cleaning service to deliver results that exceed NFPA 96 standards and local fire codes.</p>
+      </div>
+
+      <InlineCTA headline="Get Your Kitchen Hood Cleaned Today!" />
+
+    </div>
+  </section>
+
+  <!-- Complete Commercial Kitchen Hood Cleaning Services -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+
+      <div class="reveal">
+        <h2 class="section-headline reveal-child">Complete Commercial Kitchen Hood Cleaning Services</h2>
+        <p class="text-[#D4D4D4] mb-6 reveal-child">Our kitchen exhaust hood cleaning service addresses every component of your ventilation system. We don't cut corners — from the intake hood to the exhaust fan, we ensure thorough grease removal and optimal airflow throughout your entire system.</p>
+
+        <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Hood Canopies and Plenums</h3>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">We thoroughly clean inside hood canopies and plenums where grease vapors collect and create the highest fire risk.</li>
+          <li class="check-item reveal-child">Visible surfaces are scrubbed clean to remove carbon deposits and grease film for a professional appearance.</li>
+          <li class="check-item reveal-child">Commercial-grade degreasers remove soft grease buildup and hardened carbon deposits that could ignite during cooking.</li>
+        </ul>
+
+        <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Exhaust Ductwork</h3>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">We access hard-to-reach ductwork sections where grease accumulates invisibly and creates the primary ignition source for kitchen fires.</li>
+          <li class="check-item reveal-child">Specialized tools remove thick grease layers from duct walls and joints that standard cleaning methods cannot reach.</li>
+          <li class="check-item reveal-child">Thorough duct cleaning eliminates hidden fire hazards and restores proper airflow throughout your entire exhaust system.</li>
+        </ul>
+
+        <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Exhaust Fans and Motors</h3>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">We remove grease buildup from fan blades and motor housings that restrict airflow and force your exhaust system to work harder.</li>
+          <li class="check-item reveal-child">Clean fans operate more efficiently, reducing energy costs while maintaining consistent ventilation during peak cooking hours.</li>
+          <li class="check-item reveal-child">Regular fan maintenance prevents premature motor failure and extends equipment lifespan by reducing strain on mechanical components.</li>
+        </ul>
+
+        <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Grease Filters</h3>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Clean filters trap grease particles at the source, preventing them from traveling into ductwork where they create fire hazards.</li>
+          <li class="check-item reveal-child">Properly maintained filters improve air circulation, reducing heat buildup and creating a more comfortable working environment for kitchen staff.</li>
+          <li class="check-item reveal-child">Regular filter cleaning extends the time between full system cleanings and reduces overall maintenance costs for your exhaust system.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Restaurant Kitchen Hood Cleaning That Protects Your Business -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+
+      <div class="reveal">
+        <h2 class="section-headline reveal-child">Restaurant Kitchen Hood Cleaning That Protects Your Business</h2>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">In restaurant kitchens, your exhaust system runs constantly during service, accumulating grease faster than most other commercial environments. Our restaurant kitchen hood cleaning services are scheduled based on your cooking volume and methods — high-volume operations cooking with solid fuel need monthly service, while moderate kitchens typically require quarterly cleanings.</p>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">We help you determine the right cleaning frequency based on:</p>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Type of cooking (charbroiling creates more grease than baking)</li>
+          <li class="check-item reveal-child">Daily operating hours.</li>
+          <li class="check-item reveal-child">Volume of food prepared.</li>
+          <li class="check-item reveal-child">Fuel sources used.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Fire Safety Through Professional Kitchen Hood Vent Cleaning -->
+  <section class="bg-[#1A1A1A] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+
+      <div class="reveal">
+        <h2 class="section-headline reveal-child">Fire Safety Through Professional Kitchen Hood Vent Cleaning</h2>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">The National Fire Protection Association reports that nearly one-third of restaurant fires start in the cooking area, with grease-laden exhaust systems being a primary cause. Our kitchen hood vent cleaning service directly addresses this risk.</p>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">During each service visit, we:</p>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Remove all accessible grease deposits per NFPA 96 guidelines.</li>
+          <li class="check-item reveal-child">Inspect system components for damage or wear.</li>
+          <li class="check-item reveal-child">Test airflow to ensure proper ventilation.</li>
+          <li class="check-item reveal-child">Provide written documentation with before/after photos.</li>
+          <li class="check-item reveal-child">Alert you to any potential issues requiring attention.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why Regular Kitchen Hoods Cleaning Services Matter -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+
+      <div class="reveal">
+        <h2 class="section-headline reveal-child">Why Regular Kitchen Hoods Cleaning Services Matter?</h2>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">Many Nashville restaurant owners ask us about cleaning frequency. The answer depends on your operation, but here's what we know: waiting too long between cleanings doesn't just create fire risks — it costs you money.</p>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">Benefits of maintaining a regular schedule:</p>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Grease buildup is fuel. Regular removal eliminates the primary cause of kitchen fires.</li>
+          <li class="check-item reveal-child">A clean exhaust system removes smoke, heat, and odors more efficiently, creating a more comfortable environment for your staff.</li>
+          <li class="check-item reveal-child">Fans caked with grease work harder and fail sooner. Clean systems last longer and operate more efficiently.</li>
+          <li class="check-item reveal-child">Nashville fire marshals and health inspectors require documented proof of regular cleaning. We provide detailed service reports for your records.</li>
+          <li class="check-item reveal-child">Many commercial insurance providers offer reduced premiums for kitchens with documented maintenance schedules.</li>
+        </ul>
+      </div>
+
     </div>
   </section>
 
   <!-- Split text/image section -->
-  <section class="bg-secondary section-padding">
+  <section class="bg-[#1A1A1A] section-padding">
     <div class="container-narrow reveal">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 class="section-headline reveal-child">Nashville's Most Reliable Commercial Kitchen Hood Cleaner</h2>
-          <p class="text-body-text mb-4 reveal-child">We've built our reputation on delivering thorough, reliable service to Nashville's foodservice industry. As your trusted commercial kitchen hood cleaner, we understand the unique challenges of maintaining commercial kitchens — from tight scheduling windows to the need for minimal operational disruption.</p>
-          <p class="text-body-text mb-4 reveal-child">Our clients include:</p>
+          <p class="text-[#D4D4D4] mb-4 reveal-child">We've built our reputation on delivering thorough, reliable service to Nashville's foodservice industry. As your trusted commercial kitchen hood cleaner, we understand the unique challenges of maintaining commercial kitchens — from tight scheduling windows to the need for minimal operational disruption.</p>
+          <p class="text-[#D4D4D4] mb-4 reveal-child">Our clients include:</p>
           <ul class="space-y-2 mb-4">
             <li class="check-item reveal-child">High-volume restaurants and hotel kitchens.</li>
             <li class="check-item reveal-child">Hospital and healthcare facility cafeterias.</li>
@@ -144,8 +166,8 @@ import BottomCTA from '../components/BottomCTA.astro';
             <li class="check-item reveal-child">Catering and event venues.</li>
             <li class="check-item reveal-child">Food trucks and mobile kitchens.</li>
           </ul>
-          <p class="text-body-text mb-6 reveal-child">No matter your kitchen's size or configuration, we have the experience and equipment to clean it properly.</p>
-          <a href="/contact/" class="btn-primary reveal-child">Request Service Online</a>
+          <p class="text-[#D4D4D4] mb-6 reveal-child">No matter your kitchen's size or configuration, we have the experience and equipment to clean it properly.</p>
+          <button type="button" class="btn-primary popup-trigger reveal-child">Request Service Online</button>
         </div>
         <div class="reveal-child">
           <img
@@ -164,6 +186,8 @@ import BottomCTA from '../components/BottomCTA.astro';
     intro="At DDAN Hood Cleaning and Repair, we proudly offer expert restaurant hood cleaning services throughout the Middle Tennessee region. Based in Mt. Juliet, TN, our team is dedicated to ensuring that your kitchen's exhaust system stays clean, safe, and efficient."
     outro="We also offer customized multi-location service plans for restaurant chains, franchises, and facility management companies operating across the region, ensuring your kitchens are always up to code and running smoothly."
   />
+
+  <TruckCTA />
 
   <BottomCTA
     headline="Get Your Free Kitchen Hood Cleaning Quote Today!"

@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
-import ServiceSidebar from '../components/ServiceSidebar.astro';
 import InlineCTA from '../components/InlineCTA.astro';
 import ServiceAreaGrid from '../components/ServiceAreaGrid.astro';
 import BottomCTA from '../components/BottomCTA.astro';
+import TruckCTA from '../components/TruckCTA.astro';
 ---
 
 <BaseLayout
@@ -14,120 +14,114 @@ import BottomCTA from '../components/BottomCTA.astro';
   <HeroBanner
     headline="Restaurant Fire Suppression Systems"
     subheadline="UL 300-Compliant Systems for Commercial Kitchens"
+    backgroundImage="/images/services/fire-suppression.jpg"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'Fire Suppression Systems' },
     ]}
   />
 
-  <!-- 65/35 Split -->
-  <section class="bg-white">
-    <div class="container-narrow">
-      <div class="grid lg:grid-cols-[65%_35%]">
-        <!-- Content Column -->
-        <div class="p-6 md:p-10 text-body-text-light">
+  <!-- Main Content -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
 
-          <div class="reveal">
-            <img
-              src="/images/services/fire-suppression.jpg"
-              alt="restaurant fire suppression system installation Nashville TN - DDAN Hood Cleaning and Repair (615) 881-6968"
-              class="w-full rounded mb-8 reveal-child"
-              loading="eager"
-            />
-          </div>
-
-          <div class="reveal">
-            <h2 class="section-headline reveal-child">What a Fire Suppression System Does for Your Kitchen</h2>
-            <p class="mb-4 reveal-child">A fire suppression system is your kitchen's last line of defense against a grease fire. Installed directly above your cooking equipment and inside your exhaust hood, these systems detect dangerous temperatures and automatically discharge fire-suppressing agents to contain and extinguish flames before they spread.</p>
-            <p class="mb-6 reveal-child">DDAN Hood Cleaning and Repair installs UL 300-compliant fire suppression systems that integrate with your entire kitchen exhaust setup. We coordinate with your contractor to ensure full code compliance and seamless system integration.</p>
-          </div>
-
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">What's Included in a Fire Suppression System</h2>
-            <p class="mb-6 reveal-child">A complete commercial kitchen fire suppression system includes:</p>
-
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Detection & Activation</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Fusible links that detect heat and trigger the system</li>
-              <li class="check-item reveal-child">Manual pull stations for emergency activation</li>
-              <li class="check-item reveal-child">Automatic gas shut-off interlocks</li>
-            </ul>
-
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Suppression Components</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">UL 300-listed wet chemical agent tanks</li>
-              <li class="check-item reveal-child">Nozzles positioned over each appliance</li>
-              <li class="check-item reveal-child">Distribution piping routed through the hood plenum</li>
-            </ul>
-
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">System Integration</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Interlocks with exhaust fans and gas lines</li>
-              <li class="check-item reveal-child">Coordination with your fire alarm system</li>
-              <li class="check-item reveal-child">Compliant with NFPA 96 and local fire codes</li>
-            </ul>
-          </div>
-
-          <InlineCTA headline="Get a Fire Suppression Quote" />
-
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">Installation & Coordination</h2>
-            <p class="mb-4 reveal-child">Fire suppression installation requires coordination with licensed contractors. DDAN handles:</p>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Pre-installation system design and layout</li>
-              <li class="check-item reveal-child">Nozzle placement based on your equipment configuration</li>
-              <li class="check-item reveal-child">Agent tank installation and pressurization</li>
-              <li class="check-item reveal-child">Detection line routing and fusible link placement</li>
-              <li class="check-item reveal-child">System testing and certification</li>
-              <li class="check-item reveal-child">Post-installation documentation for inspectors</li>
-            </ul>
-          </div>
-
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">Repair, Maintenance & Upgrades</h2>
-            <p class="mb-4 reveal-child">Already have a system? We provide ongoing service:</p>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Semi-annual inspections per NFPA 96 requirements</li>
-              <li class="check-item reveal-child">Agent recharge after system discharge</li>
-              <li class="check-item reveal-child">Fusible link replacement</li>
-              <li class="check-item reveal-child">Nozzle repositioning after equipment changes</li>
-              <li class="check-item reveal-child">System upgrades from dry chemical to wet chemical (UL 300)</li>
-            </ul>
-          </div>
-
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">Who Needs a Fire Suppression System?</h2>
-            <p class="mb-4 reveal-child">NFPA 96 requires fire suppression systems in all commercial kitchens with cooking equipment that produces grease-laden vapors:</p>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Restaurants and fast-food operations</li>
-              <li class="check-item reveal-child">Hotel and resort kitchens</li>
-              <li class="check-item reveal-child">School and hospital cafeterias</li>
-              <li class="check-item reveal-child">Food trucks and mobile kitchens</li>
-              <li class="check-item reveal-child">Ghost kitchens and commissaries</li>
-            </ul>
-          </div>
-
-        </div>
-        <!-- Sidebar -->
-        <ServiceSidebar />
+      <div class="reveal">
+        <img
+          src="/images/services/fire-suppression.jpg"
+          alt="restaurant fire suppression system installation Nashville TN - DDAN Hood Cleaning and Repair (615) 881-6968"
+          class="w-full rounded mb-8 reveal-child"
+          loading="eager"
+        />
       </div>
+
+      <div class="reveal">
+        <h2 class="section-headline reveal-child">What a Fire Suppression System Does for Your Kitchen</h2>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">A fire suppression system is your kitchen's last line of defense against a grease fire. Installed directly above your cooking equipment and inside your exhaust hood, these systems detect dangerous temperatures and automatically discharge fire-suppressing agents to contain and extinguish flames before they spread.</p>
+        <p class="text-[#D4D4D4] mb-6 reveal-child">DDAN Hood Cleaning and Repair installs UL 300-compliant fire suppression systems that integrate with your entire kitchen exhaust setup. We coordinate with your contractor to ensure full code compliance and seamless system integration.</p>
+      </div>
+
+      <div class="reveal mt-8">
+        <h2 class="section-headline reveal-child">What's Included in a Fire Suppression System</h2>
+        <p class="text-[#D4D4D4] mb-6 reveal-child">A complete commercial kitchen fire suppression system includes:</p>
+
+        <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Detection & Activation</h3>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Fusible links that detect heat and trigger the system</li>
+          <li class="check-item reveal-child">Manual pull stations for emergency activation</li>
+          <li class="check-item reveal-child">Automatic gas shut-off interlocks</li>
+        </ul>
+
+        <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Suppression Components</h3>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">UL 300-listed wet chemical agent tanks</li>
+          <li class="check-item reveal-child">Nozzles positioned over each appliance</li>
+          <li class="check-item reveal-child">Distribution piping routed through the hood plenum</li>
+        </ul>
+
+        <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">System Integration</h3>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Interlocks with exhaust fans and gas lines</li>
+          <li class="check-item reveal-child">Coordination with your fire alarm system</li>
+          <li class="check-item reveal-child">Compliant with NFPA 96 and local fire codes</li>
+        </ul>
+      </div>
+
+      <InlineCTA headline="Get a Fire Suppression Quote" />
+
+      <div class="reveal mt-8">
+        <h2 class="section-headline reveal-child">Installation & Coordination</h2>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">Fire suppression installation requires coordination with licensed contractors. DDAN handles:</p>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Pre-installation system design and layout</li>
+          <li class="check-item reveal-child">Nozzle placement based on your equipment configuration</li>
+          <li class="check-item reveal-child">Agent tank installation and pressurization</li>
+          <li class="check-item reveal-child">Detection line routing and fusible link placement</li>
+          <li class="check-item reveal-child">System testing and certification</li>
+          <li class="check-item reveal-child">Post-installation documentation for inspectors</li>
+        </ul>
+      </div>
+
+      <div class="reveal mt-8">
+        <h2 class="section-headline reveal-child">Repair, Maintenance & Upgrades</h2>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">Already have a system? We provide ongoing service:</p>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Semi-annual inspections per NFPA 96 requirements</li>
+          <li class="check-item reveal-child">Agent recharge after system discharge</li>
+          <li class="check-item reveal-child">Fusible link replacement</li>
+          <li class="check-item reveal-child">Nozzle repositioning after equipment changes</li>
+          <li class="check-item reveal-child">System upgrades from dry chemical to wet chemical (UL 300)</li>
+        </ul>
+      </div>
+
+      <div class="reveal mt-8">
+        <h2 class="section-headline reveal-child">Who Needs a Fire Suppression System?</h2>
+        <p class="text-[#D4D4D4] mb-4 reveal-child">NFPA 96 requires fire suppression systems in all commercial kitchens with cooking equipment that produces grease-laden vapors:</p>
+        <ul class="space-y-2 mb-6">
+          <li class="check-item reveal-child">Restaurants and fast-food operations</li>
+          <li class="check-item reveal-child">Hotel and resort kitchens</li>
+          <li class="check-item reveal-child">School and hospital cafeterias</li>
+          <li class="check-item reveal-child">Food trucks and mobile kitchens</li>
+          <li class="check-item reveal-child">Ghost kitchens and commissaries</li>
+        </ul>
+      </div>
+
     </div>
   </section>
 
   <!-- Split text/image section -->
-  <section class="bg-secondary section-padding">
-    <div class="container-narrow reveal">
+  <section class="bg-[#1A1A1A] py-12 md:py-16 lg:py-20 px-5">
+    <div class="max-w-[1200px] mx-auto reveal">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 class="section-headline reveal-child">Timeline, Cost & Availability</h2>
-          <p class="text-body-text mb-4 reveal-child">Every installation is custom, but here's what to expect:</p>
+          <p class="text-[#D4D4D4] mb-4 reveal-child">Every installation is custom, but here's what to expect:</p>
           <ul class="space-y-2 mb-4">
             <li class="check-item reveal-child">Timeline: 1-3 days typical for most installations</li>
             <li class="check-item reveal-child">Cost: $2,500-$6,000+ depending on system size and complexity</li>
             <li class="check-item reveal-child">Coordination: DDAN works with your fire contractor for seamless installation</li>
           </ul>
-          <p class="text-body-text mb-6 reveal-child">Need a system before your next inspection? We can fast-track the process.</p>
-          <a href="/contact/" class="btn-primary reveal-child">Request Service Online</a>
+          <p class="text-[#D4D4D4] mb-6 reveal-child">Need a system before your next inspection? We can fast-track the process.</p>
+          <button type="button" class="btn-primary popup-trigger reveal-child">Request Service Online</button>
         </div>
         <div class="reveal-child">
           <img
@@ -145,6 +139,8 @@ import BottomCTA from '../components/BottomCTA.astro';
     headline="Service Area"
     intro="We install and service fire suppression systems across Middle Tennessee."
   />
+
+  <TruckCTA />
 
   <BottomCTA
     headline="Get a Fire Suppression System Quote"

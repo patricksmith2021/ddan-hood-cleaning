@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
-import ServiceSidebar from '../components/ServiceSidebar.astro';
 import InlineCTA from '../components/InlineCTA.astro';
 import BottomCTA from '../components/BottomCTA.astro';
+import TruckCTA from '../components/TruckCTA.astro';
 ---
 
 <BaseLayout
@@ -12,117 +12,113 @@ import BottomCTA from '../components/BottomCTA.astro';
 >
   <HeroBanner
     headline="Restaurant Exhaust Fan Parts"
+    backgroundImage="/images/services/exhaust-fan-parts.webp"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'Restaurant Exhaust Fan Parts' },
     ]}
   />
 
-  <!-- 65/35 Split -->
-  <section class="bg-white">
-    <div class="container-narrow">
-      <div class="grid lg:grid-cols-[65%_35%]">
-        <!-- Content Column -->
-        <div class="p-6 md:p-10 text-body-text-light">
+  <!-- Intro + Get the Right Parts -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <p class="font-heading font-semibold text-lg text-white mb-4 reveal-child">Commercial Kitchen Ventilation Parts Supplied Across Middle Tennessee</p>
+      <h2 class="section-headline reveal-child">Get the Right Parts — Fast</h2>
+      <img
+        src="/images/services/exhaust-fan-parts.webp"
+        alt="restaurant exhaust fan parts Nashville TN - DDAN Hood Cleaning and Repair"
+        class="w-full rounded mb-6 reveal-child"
+        loading="eager"
+      />
+      <p class="text-[#D4D4D4] mb-4 reveal-child">When your kitchen exhaust system breaks down, you need a fix — fast. DDAN Hood Cleaning and Repair provides essential restaurant exhaust fan parts and ventilation components to keep your commercial kitchen safe, compliant, and fully operational.</p>
+      <p class="text-[#D4D4D4] mb-6 reveal-child">We supply schools, restaurants, food trucks, ghost kitchens, and more across Mt. Juliet, Nashville, and Middle Tennessee with durable, NFPA 96-compliant parts built for the real-world demands of commercial cooking.</p>
+    </div>
+  </section>
 
-          <div class="reveal">
-            <p class="font-heading font-semibold text-lg text-dark-base mb-4 reveal-child">Commercial Kitchen Ventilation Parts Supplied Across Middle Tennessee</p>
-            <h2 class="section-headline reveal-child">Get the Right Parts — Fast</h2>
-            <img
-              src="/images/services/exhaust-fan-parts.webp"
-              alt="restaurant exhaust fan parts Nashville TN - DDAN Hood Cleaning and Repair"
-              class="w-full rounded mb-6 reveal-child"
-              loading="eager"
-            />
-            <p class="mb-4 reveal-child">When your kitchen exhaust system breaks down, you need a fix — fast. DDAN Hood Cleaning and Repair provides essential restaurant exhaust fan parts and ventilation components to keep your commercial kitchen safe, compliant, and fully operational.</p>
-            <p class="mb-6 reveal-child">We supply schools, restaurants, food trucks, ghost kitchens, and more across Mt. Juliet, Nashville, and Middle Tennessee with durable, NFPA 96-compliant parts built for the real-world demands of commercial cooking.</p>
-          </div>
+  <!-- Commercial Exhaust System Parts Available -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="section-headline reveal-child">Commercial Exhaust System Parts Available</h2>
+      <p class="text-[#D4D4D4] mb-6 reveal-child">We stock and deliver high-quality commercial kitchen ventilation system components that stand up to grease, heat, and daily wear.</p>
 
-          <div class="reveal mt-8">
-            <h2 class="section-headline reveal-child">Commercial Exhaust System Parts Available</h2>
-            <p class="mb-6 reveal-child">We stock and deliver high-quality commercial kitchen ventilation system components that stand up to grease, heat, and daily wear.</p>
+      <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Grease Filters</h3>
+      <ul class="space-y-2 mb-4">
+        <li class="check-item reveal-child">Aluminum and stainless steel baffle filters</li>
+        <li class="check-item reveal-child">Spark arrestor filters for solid fuel cooking</li>
+        <li class="check-item reveal-child">Fire-safe, high-efficiency grease capture</li>
+      </ul>
+      <p class="text-[#D4D4D4] mb-6 reveal-child">Replace every 3-6 months depending on kitchen volume.</p>
 
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Grease Filters</h3>
-            <ul class="space-y-2 mb-4">
-              <li class="check-item reveal-child">Aluminum and stainless steel baffle filters</li>
-              <li class="check-item reveal-child">Spark arrestor filters for solid fuel cooking</li>
-              <li class="check-item reveal-child">Fire-safe, high-efficiency grease capture</li>
-            </ul>
-            <p class="mb-6 reveal-child">Replace every 3-6 months depending on kitchen volume.</p>
+      <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Exhaust Fan Motors</h3>
+      <ul class="space-y-2 mb-6">
+        <li class="check-item reveal-child">Direct replacement motors for upblast, downblast, and utility fans</li>
+        <li class="check-item reveal-child">Sized correctly for your fan and airflow needs</li>
+        <li class="check-item reveal-child">Built to run quiet and hold up under pressure</li>
+      </ul>
+    </div>
+  </section>
 
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Exhaust Fan Motors</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Direct replacement motors for upblast, downblast, and utility fans</li>
-              <li class="check-item reveal-child">Sized correctly for your fan and airflow needs</li>
-              <li class="check-item reveal-child">Built to run quiet and hold up under pressure</li>
-            </ul>
-          </div>
+  <InlineCTA headline="Request Exhaust Fan Parts Now" />
 
-          <InlineCTA headline="Request Exhaust Fan Parts Now" />
+  <!-- Remaining parts sections -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Exhaust Fan Belts</h3>
+      <ul class="space-y-2 mb-4">
+        <li class="check-item reveal-child">Commercial-grade, heat-resistant drive belts</li>
+        <li class="check-item reveal-child">Available in standard sizes: A, B, AX, BX, and more</li>
+        <li class="check-item reveal-child">Maintains proper airflow and prevents downtime</li>
+      </ul>
+      <p class="text-[#D4D4D4] mb-6 reveal-child">Squealing noise or sluggish airflow? You likely need a new belt.</p>
 
-          <div class="reveal mt-8">
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Exhaust Fan Belts</h3>
-            <ul class="space-y-2 mb-4">
-              <li class="check-item reveal-child">Commercial-grade, heat-resistant drive belts</li>
-              <li class="check-item reveal-child">Available in standard sizes: A, B, AX, BX, and more</li>
-              <li class="check-item reveal-child">Maintains proper airflow and prevents downtime</li>
-            </ul>
-            <p class="mb-6 reveal-child">Squealing noise or sluggish airflow? You likely need a new belt.</p>
+      <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Rooftop Fan Hinge Kits</h3>
+      <ul class="space-y-2 mb-6">
+        <li class="check-item reveal-child">Fully NFPA 96-compliant</li>
+        <li class="check-item reveal-child">Allows rooftop fans to tilt open for cleaning access</li>
+        <li class="check-item reveal-child">Includes mounting brackets and hardware</li>
+      </ul>
 
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Rooftop Fan Hinge Kits</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Fully NFPA 96-compliant</li>
-              <li class="check-item reveal-child">Allows rooftop fans to tilt open for cleaning access</li>
-              <li class="check-item reveal-child">Includes mounting brackets and hardware</li>
-            </ul>
+      <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Duct Access Panels</h3>
+      <ul class="space-y-2 mb-6">
+        <li class="check-item reveal-child">Grease-tight, liquid-sealed access doors</li>
+        <li class="check-item reveal-child">Required by code every 12 feet on horizontal duct runs</li>
+        <li class="check-item reveal-child">Speeds up future cleaning and inspection</li>
+      </ul>
 
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Duct Access Panels</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Grease-tight, liquid-sealed access doors</li>
-              <li class="check-item reveal-child">Required by code every 12 feet on horizontal duct runs</li>
-              <li class="check-item reveal-child">Speeds up future cleaning and inspection</li>
-            </ul>
+      <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Grease Containment System Components</h3>
+      <ul class="space-y-2 mb-6">
+        <li class="check-item reveal-child">Pads, trays, and full rooftop grease containment kits</li>
+        <li class="check-item reveal-child">Helps prevent roof damage and environmental violations</li>
+        <li class="check-item reveal-child">Built for high-output exhaust systems</li>
+      </ul>
 
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Grease Containment System Components</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Pads, trays, and full rooftop grease containment kits</li>
-              <li class="check-item reveal-child">Helps prevent roof damage and environmental violations</li>
-              <li class="check-item reveal-child">Built for high-output exhaust systems</li>
-            </ul>
-
-            <h3 class="font-heading font-semibold text-lg text-dark-base mb-3 reveal-child">Fan Blades & Impellers</h3>
-            <ul class="space-y-2 mb-6">
-              <li class="check-item reveal-child">Balanced replacements for worn, bent, or noisy blades</li>
-              <li class="check-item reveal-child">Compatible with most major exhaust fan brands</li>
-              <li class="check-item reveal-child">Restores airflow and reduces motor strain</li>
-            </ul>
-          </div>
-
-        </div>
-        <!-- Sidebar -->
-        <ServiceSidebar />
-      </div>
+      <h3 class="font-heading font-semibold text-lg text-white mb-3 reveal-child">Fan Blades & Impellers</h3>
+      <ul class="space-y-2 mb-6">
+        <li class="check-item reveal-child">Balanced replacements for worn, bent, or noisy blades</li>
+        <li class="check-item reveal-child">Compatible with most major exhaust fan brands</li>
+        <li class="check-item reveal-child">Restores airflow and reduces motor strain</li>
+      </ul>
     </div>
   </section>
 
   <!-- Split text/image section -->
-  <section class="bg-secondary section-padding">
-    <div class="container-narrow reveal">
+  <section class="bg-[#1A1A1A] py-12 md:py-16 lg:py-20 px-5">
+    <div class="max-w-[1200px] mx-auto reveal">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 class="section-headline reveal-child">Why Choose DDAN for Your Exhaust System Parts?</h2>
-          <p class="text-body-text mb-4 reveal-child">We do more than carry parts — we use them every day in the field. That means we know which parts work, how they fit, and how fast you need them.</p>
+          <p class="text-[#D4D4D4] mb-4 reveal-child">We do more than carry parts — we use them every day in the field. That means we know which parts work, how they fit, and how fast you need them.</p>
           <ul class="space-y-2 mb-4">
             <li class="check-item reveal-child">Commercial-grade quality: Everything we sell is tough enough for real kitchens</li>
             <li class="check-item reveal-child">Expert guidance: Not sure what you need? We'll help you identify the right part</li>
             <li class="check-item reveal-child">Fast turnaround: Pickup in Mt. Juliet or request local delivery</li>
             <li class="check-item reveal-child">Proven track record: 20+ years serving commercial kitchens</li>
           </ul>
-          <p class="text-body-text mb-6 reveal-child">Need it today? Call ahead to reserve or check availability.</p>
-          <a href="/contact/" class="btn-primary reveal-child">Request Service Online</a>
+          <p class="text-[#D4D4D4] mb-6 reveal-child">Need it today? Call ahead to reserve or check availability.</p>
+          <button type="button" class="btn-primary popup-trigger reveal-child">Request Service Online</button>
 
           <h3 class="font-heading font-semibold text-lg text-white mt-8 mb-3 reveal-child">Serving Middle Tennessee Kitchens</h3>
-          <ul class="space-y-2 mb-6 text-body-text">
+          <ul class="space-y-2 mb-6 text-[#D4D4D4]">
             <li class="reveal-child">Restaurants</li>
             <li class="reveal-child">Schools</li>
             <li class="reveal-child">Churches</li>
@@ -142,6 +138,8 @@ import BottomCTA from '../components/BottomCTA.astro';
       </div>
     </div>
   </section>
+
+  <TruckCTA />
 
   <BottomCTA
     headline="Request Exhaust Fan Parts Now"
