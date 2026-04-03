@@ -1,0 +1,331 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: "I'm opening a new restaurant concept in an older Madison building. What do I need?",
+    a: 'You must ensure the existing exhaust system meets the Metro Nashville Fire Code for your specific cooking type. If you\'re changing from a low-grease to a high-grease concept (e.g., sandwiches to charbroiling), the fan, ductwork, and fire suppression may all need upgrades. DDAN provides free assessments.',
+  },
+  {
+    q: 'Can you clean heavy carbon buildup from woks and open-flame grills?',
+    a: "Yes. High-heat cooking creates a hardened carbon scale that standard pressure washing cannot remove. Our technicians use specialized scraping tools and commercial-grade degreasers specifically designed for baked-on carbon — the kind that Madison's diverse restaurant scene produces daily.",
+  },
+  {
+    q: "Do I need a hinge kit on my restaurant's exhaust fan?",
+    a: 'Yes. NFPA 96 code — strictly enforced by Metro Nashville — requires upblast exhaust fans to have hinge kits for safe cleaning access. Many older Madison buildings lack them. We install heavy-duty, weather-sealed kits compatible with all major brands.',
+  },
+  {
+    q: 'Can you assess my exhaust system before I open a new restaurant?',
+    a: "Yes. We provide free pre-opening exhaust system assessments for new Madison restaurant concepts. We'll evaluate whether the existing hood, ductwork, fan, and fire suppression can handle your cooking style, and recommend any upgrades needed to pass your first Metro Nashville inspection.",
+  },
+];
+
+const siteUrl = import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": siteUrl,
+      "image": `${siteUrl}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Madison",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Hood Cleaning",
+      "provider": { "@id": `${siteUrl}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Madison",
+        "addressRegion": "TN"
+      },
+      "description": "NFPA 96 compliant commercial kitchen hood cleaning for Madison's diverse restaurant kitchens. Bare-metal cleaning with full photo documentation."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+        { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${siteUrl}/cleaning/` },
+        { "@type": "ListItem", "position": 3, "name": "Madison, TN", "item": `${siteUrl}/cleaning/madison-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Madison, TN Hood Cleaning for Diverse Kitchens | DDAN"
+  description="Specialized hood cleaning for Madison's Latin, Southern, and fast-food kitchens on Gallatin Pike. Metro Nashville inspectors target older spaces. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-1.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/cleaning/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Madison, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Madison Hood Cleaning — <span class="text-[#FF5E15]">Diverse Kitchens, Expert Results</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        From Gallatin Pike's Latin American kitchens to Rivergate's fast-food corridor — cleaning every cooking style to bare metal
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Madison's Diverse Kitchens Need Expert Hood Cleaning
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Madison's Gallatin Pike is one of the most diverse restaurant corridors in Nashville. Authentic Latin American concepts, heavy Southern soul food, classic diners, and dense fast-food franchises line the pike from Rivergate to the Neely's Bend area. Woks, open flames, and heavy fryers dominate — every cooking method produces different types of grease and carbon buildup, and each requires a different cleaning approach. The Rivergate Mall area adds retail dining traffic, creating a constant stream of customers that keeps kitchens running at capacity throughout the day.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Madison's biggest challenge is concept turnover — restaurant spaces change hands frequently, and new operators often don't realize their inherited exhaust system wasn't designed for their cooking style. A sandwich shop becomes a high-heat Latin concept, and the old exhaust fan immediately burns out under the new load. Roofing is a mix of older BUR and aging EPDM on Gallatin Pike strips, with newer TPO on Rivergate outparcels — each requiring different containment approaches to protect the membrane.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN brings {business.yearsExperience} years of experience cleaning every type of commercial kitchen exhaust system. Whether your Madison restaurant runs high-heat woks, open-flame grills, or deep fryers, we clean every component to bare metal per NFPA 96 and document everything with timestamped before-and-after photos — keeping you compliant and ready for Metro Nashville inspections.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE CLEAN -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Clean — Hood to Rooftop
+      </h2>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Hood canopies and plenums — including heavy carbon from high-heat cooking</li>
+        <li class="check-item reveal-child">Exhaust ductwork — including sections accessed through <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">fire-rated access panels</a></li>
+        <li class="check-item reveal-child">Exhaust fans and motors — diagnosis and repair for undersized units</li>
+        <li class="check-item reveal-child">Grease filters and baffles</li>
+        <li class="check-item reveal-child">Rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> — grease boxes, pads, and drip guards</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for code-compliant fan access</li>
+        <li class="check-item reveal-child">Before-and-after photo documentation for compliance, insurance, and fire marshal inspections</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Madison Hood Cleaning Compliance
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Madison falls under the Metro Nashville Fire Marshal's Office. Inspectors heavily target the older Gallatin Pike corridor because restaurant spaces change concepts frequently, often without properly updating ventilation or fire suppression to match the new cooking style. A space that was built for low-grease cooking and is now running a high-heat charbroiling or wok-based menu will be cited for inadequate ventilation capacity, missing fire suppression links, or improperly rated ductwork.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Metro Water Services monitors FOG (fats, oils, and grease) aggressively throughout Madison, and the diverse cooking styles along Gallatin Pike generate heavy, varied grease output. Restaurants must maintain grease interceptors and functioning rooftop containment to prevent grease from entering the municipal sewer system. DDAN inspects your containment on every visit and recommends upgrades before they become code violations.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our full guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a> to understand exactly what Metro Nashville inspectors look for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON PROBLEMS IN MADISON -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Hood Cleaning Problems in Madison
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Concept turnover is the number one issue. A space built for sandwiches gets converted to high-heat Latin American cooking, and the undersized exhaust fan burns out within weeks under the new load. The ductwork instantly coats in hardened carbon that standard cleaning cannot remove. The new operator inherits a system that simply cannot handle their cooking style, and the first Metro Nashville fire inspection results in multiple citations. DDAN sees this pattern constantly along Gallatin Pike and provides free assessments for new operators to identify what needs to be upgraded before opening day. When motors fail, our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan belt and motor repair</a> team responds same-day with common replacement parts in stock.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Upgrading fire suppression links and installing hinge kits on older rooftop fans are constant needs along Gallatin Pike. Many inherited systems are missing these NFPA 96 requirements entirely — the previous operator either never installed them or removed them for convenience. Metro Nashville inspectors check for <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">proper hinge kits</a> on every inspection, and a missing kit is an automatic citation. DDAN installs heavy-duty, weather-sealed hinge kits compatible with all major fan brands.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "When an authentic Latin American restaurant took over an older fast-food space on Gallatin Pike, their high-heat cooking immediately overwhelmed the aging exhaust fan, filling the dining room with smoke. DDAN arrived quickly, installed a new, high-capacity 3-phase motor, scraped the heavy carbon buildup from the ductwork, and fitted the fan with a code-compliant hinge kit, fully restoring the kitchen's airflow."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEANING PROCESS -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Our Cleaning Process
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        Three steps to a safe, compliant, fully documented kitchen exhaust system.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {[
+          { num: '01', title: 'Inspection & Quote', desc: 'We assess your entire exhaust system — hood, ducts, fans, filters, and containment. You get a free, no-obligation estimate with a clear scope of work and pricing.' },
+          { num: '02', title: 'Overnight Deep Clean', desc: 'Our crew works around your schedule — typically 10 PM to 6 AM. Every component cleaned to bare metal per NFPA 96. Eco-friendly degreasers, no shortcuts, no disruption to your business.' },
+          { num: '03', title: 'Documentation & Report', desc: 'Before-and-after photos, written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Ready for any fire marshal inspection.' },
+        ].map((card) => (
+          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Madison Hood Cleaning Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN serves all of Madison and the surrounding Metro Nashville area. Whether your restaurant is on Gallatin Pike, near Rivergate Mall, along Neely's Bend, or anywhere in the Madison community, we provide the same thorough, NFPA 96-compliant hood cleaning service with full photo documentation. Our crews know Madison's diverse restaurant corridor and schedule service around your kitchen's busiest hours.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Madison:</span>
+            <a href="/repair/madison-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Exhaust Fan Repair</a> &middot;
+            <a href="/parts/madison-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/cleaning/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hendersonville</a>,
+            <a href="/cleaning/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>, and
+            <a href="/cleaning/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Madison Hood Cleaning FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-black py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Steady year-round demand with high emergency motor replacements during summer when aging Gallatin Pike equipment fails under the heat. Don't wait for a breakdown to discover your system can't handle your cooking style.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
