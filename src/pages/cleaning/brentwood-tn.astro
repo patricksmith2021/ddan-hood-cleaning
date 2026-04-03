@@ -1,0 +1,363 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'My Brentwood landlord requires proof of proper grease containment. Can you help?',
+    a: 'Yes. We install high-capacity rooftop grease containment systems and provide detailed photo documentation after every service visit. Our reports are designed to satisfy both fire inspectors and the strictest property management companies in Maryland Farms and along Franklin Road.',
+  },
+  {
+    q: 'Are you certified to meet Brentwood Fire & Rescue NFPA 96 standards?',
+    a: 'Absolutely. Every cleaning we perform meets or exceeds NFPA 96 bare-metal standards. We provide timestamped before-and-after photos, written service reports, and a service tag on the hood — everything Brentwood Fire & Rescue inspectors require.',
+  },
+  {
+    q: 'Can you service my Brentwood restaurant after hours?',
+    a: 'Yes. Most Brentwood restaurants schedule cleaning between 10 PM and 6 AM to avoid any disruption to dinner or brunch service. We accommodate your schedule completely — your guests never know we were there.',
+  },
+  {
+    q: 'What happens if grease buildup causes a fire?',
+    a: "A grease fire in your kitchen exhaust system can destroy ductwork, damage your roof, injure staff, and shut down your business. Insurance claims are frequently denied when documented NFPA 96-compliant maintenance is absent. Regular professional hood cleaning is the most effective prevention — and in Brentwood, your landlord and insurer both require it.",
+  },
+];
+---
+
+<BaseLayout
+  title="Brentwood, TN Premium Hood Cleaning Service | DDAN"
+  description="Premium hood cleaning for Brentwood's Maryland Farms restaurants and upscale kitchens. Brentwood Fire & Rescue compliant. (615) 881-6968."
+>
+  <!-- Schema: LocalBusiness + Service + BreadcrumbList + FAQPage -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+        "name": business.name,
+        "telephone": business.phone,
+        "email": business.email,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": business.address.street,
+          "addressLocality": business.address.city,
+          "addressRegion": business.address.state,
+          "postalCode": business.address.zip,
+          "addressCountry": "US"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Brentwood, TN"
+        },
+        "url": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/brentwood-tn/`
+      },
+      {
+        "@type": "Service",
+        "name": "Commercial Kitchen Hood Cleaning",
+        "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+        "areaServed": { "@type": "City", "name": "Brentwood, TN" },
+        "description": "Premium NFPA 96 compliant hood cleaning for Brentwood's Maryland Farms corporate dining and upscale restaurant kitchens."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
+          { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/` },
+          { "@type": "ListItem", "position": 3, "name": "Brentwood, TN" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+        }))
+      }
+    ]
+  })} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-2.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/cleaning/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Brentwood, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Premium Hood Cleaning Service for <span class="text-[#FF5E15]">Brentwood, TN</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Maryland Farms corporate dining, upscale steakhouses, and Williamson County's most demanding property managers
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO — PREMIUM MARKET -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+            Brentwood's Premium Kitchens Demand Premium Service
+          </h2>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Brentwood sets the highest bar for commercial kitchen service in Middle Tennessee. Maryland Farms business park and the dining options along Franklin Road serve one of the region's most affluent communities, where restaurant operators invest heavily in quality and expect the same from their service providers. Premium steakhouses, upscale corporate catering facilities, and refined international cuisine dominate the local dining landscape.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The standards here aren't just about fire code compliance — Brentwood's corporate property managers demand pristine rooftops, flawless documentation, and zero-downtime service. A grease stain on a Maryland Farms roof or a hood cleaning crew that disrupts dinner service is simply unacceptable in this market. Operators here choose their service providers as carefully as they choose their ingredients.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Roofing across Brentwood's commercial properties is exclusively pristine white TPO and PVC single-ply membranes, heavily protected by property management companies that issue severe penalties for any grease contamination. These roofs are expensive to install and even more expensive to replace — and landlords hold tenants fully responsible for any exhaust-related damage.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+            DDAN provides the caliber of service that Brentwood's premium restaurants and corporate dining facilities require — meticulous cleaning, thorough documentation, and absolute discretion during after-hours service visits.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Premium commercial hood cleaning for Brentwood TN upscale restaurants - DDAN"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Brentwood Fire & Rescue Compliance Standards
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Brentwood Fire & Rescue is extremely strict and thorough — inspectors expect flawless <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance</a> and perfectly maintained fire suppression systems. There is no margin for error during a Brentwood inspection. Inspectors verify bare-metal cleanliness, proper access panel installation, functional fire suppression with current certification tags, and complete documented cleaning history.
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Brentwood Water Services enforces environmental standards that protect Williamson County's water infrastructure. Corporate landlords self-enforce aggressive containment mandates with massive tenant fines — often exceeding $5,000 per incident for grease damage to roofing membranes. Between the fire marshal, environmental regulations, and property management requirements, Brentwood restaurants face the most comprehensive compliance landscape in the Nashville metro area.
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child">Brentwood Fire & Rescue — rigorous NFPA 96 enforcement with zero tolerance</li>
+        <li class="check-item reveal-child">Brentwood Water Services — environmental compliance standards</li>
+        <li class="check-item reveal-child">Corporate landlord rooftop mandates with severe financial penalties</li>
+        <li class="check-item reveal-child">Timestamped before-and-after photo documentation for every visit</li>
+        <li class="check-item reveal-child">Service reports formatted for property management submission</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COMMON PROBLEMS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust System Challenges in Brentwood
+      </h2>
+      <div class="space-y-6">
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-2">Property Management Compliance Pressure</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            The biggest issue in Brentwood is property management compliance. Maryland Farms landlords have zero tolerance for any grease on their expensive TPO roofs — they require high-end rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment</a> AND rigorous photo documentation after every cleaning. Some property managers conduct quarterly roof inspections specifically looking for exhaust-related contamination. Tenants who fail to maintain proper containment face lease penalties, remediation charges, and in extreme cases, lease termination. DDAN installs commercial-grade containment systems and provides the landlord-ready documentation these properties demand.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-2">Zero-Downtime Expectations for Premium Operations</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            Upscale kitchens running premium equipment expect no downtime. A single exhaust fan failure during a packed Friday dinner service can mean thousands in lost revenue and reputation damage that takes months to recover from. These operations need preventative maintenance, not emergency repairs. DDAN identifies wear patterns during scheduled cleaning visits and flags components approaching failure so replacements happen on your timeline — not during the Saturday night rush.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl reveal-child">
+        <p class="text-[#FF5E15] font-heading font-semibold text-lg mb-3">Real Job — Brentwood, TN</p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+          A premium steakhouse in Maryland Farms was threatened with a severe lease penalty because their aging exhaust fan was beginning to stain the building's new white TPO roof. DDAN installed a custom, heavy-duty rooftop grease containment system, retrofitted a new NFPA-compliant hinge kit, and instituted a rigorous preventative maintenance schedule, entirely resolving the issue with the property manager.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-STEP PROCESS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Our Cleaning Process
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-10 reveal-child">
+        Three steps to a safe, compliant, fully documented kitchen exhaust system.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {[
+          { num: '01', title: 'Inspection & Quote', desc: 'We assess your entire exhaust system — hood, ducts, fans, filters, and containment. We evaluate rooftop conditions and property management requirements specific to Brentwood. Free estimate.' },
+          { num: '02', title: 'Overnight Deep Clean', desc: 'Our crew works between 10 PM and 6 AM — your dinner and brunch guests never know we were there. Every component cleaned to bare metal per NFPA 96. Meticulous care around premium kitchen equipment.' },
+          { num: '03', title: 'Documentation & Report', desc: 'Before-and-after photos, written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Formatted for Brentwood Fire & Rescue and your property manager.' },
+        ].map((card) => (
+          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Schedule Your Cleaning
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE DDAN — BRENTWOOD SPECIFIC -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Why Brentwood Restaurants Choose DDAN
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-10 reveal-child">
+        Brentwood's premium dining establishments trust DDAN because we match their standards for quality, documentation, and discretion.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { icon: 'star', label: 'Premium Service Standard', desc: 'We match the caliber of service that Brentwood operators invest in their own kitchens — meticulous, thorough, and documented.' },
+          { icon: 'clock', label: 'After-Hours Scheduling', desc: 'We work 10 PM to 6 AM so your dinner and brunch service is never disrupted. Your guests never see our crew.' },
+          { icon: 'camera', label: 'Landlord-Ready Reports', desc: 'Timestamped photos and written reports formatted for Maryland Farms property managers, fire inspectors, and insurance requirements.' },
+          { icon: 'shield', label: 'NFPA 96 Compliant', desc: 'Every cleaning exceeds NFPA 96 bare-metal standards. Full compliance with Brentwood Fire & Rescue enforcement.' },
+          { icon: 'roof', label: 'TPO Roof Protection', desc: 'High-capacity grease containment systems protect expensive white membrane roofs and prevent costly landlord penalties.' },
+          { icon: 'bolt', label: 'Preventative Maintenance', desc: 'We identify failing components during cleaning visits so replacements happen on schedule — not during your busiest dinner service.' },
+        ].map((card) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+              {card.icon === 'star' && <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>}
+              {card.icon === 'clock' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>}
+              {card.icon === 'camera' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>}
+              {card.icon === 'shield' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
+              {card.icon === 'roof' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>}
+              {card.icon === 'bolt' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>}
+            </div>
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.label}</h3>
+            <p class="text-[#D4D4D4] text-sm">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA LINKS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Brentwood Service Area & Nearby Cities
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Consistent demand year-round. Brentwood's high-end restaurants rely on strict preventative maintenance to avoid any possibility of downtime during lucrative dinner services.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        <div class="reveal-child">
+          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Other Services in Brentwood</p>
+          <ul class="space-y-2">
+            <li><a href="/repair/brentwood-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hood Repair — Brentwood, TN</a></li>
+            <li><a href="/parts/brentwood-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Exhaust Fan Parts — Brentwood, TN</a></li>
+          </ul>
+        </div>
+        <div class="reveal-child">
+          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Nearby Cities</p>
+          <ul class="space-y-2">
+            <li><a href="/cleaning/nashville-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Nashville, TN</a></li>
+            <li><a href="/cleaning/spring-hill-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Spring Hill, TN</a></li>
+          </ul>
+        </div>
+        <div class="reveal-child">
+          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Service Hub</p>
+          <ul class="space-y-2">
+            <li><a href="/cleaning/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">All Hood Cleaning Service Areas</a></li>
+            <li><a href="/kitchen-hood-cleaning-services/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning Services Overview</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Brentwood Hood Cleaning FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-black rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUCK CTA -->
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
