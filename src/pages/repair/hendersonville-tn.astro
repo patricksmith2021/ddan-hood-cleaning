@@ -1,0 +1,357 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Does my Hendersonville restaurant need a rooftop grease containment system?',
+    a: `Yes. NFPA 96 requires it, and the Hendersonville Utility District heavily monitors grease runoff due to Old Hickory Lake. Violations carry environmental fines. We install high-capacity containment and verify it during every repair visit. Learn more about <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white">grease containment systems</a>.`,
+  },
+  {
+    q: 'Why is my upblast exhaust fan rattling so loudly?',
+    a: `Loud rattling near the lake usually means grease and humidity have corroded the bearings or thrown the impeller off balance. Continued operation risks catastrophic motor failure. Call us at ${business.phone} for same-day diagnosis.`,
+  },
+  {
+    q: 'Are your technicians familiar with Hendersonville Fire Department codes?',
+    a: 'Yes. We know exactly what Hendersonville inspectors look for — bare-metal cleanliness, proper hinge kits, access panels, and documented maintenance history. Every repair visit includes photo documentation you can present during your next inspection.',
+  },
+  {
+    q: 'Can you repair a fan that\'s been damaged by a storm?',
+    a: `Yes. Severe storms can damage rooftop fan housings, bend impeller blades, tear wiring, and rip hinge kits loose. Hendersonville's lakeside location makes storm damage a real concern — high winds off Old Hickory Lake hit rooftop equipment with more force than sheltered inland sites. We provide emergency response to assess and repair storm-damaged exhaust equipment. Call ${business.phone} immediately after any storm event.`,
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Hendersonville",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Hendersonville",
+        "addressRegion": "TN"
+      },
+      "description": "24/7 emergency exhaust fan motor, belt, and bearing repair for Hendersonville commercial kitchens. Same-day parts for Indian Lake, Gallatin Road, and all of Sumner County."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Hendersonville, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/hendersonville-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Expert Fan Repair for Hendersonville Restaurants | DDAN"
+  description="Lakeside humidity destroys exhaust fan housings in Hendersonville. 24/7 motor and belt repair near Old Hickory Lake. Same-day parts. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-4.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Hendersonville, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Expert Exhaust Fan Repair for <span class="text-[#FF5E15]">Hendersonville Restaurants</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Old Hickory Lake humidity accelerates fan corrosion. We repair and replace before your system fails.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Hendersonville's Lakeside Restaurants Face Accelerated Exhaust Fan Failure
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Hendersonville's Indian Lake Boulevard and Gallatin Road form Sumner County's busiest restaurant corridors. Dozens of commercial kitchens line these two arterials — from national fast-food chains and pizza franchises to independent American casual dining and Mexican restaurants generating heavy frying volume all day long. Add in the lakeside entertainment complexes near Old Hickory Lake, where seasonal dining surges peak in late spring and summer as boating and tourism traffic floods the area, and you have a city where exhaust systems run hard nearly year-round with significant seasonal spikes that push already-stressed equipment past its limits.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          What makes Hendersonville fundamentally different from other Middle Tennessee cities for exhaust fan repair is the lakeside humidity. Old Hickory Lake creates a persistent moisture blanket that hangs over the entire city, and that moisture interacts with airborne kitchen grease in ways that accelerate equipment degradation dramatically. Rooftop fan housings, hinges, bearings, and mounting hardware rust and corrode at rates far faster than identical equipment in inland cities like Murfreesboro or Franklin. A motor that lasts 8 years in Nashville might fail in 5 near Old Hickory Lake. Bearing grease breaks down faster in humid environments, belt rubber degrades more quickly, and the steel fan housings themselves develop rust that weakens structural integrity and makes routine maintenance dangerous.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The combination of lakeside humidity and heavy airborne grease creates a corrosion cycle unique to Hendersonville. Grease deposits on rooftop fan components attract and trap moisture, which accelerates oxidation. That oxidation creates pitted surfaces that trap more grease, which traps more moisture — and the cycle compounds. Bolts that should unscrew by hand become welded in place by corrosion. Hinge kits that should swing freely become frozen shut, making fan service impossible without cutting tools. DDAN technicians understand this cycle because we service Hendersonville kitchens regularly and see the lake's effects on every rooftop visit.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Hendersonville Medical Center and the surrounding medical office complexes add institutional kitchen demand to the mix. Older Gallatin Road properties feature built-up and standing-seam metal roofing that complicates fan mounting and curb work, while the newer Indian Lake developments use TPO and EPDM membranes that are vulnerable to grease damage from failing containment systems. Every rooftop in Hendersonville presents its own challenges, and every one of them is affected by the lake.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Exhaust fan failures are the most common emergency call we receive from Hendersonville kitchens. Lakeside corrosion makes every component fail sooner:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Single-phase, 3-phase, and ECM motors. Lake humidity accelerates winding degradation — we stock common sizes for same-day swap.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Moisture-degraded, cracked, and snapped belts replaced on-site. Proper tensioning prevents the premature re-failure common in humid environments.' },
+          { title: 'Impeller & Fan Wheel Service', desc: 'Grease-and-rust-caked impellers cleaned, rebalanced, or replaced. Corrosion pitting throws balance off faster near the lake.' },
+          { title: 'Bearing Replacement', desc: 'Shaft bearings, pillow blocks, and sealed units. Humidity breaks down bearing grease and accelerates seizure.' },
+          { title: 'VFD & Speed Control Repair', desc: 'Variable frequency drives that control fan speed. Moisture intrusion causes erratic operation and motor damage.' },
+          { title: 'Full Fan Replacement', desc: 'When corrosion damage exceeds repair value, we install new units sized and configured for your system.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork damage, disconnections, and corroded seams</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for fans frozen shut by lakeside corrosion</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — our most-requested Hendersonville service</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Died? Kitchen Shut Down? We're On It.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for Hendersonville</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day motor and belt replacement. We carry common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN HENDERSONVILLE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in Hendersonville
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Lakeside humidity combined with heavy airborne grease accelerates the rusting and degradation of rooftop fan housings and hinges at rates you won't see in cities even 20 miles away from the water. The combination creates corrosion that welds bolts in place and makes routine maintenance dangerous. Fan units that should swing open on their <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> for belt changes and motor access become frozen shut — forcing technicians to use cutting tools just to open the housing. This turns a 30-minute belt replacement into a multi-hour ordeal and dramatically increases both repair cost and system downtime.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Older restaurants along Gallatin Road have outdated, undersized fan motors that struggle to pull heavy grease-laden air during peak summer cooking volume. These motors were sized for the original kitchen configuration, but years of menu changes and equipment additions have increased the exhaust load beyond what the motors can handle. They overheat and fail — often on the busiest weekend of the season when the dining room is packed and the kitchen is running at maximum capacity. Replacing these with properly sized, heavy-duty motors rated for actual cooking loads eliminates the recurring failure cycle.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Lakeside moisture means grease containment pads on Hendersonville rooftops saturate faster than at inland locations. When containment systems fail — whether from saturated pads, cracked housings, or degraded seals — grease hits the roof surface and creates code violations that compound the original equipment failure. A single fan bearing failure can cascade into a containment violation, a roof damage claim, and an environmental citation from the Hendersonville Utility District. We address the entire chain during every repair visit, not just the component that triggered the call.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Hendersonville Exhaust Repair Compliance — Fire Marshal & Utility District
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Hendersonville Fire Department Fire Marshal's Office enforces strict compliance during routine annual inspections. They check that exhaust fans are operational and pulling adequate airflow, that hinge kits and access panels are present and functional, and that all fire suppression system components are intact. A non-functional fan or a frozen hinge kit is a code violation — and Hendersonville inspectors don't issue warnings. They issue correction orders with deadlines, and failure to comply can result in operational restrictions.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Hendersonville Utility District adds a second layer of enforcement that's unique to lakeside communities. Because Old Hickory Lake serves as a drinking water source and recreational area, the Utility District is highly protective of water quality. Grease runoff from failing rooftop containment systems isn't just a property maintenance issue in Hendersonville — it's an environmental violation that carries significant fines. When a fan seal fails or a containment pad saturates, grease migrates off the roof and into storm drainage that feeds directly into the lake watershed. We document containment condition during every repair visit and replace degraded components before they trigger environmental citations.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a> to understand the full scope of what inspectors evaluate.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "A popular lakeside restaurant in Hendersonville was experiencing severe exhaust fan vibration just as the summer boating season kicked off. DDAN technicians arrived same-day, discovered a heavily grease-laden impeller and a failing motor bearing, scraped the system clean, and installed a heavy-duty replacement motor so the kitchen didn't miss the weekend rush."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in Hendersonville kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Hendersonville Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair across all of Hendersonville and Sumner County. Whether your restaurant is on Indian Lake Boulevard, Gallatin Road, Main Street, or near the lakeside entertainment district — we respond to emergency fan failures day and night. Our technicians carry common motors, belts, and bearings on every truck so we can complete most repairs in a single visit without waiting for parts.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Hendersonville:</span>
+            <a href="/cleaning/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/parts/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a> and
+            <a href="/repair/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Hendersonville Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Major demand spikes in late spring and summer as lakeside dining peaks. Don't wait for the boating season to test your system — call now and let us inspect, repair, or upgrade your exhaust fans before the rush hits.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
