@@ -1,9 +1,0 @@
----
-import LocationPage from '../../components/LocationPage.astro';
-import locations from '../../data/locations.json';
-
-const location = locations.find((l: any) => l.slug === 'lebanon-tn');
-if (!location) throw new Error('Location not found');
----
-
-<LocationPage {...location} />
