@@ -18,18 +18,18 @@ const services = [
 ];
 
 const areas = [
-  { city: 'Mt. Juliet, TN', zips: '37122, 37121' },
-  { city: 'Lebanon, TN', zips: '37087, 37090' },
-  { city: 'Smyrna, TN', zips: '37167' },
-  { city: 'Gallatin, TN', zips: '37066' },
-  { city: 'La Vergne, TN', zips: '37086' },
-  { city: 'Goodlettsville, TN', zips: '37072' },
-  { city: 'Hendersonville, TN', zips: '37075, 37077' },
-  { city: 'Nashville, TN', zips: '37201-37221, 37228-37250' },
-  { city: 'Brentwood, TN', zips: '37027, 37024' },
-  { city: 'Franklin, TN', zips: '37064, 37067, 37069, 37065, 37068, 37027' },
-  { city: 'Murfreesboro, TN', zips: '37127, 37128, 37129, 37130' },
-  { city: 'Bellevue, TN', zips: '37221, 37209, 37143' },
+  { city: 'Mt. Juliet, TN', zips: '37122, 37121', slug: 'mt-juliet-tn' },
+  { city: 'Lebanon, TN', zips: '37087, 37090', slug: 'lebanon-tn' },
+  { city: 'Smyrna, TN', zips: '37167', slug: 'smyrna-tn' },
+  { city: 'Gallatin, TN', zips: '37066', slug: 'gallatin-tn' },
+  { city: 'La Vergne, TN', zips: '37086', slug: 'la-vergne-tn' },
+  { city: 'Goodlettsville, TN', zips: '37072', slug: 'goodlettsville-tn' },
+  { city: 'Hendersonville, TN', zips: '37075, 37077', slug: 'hendersonville-tn' },
+  { city: 'Nashville, TN', zips: '37201-37221, 37228-37250', slug: 'nashville-tn' },
+  { city: 'Brentwood, TN', zips: '37027, 37024', slug: 'brentwood-tn' },
+  { city: 'Franklin, TN', zips: '37064, 37067, 37069, 37065, 37068, 37027', slug: 'franklin-tn' },
+  { city: 'Murfreesboro, TN', zips: '37127, 37128, 37129, 37130', slug: 'murfreesboro-tn' },
+  { city: 'Bellevue, TN', zips: '37221, 37209, 37143', slug: 'bellevue-tn' },
 ];
 
 const faqs = [
@@ -350,17 +350,17 @@ const mapCities = [
     <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-8 reveal-child">DDAN Hood Cleaning and Repair is dedicated to keeping commercial kitchens safe and compliant across <a href="/locations/" class="text-[#FF5E15] hover:underline">Middle Tennessee</a>. We proudly serve businesses in:</p>
     <div class="flex flex-wrap gap-5">
       {areas.map((area) => (
-        <div class="w-full sm:w-[31%] border border-[#FF5E15] rounded-2xl p-5 hover:border-white transition-all duration-300 reveal-child">
+        <a href={`/locations/${area.slug}/`} class="block w-full sm:w-[31%] border border-[#FF5E15] rounded-2xl p-5 hover:border-white transition-all duration-300 reveal-child group">
           <div class="flex items-start gap-3">
             <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#FF5E15] rounded-full">
               <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
             </div>
             <div>
-              <p class="text-white font-heading font-medium">{area.city}</p>
+              <p class="text-white font-heading font-medium group-hover:text-[#FF5E15] transition-all duration-300">{area.city}</p>
               <p class="text-[#DDDDDD] text-sm">({area.zips})</p>
             </div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
     <p class="text-[#DDDDDD] text-sm mt-6 reveal-child">And surrounding communities throughout Middle Tennessee! Located elsewhere in Tennessee? <strong class="text-white">Contact us</strong> to inquire about custom scheduling or contract services in your area.</p>
