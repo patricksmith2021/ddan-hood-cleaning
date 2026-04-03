@@ -1,0 +1,344 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Why are Springfield\'s historic square restaurants so challenging for exhaust repair?',
+    a: 'Springfield\'s historic square contains 19th-century buildings that were never designed for modern commercial kitchen exhaust systems. Ductwork is hidden behind century-old walls, curbs are non-standard dimensions, and wiring has been improvised over decades of renovations. Bringing these systems into NFPA 96 compliance requires experience with non-standard configurations — not just swapping parts from a catalog.',
+  },
+  {
+    q: 'How quickly can DDAN respond to an emergency fan failure in Springfield?',
+    a: `Springfield is within our Middle Tennessee service area. We provide 24/7 emergency dispatch and carry common fan motors, belts, and bearings on every truck. Most Springfield emergency calls receive same-day response. Call ${business.phone} any time — we understand that Robertson County kitchens can't afford downtime.`,
+  },
+  {
+    q: 'Do you service institutional kitchens like NorthCrest Medical Center?',
+    a: 'Yes. Institutional kitchens like NorthCrest Medical Center run heavy-duty exhaust systems with higher CFM requirements and more complex ductwork than typical restaurants. We service all commercial kitchen exhaust systems regardless of size or complexity, including hospitals, schools, and manufacturing cafeterias throughout Robertson County.',
+  },
+  {
+    q: 'Can you work on exhaust systems in buildings over 100 years old?',
+    a: 'Yes. Springfield\'s historic square has some of the oldest commercial buildings in Robertson County. Our technicians are experienced with non-standard ductwork routing, century-old ceiling cavities, and improvised mounting configurations. We bring these systems to modern NFPA 96 standards without damaging the historic structure.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Springfield",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Springfield",
+        "addressRegion": "TN"
+      },
+      "description": "Exhaust fan repair for Springfield's historic square restaurants and Robertson County kitchens. 19th-century building expertise. 24/7 emergency service."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Springfield, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/springfield-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Springfield Historic Kitchen Fan Repair | DDAN"
+  description="19th-century buildings on Springfield's square need modern exhaust repair. Robertson County compliant. 24/7 emergency service. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-1.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Springfield, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Springfield Kitchen Exhaust Fan Repair — <span class="text-[#FF5E15]">Robertson County</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Retrofitting modern exhaust repair into 19th-century buildings on the historic Springfield square
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Springfield's Historic Square Creates Unique Exhaust Repair Challenges
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Springfield's historic square presents one of Robertson County's most complex exhaust repair environments. Nineteenth-century buildings house modern restaurants with ductwork hidden behind century-old walls, routed through ceiling cavities that were never designed for commercial kitchen ventilation. Non-standard curb dimensions, improvised wiring from decades of renovations, and structural limitations that prevent standard mounting configurations make every repair job on the square a custom engineering challenge. These aren't problems you solve by looking up parts in a catalog — they require technicians who understand how modern NFPA 96 requirements intersect with buildings that predate commercial kitchen ventilation by a hundred years.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Beyond the historic square, NorthCrest Medical Center adds institutional kitchen demand with heavy-duty exhaust systems running higher CFM than typical restaurants. Expanding manufacturing hubs around Springfield drive concentrated lunch traffic to fast-food corridors, where fans run at peak capacity during rush periods and wear through belts rapidly. Older upblast fans throughout Robertson County frequently lack hinge kits, causing roof damage during servicing — technicians have to unbolt the entire fan unit to access components, risking damage to roofing materials and electrical connections every time maintenance is performed.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The combination of historic building complexity and modern fast-food corridor volume means Springfield needs exhaust repair technicians who can handle both ends of the spectrum — delicate retrofit work in century-old structures and rapid emergency belt replacements on highway-corridor franchise fans. DDAN provides both, with the documentation and compliance expertise that satisfies the Springfield Fire Department regardless of building age or system complexity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Springfield's historic buildings and fast-food corridors create distinct exhaust fan failures. Here's what we fix:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Century-old buildings with non-standard mounting require custom motor fitting. Fast-food corridor motors burn out from continuous peak-load operation.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Highway corridor fast-food volume shreds OEM belts rapidly. Commercial-grade notched V-belts with proper tensioning handle Springfield\'s demanding pace.' },
+          { title: 'Hinge Kit Installation', desc: 'Older upblast fans bolted to non-standard curbs — no service access without risking roof and wiring damage. Hinge kits solve the problem permanently.' },
+          { title: 'Access Panel Installation', desc: 'Historic square buildings have concealed ductwork with no access points. Fire-rated access panels enable NFPA 96 compliant cleaning and inspection.' },
+          { title: 'Custom Curb Adapters', desc: 'Non-standard curb dimensions on historic buildings prevent direct fan replacement. Custom adapters bridge the gap between old infrastructure and modern equipment.' },
+          { title: 'Full Fan Replacement', desc: 'When century-old mounting configurations can\'t support modern repairs economically, we install properly rated replacements with custom curb solutions.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork rerouting and repair in century-old ceiling cavities</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for fans on non-standard curbs</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — emergency service for Springfield's fast-food corridors</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Died? Kitchen Shut Down? We're On It.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for Springfield</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day motor and belt replacement. We carry common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in Springfield
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Retrofitting NFPA 96 compliance into 19th-century buildings is Springfield's defining exhaust repair challenge. Concealed ductwork hidden behind century-old walls can't be accessed for cleaning without access panels — and most historic square restaurants don't have them. Grease accumulates in hidden duct sections, restricting airflow and forcing the fan to work harder. Non-standard curbs from a century of renovations mean replacement fans don't fit without custom adapters. Improvised wiring from decades of tenant changes creates safety hazards during any service work. DDAN installs fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> and custom solutions that bring these historic systems into modern compliance without altering the building's structure.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Missing hinge kits on older fans cause cumulative roof damage every time a technician services the unit. Without a hinge, the fan must be unbolted entirely from the curb — risking damage to roofing membrane, flashing, and electrical connections. Over multiple service visits, this repeated removal creates gaps that allow water infiltration and roof deterioration. Springfield's fast-food corridor fans wear through belts rapidly from high-volume highway traffic. DDAN provides emergency <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit installation</a> and <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> across all of Robertson County.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Springfield Exhaust Repair Compliance — Robertson County Fire Department
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Springfield Fire Department enforces NFPA 96 compliance with particular scrutiny on the historic square, where century-old buildings housing modern restaurants create elevated fire risk. Concealed ductwork that can't be inspected or cleaned is a red flag during any fire inspection. A non-functional exhaust fan in a building where grease-laden ductwork runs through century-old wall cavities is exactly the kind of hazard that triggers immediate remediation orders.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Every DDAN repair in Springfield includes comprehensive photo documentation and a detailed service report. When we install access panels in concealed ductwork, we document each panel location for future inspection reference. When we retrofit hinge kits to non-standard curbs, we document the configuration so future service crews can work efficiently. This documentation trail is particularly valuable for historic square restaurants where inspection complexity is higher than standard commercial buildings. Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "A popular restaurant operating out of a 100-year-old building near the Springfield square failed a fire inspection due to inaccessible ductwork. DDAN installed custom fire-rated access panels, completed a bare-metal deep clean, and brought the entire system into NFPA 96 compliance without altering the historic structure."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in Springfield kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Springfield Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair across all of Springfield and Robertson County, including the historic square, NorthCrest Medical Center area, fast-food highway corridors, and surrounding industrial parks. Whether your restaurant is in a century-old building or a modern commercial development, we respond to emergency fan failures day and night with common parts on every truck.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>,
+            <a href="/repair/white-house-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">White House</a>, and
+            <a href="/repair/portland-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Portland</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Springfield Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Springfield's historic buildings and highway corridors both demand exhaust systems that work. Every week you delay, grease builds in concealed ductwork and belts stretch past adjustment. Call now.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
