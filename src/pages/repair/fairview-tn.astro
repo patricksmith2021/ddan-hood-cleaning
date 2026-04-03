@@ -1,0 +1,331 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Why do Fairview restaurant exhaust fans fail so often along Highway 100?',
+    a: 'Highway 100 fast-food and casual dining kitchens run fryers continuously to serve high-traffic commuter and residential demand. Continuous fryer operation produces heavy grease loads that coat pulleys, stretch belts, and overwhelm factory-installed components not rated for sustained commercial cooking. Summer rooftop temperatures compound the problem by pushing already-stressed motors past their thermal limits.',
+  },
+  {
+    q: 'How quickly can DDAN respond to an emergency fan failure in Fairview?',
+    a: `Fairview is within our standard Middle Tennessee service area. We provide 24/7 emergency dispatch and carry common fan motors, belts, and bearings on every truck. Most Fairview emergency calls receive same-day response. Call ${business.phone} any time — we understand that a dead fan during dinner service means lost revenue and potential code violations.`,
+  },
+  {
+    q: 'Can you protect new TPO roofs from grease damage during fan repairs?',
+    a: 'Yes. Many of Fairview\'s newer commercial buildings have pristine TPO roof membranes that are extremely susceptible to grease staining and degradation. During every fan repair, we inspect and service grease containment components to prevent runoff from damaging the roof surface. We also install and replace grease containment systems to protect new roofs long-term.',
+  },
+  {
+    q: 'How far do you travel for emergency repairs?',
+    a: 'Fairview is within our standard Middle Tennessee service area. We provide 24/7 emergency dispatch across all 29 cities we serve, including the Highway 100 corridor. No travel surcharges for any location in our service area.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Fairview",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Fairview, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/fairview-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Fairview Highway 100 Restaurant Fan Repair | DDAN"
+  description="Highway 100 fast-food fans run nonstop in Fairview. Emergency exhaust fan repair for Williamson County kitchens. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-4.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Fairview, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Fairview Restaurant Exhaust Fan Repair — <span class="text-[#FF5E15]">Highway 100</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Highway 100's growing restaurant corridor needs reliable exhaust repair — we deliver.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Fairview's Highway 100 Corridor Is Burning Through Exhaust Fans
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Fairview's Highway 100 corridor is experiencing rapid growth with new restaurants serving expanding residential communities west of Nashville. Bowie Nature Park area traffic adds seasonal dining volume that spikes on weekends and holidays. Fast-food fryers run constantly along this stretch, stretching factory belts and overwhelming cheap grease catchers that builders installed to pass initial inspection. The combination of continuous fryer operation and summer rooftop heat creates the perfect conditions for premature fan failure.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          New TPO roofs on Fairview's newer commercial builds need protection from grease runoff. When fan bearings fail or housings vibrate loose, grease escapes containment systems and pools on pristine white roof membranes — voiding manufacturer warranties and triggering landlord penalties. Property managers in Fairview's growing commercial developments enforce strict roof maintenance clauses. DDAN provides emergency motor and belt replacement, grease containment service, and commercial-grade upgrades that protect both your kitchen operation and your roof investment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Fairview's growing restaurant corridor generates steady demand for exhaust fan repair:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Summer rooftop heat causes thermal failure in motors already stressed by continuous fryer operation. We upgrade to commercial-grade units rated for sustained high-heat environments.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Continuous highway-traffic fryer operation shreds OEM belts. Heavy-duty notched V-belts with proper tensioning eliminate mid-shift failures.' },
+          { title: 'Impeller & Fan Wheel Service', desc: 'Fast-food grease coats impeller blades unevenly, creating vibration that destroys bearings and loosens housings. We clean, rebalance, or replace.' },
+          { title: 'Bearing Replacement', desc: 'Heat-stressed bearings grind and seize without warning. Sealed high-temperature units extend service life dramatically on Highway 100 rooftops.' },
+          { title: 'VFD & Speed Control Repair', desc: 'Variable frequency drives optimize fan efficiency. Power surges and voltage fluctuations along developing corridors can damage VFD electronics.' },
+          { title: 'Full Fan Replacement', desc: 'When factory-installed equipment is beyond economical repair, we install properly sized commercial replacements matched to your kitchen\'s actual CFM needs.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork damage, disconnections, and failed seams</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for fans without proper service access</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — our most-requested Fairview service</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Died? Kitchen Shut Down? We're On It.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for Fairview</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day motor and belt replacement. We carry common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN FAIRVIEW -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in Fairview
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Continuous highway-traffic fryer operation is the primary cause of exhaust fan failure along Fairview's Highway 100 corridor. Fast-food and casual dining kitchens run fryers at maximum output for extended periods to serve steady commuter and residential traffic. This sustained grease load coats pulleys, reducing the friction that keeps belts tracking properly. OEM belts — the factory-installed components that builders put in to pass initial inspection — shred within 12 to 18 months under these conditions. DDAN provides emergency <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> with commercial-grade replacements rated for continuous high-volume operation.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Summer heat on Fairview's rooftops causes motor thermal failure that catches restaurant owners off guard. Ambient rooftop temperatures in Middle Tennessee regularly exceed 140 degrees Fahrenheit in direct sun. Motors already running hot from continuous fryer exhaust can't dissipate enough heat to stay within safe operating temperatures. The motor overheats, windings degrade, and the unit seizes — usually on the hottest day of the year when your kitchen needs ventilation most.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Fairview Fire Code Compliance
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Fairview Fire Department enforces NFPA 96 standards for all commercial kitchen exhaust systems. As new restaurants open along Highway 100, inspectors are paying close attention to both new installations and existing systems in older strip centers. Non-functional fans, degraded belts, and missing access panels trigger citations that can delay openings or shut down operating kitchens. Every DDAN repair includes photo documentation and a service report to demonstrate compliance. Read our full guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "On a busy Friday evening, a high-volume fast-food franchise on Highway 100 had a factory-installed fan belt snap, filling the kitchen with smoke and threatening a shutdown. DDAN arrived quickly, installed a commercial-grade belt, and calibrated the motor tension — the kitchen was back to full operation before the dinner rush peaked."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in Fairview kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Fairview Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair across all of Fairview and the surrounding Highway 100 corridor in Williamson County. Whether your restaurant is near Bowie Nature Park, along the main commercial strip, or in a newer development, we respond to emergency fan failures day and night with common parts on every truck.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Fairview:</span>
+            <a href="/cleaning/fairview-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/parts/fairview-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a> and
+            <a href="/repair/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Franklin</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Fairview Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Fairview's Highway 100 restaurants can't afford to lose dinner service to a dead fan. Summer heat pushes aging motors past failure every year. Call now before yours is next.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
