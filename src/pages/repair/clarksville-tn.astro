@@ -1,0 +1,357 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'How often should Clarksville fast-food restaurants have their hoods cleaned?',
+    a: 'NFPA 96 Table 11.4 sets the schedule based on cooking volume and type. High-volume fast-food operations — which dominate the Wilma Rudolph Boulevard corridor — typically require monthly hood cleaning due to continuous deep-frying and charbroiling. Moderate-volume restaurants need quarterly service. The key factor is grease accumulation rate, not calendar time. Clarksville\'s fast-casual and quick-service restaurants serving military and college demographics tend to operate at high volume with limited downtime, placing them firmly in the monthly category.',
+  },
+  {
+    q: 'Do you provide emergency exhaust fan repair near Fort Campbell?',
+    a: `Yes. DDAN provides 24/7 emergency exhaust fan repair throughout Clarksville and the Fort Campbell area. The restaurants serving the Fort Campbell community — both on Wilma Rudolph Boulevard and along the US-41A corridor toward the gates — experience concentrated peak-hour demand that pushes exhaust systems hard. When a fan dies during a dinner rush serving hundreds of soldiers and their families, every minute counts. Call ${business.phone} and we dispatch immediately.`,
+  },
+  {
+    q: 'Are rooftop grease pads required by Clarksville code?',
+    a: 'Clarksville Fire Rescue enforces NFPA 96 compliance, which requires proper grease containment for all rooftop exhaust fan installations. While the specific requirement for grease pads versus grease boxes depends on your fan configuration and roof type, the practical reality is that any rooftop exhaust fan without adequate grease containment will fail inspection. Clarksville Gas & Water also enforces FOG (Fats, Oils, and Grease) discharge regulations that make rooftop grease containment effectively mandatory for any commercial kitchen.',
+  },
+  {
+    q: 'What causes fan belts to snap?',
+    a: 'Fan belts snap when they\'re stretched beyond their tension limit, dried out from heat exposure, or misaligned on the pulleys. In Clarksville\'s high-volume franchise corridors, the constant start-stop cycling during shift-change rushes accelerates belt wear dramatically. Belts also degrade faster when grease from the exhaust stream coats the pulleys, reducing friction and causing slippage that generates heat. We recommend inspecting belts quarterly and replacing them preventatively — a $30 belt replacement on schedule prevents a $500 emergency call at midnight.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Clarksville",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Clarksville",
+        "addressRegion": "TN"
+      },
+      "description": "24/7 emergency exhaust fan motor, belt, and bearing repair for Clarksville commercial kitchens near Fort Campbell and Austin Peay State University."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Clarksville, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/clarksville-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Clarksville Commercial Kitchen Fan Repair | 24/7 | DDAN"
+  description="Emergency exhaust fan repair for Clarksville restaurants near Fort Campbell and APSU. Wilma Rudolph Blvd corridor. Same-day belts. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-1.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Clarksville, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Clarksville Restaurant Exhaust Fan Repair — <span class="text-[#FF5E15]">24/7 Emergency</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Fort Campbell and APSU drive relentless dining volume. We keep Clarksville's exhaust fans running.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Clarksville's Restaurant Corridor Demands Dedicated Exhaust Fan Repair
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Clarksville is Tennessee's fifth-largest city, and its commercial kitchen infrastructure is powered by two massive demand engines: Fort Campbell — one of the largest military installations in the United States — and Austin Peay State University. Together, they create a dining ecosystem unlike any other market in the state. Fort Campbell's tens of thousands of active-duty soldiers, civilian employees, and military families drive enormous off-base restaurant demand concentrated along the Wilma Rudolph Boulevard corridor and the US-41A approach to the installation gates. Austin Peay's growing student body adds thousands more diners who eat out multiple times daily. The result is a dense strip of fast-casual chains, Southern comfort restaurants, quick-service operations, and family dining establishments all running their exhaust systems at maximum capacity from early morning through late night.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Wilma Rudolph Boulevard corridor is ground zero for exhaust fan failures in Clarksville. This commercial strip packs dozens of high-volume restaurants into a few miles of frontage, many operating in strip-center outparcels built in the 1990s and 2000s. The exhaust systems in these buildings were sized for the original tenants — often moderate-volume operations — but current operators push them far harder. A space originally built for a casual dining concept now runs a high-volume fried chicken franchise pushing double the grease output the exhaust system was designed to handle. Fan motors overheat, belts snap under the increased load, and bearings grind out from the vibration caused by grease-caked impellers. This mismatch between building infrastructure and current operational demand is the defining characteristic of Clarksville exhaust fan repair work.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The commercial roofing on Clarksville's restaurant corridors adds another layer of complexity. Older strip-center buildings along Wilma Rudolph use metal roofing systems where fan curb penetrations are prone to flashing failures, especially when fans vibrate from worn bearings. Newer outparcels and stand-alone pads use standard EPDM or TPO membrane roofing that's vulnerable to grease damage from failing containment systems. In both cases, a failing exhaust fan doesn't just threaten your kitchen operation — it threatens the building envelope. DDAN understands both roofing types and ensures every fan repair includes inspection of the curb seal, flashing, and grease containment to prevent collateral damage.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Military deployment returns and APSU move-in weeks create the most intense spikes in Clarksville's dining volume. When a full brigade returns from deployment, off-base restaurants see immediate, sustained surges that last weeks. APSU fall move-in floods the campus-adjacent corridors with students and families. These spikes push already-stressed exhaust fans past their failure point — and they always seem to hit on the busiest day of the surge. DDAN provides 24/7 emergency response because Clarksville's demand doesn't follow a predictable schedule.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Exhaust fan failures drive the majority of emergency repair calls from Clarksville's restaurant corridor. Here's what we fix:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Single-phase and 3-phase motors matched to OEM specs. We stock common frame sizes for same-day Clarksville service.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Worn, cracked, and snapped belts replaced on-site. Proper alignment and tensioning to prevent premature re-failure.' },
+          { title: 'Impeller & Fan Wheel Service', desc: 'Grease-caked impellers cleaned, rebalanced, or replaced to eliminate the vibration that kills bearings.' },
+          { title: 'Bearing Replacement', desc: 'Shaft bearings, pillow blocks, and sealed units. Grinding or squealing means failure is imminent — don\'t wait.' },
+          { title: 'VFD & Speed Control Repair', desc: 'Variable frequency drive repair and replacement. Faulty VFDs cause erratic fan operation and accelerate motor damage.' },
+          { title: 'Full Fan Replacement', desc: 'When a fan is beyond repair, we size and install new units configured for your specific exhaust system requirements.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork damage, disconnections, and failed seams</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for fans bolted to curbs without service access</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — Clarksville's most common emergency call</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Down? Kitchen Closed? Call Now.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for Clarksville</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day belt and motor replacement. Common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN CLARKSVILLE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in Clarksville
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Wilma Rudolph Boulevard's quick-service volume produces a specific and predictable failure pattern: rapidly stretched and snapped fan belts. The quick-service and fast-casual restaurants that line this corridor operate on shift-change cycles — breakfast rush, lunch rush, afternoon lull, dinner rush, late-night rush — and each rush sends a surge of grease-laden cooking vapor through the exhaust system. These aren't gradual-wear failures. The constant acceleration from shift-change rushes whips belts beyond their tension limit, especially on systems where the belt hasn't been inspected or tensioned in months. A belt that looks fine during a morning walkthrough can snap during the dinner rush three hours later. DDAN sees more snapped belts per capita in Clarksville than in any other market we serve, and the cause is always the same: high-cycle volume on belts that should have been replaced preventatively.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Older establishments near the Austin Peay campus and along the original commercial strips have a different problem: degraded grease containment systems that have been neglected for years. Grease boxes that should have been emptied monthly are overflowing. Grease pads designed to absorb rooftop runoff are saturated and useless. The result is grease running down the sides of buildings, pooling on roof membranes, staining facades, and draining into parking lots. This isn't just a cosmetic issue — it's a simultaneous fire code violation and environmental discharge violation. When the grease containment fails, the fan housing and curb seal are typically compromised as well, meaning the fan repair and containment replacement have to happen together.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Military deployment returns and APSU move-in weeks create the most dangerous failure conditions. A full brigade returning from a 9-month deployment sends thousands of soldiers and families flooding into off-base restaurants simultaneously. APSU fall move-in does the same with students and parents. These aren't gradual increases — they're sudden 40-to-60-percent spikes in dining volume that hit restaurants already running at capacity. Exhaust fans that were marginally functional — a bearing that was starting to grind, a belt that was slightly loose, a motor running hot — fail under the additional load. The timing is always the worst possible: the busiest day of the busiest week, when every restaurant on the corridor is packed and a kitchen shutdown means turning away hundreds of customers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Clarksville Exhaust Repair Compliance — Fire Rescue & Gas & Water
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Clarksville Fire Rescue's Fire Prevention Bureau enforces NFPA 96 compliance across all commercial kitchen operations in the city. They are particularly strict on the franchise corridors along Wilma Rudolph Boulevard, where the density of restaurants and the proximity to residential areas amplify fire risk. A non-functional exhaust fan is an immediate code violation — if the fan isn't pulling adequate CFM, grease-laden vapor accumulates in the ductwork, and the Fire Prevention Bureau treats that as an active fire hazard. They also inspect fire suppression system fusible links and nozzles on every visit, and a damaged or missing link from fan vibration is a separate violation.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Clarksville Gas & Water enforces FOG (Fats, Oils, and Grease) discharge regulations that directly intersect with exhaust fan repair. When fans vibrate from worn bearings or unbalanced impellers, grease escapes containment systems and enters the stormwater system. Gas & Water issues fines for grease discharge violations and can require expensive remediation. Repairing the fan and replacing damaged grease containment components together prevents both fire code and environmental violations in a single service visit.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a> to understand the full requirements inspectors evaluate.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "On Austin Peay's opening game day, a high-volume restaurant near campus experienced a complete motor seizure during the pre-game lunch rush. DDAN's emergency team arrived within the hour, replaced the seized motor with the correct frame and RPM match carried on the truck, and had the kitchen back in full operation before kickoff. The owner estimated a full-day shutdown would have cost over $4,000 in lost revenue."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in Clarksville kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Clarksville Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair throughout Clarksville, Montgomery County, and the surrounding area. We cover the entire Wilma Rudolph Boulevard corridor, the US-41A commercial strip toward Fort Campbell, the Exit 4 and Exit 11 restaurant clusters off I-24, downtown Clarksville, the Austin Peay campus area, and every commercial kitchen in between. Our technicians carry common motors, belts, and bearings on every truck for same-day Clarksville service.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Clarksville:</span>
+            <a href="/cleaning/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/parts/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            Fort Campbell and
+            <a href="/repair/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Springfield</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Clarksville Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Consistent year-round demand with spikes during APSU move-in weeks and military deployment returns. Don't wait until the busiest week of the year to discover your fan belt is about to snap.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
