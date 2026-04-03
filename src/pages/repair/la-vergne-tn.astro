@@ -1,0 +1,349 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Why do La Vergne restaurant exhaust fans fail differently than other areas?',
+    a: 'La Vergne\'s Interchange City industrial park drives intense, concentrated lunch-rush dining. Restaurants along Murfreesboro Road go from idle to maximum output in minutes, creating severe thermal shock on exhaust fan motors and belts. This rapid peak-load cycling — full power for 2 hours, idle for 4, full power again — causes bearing fatigue and belt stress patterns that differ fundamentally from all-day restaurant operations.',
+  },
+  {
+    q: 'How quickly can DDAN respond to an emergency fan failure in La Vergne?',
+    a: `La Vergne is within our core Middle Tennessee service area between Nashville and Murfreesboro. We provide 24/7 emergency dispatch and carry common fan motors, belts, and bearings on every truck. Most La Vergne emergency calls receive same-day response. Call ${business.phone} any time — we understand that Murfreesboro Road's lunch rush can't wait.`,
+  },
+  {
+    q: 'Do you work with restaurants in older La Vergne strip centers?',
+    a: 'Yes. Many of La Vergne\'s busiest restaurants operate in older strip center buildings along Murfreesboro Road with EPDM and metal roofing. These buildings often have exhaust systems inherited from previous tenants — undersized motors and OEM belts that can\'t handle high-heat griddle and fryer operations. We assess the existing equipment, upgrade components to match actual cooking demands, and bring the system into NFPA 96 compliance.',
+  },
+  {
+    q: 'What\'s the difference between ODP and TEFC motors?',
+    a: 'ODP (Open Drip Proof) motors are standard for most restaurant exhaust fans — adequate ventilation for indoor-adjacent rooftop units. TEFC (Totally Enclosed Fan Cooled) motors are sealed against dust and moisture — recommended for La Vergne\'s industrial environments or rooftop units exposed to extreme weather. We install both types.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "La Vergne",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "La Vergne",
+        "addressRegion": "TN"
+      },
+      "description": "24/7 emergency exhaust fan repair for La Vergne's industrial corridor kitchens. Motor replacement, belt repair, and same-day parts for Murfreesboro Road restaurants."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "La Vergne, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/la-vergne-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="La Vergne Industrial Kitchen Fan Repair | 24/7 | DDAN"
+  description="Interchange City's industrial lunch rush destroys exhaust fans. 24/7 motor and belt repair on Murfreesboro Road. Same-day parts. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-3.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">La Vergne, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        La Vergne Industrial Kitchen <span class="text-[#FF5E15]">Exhaust Fan Repair</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Interchange City's lunch rush pushes fans to failure. We fix them before you lose the shift.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why La Vergne's Industrial Corridor Destroys Exhaust Fans Faster
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          La Vergne sits at the I-24 gateway between Nashville and Murfreesboro, and Interchange City — one of Tennessee's largest industrial parks — drives an intense, concentrated lunch-shift dining economy along Murfreesboro Road. High-volume fast food, quick-service lunch counters, and authentic Hispanic cuisine with high-heat griddles and continuous fryer use produce heavy, sticky grease loads that overwhelm standard exhaust components. The pattern is distinct from all-day restaurants: La Vergne kitchens go from cold to maximum output in minutes as thousands of industrial workers pour out of warehouses and distribution centers for their 30-minute lunch break.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Older strip centers with EPDM and metal roofing line Murfreesboro Road, housing restaurants that have turned over multiple times without anyone upgrading the exhaust infrastructure. The intense, rapid-fire lunch rushes push motors to their thermal limits during peak load — then the system cools completely before the next rush cycle. This thermal shock pattern is uniquely destructive. Motors expand and contract repeatedly, weakening windings. Belts stretch under sudden load and never fully recover. Bearings that could last years under steady operation fatigue in months under La Vergne's peak-load cycling. The La Vergne Fire Department actively targets the densely packed Murfreesboro Road corridor, and a failed fan during a surprise inspection means immediate consequences.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN understands the specific failure patterns that La Vergne's industrial lunch economy creates. We don't just replace the part that broke — we assess whether the entire system is rated for the actual cooking load and thermal cycling it endures. When a motor burns out because it was sized for a previous tenant's sandwich shop, we install a properly rated replacement that can handle the current operation's demands without failing again in 90 days.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        La Vergne's peak-load lunch rush creates specific exhaust fan failures. Here's what we fix:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Rapid thermal cycling from peak lunch rushes fatigues motor windings. We install commercial-grade units rated for the thermal shock of industrial corridor dining.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Sudden peak loads stretch OEM belts past recovery. Commercial-grade notched V-belts with proper tensioning handle La Vergne\'s start-stop cycling.' },
+          { title: 'Bearing Replacement', desc: 'Peak-load thermal cycling accelerates bearing fatigue faster than steady-state operation. Sealed high-heat bearings rated for industrial lunch-rush environments.' },
+          { title: 'Hinge Kit Installation', desc: 'Older strip center fans bolted directly to curbs — no service access without damaging wiring and roofing. Hinge kits solve the problem permanently.' },
+          { title: 'Grease Containment Repair', desc: 'Heavy fryer and griddle grease overwhelms factory containment boxes. Upgraded systems prevent rooftop damage on EPDM and metal roofs.' },
+          { title: 'Full Fan Replacement', desc: 'When inherited equipment can\'t be economically upgraded for current cooking loads, we install a properly rated replacement matched to your actual operation.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork damage, disconnections, and failed seams from thermal cycling</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for fans bolted to curbs without service access</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — our most-requested La Vergne service</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Died? Kitchen Shut Down? We're On It.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for La Vergne</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day motor and belt replacement. We carry common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in La Vergne
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Concentrated peak-load lunch rushes cause bearing failures and belt snaps in stress patterns completely different from all-day restaurants. A motor running steady for 14 hours wears differently than one that slams to full power for 2 hours, idles for 4, then slams again. The thermal expansion and contraction cycle loosens windings, fatigues bearings, and stretches belts past their adjustment range — all within months rather than years. Older strip centers along Murfreesboro Road compound the problem: many lack NFPA-compliant hinge kits, meaning every maintenance visit risks damaging wiring and roofing materials when technicians try to access fan components. DDAN provides emergency <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> with components rated for La Vergne's demanding thermal cycling.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Hispanic cuisine restaurants with high-heat griddles and continuous fryer use produce heavy, sticky grease that coats pulleys and impellers faster than standard cleaning schedules can address. The grease is thicker and more adhesive than typical fast-food fryer output, accelerating belt slip and impeller imbalance. Without proper <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit installation</a>, cleaning crews can't access the fan housing efficiently — leading to deferred maintenance that compounds until the system fails catastrophically during the busiest shift of the week.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        La Vergne Exhaust Repair Compliance — Fire Department & Public Works
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The La Vergne Fire Department is strict on the densely packed Murfreesboro Road corridor, where restaurants are clustered in close proximity to industrial facilities. A non-functional exhaust fan isn't just a kitchen inconvenience — it's a fire code violation that puts neighboring businesses at risk. Inspectors target this corridor specifically because the high concentration of food-service operations in older strip centers creates elevated fire risk. A failed motor or clogged impeller that can't pull adequate CFM means grease-laden vapor accumulates in ductwork, creating the exact conditions NFPA 96 exists to prevent.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          La Vergne Public Works monitors FOG (Fats, Oils, and Grease) discharge aggressively. When exhaust fan bearings fail and housings vibrate loose, grease escapes containment systems onto roof surfaces and into storm drainage. Heavy grease loads from continuous fryer operations make La Vergne restaurants particularly vulnerable to containment failures. Every DDAN repair includes photo documentation and a service report to demonstrate compliance with both fire code and grease management requirements. Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "When a high-volume taqueria on Murfreesboro Road suffered a snapped exhaust fan belt right as the Friday lunch rush began, DDAN's emergency team was on-site within 45 minutes. We replaced the belt with a notched, heat-resistant commercial V-belt and calibrated the motor, allowing the kitchen to reopen safely with minimal lost revenue."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in La Vergne kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        La Vergne Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair across all of La Vergne, including Murfreesboro Road, Interchange City industrial park, and surrounding commercial corridors. Whether your restaurant is in an older strip center or a newer commercial development, we respond to emergency fan failures day and night with common parts on every truck.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in La Vergne:</span>
+            <a href="/cleaning/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/parts/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Murfreesboro</a>,
+            <a href="/repair/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Smyrna</a>, and
+            <a href="/repair/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Antioch</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        La Vergne Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Interchange City's lunch economy never slows down, and neither does the wear on your exhaust fans. Every week you wait, bearings degrade and belts stretch. Call now.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
