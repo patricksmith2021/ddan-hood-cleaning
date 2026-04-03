@@ -1,0 +1,299 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+
+const HP = '/images/homepage';
+
+const repairAreas = [
+  { city: 'Nashville', state: 'TN', zips: '37201–37250', slug: 'nashville-tn' },
+  { city: 'Murfreesboro', state: 'TN', zips: '37127–37130', slug: 'murfreesboro-tn' },
+  { city: 'Antioch', state: 'TN', zips: '37013', slug: 'antioch-tn' },
+  { city: 'Hendersonville', state: 'TN', zips: '37075, 37077', slug: 'hendersonville-tn' },
+  { city: 'Spring Hill', state: 'TN', zips: '37174', slug: 'spring-hill-tn' },
+  { city: 'Smyrna', state: 'TN', zips: '37167', slug: 'smyrna-tn' },
+  { city: 'Gallatin', state: 'TN', zips: '37066', slug: 'gallatin-tn' },
+  { city: 'Lebanon', state: 'TN', zips: '37087, 37090', slug: 'lebanon-tn' },
+  { city: 'Goodlettsville', state: 'TN', zips: '37072', slug: 'goodlettsville-tn' },
+  { city: 'Brentwood', state: 'TN', zips: '37027, 37024', slug: 'brentwood-tn' },
+  { city: 'Mount Juliet', state: 'TN', zips: '37122, 37121', slug: 'mt-juliet-tn' },
+  { city: 'Hermitage', state: 'TN', zips: '37076', slug: 'hermitage-tn' },
+  { city: 'Madison', state: 'TN', zips: '37115', slug: 'madison-tn' },
+  { city: 'La Vergne', state: 'TN', zips: '37086', slug: 'la-vergne-tn' },
+  { city: 'Franklin', state: 'TN', zips: '37064, 37067', slug: 'franklin-tn' },
+  { city: 'Clarksville', state: 'TN', zips: '37040–37044', slug: 'clarksville-tn' },
+  { city: 'Columbia', state: 'TN', zips: '38401, 38402', slug: 'columbia-tn' },
+  { city: 'Dickson', state: 'TN', zips: '37055', slug: 'dickson-tn' },
+  { city: 'Cookeville', state: 'TN', zips: '38501, 38502', slug: 'cookeville-tn' },
+  { city: 'Shelbyville', state: 'TN', zips: '37160', slug: 'shelbyville-tn' },
+  { city: 'Tullahoma', state: 'TN', zips: '37388', slug: 'tullahoma-tn' },
+  { city: 'McMinnville', state: 'TN', zips: '37110', slug: 'mcminnville-tn' },
+  { city: 'Springfield', state: 'TN', zips: '37172', slug: 'springfield-tn' },
+  { city: 'Bellevue', state: 'TN', zips: '37221', slug: 'bellevue-tn' },
+  { city: 'Donelson', state: 'TN', zips: '37214', slug: 'donelson-tn' },
+  { city: 'Green Hills', state: 'TN', zips: '37215', slug: 'green-hills-tn' },
+  { city: 'White House', state: 'TN', zips: '37188', slug: 'white-house-tn' },
+  { city: 'Bowling Green', state: 'KY', zips: '42101–42104', slug: 'bowling-green-ky' },
+  { city: 'Fort Campbell', state: 'KY', zips: '42223', slug: 'fort-campbell-ky' },
+];
+
+const faqs = [
+  {
+    q: 'How fast can you respond to an emergency exhaust fan failure?',
+    a: `For emergencies in the Mt. Juliet, Nashville, and immediate surrounding areas, we can typically arrive within 30–60 minutes. For locations across the broader Middle Tennessee region, same-day response is standard. Call ${business.phone} — our emergency line is staffed 24/7.`,
+  },
+  {
+    q: 'Do you carry exhaust fan parts in stock?',
+    a: 'Yes. We maintain local stock of the most common failure parts — motors, belts, bearings, fan wheels, and speed controllers — for major brands like CaptiveAire, Greenheck, Loren Cook, and Canarm. For less common parts, we source within 24–48 hours through our commercial supply network.',
+  },
+  {
+    q: 'Can you repair any brand of commercial exhaust fan?',
+    a: 'We service all major commercial kitchen exhaust fan brands including CaptiveAire, Loren Cook, Canarm, NAKS, EconAir, Greenheck, and Accurex. If your brand isn\'t listed, call us — we can almost always help.',
+  },
+  {
+    q: 'What if my exhaust fan needs full replacement instead of repair?',
+    a: 'If a repair isn\'t cost-effective or your fan is beyond service life, we provide complete exhaust fan replacement. We\'ll size the new unit correctly for your kitchen\'s airflow needs, install it to NFPA 96 code, and include a hinge kit for future maintenance access.',
+  },
+  {
+    q: 'Do you provide warranties on repairs?',
+    a: 'Yes. All repair work is backed by our workmanship guarantee. Parts carry their manufacturer\'s warranty. We document every repair with before-and-after photos and a written service report so you have full records.',
+  },
+  {
+    q: 'What does a typical exhaust fan repair cost?',
+    a: 'Most common repairs — belt replacement, motor swap, bearing replacement — range from $125 to $450 depending on the issue and parts required. We provide upfront pricing after diagnosis with no hidden fees. Emergency and after-hours service may include a dispatch fee.',
+  },
+];
+---
+
+<BaseLayout
+  title="Commercial Kitchen Exhaust Fan Repair | 24/7 Emergency | DDAN Nashville"
+  description="24/7 emergency exhaust fan motor, belt, and component repair for restaurants across 29 Middle Tennessee cities. Same-day service available. Call (615) 881-6968."
+>
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/hood-repair-hero.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Exhaust Fan Repair</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Commercial Restaurant Exhaust Fan Repair Across <span class="text-[#FF5E15]">Middle Tennessee</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        24/7 Emergency Service | Same-Day Repair | All Major Brands
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Emergency Repair
+        </button>
+      </div>
+      <!-- Trust Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — Exhaust Fan Focus -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Exhaust Fan Repairs — 90% of Emergency Calls
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        When your exhaust fan fails, your kitchen shuts down. These are the most common repairs we handle — often same-day from local parts stock.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        {[
+          { title: 'Motor Replacement', desc: 'Burned out, seized, or overheating motors replaced with correctly sized commercial-grade units. Wiring, balancing, and testing included.' },
+          { title: 'Belt Replacement', desc: 'Snapped, stretched, or misaligned belts replaced on-site. Proper tensioning and pulley alignment to prevent premature wear.' },
+          { title: 'Fan Wheel & Blade Assembly', desc: 'Bent, cracked, or unbalanced fan wheels replaced. Restores proper airflow and eliminates dangerous vibration.' },
+          { title: 'Bearing Replacement', desc: 'Worn bearings cause grinding noise and eventual motor seizure. We replace bearings before they take out the motor.' },
+          { title: 'Speed Controller / VFD Repair', desc: 'Variable frequency drives and speed controllers diagnosed and replaced. Restores proper fan speed control.' },
+          { title: 'Complete Fan Replacement', desc: 'When repair isn\'t cost-effective, we install a properly sized replacement fan with hinge kit, wired and tested to code.' },
+        ].map((item) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6 reveal-child">Additional Repairs We Handle</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { title: 'Ductwork Repair & Sealing', desc: 'Leaky joints, damaged sections, and improper grading fixed to restore airflow and prevent grease accumulation.' },
+          { title: 'Hood Body Repair', desc: 'Dented panels, damaged filter tracks, broken hinges, and gap sealing to restore your hood\'s structural integrity.' },
+          { title: 'Fire Suppression Inspection', desc: 'System inspection, fusible link replacement, agent recharge, and nozzle repositioning after equipment changes.' },
+          { title: 'Electrical Troubleshooting', desc: 'Control panels, switches, wiring, and circuit issues diagnosed and repaired. We find the root cause, not just the symptom.' },
+          { title: 'Make-Up Air Unit Repair', desc: 'Dampers, heating elements, filters, and controls repaired to restore proper kitchen air balance.' },
+        ].map((item) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY REPAIR CALLOUT -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[900px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading font-bold text-2xl md:text-4xl text-white mb-4">
+          Fan Died? Kitchen Shut Down? <span class="text-[#FF5E15]">We're On It.</span>
+        </h2>
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg max-w-2xl mx-auto mb-6">
+          DDAN provides 24/7 emergency exhaust fan repair across Middle Tennessee. Same-day motor and belt replacement from local stock. Your kitchen doesn't wait — neither do we.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-3 mb-4">
+          <span class="w-14 h-14 flex items-center justify-center bg-[#FF5E15] rounded-xl">
+            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          </span>
+          <span class="text-white font-heading text-2xl md:text-3xl font-bold hover:text-[#FF5E15] transition-all duration-300">{business.phone}</span>
+        </a>
+        <p class="text-[#999] text-sm">24/7 Emergency Dispatch — Licensed, Bonded &amp; Insured</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR REPAIR PROCESS — 3 step cards -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Our Repair Process
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        From emergency call to documented repair — fast, professional, and fully transparent.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {[
+          { num: '01', title: 'Emergency Call or Scheduled Diagnostic', desc: 'Call our 24/7 line or book online. For emergencies, we dispatch immediately. For scheduled service, we arrive within your preferred window.' },
+          { num: '02', title: 'On-Site Diagnosis & Parts Sourcing', desc: 'Our technicians diagnose the issue on-site, provide upfront pricing, and source parts — same-day from local stock whenever possible.' },
+          { num: '03', title: 'Repair, Test & Document', desc: 'We complete the repair, test the system under load, and provide a written report with before-and-after photos for your records.' },
+        ].map((card) => (
+          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 reveal-child">
+        We repair all major commercial kitchen exhaust fan brands. Our technicians have hands-on experience with every system on the market.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-8">
+        {['CaptiveAire', 'Greenheck', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl px-5 py-3 transition-all duration-300 reveal-child">
+            <p class="text-white font-heading font-semibold text-sm">{brand}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#999] text-sm reveal-child">
+        Don't see your brand? <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline">Call us</a> — we can almost always help.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA INDEX — 29 CITIES -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Repair Service Areas — We Cover All of Middle Tennessee
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        DDAN provides emergency and scheduled exhaust fan repair across 29 cities. Select your city for local service details.
+      </p>
+      <div class="flex flex-wrap gap-5">
+        {repairAreas.map((area) => (
+          <a href={`/repair/${area.slug}/`} class="block w-full sm:w-[31%] border border-[#FF5E15] rounded-2xl p-5 hover:border-white transition-all duration-300 reveal-child group">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#FF5E15] rounded-full">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+              </div>
+              <div>
+                <p class="text-white font-heading font-medium group-hover:text-[#FF5E15] transition-all duration-300">{area.city}, {area.state}</p>
+                <p class="text-[#DDDDDD] text-sm">({area.zips})</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUCK CTA -->
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
