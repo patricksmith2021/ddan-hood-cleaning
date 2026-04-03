@@ -314,22 +314,3 @@ const introParagraphs = intro.split('\n\n');
     transition: transform 0.2s ease;
   }
 </style>
-
-<script>
-  // Truck drive-in for this location page
-  document.addEventListener('DOMContentLoaded', () => {
-    const trucks = document.querySelectorAll('.truck-drive-in');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('driven-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    trucks.forEach((t) => observer.observe(t));
-  });
-</script>

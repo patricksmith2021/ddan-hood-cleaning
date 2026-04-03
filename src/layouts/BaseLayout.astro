@@ -83,6 +83,20 @@ const isStaging = Astro.site?.hostname?.includes('pages.dev');
         { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // Truck drive-in animation (all pages)
+      const truckObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('driven-in');
+              truckObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      document.querySelectorAll('.truck-drive-in').forEach((el) => truckObserver.observe(el));
     });
   </script>
 </body>
