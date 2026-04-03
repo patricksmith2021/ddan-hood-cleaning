@@ -1,0 +1,359 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'What does the Metro Nashville Fire Marshal look for during a hood inspection?',
+    a: 'The Metro Nashville Fire Marshal inspects the entire exhaust system for functional integrity — not just cleanliness. They check that exhaust fan motors are operational and pulling adequate CFM, belts are properly tensioned without cracking, bearings are not grinding or seized, and all fire suppression system links and nozzles are intact. In historic districts on Broadway and downtown, inspectors pay particular attention to shared-wall installations where a fan failure could allow grease-laden vapor to accumulate in ductwork, creating a fire hazard that threatens neighboring businesses.',
+  },
+  {
+    q: 'Can heavy grease void my commercial roof warranty in Nashville?',
+    a: 'Yes. Grease runoff from malfunctioning or poorly maintained rooftop exhaust fans is one of the leading causes of TPO and EPDM roof membrane failure in Nashville\'s newer commercial buildings. When fan bearings fail or impellers become unbalanced, the fan housing vibrates and loosens seals, allowing grease to escape the containment system and pool on the roof surface. This degrades the membrane, voids manufacturer warranties, and creates slip hazards. Repairing the fan and replacing grease containment components prevents thousands in roof damage.',
+  },
+  {
+    q: 'Do you install hinge kits on older Nashville buildings?',
+    a: 'Yes. Many older buildings on Lower Broadway and throughout East Nashville have exhaust fans bolted directly to curbs with no hinge mechanism. This makes thorough fan service and belt replacement extremely difficult — technicians have to fully unbolt and lift the fan to access the interior. We install NFPA 96-compliant hinge kits that allow the fan to swing open, making future motor, belt, and bearing repairs dramatically faster and less expensive. See our <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white">hinge kit installation</a> page for details.',
+  },
+  {
+    q: 'How do I know if my exhaust fan motor is failing?',
+    a: `Warning signs include grinding or squealing noises, a burning smell near the fan housing, the fan running noticeably slower than usual, tripping circuit breakers, or the motor feeling excessively hot to the touch. In Nashville's high-volume kitchens — especially the Broadway honky-tonks running 18-hour shifts — motors rarely give much warning before complete failure. If you notice any of these signs, call ${business.phone} immediately. Catching a failing motor early means a scheduled repair instead of an emergency shutdown.`,
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Nashville",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Nashville",
+        "addressRegion": "TN"
+      },
+      "description": "24/7 emergency exhaust fan motor, belt, and bearing repair for Nashville commercial kitchens. Same-day service for Broadway, The Gulch, East Nashville, and all of Davidson County."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Nashville, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/nashville-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Exhaust Fan Repair in Nashville, TN | 24/7 | DDAN"
+  description="24/7 exhaust fan motor and belt repair for Nashville's 3,000+ commercial kitchens. Broadway honky-tonks to Vanderbilt. Same-day service. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/hood-repair-hero.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Nashville, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Emergency Exhaust Fan Repair in <span class="text-[#FF5E15]">Nashville, Tennessee</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Broadway's 18-hour kitchens burn through motors. We replace them before you lose a shift.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Nashville's 3,000+ Commercial Kitchens Need Dedicated Exhaust Fan Repair
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Nashville's commercial kitchen density is unmatched in Tennessee, and that density translates directly into exhaust fan repair demand. The city operates well over 3,000 commercial kitchens — from the neon-lit honky-tonks lining Lower Broadway to institutional dining operations at Vanderbilt University and Music City Center. Every one of these kitchens relies on exhaust fan motors, belts, and bearings that were never designed for the punishment Nashville dishes out. Lower Broadway honky-tonks run their kitchens 18 or more hours daily, seven days a week. Standard commercial exhaust fan motors are rated for 8 to 12 hours of daily operation. When you push them past that limit every single day, motor windings overheat, bearings dry out and seize, and belts stretch and snap. The result is predictable: Nashville burns through exhaust fan components faster than virtually any other market in the Southeast.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Nashville's signature cuisine makes the problem worse. Hot chicken — the dish that defined this city's food identity — relies on solid shortening heated to extreme temperatures in high-capacity fryers. That cooking method produces uniquely aggressive grease that doesn't just coat filters and ductwork. It migrates into fan housings, coats impeller blades unevenly, and creates the kind of imbalance that destroys bearings in weeks instead of months. The grease also accelerates belt degradation by coating pulleys and reducing the friction that keeps belts tracking properly. If your kitchen serves hot chicken, your exhaust fan components have a significantly shorter service life than the manufacturer's specifications suggest.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The neighborhoods tell the story of Nashville's repair demand. The Gulch and Midtown pack high-end restaurants into modern mixed-use buildings where rooftop fan access is often restricted by building management and parking structures. East Nashville's creative chef-driven kitchens occupy converted warehouses and older commercial buildings with non-standard exhaust configurations. Germantown's boutique restaurants operate in historic structures where fan mounting and ductwork routing present unique challenges. Vanderbilt University and the Opryland Resort complex add institutional-scale exhaust systems with multiple fan units that require coordinated maintenance. Every neighborhood, every building type, every cuisine — they all generate exhaust fan repair calls, and they all need technicians who understand the specific conditions that caused the failure.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          CMA Fest, summer tourism surges, and Nashville's year-round convention calendar push already-stressed systems past their breaking point. The busiest weekends of the year are exactly when a fan failure costs you the most — and exactly when every other repair company is booked solid. DDAN provides 24/7 emergency exhaust fan repair across all of Metro Nashville because we understand that a dead fan doesn't wait for Monday morning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Exhaust fan failures are the most common emergency repair call we receive from Nashville kitchens. Here's what we fix:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Single-phase, 3-phase, and ECM motors. We match OEM specs and stock common sizes for same-day replacement.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Worn, cracked, and snapped belts replaced on-site. Proper tensioning prevents premature re-failure.' },
+          { title: 'Impeller & Fan Wheel Service', desc: 'Grease-caked impellers cleaned, rebalanced, or replaced. Eliminates vibration that destroys bearings.' },
+          { title: 'Bearing Replacement', desc: 'Shaft bearings, pillow blocks, and sealed units. Grinding noises mean bearing failure is imminent.' },
+          { title: 'VFD & Speed Control Repair', desc: 'Variable frequency drives that control fan speed. Faulty VFDs cause erratic operation and motor damage.' },
+          { title: 'Full Fan Replacement', desc: 'When repair costs exceed replacement value, we install new units sized and configured for your system.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork damage, disconnections, and failed seams</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for fans bolted to curbs without access</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — our most-requested Nashville service</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Died? Kitchen Shut Down? We're On It.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for Nashville</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day motor and belt replacement. We carry common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN NASHVILLE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in Nashville
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Broadway bar motors burn out from relentless 18-hour runtimes that no standard commercial motor was designed to sustain. The largest venues on Lower Broadway run 3-phase motors powering massive upblast fans that move thousands of CFM through grease-laden ductwork. These motors don't decline gradually — they run hot for months, then seize catastrophically. One shift the fan is running fine; the next shift it's dead. The 3-phase configuration means you can't just grab a replacement from a local supplier. You need a technician who stocks or can source the exact frame size, voltage, and RPM rating on an emergency basis. DDAN carries the most common 3-phase motor configurations for Broadway-class exhaust systems and can source specialty units within hours.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Hot chicken grease is uniquely destructive to exhaust fan components. The solid shortening used in Nashville's signature high-heat fryers produces heavy, sticky deposits that coat impeller blades unevenly. This uneven coating creates progressive imbalance — the fan vibrates more each week as grease accumulates asymmetrically. That vibration doesn't just make noise. It destroys shaft bearings, loosens mounting hardware, cracks fan housings, and eventually causes the catastrophic bearing seizure that kills the motor. The cycle from "slight vibration" to "complete fan failure" in a high-volume hot chicken kitchen can be as short as 6 to 8 weeks without proper maintenance.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Historic buildings on Lower Broadway present access challenges that complicate every repair call. Fans are mounted on complex multi-tiered roofs with no standard curb setup — some are wedged between parapet walls, others sit on custom platforms above decorative facades. Many lack the hinge kits that allow fans to swing open for service, meaning every belt change or motor replacement requires unbolting and physically lifting the fan unit. This turns a 45-minute repair into a 3-hour job and dramatically increases cost. DDAN installs <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> on Broadway rooftop fans to cut future repair time and cost by more than half.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Nashville Exhaust Repair Compliance — Metro Fire Marshal & MWS
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Metro Nashville Fire Marshal enforces zero-tolerance compliance in historic districts and high-density corridors. A non-functional exhaust fan isn't just an inconvenience — it's a code violation that can trigger an immediate shutdown order. When the fan stops pulling air, grease-laden vapor accumulates in the ductwork and hood, creating the exact fire hazard that NFPA 96 exists to prevent. The Fire Marshal doesn't care why your fan died. They care that it's not running, your kitchen is operating, and grease is accumulating in an unventilated system.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Metro Water Services' F.O.G. Management Program adds grease containment enforcement on top of fire code. When exhaust fan bearings fail, fan housings vibrate loose, and grease escapes containment systems onto roof surfaces and into storm drains. MWS issues significant fines for grease discharge violations, and a single failed fan can turn a compliant rooftop into a violation in days. Repairing fans promptly and maintaining grease containment systems are inseparable — you can't have one without the other.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a> to understand the full scope of what inspectors evaluate.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "During the CMA Fest rush, a high-volume Broadway honky-tonk experienced a catastrophic exhaust fan motor failure at 11 PM on a Saturday. DDAN's emergency repair team sourced the exact 3-phase motor, navigated downtown road closures and festival traffic, and completed the full motor replacement by 4:00 AM — ensuring the kitchen didn't miss a single Sunday shift during the busiest weekend of the year."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in Nashville kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Nashville Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair across all of Metro Nashville and Davidson County. Whether your restaurant is on Lower Broadway, in The Gulch, East Nashville, Germantown, Midtown, The Nations, Sylvan Park, Berry Hill, Donelson, or Antioch — we respond to emergency fan failures day and night. Our technicians carry common motors, belts, and bearings on every truck so we can complete most repairs in a single visit without waiting for parts.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Nashville:</span>
+            <a href="/cleaning/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/parts/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/hermitage-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hermitage</a>,
+            <a href="/repair/madison-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Madison</a>,
+            <a href="/repair/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>, and
+            <a href="/repair/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Antioch</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Nashville Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Peak emergency demand hits Nashville during CMA Fest and summer tourism surges. Every hour your fan is down costs you revenue. Call now — don't wait for the busiest weekend of the year to discover your motor is failing.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
