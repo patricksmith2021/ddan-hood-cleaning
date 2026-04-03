@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
-import ServiceSidebar from '../components/ServiceSidebar.astro';
+import TruckCTA from '../components/TruckCTA.astro';
 import BottomCTA from '../components/BottomCTA.astro';
 import business from '../data/business.json';
 
@@ -65,70 +65,77 @@ const warningSigns = [
 >
   <HeroBanner
     headline="How Your Commercial Kitchen Ventilation System Works"
+    backgroundImage="/images/homepage/exhaust-hood-system-repair-services-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'How Your System Works' },
     ]}
   />
 
-  <!-- 65/35 Split -->
-  <section class="bg-white">
-    <div class="container-narrow">
-      <div class="grid lg:grid-cols-[65%_35%]">
-        <!-- Content Column -->
-        <div class="p-6 md:p-10 text-body-text-light">
+  <!-- Understanding Your Kitchen's Exhaust System -->
+  <section class="section-padding bg-[#111111]">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline mb-4 reveal-child">Understanding Your Kitchen's Exhaust System</h2>
+      <p class="text-[#D4D4D4] text-lg max-w-3xl reveal-child">
+        Your commercial kitchen ventilation system is a critical piece of equipment that protects your staff, customers, and business from fire hazards, smoke, and heat. Understanding how it works helps you maintain it properly and avoid costly breakdowns.
+      </p>
+    </div>
+  </section>
 
-          <div class="reveal">
-            <h2 class="section-headline mb-4 reveal-child">Understanding Your Kitchen's Exhaust System</h2>
-            <p class="mb-8 reveal-child">
-              Your commercial kitchen ventilation system is a critical piece of equipment that protects your staff, customers, and business from fire hazards, smoke, and heat. Understanding how it works helps you maintain it properly and avoid costly breakdowns.
-            </p>
+  <!-- The Core Components -->
+  <section class="section-padding bg-[#1A1A1A]">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline mb-8 reveal-child">The Core Components</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {components.map((comp) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-lg text-white mb-2">{comp.title}</h3>
+            <p class="text-[#D4D4D4]">{comp.body}</p>
           </div>
-
-          <div class="reveal">
-            <h2 class="section-headline mb-6 reveal-child">The Core Components</h2>
-
-            {components.map((comp) => (
-              <div class="mb-6 reveal-child">
-                <h3 class="font-heading font-semibold text-lg text-dark-base mb-2">{comp.title}</h3>
-                <p>{comp.body}</p>
-              </div>
-            ))}
-          </div>
-
-          <div class="reveal">
-            <h2 class="section-headline mb-4 reveal-child">The Airflow Path</h2>
-            <p class="mb-4 reveal-child">Understanding how air moves through your system helps you identify problems early:</p>
-            <ol class="list-decimal list-inside space-y-2 mb-8 reveal-child">
-              {airflowSteps.map((step) => (
-                <li>{step}</li>
-              ))}
-            </ol>
-          </div>
-
-          <div class="reveal">
-            <h2 class="section-headline mb-4 reveal-child">Warning Signs Your System Needs Attention</h2>
-            <ul class="space-y-2 mb-8 reveal-child">
-              {warningSigns.map((sign) => (
-                <li class="check-item">{sign}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div class="reveal">
-            <h2 class="section-headline mb-4 reveal-child">Regular Maintenance Keeps Your System Safe</h2>
-            <p class="reveal-child">
-              NFPA 96 requires regular cleaning and inspection of your entire exhaust system. The frequency depends on your cooking volume — most restaurants need quarterly service. {business.name} provides comprehensive maintenance to keep your system running safely and in compliance.
-            </p>
-          </div>
-
-        </div>
-
-        <!-- Sidebar -->
-        <ServiceSidebar />
+        ))}
       </div>
     </div>
   </section>
+
+  <!-- The Airflow Path -->
+  <section class="section-padding bg-[#111111]">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline mb-4 reveal-child">The Airflow Path</h2>
+      <p class="text-[#D4D4D4] mb-6 reveal-child">Understanding how air moves through your system helps you identify problems early:</p>
+      <ol class="space-y-4 reveal-child">
+        {airflowSteps.map((step, i) => (
+          <li class="flex items-start gap-4">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#FF5E15] text-white font-heading font-bold flex items-center justify-center text-sm">{i + 1}</span>
+            <span class="text-[#D4D4D4] pt-1">{step}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Warning Signs -->
+  <section class="section-padding bg-[#1A1A1A]">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline mb-6 reveal-child">Warning Signs Your System Needs Attention</h2>
+      <ul class="space-y-3 reveal-child">
+        {warningSigns.map((sign) => (
+          <li class="check-item text-[#D4D4D4]">{sign}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Regular Maintenance -->
+  <section class="section-padding bg-[#111111]">
+    <div class="container-narrow reveal">
+      <h2 class="section-headline mb-4 reveal-child">Regular Maintenance Keeps Your System Safe</h2>
+      <p class="text-[#D4D4D4] text-lg reveal-child">
+        NFPA 96 requires regular cleaning and inspection of your entire exhaust system. The frequency depends on your cooking volume — most restaurants need quarterly service. {business.name} provides comprehensive maintenance to keep your system running safely and in compliance.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
 
   <BottomCTA
     headline="Questions About Your Kitchen Ventilation System?"

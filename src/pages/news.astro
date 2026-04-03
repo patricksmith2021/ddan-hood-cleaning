@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
+import TruckCTA from '../components/TruckCTA.astro';
 import BottomCTA from '../components/BottomCTA.astro';
 import business from '../data/business.json';
 ---
@@ -11,6 +12,7 @@ import business from '../data/business.json';
 >
   <HeroBanner
     headline="News"
+    backgroundImage="/images/hero/hero-1.jpg"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'News' },
@@ -18,11 +20,11 @@ import business from '../data/business.json';
   />
 
   <!-- Latest News -->
-  <section class="section-padding bg-dark-base">
-    <div class="container-narrow reveal">
+  <section class="section-padding bg-[#111111] reveal">
+    <div class="container-narrow">
       <h2 class="section-headline text-center mb-6 reveal-child">Latest News & Updates</h2>
-      <p class="text-body-text text-center max-w-2xl mx-auto mb-4 reveal-child">Stay tuned for the latest news, media appearances, and updates from DDAN Hood Cleaning and Repair. We'll be sharing industry insights, safety tips, and company news right here.</p>
-      <p class="text-body-text text-center max-w-2xl mx-auto mb-8 reveal-child">In the meantime, follow us on social media for the latest updates:</p>
+      <p class="text-[#D4D4D4] text-center max-w-2xl mx-auto mb-4 reveal-child">Stay tuned for the latest news, media appearances, and updates from DDAN Hood Cleaning and Repair. We'll be sharing industry insights, safety tips, and company news right here.</p>
+      <p class="text-[#D4D4D4] text-center max-w-2xl mx-auto mb-8 reveal-child">In the meantime, follow us on social media for the latest updates:</p>
 
       <div class="flex flex-wrap items-center justify-center gap-6 reveal-child">
         <a href={business.socialLinks.facebook} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-white hover:text-primary transition-all duration-300 font-heading font-medium">
@@ -40,6 +42,8 @@ import business from '../data/business.json';
       </div>
     </div>
   </section>
+
+  <TruckCTA />
 
   <BottomCTA
     headline="Need Service Now?"

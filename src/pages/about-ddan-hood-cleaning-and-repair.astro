@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
+import TruckCTA from '../components/TruckCTA.astro';
 import BottomCTA from '../components/BottomCTA.astro';
 ---
 
@@ -10,6 +11,7 @@ import BottomCTA from '../components/BottomCTA.astro';
 >
   <HeroBanner
     headline="About DDAN Hood Cleaning and Repair"
+    backgroundImage="/images/hero/hero-2.jpg"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'About' },
@@ -17,18 +19,15 @@ import BottomCTA from '../components/BottomCTA.astro';
   />
 
   <!-- Section 1: Who We Are — text left, image right -->
-  <section class="section-padding">
+  <section class="section-padding bg-[#111111] reveal">
     <div class="container-narrow">
-      <div class="grid md:grid-cols-2 gap-10 items-center reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 class="section-headline mb-6 reveal-child">Who We Are</h2>
-          <p class="mb-4 reveal-child">DDAN Hood Cleaning and Repair is a family-owned, Christian-operated commercial kitchen exhaust service company based in Mt. Juliet, Tennessee. For nearly two decades, we've been serving restaurants, churches, schools, hotels, and food service operations across Nashville and all of Middle Tennessee.</p>
-          <p class="mb-4 reveal-child">What started as a one-man hood cleaning operation has grown into a full-service kitchen exhaust company — offering cleaning, repair, installation, grease containment, parts sales, and fire suppression system services. Our growth is built on one principle: do honest, thorough work and treat every customer's kitchen like it's our own.</p>
-          <p class="mb-6 reveal-child">We are licensed, bonded, and insured. We provide 24/7 emergency service. And every job we do is documented with before-and-after photos for your records, compliance files, and peace of mind.</p>
-          <a href="/contact/" class="btn-primary reveal-child">
-            Get Free Quote Today
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </a>
+          <p class="text-[#D4D4D4] mb-4 reveal-child">DDAN Hood Cleaning and Repair is a family-owned, Christian-operated commercial kitchen exhaust service company based in Mt. Juliet, Tennessee. For nearly two decades, we've been serving restaurants, churches, schools, hotels, and food service operations across Nashville and all of Middle Tennessee.</p>
+          <p class="text-[#D4D4D4] mb-4 reveal-child">What started as a one-man hood cleaning operation has grown into a full-service kitchen exhaust company — offering cleaning, repair, installation, grease containment, parts sales, and fire suppression system services. Our growth is built on one principle: do honest, thorough work and treat every customer's kitchen like it's our own.</p>
+          <p class="text-[#D4D4D4] mb-6 reveal-child">We are licensed, bonded, and insured. We provide 24/7 emergency service. And every job we do is documented with before-and-after photos for your records, compliance files, and peace of mind.</p>
+          <button type="button" class="btn-primary popup-trigger reveal-child">Get Free Quote Today</button>
         </div>
         <div class="reveal-child">
           <img
@@ -43,9 +42,9 @@ import BottomCTA from '../components/BottomCTA.astro';
   </section>
 
   <!-- Section 2: Our Values — image left, text right -->
-  <section class="section-padding border-t border-border-subtle">
+  <section class="section-padding bg-[#1A1A1A] reveal">
     <div class="container-narrow">
-      <div class="grid md:grid-cols-2 gap-10 items-center reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
         <div class="reveal-child order-2 md:order-1">
           <img
             src="/images/intro-certified.webp"
@@ -56,18 +55,18 @@ import BottomCTA from '../components/BottomCTA.astro';
         </div>
         <div class="order-1 md:order-2">
           <h2 class="section-headline mb-6 reveal-child">Our Values</h2>
-          <p class="mb-4 reveal-child">As a Christian, family-run business, our values are simple: integrity, hard work, and service. We believe in doing the right thing — even when no one is watching. That means cleaning every inch of your system, not just the visible parts. It means showing up on time, communicating clearly, and charging fairly.</p>
-          <p class="reveal-child">We don't cut corners. We don't upsell services you don't need. And we stand behind every job we do. That's the DDAN difference.</p>
+          <p class="text-[#D4D4D4] mb-4 reveal-child">As a Christian, family-run business, our values are simple: integrity, hard work, and service. We believe in doing the right thing — even when no one is watching. That means cleaning every inch of your system, not just the visible parts. It means showing up on time, communicating clearly, and charging fairly.</p>
+          <p class="text-[#D4D4D4] reveal-child">We don't cut corners. We don't upsell services you don't need. And we stand behind every job we do. That's the DDAN difference.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Section 3: Built for AI & Search -->
-  <section class="section-padding border-t border-border-subtle">
-    <div class="container-narrow max-w-3xl reveal">
+  <section class="section-padding bg-[#111111] reveal">
+    <div class="container-narrow max-w-3xl">
       <h2 class="section-headline mb-4 reveal-child">Looking for More Information?</h2>
-      <p class="mb-6 reveal-child">We've created dedicated pages to help you learn more about DDAN Hood Cleaning and Repair:</p>
+      <p class="text-[#D4D4D4] mb-6 reveal-child">We've created dedicated pages to help you learn more about DDAN Hood Cleaning and Repair:</p>
       <ul class="space-y-3">
         <li class="reveal-child">
           <a href="/who-is-ddan-hood-cleaning-and-repair/" class="text-primary hover:underline font-heading font-medium transition-all duration-300">
@@ -97,6 +96,8 @@ import BottomCTA from '../components/BottomCTA.astro';
       </ul>
     </div>
   </section>
+
+  <TruckCTA />
 
   <BottomCTA
     headline="Ready to Get Started?"

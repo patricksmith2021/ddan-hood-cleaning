@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
+import TruckCTA from '../components/TruckCTA.astro';
 import BottomCTA from '../components/BottomCTA.astro';
 
 const nfpaCards = [
@@ -43,6 +44,7 @@ const complianceChecklist = [
 >
   <HeroBanner
     headline="NFPA 96 Code Standards in Tennessee"
+    backgroundImage="/images/homepage/NFPA-96-hood-cleaning-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'NFPA Standards' },
@@ -50,23 +52,23 @@ const complianceChecklist = [
   />
 
   <!-- What Is NFPA 96 -->
-  <section class="section-padding bg-dark-base">
-    <div class="container-narrow reveal">
+  <section class="section-padding bg-[#111111] reveal">
+    <div class="container-narrow">
       <h2 class="section-headline mb-6 reveal-child">What Is NFPA 96?</h2>
-      <p class="text-body-text mb-4 reveal-child">NFPA 96 is the National Fire Protection Association's Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations. It sets the requirements for the design, installation, operation, inspection, and maintenance of all commercial kitchen cooking equipment, exhaust hoods, grease ducts, exhaust fans, fire suppression systems, and grease removal devices.</p>
-      <p class="text-body-text reveal-child">In Tennessee, local fire marshals and health departments enforce NFPA 96 standards. Failing to comply can result in fines, failed inspections, insurance claim denials, and forced shutdowns.</p>
+      <p class="text-[#D4D4D4] mb-4 reveal-child">NFPA 96 is the National Fire Protection Association's Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations. It sets the requirements for the design, installation, operation, inspection, and maintenance of all commercial kitchen cooking equipment, exhaust hoods, grease ducts, exhaust fans, fire suppression systems, and grease removal devices.</p>
+      <p class="text-[#D4D4D4] reveal-child">In Tennessee, local fire marshals and health departments enforce NFPA 96 standards. Failing to comply can result in fines, failed inspections, insurance claim denials, and forced shutdowns.</p>
     </div>
   </section>
 
   <!-- What NFPA 96 Covers -->
-  <section class="section-padding bg-dark-base">
-    <div class="container-narrow reveal">
+  <section class="section-padding bg-[#1A1A1A] reveal">
+    <div class="container-narrow">
       <h2 class="section-headline text-center mb-10 reveal-child">What NFPA 96 Covers</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {nfpaCards.map((card) => (
-          <div class="bg-dark-base border border-border-subtle p-6 rounded hover:border-primary transition-all duration-300 reveal-child">
+          <div class="bg-[#111111] border border-[#333] p-6 rounded hover:border-primary transition-all duration-300 reveal-child">
             <h3 class="font-heading font-semibold text-white text-lg mb-3">{card.title}</h3>
-            <p class="text-body-text text-sm">{card.desc}</p>
+            <p class="text-[#D4D4D4] text-sm">{card.desc}</p>
           </div>
         ))}
       </div>
@@ -74,39 +76,39 @@ const complianceChecklist = [
   </section>
 
   <!-- What Tennessee Kitchens Need to Know -->
-  <section class="section-padding bg-dark-base">
-    <div class="container-narrow reveal">
+  <section class="section-padding bg-[#111111] reveal">
+    <div class="container-narrow">
       <h2 class="section-headline mb-8 reveal-child">What Tennessee Kitchens Need to Know</h2>
 
       <div class="mb-8 reveal-child">
         <h3 class="font-heading font-semibold text-white text-lg mb-3">Local Enforcement</h3>
-        <p class="text-body-text">Tennessee fire marshals actively enforce NFPA 96 during routine inspections. Non-compliant systems can be shut down immediately. DDAN ensures your system passes every inspection.</p>
+        <p class="text-[#D4D4D4]">Tennessee fire marshals actively enforce NFPA 96 during routine inspections. Non-compliant systems can be shut down immediately. DDAN ensures your system passes every inspection.</p>
       </div>
 
       <div class="mb-8 reveal-child">
         <h3 class="font-heading font-semibold text-white text-lg mb-3">Insurance Requirements</h3>
-        <p class="text-body-text">Most commercial insurance policies require documented NFPA 96-compliant maintenance. Without it, grease fire claims can be denied. DDAN provides detailed documentation for every service visit.</p>
+        <p class="text-[#D4D4D4]">Most commercial insurance policies require documented NFPA 96-compliant maintenance. Without it, grease fire claims can be denied. DDAN provides detailed documentation for every service visit.</p>
       </div>
 
       <div class="reveal-child">
         <h3 class="font-heading font-semibold text-white text-lg mb-3">Safety & Liability</h3>
-        <p class="text-body-text">A grease fire in your kitchen can injure staff, damage property, and close your business. Regular NFPA 96-compliant maintenance is the most effective prevention.</p>
+        <p class="text-[#D4D4D4]">A grease fire in your kitchen can injure staff, damage property, and close your business. Regular NFPA 96-compliant maintenance is the most effective prevention.</p>
       </div>
     </div>
   </section>
 
   <!-- How DDAN Ensures Compliance -->
-  <section class="section-padding bg-dark-base">
-    <div class="container-narrow reveal">
+  <section class="section-padding bg-[#1A1A1A] reveal">
+    <div class="container-narrow">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 class="section-headline mb-6 reveal-child">How DDAN Ensures Compliance</h2>
-          <p class="text-body-text mb-6 reveal-child">Every service DDAN performs follows NFPA 96 standards:</p>
+          <p class="text-[#D4D4D4] mb-6 reveal-child">Every service DDAN performs follows NFPA 96 standards:</p>
           <ul class="space-y-3 mb-8">
             {complianceChecklist.map((item) => (
               <li class="flex items-start gap-3 reveal-child">
                 <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span class="text-body-text">{item}</span>
+                <span class="text-[#D4D4D4]">{item}</span>
               </li>
             ))}
           </ul>
@@ -123,6 +125,8 @@ const complianceChecklist = [
       </div>
     </div>
   </section>
+
+  <TruckCTA />
 
   <BottomCTA
     headline="Schedule Your NFPA 96 Compliance Service"

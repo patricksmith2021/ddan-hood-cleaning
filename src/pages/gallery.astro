@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
+import TruckCTA from '../components/TruckCTA.astro';
 import BottomCTA from '../components/BottomCTA.astro';
 ---
 
@@ -10,6 +11,7 @@ import BottomCTA from '../components/BottomCTA.astro';
 >
   <HeroBanner
     headline="Gallery"
+    backgroundImage="/images/gallery/gallery-1.jpg"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'Gallery' },
@@ -17,7 +19,7 @@ import BottomCTA from '../components/BottomCTA.astro';
   />
 
   <!-- Work Gallery -->
-  <section class="section-padding bg-dark-base">
+  <section class="section-padding bg-[#111111]">
     <div class="container-narrow reveal">
       <h2 class="section-headline text-center mb-10 reveal-child">Our Work Gallery</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -34,6 +36,8 @@ import BottomCTA from '../components/BottomCTA.astro';
       </div>
     </div>
   </section>
+
+  <TruckCTA />
 
   <BottomCTA
     headline="Need Hood Cleaning, Repair, or Installation?"

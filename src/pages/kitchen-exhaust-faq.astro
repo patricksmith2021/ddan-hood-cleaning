@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
+import TruckCTA from '../components/TruckCTA.astro';
 import BottomCTA from '../components/BottomCTA.astro';
 import business from '../data/business.json';
 
@@ -58,6 +59,7 @@ const faqs = [
 >
   <HeroBanner
     headline="Commercial Kitchen Exhaust & Hood Cleaning FAQ"
+    backgroundImage="/images/services/hood-cleaning-hero.jpg"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'FAQ' },
@@ -65,24 +67,26 @@ const faqs = [
   />
 
   <!-- FAQ Accordion -->
-  <section class="section-padding bg-dark-base">
+  <section class="section-padding bg-[#111111]">
     <div class="container-narrow reveal">
       <h2 class="section-headline text-center mb-10 reveal-child">Frequently Asked Questions</h2>
       <div class="max-w-3xl mx-auto space-y-4">
         {faqs.map((faq) => (
-          <details class="faq-item bg-secondary border border-border-subtle rounded group reveal-child">
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded transition-all duration-300 group reveal-child">
             <summary class="flex items-center justify-between gap-3 p-4 cursor-pointer">
               <span class="font-heading font-medium text-white text-sm">{faq.q}</span>
               <svg class="faq-icon w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
             </summary>
             <div class="px-4 pb-4">
-              <p class="text-body-text text-sm">{faq.a}</p>
+              <p class="text-[#D4D4D4] text-sm">{faq.a}</p>
             </div>
           </details>
         ))}
       </div>
     </div>
   </section>
+
+  <TruckCTA />
 
   <BottomCTA
     headline="Have More Questions?"
@@ -103,5 +107,8 @@ const faqs = [
   }
   .faq-icon {
     transition: transform 0.2s ease;
+  }
+  details[open] {
+    border-color: #FF5E15;
   }
 </style>
