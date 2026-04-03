@@ -1,0 +1,343 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Why do Dickson restaurant exhaust fans fail so often along the I-40 corridor?',
+    a: 'Dickson\'s I-40 location means fast-food restaurants serve continuous interstate traffic — fans run at peak capacity for extended hours to keep up with traveler demand. This continuous high-RPM operation shreds OEM belts and burns through motor windings faster than standard restaurant schedules. Downtown Dickson adds aging infrastructure with non-standard ductwork and missing access components that compound every failure.',
+  },
+  {
+    q: 'How quickly can DDAN respond to an emergency fan failure in Dickson?',
+    a: `Dickson is within our Middle Tennessee service area along the I-40 corridor. We provide 24/7 emergency dispatch and carry common fan motors, belts, and bearings on every truck. Most Dickson emergency calls receive same-day response. Call ${business.phone} any time — we understand that Highway 46 restaurants can't afford to lose a shift.`,
+  },
+  {
+    q: 'Do you work with restaurants in older downtown Dickson buildings?',
+    a: 'Yes. Downtown Dickson has older buildings that often lack hinge kits, proper access panels, and modern mounting configurations. Many exhaust systems have been modified multiple times over the years without updating core components to current NFPA 96 standards. We assess the entire system, install missing compliance components, and bring legacy infrastructure up to code without gutting the building.',
+  },
+  {
+    q: 'Do you service the TriStar Horizon Medical Center area?',
+    a: 'Yes. We service all of Dickson including the TriStar Horizon Medical Center area, Highway 46 commercial corridor, downtown historic district, and surrounding industrial parks. Institutional kitchens like hospitals require specialized heavy-duty exhaust components — we carry them.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Dickson",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Dickson",
+        "addressRegion": "TN"
+      },
+      "description": "Restaurant exhaust fan repair for Dickson's I-40 corridor and downtown historic district. 24/7 emergency motor and belt repair. TriStar Horizon area service."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Dickson, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/dickson-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Dickson I-40 Restaurant Exhaust Fan Repair | DDAN"
+  description="I-40 transit kitchens and historic Dickson buildings need expert exhaust repair. TriStar Horizon area. 24/7 emergency. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-3.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Dickson, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Dickson Restaurant Exhaust Fan Repair — <span class="text-[#FF5E15]">I-40 Corridor</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Highway 46 fast-food and historic downtown Dickson — repairing every exhaust system in Dickson County
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Dickson's I-40 Corridor and Downtown Create Dual Exhaust Repair Challenges
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Dickson sits along the I-40 corridor west of Nashville, and the combination of continuous interstate traffic and aging downtown infrastructure creates exhaust repair challenges at both ends of the spectrum. Highway 46 fast-food restaurants serve a relentless stream of interstate travelers, pushing exhaust fans past their rated duty cycles with extended hours of peak-capacity operation. These fans don't get the overnight rest periods that standard restaurant schedules allow — and factory-installed OEM components simply aren't built for the sustained throughput that I-40 exit ramp dining demands.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Downtown Dickson presents the opposite challenge: older buildings with exhaust systems that have been modified, patched, and improvised over decades without anyone bringing the core infrastructure up to current standards. Fans bolted to curbs without hinge kits. Ductwork hidden behind walls without access panels. Wiring connections that predate modern electrical code. TriStar Horizon Medical Center adds institutional kitchen demand with higher CFM requirements and more complex ductwork than typical restaurants. Dense industrial parks surrounding Dickson drive heavy lunch traffic that compounds wear on every system in the corridor.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN services both ends of Dickson's exhaust repair spectrum — rapid emergency belt and motor replacement for Highway 46 fast-food franchises, and careful retrofit work for downtown buildings that need modern compliance without demolition. Every repair includes the photo documentation and service reports that satisfy the Dickson Fire Department regardless of building age or system complexity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Dickson's interstate fast-food and aging downtown buildings create distinct exhaust fan failures. Here's what we fix:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Continuous I-40 traffic volume burns through motors designed for standard schedules. We install commercial-grade units rated for extended-duty interstate corridor operations.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Highway volume shreds OEM belts within months. Commercial-grade notched V-belts with proper tensioning handle Dickson\'s continuous interstate demand.' },
+          { title: 'Hinge Kit Installation', desc: 'Downtown buildings with fans bolted directly to curbs — no service access without damaging roofing and wiring. Hinge kits solve the problem permanently.' },
+          { title: 'Access Panel Installation', desc: 'Older Dickson buildings have concealed ductwork with no access points. Fire-rated access panels enable proper NFPA 96 cleaning and inspection.' },
+          { title: 'Bearing Replacement', desc: 'Extended-duty operation without adequate rest cycles accelerates bearing fatigue. Sealed high-heat bearings rated for continuous commercial kitchen environments.' },
+          { title: 'Full Fan Replacement', desc: 'When decades-old equipment or continuous-duty wear has pushed systems past economical repair, we install properly rated replacements matched to actual demand.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork damage, disconnections, and grease-saturated seams</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for downtown fans on non-standard curbs</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — emergency service for Dickson's I-40 corridor</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Died? Kitchen Shut Down? We're On It.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for Dickson</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day motor and belt replacement. We carry common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in Dickson
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Interstate fast-food fans burn through belts and motors from continuous operation. Highway 46 restaurants serving I-40 traffic run exhaust systems at peak capacity for extended periods that far exceed what factory-installed OEM components are rated for. Belts stretch past adjustment, motors accumulate thermal damage from insufficient cool-down periods, and bearings wear at accelerated rates. The progression from "slightly noisy fan" to "kitchen full of smoke" happens faster than operators expect. DDAN provides emergency <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> with commercial-grade components rated for the continuous duty cycles that I-40 corridor restaurants demand.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Downtown Dickson buildings lack the hinge kits and access panels required for code-compliant maintenance. Without a hinge kit, technicians must unbolt the entire fan from the curb to access components — damaging roofing, flashing, and electrical connections with every service visit. Without access panels, ductwork hidden behind walls accumulates grease that nobody can see, clean, or inspect. The hidden grease restricts airflow, forces the fan to overwork, and creates exactly the fire hazard that NFPA 96 exists to prevent. DDAN installs <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> and fire-rated access panels that make proper maintenance possible throughout Dickson County.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Dickson Exhaust Repair Compliance — Dickson County Fire Department
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Dickson Fire Department enforces NFPA 96 compliance across Dickson County, including the Highway 46 fast-food corridor and downtown district where older buildings create elevated inspection scrutiny. A non-functional exhaust fan, missing access panels, or inadequate grease containment can trigger immediate remediation orders. During peak travel seasons, increased restaurant volume attracts corresponding inspection attention.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Every DDAN repair includes comprehensive photo documentation and a detailed service report. When we install hinge kits on downtown buildings with non-standard curbs, we document the configuration for future service reference. When we replace motors and belts on Highway 46 franchise operations, we document the commercial-grade specifications to demonstrate components are rated for the actual duty cycle. This documentation satisfies fire marshal requirements and provides your compliance records for future inspections. Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "During a massive summer travel weekend, a high-volume fast-food franchise on Highway 46 had their exhaust fan belt snap, filling the kitchen with smoke and halting service. DDAN's emergency team arrived within the hour, installed a commercial-grade notched V-belt, and had the kitchen safely pulling air before the dinner rush was lost."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in Dickson kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Dickson Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair across all of Dickson and Dickson County, including Highway 46, the I-40 interchange, downtown historic district, TriStar Horizon Medical Center area, and surrounding industrial parks. Whether your restaurant is a highway franchise or a downtown establishment, we respond to emergency fan failures day and night with common parts on every truck.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/fairview-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fairview</a> and
+            <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Dickson Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        I-40 traffic never stops, and neither does the wear on Dickson's exhaust fans. Every week you delay, belts stretch and motors accumulate irreversible thermal damage. Call now.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
