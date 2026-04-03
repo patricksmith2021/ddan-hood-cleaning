@@ -1,0 +1,396 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'My Mount Juliet landlord is demanding a rooftop grease containment system. Can you install one?',
+    a: "Yes. Providence Marketplace and other Mount Juliet commercial property managers are increasingly requiring rooftop grease containment as a lease condition. We install grease boxes, containment pads, and drain line systems that protect TPO/PVC roofing membranes from grease damage. DDAN provides photo documentation of every installation for your landlord's property management file and can coordinate directly with property managers to confirm specifications before work begins.",
+  },
+  {
+    q: 'How fast can you repair a broken exhaust fan in Mount Juliet?',
+    a: "Because DDAN is headquartered in Mount Juliet, our emergency response time is under 20 minutes — the fastest in our entire service area. We stock the most common motors, belts, bearings, and fan wheels locally, so most repairs are completed same-visit without waiting for parts to ship. For after-hours emergencies, call (615) 881-6968 and you'll reach a real technician, not an answering service.",
+  },
+  {
+    q: "Are you familiar with the Fire Department of Mt. Juliet's inspection requirements?",
+    a: "Absolutely. FDMJ is one of the most proactive fire departments in Middle Tennessee, particularly on new builds and restaurant concept changes. They enforce NFPA 96 standards rigorously and conduct routine inspections of commercial kitchen exhaust systems. We provide photo-documented service records that satisfy FDMJ inspectors and can schedule repair and cleaning work to align with your upcoming inspection dates.",
+  },
+  {
+    q: 'Do you stock common exhaust fan parts locally?',
+    a: "Yes. Our Mt. Juliet warehouse stocks the most common motors, belts, bearings, and fan wheels for same-day repair. For specialty or less common parts, we source through our commercial network within 24-48 hours. Being based here means Mt. Juliet restaurants get the fastest parts access in our service area.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/hero/hero-1.jpg`,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Mount Juliet, TN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": business.googleReviewRating,
+        "reviewCount": "51"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Mount Juliet, TN"
+      },
+      "description": "24/7 exhaust fan repair headquartered in Mt. Juliet. Under 20-minute emergency response. Providence Marketplace to N. Mt. Juliet Rd. NFPA 96 compliant."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Mount Juliet, TN" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Mt. Juliet Fan Repair — DDAN's Home Base | 24/7"
+  description="DDAN is headquartered in Mt. Juliet. Under 20-minute emergency fan repair response. Providence Marketplace to N. Mt. Juliet Rd. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-1.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Mount Juliet, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Mt. Juliet Exhaust Fan Repair — <span class="text-[#FF5E15]">Our Home Base Advantage</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Our home base — under 20-minute emergency response, zero travel fees, parts in stock locally
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Mount Juliet Gets the Fastest Repair Response
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Mount Juliet is DDAN's home base, and that means the fastest repair response times in our entire service area. Providence Marketplace — one of Middle Tennessee's largest retail centers — is packed with high-volume corporate chains, sports bars, and fast-casual concepts running exhaust systems 16+ hours daily. The North Mt. Juliet Road corridor adds even more commercial kitchens serving the city's explosive residential growth. Because we're headquartered here, emergency response is under 20 minutes — no travel surcharges, no scheduling delays, and our parts warehouse is minutes away from every restaurant in the city.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Nearly all commercial roofing in Providence Marketplace and the surrounding retail developments uses white TPO or PVC membrane that property managers aggressively protect. A failing fan seal or deteriorating grease containment system doesn't just create a fire hazard — it triggers lease violations that cost restaurant operators far more than the repair itself. Landlords in this corridor monitor rooftop conditions closely, and grease stains on premium membrane roofing generate immediate maintenance demands with tight deadlines.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The Fire Department of Mt. Juliet is highly proactive on new builds and routine inspections. With the city's rapid commercial growth, FDMJ applies modern NFPA 96 standards rigorously across every new restaurant opening and concept change. They don't wait for complaints — they conduct regular inspections and expect complete documentation of exhaust system maintenance and repair history. Having DDAN based locally means we understand FDMJ's specific expectations and can schedule repair work to align with your inspection timeline.
+          </p>
+          <p class="text-[#FF5E15] font-heading font-semibold text-base reveal-child">
+            DDAN provides 24/7 emergency exhaust fan repair across all of Mount Juliet — under 20-minute response from our home base with parts in stock locally.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Commercial exhaust fan repair in Mount Juliet TN - DDAN Hood Cleaning and Repair"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Exhaust fan failures account for the majority of our Mount Juliet emergency calls. We stock common parts locally and can diagnose most fan problems on the first visit.
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Fan repair services:
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {[
+          { title: 'Motor Replacement', desc: 'Burned-out or overheating motors replaced same-day with OEM-spec units from our local warehouse' },
+          { title: 'Belt Replacement', desc: 'Worn, cracked, or slipping belts that reduce airflow and cause squealing — preventive replacements available' },
+          { title: 'Bearing Repair', desc: 'Failed bearings that cause grinding, vibration, and eventual motor seizure' },
+          { title: 'Impeller Rebalancing', desc: 'Grease-clogged or damaged impeller wheels that cause dangerous vibration' },
+          { title: 'Hinge Kit Installation', desc: 'Heavy-duty hinge kits for safe rooftop fan access during cleaning and maintenance' },
+          { title: 'Wiring & Controls', desc: 'Damaged wiring, failed contactors, speed controllers, and relay replacements' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Beyond fans, we also repair:
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child">Hood canopy damage — dented plenums, broken hinges, warped drip trays</li>
+        <li class="check-item reveal-child">Ductwork issues — loose joints, failed dampers, missing <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a></li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression systems</a> — nozzle replacement, line re-routing, Ansul system service</li>
+        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease containment</a> — rooftop grease box replacement, drain line repair, custom containment installation</li>
+        <li class="check-item reveal-child">Make-up air units — damper repair, heating element replacement, filter service, control diagnostics</li>
+      </ul>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Need a deeper dive into belt and motor service? See our dedicated <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt & motor repair</a> page. For hinge kit details: <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit installation</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-bold mb-4">
+          Under 20-Minute Emergency Response in Mt. Juliet
+        </h2>
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          Exhaust fan down during the dinner rush? Kitchen filling with smoke? Because DDAN is headquartered right here in Mount Juliet, our emergency crew is on-site faster than anywhere else in our service area. No answering service — you get a real technician on the line.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-10 py-4 bg-[#FF5E15] text-white font-heading text-xl font-bold rounded hover:bg-[#E54F0D] hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN MT. JULIET -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Failures in Mount Juliet
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.962-.833-2.732 0L4.072 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">High-Volume Motor Burnout</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            High-volume Providence kitchens run 16+ hours daily, burning out fan motors and requiring frequent preventive belt replacements. These aren't emergencies when you stay on schedule — they become emergencies fast when you don't. Consistent heavy fryer and grill use pushes motor temperatures past their rated capacity, especially during summer when ambient rooftop temperatures add 20-30 degrees to an already stressed motor. DDAN installs commercial-grade <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motors and belts</a> rated for extended-duty operation, not factory replacements designed for 8-hour cycles.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">TPO Roof Grease Violations</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Providence and N. Mt. Juliet Road landlords are ruthless about TPO roof grease stains. A failing fan seal triggers lease violations that cost more than the repair. White TPO and PVC membranes show every grease drip, and property management companies issue maintenance demands with 30-day deadlines. The fix isn't just sealing the fan — it's installing a proper <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment system</a> that catches overflow before it reaches the membrane. DDAN installs containment pads, grease boxes, and drain lines that satisfy even the most demanding property managers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Mount Juliet Compliance — FDMJ & West Wilson Utility
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The Fire Department of Mt. Juliet is one of the most proactive fire departments in Middle Tennessee. With Mount Juliet's rapid commercial growth — particularly in the Providence Marketplace corridor — FDMJ applies modern NFPA 96 standards rigorously across every new restaurant opening, concept change, and routine inspection cycle. They don't wait for complaints or incidents. They conduct regular, scheduled inspections and expect complete photographic documentation of exhaust system maintenance, cleaning, and repair history. Restaurants that can't produce documentation face immediate corrective action orders.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The West Wilson Utility District enforces strict FOG (Fats, Oils, and Grease) compliance across all commercial food service operations in Mount Juliet. With the volume of high-grease restaurant cooking in the Providence corridor, grease interceptor overflows and rooftop containment failures are monitored closely. Restaurants that allow grease to reach storm drains or sanitary sewer connections face significant fines and mandatory corrective timelines.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+            Learn more about the standards we follow: <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 Code Standards</a>
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-6 reveal-child">
+          <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-4">Mt. Juliet Enforcement Summary</h3>
+          <ul class="space-y-3">
+            <li class="check-item">FDMJ highly proactive on new builds and routine inspections</li>
+            <li class="check-item">Modern NFPA 96 standards enforced across all commercial kitchens</li>
+            <li class="check-item">Photo documentation required for maintenance and repair history</li>
+            <li class="check-item">West Wilson Utility District enforces strict FOG compliance</li>
+            <li class="check-item">Providence corridor under heightened grease containment scrutiny</li>
+            <li class="check-item">DDAN repair documentation satisfies both fire and utility inspectors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed italic">
+          "On a busy Saturday night, a major sports bar in Providence Marketplace had their exhaust fan belt snap, filling the kitchen with smoke and threatening to shut down service. Because DDAN is based right here in Mount Juliet, our emergency crew arrived in under 20 minutes, installed a heavy-duty commercial replacement belt, and had the kitchen safely pulling air before the dinner rush was lost."
+        </p>
+        <p class="text-[#FF5E15] font-heading font-semibold text-sm mt-4">— DDAN Hood Cleaning and Repair, Mount Juliet Service Area</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 reveal-child">
+        We carry parts and have direct experience repairing exhaust systems from every major commercial kitchen ventilation manufacturer.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] rounded-xl px-5 py-3 text-[#D4D4D4] font-heading font-medium text-sm reveal-child">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Mount Juliet Service Area
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Also in Mount Juliet: <a href="/cleaning/mount-juliet-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot; <a href="/parts/mt-juliet-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Also serving nearby <a href="/repair/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lebanon</a> and <a href="/repair/hermitage-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hermitage</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Mount Juliet Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#1A1A1A] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA URGENCY -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center mb-8">
+      <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed reveal-child">
+        <span class="text-[#FF5E15] font-semibold">Year-round high demand.</span> Mt. Juliet is our home — we handle more scheduled maintenance and emergency calls here than anywhere else.
+      </p>
+      <div class="mt-6">
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Schedule Emergency Repair
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
