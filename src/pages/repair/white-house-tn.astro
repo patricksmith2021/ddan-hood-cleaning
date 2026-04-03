@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Why do White House restaurant exhaust fans fail more often than in other cities?',
+    a: 'White House straddles the I-65 corridor between Nashville and Bowling Green, generating continuous interstate traveler traffic. Fast-food and quick-service fryers run virtually non-stop to serve this constant flow of customers. Factory OEM belts aren\'t rated for 16 to 18-hour daily runtimes — they stretch, overheat, and snap far sooner than in restaurants with normal operating hours. The combination of non-stop fryer operation and summer rooftop heat on the I-65 corridor creates conditions that accelerate every type of fan component failure.',
+  },
+  {
+    q: 'Can you service corporate-owned franchise restaurants in White House?',
+    a: `Yes. Many White House restaurants along I-65 are corporate-owned or franchised operations with specific vendor requirements and documentation needs. We provide detailed photo documentation, service reports, and compliance records that satisfy corporate maintenance tracking systems. Our work meets or exceeds every major franchise brand's exhaust system maintenance standards. Call ${business.phone} to schedule.`,
+  },
+  {
+    q: 'How fast can DDAN get to White House for an emergency?',
+    a: `White House is on our regular Sumner/Robertson County service route along the I-65 corridor. We provide 24/7 emergency dispatch and carry common fan motors, belts, and bearings on every truck. Most White House emergency calls receive same-day response. Call ${business.phone} any time — day or night.`,
+  },
+  {
+    q: 'Do you provide after-hours repair service?',
+    a: 'Yes. Most White House restaurants along the I-65 corridor operate extended hours. We provide 24/7 emergency repair and can schedule non-emergency work during off-hours to minimize disruption to your busiest shifts.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "White House",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "White House, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/white-house-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="White House I-65 Restaurant Fan Repair | 24/7 | DDAN"
+  description="I-65 transit kitchens run 24/7 in White House. Emergency exhaust fan repair with same-day parts. Sumner/Robertson County. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-4.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">White House, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        White House Restaurant Fan Repair — <span class="text-[#FF5E15]">I-65 Corridor Specialists</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        I-65 transit traffic means White House fryers never stop. When fans fail, we're there fast.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why White House's I-65 Corridor Kitchens Burn Through Fan Components
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          White House straddles the I-65 corridor between Nashville and Bowling Green, making it a critical stop for interstate travelers and long-haul truckers. Continuous traveler traffic means fast-food and quick-service restaurants run fryers virtually non-stop from early morning through late evening. Factory OEM belts and motors were never designed for this kind of sustained, punishing runtime — they stretch, overheat, and fail far sooner than in restaurants with normal operating hours.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Corporate landlords on newer White House builds demand pristine white TPO roofs, and summer heat on the I-65 corridor pushes rooftop temperatures past 150 degrees. Exhaust fan motors already running at maximum capacity get zero relief from the ambient environment. When a belt snaps or a motor seizes at a high-volume franchise during peak hours, the kitchen fills with smoke and the health department gets involved. DDAN provides 24/7 emergency repair with same-day parts, keeping White House's busiest kitchens running through every shift.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Non-stop I-65 corridor operation destroys fan components faster than any other environment in our service area:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: 'Extended runtimes overheat standard motors. We upgrade to commercial-grade units with higher thermal ratings for continuous operation.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Non-stop fryer operation shreds OEM belts. Heavy-duty notched V-belts with proper tensioning handle sustained loads without snapping.' },
+          { title: 'Impeller & Fan Wheel Service', desc: 'Constant grease output from high-volume fryers coats impellers fast. We clean, rebalance, or replace to restore airflow.' },
+          { title: 'Bearing Replacement', desc: 'Continuous vibration from extended operation wears bearings quickly. Sealed commercial-grade replacements last under real loads.' },
+          { title: 'VFD & Speed Control Repair', desc: 'Variable frequency drives optimize fan speed and energy use. Power quality issues along the I-65 corridor can damage VFD electronics.' },
+          { title: 'Full Fan Replacement', desc: 'When a unit can\'t handle the duty cycle your kitchen demands, we install a properly sized replacement with the right motor and housing.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork damage, disconnections, and failed seams</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for fans without proper service access</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — our most-requested White House service</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Died? Kitchen Shut Down? We're On It.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for White House</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day motor and belt replacement. We carry common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN WHITE HOUSE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in White House
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Non-stop fryer operation shreds OEM belts faster than in any other city we serve. White House's I-65 corridor restaurants often run 16 to 18 hours a day, pushing factory-installed smooth V-belts past their design limits within months. These belts stretch, glaze, and eventually snap without warning — usually during peak hours when the kitchen is running at full capacity. Summer heat on I-65 corridor rooftops pushes motor temperatures past thermal limits, compounding the stress on already-overworked components. DDAN replaces these failing factory parts with commercial-grade <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belts and motors</a> rated for the actual duty cycle White House kitchens demand.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Corporate franchise locations face an added challenge: brand standards require specific documentation, approved vendors, and maintenance timelines. A failed exhaust fan can trigger corporate compliance reviews in addition to local fire code citations. We provide the detailed photo documentation and service reports that franchise operators need to satisfy both corporate requirements and local inspectors.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        White House Fire Code Compliance
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The White House Fire Department enforces NFPA 96 standards for all commercial kitchen exhaust systems. High-volume I-65 corridor restaurants face particular scrutiny because their extended operating hours generate more grease, more wear, and more potential failure points than standard-hours operations. Every DDAN repair includes photo documentation and a service report that demonstrates compliance during fire inspections. Read our full guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "On a busy Friday evening, a high-volume fast-food franchise right off I-65 in White House had a factory-installed fan belt snap, filling the kitchen with smoke and threatening a shutdown. DDAN arrived within 45 minutes, installed a commercial-grade notched V-belt, and calibrated the motor tension."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in White House kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        White House Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair across all of White House and the surrounding Sumner/Robertson County area along the I-65 corridor. Whether your restaurant is right off the interstate exit or along Highway 76, we respond to emergency fan failures day and night with common parts on every truck.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in White House:</span>
+            <a href="/cleaning/white-house-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/parts/white-house-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Springfield</a>,
+            <a href="/repair/portland-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Portland</a>, and
+            <a href="/repair/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        White House Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        White House's I-65 corridor kitchens never get a break — and neither do their exhaust fans. Don't wait for a belt to snap during the Friday dinner rush. Call now and let us upgrade your system before it fails.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
