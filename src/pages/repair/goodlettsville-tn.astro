@@ -1,0 +1,349 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Why do Goodlettsville fast-food exhaust fans fail so often?',
+    a: 'Goodlettsville sits at the I-65 interchange with one of Middle Tennessee\'s densest concentrations of fast-food and chain restaurants. Many operate 24/7 to serve interstate travelers, meaning exhaust fans never get a rest cycle. Continuous operation at high RPM shreds OEM belts, burns through motor windings, and accelerates bearing wear far faster than typical restaurant schedules. Factory-installed components simply aren\'t rated for non-stop duty cycles.',
+  },
+  {
+    q: 'How quickly can DDAN respond to an emergency fan failure in Goodlettsville?',
+    a: `Goodlettsville is one of our closest service areas from our Mt. Juliet base. We provide 24/7 emergency dispatch and carry common fan motors, belts, and bearings on every truck. Most Goodlettsville emergency calls receive same-day response. Call ${business.phone} any time — we understand that I-65 corridor restaurants can't afford to lose a single shift.`,
+  },
+  {
+    q: 'Can you protect white TPO roofs from grease stains during repairs?',
+    a: 'Yes. Many of Goodlettsville\'s newer commercial buildings around Rivergate have pristine white TPO roof membranes. Corporate landlords issue massive fines for grease staining. During every fan repair, we inspect and service grease containment components and install upgraded containment systems to prevent runoff from damaging the roof surface.',
+  },
+  {
+    q: 'Do you service restaurants in both Davidson and Sumner County?',
+    a: 'Yes. Goodlettsville straddles both counties, and DDAN is familiar with both jurisdictions\' fire inspection requirements. We provide documentation that satisfies either county\'s fire marshal — no confusion, no gaps in compliance.',
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Goodlettsville",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Goodlettsville",
+        "addressRegion": "TN"
+      },
+      "description": "24/7 exhaust fan repair for Goodlettsville's I-65 corridor restaurants. Emergency motor and belt repair near Rivergate and Dollar General HQ."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Goodlettsville, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/goodlettsville-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Goodlettsville I-65 Exhaust Fan Repair | 24/7 | DDAN"
+  description="I-65 fast-food fans run 24/7 in Goodlettsville. Emergency motor and belt repair near Rivergate and Dollar General HQ. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-2.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Goodlettsville, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Goodlettsville Exhaust Fan Repair — <span class="text-[#FF5E15]">I-65 Corridor 24/7</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Dollar General HQ, Rivergate dining, I-65 franchise corridor — fans that never rest need repair that never waits
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Goodlettsville's I-65 Corridor Destroys Exhaust Fans Faster Than Anywhere
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Goodlettsville sits at the I-65 interchange with one of Middle Tennessee's densest concentrations of fast-food and chain restaurants. Dollar General Corporate HQ anchors the commercial landscape, Rivergate Mall drives dozens of surrounding restaurant operations, and the interstate itself feeds a constant stream of travelers who need to eat fast and keep moving. Many of these restaurants operate 24/7 — breakfast, lunch, dinner, late night, overnight — and their exhaust fans never get a rest cycle. A fan designed for 14-hour daily operation running 24 hours will hit its rated lifespan in roughly half the expected time. Bearings wear twice as fast, belts stretch past adjustment twice as quickly, and motors accumulate thermal fatigue at an accelerated rate.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Goodlettsville straddles Davidson and Sumner Counties, creating a dual-jurisdiction compliance environment that confuses many restaurant operators. Which fire marshal has authority over your building? Which sewer department's FOG regulations apply? The answer depends on which side of the county line your address falls on, and the requirements differ. Corporate landlords around the Rivergate area add another layer — white TPO roofs on newer buildings come with aggressive grease-stain fines that can run into the thousands. When a fan bearing fails and the housing vibrates loose, grease escapes containment and stains the pristine white membrane. The landlord doesn't care why it happened — they care that it happened.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN services the entire Goodlettsville corridor with 24/7 emergency response, because a fan failure at 2 AM at an I-65 fast-food restaurant is every bit as urgent as one at noon. We carry common motors, belts, and bearings on every truck, and our documentation satisfies both Davidson and Sumner County fire inspection requirements. When your fan fails, we're already on the way.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
+        Goodlettsville's 24/7 interstate dining creates specific exhaust fan failures. Here's what we fix:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { title: 'Motor Replacement', desc: '24/7 operation burns through motor windings at double the normal rate. We install commercial-grade units rated for continuous-duty interstate corridor restaurants.' },
+          { title: 'Belt Replacement & Tensioning', desc: 'Non-stop operation shreds OEM belts within months. Commercial-grade notched V-belts with proper tensioning handle Goodlettsville\'s relentless duty cycles.' },
+          { title: 'Bearing Replacement', desc: 'Continuous operation without rest cycles accelerates bearing fatigue exponentially. Sealed high-heat bearings rated for 24/7 commercial kitchen environments.' },
+          { title: 'Grease Containment Repair', desc: 'Corporate landlords fine heavily for TPO roof grease stains. Upgraded containment systems prevent runoff from damaging white roof membranes around Rivergate.' },
+          { title: 'VFD & Speed Control Repair', desc: 'Variable frequency drives optimize fan speed for energy efficiency. High-volume I-65 operations wear VFD components faster than standard-schedule restaurants.' },
+          { title: 'Full Fan Replacement', desc: 'When continuous 24/7 operation has worn equipment past economical repair, we install properly rated replacements matched to actual duty cycle demands.' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4 reveal-child">Beyond Fans — Full Exhaust System Repair</h3>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Ductwork damage, disconnections, and grease-saturated seams</li>
+        <li class="check-item reveal-child">Hood canopy structural repair and hinge replacement</li>
+        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease containment systems</a> to protect Rivergate TPO roofs</li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression system</a> link and nozzle replacement</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Belt and motor repair</a> — our most-requested Goodlettsville service</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Fan Died? Kitchen Shut Down? We're On It.</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-6">24/7 Emergency Dispatch for Goodlettsville</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
+          {business.phone}
+        </a>
+        <p class="text-[#D4D4D4] font-body text-base mt-4">Same-day motor and belt replacement. We carry common parts on every truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust Fan Failures in Goodlettsville
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          24/7 interstate fast-food fan operation is Goodlettsville's primary failure driver. Factory-installed OEM belts are rated for standard restaurant schedules — 12 to 16 hours per day with overnight rest. When those same belts run continuously without rest, they reach failure in months instead of years. The belt stretches past its adjustment range, starts slipping on the pulleys, and either snaps outright or causes the motor to overheat trying to compensate for lost traction. Motors burn through windings at double the normal rate under continuous duty. DDAN provides emergency <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> with commercial-grade components rated for the relentless duty cycles that I-65 corridor restaurants demand.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Corporate landlords around the Rivergate area issue massive fines for TPO roof grease stains — fines that can run several thousand dollars per incident. When exhaust fan bearings fail, the housing vibrates loose, and grease that should be captured by the containment system escapes onto the pristine white roof membrane below. Once grease stains TPO, it doesn't come off. The membrane is permanently discolored, and the landlord sends the bill. DDAN installs and maintains <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> that prevent this scenario, protecting both your exhaust compliance and your landlord relationship.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Goodlettsville Exhaust Repair Compliance — Dual County Jurisdiction
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Goodlettsville Fire Department is proactive with surprise NFPA 96 checks, particularly along the I-65 corridor where the density of food-service operations creates elevated fire risk. A non-functional fan or inadequate grease containment triggers immediate remediation orders. Because Goodlettsville straddles Davidson and Sumner Counties, restaurants may fall under either jurisdiction's fire inspection authority — and the requirements have subtle differences that catch operators off guard.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Goodlettsville Sewer Department enforces strict FOG (Fats, Oils, and Grease) discharge requirements. When fan failures cause grease containment breaches, the resulting discharge violates both sewer regulations and landlord lease agreements. DDAN's documentation satisfies both Davidson and Sumner County fire marshals, both jurisdictions' sewer departments, and the corporate landlord compliance requirements that govern most Rivergate-area commercial properties. Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "A high-volume fast-food franchise right off I-65 in Goodlettsville had a factory-installed fan belt snap during the peak Friday lunch rush, filling the kitchen with smoke. DDAN arrived within 30 minutes, upgraded the unit to a commercial-grade notched V-belt, and verified the motor tension, saving the restaurant from a disastrous shutdown."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Exhaust Fan Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-4xl reveal-child">
+        We repair and replace components for every major commercial exhaust fan manufacturer installed in Goodlettsville kitchens:
+      </p>
+      <div class="flex flex-wrap gap-4 reveal-child">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-body text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Goodlettsville Exhaust Fan Repair Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides 24/7 exhaust fan repair across all of Goodlettsville, including the I-65 interchange, Rivergate Mall area, Dollar General Corporate HQ corridor, and both Davidson and Sumner County sides of the city. Whether your restaurant is a 24/7 interstate franchise or a local favorite, we respond to emergency fan failures day and night with common parts on every truck.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in Goodlettsville:</span>
+            <a href="/cleaning/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/parts/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/repair/madison-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Madison</a>,
+            <a href="/repair/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hendersonville</a>, and
+            <a href="/repair/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Springfield</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Goodlettsville Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        I-65 never sleeps, and neither do Goodlettsville's exhaust fans. Every hour you delay repair, belts stretch and motors accumulate thermal damage. Call now.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
