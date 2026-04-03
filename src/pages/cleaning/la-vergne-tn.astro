@@ -1,0 +1,331 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Can you fix a broken restaurant exhaust fan in La Vergne quickly?',
+    a: `Yes. We know you cannot afford downtime during the industrial lunch rush. DDAN offers 24/7 emergency repair and can typically reach La Vergne from our Mt. Juliet base in about 25 minutes with common parts in stock. Call ${business.phone} any time.`,
+  },
+  {
+    q: 'What is required to pass a La Vergne Fire Department hood inspection?',
+    a: 'Inspectors look for your entire system to be cleaned to bare metal, ensuring no flammable grease remains in the hood, ducts, or fan housing. They also check for proper hinge kits, access panels, functional fire suppression, and documented service history.',
+  },
+  {
+    q: 'Do you service Hispanic bakeries and taquerias in La Vergne?',
+    a: "Absolutely. High-heat griddles and traditional baking produce unique carbon and grease buildup that requires specialized cleaning techniques. Our technicians are experienced with La Vergne's diverse food service operations and clean to bare metal regardless of cooking style.",
+  },
+  {
+    q: 'Do you provide a certificate of cleaning for my records?',
+    a: 'Yes. Every cleaning visit includes a comprehensive service report with timestamped before-and-after photos, compliance notes, deficiency recommendations, and a service tag placed on the hood. This serves as your certificate of cleaning for fire inspectors, insurance providers, and La Vergne Fire Department records.',
+  },
+];
+
+const siteUrl = import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": siteUrl,
+      "image": `${siteUrl}/images/logo.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "La Vergne",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Hood Cleaning",
+      "provider": { "@id": `${siteUrl}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "La Vergne",
+        "addressRegion": "TN"
+      },
+      "description": "NFPA 96 compliant commercial kitchen hood cleaning for La Vergne restaurants and commercial kitchens. Bare-metal cleaning with full photo documentation."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+        { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${siteUrl}/cleaning/` },
+        { "@type": "ListItem", "position": 3, "name": "La Vergne, TN", "item": `${siteUrl}/cleaning/la-vergne-tn/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="24/7 Hood Cleaning in La Vergne | Fast Response | DDAN"
+  description="Fast hood cleaning for La Vergne's industrial lunch-rush restaurants on Murfreesboro Rd. La Vergne Fire Dept compliant. Emergency service. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-2.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/cleaning/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">La Vergne, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        24/7 Hood Cleaning in <span class="text-[#FF5E15]">La Vergne, Tennessee</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Keeping Interchange City's busiest kitchens clean and compliant — Murfreesboro Road's industrial dining backbone
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why La Vergne's Industrial Kitchens Need Fast, Reliable Hood Cleaning
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          La Vergne sits at the gateway between Nashville and Murfreesboro along I-24, and its Murfreesboro Road corridor is packed with restaurants, quick-service lunch spots, and Hispanic taquerias feeding a massive industrial workforce. Interchange City — one of Tennessee's largest industrial parks — drives intense lunch-shift dining volume that puts extreme stress on exhaust systems. The cuisine is dominated by high-volume fast food, quick-service lunch, and authentic Hispanic cooking with high-heat griddles and continuous fryer use, producing heavy, sticky grease output.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Roofing is a mix of standard EPDM and metal on older strip centers, with heavy industrial roofing on logistics facilities. La Vergne restaurants don't get the luxury of slow periods — the industrial workforce eats every day, every shift, year-round. That constant, concentrated demand means exhaust systems run at peak load during compressed lunch windows, accelerating wear on motors, belts, and bearings far faster than in restaurants with more evenly distributed traffic.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN provides fast, thorough, NFPA 96-compliant hood cleaning throughout La Vergne. We clean every component from hood canopy to rooftop fan, document everything with before-and-after photos, and offer 24/7 emergency response — because when your kitchen goes down during the lunch rush, every minute counts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE CLEAN -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Clean — Hood to Rooftop
+      </h2>
+      <ul class="space-y-3 max-w-3xl">
+        <li class="check-item reveal-child">Hood canopies and plenums</li>
+        <li class="check-item reveal-child">Exhaust ductwork — including sections accessed through <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">fire-rated access panels</a></li>
+        <li class="check-item reveal-child">Exhaust fans and motors — emergency repair available 24/7</li>
+        <li class="check-item reveal-child">Grease filters and baffles</li>
+        <li class="check-item reveal-child">Rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> — grease boxes, pads, and drip guards</li>
+        <li class="check-item reveal-child"><a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hinge kit installation</a> for code-compliant fan access</li>
+        <li class="check-item reveal-child">Before-and-after photo documentation for compliance, insurance, and fire department inspections</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        La Vergne Hood Cleaning Compliance
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The La Vergne Fire Department is strict, heavily targeting the densely packed Murfreesboro Road corridor and requiring industrial commissaries to maintain impeccable fire suppression readiness. With such a high concentration of food service operations in a compact area, inspectors prioritize bare-metal cleaning documentation, functional fire suppression links, and proper hinge kits on upblast exhaust fans. If you cannot produce a current service report with before-and-after photos, you are not in compliance.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          La Vergne Public Works actively monitors the municipal sewer system for FOG (fats, oils, and grease) violations, emphasizing leak-free rooftop grease containment. The heavy grease output from La Vergne's concentrated restaurant corridor makes containment a top enforcement priority. Restaurants with overflowing or deteriorating grease boxes face fines and mandatory upgrades. DDAN inspects your rooftop containment on every cleaning visit and recommends replacements before they become violations.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our full guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance standards</a> to understand exactly what fire inspectors look for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON PROBLEMS IN LA VERGNE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Hood Cleaning Problems in La Vergne
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The intense, rapid-fire lunch rushes catering to the industrial workforce push exhaust fan motors to their limits, causing frequent bearing failures and snapped belts. These systems run at peak load for concentrated periods — the stress is different from all-day restaurants. A motor that might last five years in a dinner-only restaurant burns out in two years on Murfreesboro Road because it's running at maximum capacity during every compressed lunch window. DDAN stocks common replacement motors and belts and provides same-day <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan belt and motor repair</a> to minimize your downtime.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Older strip centers along Murfreesboro Road often lack NFPA-compliant hinge kits, leading to damaged fan wiring and roof damage during maintenance. Without a proper <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit</a>, technicians are forced to lift fans completely off curbs for cleaning, which is unsafe, non-compliant, and risks tearing roofing membranes. DDAN installs heavy-duty, weather-sealed hinge kits on every fan that lacks one, bringing the system into full NFPA 96 compliance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
+          "When a high-volume taqueria on Murfreesboro Road suffered a snapped exhaust fan belt right as the Friday lunch rush began, DDAN's emergency team was on-site within 45 minutes. We replaced the belt with a notched, heat-resistant commercial V-belt and calibrated the motor, allowing the kitchen to reopen safely with minimal lost revenue."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEANING PROCESS -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Our Cleaning Process
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        Three steps to a safe, compliant, fully documented kitchen exhaust system.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {[
+          { num: '01', title: 'Inspection & Quote', desc: 'We assess your entire exhaust system — hood, ducts, fans, filters, and containment. You get a free, no-obligation estimate with a clear scope of work and pricing.' },
+          { num: '02', title: 'Overnight Deep Clean', desc: 'Our crew works around your schedule — typically 10 PM to 6 AM. Every component cleaned to bare metal per NFPA 96. Eco-friendly degreasers, no shortcuts, no disruption to your business.' },
+          { num: '03', title: 'Documentation & Report', desc: 'Before-and-after photos, written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Ready for any fire department inspection.' },
+        ].map((card) => (
+          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        La Vergne Hood Cleaning Service Area
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          DDAN serves all of La Vergne and the surrounding area along the I-24 corridor. Whether your restaurant is on Murfreesboro Road, near Interchange City, along Waldron Road, or anywhere in the La Vergne city limits, we provide the same thorough, NFPA 96-compliant hood cleaning service with full photo documentation. Our 24/7 emergency team can reach La Vergne from our Mt. Juliet base in about 25 minutes.
+        </p>
+        <div class="space-y-3 reveal-child">
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also in La Vergne:</span>
+            <a href="/repair/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Exhaust Fan Repair</a> &middot;
+            <a href="/parts/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base">
+            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+            <a href="/cleaning/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Murfreesboro</a>,
+            <a href="/cleaning/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Smyrna</a>, and
+            <a href="/cleaning/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Antioch</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        La Vergne Hood Cleaning FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY-SPECIFIC URGENCY + TRUCK CTA -->
+  <section class="bg-black py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <p class="text-[#D4D4D4] font-body text-lg leading-relaxed text-center max-w-3xl mx-auto reveal-child">
+        Consistent heavy demand year-round. Emergency calls spike in late summer when ambient roof temperatures cause overworked exhaust fan motors to seize. Schedule preventive cleaning now.
+      </p>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
