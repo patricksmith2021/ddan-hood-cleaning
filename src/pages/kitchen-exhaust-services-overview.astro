@@ -138,7 +138,7 @@ const services = [
     <div class="container-narrow">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
         {services.map((service) => (
-          <div class="bg-dark-base border border-border-subtle rounded overflow-hidden hover:border-primary transition-colors reveal-child flex flex-col">
+          <div class="bg-dark-base border border-border-subtle rounded overflow-hidden hover:border-primary transition-all duration-300 reveal-child flex flex-col">
             <img
               src={service.image}
               alt={`${service.title} - ${business.name}`}

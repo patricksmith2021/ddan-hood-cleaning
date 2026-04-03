@@ -19,22 +19,22 @@ const areas = [
 ];
 ---
 
-<section class="bg-secondary section-padding">
-  <div class="container-narrow reveal">
-    <h2 class="section-headline text-center mb-2">{headline}</h2>
-    {intro && <p class="text-body-text text-center max-w-2xl mx-auto mb-8 reveal-child">{intro}</p>}
+<section class="bg-[#1A1A1A] py-12 md:py-16 lg:py-20 px-5 reveal">
+  <div class="max-w-[1200px] mx-auto">
+    <h2 class="section-headline text-center mb-2 reveal-child">{headline}</h2>
+    {intro && <p class="text-[#D4D4D4] font-body text-center max-w-2xl mx-auto mb-8 reveal-child">{intro}</p>}
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {areas.map((area) => (
-        <div class="flex items-start gap-2 p-3 bg-dark-base rounded reveal-child">
-          <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+        <div class="flex items-start gap-2 p-3 bg-[#111111] rounded-xl border border-[#333] hover:border-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
           <div>
             <p class="text-white font-heading font-medium text-sm">{area.city}</p>
-            <p class="text-muted-text text-xs">({area.zips})</p>
+            <p class="text-[#999999] text-xs">({area.zips})</p>
           </div>
         </div>
       ))}
     </div>
-    {outro && <p class="text-body-text text-sm text-center mt-6 reveal-child">{outro}</p>}
+    {outro && <p class="text-[#D4D4D4] font-body text-sm text-center mt-6 reveal-child">{outro}</p>}
   </div>
 </section>

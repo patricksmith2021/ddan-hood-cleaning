@@ -41,13 +41,13 @@ const cities = [
         {cities.map((city) => (
           <a
             href={`/locations/${city.slug}/`}
-            class="bg-dark-base border border-border-subtle p-6 rounded text-center hover:border-primary transition-colors group reveal-child block"
+            class="bg-dark-base border border-border-subtle p-6 rounded text-center hover:border-primary transition-all duration-300 group reveal-child block"
           >
             <!-- Map Pin Icon -->
             <svg class="w-8 h-8 text-primary mx-auto mb-2" fill="currentColor" viewBox="0 0 384 512">
               <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/>
             </svg>
-            <h3 class="font-heading font-semibold text-white group-hover:text-primary transition-colors">{city.name}</h3>
+            <h3 class="font-heading font-semibold text-white group-hover:text-primary transition-all duration-300">{city.name}</h3>
             <p class="text-muted-text text-sm">{city.state}</p>
           </a>
         ))}

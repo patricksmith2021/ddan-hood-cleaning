@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout title="Page Not Found | DDAN Hood Cleaning and Repair" description="The page you're looking for doesn't exist." noindex={true}>
+  <section class="bg-black py-20 md:py-32 px-5 text-center reveal">
+    <div class="max-w-[600px] mx-auto">
+      <h1 class="font-display text-[#FF5E15] text-6xl md:text-8xl font-bold mb-4 reveal-child">404</h1>
+      <h2 class="font-heading text-white text-xl md:text-2xl font-semibold mb-4 reveal-child">Page Not Found</h2>
+      <p class="text-[#D4D4D4] font-body text-base mb-8 reveal-child">The page you're looking for doesn't exist or has been moved.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center reveal-child">
+        <a href="/" class="btn-primary justify-center">Back to Home</a>
+        <a href={`tel:${business.phoneRaw}`} class="btn-ghost justify-center">Call {business.phone}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

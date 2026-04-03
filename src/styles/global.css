@@ -41,51 +41,71 @@
 /* === Component Utilities === */
 @layer components {
   .container-narrow {
-    max-width: var(--max-content-width);
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-narrow {
+      padding: 0 2rem;
+    }
   }
 
   .section-padding {
-    padding-top: var(--section-padding-y);
-    padding-bottom: var(--section-padding-y);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
   }
 
   .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: var(--btn-padding);
-    background-color: var(--color-primary);
+    padding: 0.75rem 1.75rem;
+    background-color: #FF5E15;
     color: #FFFFFF;
     font-family: var(--font-heading);
-    font-weight: var(--fw-button);
-    font-size: var(--fs-button);
-    border-radius: var(--btn-radius);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
-    transition: transform var(--transition-fast), background-color var(--transition-fast);
+    transition: all 300ms ease;
   }
 
   .btn-primary:hover {
     transform: scale(0.95);
-    background-color: var(--color-primary-dark);
+    background-color: #E54F0D;
   }
 
   .btn-secondary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: var(--btn-padding);
-    background-color: var(--color-cta-secondary);
+    padding: 0.75rem 1.75rem;
+    background-color: #000000;
     color: #FFFFFF;
     font-family: var(--font-heading);
-    font-weight: var(--fw-button);
-    font-size: var(--fs-button);
-    border-radius: var(--btn-radius);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
-    transition: transform var(--transition-fast), opacity var(--transition-fast);
+    transition: all 300ms ease;
   }
 
   .btn-secondary:hover {
@@ -97,67 +117,79 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: var(--btn-padding);
+    padding: 0.75rem 1.75rem;
     background-color: transparent;
     color: #FFFFFF;
     font-family: var(--font-heading);
-    font-weight: var(--fw-button);
-    font-size: var(--fs-button);
-    border-radius: var(--btn-radius);
-    border: 2px solid #FFFFFF;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 4px;
+    border: 2px solid #FF5E15;
     cursor: pointer;
-    transition: transform var(--transition-fast);
+    transition: all 300ms ease;
   }
 
   .btn-ghost:hover {
     transform: scale(0.95);
+    background-color: #FF5E15;
+    color: #FFFFFF;
   }
 
   .btn-outline-primary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: var(--btn-padding);
+    padding: 0.75rem 1.75rem;
     background-color: transparent;
-    color: var(--color-primary);
+    color: #FF5E15;
     font-family: var(--font-heading);
-    font-weight: var(--fw-button);
-    font-size: var(--fs-button);
-    border-radius: var(--btn-radius);
-    border: 2px solid var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 4px;
+    border: 2px solid #FF5E15;
     cursor: pointer;
-    transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+    transition: all 300ms ease;
   }
 
   .btn-outline-primary:hover {
     transform: scale(0.95);
-    background-color: var(--color-primary);
+    background-color: #FF5E15;
     color: #FFFFFF;
   }
 
   .section-headline {
-    font-size: var(--fs-section-headline);
-    font-weight: var(--fw-section-headline);
-    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 2.25rem);
+    font-weight: 600;
+    color: #FF5E15;
+    line-height: 1.2;
   }
 
   .sub-headline {
-    font-size: var(--fs-sub-headline);
-    font-weight: var(--fw-sub-headline);
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 600;
     color: #FFFFFF;
+    line-height: 1.3;
   }
 
   .check-item {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.5;
   }
 
   .check-item::before {
-    content: '\2713';
-    color: var(--color-primary);
-    font-weight: 700;
-    font-size: 1.1rem;
+    content: '';
+    display: block;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='22' height='22' rx='4' stroke='%23FF5E15' stroke-width='2' fill='none'/%3E%3Cpath d='M7 12.5l3 3 7-7' stroke='%23FF5E15' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 2px;
     flex-shrink: 0;
   }
 }
