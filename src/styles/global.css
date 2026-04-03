@@ -15,7 +15,7 @@
     font-size: var(--fs-body);
     line-height: var(--lh-body);
     color: var(--color-body-text-dark);
-    background-color: var(--color-secondary);
+    background-color: #000000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

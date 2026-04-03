@@ -89,7 +89,7 @@ const services = [
 <BaseLayout title={title} description={description}>
   <HeroBanner headline={title} breadcrumbs={breadcrumbs} />
 
-  <section class="bg-dark-base section-padding">
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="container-narrow reveal">
       <p class="text-body-text leading-relaxed">
         DDAN Hood Cleaning &amp; Repair provides complete commercial kitchen exhaust system services, including cleaning, repair, installation, parts, and maintenance. Based in Mt. Juliet and serving Nashville and surrounding Middle Tennessee, we help commercial kitchens stay safe, compliant, and fully operational. All services follow NFPA 96 standards and include full photographic documentation.
@@ -98,7 +98,7 @@ const services = [
   </section>
 
   {services.map((service) => (
-    <section class="bg-dark-base section-padding">
+    <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
       <div class="container-narrow reveal">
         <h3 class="text-primary font-heading text-sub-headline font-semibold mb-4">{service.name}</h3>
         <p class="text-body-text leading-relaxed">{service.text}</p>
@@ -106,7 +106,7 @@ const services = [
     </section>
   ))}
 
-  <section class="bg-dark-base section-padding">
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="container-narrow reveal">
       <p class="text-body-text leading-relaxed font-semibold">
         Serving Middle Tennessee — Based in Mt. Juliet, DDAN proudly serves Nashville and all surrounding Middle Tennessee communities with complete kitchen exhaust system services.
@@ -114,7 +114,7 @@ const services = [
     </div>
   </section>
 
-  <section class="bg-dark-base section-padding">
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="container-narrow text-center reveal">
       <a href={`tel:${business.phoneRaw}`} class="btn-primary mb-4">
         Call Us: {business.phone}
