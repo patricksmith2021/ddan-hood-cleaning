@@ -1,0 +1,396 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: "I'm opening a new restaurant concept in an older Madison building. What do I need?",
+    a: "When you take over an existing restaurant space, the exhaust system was designed for the previous concept's cooking output. If your cooking style is higher-grease or higher-heat — like switching from a sandwich shop to a wok or charbroil concept — the existing fan motor, ductwork, and fire suppression system may be undersized or non-compliant for your operation. DDAN performs a full system assessment before you open: we verify fan capacity against your cooking output, inspect ductwork for carbon buildup from the previous tenant, confirm fire suppression coverage matches your new cooking line layout, and install any missing components like hinge kits or access panels. This prevents the Metro Nashville Fire Marshal from shutting down your grand opening.",
+  },
+  {
+    q: 'Can you clean heavy carbon buildup from woks and open-flame grills?',
+    a: "Yes. Wok and open-flame cooking produces intense carbon that bonds to ductwork and fan impellers far more aggressively than standard fryer grease. Standard degreasing chemicals are ineffective against baked-on carbon — it requires mechanical scraping, high-pressure hot water, and specialized solvents to strip down to bare metal. DDAN has extensive experience with Madison's diverse cooking styles and the specific carbon profiles each produces.",
+  },
+  {
+    q: 'Do I need a hinge kit on my restaurant exhaust fan?',
+    a: "Yes. NFPA 96 requires safe access to exhaust fan impellers and housings for cleaning and inspection. A hinge kit allows the fan to be safely tilted on the roof curb without disconnecting wiring or risking damage. Many inherited systems along Gallatin Pike are missing hinge kits entirely — the previous operator either removed it or never had one installed. Metro Nashville Fire Marshal inspectors check for hinge kit installation during routine inspections, and missing kits result in code violations.",
+  },
+  {
+    q: 'Can you upgrade an undersized exhaust fan to handle a new cooking concept?',
+    a: "Yes. When your cooking style changes — especially from low-grease to high-grease — your exhaust fan often needs to be upsized. We assess your new cooking output, calculate the required CFM, and install a properly sized replacement that handles the load without overheating. This is one of the most common services we provide on Gallatin Pike.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/hero/hero-1.jpg`,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": "Mt. Juliet",
+        "addressRegion": "TN",
+        "postalCode": "37122",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Madison, TN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": business.googleReviewRating,
+        "reviewCount": "51"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Exhaust Fan Repair",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Madison, TN"
+      },
+      "description": "24/7 exhaust fan repair for Madison's diverse Gallatin Pike restaurant corridor. Concept turnover specialists. Metro Nashville compliant."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
+        { "@type": "ListItem", "position": 3, "name": "Madison, TN" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Madison Gallatin Pike Fan Repair | Diverse Kitchens | DDAN"
+  description="Restaurant concept turnover on Gallatin Pike kills inherited exhaust fans. 24/7 repair for Madison's diverse kitchens. Metro Nashville. (615) 881-6968."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-1.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/repair/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Repair</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Madison, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Madison Fan Repair — <span class="text-[#FF5E15]">Gallatin Pike's Diverse Kitchen Corridor</span>
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Latin American kitchens, Southern soul food, and fast-food franchises — every cooking style breaks exhaust fans differently
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Why Concept Turnover on Gallatin Pike Destroys Exhaust Fans
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Madison's Gallatin Pike is one of Nashville's most diverse restaurant corridors — authentic Latin American concepts, heavy Southern soul food, classic diners, and dense fast-food franchises. Woks, open flames, and heavy fryers dominate the cooking landscape. The Rivergate Mall area adds retail dining traffic from shoppers and employees across multiple shifts. But Madison's biggest repair challenge is concept turnover. Restaurant spaces change hands frequently along Gallatin Pike, and new operators often inherit exhaust systems designed for a completely different cooking style.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            A sandwich shop becomes a high-heat Latin American concept, and the old fan motor immediately burns out under the new load. A basic diner converts to a soul food operation with heavy frying, and the existing exhaust can't handle the grease volume. The fan doesn't know the restaurant changed — it just knows it's being asked to move more heat and grease than it was designed for. Motors overheat, belts stretch beyond tension adjustment, and ductwork coats in carbon within weeks of the new cooking style starting. By the time the new operator notices reduced airflow or a smoky kitchen, the fan is already failing.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Roofing along Gallatin Pike is a mixed bag — older built-up roofing and aging EPDM on the established strip centers, with newer TPO on Rivergate outparcels and recent construction. This creates different grease containment challenges depending on where your restaurant sits. Older BUR softens under grease penetration, while EPDM can degrade from sustained grease contact. Property managers in both cases demand containment systems that protect their roofing investment, and many inherited systems are either failing or missing entirely.
+          </p>
+          <p class="text-[#FF5E15] font-heading font-semibold text-base reveal-child">
+            DDAN provides 24/7 emergency exhaust fan repair across all of Madison — concept turnover specialists who understand every cooking style on Gallatin Pike.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Commercial exhaust fan repair in Madison TN - DDAN Hood Cleaning and Repair"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE REPAIR — FANS FIRST -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        What We Repair — Fans First
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Exhaust fan failures account for the majority of our Madison emergency calls. Concept changes make proper diagnosis critical — the fan may need upgrading, not just repair.
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Fan repair services:
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {[
+          { title: 'Motor Replacement', desc: 'Burned-out or undersized motors replaced with properly rated commercial units' },
+          { title: 'Belt Replacement', desc: 'Worn, stretched, or slipping belts from increased cooking loads after concept changes' },
+          { title: 'Bearing Repair', desc: 'Failed bearings from overloaded fans running beyond their rated capacity' },
+          { title: 'Impeller Rebalancing', desc: 'Carbon-clogged impeller wheels from high-heat wok and open-flame cooking' },
+          { title: 'Hinge Kit Installation', desc: 'Heavy-duty hinge kits for safe rooftop fan access — often missing on inherited systems' },
+          { title: 'Wiring & Controls', desc: 'Damaged wiring, failed contactors, speed controllers, and relay replacements' },
+        ].map((card) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.title}</h3>
+            <p class="text-[#D4D4D4] text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Beyond fans, we also repair:
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child">Hood canopy damage — dented plenums, broken hinges, warped drip trays</li>
+        <li class="check-item reveal-child">Ductwork issues — loose joints, failed dampers, missing <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a></li>
+        <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression systems</a> — nozzle replacement, line re-routing, Ansul system service</li>
+        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease containment</a> — rooftop grease box replacement, drain line repair, custom containment installation</li>
+        <li class="check-item reveal-child">Make-up air units — damper repair, heating element replacement, filter service, control diagnostics</li>
+      </ul>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Need a deeper dive into belt and motor service? See our dedicated <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt & motor repair</a> page. For hinge kit details: <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit installation</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CALLOUT -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-bold mb-4">
+          24/7 Emergency Dispatch for Madison
+        </h2>
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          Inherited exhaust fan just gave out? New cooking concept overwhelming the old system? We dispatch emergency repair crews to Madison and all of Davidson County around the clock. No answering service — you get a real technician on the line.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-10 py-4 bg-[#FF5E15] text-white font-heading text-xl font-bold rounded hover:bg-[#E54F0D] hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FAILURES IN MADISON -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Equipment Failures in Madison
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.962-.833-2.732 0L4.072 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Concept Turnover Motor Burnout</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Concept turnover is the #1 issue on Gallatin Pike. When a low-grease operation becomes a high-heat wok or charbroil concept, the inherited exhaust fan can't handle the load. Motors overheat within weeks, belts stretch beyond adjustment range, and ductwork coats in heavy carbon that the original system was never designed to manage. The fan motor rated for a sandwich shop's light cooking load simply can't sustain the continuous high-heat output of a Latin American grill or soul food fryer. DDAN assesses the actual cooking load and installs properly rated <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motors and belts</a> that match the new concept's demands.
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+          <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-3">Missing Hinge Kits & Fire Suppression</h3>
+          <p class="text-[#D4D4D4] text-sm leading-relaxed">
+            Many inherited systems along Gallatin Pike are missing <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> and fire suppression links entirely. New operators don't realize their system isn't code-compliant until the first Metro Nashville inspection — and by then they're facing violations with mandatory correction deadlines. The previous operator may have removed the hinge kit, or it was never installed in the first place. Fire suppression nozzles are often misaligned with the new cooking line layout, providing inadequate coverage for the changed equipment configuration. DDAN installs code-compliant hinge kits, verifies fire suppression coverage, and documents everything for Metro Nashville inspectors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Madison Compliance — Metro Nashville & Gallatin Pike Enforcement
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The Metro Nashville Fire Marshal targets the Gallatin Pike corridor specifically for concept-change violations. When a restaurant space changes hands and the cooking style changes, the exhaust system must be re-evaluated against NFPA 96 standards for the new operation. A fire suppression system designed for a gas grill may not provide adequate coverage when the space converts to high-heat wok cooking or open-flame charbroiling. Metro Nashville inspectors know that Gallatin Pike has high turnover, and they check new concepts early — often within the first few months of operation.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Metro Water Services enforces FOG (Fats, Oils, and Grease) compliance across all Madison food service operations. The diverse cooking styles on Gallatin Pike — heavy Latin American frying, soul food rendered fats, fast-food fryer oil — produce different types and volumes of grease that all end up in the same municipal system. Restaurants that change from low-grease to high-grease cooking often overwhelm the existing grease interceptor capacity, triggering FOG violations that the previous operator never faced.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+            Learn more about the standards we follow: <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 Code Standards</a>
+          </p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-6 reveal-child">
+          <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-4">Madison Enforcement Summary</h3>
+          <ul class="space-y-3">
+            <li class="check-item">Metro Nashville Fire Marshal targets Gallatin Pike for concept-change violations</li>
+            <li class="check-item">New restaurant concepts inspected within first few months of operation</li>
+            <li class="check-item">Fire suppression must match new cooking line layout after concept change</li>
+            <li class="check-item">Metro Water Services enforces FOG across all food service operations</li>
+            <li class="check-item">Cooking style changes often overwhelm existing grease interceptor capacity</li>
+            <li class="check-item">DDAN repair documentation satisfies both fire and water inspectors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl reveal-child">
+        <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed italic">
+          "When an authentic Latin American restaurant took over an older fast-food space on Gallatin Pike, their high-heat cooking immediately overwhelmed the aging exhaust fan, filling the dining room with smoke. DDAN arrived quickly, installed a new, high-capacity 3-phase motor, scraped the heavy carbon buildup from the ductwork, and fitted the fan with a code-compliant hinge kit, fully restoring the kitchen's airflow."
+        </p>
+        <p class="text-[#FF5E15] font-heading font-semibold text-sm mt-4">— DDAN Hood Cleaning and Repair, Madison Service Area</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE SERVICE -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Brands We Service
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 reveal-child">
+        We carry parts and have direct experience repairing exhaust systems from every major commercial kitchen ventilation manufacturer.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <span class="bg-[#1A1A1A] border border-[#333] rounded-xl px-5 py-3 text-[#D4D4D4] font-heading font-medium text-sm reveal-child">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Madison Service Area
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        Also in Madison: <a href="/cleaning/madison-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot; <a href="/parts/madison-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+        Also serving nearby <a href="/repair/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hendersonville</a>, <a href="/repair/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>, and <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Madison Exhaust Fan Repair FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-[#1A1A1A] rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA URGENCY -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto text-center mb-8">
+      <p class="text-[#D4D4D4] font-body text-base md:text-lg leading-relaxed reveal-child">
+        <span class="text-[#FF5E15] font-semibold">Steady year-round demand.</span> Summer heat pushes aging Gallatin Pike motors to failure — schedule preventive service before the temperature rises.
+      </p>
+      <div class="mt-6">
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Schedule Emergency Repair
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
