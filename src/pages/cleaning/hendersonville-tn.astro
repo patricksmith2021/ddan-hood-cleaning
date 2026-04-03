@@ -1,0 +1,387 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+const HP = '/images/homepage';
+
+const faqs = [
+  {
+    q: 'Does my Hendersonville restaurant need a rooftop grease containment system?',
+    a: 'Yes. Not only is it required by NFPA 96 fire codes, but the Hendersonville Utility District heavily monitors rooftop grease runoff due to proximity to Old Hickory Lake. Violations carry serious environmental fines.',
+  },
+  {
+    q: 'Why is my upblast exhaust fan rattling so loudly?',
+    a: 'Loud rattling usually means the fan blades are coated in hardened grease, throwing the impeller off balance. It can also indicate a worn bearing or a failing motor. Have it inspected immediately to prevent a complete failure.',
+  },
+  {
+    q: 'Are your technicians familiar with Hendersonville Fire Department codes?',
+    a: 'Absolutely. We ensure your entire system meets the standards enforced by Hendersonville Fire Department inspectors.',
+  },
+  {
+    q: "What's included in the compliance report?",
+    a: 'Every cleaning visit includes timestamped before-and-after photos, a written service report, deficiency recommendations, compliance confirmation, and a service tag on the hood. This documentation satisfies Hendersonville Fire Department inspectors and insurance requirements.',
+  },
+];
+---
+
+<BaseLayout
+  title="Hendersonville's Trusted Hood Cleaning Experts | DDAN"
+  description="Hood cleaning for Hendersonville's lakeside restaurants and Gallatin Rd kitchens. Sumner County compliant. 24/7 emergency. (615) 881-6968."
+>
+  <!-- Schema: LocalBusiness + Service + BreadcrumbList + FAQPage -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+        "name": business.name,
+        "telephone": business.phone,
+        "email": business.email,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": business.address.street,
+          "addressLocality": business.address.city,
+          "addressRegion": business.address.state,
+          "postalCode": business.address.zip,
+          "addressCountry": "US"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Hendersonville, TN"
+        },
+        "url": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/hendersonville-tn/`
+      },
+      {
+        "@type": "Service",
+        "name": "Commercial Kitchen Hood Cleaning",
+        "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+        "areaServed": { "@type": "City", "name": "Hendersonville, TN" },
+        "description": "NFPA 96 compliant commercial kitchen hood cleaning for Hendersonville restaurants, addressing lakeside humidity and accelerated grease corrosion."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
+          { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/` },
+          { "@type": "ListItem", "position": 3, "name": "Hendersonville, TN" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does my Hendersonville restaurant need a rooftop grease containment system?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Not only is it required by NFPA 96 fire codes, but the Hendersonville Utility District heavily monitors rooftop grease runoff due to proximity to Old Hickory Lake. Violations carry serious environmental fines." }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is my upblast exhaust fan rattling so loudly?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Loud rattling usually means the fan blades are coated in hardened grease, throwing the impeller off balance. It can also indicate a worn bearing or a failing motor. Have it inspected immediately to prevent a complete failure." }
+          },
+          {
+            "@type": "Question",
+            "name": "Are your technicians familiar with Hendersonville Fire Department codes?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We ensure your entire system meets the standards enforced by Hendersonville Fire Department inspectors." }
+          },
+          {
+            "@type": "Question",
+            "name": "What's included in the compliance report?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Every cleaning visit includes timestamped before-and-after photos, a written service report, deficiency recommendations, compliance confirmation, and a service tag on the hood. This documentation satisfies Hendersonville Fire Department inspectors and insurance requirements." }
+          }
+        ]
+      }
+    ]
+  })} />
+
+  <!-- HERO -->
+  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-4.jpg');"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
+    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
+          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li><a href="/cleaning/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning</a></li>
+          <li class="text-[#FF5E15]">/</li>
+          <li class="text-white">Hendersonville, TN</li>
+        </ol>
+      </nav>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Expert Hood Cleaning for <span class="text-[#FF5E15]">Hendersonville, TN</span> Restaurants
+      </h1>
+      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
+        Protecting lakeside kitchens from humidity-accelerated grease corrosion — Sumner County's trusted cleaning team
+      </p>
+      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Call Us: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service
+        </button>
+      </div>
+      <!-- Review Badges -->
+      <div class="flex flex-row items-center gap-3 md:gap-8">
+        {[
+          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
+          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
+          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        ].map((badge) => (
+          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
+            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <div class="flex gap-0.5">
+              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL INTRO — LAKESIDE + HUMIDITY -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+            Hendersonville's Lakeside Kitchens Need Specialized Care
+          </h2>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Hendersonville's Indian Lake Boulevard and Gallatin Road form Sumner County's busiest restaurant corridors. From national chains to locally owned diners, the volume of commercial kitchens along these corridors keeps growing. Lakeside entertainment complexes near Old Hickory Lake add significant seasonal dining volume from spring through fall, with bar and grills, seafood restaurants, and casual waterfront eateries running at peak capacity during boating season.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            The mix of American casual dining, seafood and lakeside bar & grills, and dense fast-food corridors produces high frying volume across the board. Combined with the lakeside humidity that Hendersonville experiences year-round, this creates a unique and accelerated challenge for exhaust systems. Airborne grease mixes with moisture to form a corrosive compound that attacks rooftop fan housings, hinges, and metal ductwork far faster than in drier inland locations. Rust and degradation set in months earlier than expected, leading to premature equipment failure if not addressed proactively.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+            Hendersonville Medical Center and other institutional facilities support additional commercial kitchens that require strict compliance schedules. Newer Indian Lake developments use TPO and EPDM roofing that can be damaged by grease runoff, while older Gallatin Road properties have built-up roofs and metal roofing that trap and hold grease, accelerating structural damage.
+          </p>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+            DDAN understands the specific challenges Hendersonville's lakeside environment creates for commercial kitchen exhaust systems. Our cleaning process accounts for the accelerated corrosion timeline and targets the moisture-grease compound that standard cleaning companies miss entirely.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <img
+            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
+            alt="Commercial hood cleaning for Hendersonville TN lakeside restaurants - DDAN"
+            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL COMPLIANCE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Hendersonville Fire Code & Environmental Compliance
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        The Hendersonville Fire Department Fire Marshal's Office is strict, especially during routine annual inspections. They enforce full <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance</a> — bare-metal cleaning of all grease-laden surfaces, proper access panel installation, functional fire suppression systems, and documented cleaning schedules. Restaurants that cannot produce cleaning records during inspection face immediate violations.
+      </p>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        The Hendersonville Utility District is highly protective of local water quality due to Old Hickory Lake proximity. Rooftop grease runoff is treated as a serious environmental violation — not just a nuisance. Grease that reaches storm drains or seeps into the ground near the lake's watershed carries significant fines and potential business license consequences. A functioning rooftop grease containment system with regular pad replacement is not optional for any Hendersonville restaurant.
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="check-item reveal-child">Hendersonville Fire Department — full NFPA 96 enforcement</li>
+        <li class="check-item reveal-child">Hendersonville Utility District — strict F.O.G. and grease runoff monitoring</li>
+        <li class="check-item reveal-child">Old Hickory Lake watershed protection — environmental compliance required</li>
+        <li class="check-item reveal-child">Timestamped before-and-after photo documentation for every visit</li>
+        <li class="check-item reveal-child">Service tag placed on hood after each cleaning</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COMMON PROBLEMS — 3 PARAGRAPHS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Common Exhaust System Problems in Hendersonville
+      </h2>
+      <div class="space-y-6">
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-2">Humidity-Accelerated Corrosion</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            Lakeside humidity combined with heavy airborne grease accelerates rusting and degradation of rooftop fan housings and hinges. Fans that last 10 years in dry climates may need replacement in 5-7 years near Old Hickory Lake. The moisture-grease compound eats through protective coatings and exposes bare metal to constant oxidation. DDAN inspects <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">fan hinges and housings</a> during every cleaning visit to catch corrosion before it causes a catastrophic failure.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-2">Undersized Fan Motors on Gallatin Road</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            Older restaurants on Gallatin Road often have outdated, undersized fan motors that struggle to pull heavy grease-laden air during peak summer volume. These motors overheat and fail, shutting kitchens down at the worst possible time — typically Friday or Saturday night during the busy lakeside season. When we identify a motor that is running hot or drawing excessive amps during a cleaning visit, we flag it immediately so you can schedule a replacement on your terms instead of dealing with an emergency failure.
+          </p>
+        </div>
+        <div class="reveal-child">
+          <h3 class="font-heading text-white text-lg font-semibold mb-2">Grease Containment Saturation</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+            The combination of high frying volume and lakeside moisture means <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> need more frequent pad replacement than inland restaurants. Saturated pads stop absorbing grease entirely, and runoff hits the roof membrane. On TPO and EPDM roofs common in newer Indian Lake developments, grease degrades the membrane and voids the roof warranty. On older built-up roofs along Gallatin Road, grease pools and creates slip hazards for HVAC technicians and creates a direct path to the storm drain system.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl reveal-child">
+        <p class="text-[#FF5E15] font-heading font-semibold text-lg mb-3">Real Job — Hendersonville, TN</p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+          A popular lakeside restaurant in Hendersonville was experiencing severe exhaust fan vibration just as the summer boating season kicked off. DDAN technicians arrived same-day, discovered a heavily grease-laden impeller and a failing motor bearing, scraped the system clean, and installed a heavy-duty replacement motor so the kitchen didn't miss the weekend rush.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-STEP PROCESS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Our Cleaning Process
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-10 reveal-child">
+        Three steps to a safe, compliant, fully documented kitchen exhaust system.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {[
+          { num: '01', title: 'Inspection & Quote', desc: 'We assess your entire exhaust system — hood, ducts, fans, filters, and containment. We check for humidity-related corrosion specific to lakeside Hendersonville properties. Free estimate.' },
+          { num: '02', title: 'Overnight Deep Clean', desc: 'Our crew works around your schedule — typically 10 PM to 6 AM. Every component cleaned to bare metal per NFPA 96. Special attention to moisture-grease compound buildup on rooftop components.' },
+          { num: '03', title: 'Documentation & Report', desc: 'Before-and-after photos, written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Ready for Hendersonville Fire Department inspectors.' },
+        ].map((card) => (
+          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Schedule Your Cleaning
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE DDAN — HENDERSONVILLE SPECIFIC -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Why Hendersonville Restaurants Choose DDAN
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-10 reveal-child">
+        Sumner County's commercial kitchens trust DDAN because we understand the lakeside environment and its impact on exhaust systems.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { icon: 'humidity', label: 'Lakeside Expertise', desc: 'We account for humidity-accelerated corrosion that standard cleaning companies ignore. Your rooftop components get inspected every visit.' },
+          { icon: 'clock', label: '24/7 Emergency Service', desc: 'Fan motor failure during the Saturday dinner rush? We provide emergency response around the clock for Hendersonville kitchens.' },
+          { icon: 'camera', label: 'Photo Documentation', desc: 'Timestamped before-and-after photos satisfy Hendersonville Fire Department inspectors and insurance requirements.' },
+          { icon: 'shield', label: 'NFPA 96 Compliant', desc: 'Every cleaning meets or exceeds NFPA 96 bare-metal standards. Full compliance with Hendersonville Fire Department enforcement.' },
+          { icon: 'water', label: 'Environmental Compliance', desc: 'Proper grease containment protects Old Hickory Lake and keeps you compliant with Hendersonville Utility District regulations.' },
+          { icon: 'bolt', label: 'Overnight Scheduling', desc: 'We work 10 PM to 6 AM so your kitchen stays open during peak lakeside dining hours. Zero disruption to your business.' },
+        ].map((card) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <div class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full mb-4">
+              {card.icon === 'humidity' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>}
+              {card.icon === 'clock' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>}
+              {card.icon === 'camera' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>}
+              {card.icon === 'shield' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
+              {card.icon === 'water' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>}
+              {card.icon === 'bolt' && <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>}
+            </div>
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.label}</h3>
+            <p class="text-[#D4D4D4] text-sm">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA LINKS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Hendersonville Service Area & Nearby Cities
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Major demand spikes in late spring and summer as lakeside dining volume peaks, putting maximum strain on exhaust fans and belts. Schedule proactive cleaning before the rush hits.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        <div class="reveal-child">
+          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Other Services in Hendersonville</p>
+          <ul class="space-y-2">
+            <li><a href="/repair/hendersonville-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hood Repair — Hendersonville, TN</a></li>
+            <li><a href="/parts/hendersonville-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Exhaust Fan Parts — Hendersonville, TN</a></li>
+          </ul>
+        </div>
+        <div class="reveal-child">
+          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Nearby Cities</p>
+          <ul class="space-y-2">
+            <li><a href="/cleaning/gallatin-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Gallatin, TN</a></li>
+            <li><a href="/cleaning/goodlettsville-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Goodlettsville, TN</a></li>
+            <li><a href="/cleaning/nashville-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Nashville, TN</a></li>
+          </ul>
+        </div>
+        <div class="reveal-child">
+          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Service Hub</p>
+          <ul class="space-y-2">
+            <li><a href="/cleaning/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">All Hood Cleaning Service Areas</a></li>
+            <li><a href="/kitchen-hood-cleaning-services/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning Services Overview</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Hendersonville Hood Cleaning FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 bg-black rounded-b-2xl">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUCK CTA -->
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>
