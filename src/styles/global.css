@@ -20,8 +20,8 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Force black backgrounds globally — no grey flash ever */
-  main, section, div {
+  /* Force black backgrounds on structural elements — no grey flash */
+  main, section {
     background-color: #000000;
   }
 
