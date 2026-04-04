@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TruckCTA from '../../components/TruckCTA.astro';
 import business from '../../data/business.json';
-
 const HP = '/images/homepage';
 
 const partsAreas = [
@@ -24,15 +23,15 @@ const partsAreas = [
   { city: 'Clarksville', state: 'TN', zips: '37040–37044', slug: 'clarksville-tn' },
   { city: 'Columbia', state: 'TN', zips: '38401, 38402', slug: 'columbia-tn' },
   { city: 'Dickson', state: 'TN', zips: '37055', slug: 'dickson-tn' },
-  { city: 'Cookeville', state: 'TN', zips: '38501, 38502', slug: 'cookeville-tn' },
   { city: 'Shelbyville', state: 'TN', zips: '37160', slug: 'shelbyville-tn' },
-  { city: 'Tullahoma', state: 'TN', zips: '37388', slug: 'tullahoma-tn' },
-  { city: 'McMinnville', state: 'TN', zips: '37110', slug: 'mcminnville-tn' },
   { city: 'Springfield', state: 'TN', zips: '37172', slug: 'springfield-tn' },
-  { city: 'Bellevue', state: 'TN', zips: '37221', slug: 'bellevue-tn' },
-  { city: 'Donelson', state: 'TN', zips: '37214', slug: 'donelson-tn' },
-  { city: 'Green Hills', state: 'TN', zips: '37215', slug: 'green-hills-tn' },
+  { city: 'Nolensville', state: 'TN', zips: '37135', slug: 'nolensville-tn' },
+  { city: 'Portland', state: 'TN', zips: '37148', slug: 'portland-tn' },
   { city: 'White House', state: 'TN', zips: '37188', slug: 'white-house-tn' },
+  { city: 'Lewisburg', state: 'TN', zips: '37091', slug: 'lewisburg-tn' },
+  { city: 'Hartsville', state: 'TN', zips: '37074', slug: 'hartsville-tn' },
+  { city: 'Fairview', state: 'TN', zips: '37062', slug: 'fairview-tn' },
+  { city: "Thompson's Station", state: 'TN', zips: '37179', slug: 'thompsons-station-tn' },
   { city: 'Bowling Green', state: 'KY', zips: '42101–42104', slug: 'bowling-green-ky' },
   { city: 'Fort Campbell', state: 'KY', zips: '42223', slug: 'fort-campbell-ky' },
 ];
@@ -40,406 +39,491 @@ const partsAreas = [
 const faqs = [
   {
     q: 'Do I have to buy the part from DDAN to get installation?',
-    a: 'No — we\'ll install parts you\'ve sourced elsewhere. But when you purchase through us, installation is discounted and the part comes with our compatibility guarantee. We verify fit before ordering so you never get the wrong part.',
+    a: "No — we'll install parts you've sourced elsewhere. But when you purchase through us, installation is discounted and the part comes with our compatibility guarantee.",
   },
   {
     q: 'How fast can you get parts?',
-    a: 'We stock the most common exhaust fan motors, belts, bearings, filters, and fan wheels locally for same-day pickup or delivery. For specialty or less common parts, we source through our commercial supply network within 24–48 hours.',
-  },
-  {
-    q: 'Do you work on CaptiveAire, Loren Cook, Greenheck, and other brands?',
-    a: 'Yes. We supply and install parts for all major commercial kitchen exhaust brands including CaptiveAire, Loren Cook, Canarm, NAKS, EconAir, Greenheck, Accurex, PennBarry, Dayton, and Fantech. If your brand isn\'t listed, call us.',
+    a: 'Common motors, belts, bearings, and filters are stocked locally for same-day pickup or delivery. Specialty parts sourced within 24–48 hours.',
   },
   {
     q: 'Can you install a complete new exhaust system from scratch?',
-    a: 'Absolutely. We design and install turnkey commercial kitchen exhaust systems — hood canopy, ductwork, exhaust fan, make-up air unit, fire suppression, grease containment, and electrical. One contractor, one call, fully NFPA 96 compliant.',
+    a: 'Yes. Turnkey installation — hood, ductwork, fan, MUA, fire suppression, containment, electrical. One contractor, fully NFPA 96 compliant.',
   },
   {
     q: 'Do you sell parts to other hood cleaning companies?',
-    a: 'Yes. We supply parts to other hood service companies across Middle Tennessee. Same-day availability, competitive pricing, and we can ship or arrange pickup from our Mt. Juliet location.',
+    a: 'Yes. Same-day availability, competitive pricing. Pickup from Mt. Juliet or delivery across Middle Tennessee.',
   },
   {
-    q: 'What warranty do you offer on parts and installation?',
-    a: 'All parts carry their manufacturer\'s warranty. Our installation labor is backed by a workmanship guarantee. Every job is documented with before-and-after photos and a written service report for your records.',
+    q: 'What warranty do you offer?',
+    a: 'All parts carry manufacturer warranty. Installation backed by our workmanship guarantee. Documented with before-and-after photos.',
   },
+  {
+    q: "What if I don't know what part I need?",
+    a: "Call us. Describe the symptom — noise, smell, failure — and we'll diagnose it, identify the exact part, verify fit for your specific unit, and handle everything from there.",
+  },
+];
+
+const fans = [
+  { name: 'Upblast Centrifugal — Direct Drive', desc: 'The #1 restaurant exhaust fan. Sealed motor, low maintenance, high efficiency. 400–6,000+ CFM. We stock common sizes for same-day replacement.', badge: 'MOST POPULAR' },
+  { name: 'Upblast Centrifugal — Belt Drive', desc: 'Quieter operation, adjustable speed via pulley. Cost-effective for moderate-volume kitchens. All belt sizes in stock.' },
+  { name: 'Downblast Centrifugal', desc: 'For non-grease exhaust — dining rooms, dishwashing areas, general ventilation. Direct and belt drive options.' },
+  { name: 'Inline Centrifugal', desc: "Mounts inside ductwork. Ideal for commercial and light industrial applications where roof mounting isn't possible." },
+  { name: 'Axial / Tube Fans', desc: 'High-volume air movement through duct systems. Tubeaxial and vaneaxial configurations.' },
+  { name: 'Propeller Wall & Roof Fans', desc: 'General ventilation for warehouses, loading docks, equipment rooms. Low-profile rooftop options available.' },
+];
+
+const parts = [
+  { name: 'Motors (ODP & TEFC)', desc: 'Direct & belt drive replacements' },
+  { name: 'Fan Wheels & Blades', desc: 'Centrifugal & axial replacements' },
+  { name: 'Belts & Drive Kits', desc: 'All sizes, matched sets' },
+  { name: 'Bearings', desc: 'Pillow block & flange mount' },
+  { name: 'Roof Curbs & Adapters', desc: 'Standard & custom sizes' },
+  { name: 'Hinge Kits (NFPA 96)', desc: 'Code-compliant fan access' },
+  { name: 'Speed Controllers & VFDs', desc: 'Variable speed operation' },
+  { name: 'Grease Cups & Fittings', desc: 'Drain cups, nipples, elbows' },
+  { name: 'Motor Covers & Guards', desc: 'Weather & debris protection' },
+];
+
+const muaUnits = [
+  { name: 'Heated / Tempered MUA', desc: 'Required for Tennessee winters. Direct gas-fired or electric. Prevents dangerous negative pressure and freezing drafts.' },
+  { name: 'Unheated MUA', desc: 'Budget-friendly fresh air supply. Best for mild weather or supplemental use.' },
+  { name: 'Heated + Cooled MUA', desc: 'Year-round comfort. Evaporative cooling or DX coils plus heating. The premium choice.' },
+  { name: 'Rooftop Packaged Units', desc: 'Combined exhaust/supply in one unit. Pre-wired, factory-mounted. CaptiveAire and compatible.' },
+];
+
+const filters = [
+  { name: 'Stainless Steel Baffle', desc: 'Type 304/430 stainless. Longest lasting, easiest to clean. All standard sizes in stock.' },
+  { name: 'Mesh Grease Filters', desc: 'Aluminum or galvanized. Budget option for low-grease applications.' },
+  { name: 'Charcoal / Carbon', desc: 'Odor control for ventless hoods. Replace every 3–6 months.' },
+];
+
+const greaseItems = [
+  'Rooftop Grease Boxes',
+  'Grease Trays & Drip Pans',
+  'Grease Pillows & Pads',
+  'Duct Access Doors (NFPA 96)',
+];
+
+const brands = ['CaptiveAire', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Greenheck', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'];
+
+const installChecks = [
+  'Hood canopy (Type I & Type II)',
+  'Ductwork — welded, code-compliant',
+  'Exhaust fan — sized & mounted',
+  'Make-up air unit — balanced airflow',
+  'Fire suppression system — UL 300',
+  'Grease containment — rooftop compliant',
+  'Access panels — NFPA 96 required',
+  'Electrical — wiring & controls',
+  'Final inspection & documentation',
 ];
 ---
 
 <BaseLayout
-  title="Restaurant Exhaust Fan Parts & Installation | Same-Day | DDAN Nashville"
-  description="Restaurant exhaust fan parts, make-up air units, hood filters, and grease containment. Same-day parts & discounted professional installation. Call (615) 881-6968."
+  title="Same-Day Restaurant Exhaust Fan Parts & Installation | DDAN Nashville"
+  description={`Restaurant exhaust fan parts, make-up air units, hood filters, and grease containment. Same-day parts & discounted professional installation. Call ${business.phone}.`}
 >
-  <!-- HERO -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 1 — HERO
+       ═══════════════════════════════════════════════════════════════════ -->
   <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/exhaust-fan-parts.webp');"></div>
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
-    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
-      <nav aria-label="Breadcrumb" class="mb-4">
-        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
-          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
-          <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Parts &amp; Installation</li>
-        </ol>
+
+    <div class="relative z-10 max-w-[1280px] mx-auto px-5 py-20 md:py-28 w-full">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm font-heading text-white/70 mb-6 tracking-widest uppercase reveal-child" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF5E15] transition-colors">Home</a>
+        <span class="text-white/40">/</span>
+        <span class="text-white">Parts &amp; Installation</span>
       </nav>
-      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
-      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Commercial Kitchen Exhaust Fan Parts &amp; Installation in <span class="text-[#FF5E15]">Middle Tennessee</span>
+
+      <!-- Branding label -->
+      <p class="inline-block text-[#FF5E15] font-heading font-bold text-xs tracking-[0.2em] uppercase mb-4 reveal-child">{business.name}</p>
+
+      <h1 class="font-heading text-white text-2xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5 max-w-3xl reveal-child">
+        Same-Day Restaurant Exhaust Fan Parts &amp; <span class="text-[#FF5E15]">Professional Installation</span>
       </h1>
-      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Same-Day Parts | Discounted Installation | Free Fitting Consult
+
+      <p class="text-[#D4D4D4] text-lg md:text-xl max-w-2xl mb-8 reveal-child">
+        Replacement part or new system? We source it, verify fit, and install it — often same day.
       </p>
-      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
-        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Free Consult: {business.phone}
+
+      <div class="flex flex-wrap gap-4 mb-10 reveal-child">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2 px-6 py-3 bg-[#032C5B] text-white font-heading font-semibold rounded hover:scale-95 transition-transform duration-150">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          Free Fitting Consult: {business.phone}
         </a>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Request Service
-        </button>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2 px-6 py-3 border-2 border-red-500 text-red-400 font-heading font-semibold rounded hover:bg-red-500 hover:text-white transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
+          EMERGENCY FAN REPLACEMENT
+        </a>
       </div>
-      <div class="flex flex-row items-center gap-3 md:gap-8">
-        {[
-          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
-          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
-          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
-        ].map((badge) => (
-          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
-            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
-            <div class="flex gap-0.5">
-              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
-            </div>
+
+      <!-- Trust badges -->
+      <div class="flex flex-wrap items-center gap-6 reveal-child">
+        <div class="flex items-center gap-2">
+          <img src="/images/icons/google-icon.svg" alt="Google" class="w-6 h-6" loading="lazy" />
+          <div class="flex gap-0.5">
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
           </div>
-        ))}
+          <span class="text-white text-sm font-heading">{business.googleReviewRating}</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <img src="/images/icons/facebook-icon.svg" alt="Facebook" class="w-6 h-6" loading="lazy" />
+          <div class="flex gap-0.5">
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <span class="text-white text-sm font-heading">5.0</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <img src="/images/icons/yelp-icon.svg" alt="Yelp" class="w-6 h-6" loading="lazy" />
+          <div class="flex gap-0.5">
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-[#FF5E15]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <span class="text-white text-sm font-heading">5.0</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- VALUE PROPOSITION BANNER -->
-  <section class="bg-[#111111] py-10 px-5 reveal">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 2 — VALUE PROP CARDS
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          { icon: 'bolt', label: 'Same-Day / Next-Day Parts' },
-          { icon: 'tools', label: 'Discounted Install With Purchase' },
-          { icon: 'shield', label: 'Warranty on Parts & Labor' },
-          { icon: 'phone', label: 'Free Fitting Consult' },
-        ].map((item) => (
-          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 text-center transition-all duration-300 reveal-child">
-            <div class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full mx-auto mb-3">
-              {item.icon === 'bolt' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>}
-              {item.icon === 'tools' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>}
-              {item.icon === 'shield' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
-              {item.icon === 'phone' && <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>}
-            </div>
-            <p class="text-white font-heading font-semibold text-sm">{item.label}</p>
+
+        <!-- Same-Day -->
+        <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl p-5 text-center reveal-child">
+          <div class="w-12 h-12 bg-[#FF5E15] rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-        ))}
+          <p class="text-white font-heading font-semibold mb-1">Same-Day / Next-Day Parts</p>
+          <p class="text-[#D4D4D4] text-sm">We stock common fans and parts locally</p>
+        </div>
+
+        <!-- Discounted Install -->
+        <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl p-5 text-center reveal-child">
+          <div class="w-12 h-12 bg-[#FF5E15] rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <p class="text-white font-heading font-semibold mb-1">Discounted Installation</p>
+          <p class="text-[#D4D4D4] text-sm">Buy from us, save on labor</p>
+        </div>
+
+        <!-- Warranty -->
+        <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl p-5 text-center reveal-child">
+          <div class="w-12 h-12 bg-[#FF5E15] rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <p class="text-white font-heading font-semibold mb-1">Warranty on Parts &amp; Labor</p>
+          <p class="text-[#D4D4D4] text-sm">Guaranteed right part, guaranteed work</p>
+        </div>
+
+        <!-- Free Consult -->
+        <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl p-5 text-center reveal-child">
+          <div class="w-12 h-12 bg-[#FF5E15] rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          </div>
+          <p class="text-white font-heading font-semibold mb-1">Free Fitting Consult</p>
+          <p class="text-[#D4D4D4] text-sm">Call before you buy. We verify exact specs.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- EXHAUST FANS — THE MAIN EVENT -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 3 — PRODUCT CATALOG
+       ═══════════════════════════════════════════════════════════════════ -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans — The Heart of Your Kitchen
+
+      <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-semibold mb-12 text-center reveal-child">
+        Commercial Kitchen Exhaust Parts We Supply &amp; Install
       </h2>
-      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-12 reveal-child">
-        Your exhaust fan moves every cubic foot of air through your kitchen ventilation system. When it fails, your kitchen shuts down. We stock, source, and install every type of commercial kitchen exhaust fan.
-      </p>
 
-      <!-- Upblast -->
-      <div class="mb-12 reveal">
-        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. Every restaurant needs one — and we carry the most common sizes for same-day replacement.</p>
-        <ul class="space-y-2 mb-4">
-          <li class="check-item reveal-child">Direct drive — sealed motor, less maintenance, more energy efficient</li>
-          <li class="check-item reveal-child">Belt drive — quieter operation, cheaper upfront, adjustable speed via pulleys</li>
-          <li class="check-item reveal-child">High-speed direct drive (CaptiveAire DU series and equivalents)</li>
-          <li class="check-item reveal-child">Sizes from 400 CFM to 6,000+ CFM — matched to your kitchen's requirements</li>
-        </ul>
-      </div>
-
-      <!-- Downblast -->
-      <div class="mb-12 reveal">
-        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
-        <ul class="space-y-2 mb-4">
-          <li class="check-item reveal-child">Discharges air downward along the rooftop for quieter operation</li>
-          <li class="check-item reveal-child">Direct and belt drive options for different performance needs</li>
-        </ul>
-      </div>
-
-      <!-- Inline -->
-      <div class="mb-12 reveal">
-        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
-        <ul class="space-y-2 mb-4">
-          <li class="check-item reveal-child">Ideal for interior installations and multi-floor exhaust runs</li>
-          <li class="check-item reveal-child">Available in grease-rated and general ventilation configurations</li>
-        </ul>
-      </div>
-
-      <!-- Axial + Propeller -->
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <div class="reveal">
-          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Axial / Tube Fans</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">High-volume air movement through duct systems. Common in industrial kitchens and large-scale food production facilities.</p>
-        </div>
-        <div class="reveal">
-          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Propeller Wall &amp; Roof Fans</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">General ventilation for warehouses, loading docks, and storage areas adjacent to commercial kitchens.</p>
-        </div>
-      </div>
-
-      <!-- Fan Replacement Parts -->
-      <div class="mb-8 reveal">
-        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {[
-            'Motors (ODP, TEFC, single & 3-phase)',
-            'Fan wheels & blade assemblies',
-            'Belts & drive kits',
-            'Bearings',
-            'Roof curbs & adapters',
-            'Hinge kits (NFPA 96 required)',
-            'Speed controllers & VFDs',
-            'Electrical disconnects & switches',
-          ].map((part) => (
-            <div class="flex items-start gap-2 bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 transition-all duration-300 reveal-child">
-              <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span class="text-[#D4D4D4] text-sm font-heading">{part}</span>
+      <!-- ── EXHAUST FANS ── -->
+      <div class="mb-16">
+        <h3 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6 reveal-child">Exhaust Fans</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {fans.map((fan) => (
+            <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+              {fan.badge && (
+                <span class="inline-block bg-[#FF5E15] text-white text-xs font-heading font-bold px-3 py-1 rounded-full mb-3">{fan.badge}</span>
+              )}
+              <h4 class="font-heading font-semibold text-[#FF5E15] text-lg mb-2">{fan.name}</h4>
+              <p class="text-[#D4D4D4] text-sm mb-4">{fan.desc}</p>
+              <button type="button" class="popup-trigger inline-flex items-center gap-2 px-5 py-2 bg-[#FF5E15] text-white text-sm font-heading font-medium rounded hover:bg-black transition-all duration-300">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                Call for Availability
+              </button>
             </div>
           ))}
         </div>
       </div>
 
-      <p class="text-[#999] text-sm reveal-child">Not sure what you need? <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call for a free fitting consult — {business.phone}</a></p>
-    </div>
-  </section>
-
-  <!-- MAKE-UP AIR UNITS -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Make-Up Air Units
-      </h2>
-      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-4 reveal-child">
-        Your exhaust system can't function without proper make-up air. If your front doors won't open, slam shut on their own, or you feel negative pressure in the kitchen — you likely need a MUA unit.
-      </p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
-        {[
-          { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter months to maintain kitchen comfort and airflow balance.' },
-          { title: 'Electric Heated', desc: 'Alternative heating option for locations without gas access. Higher operating cost but simpler installation.' },
-          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
-          { title: 'Perforated Supply Plenum', desc: 'Mounts directly to your hood. Delivers tempered air right at the cooking line for maximum efficiency.' },
-        ].map((item) => (
-          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
-            <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
-            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
-          </div>
-        ))}
+      <!-- ── FAN REPLACEMENT PARTS ── -->
+      <div class="mb-16">
+        <h3 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6 reveal-child">Fan Replacement Parts</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          {parts.map((part) => (
+            <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 text-center transition-all duration-300 reveal-child">
+              <p class="text-white font-heading font-semibold text-sm mb-1">{part.name}</p>
+              <p class="text-[#999] text-xs mb-2">{part.desc}</p>
+              <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] text-xs font-heading font-medium hover:text-white transition-colors">Call for Part</a>
+            </div>
+          ))}
+        </div>
       </div>
-      <p class="text-[#999] text-sm reveal-child">Call for free fitting consult to verify fit &amp; need — <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">{business.phone}</a></p>
-    </div>
-  </section>
 
-  <!-- FILTERS & BAFFLES -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Filters &amp; Baffles
-      </h2>
-      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-6 reveal-child">
-        Wrong filter = fire hazard + failed inspection. We match exact specifications for your hood system.
-      </p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
-        {[
-          { title: 'Stainless Steel Baffle Filters', desc: 'Industry standard. Type 304 or 430 stainless steel. Captures grease through multi-pass baffles. Dishwasher safe.' },
-          { title: 'Mesh Grease Filters', desc: 'Budget option for lower-grease applications. Aluminum or galvanized steel mesh construction.' },
-          { title: 'Charcoal / Carbon Filters', desc: 'Odor control for ventless hoods and recirculating systems. Removes smoke and cooking odors from exhaust air.' },
-        ].map((item) => (
-          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
-            <h3 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h3>
-            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
-          </div>
-        ))}
+      <!-- ── MAKE-UP AIR UNITS ── -->
+      <div class="mb-16">
+        <h3 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6 reveal-child">Make-Up Air Units</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {muaUnits.map((unit) => (
+            <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+              <h4 class="font-heading font-semibold text-[#FF5E15] text-lg mb-2">{unit.name}</h4>
+              <p class="text-[#D4D4D4] text-sm mb-4">{unit.desc}</p>
+              <button type="button" class="popup-trigger inline-flex items-center gap-2 px-5 py-2 bg-[#FF5E15] text-white text-sm font-heading font-medium rounded hover:bg-black transition-all duration-300">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                Call for Availability
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-      <p class="text-[#999] text-sm reveal-child">Standard sizes in stock. Custom sizes sourced within 24–48 hours. <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call to verify your specs — {business.phone}</a></p>
+
+      <!-- ── FILTERS & BAFFLES ── -->
+      <div class="mb-16">
+        <h3 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6 reveal-child">Filters &amp; Baffles</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {filters.map((filter) => (
+            <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+              <h4 class="font-heading font-semibold text-[#FF5E15] text-lg mb-2">{filter.name}</h4>
+              <p class="text-[#D4D4D4] text-sm mb-4">{filter.desc}</p>
+              <button type="button" class="popup-trigger inline-flex items-center gap-2 px-5 py-2 bg-[#FF5E15] text-white text-sm font-heading font-medium rounded hover:bg-black transition-all duration-300">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                Call for Availability
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- ── GREASE CONTAINMENT ── -->
+      <div>
+        <h3 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6 reveal-child">Grease Containment</h3>
+        <div class="grid grid-cols-2 gap-4">
+          {greaseItems.map((item) => (
+            <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 text-center transition-all duration-300 reveal-child">
+              <p class="text-white font-heading font-semibold text-sm mb-2">{item}</p>
+              <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] text-xs font-heading font-medium hover:text-white transition-colors">Call for Part</a>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- GREASE CONTAINMENT -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Grease Containment
-      </h2>
-      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-6 reveal-child">
-        Unchecked rooftop grease means fire risk, roof damage, and environmental fines. We supply and install complete containment systems.
-      </p>
-      <ul class="space-y-3 mb-6">
-        <li class="check-item reveal-child">Rooftop grease boxes and full containment systems — captures grease before it hits your roof</li>
-        <li class="check-item reveal-child">Grease cups and drip pans — for individual fan units and overflow protection</li>
-        <li class="check-item reveal-child">Grease pillows and absorbent pads — replaceable absorption media for ongoing maintenance</li>
-        <li class="check-item reveal-child">Grease duct access doors — NFPA 96 required every 12 feet for proper cleaning access</li>
-      </ul>
-      <p class="text-[#999] text-sm reveal-child">Call for free fitting consult — <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">{business.phone}</a></p>
-    </div>
-  </section>
 
-  <!-- FULL CUSTOM SYSTEM INSTALLATION -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <div class="bg-[#111111] border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12">
-        <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-4 reveal-child">
-          We Design &amp; Install Complete Commercial Kitchen Exhaust Systems
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 4 — EMERGENCY CALLOUT
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[900px] mx-auto">
+      <div class="bg-black border-t-4 border-b-4 border-[#FF5E15] rounded-2xl p-8 md:p-12 text-center reveal-child">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">
+          Fan Died at 6 PM on a Friday? <span class="text-[#FF5E15]">We've Got You.</span>
         </h2>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-          Opening a new restaurant? Renovating an existing kitchen? Building out a food truck? We provide turnkey exhaust system installation — one contractor, one call, fully code-compliant.
-        </p>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-          {[
-            'Hood canopy (wall-mount, island, custom)',
-            'Grease ductwork (welded, sealed, pitched)',
-            'Exhaust fan (sized for your kitchen)',
-            'Make-up air unit (heated, cooled, or PSP)',
-            'Fire suppression system (UL 300)',
-            'Grease containment (rooftop)',
-            'Access panels (NFPA 96 spacing)',
-            'Electrical hookup and controls',
-            'Final inspection and certification',
-          ].map((item) => (
-            <div class="flex items-start gap-2 reveal-child">
-              <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span class="text-[#D4D4D4] text-sm">{item}</span>
-            </div>
-          ))}
-        </div>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-          We work with restaurants, food trucks, ghost kitchens, schools, churches, hospitals, hotels, and general contractors building new commercial kitchens.
-        </p>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300 reveal-child">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Schedule Your Installation Consult
-        </button>
+        <p class="text-[#D4D4D4] text-lg mb-6">24/7 Emergency Parts &amp; Installation Across Middle Tennessee</p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-3 text-white hover:text-[#FF5E15] transition-colors mb-4">
+          <span class="w-14 h-14 flex items-center justify-center bg-[#FF5E15] rounded-full">
+            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          </span>
+          <span class="font-heading text-2xl md:text-3xl font-bold">{business.phone}</span>
+        </a>
+        <p class="text-[#999] text-sm">Same-day motor and belt replacement from local stock</p>
       </div>
     </div>
   </section>
 
-  <!-- WHO THIS IS FOR -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 5 — FULL SYSTEM INSTALLATION
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+
+        <!-- Text -->
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-semibold mb-6">
+            We Design &amp; Install Complete Commercial Kitchen Exhaust Systems
+          </h2>
+          <ul class="space-y-3 mb-8">
+            {installChecks.map((item) => (
+              <li class="flex items-start gap-3 text-[#D4D4D4]">
+                <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-white font-heading font-semibold text-lg mb-6">Turnkey — one contractor, one call, fully code-compliant.</p>
+          <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading font-semibold rounded hover:scale-95 transition-transform duration-150">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Schedule Your Installation Consult
+          </button>
+        </div>
+
+        <!-- Image -->
+        <div class="reveal-child">
+          <img
+            src={`${HP}/exhaust-hood-system-repair-services-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg`}
+            alt="Complete commercial kitchen exhaust system installation by DDAN Hood Cleaning and Repair"
+            class="w-full rounded-2xl border border-[#333]"
+            loading="lazy"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 6 — TWO-AUDIENCE
+       ═══════════════════════════════════════════════════════════════════ -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[900px] mx-auto">
       <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Restaurant Owners -->
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Restaurant Owners</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need a part fast? Don't know what fits? We handle everything — identify the part, verify compatibility, deliver it, and install it. One call, one team, zero guesswork.
+          <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4">Restaurant Owners</h3>
+          <p class="text-[#D4D4D4] leading-relaxed">
+            Don't know what part you need? No problem. Tell us the symptom — we diagnose, verify fit, source the part, and install it. One call handles everything.
           </p>
         </div>
+
+        <!-- Hood Companies -->
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+          <h3 class="font-heading text-[#FF5E15] text-xl font-semibold mb-4">Hood Companies &amp; Contractors</h3>
+          <p class="text-[#D4D4D4] leading-relaxed">
             Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Middle Tennessee.
           </p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS — 3 steps -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 7 — BRANDS
+       ═══════════════════════════════════════════════════════════════════ -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        How It Works
-      </h2>
-      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
-        From phone call to installed part — fast, simple, and guaranteed to fit.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-        {[
-          { num: '01', title: 'Call for Free Fitting Consult', desc: 'Tell us what you need — or describe the problem. We\'ll verify exact model, specs, and compatibility before anything ships.' },
-          { num: '02', title: 'We Source or Pull From Stock', desc: 'Common parts available same-day from our Mt. Juliet inventory. Specialty items sourced within 24–48 hours through our commercial network.' },
-          { num: '03', title: 'Professional Installation + Warranty', desc: 'Discounted installation when you purchase through us. Every install includes testing, documentation, and our workmanship guarantee.' },
-        ].map((card) => (
-          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
-            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
-            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
-            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
-          </div>
+    <div class="max-w-[1280px] mx-auto text-center">
+      <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-semibold mb-8 reveal-child">Brands We Carry</h2>
+      <div class="flex flex-wrap justify-center gap-3 mb-6 reveal-child">
+        {brands.map((brand) => (
+          <span class="px-5 py-2 bg-[#1A1A1A] border border-[#333] rounded-full text-white font-heading text-sm font-medium">{brand}</span>
         ))}
       </div>
+      <p class="text-[#999] text-sm reveal-child">Don't see your brand? We can still source it. <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:text-white transition-colors">Call us.</a></p>
     </div>
   </section>
 
-  <!-- SERVICE AREA INDEX — 29 CITIES -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 8 — SERVICE AREA
+       ═══════════════════════════════════════════════════════════════════ -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Parts &amp; Installation Service Areas
-      </h2>
-      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
-        Same-day delivery and professional installation across 29 Middle Tennessee cities.
-      </p>
-      <div class="flex flex-wrap gap-5">
+      <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-semibold mb-4 text-center reveal-child">Parts &amp; Installation Service Areas</h2>
+      <p class="text-[#D4D4D4] text-center mb-10 max-w-2xl mx-auto reveal-child">Same-day parts delivery and professional installation across Middle Tennessee and Southern Kentucky.</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
         {partsAreas.map((area) => (
-          <a href={`/parts-installation/${area.slug}/`} class="block w-full sm:w-[31%] border border-[#FF5E15] rounded-2xl p-5 hover:border-white transition-all duration-300 reveal-child group">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#FF5E15] rounded-full">
-                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
-              </div>
-              <div>
-                <p class="text-white font-heading font-medium group-hover:text-[#FF5E15] transition-all duration-300">{area.city}, {area.state}</p>
-                <p class="text-[#DDDDDD] text-sm">({area.zips})</p>
-              </div>
-            </div>
+          <a href={`/parts-installation/${area.slug}/`} class="group bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 text-center transition-all duration-300 reveal-child">
+            <svg class="w-5 h-5 text-[#FF5E15] mx-auto mb-2" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+            <p class="text-white font-heading font-semibold text-sm group-hover:text-[#FF5E15] transition-colors">{area.city}, {area.state}</p>
+            <p class="text-[#999] text-xs mt-1">{area.zips}</p>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 9 — FAQ
+       ═══════════════════════════════════════════════════════════════════ -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Parts &amp; Installation FAQ
-      </h2>
-      <div class="max-w-3xl space-y-4">
+    <div class="max-w-[900px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-semibold mb-8 text-center reveal-child">Frequently Asked Questions</h2>
+
+      <div class="space-y-3">
         {faqs.map((faq) => (
-          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
-            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
-              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
-              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+          <details class="faq-item group bg-[#1A1A1A] border border-[#333] rounded-xl overflow-hidden reveal-child">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer font-heading font-semibold text-white hover:text-[#FF5E15] transition-colors list-none [&::-webkit-details-marker]:hidden">
+              <span>{faq.q}</span>
+              <svg class="w-5 h-5 text-[#FF5E15] shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
             </summary>
-            <div class="px-5 pb-5">
-              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
-            </div>
+            <div class="px-5 pb-5 text-[#D4D4D4] leading-relaxed">{faq.a}</div>
           </details>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- TRUCK CTA -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 10 — TRUCK CTA
+       ═══════════════════════════════════════════════════════════════════ -->
   <TruckCTA />
+
 </BaseLayout>
 
 <style>
-  details summary::-webkit-details-marker {
-    display: none;
-  }
-  details summary {
+  /* FAQ accordion animation */
+  details.faq-item summary {
     list-style: none;
   }
-  details[open] .faq-icon {
-    transform: rotate(180deg);
+  details.faq-item summary::-webkit-details-marker {
+    display: none;
   }
-  details[open] {
-    border-color: #FF5E15;
+  details.faq-item[open] summary {
+    border-bottom: 1px solid #333;
   }
-  .faq-icon {
-    transition: transform 0.2s ease;
+  details.faq-item > div {
+    animation: faq-open 0.3s ease-out;
+  }
+  @keyframes faq-open {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
