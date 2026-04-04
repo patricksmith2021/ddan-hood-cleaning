@@ -7,19 +7,19 @@ const HP = '/images/homepage';
 const faqs = [
   {
     q: 'What does the Metro Nashville Fire Marshal look for during a hood inspection?',
-    a: 'Metro Nashville inspectors rigorously check for bare metal cleanliness throughout the entire system, proper installation of fire-rated duct access panels, functional fan hinge kits, and up-to-date service tags proving NFPA 96 compliance.',
+    a: 'Metro Nashville inspectors check for bare-metal cleanliness, proper hinge kits, fire-rated access panels, and current service documentation. Every part we install — from hinge kits to access panels to grease containment — is NFPA 96 compliant and documented with photos.',
   },
   {
     q: 'Can heavy grease void my commercial roof warranty in Nashville?',
-    a: 'Yes. Many new restaurant builds in areas like The Gulch use white TPO roofing. If rooftop grease containment fails and F.O.G. (Fats, Oils, and Grease) bleeds onto the membrane, it rapidly degrades the material and voids most manufacturer warranties.',
+    a: 'Yes. Many Nashville buildings use white TPO roofing that manufacturers will not cover if grease damage is present. Our rooftop grease containment systems — boxes, trays, and absorbent pads — prevent grease from reaching your membrane.',
   },
   {
     q: 'Do you install hinge kits on older Nashville buildings?',
-    a: 'Absolutely. Upblast exhaust fan hinge kits are required by NFPA 96 to allow safe cleaning without damaging the fan or the roof. We regularly retrofit hinge kits on older rooftop systems throughout historic Nashville neighborhoods.',
+    a: 'Absolutely. NFPA 96 requires hinge kits on all upblast fans. Historic Broadway buildings often have non-standard curbs — we carry adapters and heavy-duty kits that work on any mounting configuration.',
   },
   {
-    q: 'Do I need to know my exact fan model to order parts?',
-    a: `No. If you can read us the data plate on the fan housing, we can identify the exact motor, belt, and bearing specs. If the plate is unreadable, send us a photo and we'll match it from the housing dimensions and wiring configuration. Call ${business.phone} for a free fitting consult.`,
+    q: 'What if I ordered the wrong part?',
+    a: `If you bought from us, our free fitting consult means we verified the part before ordering — wrong parts don't happen. If you bought elsewhere and it doesn't fit, call us. We can source the correct part and install it, often same-day. ${business.phone}`,
   },
 ];
 
@@ -85,12 +85,12 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Nashville Exhaust Fan Parts & Installation | DDAN"
-  description="Same-day exhaust fan parts for Nashville's 3,000+ commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Broadway to Vanderbilt. (615) 881-6968."
+  title="Same-Day Exhaust Fan Parts in Nashville, TN | DDAN"
+  description="Exhaust fan parts for Nashville's 3,000+ commercial kitchens. Broadway to Vanderbilt. Same-day from local stock. Discounted installation. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
-  <!-- HERO -->
+  <!-- SECTION 1: HERO -->
   <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/exhaust-fan-parts.webp');"></div>
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
@@ -106,20 +106,20 @@ const schemaData = {
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Nashville Exhaust Fan Parts &amp; <span class="text-[#FF5E15]">Professional Installation</span>
+        Same-Day Exhaust Fan Parts &amp; Installation in <span class="text-[#FF5E15]">Nashville, TN</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Broadway's 18-hour kitchens burn through parts. We stock what Nashville needs and install it the same day.
+        Serving Nashville's 3,000+ commercial kitchens. Replacement parts ready now or next-day sourced.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
-        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#FF5E15] text-white font-body text-lg font-medium rounded hover:scale-95 hover:bg-[#E54F0D] transition-all duration-150">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Free Consult: {business.phone}
+          Free Fitting Consult: {business.phone}
         </a>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Request Service
-        </button>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-red-600 rounded hover:bg-red-600 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          EMERGENCY FAN REPLACEMENT
+        </a>
       </div>
       <div class="flex flex-row items-center gap-3 md:gap-8">
         {[
@@ -138,7 +138,7 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- VALUE PROPOSITION BANNER -->
+  <!-- SECTION 2: VALUE PROP CARDS -->
   <section class="bg-[#111111] py-10 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -148,7 +148,7 @@ const schemaData = {
           { icon: 'shield', label: 'Warranty on Parts & Labor' },
           { icon: 'phone', label: 'Free Fitting Consult' },
         ].map((item) => (
-          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 text-center transition-all duration-300 reveal-child">
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-4 text-center transition-all duration-300 reveal-child">
             <div class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full mx-auto mb-3">
               {item.icon === 'bolt' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>}
               {item.icon === 'tools' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>}
@@ -162,42 +162,24 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- LOCAL INTRO -->
+  <!-- SECTION 3: PRODUCT CATALOG -->
+
+  <!-- Exhaust Fans -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Nashville's Commercial Kitchens Need Fast Parts Access
-      </h2>
-      <div class="max-w-4xl space-y-5">
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Nashville operates more than 3,000 commercial kitchens, from the neon-lit honky-tonks on Lower Broadway to the institutional dining halls at Vanderbilt University and Music City Center. Every one of these kitchens depends on exhaust fan motors, belts, bearings, and filters that wear out faster than almost any other market in the Southeast. Lower Broadway venues run their kitchens 18 or more hours daily, seven days a week. Standard exhaust fan motors are rated for 8 to 12 hours of daily use. When they run double that, motors overheat, bearings seize, and belts snap. Waiting days for a part to ship means losing thousands in revenue per shift.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Nashville's signature hot chicken cuisine makes the problem worse. Solid shortening heated to extreme temperatures in high-capacity fryers produces heavy, sticky grease that migrates into fan housings, coats impeller blades unevenly, and creates the kind of progressive imbalance that destroys bearings in weeks. That aggressive grease also degrades the white TPO roofing membranes common on newer builds in The Gulch and Midtown, meaning grease containment components need regular replacement to avoid roof warranty violations and Metro Water Services F.O.G. fines.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The neighborhoods tell the story. East Nashville's chef-driven kitchens in converted warehouses need non-standard fan configurations. Germantown's boutique restaurants in historic structures require custom ductwork access panels. The Gulch and Midtown pack high-end restaurants into modern mixed-use buildings where rooftop fan access is restricted by building management. Vanderbilt University and the Opryland Resort add institutional-scale exhaust systems with multiple fan units demanding coordinated parts replacement. Every neighborhood generates parts demand, and every kitchen needs a supplier who stocks locally and can install the same day.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          CMA Fest, summer tourism surges, and Nashville's year-round convention calendar push already-stressed systems past their breaking point. The busiest weekends are exactly when a fan failure costs you the most and exactly when national suppliers can't expedite shipping. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Metro Nashville for same-day installation. When your part fails during the Friday dinner rush, you need a local partner, not a tracking number.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXHAUST FANS — THE MAIN EVENT -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Nashville Kitchens
+        Exhaust Fans — The Heart of Your Kitchen
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Nashville's 18-hour Broadway kitchens and high-volume hot chicken operations demand exhaust fans that can handle relentless use. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Your exhaust fan moves every cubic foot of air through your kitchen ventilation system. When it fails, your kitchen shuts down. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
       <!-- Upblast -->
       <div class="mb-12 reveal">
-        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
+        <div class="flex items-center gap-3 mb-4">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl reveal-child">Upblast Centrifugal Exhaust Fans</h3>
+          <span class="bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wider px-3 py-1 rounded-full">MOST POPULAR</span>
+        </div>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
         <ul class="space-y-2 mb-4">
           <li class="check-item reveal-child">Direct drive — sealed motor, less maintenance, more energy efficient</li>
@@ -205,6 +187,7 @@ const schemaData = {
           <li class="check-item reveal-child">High-speed direct drive (CaptiveAire DU series and equivalents)</li>
           <li class="check-item reveal-child">Sizes from 400 CFM to 6,000+ CFM — matched to your kitchen's requirements</li>
         </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
       </div>
 
       <!-- Downblast -->
@@ -215,6 +198,7 @@ const schemaData = {
           <li class="check-item reveal-child">Discharges air downward along the rooftop for quieter operation</li>
           <li class="check-item reveal-child">Direct and belt drive options for different performance needs</li>
         </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
       </div>
 
       <!-- Inline -->
@@ -225,12 +209,27 @@ const schemaData = {
           <li class="check-item reveal-child">Ideal for interior installations and multi-floor exhaust runs</li>
           <li class="check-item reveal-child">Available in grease-rated and general ventilation configurations</li>
         </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+      </div>
+
+      <!-- Axial + Propeller -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="reveal">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Axial / Tube Fans</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">High-volume air movement through duct systems. Common in industrial kitchens and large-scale food production facilities.</p>
+          <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+        </div>
+        <div class="reveal">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Propeller Wall &amp; Roof Fans</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">General ventilation for warehouses, loading docks, and storage areas adjacent to commercial kitchens.</p>
+          <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+        </div>
       </div>
 
       <!-- Fan Replacement Parts -->
       <div class="mb-8 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             'Motors (ODP, TEFC, single & 3-phase)',
             'Fan wheels & blade assemblies',
@@ -240,8 +239,9 @@ const schemaData = {
             'Hinge kits (NFPA 96 required)',
             'Speed controllers & VFDs',
             'Electrical disconnects & switches',
+            'Impellers & replacement wheels',
           ].map((part) => (
-            <div class="flex items-start gap-2 bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 transition-all duration-300 reveal-child">
+            <div class="flex items-start gap-2 bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-4 transition-all duration-300 reveal-child">
               <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
               <span class="text-[#D4D4D4] text-sm font-heading">{part}</span>
             </div>
@@ -253,8 +253,8 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- OTHER PARTS: MUA, FILTERS, GREASE -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+  <!-- Make-Up Air Units -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
         Make-Up Air Units
@@ -262,68 +262,100 @@ const schemaData = {
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
         Your exhaust system can't function without proper make-up air. If your front doors slam shut or you feel negative pressure, you need a MUA unit.
       </p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
         {[
           { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter to maintain comfort and airflow balance.' },
-          { title: 'Unheated / Ambient', desc: 'Simpler installation for mild climates or seasonal operations. Brings in outside air without conditioning.' },
+          { title: 'Electric Heated', desc: 'Alternative heating option for locations without gas access. Higher operating cost but simpler installation.' },
           { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
+          { title: 'Perforated Supply Plenum', desc: 'Mounts directly to your hood. Delivers tempered air right at the cooking line for maximum efficiency.' },
         ].map((item) => (
-          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
             <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
             <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
           </div>
         ))}
       </div>
+    </div>
+  </section>
 
+  <!-- Filters & Baffles -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
         Filters &amp; Baffles
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Wrong filter = fire hazard + failed inspection. We match exact specs for your hood system. Standard sizes in stock, custom sizes sourced within 24-48 hours.
+        Wrong filter = fire hazard + failed inspection. We match exact specifications for your hood system.
       </p>
-      <ul class="space-y-3 mb-12">
-        <li class="check-item reveal-child">Stainless steel baffle filters — Type 304 or 430, dishwasher safe</li>
-        <li class="check-item reveal-child">Mesh grease filters — aluminum or galvanized steel for lower-grease applications</li>
-        <li class="check-item reveal-child">Charcoal / carbon filters — odor control for ventless and recirculating systems</li>
-      </ul>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+        {[
+          { title: 'Stainless Steel Baffle Filters', desc: 'Industry standard. Type 304 or 430 stainless steel. Captures grease through multi-pass baffles. Dishwasher safe.' },
+          { title: 'Mesh Grease Filters', desc: 'Budget option for lower-grease applications. Aluminum or galvanized steel mesh construction.' },
+          { title: 'Charcoal / Carbon Filters', desc: 'Odor control for ventless hoods and recirculating systems. Removes smoke and cooking odors from exhaust air.' },
+        ].map((item) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#999] text-sm reveal-child">Standard sizes in stock. Custom sizes sourced within 24-48 hours. <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call to verify your specs — {business.phone}</a></p>
+    </div>
+  </section>
 
+  <!-- Grease Containment -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Nashville's Metro Water Services F.O.G. program aggressively targets rooftop grease runoff. We supply and install complete containment systems to protect your roof and avoid fines.
+        Nashville's Metro Water Services F.O.G. program aggressively targets rooftop grease runoff. We supply and install complete containment systems.
       </p>
-      <ul class="space-y-3">
-        <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
-        <li class="check-item reveal-child">Grease cups, drip pans, and overflow protection</li>
-        <li class="check-item reveal-child">Grease pillows and absorbent pads — replaceable media</li>
-        <li class="check-item reveal-child">Grease duct access doors — NFPA 96 required every 12 feet</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- INSTALLATION UPSELL -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
-        <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-4">
-          Discounted Installation When You Buy From Us
-        </h2>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
-          Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville exhaust fan repair</a> page for diagnostic and repair services.
-        </p>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Schedule Installation
-        </button>
+      <div class="grid sm:grid-cols-2 gap-4 mb-6">
+        {[
+          { title: 'Rooftop Grease Boxes', desc: 'Full containment systems that capture grease before it hits your roof membrane.' },
+          { title: 'Grease Cups & Drip Pans', desc: 'For individual fan units and overflow protection on existing systems.' },
+          { title: 'Grease Pillows & Absorbent Pads', desc: 'Replaceable absorption media for ongoing rooftop grease management.' },
+          { title: 'Grease Duct Access Doors', desc: 'NFPA 96 required every 12 feet for proper cleaning access. Fire-rated.' },
+        ].map((item) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN NASHVILLE -->
+  <!-- SECTION 4: EMERGENCY CALLOUT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-red-600 rounded-2xl p-8 md:p-12 reveal-child">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="w-8 h-8 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h2 class="font-heading text-red-500 text-lg md:text-[2.2rem] font-semibold leading-[1.2]">
+            Emergency Parts &amp; Installation for Nashville
+          </h2>
+        </div>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
+          Fan seized during the dinner rush? Motor smoking on a Saturday night? Nashville kitchens can't wait until Monday. DDAN provides emergency exhaust fan parts and installation across Nashville — including nights, weekends, and holidays.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
+          We stock the most common exhaust fan motors, belts, and bearings locally in Mt. Juliet for same-day emergency deployment to Nashville. One call gets a technician with the right part heading your way.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2 px-7 py-3 bg-red-600 text-white font-heading text-lg font-bold rounded hover:bg-red-700 transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          Emergency Line: {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: COMMON EQUIPMENT ISSUES IN NASHVILLE -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
@@ -331,43 +363,54 @@ const schemaData = {
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Lower Broadway bars are notorious for burned-out exhaust fan motors caused by 18-hour daily runtimes that no standard commercial motor was designed to sustain. The largest venues run 3-phase motors powering massive upblast fans through grease-laden ductwork. These motors run hot for months, then seize catastrophically with no warning. The 3-phase configuration means you can't source a replacement from a general supplier — you need exact frame size, voltage, and RPM specs matched immediately. DDAN stocks the most common 3-phase configurations for Broadway-class exhaust systems. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for details.
+          Lower Broadway bars run 18+ hours daily, burning through exhaust fan motors at alarming rates. The typical restaurant fan motor is designed for 8-hour shifts — Broadway's honky-tonks push them to triple that. When a motor seizes at midnight on a Saturday, you need a replacement from local stock, not a 3-day shipping wait. DDAN stocks the most common 3-phase motors for <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">same-day replacement across Nashville</a>.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Extreme hot chicken grease degrades white TPO roofs in Midtown and The Gulch when grease containment systems aren't perfectly maintained. Historic buildings throughout downtown frequently lack proper fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> in the ductwork, making them technically non-compliant during Metro Nashville Fire Marshal inspections. And older buildings across East Nashville and Germantown often have fans bolted directly to curbs without <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, turning simple maintenance into expensive, time-consuming projects.
+          Nashville's signature hot chicken creates a unique parts challenge. The extreme use of solid shortening in high-heat fryers produces aggressive grease deposits that clog standard baffle filters faster than any other cooking style. If your filters are undersized or worn, grease passes into the ductwork and attacks your fan impeller — causing vibration, bearing wear, and eventual motor failure. We carry the correct stainless steel baffle filters for every standard hood size. Pair them with <a href="/cleaning/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">regular hood cleaning</a> to maximize filter life.
         </p>
-      </div>
-
-      <!-- PROOF POINT -->
-      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "During the CMA Fest rush, a high-volume Broadway honky-tonk experienced a catastrophic exhaust fan motor failure. DDAN's emergency team sourced the exact 3-phase motor, navigated downtown road closures, and completed the installation by 4:00 AM, ensuring the kitchen didn't miss a single shift."
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Gulch and Midtown feature newer buildings with white TPO roofing membranes that are extremely vulnerable to grease damage. If your rooftop grease containment system has degraded, grease hits the membrane and chemically degrades it. We supply and install <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">complete rooftop grease containment systems</a> — boxes, trays, pads — to protect your roof and satisfy Metro Nashville's aggressive F.O.G. enforcement.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- WHO THIS IS FOR -->
+  <!-- SECTION 6: LOCAL COMPLIANCE -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[900px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Restaurant Owners</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need a part fast? Don't know what fits? We handle everything — identify the part, verify compatibility, deliver it, and install it. One call, one team, zero guesswork.
-          </p>
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Nashville Parts &amp; Compliance
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <div class="bg-black border border-[#333] rounded-2xl p-6 reveal-child">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+              <strong class="text-white">Metro Nashville Fire Marshal's Office</strong> enforces zero-tolerance NFPA 96 compliance, especially in the historic Broadway district. Inspectors verify hinge kits, access panels, fire suppression tags, and bare-metal cleanliness. Non-compliant parts or missing components result in immediate violations.
+            </p>
+          </div>
         </div>
-        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Metro Nashville.
+        <div class="bg-black border border-[#333] rounded-2xl p-6 reveal-child">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+              <strong class="text-white">MWS F.O.G. Management Program</strong> scrutinizes rooftop grease containment. Parts for containment systems aren't optional — degraded grease boxes, missing pads, or leaking drip pans trigger fines and mandatory corrective action.
+            </p>
+          </div>
+        </div>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our full <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance guide</a> for details on what inspectors look for and how every part we sell meets those standards.
+        </p>
+        <div class="border-l-4 border-[#FF5E15] bg-black p-6 rounded-r-xl reveal-child">
+          <p class="text-white font-heading font-semibold text-base leading-relaxed">
+            Every part we sell meets NFPA 96 specifications. Every installation we perform passes fire marshal inspection.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICE AREA -->
+  <!-- SECTION 7: SERVICE AREA + CROSS-LINKS -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
@@ -375,27 +418,37 @@ const schemaData = {
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Metro Nashville and Davidson County. Whether your restaurant is on Lower Broadway, in The Gulch, East Nashville, Germantown, Midtown, The Nations, or Antioch, we stock the parts Nashville kitchens need and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across all of Metro Nashville and Davidson County — Lower Broadway, The Gulch, East Nashville, Germantown, Midtown, The Nations, Antioch, and every neighborhood in between.
         </p>
-        <div class="space-y-3 reveal-child">
-          <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Nashville:</span>
-            <a href="/cleaning/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
-          </p>
-          <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts-installation/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hermitage</a>,
-            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Madison</a>,
-            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>, and
-            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Antioch</a>
-          </p>
+        <div class="space-y-4 reveal-child">
+          <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-5">
+            <p class="text-white font-heading font-semibold mb-2">All DDAN services in Nashville:</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/cleaning/nashville-tn/" class="inline-flex items-center gap-2 px-4 py-2 bg-black border border-[#FF5E15] rounded-xl text-[#FF5E15] font-heading text-sm font-semibold hover:bg-[#FF5E15] hover:text-white transition-all duration-300">Hood Cleaning</a>
+              <a href="/repair/nashville-tn/" class="inline-flex items-center gap-2 px-4 py-2 bg-black border border-[#FF5E15] rounded-xl text-[#FF5E15] font-heading text-sm font-semibold hover:bg-[#FF5E15] hover:text-white transition-all duration-300">Hood Repair</a>
+            </div>
+          </div>
+          <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-5">
+            <p class="text-white font-heading font-semibold mb-2">Also serving nearby:</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/parts-installation/hermitage-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Hermitage</a>
+              <span class="text-[#333]">&middot;</span>
+              <a href="/parts-installation/madison-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Madison</a>
+              <span class="text-[#333]">&middot;</span>
+              <a href="/parts-installation/brentwood-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Brentwood</a>
+              <span class="text-[#333]">&middot;</span>
+              <a href="/parts-installation/antioch-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Antioch</a>
+            </div>
+          </div>
         </div>
+        <p class="reveal-child">
+          <a href="/parts-installation/" class="text-[#FF5E15] font-heading font-semibold underline hover:text-white transition-all duration-300">View all 29 parts &amp; installation service areas &rarr;</a>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- SECTION 8: FAQ -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
@@ -403,13 +456,13 @@ const schemaData = {
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (
-          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
             <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
               <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
               <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
             </summary>
             <div class="px-5 pb-5">
-              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+              <p class="text-[#D4D4D4] font-heading text-base leading-relaxed" set:html={faq.a}></p>
             </div>
           </details>
         ))}
@@ -417,6 +470,7 @@ const schemaData = {
     </div>
   </section>
 
+  <!-- SECTION 9: TRUCK CTA -->
   <TruckCTA />
 </BaseLayout>
 
