@@ -15,26 +15,58 @@ const navLinks = [
     { label: 'Access Panels', href: '/access-panel-installation/' },
     { label: 'Fire Suppression', href: '/restaurant-fire-suppression-systems/' },
   ]},
-  { label: 'Service Areas', href: '/cleaning/', children: [
-    { label: '— Cleaning —', href: '/cleaning/' },
-    { label: 'Nashville', href: '/cleaning/nashville-tn/' },
-    { label: 'Mt. Juliet', href: '/cleaning/mount-juliet-tn/' },
-    { label: 'Murfreesboro', href: '/cleaning/murfreesboro-tn/' },
-    { label: 'Hendersonville', href: '/cleaning/hendersonville-tn/' },
-    { label: 'Smyrna', href: '/cleaning/smyrna-tn/' },
-    { label: 'Gallatin', href: '/cleaning/gallatin-tn/' },
-    { label: 'Lebanon', href: '/cleaning/lebanon-tn/' },
-    { label: '— Repair —', href: '/repair/' },
-    { label: 'Nashville', href: '/repair/nashville-tn/' },
-    { label: 'Murfreesboro', href: '/repair/murfreesboro-tn/' },
-    { label: 'Franklin', href: '/repair/franklin-tn/' },
-    { label: 'Clarksville', href: '/repair/clarksville-tn/' },
-    { label: '— Parts —', href: '/parts/' },
-    { label: 'Nashville', href: '/parts/nashville-tn/' },
-    { label: 'Murfreesboro', href: '/parts/murfreesboro-tn/' },
-    { label: 'Franklin', href: '/parts/franklin-tn/' },
-  ]},
   { label: 'Contact', href: '/contact/' },
+];
+
+const cleaningCities = [
+  { label: 'Nashville', href: '/cleaning/nashville-tn/' },
+  { label: 'Murfreesboro', href: '/cleaning/murfreesboro-tn/' },
+  { label: 'Mt. Juliet', href: '/cleaning/mount-juliet-tn/' },
+  { label: 'Hendersonville', href: '/cleaning/hendersonville-tn/' },
+  { label: 'Antioch', href: '/cleaning/antioch-tn/' },
+  { label: 'Smyrna', href: '/cleaning/smyrna-tn/' },
+  { label: 'Gallatin', href: '/cleaning/gallatin-tn/' },
+  { label: 'Lebanon', href: '/cleaning/lebanon-tn/' },
+  { label: 'Brentwood', href: '/cleaning/brentwood-tn/' },
+  { label: 'Spring Hill', href: '/cleaning/spring-hill-tn/' },
+  { label: 'Goodlettsville', href: '/cleaning/goodlettsville-tn/' },
+  { label: 'Hermitage', href: '/cleaning/hermitage-tn/' },
+  { label: 'Madison', href: '/cleaning/madison-tn/' },
+  { label: 'La Vergne', href: '/cleaning/la-vergne-tn/' },
+];
+
+const repairCities = [
+  { label: 'Nashville', href: '/repair/nashville-tn/' },
+  { label: 'Murfreesboro', href: '/repair/murfreesboro-tn/' },
+  { label: 'Clarksville', href: '/repair/clarksville-tn/' },
+  { label: 'Franklin', href: '/repair/franklin-tn/' },
+  { label: 'Hendersonville', href: '/repair/hendersonville-tn/' },
+  { label: 'Mt. Juliet', href: '/repair/mount-juliet-tn/' },
+  { label: 'Smyrna', href: '/repair/smyrna-tn/' },
+  { label: 'Gallatin', href: '/repair/gallatin-tn/' },
+  { label: 'Lebanon', href: '/repair/lebanon-tn/' },
+  { label: 'Bowling Green, KY', href: '/repair/bowling-green-ky/' },
+  { label: 'View All 29 Cities →', href: '/repair/' },
+];
+
+const partsCities = [
+  { label: 'Nashville', href: '/parts/nashville-tn/' },
+  { label: 'Murfreesboro', href: '/parts/murfreesboro-tn/' },
+  { label: 'Clarksville', href: '/parts/clarksville-tn/' },
+  { label: 'Franklin', href: '/parts/franklin-tn/' },
+  { label: 'Hendersonville', href: '/parts/hendersonville-tn/' },
+  { label: 'Mt. Juliet', href: '/parts/mount-juliet-tn/' },
+  { label: 'Smyrna', href: '/parts/smyrna-tn/' },
+  { label: 'Gallatin', href: '/parts/gallatin-tn/' },
+  { label: 'Lebanon', href: '/parts/lebanon-tn/' },
+  { label: 'Bowling Green, KY', href: '/parts/bowling-green-ky/' },
+  { label: 'View All 29 Cities →', href: '/parts/' },
+];
+
+const serviceAreaCategories = [
+  { label: 'Cleaning', href: '/cleaning/', cities: cleaningCities },
+  { label: 'Repair', href: '/repair/', cities: repairCities },
+  { label: 'Parts & Installation', href: '/parts/', cities: partsCities },
 ];
 ---
 
@@ -79,6 +111,31 @@ const navLinks = [
           )}
         </li>
       ))}
+
+      <!-- Service Areas — Multi-level mega menu -->
+      <li class="relative group">
+        <span class="py-1.5 px-2.5 rounded-lg transition-all duration-300 hover:text-[#FF5E15] hover:border-[#FF5E15] border-2 border-transparent cursor-pointer">
+          Service Areas
+          <svg class="inline w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
+        </span>
+        <!-- Level 1: Cleaning | Repair | Parts -->
+        <ul class="absolute left-0 top-full bg-[#111111] border border-[#333333] rounded py-2 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+          {serviceAreaCategories.map((cat) => (
+            <li class="relative service-area-parent">
+              <a href={cat.href} class="flex items-center justify-between px-4 py-2.5 text-sm text-white hover:bg-[#FF5E15] transition-all duration-300 border-b border-[#FF5E15]/20 last:border-0">
+                {cat.label}
+                <svg class="w-3 h-3 ml-2" fill="currentColor" viewBox="0 0 320 512"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+              </a>
+              <!-- Level 2: City list -->
+              <ul class="absolute left-full top-0 bg-[#111111] border border-[#333333] rounded py-2 min-w-[200px] opacity-0 invisible service-area-child transition-all z-50">
+                {cat.cities.map((city) => (
+                  <li><a href={city.href} class="block px-4 py-1.5 text-sm text-white hover:bg-[#FF5E15] transition-all duration-300 border-b border-[#FF5E15]/10 last:border-0">{city.label}</a></li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </li>
     </ul>
     <a href={`tel:${business.phoneRaw}`} class="hidden md:flex items-center gap-3 group">
       <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full transition-all duration-300 group-hover:scale-110 group-hover:brightness-110">
@@ -116,9 +173,19 @@ const navLinks = [
     {navLinks.map((link) => (
       <a href={link.href} class="mobile-nav-link block w-full text-center text-white text-lg font-heading font-medium py-3 border-b border-[#333]">{link.label}</a>
     ))}
+    <a href="/cleaning/" class="mobile-nav-link block w-full text-center text-[#FF5E15] text-lg font-heading font-bold py-3 border-b border-[#333]">Cleaning Areas</a>
+    <a href="/repair/" class="mobile-nav-link block w-full text-center text-[#FF5E15] text-lg font-heading font-bold py-3 border-b border-[#333]">Repair Areas</a>
+    <a href="/parts/" class="mobile-nav-link block w-full text-center text-[#FF5E15] text-lg font-heading font-bold py-3 border-b border-[#333]">Parts Areas</a>
     <button type="button" class="popup-trigger mt-6 w-full py-3 bg-[#FF5E15] text-white text-lg font-heading font-bold rounded">Request Service Online</button>
   </nav>
 </div>
+
+<style>
+  .service-area-parent:hover .service-area-child {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
