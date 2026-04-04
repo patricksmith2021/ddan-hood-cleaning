@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Can you clean the exhaust systems in historic Columbia buildings?',
-    a: 'Yes. Historic buildings on the Columbia square often have complex, concealed ductwork. Our technicians are experts at installing fire-rated access panels that allow us to clean hard-to-reach areas down to bare metal, ensuring you pass Columbia Fire & Rescue inspections.',
+    q: 'What does the Metro Nashville Fire Marshal look for during a hood inspection?',
+    a: 'Metro Nashville inspectors rigorously check for bare metal cleanliness throughout the entire system, proper installation of fire-rated duct access panels, functional fan hinge kits, and up-to-date service tags proving NFPA 96 compliance.',
   },
   {
-    q: 'Do you repair broken restaurant exhaust fans in Columbia?',
-    a: 'Absolutely. A broken exhaust fan means your kitchen fills with smoke and must shut down. We offer 24/7 emergency repair in Columbia, arriving with the heavy-duty commercial belts, bearings, and 3-phase motors needed to get you back up and running immediately.',
+    q: 'Can heavy grease void my commercial roof warranty in Nashville?',
+    a: 'Yes. Many new restaurant builds in areas like The Gulch use white TPO roofing. If rooftop grease containment fails and F.O.G. (Fats, Oils, and Grease) bleeds onto the membrane, it rapidly degrades the material and voids most manufacturer warranties.',
   },
   {
-    q: 'Why do I need a rooftop grease containment system?',
-    a: 'NFPA 96 code requires it, and the Columbia Wastewater Department strictly monitors Fats, Oils, and Grease (F.O.G.) to protect local infrastructure. We install multi-layer rooftop systems that capture grease before it damages your commercial roof or washes into the storm drains.',
+    q: 'Do you install hinge kits on older Nashville buildings?',
+    a: 'Absolutely. Upblast exhaust fan hinge kits are required by NFPA 96 to allow safe cleaning without damaging the fan or the roof. We regularly retrofit hinge kits on older rooftop systems throughout historic Nashville neighborhoods.',
   },
   {
-    q: 'Do you deliver parts to rural areas?',
-    a: `Yes. We deliver exhaust fan parts throughout Maury County and the surrounding rural areas. Whether your restaurant is on the Columbia square or out on a rural highway, we bring the parts to you and install them the same day. Call ${business.phone} for a free fitting consult.`,
+    q: 'Do I need to know my exact fan model to order parts?',
+    a: `No. If you can read us the data plate on the fan housing, we can identify the exact motor, belt, and bearing specs. If the plate is unreadable, send us a photo and we'll match it from the housing dimensions and wiring configuration. Call ${business.phone} for a free fitting consult.`,
   },
 ];
 
@@ -45,7 +45,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Columbia",
+        "name": "Nashville",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Columbia",
+        "name": "Nashville",
         "addressRegion": "TN"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Columbia's commercial kitchens. Muletown square to Carmack Blvd."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Nashville's 3,000+ commercial kitchens. Broadway to Vanderbilt."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Columbia, TN", "item": `${siteUrl}/parts/columbia-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Nashville, TN", "item": `${siteUrl}/parts-installation/nashville-tn/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Columbia Commercial Kitchen Parts & Install | DDAN"
-  description="Same-day exhaust fan parts for Columbia's commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Muletown square to Carmack Blvd. (615) 881-6968."
+  title="Nashville Exhaust Fan Parts & Installation | DDAN"
+  description="Same-day exhaust fan parts for Nashville's 3,000+ commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Broadway to Vanderbilt. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Columbia, TN</li>
+          <li class="text-white">Nashville, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Columbia Muletown Kitchen Parts &amp; <span class="text-[#FF5E15]">Installation</span>
+        Nashville Exhaust Fan Parts &amp; <span class="text-[#FF5E15]">Professional Installation</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Columbia's historic square kitchens and Carmack Blvd diners need parts that match their heavy Southern output. We stock locally and install the same day.
+        Broadway's 18-hour kitchens burn through parts. We stock what Nashville needs and install it the same day.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Columbia's Commercial Kitchens Need Fast Parts Access
+        Why Nashville's Commercial Kitchens Need Fast Parts Access
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Columbia's incredible historic revitalization has brought a surge of new restaurants to the Muletown square and the US-31 corridor. But operating a commercial kitchen inside a 150-year-old building on the square means your exhaust system faces challenges that newer construction never encounters. Winding, non-standard grease ductwork hidden behind drop ceilings, older upblast fans bolted directly to curbs without hinge kits, and aging motors running on borrowed time. When a part fails in one of these historic kitchens, you need a supplier who can identify the exact replacement and install it the same day.
+          Nashville operates more than 3,000 commercial kitchens, from the neon-lit honky-tonks on Lower Broadway to the institutional dining halls at Vanderbilt University and Music City Center. Every one of these kitchens depends on exhaust fan motors, belts, bearings, and filters that wear out faster than almost any other market in the Southeast. Lower Broadway venues run their kitchens 18 or more hours daily, seven days a week. Standard exhaust fan motors are rated for 8 to 12 hours of daily use. When they run double that, motors overheat, bearings seize, and belts snap. Waiting days for a part to ship means losing thousands in revenue per shift.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Columbia's culinary identity leans heavily into Southern comfort food, craft breweries, BBQ, and classic diners. These cooking styles produce thick, sticky grease from solid-fuel smoking and heavy frying that migrates into fan housings, coats impeller blades, and creates the kind of progressive imbalance that destroys bearings in weeks. The Columbia Wastewater Department aggressively monitors F.O.G. levels, meaning your rooftop grease containment components need regular replacement to avoid municipal fines and roof damage.
+          Nashville's signature hot chicken cuisine makes the problem worse. Solid shortening heated to extreme temperatures in high-capacity fryers produces heavy, sticky grease that migrates into fan housings, coats impeller blades unevenly, and creates the kind of progressive imbalance that destroys bearings in weeks. That aggressive grease also degrades the white TPO roofing membranes common on newer builds in The Gulch and Midtown, meaning grease containment components need regular replacement to avoid roof warranty violations and Metro Water Services F.O.G. fines.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Along Carmack Blvd, older diners that have been running for decades frequently operate upblast fans with failing bearings and snapped belts due to age and constant use. The humid Tennessee summers push overworked fan motors past their breaking point, causing emergency failures during the busiest shifts. Meanwhile, the growing industrial parks and Maury Regional Medical Center add institutional-scale exhaust systems with their own parts demands. Every commercial kitchen in Columbia needs a parts supplier who stocks locally and can get a technician on-site the same day.
+          The neighborhoods tell the story. East Nashville's chef-driven kitchens in converted warehouses need non-standard fan configurations. Germantown's boutique restaurants in historic structures require custom ductwork access panels. The Gulch and Midtown pack high-end restaurants into modern mixed-use buildings where rooftop fan access is restricted by building management. Vanderbilt University and the Opryland Resort add institutional-scale exhaust systems with multiple fan units demanding coordinated parts replacement. Every neighborhood generates parts demand, and every kitchen needs a supplier who stocks locally and can install the same day.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Columbia Fire & Rescue strictly enforces NFPA 96 in the downtown historic overlay, where connected buildings make grease fires exceptionally dangerous. If your system is missing access panels, running without a hinge kit, or operating with worn-out components, you are at risk of citation or shutdown. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Maury County for same-day installation. When your part fails during the Friday dinner rush, you need a local partner, not a tracking number.
+          CMA Fest, summer tourism surges, and Nashville's year-round convention calendar push already-stressed systems past their breaking point. The busiest weekends are exactly when a fan failure costs you the most and exactly when national suppliers can't expedite shipping. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Metro Nashville for same-day installation. When your part fails during the Friday dinner rush, you need a local partner, not a tracking number.
         </p>
       </div>
     </div>
@@ -189,10 +189,10 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Columbia Kitchens
+        Exhaust Fans for Nashville Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Columbia's Southern comfort kitchens and heavy BBQ operations demand exhaust fans that can handle relentless use and thick grease output. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Nashville's 18-hour Broadway kitchens and high-volume hot chicken operations demand exhaust fans that can handle relentless use. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
       <!-- Upblast -->
@@ -291,7 +291,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        The Columbia Wastewater Department aggressively monitors F.O.G. levels. We supply and install complete containment systems to protect your roof and avoid fines.
+        Nashville's Metro Water Services F.O.G. program aggressively targets rooftop grease runoff. We supply and install complete containment systems to protect your roof and avoid fines.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -313,7 +313,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Columbia exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -323,25 +323,25 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN COLUMBIA -->
+  <!-- COMMON EQUIPMENT ISSUES IN NASHVILLE -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Columbia
+        Common Equipment Issues in Nashville
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Revitalized historic buildings on the Columbia square often hide winding, non-standard grease ductwork behind drop ceilings. These older systems frequently lack the fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> required by NFPA 96, making them technically non-compliant during Columbia Fire & Rescue inspections. Installing custom access panels in these historic spaces requires expertise that most generic contractors lack.
+          Lower Broadway bars are notorious for burned-out exhaust fan motors caused by 18-hour daily runtimes that no standard commercial motor was designed to sustain. The largest venues run 3-phase motors powering massive upblast fans through grease-laden ductwork. These motors run hot for months, then seize catastrophically with no warning. The 3-phase configuration means you can't source a replacement from a general supplier — you need exact frame size, voltage, and RPM specs matched immediately. DDAN stocks the most common 3-phase configurations for Broadway-class exhaust systems. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for details.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Older diners along Carmack Blvd frequently run upblast fans with failing bearings and snapped belts due to age and constant use. The heavy BBQ and Southern comfort food culture produces thick, hardened grease that coats fan impellers and throws them off balance, accelerating <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motor and belt</a> failure. Many older rooftop installations also lack <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, turning simple maintenance into expensive, time-consuming projects that risk damaging the roof.
+          Extreme hot chicken grease degrades white TPO roofs in Midtown and The Gulch when grease containment systems aren't perfectly maintained. Historic buildings throughout downtown frequently lack proper fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> in the ductwork, making them technically non-compliant during Metro Nashville Fire Marshal inspections. And older buildings across East Nashville and Germantown often have fans bolted directly to curbs without <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, turning simple maintenance into expensive, time-consuming projects.
         </p>
       </div>
 
       <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "A popular new restaurant opening on the historic Columbia square failed their initial fire inspection because their concealed ductwork lacked access points. DDAN arrived the next day, strategically installed fire-rated duct access panels, performed a deep bare-metal clean, and secured the NFPA 96 compliance they needed to open on time."
+          "During the CMA Fest rush, a high-volume Broadway honky-tonk experienced a catastrophic exhaust fan motor failure. DDAN's emergency team sourced the exact 3-phase motor, navigated downtown road closures, and completed the installation by 4:00 AM, ensuring the kitchen didn't miss a single shift."
         </p>
       </div>
     </div>
@@ -360,7 +360,7 @@ const schemaData = {
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
           <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Maury County.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Metro Nashville.
           </p>
         </div>
       </div>
@@ -371,22 +371,24 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Columbia Parts &amp; Installation Service Area
+        Nashville Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Columbia and Maury County. Whether your restaurant is on the historic Muletown square, along the US-31 corridor, near Maury Regional Medical Center, or out on Carmack Blvd, we stock the parts Columbia kitchens need and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across all of Metro Nashville and Davidson County. Whether your restaurant is on Lower Broadway, in The Gulch, East Nashville, Germantown, Midtown, The Nations, or Antioch, we stock the parts Nashville kitchens need and install them the same day.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Columbia:</span>
-            <a href="/cleaning/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Nashville:</span>
+            <a href="/cleaning/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Spring Hill</a> and
-            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lewisburg</a>
+            <a href="/parts-installation/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hermitage</a>,
+            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Madison</a>,
+            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>, and
+            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Antioch</a>
           </p>
         </div>
       </div>
@@ -397,7 +399,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Columbia Parts &amp; Installation FAQ
+        Nashville Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

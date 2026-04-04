@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Can you clean the exhaust systems in historic downtown Franklin buildings?',
-    a: 'Yes. Historic buildings often have complex, winding ductwork. Our technicians are experts at installing fire-rated access panels that allow us to clean hard-to-reach areas down to bare metal without damaging the aesthetic or structural integrity of historic properties.',
+    q: 'Do you service large institutional kitchens at WKU or local factories?',
+    a: 'Yes. We specialize in high-capacity commercial and industrial kitchen exhaust systems. We can coordinate with your facilities managers for after-hours or shutdown-window cleaning to minimize disruption to your massive operations.',
   },
   {
-    q: 'My Cool Springs landlord requires proof of rooftop grease containment. Can you provide this?',
-    a: 'Absolutely. Corporate property managers in Franklin are notoriously strict about roof damage. We install high-capacity rooftop grease containment systems and provide detailed photo documentation after every service to prove to your landlord that the roof is protected.',
+    q: 'How quickly can you replace a snapped fan belt in Bowling Green?',
+    a: 'Because we offer 24/7 emergency service, we can dispatch a technician to Bowling Green immediately. We carry a massive inventory of heavy-duty commercial fan belts and motors to get your exhaust system pulling air again without missing a shift.',
   },
   {
-    q: 'Do you repair fire suppression systems in Franklin?',
-    a: 'Yes. Keeping your fire suppression links clean and your system fully operational is critical, especially under the Franklin Fire Department\'s strict inspections. We handle comprehensive repairs and NFPA 96 maintenance.',
+    q: 'What is required to pass a Bowling Green Fire Department hood inspection?',
+    a: 'Inspectors look for the system to be cleaned to bare metal (no grease accumulation), functioning fire suppression links, properly installed hinge kits on the roof fans, and visible, up-to-date certification tags proving NFPA 96 compliance.',
   },
   {
-    q: 'What warranty comes with purchased parts?',
-    a: `Every part we sell comes with the manufacturer's standard warranty, and our installation labor carries its own workmanship guarantee. If a part we installed fails within the warranty period, we replace it and reinstall at no additional cost. Call ${business.phone} to ask about specific warranty terms for your equipment.`,
+    q: 'Do you install the parts you sell?',
+    a: `Yes. Every part we sell can be professionally installed by our certified technicians, and installation is discounted when you purchase parts through us. We verify compatibility before ordering, install with proper documentation, and test the entire system before leaving. Call ${business.phone} to schedule.`,
   },
 ];
 
@@ -45,8 +45,8 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Franklin",
-        "addressRegion": "TN"
+        "name": "Bowling Green",
+        "addressRegion": "KY"
       },
       "priceRange": "$$"
     },
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Franklin",
-        "addressRegion": "TN"
+        "name": "Bowling Green",
+        "addressRegion": "KY"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Franklin's commercial kitchens. Historic Main Street to Cool Springs."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Bowling Green's commercial and institutional kitchens. WKU to Scottsville Road."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Franklin, TN", "item": `${siteUrl}/parts/franklin-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Bowling Green, KY", "item": `${siteUrl}/parts-installation/bowling-green-ky/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Parts & Installation in Franklin, TN | DDAN"
-  description="Same-day exhaust fan parts for Franklin's upscale kitchens. Motors, belts, bearings, filters, and discounted professional installation. Historic Main Street to Cool Springs. (615) 881-6968."
+  title="Bowling Green, KY Exhaust Fan Parts | DDAN"
+  description="Same-day exhaust fan parts for Bowling Green's commercial and institutional kitchens. Motors, belts, bearings, filters, and discounted installation. WKU to Scottsville Road. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Franklin, TN</li>
+          <li class="text-white">Bowling Green, KY</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Franklin, TN Hood Parts &amp; <span class="text-[#FF5E15]">Professional Installation</span>
+        Exhaust Fan Parts &amp; Installation in <span class="text-[#FF5E15]">Bowling Green, KY</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Premium kitchens demand premium parts. From historic Main Street to Cool Springs, we keep Franklin's finest restaurants running.
+        University dining halls and industrial commissaries run exhaust fans to the limit. We stock what Bowling Green needs and install it fast.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Franklin's Premium Kitchens Need a Reliable Parts Partner
+        Why Bowling Green Kitchens Need a Local Parts Supplier
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Franklin operates two distinct restaurant ecosystems, each with its own parts challenges. Downtown Franklin's historic Main Street district packs upscale restaurants into preserved 19th-century attached brick buildings where ductwork follows winding, non-standard paths through century-old walls. These systems require strategic access panel placement, custom-fit components, and technicians who understand how to work within heritage structures without compromising aesthetics or structural integrity.
+          Bowling Green sits at the crossroads of Western Kentucky's commercial kitchen infrastructure. The city's unique mix of massive university dining at Western Kentucky University, industrial plant commissaries supporting the General Motors Corvette Assembly Plant, and busy retail restaurant corridors along Scottsville Road creates parts demand that national suppliers simply cannot meet with standard shipping timelines. When an exhaust fan motor seizes in a university dining hall serving thousands of students, you need a replacement within hours, not days.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The Cool Springs corridor presents the opposite challenge. Massive Class-A commercial developments house high-end steakhouses and corporate dining operations beneath pristine white TPO roofing membranes. Corporate landlords in Maryland Farms and CoolSprings Galleria enforce zero-tolerance policies for grease roof damage. A single grease containment failure can trigger thousands in lease penalties. These kitchens need premium parts, proper containment systems, and photo-documented installation to satisfy property management.
+          Industrial commissaries and college dining halls in Bowling Green run exhaust systems at maximum capacity for 16 or more hours daily. That extreme runtime causes fan belts to dry rot, stretch, and snap frequently. Motors rated for standard commercial duty overheat under continuous industrial loads, and bearings wear out far ahead of schedule. The heavy grease volume from local BBQ joints and steakhouses along Scottsville Road overwhelms cheap, factory-installed grease catchers, destroying roofing membranes and triggering compliance issues.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The Franklin Fire Department's Fire Prevention Division maintains extremely strict oversight, particularly in the historic downtown overlay where shared walls and 150-year-old architecture create catastrophic fire risk if exhaust systems are not maintained to flawless NFPA 96 standards. Every component matters — from properly rated access panels to hinge kits that allow safe fan maintenance without roof damage.
+          The Bowling Green Fire Department and Kentucky State Fire Marshal rigorously enforce NFPA 96 codes, particularly concerning large institutional kitchens where life safety codes are heavily monitored. Bowling Green Municipal Utilities monitors grease interceptors and wastewater discharge, indirectly enforcing better rooftop containment practices. Every restaurant and institutional kitchen needs proper hinge kits, access panels, and containment systems to remain compliant.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Pre-holiday rushes in October and November drive massive demand for preventative belt replacements and motor inspections before the lucrative fine-dining season peaks. Franklin's premium restaurants cannot afford downtime during their highest-revenue periods, and waiting for shipped parts is not an option. DDAN stocks the most common exhaust fan parts locally and delivers across Franklin for same-day installation.
+          Major service demand spikes hit just before the WKU fall semester begins, when dining facilities must be fully operational for the incoming student body, and during planned shutdown maintenance windows at local manufacturing plants. DDAN delivers exhaust fan parts to Bowling Green and provides same-day professional installation for restaurants, universities, and industrial kitchens across Warren County.
         </p>
       </div>
     </div>
@@ -189,10 +189,10 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Franklin Kitchens
+        Exhaust Fans for Bowling Green Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Franklin's upscale dining scene and strict property management standards demand exhaust fans that perform flawlessly. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Bowling Green's institutional dining halls and heavy BBQ operations demand exhaust fans built for continuous, high-capacity use. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
       <!-- Upblast -->
@@ -264,7 +264,7 @@ const schemaData = {
       </p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
         {[
-          { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter to maintain comfort and airflow balance.' },
+          { title: 'Gas-Fired Heated', desc: 'The standard for Kentucky winters. Tempers incoming air to maintain comfort and airflow balance in cold months.' },
           { title: 'Unheated / Ambient', desc: 'Simpler installation for mild climates or seasonal operations. Brings in outside air without conditioning.' },
           { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
         ].map((item) => (
@@ -291,7 +291,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        City of Franklin Water Management and Cool Springs corporate landlords enforce zero-tolerance grease policies. We supply and install complete containment systems with photo documentation.
+        Bowling Green Municipal Utilities monitors grease interceptors and wastewater heavily. We supply and install complete containment systems to protect your roof and avoid fines.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -313,7 +313,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Franklin exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/bowling-green-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Bowling Green exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -323,25 +323,25 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN FRANKLIN -->
+  <!-- COMMON EQUIPMENT ISSUES IN BOWLING GREEN -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Franklin
+        Common Equipment Issues in Bowling Green
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Downtown Franklin restaurants struggle with winding, non-standard ductwork hidden in historic walls. These complex runs require strategic <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panel installation</a> at every change of direction so the entire system can be cleaned to bare metal. Without them, grease accumulates in concealed sections, creating a severe fire hazard in buildings with shared walls dating back over 150 years.
+          Industrial commissaries and university dining halls in Bowling Green run exhaust systems at maximum capacity for 16 or more hours daily. This continuous operation causes fan belts to dry rot, stretch, and snap frequently. Motors rated for standard 8 to 12 hour commercial duty overheat and seize under these extended runtimes, and bearings fail far ahead of schedule. The heavy-duty 3-phase motors common in institutional kitchens require exact frame size, voltage, and RPM matching that general suppliers cannot provide. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for more details.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          In Cool Springs, the primary issue is property management compliance. Corporate landlords will heavily fine restaurant tenants if exhaust fans leak grease onto expensive white TPO roofing membranes. Many tenants discover too late that their factory-installed grease catchers are inadequate for high-volume steakhouse operations. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for motor replacement details, and our <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit installation</a> page for NFPA 96 compliant fan access.
+          Severe grease volume from local BBQ and steakhouse concepts overwhelms cheap, factory-installed grease boxes, leading to rooftop grease runoff that damages commercial roofing and triggers BGMU wastewater violations. Many older establishments near Fountain Square lack proper fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> in their ductwork. Properly installed <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> are essential for safe rooftop fan maintenance on every Bowling Green building.
         </p>
       </div>
 
       <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "A high-end steakhouse in Cool Springs was facing a severe penalty from their property manager due to an older upblast fan leaking grease onto the building's new white TPO roof. DDAN responded immediately, deep-cleaned the fan, installed an advanced multi-tier grease containment system, and provided a full photo report, saving the restaurant from a costly lease violation."
+          "Right before the fall semester rush, a massive university dining facility in Bowling Green suffered a total exhaust fan motor failure, filling the kitchen with smoke. DDAN dispatched an emergency crew, replaced the heavy-duty 3-phase motor, and calibrated the fan belts on the spot, allowing the cafeteria to open safely for the incoming student body."
         </p>
       </div>
     </div>
@@ -360,7 +360,7 @@ const schemaData = {
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
           <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Franklin and Williamson County.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally. Same-day delivery to Bowling Green and Warren County for emergency jobs.
           </p>
         </div>
       </div>
@@ -371,23 +371,22 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Franklin Parts &amp; Installation Service Area
+        Bowling Green Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Franklin and Williamson County. Whether your restaurant is on historic Main Street, in the CoolSprings Galleria area, at Maryland Farms, or near The Factory at Franklin, we stock the parts your kitchen needs and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across all of Bowling Green and Warren County. Whether your kitchen is near the WKU campus, along the Scottsville Road restaurant corridor, near the Greenwood Mall, or at an industrial facility off I-65, we stock the parts you need and install them the same day.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Franklin:</span>
-            <a href="/cleaning/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Bowling Green:</span>
+            <a href="/cleaning/bowling-green-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/bowling-green-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>,
-            <a href="/parts/thompsons-station-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Thompsons Station</a>, and
-            <a href="/parts/nolensville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nolensville</a>
+            <a href="/parts-installation/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a> and
+            <a href="/parts-installation/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Clarksville</a>
           </p>
         </div>
       </div>
@@ -398,7 +397,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Franklin Parts &amp; Installation FAQ
+        Bowling Green Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'My Brentwood landlord requires proof of proper grease containment. Can you help?',
-    a: 'Absolutely. Property managers in Brentwood are exceptionally strict about roof damage. We install high-capacity, multi-layer rooftop grease containment systems designed specifically to protect white TPO membranes. We also provide comprehensive photo reports after every service to prove to your landlord that the roof is secure.',
+    q: 'Can you clean the exhaust systems in historic Columbia buildings?',
+    a: 'Yes. Historic buildings on the Columbia square often have complex, concealed ductwork. Our technicians are experts at installing fire-rated access panels that allow us to clean hard-to-reach areas down to bare metal, ensuring you pass Columbia Fire & Rescue inspections.',
   },
   {
-    q: 'Are you certified to meet Brentwood Fire & Rescue NFPA 96 standards?',
-    a: 'Yes. Our technicians are fully certified and follow strict NFPA 96 guidelines. We clean your entire exhaust system — from the hood filters through the ductwork to the rooftop fan — down to bare metal, ensuring you pass even the most rigorous fire marshal inspections.',
+    q: 'Do you repair broken restaurant exhaust fans in Columbia?',
+    a: 'Absolutely. A broken exhaust fan means your kitchen fills with smoke and must shut down. We offer 24/7 emergency repair in Columbia, arriving with the heavy-duty commercial belts, bearings, and 3-phase motors needed to get you back up and running immediately.',
   },
   {
-    q: 'Can you service my Brentwood restaurant after hours?',
-    a: 'Yes. We understand that upscale dining establishments cannot afford daytime disruptions. We schedule our hood cleaning and non-emergency repair services during your off-hours or overnight to ensure your kitchen is pristine and ready for the next service.',
+    q: 'Why do I need a rooftop grease containment system?',
+    a: 'NFPA 96 code requires it, and the Columbia Wastewater Department strictly monitors Fats, Oils, and Grease (F.O.G.) to protect local infrastructure. We install multi-layer rooftop systems that capture grease before it damages your commercial roof or washes into the storm drains.',
   },
   {
-    q: 'Can you install a complete new exhaust system?',
-    a: `Yes. Whether you're building out a new restaurant space in Maryland Farms or upgrading an existing system that can no longer handle your kitchen's output, we design, source, and install complete commercial kitchen exhaust systems to NFPA 96 standards. Call ${business.phone} for a consultation and estimate.`,
+    q: 'Do you deliver parts to rural areas?',
+    a: `Yes. We deliver exhaust fan parts throughout Maury County and the surrounding rural areas. Whether your restaurant is on the Columbia square or out on a rural highway, we bring the parts to you and install them the same day. Call ${business.phone} for a free fitting consult.`,
   },
 ];
 
@@ -45,7 +45,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Brentwood",
+        "name": "Columbia",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Brentwood",
+        "name": "Columbia",
         "addressRegion": "TN"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Brentwood's premium commercial kitchens. Maryland Farms to CityPark."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Columbia's commercial kitchens. Muletown square to Carmack Blvd."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Brentwood, TN", "item": `${siteUrl}/parts/brentwood-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Columbia, TN", "item": `${siteUrl}/parts-installation/columbia-tn/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Brentwood Restaurant Hood Parts | Same-Day | DDAN"
-  description="Same-day exhaust fan parts for Brentwood's premium commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Maryland Farms to CityPark. (615) 881-6968."
+  title="Columbia Commercial Kitchen Parts & Install | DDAN"
+  description="Same-day exhaust fan parts for Columbia's commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Muletown square to Carmack Blvd. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Brentwood, TN</li>
+          <li class="text-white">Columbia, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Brentwood Premium Kitchen Parts &amp; <span class="text-[#FF5E15]">Installation</span>
+        Columbia Muletown Kitchen Parts &amp; <span class="text-[#FF5E15]">Installation</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Maryland Farms landlords have zero tolerance for grease damage. We deliver premium parts and install with documentation that satisfies property management.
+        Columbia's historic square kitchens and Carmack Blvd diners need parts that match their heavy Southern output. We stock locally and install the same day.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,17 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Brentwood's Premium Kitchens Need Elite Parts Service
+        Why Columbia's Commercial Kitchens Need Fast Parts Access
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Brentwood's restaurant market operates at the intersection of demanding fire codes and exacting corporate property management. Class-A office parks like Maryland Farms house premium steakhouses, corporate catering operations, and refined international cuisine beneath pristine white TPO and PVC roofing membranes. The landlords who own these buildings have zero tolerance for grease damage — a single containment failure can trigger thousands of dollars in lease penalties and mandatory remediation.
+          Columbia's incredible historic revitalization has brought a surge of new restaurants to the Muletown square and the US-31 corridor. But operating a commercial kitchen inside a 150-year-old building on the square means your exhaust system faces challenges that newer construction never encounters. Winding, non-standard grease ductwork hidden behind drop ceilings, older upblast fans bolted directly to curbs without hinge kits, and aging motors running on borrowed time. When a part fails in one of these historic kitchens, you need a supplier who can identify the exact replacement and install it the same day.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Brentwood Fire and Rescue maintains extremely strict NFPA 96 enforcement, expecting flawless compliance and perfectly maintained fire suppression systems during every inspection. For premium dining establishments that rely on their reputation for excellence, a failed inspection or equipment shutdown during a Saturday dinner service is catastrophic. Every component of the exhaust system must perform reliably, from the motor and bearings down to the hinge kit and grease containment.
+          Columbia's culinary identity leans heavily into Southern comfort food, craft breweries, BBQ, and classic diners. These cooking styles produce thick, sticky grease from solid-fuel smoking and heavy frying that migrates into fan housings, coats impeller blades, and creates the kind of progressive imbalance that destroys bearings in weeks. The Columbia Wastewater Department aggressively monitors F.O.G. levels, meaning your rooftop grease containment components need regular replacement to avoid municipal fines and roof damage.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Brentwood's high-end restaurants operate on strict preventative maintenance schedules to avoid any possibility of downtime during lucrative dinner services. This means parts need to be available immediately when a scheduled maintenance visit reveals worn belts, failing bearings, or degraded containment pads. Waiting for a shipped part is not an option when your next dinner service generates premium revenue.
+          Along Carmack Blvd, older diners that have been running for decades frequently operate upblast fans with failing bearings and snapped belts due to age and constant use. The humid Tennessee summers push overworked fan motors past their breaking point, causing emergency failures during the busiest shifts. Meanwhile, the growing industrial parks and Maury Regional Medical Center add institutional-scale exhaust systems with their own parts demands. Every commercial kitchen in Columbia needs a parts supplier who stocks locally and can get a technician on-site the same day.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Columbia Fire & Rescue strictly enforces NFPA 96 in the downtown historic overlay, where connected buildings make grease fires exceptionally dangerous. If your system is missing access panels, running without a hinge kit, or operating with worn-out components, you are at risk of citation or shutdown. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Maury County for same-day installation. When your part fails during the Friday dinner rush, you need a local partner, not a tracking number.
         </p>
       </div>
     </div>
@@ -186,10 +189,10 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Brentwood Kitchens
+        Exhaust Fans for Columbia Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Brentwood's premium dining establishments demand exhaust systems that perform flawlessly under strict property management and fire code standards. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Columbia's Southern comfort kitchens and heavy BBQ operations demand exhaust fans that can handle relentless use and thick grease output. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
       <!-- Upblast -->
@@ -288,7 +291,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Brentwood Water Services and corporate landlords enforce zero-tolerance grease policies. We supply and install premium containment systems with full photo documentation for property management.
+        The Columbia Wastewater Department aggressively monitors F.O.G. levels. We supply and install complete containment systems to protect your roof and avoid fines.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -310,7 +313,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Columbia exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -320,25 +323,25 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN BRENTWOOD -->
+  <!-- COMMON EQUIPMENT ISSUES IN COLUMBIA -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Brentwood
+        Common Equipment Issues in Columbia
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The dominant issue in Brentwood is property management compliance. Landlords in Maryland Farms and CityPark have zero tolerance for grease spills on their expensive white TPO roofs. Many restaurant tenants discover too late that their factory-installed grease catchers are inadequate for high-volume premium kitchen operations. A single grease leak can trigger mandatory roof cleaning, membrane repairs, and lease penalties that cost far more than proactive containment would have. See our <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment</a> page for system options.
+          Revitalized historic buildings on the Columbia square often hide winding, non-standard grease ductwork behind drop ceilings. These older systems frequently lack the fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> required by NFPA 96, making them technically non-compliant during Columbia Fire & Rescue inspections. Installing custom access panels in these historic spaces requires expertise that most generic contractors lack.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Brentwood Fire and Rescue expects flawless NFPA 96 compliance with properly installed <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a>, and up-to-date service documentation. Premium steakhouses and high-end establishments rely on strict preventative maintenance schedules, and any worn component discovered during a maintenance visit needs to be replaced immediately to avoid disrupting dinner service. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for motor specifications.
+          Older diners along Carmack Blvd frequently run upblast fans with failing bearings and snapped belts due to age and constant use. The heavy BBQ and Southern comfort food culture produces thick, hardened grease that coats fan impellers and throws them off balance, accelerating <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motor and belt</a> failure. Many older rooftop installations also lack <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, turning simple maintenance into expensive, time-consuming projects that risk damaging the roof.
         </p>
       </div>
 
       <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "A premium steakhouse in Maryland Farms was threatened with a severe lease penalty because their aging exhaust fan was beginning to stain the building's new white TPO roof. DDAN installed a custom, heavy-duty rooftop grease containment system, retrofitted a new NFPA-compliant hinge kit, and instituted a rigorous preventative maintenance schedule, entirely resolving the issue with the property manager."
+          "A popular new restaurant opening on the historic Columbia square failed their initial fire inspection because their concealed ductwork lacked access points. DDAN arrived the next day, strategically installed fire-rated duct access panels, performed a deep bare-metal clean, and secured the NFPA 96 compliance they needed to open on time."
         </p>
       </div>
     </div>
@@ -357,7 +360,7 @@ const schemaData = {
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
           <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Brentwood and Williamson County.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Maury County.
           </p>
         </div>
       </div>
@@ -368,23 +371,22 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Brentwood Parts &amp; Installation Service Area
+        Columbia Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Brentwood. Whether your restaurant is in Maryland Farms, CityPark, along Franklin Road, or in the northern Cool Springs corridor, we stock the parts your kitchen needs and install them the same day. Our after-hours scheduling ensures zero disruption to your dinner service.
+          DDAN delivers exhaust fan parts and professional installation across all of Columbia and Maury County. Whether your restaurant is on the historic Muletown square, along the US-31 corridor, near Maury Regional Medical Center, or out on Carmack Blvd, we stock the parts Columbia kitchens need and install them the same day.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Brentwood:</span>
-            <a href="/cleaning/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Columbia:</span>
+            <a href="/cleaning/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>,
-            <a href="/parts/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Franklin</a>, and
-            <a href="/parts/nolensville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nolensville</a>
+            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Spring Hill</a> and
+            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lewisburg</a>
           </p>
         </div>
       </div>
@@ -395,7 +397,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Brentwood Parts &amp; Installation FAQ
+        Columbia Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

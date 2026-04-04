@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Can you clean exhaust systems for Lebanon BBQ restaurants and smokers?',
-    a: 'Yes. Wood-fired smokers and heavy BBQ operations produce a tough carbon creosote that standard pressure washing cannot remove. Our crews use specialized heavy-duty scrapers and chemical treatments to strip your entire exhaust system down to bare metal, drastically reducing your fire risk.',
+    q: 'Can you clean heavy BBQ and smoker exhaust systems in Shelbyville?',
+    a: 'Yes. Traditional Southern BBQ produces a thick, hardened carbon creosote that standard pressure washing cannot touch. Our technicians use specialized scrapers and heavy-duty chemicals to strip your entire exhaust system down to bare metal, eliminating a major fire hazard.',
   },
   {
-    q: 'My Lebanon restaurant\'s exhaust fan is vibrating loudly. What is wrong?',
-    a: 'Severe vibration is usually caused by heavy grease buildup throwing the fan impeller off balance, or a failing motor bearing. Left unchecked, this will destroy the fan. DDAN will immediately diagnose the issue, scrape the fan blades clean, and replace any worn belts or bearings.',
+    q: 'Do I need to install an access panel in my restaurant\'s ductwork?',
+    a: 'If you operate in an older building near the Shelbyville square, likely yes. NFPA 96 code requires fire-rated access panels at every change of duct direction to ensure the system can be completely cleaned. We frequently install these for older establishments.',
   },
   {
-    q: 'Do you install hinge kits on commercial exhaust fans in Lebanon?',
-    a: 'Absolutely. NFPA 96 code requires that upblast exhaust fans be equipped with hinge kits so they can be safely tilted open for cleaning without damaging the roof or the fan wiring. We install heavy-duty hinge kits on rooftops across Lebanon.',
+    q: 'How quickly can you replace a snapped exhaust fan belt in Shelbyville?',
+    a: 'We offer 24/7 emergency service. If your exhaust fan goes down during the lunch rush, our technicians will dispatch immediately with the right commercial-grade belts and motors to get your kitchen pulling air again.',
   },
   {
-    q: 'Do I need to know my exact fan model to order parts?',
-    a: `No. If you can read us the data plate on the fan housing, we can identify the exact motor, belt, and bearing specs. If the plate is unreadable — which is common on Lebanon's older BBQ hoods — send us a photo and we'll match it from the housing dimensions and wiring configuration. Call ${business.phone} for a free fitting consult.`,
+    q: 'Can you service institutional kitchen equipment?',
+    a: `Yes. Shelbyville's institutional kitchens — including those near Tyson Foods and the Celebration grounds — run heavy-duty, high-capacity exhaust systems that demand industrial-grade parts. We stock 3-phase motors, commercial belts, and high-capacity grease containment components designed for institutional-scale operations. Call ${business.phone} for a free fitting consult.`,
   },
 ];
 
@@ -45,7 +45,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Lebanon",
+        "name": "Shelbyville",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Lebanon",
+        "name": "Shelbyville",
         "addressRegion": "TN"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Lebanon's BBQ and commercial kitchens. Historic square to I-40 corridor."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Shelbyville's commercial kitchens. Walking Horse Country to Highway 231."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Lebanon, TN", "item": `${siteUrl}/parts/lebanon-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Shelbyville, TN", "item": `${siteUrl}/parts-installation/shelbyville-tn/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Commercial Kitchen Parts in Lebanon, TN | DDAN"
-  description="Same-day exhaust fan parts for Lebanon's BBQ and commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Historic square to I-40 corridor. (615) 881-6968."
+  title="Shelbyville Hood Fan Parts & Installation | DDAN"
+  description="Same-day exhaust fan parts for Shelbyville's commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Walking Horse Country to Highway 231. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Lebanon, TN</li>
+          <li class="text-white">Shelbyville, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Lebanon Kitchen Exhaust Parts — <span class="text-[#FF5E15]">BBQ &amp; Commercial</span>
+        Shelbyville Hood Fan Parts — <span class="text-[#FF5E15]">Walking Horse Country</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Lebanon's famous BBQ and smoker operations create carbon buildup that destroys standard parts. We stock heavy-duty replacements and install same day.
+        Shelbyville's Southern diners and Celebration-week kitchens need parts that handle industrial-volume cooking. We stock locally and install the same day.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Lebanon Kitchens Burn Through Parts Faster
+        Why Shelbyville's Commercial Kitchens Need Fast Parts Access
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Lebanon is famous for its Southern comfort food and heavy BBQ, and those cooking styles create equipment challenges that standard commercial kitchens never face. Wood-fired smokers and heavy fryers produce a thick, hardened carbon creosote that coats fan impellers unevenly, throws them out of balance, and destroys bearings in weeks rather than months. This intense grease and carbon output quickly clogs standard exhaust filters and burns out motors that were never designed for this level of abuse.
+          Shelbyville's dining scene serves a massive industrial and agricultural workforce, meaning local fryers and grills run at maximum capacity every single day. The Tyson Foods plant and surrounding industrial parks generate intense daily lunch rushes that push exhaust fan motors past their intended limits, frequently causing snapped belts and seized bearings. When a part fails during the lunch rush, every minute of downtime costs the revenue that keeps your kitchen running.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The massive industrial parks and logistics hubs off I-40 — including the Cracker Barrel headquarters campus and Amazon distribution centers — house commissary and cafeteria kitchens that run exhaust systems continuously. These industrial-scale operations snap fan belts and seize bearings at rates that require a local parts supplier who can deliver the same day, not a national distributor shipping from a warehouse in another state.
+          Shelbyville's culinary identity leans heavily into traditional Southern diners, BBQ, and high-volume meat-and-threes. Solid-fuel smoking and heavy frying produce thick, stubborn grease that coats fan impellers and migrates into every component of the exhaust system. This aggressive grease production quickly overwhelms standard rooftop catchers, and Shelbyville Water & Sewer Systems aggressively monitors local grease interceptors to protect municipal infrastructure.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The Lebanon Fire Department strictly enforces NFPA 96 standards across both the historic downtown square and the high-traffic I-40 interchange dining spots. City of Lebanon Water and Wastewater closely monitors grease interceptors, driving the need for pristine rooftop grease containment to prevent stormwater pollution. Every restaurant in Wilson County needs reliable access to replacement parts and professional installation.
+          The Shelbyville Fire Department strictly enforces fire codes, especially in the historic downtown where shared-wall fires are a catastrophic risk. Older BBQ and Southern diners often have outdated ductwork requiring specialized scraping and fire-rated access panel installation. Many older rooftop fans lack hinge kits, turning simple maintenance into expensive projects.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Major service demand spikes coincide with the Wilson County Fair — the largest in Tennessee — when local dining volume explodes and every exhaust system is pushed past its limits. DDAN is based in nearby Mt. Juliet and delivers parts across Lebanon for same-day installation.
+          Massive spikes in service calls hit during the late-summer Tennessee Walking Horse National Celebration, when local dining volume explodes and systems are pushed to the brink. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Bedford County for same-day installation. When your part fails during Celebration week, you need a local partner, not a tracking number.
         </p>
       </div>
     </div>
@@ -189,13 +189,12 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Lebanon Kitchens
+        Exhaust Fans for Shelbyville Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Lebanon's heavy BBQ and industrial cafeteria operations demand exhaust fans built for extreme grease and carbon loads. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Shelbyville's Southern diners, BBQ joints, and industrial commissaries demand exhaust fans that can handle heavy grease loads and constant operation. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
-      <!-- Upblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
@@ -207,7 +206,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Downblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
@@ -217,7 +215,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Inline -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
@@ -227,7 +224,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Fan Replacement Parts -->
       <div class="mb-8 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -291,7 +287,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        City of Lebanon Water and Wastewater closely monitors grease interceptors. We supply and install complete containment systems to protect your roof and prevent stormwater violations.
+        Shelbyville Water & Sewer Systems aggressively monitors local grease interceptors. We supply and install complete containment systems to protect your roof and avoid fines.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -313,7 +309,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lebanon exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/shelbyville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Shelbyville exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -323,25 +319,24 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN LEBANON -->
+  <!-- COMMON EQUIPMENT ISSUES IN SHELBYVILLE -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Lebanon
+        Common Equipment Issues in Shelbyville
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Lebanon's famous BBQ and smoking operations produce a thick, hardened carbon scale that requires specialized scraping and heavy-duty fan motors to pull properly. This carbon creosote coats impeller blades unevenly, throws the fan out of balance, and destroys bearings far ahead of schedule. Standard commercial motors burn out under the strain, requiring upgrades to heat-rated, heavy-duty replacements. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for specifications.
+          The intense daily lunch rush from Shelbyville's manufacturing plants pushes exhaust fan motors past their intended limits, causing snapped belts and seized bearings. These high-volume kitchens run heavy-duty 3-phase motors through continuous duty cycles, and standard OEM parts simply cannot keep up. When a <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motor or belt</a> fails, the kitchen fills with smoke and service stops immediately.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The massive industrial commissaries along the I-40 corridor run continuously, leading to frequent fan belt snapping and bearing failures that require immediate response. Many older downtown restaurants near the Lebanon square also lack properly installed <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> and fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a>, making compliance with Lebanon Fire Department inspections a constant challenge.
+          Older BBQ and Southern diners near the square often have outdated ductwork requiring specialized scraping and fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panel</a> installation. Many older rooftop fans also lack <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, making maintenance difficult and risking roof damage every time a technician services the equipment.
         </p>
       </div>
 
-      <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "During the peak of the Wilson County Fair, a high-volume diner near the fairgrounds had their main exhaust fan belt snap, filling the kitchen with smoke. DDAN's emergency repair team arrived within an hour, installed a commercial-grade notched V-belt, and verified the motor tension, saving their most profitable weekend of the year."
+          "Right before the massive influx of visitors for the Tennessee Walking Horse National Celebration, a high-volume diner on Highway 231 had their main exhaust fan motor seize. DDAN's emergency team arrived the same day, installed a new heavy-duty 3-phase motor, and calibrated the fan belts, allowing the kitchen to handle their busiest week of the year without a hitch."
         </p>
       </div>
     </div>
@@ -360,7 +355,7 @@ const schemaData = {
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
           <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet — right next door to Lebanon. Same-day pickup or delivery across Wilson County.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Bedford County.
           </p>
         </div>
       </div>
@@ -371,23 +366,22 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Lebanon Parts &amp; Installation Service Area
+        Shelbyville Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Lebanon and Wilson County. Whether your kitchen is on the historic downtown square, near Cumberland University, at the Lebanon Premium Outlets, or along the major I-40 interchanges, we stock the parts you need and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across all of Shelbyville and Bedford County. Whether your restaurant is on the historic square, along Highway 231, near the Celebration grounds, or in an industrial commissary, we stock the parts Shelbyville kitchens need and install them the same day.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Lebanon:</span>
-            <a href="/cleaning/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Shelbyville:</span>
+            <a href="/cleaning/shelbyville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/shelbyville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/mount-juliet-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Mount Juliet</a>,
-            <a href="/parts/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a>, and
-            <a href="/parts/hartsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hartsville</a>
+            <a href="/parts-installation/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Murfreesboro</a> and
+            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lewisburg</a>
           </p>
         </div>
       </div>
@@ -398,7 +392,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Lebanon Parts &amp; Installation FAQ
+        Shelbyville Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

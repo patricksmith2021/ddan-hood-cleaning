@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'What exhaust fan parts do Portland industrial kitchens need most?',
-    a: 'Portland\'s manufacturing workforce drives massive lunch rushes that push aging exhaust systems past their limits. The most frequently replaced parts are fan motors (burned out from continuous peak-load operation), fan belts (shredded from high-RPM duty cycles), and bearings (seized from heat accumulation during non-stop summer operation). Industrial commissaries also need heavy-duty 3-phase motors and oversized impellers that generic suppliers don\'t stock.',
+    q: 'What exhaust fan parts do Springfield restaurants need most often?',
+    a: 'Springfield\'s historic square restaurants and Highway 431 fast-food corridor create two distinct demand patterns. Historic buildings need custom curb adapters, fire-rated access panels, and non-standard mounting hardware. Highway corridor franchises burn through fan belts, motor bearings, and grease containment pads at an accelerated rate due to continuous high-volume frying.',
   },
   {
-    q: 'How quickly can DDAN deliver and install parts in Portland?',
-    a: `We carry common fan motors, belts, bearings, hinge kits, and grease containment components on every truck. Most Portland emergency parts installations are completed same-day. For specialty industrial-grade components, we source and install within 48 hours. Call ${business.phone} any time — 24/7 emergency dispatch for Sumner County.`,
+    q: 'How quickly can DDAN deliver and install exhaust parts in Springfield?',
+    a: `We carry common fan motors, belts, bearings, hinge kits, and grease containment components on every truck. Most Springfield parts-and-install jobs are completed same-day. For specialty parts like custom curb adapters for historic buildings, we source and install within 48 hours. Call ${business.phone} any time — 24/7 emergency dispatch.`,
   },
   {
-    q: 'Why is my exhaust fan rattling so loudly?',
-    a: 'Severe rattling typically means the fan blades are coated in hardened grease, throwing the impeller out of balance, or the motor bearings are failing from heavy use. Left unchecked, the vibration destroys the fan housing and can damage roofing materials. We scrape the impeller clean, replace worn bearings, and rebalance the entire assembly.',
+    q: 'Do you install parts on exhaust systems you didn\'t originally build?',
+    a: 'Yes. We install replacement parts on any commercial kitchen exhaust system regardless of who built or previously serviced it. Springfield\'s older buildings often have systems cobbled together by multiple contractors over decades — we diagnose the current state, source the correct parts, and bring the entire system into NFPA 96 compliance.',
   },
   {
-    q: 'Can you deliver parts near the Kentucky border?',
-    a: 'Yes. Portland sits near the Tennessee-Kentucky state line, and we service the entire area. Whether your restaurant or industrial commissary is on Highway 109, near the manufacturing parks, or right at the border, DDAN delivers and installs exhaust parts with the same response time as any other Sumner County location.',
+    q: 'Can you retrofit parts into historic buildings?',
+    a: 'Absolutely. Springfield\'s historic square contains 19th-century buildings with non-standard ductwork routing and curb dimensions. We fabricate custom adapters, install fire-rated access panels in century-old wall cavities, and retrofit modern hinge kits onto non-standard curbs — all without altering the historic structure. This is one of our specialties in Robertson County.',
   },
 ];
 
@@ -44,7 +44,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Portland",
+        "name": "Springfield",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -55,17 +55,17 @@ const schemaData = {
       "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Portland",
+        "name": "Springfield",
         "addressRegion": "TN"
       },
-      "description": "Industrial kitchen exhaust parts and installation for Portland's manufacturing corridor. Heavy-duty motors, belts, and bearings for high-volume operations near the Kentucky border."
+      "description": "Restaurant exhaust fan parts and installation for Springfield's historic square and Highway 431 corridor. Custom curb adapters for 19th-century buildings. 24/7 emergency service."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Portland, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/portland-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Springfield, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/springfield-tn/` }
       ]
     },
     {
@@ -84,31 +84,31 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Restaurant Exhaust Parts Near Portland | DDAN"
-  description="Industrial kitchen exhaust parts for Portland's manufacturing corridor. Heavy-duty motors, belts, bearings, hinge kits. Same-day installation. (615) 881-6968."
+  title="Restaurant Exhaust Parts Near Springfield | DDAN"
+  description="Exhaust fan parts and installation for Springfield's historic square and Hwy 431 corridor. Custom curb adapters, motors, belts, hinge kits. 24/7 service. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
   <!-- HERO -->
   <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-3.jpg');"></div>
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-1.jpg');"></div>
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
     <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
       <nav aria-label="Breadcrumb" class="mb-4">
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Portland, TN</li>
+          <li class="text-white">Springfield, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Portland Industrial Kitchen <span class="text-[#FF5E15]">Exhaust Parts</span>
+        Restaurant Exhaust Fan Parts Near <span class="text-[#FF5E15]">Springfield, TN</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Heavy-duty motors, belts, and bearings for the kitchens feeding Portland's manufacturing workforce
+        Custom curb adapters for historic buildings, heavy-duty belts for Hwy 431 franchises — parts sourced and installed same-day
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -159,17 +159,17 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Portland's Manufacturing Kitchens Destroy Exhaust Parts
+        Why Springfield Kitchens Need a Dedicated Parts Source
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Portland's dining scene is built to feed an industrial workforce. Massive manufacturing and logistics hubs near the Kentucky border drive concentrated, high-volume lunch rushes that push aging exhaust fan motors to their breaking point. Restaurants and industrial commissaries along Highway 109 run their fryers and grills relentlessly during peak hours, producing massive amounts of vaporized grease and demanding maximum airflow from equipment that was never sized for this kind of punishment.
+          Springfield's commercial kitchen landscape splits into two worlds: the historic square with 19th-century buildings housing modern restaurants, and the Highway 431 fast-food corridor feeding Robertson County's growing workforce. Both environments destroy exhaust components — but for entirely different reasons. Historic buildings have non-standard curb dimensions, concealed ductwork requiring specialty access panels, and improvised mounting configurations that prevent off-the-shelf replacement parts from fitting. Highway corridor franchises run fans at peak capacity during rush periods, shredding OEM belts and burning through motor windings at double the expected rate.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Traditional Southern diners — the backbone of Portland's food scene — present a different parts challenge. Years of heavy frying produce thick, hardened grease deposits that coat impellers and throw fans out of balance. Older buildings often have outdated ductwork with no access points, making it impossible to service the system without installing fire-rated access panels first. When the Portland Fire Department shows up for an NFPA 96 inspection and finds inaccessible ductwork, the remediation order follows immediately.
+          Generic parts suppliers ship you a box and wish you luck. DDAN sources the exact part, delivers it to your Springfield location, and installs it with full NFPA 96 documentation that satisfies the Springfield Fire Department. For historic square restaurants, we fabricate custom curb adapters and install fire-rated access panels that bring century-old infrastructure into modern compliance. For highway corridor franchises, we stock commercial-grade notched V-belts, high-heat bearings, and continuous-duty motors that actually survive the volume.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN sources and installs the heavy-duty commercial parts that actually survive Portland's demanding environment — heat-rated 3-phase motors, commercial-grade notched V-belts, sealed high-heat bearings, and the fire-rated access panels that bring older systems into compliance. Every installation includes full documentation for the Portland Fire Department.
+          NorthCrest Medical Center and expanding manufacturing hubs add institutional demand with heavy-duty exhaust systems running higher CFM than typical restaurants. When institutional kitchen parts fail, the supply chain complexity multiplies — 3-phase motors, oversized impellers, specialty mounting hardware. DDAN handles it all, from sourcing to installation to compliance documentation.
         </p>
       </div>
     </div>
@@ -179,19 +179,19 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Exhaust Fan Parts — Heavy-Duty Components for Portland's Volume
+        Exhaust Fan Parts — Springfield's Most-Replaced Components
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
-        Portland's industrial lunch rushes and aging diner infrastructure create constant demand for robust replacement parts:
+        Exhaust fans take the hardest beating in any commercial kitchen. Springfield's mix of historic infrastructure and high-volume highway dining accelerates wear on every component:
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
         {[
-          { title: 'Heavy-Duty Fan Motors', desc: 'Heat-rated 3-phase motors that survive Portland\'s punishing lunch-rush duty cycles. Industrial commissaries need motors rated for higher CFM than standard restaurant equipment.' },
-          { title: 'Commercial Fan Belts', desc: 'Notched V-belts that resist the rapid stretching and snapping caused by concentrated peak-hour operation. Proper tensioning included with every installation.' },
-          { title: 'Bearings & Pillow Blocks', desc: 'Sealed high-heat bearings that resist seizure during summer rooftop temperatures. Portland\'s hottest months are when overworked motors and bearings finally fail.' },
-          { title: 'Impellers & Fan Wheels', desc: 'Years of heavy Southern frying coat impellers with hardened grease, destroying balance. We clean or replace and rebalance the entire assembly.' },
-          { title: 'Hinge Kits', desc: 'Many older Portland rooftop fans lack the NFPA 96 required hinge kits. We retrofit to standard curbs so technicians can safely access the fan without damaging the roof.' },
-          { title: 'Fire-Rated Access Panels', desc: 'Older Portland diners have concealed ductwork with no inspection access. Fire-rated panels bring the system into compliance without altering the building structure.' },
+          { title: 'Fan Motors', desc: 'Continuous-duty motors rated for 24/7 operation. Springfield\'s Hwy 431 franchises burn through standard motors in months — we install commercial-grade replacements that handle the actual duty cycle.' },
+          { title: 'Fan Belts', desc: 'Commercial-grade notched V-belts that resist the stretching and snapping caused by non-stop fast-food volume. Proper tensioning included with every installation.' },
+          { title: 'Bearings & Pillow Blocks', desc: 'Sealed high-heat bearings rated for commercial kitchen environments. We replace worn bearings before they seize and destroy the entire fan assembly.' },
+          { title: 'Hinge Kits', desc: 'NFPA 96 requires hinge kits on upblast fans for safe service access. Many Springfield rooftop fans lack them — we retrofit kits to standard and non-standard curbs.' },
+          { title: 'Impellers & Fan Wheels', desc: 'Grease-coated impellers throw fans out of balance, destroying bearings and housings. We clean or replace impellers and rebalance the entire assembly.' },
+          { title: 'Custom Curb Adapters', desc: 'Historic square buildings have non-standard curb dimensions from a century of renovations. Custom adapters bridge old infrastructure to modern fan equipment.' },
         ].map((card) => (
           <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
             <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
@@ -209,12 +209,12 @@ const schemaData = {
         Beyond Fans — Complete Exhaust System Parts
       </h2>
       <ul class="space-y-3 max-w-3xl">
-        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease containment systems</a> — rooftop pads, boxes, and high-capacity catchers</li>
-        <li class="check-item reveal-child">Fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">duct access panels</a> — essential for Portland's older diner ductwork</li>
+        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease containment systems</a> — rooftop pads, boxes, and multi-tier catchers</li>
+        <li class="check-item reveal-child">Fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">duct access panels</a> — critical for Springfield's concealed historic ductwork</li>
         <li class="check-item reveal-child">Baffle filters, mesh filters, and spark arrestor screens</li>
         <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression</a> links, nozzles, and fusible elements</li>
         <li class="check-item reveal-child">Duct clamps, transitions, and cleanout ports</li>
-        <li class="check-item reveal-child">Speed controllers and VFD units for industrial applications</li>
+        <li class="check-item reveal-child">Speed controllers and VFD units</li>
         <li class="check-item reveal-child">Hood light fixtures and make-up air dampers</li>
       </ul>
     </div>
@@ -226,10 +226,10 @@ const schemaData = {
       <div class="bg-[#111111] border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
         <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts Without Installation Is Just a Box on Your Roof</h2>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 max-w-3xl">
-          Incorrect installation voids warranties, fails Portland Fire Department inspections, and causes premature failure. Every DDAN parts order includes professional installation with full NFPA 96 documentation. Need diagnostics or repair instead?
+          Incorrect installation voids warranties, fails inspections, and causes premature failure. Every DDAN parts order includes professional installation with full NFPA 96 documentation. Need repair instead? Our Springfield repair crews handle everything from emergency motor swaps to full system overhauls.
         </p>
-        <a href="/repair/portland-tn/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold hover:text-white transition-all duration-300">
-          Portland Exhaust Repair Services
+        <a href="/repair/springfield-tn/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold hover:text-white transition-all duration-300">
+          Springfield Exhaust Repair Services
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -240,14 +240,14 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Portland Kitchens
+        Common Equipment Issues in Springfield Kitchens
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The immense, rapid lunch rushes catering to Portland's manufacturing workforce push aging exhaust fan motors to their breaking point, causing frequent bearing failures and snapped belts. When ambient rooftop temperatures hit triple digits in summer, motors that have been accumulating thermal fatigue all year finally seize. The entire kitchen fills with smoke, service stops, and the lunch crowd walks out. Emergency motor replacement during summer is Portland's single most common exhaust parts call.
+          Retrofitting modern NFPA 96 compliance into 19th-century buildings is Springfield's defining parts challenge. Concealed ductwork hidden behind century-old walls can't be accessed for cleaning without access panels — and most historic square restaurants don't have them. Non-standard curbs from a century of renovations mean replacement fans don't fit without custom adapters. Improvised wiring from decades of tenant changes creates safety hazards during any parts installation. DDAN fabricates custom solutions that bring these historic systems into modern compliance without altering the building's structure.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Older diners throughout Portland often have significant carbon and grease buildup on fan impellers from years of heavy Southern frying. A grease-coated impeller throws the fan out of balance, which accelerates bearing destruction and causes the entire housing to vibrate against the roof curb. Left unchecked, the vibration damages the roof flashing and allows water infiltration. DDAN scrapes impellers clean, replaces damaged bearings, and rebalances the assembly — preventing the cascade of damage that starts with a dirty fan wheel.
+          On the Highway 431 corridor, the problems are simpler but more frequent: belts shred from non-stop operation, motors accumulate thermal fatigue from continuous peak-load duty, and cheap factory grease catchers overflow within weeks. The Springfield Fire Department enforces NFPA 96 with particular scrutiny on both the historic square and the growing franchise corridor, so every part must be installed correctly and documented thoroughly.
         </p>
       </div>
     </div>
@@ -257,16 +257,16 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Who Needs Exhaust Parts in Portland?
+        Who Needs Exhaust Parts in Springfield?
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {[
-          { title: 'Industrial Commissaries', desc: 'Manufacturing park cafeterias running heavy-duty exhaust systems with 3-phase motors and higher CFM than typical restaurants. Specialty parts are our stock in trade.' },
-          { title: 'Hwy 109 Fast-Food Chains', desc: 'High-volume operations that burn through OEM belts and motors during concentrated lunch-rush cycles. Commercial-grade parts are essential for survival.' },
-          { title: 'Southern Diners & BBQ', desc: 'Heavy frying and smoking produce aggressive grease loads that coat impellers, overwhelm filters, and demand upgraded containment systems.' },
-          { title: 'Corporate Cafeterias', desc: 'Manufacturing campus dining operations with strict uptime requirements. Parts failures during the lunch window are unacceptable — proactive replacement prevents them.' },
-          { title: 'Restaurants Near the KY Border', desc: 'Portland\'s proximity to Kentucky means some operators are underserved by Tennessee-based suppliers. DDAN covers the entire border corridor.' },
-          { title: 'Aging Building Operators', desc: 'Older Portland buildings need fire-rated access panels, custom ductwork transitions, and hinge kit retrofits to meet current NFPA 96 standards.' },
+          { title: 'Historic Square Restaurants', desc: 'Century-old buildings with non-standard ductwork, curbs, and mounting configurations that require custom parts and careful installation.' },
+          { title: 'Hwy 431 Fast-Food Franchises', desc: 'High-volume operations that destroy OEM components faster than supply chains can replace them. Heavy-duty commercial-grade parts are essential.' },
+          { title: 'NorthCrest Medical Center Area', desc: 'Institutional kitchens running higher CFM systems with 3-phase motors, oversized impellers, and specialty grease containment requirements.' },
+          { title: 'Southern Diners & BBQ Joints', desc: 'Heavy frying and smoking produce aggressive grease loads that overwhelm standard filtration and containment — upgraded parts are mandatory.' },
+          { title: 'New Franchise Builds', desc: 'Builder-installed exhaust components are often the cheapest available. We upgrade to commercial-grade parts before the first inspection failure.' },
+          { title: 'Multi-Location Operators', desc: 'Standardized parts inventory across multiple Springfield locations reduces downtime and simplifies maintenance scheduling.' },
         ].map((card) => (
           <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
             <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
@@ -281,21 +281,23 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Portland Parts & Installation Service Area
+        Springfield Parts & Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers and installs commercial kitchen exhaust parts across all of Portland and the surrounding Sumner County industrial corridor. From the Highway 109 franchise strip to the manufacturing park commissaries near the Kentucky border, we carry common parts on every truck for same-day emergency installation.
+          DDAN delivers and installs commercial kitchen exhaust parts across all of Springfield and Robertson County — the historic square, NorthCrest Medical Center corridor, Highway 431 franchise strip, and surrounding industrial parks. We carry common parts on every truck for same-day emergency installation and source specialty components within 48 hours.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/repair/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a> and
-            <a href="/parts/white-house-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">White House</a>
+            <a href="/parts-installation/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>,
+            <a href="/parts-installation/white-house-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">White House</a>, and
+            <a href="/parts-installation/portland-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Portland</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">All DDAN services in Portland:</span>
-            <a href="/repair/portland-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">All DDAN services in Springfield:</span>
+            <a href="/cleaning/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
         </div>
       </div>
@@ -306,7 +308,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Portland Exhaust Parts FAQ
+        Springfield Exhaust Parts FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

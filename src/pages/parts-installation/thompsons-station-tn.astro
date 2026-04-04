@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Can you clean and supply parts for heavy BBQ exhaust systems in Lewisburg?',
-    a: `Yes. Traditional Southern BBQ and solid-fuel cooking produces thick, hardened carbon creosote that destroys standard components fast. We supply heavy-duty scrapers, commercial-grade replacement filters, and upgraded <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white">fan belts and motors</a> rated for the extreme grease loads that Lewisburg's BBQ joints produce.`,
+    q: 'My Thompson\'s Station landlord requires proof of proper grease containment. Can you supply and install it?',
+    a: `Absolutely. Property managers in developments like Tollgate Village are exceptionally strict about roof damage. We supply and install high-capacity, multi-layer rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white">grease containment systems</a> designed specifically to protect white TPO membranes. Every installation includes detailed photo reports proving your roof is protected.`,
   },
   {
-    q: 'Do I need access panels installed in my Lewisburg restaurant\'s ductwork?',
-    a: `If you operate in an older building near the Lewisburg square, likely yes. NFPA 96 code requires <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white">fire-rated access panels</a> at every change of duct direction to ensure the entire system can be properly cleaned. We supply and install these panels to bring older establishments up to code.`,
+    q: 'Why are factory-installed fan parts failing in my Thompson\'s Station restaurant?',
+    a: 'General contractors building new restaurant spaces in Thompson\'s Station select the cheapest OEM components that meet minimum building code — not parts rated for real commercial kitchen use. Factory-installed smooth V-belts stretch and crack within 18 months under sustained cooking loads. Motors are sized to minimum CFM code, not the actual demands of a busy kitchen running 12 to 16 hours daily. We replace these with commercial-grade parts rated for real-world performance.',
   },
   {
-    q: 'How quickly can you get replacement fan parts to Lewisburg?',
-    a: `We carry common commercial fan belts, motors, and bearings on every service truck. For emergency calls, we dispatch immediately with the parts needed for same-day installation. For less common components, we source directly from the manufacturer within 24 to 48 hours. Call ${business.phone} any time.`,
+    q: 'What does Williamson County Fire/Rescue look for regarding exhaust parts?',
+    a: `WCFR inspectors expect flawless <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white">NFPA 96 compliance</a>. This means your exhaust system must have functional hinge kits on all upblast fans, fire-rated access panels installed at every duct direction change, clean fire suppression links, and all components in proper working order. We supply and install every part needed to pass.`,
   },
   {
-    q: 'Do you service restaurants in small towns?',
-    a: 'Absolutely. We service commercial kitchens across all of Middle Tennessee, from downtown Nashville to smaller communities like Lewisburg. Marshall County restaurants deserve the same professional-grade parts and installation as any metro kitchen. Our trucks are stocked and our crews are experienced with the older building infrastructure and industrial commissaries common in smaller Tennessee towns.',
+    q: 'Is there a warranty when I buy parts and installation together?',
+    a: `Yes. New motors carry the manufacturer's warranty (typically 1-3 years depending on brand), and our installation labor is backed by our workmanship guarantee. We document every installation with photos and a detailed service report for your records. Buying parts and installation together from DDAN means one point of accountability — if anything goes wrong, you call us and we handle it. Call ${business.phone} for details.`,
   },
 ];
 
@@ -44,7 +44,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Lewisburg",
+        "name": "Thompson's Station",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -55,17 +55,17 @@ const schemaData = {
       "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Lewisburg",
+        "name": "Thompson's Station",
         "addressRegion": "TN"
       },
-      "description": "Hood parts and professional installation for Lewisburg commercial kitchens. Heavy-duty fan belts, motors, access panels, and grease containment for Marshall County restaurants."
+      "description": "Commercial kitchen exhaust fan parts, OEM upgrades, and professional installation for Thompson's Station restaurants. Belts, motors, grease containment for Williamson County kitchens."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Lewisburg, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/lewisburg-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Thompson's Station, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/thompsons-station-tn/` }
       ]
     },
     {
@@ -84,8 +84,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Hood Parts & Installation Lewisburg, TN | DDAN"
-  description="Commercial kitchen hood parts and installation in Lewisburg, TN. Fan belts, motors, access panels, grease containment. Marshall County 24/7 service. (615) 881-6968."
+  title="Thompson's Station Kitchen Fan Parts | DDAN"
+  description="Commercial kitchen exhaust fan parts and installation for Thompson's Station restaurants. OEM upgrades, belts, motors, grease containment. Williamson County 24/7 service. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -98,17 +98,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Lewisburg, TN</li>
+          <li class="text-white">Thompson's Station, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Hood Parts & Installation <span class="text-[#FF5E15]">in Lewisburg, Tennessee</span>
+        Thompson's Station Kitchen Fan Parts <span class="text-[#FF5E15]">& Installation</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Heavy-duty replacement parts and professional installation for Marshall County's hardest-working kitchens
+        OEM replacement parts, commercial-grade upgrades, and professional installation for Williamson County's premium kitchens
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -159,14 +159,14 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Commercial Exhaust Parts for Lewisburg's Working Kitchens
+        Commercial Kitchen Exhaust Parts for Thompson's Station
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Lewisburg's dining scene is built to feed Marshall County's strong manufacturing workforce, and that means local kitchens run hard. Southern diners on the historic square, BBQ joints along Highway 31A, and industrial commissaries near the local manufacturing parks push their exhaust systems to the breaking point every lunch rush. When a fan belt snaps or a motor seizes during peak hours, the kitchen shuts down — and so does your revenue stream.
+          Thompson's Station is experiencing explosive commercial growth, with master-planned developments like Tollgate Village and high-end outparcels along Columbia Pike attracting premium dining concepts, artisan cafes, and upscale casual restaurants. Nearly every new commercial build sits beneath an expensive white TPO roof membrane — and Williamson County property managers enforce zero-tolerance policies for grease stains, roof damage, and any visible sign of exhaust system neglect. A single containment failure can trigger a lease violation that costs far more than the parts themselves.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN Hood Cleaning and Repair supplies and installs the commercial-grade <a href="/restaurant-exhaust-fan-parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan parts</a> that Lewisburg kitchens demand. We carry heavy-duty fan belts, motors, bearings, and grease containment components on every service truck, and we handle the full installation so you are not coordinating between a parts supplier and a separate installer. One call, one crew, one trip — your kitchen stays running.
+          DDAN Hood Cleaning and Repair supplies and installs the commercial-grade <a href="/restaurant-exhaust-fan-parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan parts</a> that Thompson's Station kitchens actually need — not the budget OEM components that builders install to save on construction costs. From heavy-duty fan belts and motors to complete grease containment systems, we deliver the right parts and handle the professional installation so your kitchen stays running, your roof stays clean, and your fire inspection passes without a question.
         </p>
       </div>
     </div>
@@ -179,16 +179,16 @@ const schemaData = {
         Exhaust Fan Parts We Supply & Install
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
-        Lewisburg's high-volume kitchens destroy standard parts fast. We stock commercial-grade replacements built for real cooking loads:
+        Factory-installed components are the most common failure point in Thompson's Station's new restaurant buildings. We stock and install commercial-grade replacements:
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
         {[
-          { title: 'Fan Motors', desc: 'Heavy-duty 1-phase and 3-phase motors rated for the sustained runtimes of Lewisburg\'s busiest diners and commissaries.' },
-          { title: 'Fan Belts', desc: 'Commercial-grade notched V-belts that resist the intense heat and grease loads from heavy Southern cooking.' },
-          { title: 'Bearings & Pillow Blocks', desc: 'Sealed commercial bearings designed for high-heat environments. Replace seized factory bearings before they destroy the motor.' },
-          { title: 'Impellers & Fan Wheels', desc: 'Balanced replacement impellers. Grease-caked fan wheels throw systems off-balance and cause destructive vibration.' },
-          { title: 'Grease Containment', desc: 'Rooftop grease catchers and containment pads. Keep Marshall County wastewater inspectors satisfied and your roof protected.' },
-          { title: 'Hinge Kits', desc: 'NFPA 96-compliant hinge kits for upblast exhaust fans. Required for safe rooftop cleaning access.' },
+          { title: 'Fan Motors', desc: 'Commercial-grade 1-phase and 3-phase motors sized for real cooking volume. Direct replacements for undersized builder-installed units.' },
+          { title: 'Fan Belts', desc: 'Heavy-duty notched V-belts that resist heat, grease, and stretching. Replace cheap factory belts that snap under commercial load.' },
+          { title: 'Bearings & Pillow Blocks', desc: 'Sealed commercial bearings rated for high-heat environments. OEM bearings run hot under real loads and seize prematurely.' },
+          { title: 'Impellers & Fan Wheels', desc: 'Balanced replacement impellers and fan wheels. Grease buildup throws factory impellers off-balance, destroying motors.' },
+          { title: 'Grease Containment Systems', desc: 'Multi-tier rooftop grease catchers for Thompson\'s Station\'s pristine TPO roofs. Protect your lease and your roof investment.' },
+          { title: 'Hinge Kits', desc: 'NFPA 96-required hinge kits for rooftop upblast fans. Allow safe cleaning access without lifting the entire fan unit.' },
         ].map((card) => (
           <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
             <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
@@ -206,7 +206,7 @@ const schemaData = {
         Additional Parts & Components
       </h2>
       <ul class="space-y-3 max-w-3xl">
-        <li class="check-item reveal-child"><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire-rated duct access panels</a> — critical for Lewisburg's older downtown buildings with concealed ductwork</li>
+        <li class="check-item reveal-child"><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire-rated duct access panels</a> — required by NFPA 96 at every change of duct direction</li>
         <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression</a> links, nozzles, and fusible alloy replacements</li>
         <li class="check-item reveal-child">Stainless steel baffle grease filters for hood canopies</li>
         <li class="check-item reveal-child">Duct connectors, transitions, and replacement sections</li>
@@ -220,10 +220,10 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <div class="bg-[#111111] border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
-        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts + Installation in One Trip</h2>
-        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-4">No second contractor. No waiting. Done right the first time.</p>
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts + Installation in One Visit</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-4">Save time. Save money. One point of accountability.</p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-3xl">
-          Every part we supply gets installed by our certified technicians on the same visit. We arrive with the right components, install them to NFPA 96 standards, and document everything with photos for the Lewisburg Fire Department and your records. One call handles the entire job — parts, labor, and compliance documentation.
+          Every part we supply gets installed by our certified technicians on the same trip. No waiting for a second contractor. No coordination headaches. We show up with the right parts, install them to NFPA 96 standards, and document everything with photos for Williamson County Fire/Rescue and your property manager. One call handles the entire job — parts, labor, warranty, and compliance documentation.
         </p>
         <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
           {business.phone}
@@ -236,14 +236,14 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Lewisburg
+        Common Equipment Issues in Thompson's Station
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The intense daily lunch rush from Lewisburg's local manufacturing plants pushes exhaust fan motors past their intended limits, causing snapped belts and seized bearings. Older Southern diners on the historic square often have outdated, concealed ductwork requiring specialized scraping and fire-rated access panel installation. The Lewisburg Fire Department strictly enforces fire codes in the downtown overlay, where shared brick walls make a grease fire catastrophic for entire blocks.
+          Because almost all commercial infrastructure in Thompson's Station is newly built, property managers in Tollgate Village and along Columbia Pike are ruthless regarding grease stains on expensive white TPO roofs. New restaurant owners often discover that cheaper OEM fan belts installed by builders fail rapidly under heavy commercial use. The factory-installed smooth V-belts stretch and crack within 18 months, and the undersized motors overheat when pushed to actual cooking-volume demands for extended daily runtimes.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Heavy BBQ and solid-fuel cooking operations generate a thick carbon creosote that standard pressure washing cannot remove. This hardened buildup accelerates component wear — fan wheels become unbalanced, belts run hot against coated pulleys, and bearings fail from the additional strain. We supply the heavy-duty <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">commercial parts</a> designed to withstand these extreme conditions.
+          Thompson's Station's premium dining establishments rely on strict preventative maintenance to avoid any risk of downtime. When a fan component fails, the cascade is immediate — kitchen fills with smoke, fire suppression risks triggering, and the landlord's pristine roof is exposed to uncontained grease. We stock the <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">commercial-grade belts and motors</a> that prevent these failures before they happen.
         </p>
       </div>
     </div>
@@ -253,16 +253,16 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Who We Supply Parts For in Lewisburg
+        Who We Supply Parts For in Thompson's Station
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
         {[
-          'Southern diners and meat-and-threes',
-          'BBQ restaurants and smokehouses',
+          'Upscale casual dining restaurants',
+          'Artisan cafes and specialty food concepts',
+          'High-end pizza restaurants',
           'Fast-casual and QSR franchises',
-          'Industrial park commissaries and cafeterias',
-          'Historic downtown restaurants',
-          'High-volume frying operations',
+          'Corporate food concepts in mixed-use developments',
+          'Tollgate Village and Columbia Pike restaurants',
         ].map((item) => (
           <div class="check-item reveal-child">{item}</div>
         ))}
@@ -274,22 +274,22 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Lewisburg Parts & Installation Service Area
+        Thompson's Station Parts & Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN provides 24/7 commercial kitchen exhaust parts and installation across all of Lewisburg and Marshall County. Whether you need an emergency fan motor at a diner on the square or scheduled parts installation at an industrial commissary on Highway 31A, we deliver and install — day or night.
+          DDAN provides 24/7 commercial kitchen exhaust parts and installation across all of Thompson's Station and southern Williamson County. Whether your restaurant is in Tollgate Village, along Columbia Pike, or in a new development off I-65, we deliver and install the parts your kitchen needs — day or night.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Lewisburg:</span>
-            <a href="/cleaning/lewisburg-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/lewisburg-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Thompson's Station:</span>
+            <a href="/cleaning/thompsons-station-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/thompsons-station-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/shelbyville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Shelbyville</a> and
-            <a href="/parts/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Columbia</a>
+            <a href="/parts-installation/spring-hill-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Spring Hill</a> and
+            <a href="/parts-installation/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Franklin</a>
           </p>
         </div>
       </div>
@@ -300,7 +300,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Lewisburg Parts & Installation FAQ
+        Thompson's Station Parts & Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

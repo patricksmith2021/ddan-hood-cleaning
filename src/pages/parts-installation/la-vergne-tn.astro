@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Do you service large institutional kitchens at WKU or local factories?',
-    a: 'Yes. We specialize in high-capacity commercial and industrial kitchen exhaust systems. We can coordinate with your facilities managers for after-hours or shutdown-window cleaning to minimize disruption to your massive operations.',
+    q: 'Can you fix a broken restaurant exhaust fan in La Vergne quickly?',
+    a: 'Yes. We know you cannot afford downtime during the industrial lunch rush. DDAN offers 24/7 emergency repair in La Vergne, arriving with the heavy-duty belts, bearings, and 3-phase motors needed to get your exhaust system running immediately.',
   },
   {
-    q: 'How quickly can you replace a snapped fan belt in Bowling Green?',
-    a: 'Because we offer 24/7 emergency service, we can dispatch a technician to Bowling Green immediately. We carry a massive inventory of heavy-duty commercial fan belts and motors to get your exhaust system pulling air again without missing a shift.',
+    q: 'What is required to pass a La Vergne Fire Department hood inspection?',
+    a: 'Inspectors look for your entire system to be cleaned to bare metal, ensuring no flammable grease remains in the ductwork. They also verify that your upblast fans have proper hinge kits, your fire suppression links are clean, and your NFPA 96 service tags are current.',
   },
   {
-    q: 'What is required to pass a Bowling Green Fire Department hood inspection?',
-    a: 'Inspectors look for the system to be cleaned to bare metal (no grease accumulation), functioning fire suppression links, properly installed hinge kits on the roof fans, and visible, up-to-date certification tags proving NFPA 96 compliance.',
+    q: 'Do you service Hispanic bakeries and taquerias in La Vergne?',
+    a: 'Absolutely. High-heat griddles and traditional baking produce unique carbon and grease buildup that standard cleaning misses. We use specialized scraping techniques to completely clear your system. Se habla espanol!',
   },
   {
-    q: 'Do you install the parts you sell?',
-    a: `Yes. Every part we sell can be professionally installed by our certified technicians, and installation is discounted when you purchase parts through us. We verify compatibility before ordering, install with proper documentation, and test the entire system before leaving. Call ${business.phone} to schedule.`,
+    q: 'Do you carry industrial-grade parts for high-volume operations?',
+    a: `Yes. La Vergne's Interchange City industrial parks house commissaries and cafeterias running at extreme volumes. We stock heavy-duty 3-phase motors, commercial-grade belts, and high-capacity grease containment systems designed for continuous industrial use. Call ${business.phone} for a free fitting consult.`,
   },
 ];
 
@@ -45,8 +45,8 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Bowling Green",
-        "addressRegion": "KY"
+        "name": "La Vergne",
+        "addressRegion": "TN"
       },
       "priceRange": "$$"
     },
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Bowling Green",
-        "addressRegion": "KY"
+        "name": "La Vergne",
+        "addressRegion": "TN"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Bowling Green's commercial and institutional kitchens. WKU to Scottsville Road."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for La Vergne's industrial and commercial kitchens. Interchange City to Murfreesboro Road."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Bowling Green, KY", "item": `${siteUrl}/parts/bowling-green-ky/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "La Vergne, TN", "item": `${siteUrl}/parts-installation/la-vergne-tn/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Bowling Green, KY Exhaust Fan Parts | DDAN"
-  description="Same-day exhaust fan parts for Bowling Green's commercial and institutional kitchens. Motors, belts, bearings, filters, and discounted installation. WKU to Scottsville Road. (615) 881-6968."
+  title="La Vergne Hood Fan Parts & Installation | DDAN"
+  description="Same-day exhaust fan parts for La Vergne's industrial and commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Interchange City to Murfreesboro Road. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Bowling Green, KY</li>
+          <li class="text-white">La Vergne, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Exhaust Fan Parts &amp; Installation in <span class="text-[#FF5E15]">Bowling Green, KY</span>
+        La Vergne Industrial Kitchen Parts &amp; <span class="text-[#FF5E15]">Installation</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        University dining halls and industrial commissaries run exhaust fans to the limit. We stock what Bowling Green needs and install it fast.
+        Interchange City's industrial kitchens burn through parts at industrial speed. We stock heavy-duty components and install them the same day.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Bowling Green Kitchens Need a Local Parts Supplier
+        Why La Vergne's Commercial Kitchens Need Fast Parts Access
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Bowling Green sits at the crossroads of Western Kentucky's commercial kitchen infrastructure. The city's unique mix of massive university dining at Western Kentucky University, industrial plant commissaries supporting the General Motors Corvette Assembly Plant, and busy retail restaurant corridors along Scottsville Road creates parts demand that national suppliers simply cannot meet with standard shipping timelines. When an exhaust fan motor seizes in a university dining hall serving thousands of students, you need a replacement within hours, not days.
+          La Vergne's dining scene is built on speed and volume. Restaurants serving the massive logistics workforce at Interchange City — one of the largest industrial parks in Tennessee — run their fryers and grills non-stop to meet crushing lunch demands. This constant, high-heat operation rapidly stretches fan belts, burns out motors, and produces massive amounts of vaporized grease that overwhelms standard factory equipment. When a part fails during the industrial lunch rush, every minute of downtime costs revenue.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Industrial commissaries and college dining halls in Bowling Green run exhaust systems at maximum capacity for 16 or more hours daily. That extreme runtime causes fan belts to dry rot, stretch, and snap frequently. Motors rated for standard commercial duty overheat under continuous industrial loads, and bearings wear out far ahead of schedule. The heavy grease volume from local BBQ joints and steakhouses along Scottsville Road overwhelms cheap, factory-installed grease catchers, destroying roofing membranes and triggering compliance issues.
+          The Murfreesboro Road corridor is densely packed with highway-fronting fast food, authentic Latin American bakeries and taquerias, and high-volume quick-service restaurants. High-heat griddles and continuous fryer use produce heavy, sticky grease output that degrades fan components faster than typical commercial cooking. Older strip centers along Murfreesboro Road often have standard EPDM roofing that is vulnerable to grease damage, and many of these buildings lack proper NFPA-compliant hinge kits, leading to roof damage during maintenance.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The Bowling Green Fire Department and Kentucky State Fire Marshal rigorously enforce NFPA 96 codes, particularly concerning large institutional kitchens where life safety codes are heavily monitored. Bowling Green Municipal Utilities monitors grease interceptors and wastewater discharge, indirectly enforcing better rooftop containment practices. Every restaurant and institutional kitchen needs proper hinge kits, access panels, and containment systems to remain compliant.
+          The La Vergne Fire Department strictly enforces NFPA 96 standards, heavily targeting the densely packed Murfreesboro Road corridor. Industrial commissaries in Interchange City must maintain impeccable fire suppression readiness. La Vergne Public Works actively monitors the municipal sewer system for F.O.G. violations, meaning your rooftop grease containment components need regular replacement to stay compliant.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Major service demand spikes hit just before the WKU fall semester begins, when dining facilities must be fully operational for the incoming student body, and during planned shutdown maintenance windows at local manufacturing plants. DDAN delivers exhaust fan parts to Bowling Green and provides same-day professional installation for restaurants, universities, and industrial kitchens across Warren County.
+          Emergency calls spike in late summer when ambient roof temperatures cause overworked exhaust fan motors to seize. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across La Vergne for same-day installation. When your part fails during the Friday lunch rush, you need a local partner, not a tracking number.
         </p>
       </div>
     </div>
@@ -189,13 +189,12 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Bowling Green Kitchens
+        Exhaust Fans for La Vergne Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Bowling Green's institutional dining halls and heavy BBQ operations demand exhaust fans built for continuous, high-capacity use. We stock, source, and install every type of commercial kitchen exhaust fan.
+        La Vergne's industrial commissaries and high-volume quick-service restaurants demand exhaust fans built for punishing duty cycles. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
-      <!-- Upblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
@@ -207,7 +206,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Downblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
@@ -217,7 +215,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Inline -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
@@ -227,7 +224,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Fan Replacement Parts -->
       <div class="mb-8 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -264,7 +260,7 @@ const schemaData = {
       </p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
         {[
-          { title: 'Gas-Fired Heated', desc: 'The standard for Kentucky winters. Tempers incoming air to maintain comfort and airflow balance in cold months.' },
+          { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter to maintain comfort and airflow balance.' },
           { title: 'Unheated / Ambient', desc: 'Simpler installation for mild climates or seasonal operations. Brings in outside air without conditioning.' },
           { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
         ].map((item) => (
@@ -291,7 +287,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Bowling Green Municipal Utilities monitors grease interceptors and wastewater heavily. We supply and install complete containment systems to protect your roof and avoid fines.
+        La Vergne Public Works actively monitors the municipal sewer system for F.O.G. violations. We supply and install complete containment systems to protect your roof and avoid fines.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -313,7 +309,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/bowling-green-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Bowling Green exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">La Vergne exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -323,25 +319,24 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN BOWLING GREEN -->
+  <!-- COMMON EQUIPMENT ISSUES IN LA VERGNE -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Bowling Green
+        Common Equipment Issues in La Vergne
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Industrial commissaries and university dining halls in Bowling Green run exhaust systems at maximum capacity for 16 or more hours daily. This continuous operation causes fan belts to dry rot, stretch, and snap frequently. Motors rated for standard 8 to 12 hour commercial duty overheat and seize under these extended runtimes, and bearings fail far ahead of schedule. The heavy-duty 3-phase motors common in institutional kitchens require exact frame size, voltage, and RPM matching that general suppliers cannot provide. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for more details.
+          The intense, rapid-fire lunch rushes catering to La Vergne's industrial workforce push exhaust fan motors to their limits, causing frequent bearing failures and snapped belts. Industrial commissaries in Interchange City run heavy-duty 3-phase motors through continuous duty cycles that exceed standard equipment ratings. These motors need exact frame size, voltage, and RPM specs matched immediately — you cannot wait for a national supplier to ship. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for details.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Severe grease volume from local BBQ and steakhouse concepts overwhelms cheap, factory-installed grease boxes, leading to rooftop grease runoff that damages commercial roofing and triggers BGMU wastewater violations. Many older establishments near Fountain Square lack proper fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> in their ductwork. Properly installed <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> are essential for safe rooftop fan maintenance on every Bowling Green building.
+          Older strip centers along Murfreesboro Road often lack proper NFPA-compliant <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, leading to roof damage during maintenance. Many of these aging buildings also need fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> installed to allow proper bare-metal cleaning of concealed ductwork. The La Vergne Fire Department strictly enforces these requirements.
         </p>
       </div>
 
-      <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "Right before the fall semester rush, a massive university dining facility in Bowling Green suffered a total exhaust fan motor failure, filling the kitchen with smoke. DDAN dispatched an emergency crew, replaced the heavy-duty 3-phase motor, and calibrated the fan belts on the spot, allowing the cafeteria to open safely for the incoming student body."
+          "When a high-volume taqueria on Murfreesboro Road suffered a snapped exhaust fan belt right as the Friday lunch rush began, DDAN's emergency team was on-site within 45 minutes. We replaced the belt with a notched, heat-resistant commercial V-belt and calibrated the motor, allowing the kitchen to reopen safely with minimal lost revenue."
         </p>
       </div>
     </div>
@@ -360,7 +355,7 @@ const schemaData = {
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
           <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally. Same-day delivery to Bowling Green and Warren County for emergency jobs.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across La Vergne.
           </p>
         </div>
       </div>
@@ -371,22 +366,23 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Bowling Green Parts &amp; Installation Service Area
+        La Vergne Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Bowling Green and Warren County. Whether your kitchen is near the WKU campus, along the Scottsville Road restaurant corridor, near the Greenwood Mall, or at an industrial facility off I-65, we stock the parts you need and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across all of La Vergne. Whether your restaurant is on Murfreesboro Road, in the Interchange City industrial parks, or near Percy Priest Lake, we stock the parts La Vergne kitchens need and install them the same day.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Bowling Green:</span>
-            <a href="/cleaning/bowling-green-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/bowling-green-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in La Vergne:</span>
+            <a href="/cleaning/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a> and
-            <a href="/parts/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Clarksville</a>
+            <a href="/parts-installation/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Murfreesboro</a>,
+            <a href="/parts-installation/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Smyrna</a>, and
+            <a href="/parts-installation/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Antioch</a>
           </p>
         </div>
       </div>
@@ -397,7 +393,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Bowling Green Parts &amp; Installation FAQ
+        La Vergne Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

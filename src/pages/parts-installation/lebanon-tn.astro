@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Does my Hendersonville restaurant need a rooftop grease containment system?',
-    a: 'Yes. Not only is it required by NFPA 96 fire codes, but the Hendersonville Utility District heavily penalizes Fats, Oils, and Grease (F.O.G.) runoff that reaches storm drains, especially near Old Hickory Lake. We install high-capacity systems to capture this grease before it damages your roof or the environment.',
+    q: 'Can you clean exhaust systems for Lebanon BBQ restaurants and smokers?',
+    a: 'Yes. Wood-fired smokers and heavy BBQ operations produce a tough carbon creosote that standard pressure washing cannot remove. Our crews use specialized heavy-duty scrapers and chemical treatments to strip your entire exhaust system down to bare metal, drastically reducing your fire risk.',
   },
   {
-    q: 'Why is my upblast exhaust fan rattling so loudly?',
-    a: 'Loud rattling usually means the fan blades are coated in hardened grease, throwing the impeller off balance, or the motor bearings are failing due to heavy use. We will scrape the blades down to bare metal and diagnose the motor immediately.',
+    q: 'My Lebanon restaurant\'s exhaust fan is vibrating loudly. What is wrong?',
+    a: 'Severe vibration is usually caused by heavy grease buildup throwing the fan impeller off balance, or a failing motor bearing. Left unchecked, this will destroy the fan. DDAN will immediately diagnose the issue, scrape the fan blades clean, and replace any worn belts or bearings.',
   },
   {
-    q: 'Are your technicians familiar with Hendersonville Fire Department codes?',
-    a: "Absolutely. We ensure your entire kitchen exhaust system — from the hood to the rooftop fan — meets the strict NFPA 96 standards enforced by the Hendersonville Fire Marshal, keeping you compliant and avoiding costly operational shutdowns.",
+    q: 'Do you install hinge kits on commercial exhaust fans in Lebanon?',
+    a: 'Absolutely. NFPA 96 code requires that upblast exhaust fans be equipped with hinge kits so they can be safely tilted open for cleaning without damaging the roof or the fan wiring. We install heavy-duty hinge kits on rooftops across Lebanon.',
   },
   {
-    q: 'Can you source discontinued or hard-to-find parts?',
-    a: `Yes. If your exhaust fan is an older or discontinued model, we can often cross-reference the data plate specifications to find compatible replacement motors, belts, and bearings. If the data plate is unreadable, send us a photo and we'll match it from housing dimensions and wiring configuration. Call ${business.phone} — we've matched parts for systems over 20 years old.`,
+    q: 'Do I need to know my exact fan model to order parts?',
+    a: `No. If you can read us the data plate on the fan housing, we can identify the exact motor, belt, and bearing specs. If the plate is unreadable — which is common on Lebanon's older BBQ hoods — send us a photo and we'll match it from the housing dimensions and wiring configuration. Call ${business.phone} for a free fitting consult.`,
   },
 ];
 
@@ -45,7 +45,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Hendersonville",
+        "name": "Lebanon",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Hendersonville",
+        "name": "Lebanon",
         "addressRegion": "TN"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Hendersonville's commercial kitchens. Indian Lake to Old Hickory Lake."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Lebanon's BBQ and commercial kitchens. Historic square to I-40 corridor."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Hendersonville, TN", "item": `${siteUrl}/parts/hendersonville-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Lebanon, TN", "item": `${siteUrl}/parts-installation/lebanon-tn/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Hendersonville Exhaust Fan Parts & Installation | DDAN"
-  description="Same-day exhaust fan parts for Hendersonville commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Indian Lake to Old Hickory Lake. (615) 881-6968."
+  title="Commercial Kitchen Parts in Lebanon, TN | DDAN"
+  description="Same-day exhaust fan parts for Lebanon's BBQ and commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Historic square to I-40 corridor. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Hendersonville, TN</li>
+          <li class="text-white">Lebanon, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Hendersonville Kitchen Exhaust Fan Parts &amp; <span class="text-[#FF5E15]">Installation</span>
+        Lebanon Kitchen Exhaust Parts — <span class="text-[#FF5E15]">BBQ &amp; Commercial</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Lakeside humidity accelerates equipment wear. We stock what Hendersonville kitchens need and install it the same day.
+        Lebanon's famous BBQ and smoker operations create carbon buildup that destroys standard parts. We stock heavy-duty replacements and install same day.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Hendersonville Kitchens Need Fast Parts Access
+        Why Lebanon Kitchens Burn Through Parts Faster
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Hendersonville's dining scene sits on the shores of Old Hickory Lake, and that lakeside location creates equipment challenges that inland kitchens never face. The combination of high-volume fryer grease and ambient humidity from the lake accelerates rust on unprotected rooftop fan housings, corrodes hinge mechanisms, and degrades motor bearings far faster than expected. An exhaust fan motor that would last three years in a dry environment might fail in 18 months on a Hendersonville rooftop.
+          Lebanon is famous for its Southern comfort food and heavy BBQ, and those cooking styles create equipment challenges that standard commercial kitchens never face. Wood-fired smokers and heavy fryers produce a thick, hardened carbon creosote that coats fan impellers unevenly, throws them out of balance, and destroys bearings in weeks rather than months. This intense grease and carbon output quickly clogs standard exhaust filters and burns out motors that were never designed for this level of abuse.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The restaurant density at the Streets of Indian Lake and along Gallatin Road creates consistent, high-volume parts demand. Casual dining chains, seafood restaurants, and lakeside bar and grills run their fryers heavily, producing grease loads that overwhelm standard containment systems. The Hendersonville Utility District is highly protective of local water quality due to proximity to Old Hickory Lake, treating rooftop grease runoff as a serious environmental violation with severe penalties.
+          The massive industrial parks and logistics hubs off I-40 — including the Cracker Barrel headquarters campus and Amazon distribution centers — house commissary and cafeteria kitchens that run exhaust systems continuously. These industrial-scale operations snap fan belts and seize bearings at rates that require a local parts supplier who can deliver the same day, not a national distributor shipping from a warehouse in another state.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Older restaurants along Gallatin Road often operate with outdated, undersized fan motors that struggle to pull heavy grease-laden air during peak summer volume when the lakeside humidity is at its worst. The Hendersonville Fire Department maintains strict enforcement during routine annual inspections, checking for bare metal cleanliness, functional hinge kits, and up-to-date service documentation.
+          The Lebanon Fire Department strictly enforces NFPA 96 standards across both the historic downtown square and the high-traffic I-40 interchange dining spots. City of Lebanon Water and Wastewater closely monitors grease interceptors, driving the need for pristine rooftop grease containment to prevent stormwater pollution. Every restaurant in Wilson County needs reliable access to replacement parts and professional installation.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Demand spikes in late spring and summer as lakeside dining volume peaks, putting maximum strain on exhaust fans and belts at exactly the time humidity does the most damage. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet — just minutes from Hendersonville — and delivers for same-day installation across Sumner County.
+          Major service demand spikes coincide with the Wilson County Fair — the largest in Tennessee — when local dining volume explodes and every exhaust system is pushed past its limits. DDAN is based in nearby Mt. Juliet and delivers parts across Lebanon for same-day installation.
         </p>
       </div>
     </div>
@@ -189,10 +189,10 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Hendersonville Kitchens
+        Exhaust Fans for Lebanon Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Hendersonville's lakeside humidity and high-volume frying operations demand exhaust fans rated for harsh conditions. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Lebanon's heavy BBQ and industrial cafeteria operations demand exhaust fans built for extreme grease and carbon loads. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
       <!-- Upblast -->
@@ -291,7 +291,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        The Hendersonville Utility District heavily penalizes F.O.G. runoff near Old Hickory Lake. We supply and install complete containment systems to protect your roof and the local watershed.
+        City of Lebanon Water and Wastewater closely monitors grease interceptors. We supply and install complete containment systems to protect your roof and prevent stormwater violations.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -313,7 +313,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hendersonville exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lebanon exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -323,25 +323,25 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN HENDERSONVILLE -->
+  <!-- COMMON EQUIPMENT ISSUES IN LEBANON -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Hendersonville
+        Common Equipment Issues in Lebanon
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Lakeside humidity combined with heavy airborne grease accelerates the rusting and degradation of rooftop fan housings and hinges across Hendersonville. Standard carbon steel components that would last years in a dry environment corrode rapidly near Old Hickory Lake. Motors and bearings absorb moisture and fail prematurely, especially during the humid summer months when lakeside dining is at its peak. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for motor replacement options.
+          Lebanon's famous BBQ and smoking operations produce a thick, hardened carbon scale that requires specialized scraping and heavy-duty fan motors to pull properly. This carbon creosote coats impeller blades unevenly, throws the fan out of balance, and destroys bearings far ahead of schedule. Standard commercial motors burn out under the strain, requiring upgrades to heat-rated, heavy-duty replacements. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for specifications.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Older restaurants on Gallatin Road often have outdated, undersized fan motors that struggle to pull heavy grease air during peak summer volume. Many of these systems lack proper <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, making routine maintenance dangerous and time-consuming. Fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> are frequently missing from ductwork in older buildings, leaving concealed sections of grease-laden duct inaccessible during cleaning.
+          The massive industrial commissaries along the I-40 corridor run continuously, leading to frequent fan belt snapping and bearing failures that require immediate response. Many older downtown restaurants near the Lebanon square also lack properly installed <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> and fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a>, making compliance with Lebanon Fire Department inspections a constant challenge.
         </p>
       </div>
 
       <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "A popular lakeside restaurant in Hendersonville was experiencing severe exhaust fan vibration just as the summer boating season kicked off. DDAN technicians arrived same-day, discovered a heavily grease-laden impeller and a failing motor bearing, scraped the system clean, and installed a heavy-duty replacement motor so the kitchen didn't miss the weekend rush."
+          "During the peak of the Wilson County Fair, a high-volume diner near the fairgrounds had their main exhaust fan belt snap, filling the kitchen with smoke. DDAN's emergency repair team arrived within an hour, installed a commercial-grade notched V-belt, and verified the motor tension, saving their most profitable weekend of the year."
         </p>
       </div>
     </div>
@@ -360,7 +360,7 @@ const schemaData = {
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
           <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet — just minutes from Hendersonville. Same-day pickup or delivery.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet — right next door to Lebanon. Same-day pickup or delivery across Wilson County.
           </p>
         </div>
       </div>
@@ -371,22 +371,23 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Hendersonville Parts &amp; Installation Service Area
+        Lebanon Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Hendersonville and Sumner County. Whether your restaurant is at the Streets of Indian Lake, along Gallatin Road, near the Hendersonville Medical Center, or on the lakefront, we stock the parts your kitchen needs and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across all of Lebanon and Wilson County. Whether your kitchen is on the historic downtown square, near Cumberland University, at the Lebanon Premium Outlets, or along the major I-40 interchanges, we stock the parts you need and install them the same day.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Hendersonville:</span>
-            <a href="/cleaning/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Lebanon:</span>
+            <a href="/cleaning/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a> and
-            <a href="/parts/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>
+            <a href="/parts-installation/mount-juliet-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Mount Juliet</a>,
+            <a href="/parts-installation/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a>, and
+            <a href="/parts-installation/hartsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hartsville</a>
           </p>
         </div>
       </div>
@@ -397,7 +398,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Hendersonville Parts &amp; Installation FAQ
+        Lebanon Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

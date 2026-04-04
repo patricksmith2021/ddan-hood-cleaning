@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Are your technicians credentialed to work on-base at Fort Campbell?',
-    a: 'Yes. We understand the strict security and access protocols required to operate on a federal military installation. Our crews are organized, professional, and ready to deploy for on-base service without logistical delays.',
+    q: 'Can you clean the exhaust systems in historic downtown Franklin buildings?',
+    a: 'Yes. Historic buildings often have complex, winding ductwork. Our technicians are experts at installing fire-rated access panels that allow us to clean hard-to-reach areas down to bare metal without damaging the aesthetic or structural integrity of historic properties.',
   },
   {
-    q: 'Can you service massive military Dining Facility (DFAC) exhaust systems?',
-    a: 'Absolutely. We specialize in high-capacity industrial and institutional kitchens. We have the heavy-duty scraping equipment, specialized chemicals, and commercial-grade replacement parts necessary to handle the massive output of a base DFAC.',
+    q: 'My Cool Springs landlord requires proof of rooftop grease containment. Can you provide this?',
+    a: 'Absolutely. Corporate property managers in Franklin are notoriously strict about roof damage. We install high-capacity rooftop grease containment systems and provide detailed photo documentation after every service to prove to your landlord that the roof is protected.',
   },
   {
-    q: 'What fire codes do you follow for Fort Campbell kitchens?',
-    a: 'We strictly adhere to NFPA 96 standards, which align with the heavy federal scrutiny of Department of Defense fire marshals. This includes bare-metal duct cleaning, functional hinge kits, and up-to-date fire suppression links.',
+    q: 'Do you repair fire suppression systems in Franklin?',
+    a: 'Yes. Keeping your fire suppression links clean and your system fully operational is critical, especially under the Franklin Fire Department\'s strict inspections. We handle comprehensive repairs and NFPA 96 maintenance.',
   },
   {
-    q: 'Are your technicians credentialed for on-base installation?',
-    a: `Yes. Our team is experienced in navigating the strict Department of Defense security protocols and base access requirements at Fort Campbell. We coordinate with base facilities management to ensure smooth, efficient service with zero logistical delays. Call ${business.phone} to schedule on-base parts delivery and installation.`,
+    q: 'What warranty comes with purchased parts?',
+    a: `Every part we sell comes with the manufacturer's standard warranty, and our installation labor carries its own workmanship guarantee. If a part we installed fails within the warranty period, we replace it and reinstall at no additional cost. Call ${business.phone} to ask about specific warranty terms for your equipment.`,
   },
 ];
 
@@ -45,8 +45,8 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Fort Campbell",
-        "addressRegion": "KY"
+        "name": "Franklin",
+        "addressRegion": "TN"
       },
       "priceRange": "$$"
     },
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Fort Campbell",
-        "addressRegion": "KY"
+        "name": "Franklin",
+        "addressRegion": "TN"
       },
-      "description": "Heavy-duty exhaust fan parts, motors, belts, bearings, and professional installation for Fort Campbell military kitchens, DFACs, and PX food courts."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Franklin's commercial kitchens. Historic Main Street to Cool Springs."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Fort Campbell, KY", "item": `${siteUrl}/parts/fort-campbell-ky/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Franklin, TN", "item": `${siteUrl}/parts-installation/franklin-tn/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Fort Campbell Military Kitchen Parts | DDAN"
-  description="Heavy-duty exhaust fan parts and professional installation for Fort Campbell military kitchens, DFACs, and PX food courts. 3-phase motors, commercial belts, and industrial-grade components. (615) 881-6968."
+  title="Parts & Installation in Franklin, TN | DDAN"
+  description="Same-day exhaust fan parts for Franklin's upscale kitchens. Motors, belts, bearings, filters, and discounted professional installation. Historic Main Street to Cool Springs. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Fort Campbell, KY</li>
+          <li class="text-white">Franklin, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Fort Campbell Military Kitchen <span class="text-[#FF5E15]">Exhaust Parts</span>
+        Franklin, TN Hood Parts &amp; <span class="text-[#FF5E15]">Professional Installation</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        The 101st Airborne's kitchens feed thousands daily. We deliver the heavy-duty parts that military-grade exhaust systems demand.
+        Premium kitchens demand premium parts. From historic Main Street to Cool Springs, we keep Franklin's finest restaurants running.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Fort Campbell's Military Kitchens Need Specialized Parts
+        Why Franklin's Premium Kitchens Need a Reliable Parts Partner
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Fort Campbell is home to the 101st Airborne Division and represents one of the largest continuous dining populations in the region. Sprawling Military Dining Facilities (DFACs), large-scale Post Exchange (PX) food courts, and on-base corporate franchises feed thousands of troops daily. The unprecedented scale of institutional feeding — high-volume grilling, frying, and massive cafeteria operations running constantly — subjects exhaust fan motors to continuous, punishing duty cycles that no standard commercial equipment was designed to sustain.
+          Franklin operates two distinct restaurant ecosystems, each with its own parts challenges. Downtown Franklin's historic Main Street district packs upscale restaurants into preserved 19th-century attached brick buildings where ductwork follows winding, non-standard paths through century-old walls. These systems require strategic access panel placement, custom-fit components, and technicians who understand how to work within heritage structures without compromising aesthetics or structural integrity.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Operating on a major military installation presents challenges that civilian contractors rarely encounter. Compliance is not just local — it is federal. Department of Defense fire marshals rigidly enforce both NFPA 96 standards and federal Unified Facilities Criteria (UFC). Zero margin for error. Federal base public works enforces rigorous environmental controls requiring impeccable rooftop grease containment. Every component in your exhaust system must meet these exacting federal standards.
+          The Cool Springs corridor presents the opposite challenge. Massive Class-A commercial developments house high-end steakhouses and corporate dining operations beneath pristine white TPO roofing membranes. Corporate landlords in Maryland Farms and CoolSprings Galleria enforce zero-tolerance policies for grease roof damage. A single grease containment failure can trigger thousands in lease penalties. These kitchens need premium parts, proper containment systems, and photo-documented installation to satisfy property management.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The sheer scale of DFAC operations means exhaust fan motors are subjected to relentless duty cycles, requiring heavy-duty 3-phase commercial motors and constant belt monitoring. Standard OEM parts rated for 8 to 12 hours of daily use cannot handle the 16 to 20 hours that military dining facilities routinely demand. Motors overheat, bearings seize, and belts snap without warning. You need a parts supplier who stocks the heavy-duty replacements that military-grade systems require.
+          The Franklin Fire Department's Fire Prevention Division maintains extremely strict oversight, particularly in the historic downtown overlay where shared walls and 150-year-old architecture create catastrophic fire risk if exhaust systems are not maintained to flawless NFPA 96 standards. Every component matters — from properly rated access panels to hinge kits that allow safe fan maintenance without roof damage.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Navigating base access and strict federal security protocols requires highly organized, credentialed service teams. DDAN's crews are experienced in Fort Campbell's access requirements and coordinate with base facilities management for efficient, delay-free service. When your DFAC exhaust fan fails during the dinner rush for hundreds of troops, you need a partner who can get through the gate and get the job done.
+          Pre-holiday rushes in October and November drive massive demand for preventative belt replacements and motor inspections before the lucrative fine-dining season peaks. Franklin's premium restaurants cannot afford downtime during their highest-revenue periods, and waiting for shipped parts is not an option. DDAN stocks the most common exhaust fan parts locally and delivers across Franklin for same-day installation.
         </p>
       </div>
     </div>
@@ -189,12 +189,13 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Fort Campbell Kitchens
+        Exhaust Fans for Franklin Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Fort Campbell's institutional dining facilities demand exhaust fans built for extreme, continuous duty cycles. We stock, source, and install every type of commercial and institutional kitchen exhaust fan.
+        Franklin's upscale dining scene and strict property management standards demand exhaust fans that perform flawlessly. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
+      <!-- Upblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
@@ -206,6 +207,7 @@ const schemaData = {
         </ul>
       </div>
 
+      <!-- Downblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
@@ -215,6 +217,7 @@ const schemaData = {
         </ul>
       </div>
 
+      <!-- Inline -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
@@ -224,6 +227,7 @@ const schemaData = {
         </ul>
       </div>
 
+      <!-- Fan Replacement Parts -->
       <div class="mb-8 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -260,9 +264,9 @@ const schemaData = {
       </p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
         {[
-          { title: 'Gas-Fired Heated', desc: 'The standard for military installations. Tempers incoming air during winter to maintain comfort and airflow balance in large dining facilities.' },
-          { title: 'Unheated / Ambient', desc: 'Simpler installation for seasonal operations or supplemental airflow. Brings in outside air without conditioning.' },
-          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding institutional environments.' },
+          { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter to maintain comfort and airflow balance.' },
+          { title: 'Unheated / Ambient', desc: 'Simpler installation for mild climates or seasonal operations. Brings in outside air without conditioning.' },
+          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
         ].map((item) => (
           <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
             <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
@@ -287,7 +291,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Federal base public works enforces rigorous environmental controls. We supply and install complete containment systems to maintain base infrastructure and meet federal requirements.
+        City of Franklin Water Management and Cool Springs corporate landlords enforce zero-tolerance grease policies. We supply and install complete containment systems with photo documentation.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -309,7 +313,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fort Campbell exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Franklin exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -319,24 +323,25 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES AT FORT CAMPBELL -->
+  <!-- COMMON EQUIPMENT ISSUES IN FRANKLIN -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues at Fort Campbell
+        Common Equipment Issues in Franklin
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The sheer scale of DFAC operations means exhaust fan motors are subjected to continuous, punishing duty cycles. Heavy-duty 3-phase commercial motors running 16 to 20 hours daily require exact frame size, voltage, and RPM specs matched immediately. Standard OEM parts burn out rapidly under this kind of load. DDAN stocks the heavy-duty <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motors and belts</a> that military-grade systems demand.
+          Downtown Franklin restaurants struggle with winding, non-standard ductwork hidden in historic walls. These complex runs require strategic <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panel installation</a> at every change of direction so the entire system can be cleaned to bare metal. Without them, grease accumulates in concealed sections, creating a severe fire hazard in buildings with shared walls dating back over 150 years.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Strict federal Unified Facilities Criteria require impeccable <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit</a> installation on all upblast fans, properly installed fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> at every duct direction change, and flawless rooftop grease containment. Department of Defense fire marshals enforce these requirements with zero tolerance.
+          In Cool Springs, the primary issue is property management compliance. Corporate landlords will heavily fine restaurant tenants if exhaust fans leak grease onto expensive white TPO roofing membranes. Many tenants discover too late that their factory-installed grease catchers are inadequate for high-volume steakhouse operations. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for motor replacement details, and our <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit installation</a> page for NFPA 96 compliant fan access.
         </p>
       </div>
 
+      <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "When an aging, heavy-duty exhaust fan motor at a major Fort Campbell DFAC began seizing just before the dinner rush for hundreds of troops, DDAN's team swiftly navigated base access protocols and arrived on-site. We replaced the massive 3-phase motor, installed commercial-grade belts, and completely restored the cafeteria's airflow without a single missed meal."
+          "A high-end steakhouse in Cool Springs was facing a severe penalty from their property manager due to an older upblast fan leaking grease onto the building's new white TPO roof. DDAN responded immediately, deep-cleaned the fan, installed an advanced multi-tier grease containment system, and provided a full photo report, saving the restaurant from a costly lease violation."
         </p>
       </div>
     </div>
@@ -347,15 +352,15 @@ const schemaData = {
     <div class="max-w-[900px] mx-auto">
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Base Facilities Management</h3>
+          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Restaurant Owners</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need a part fast for a DFAC or PX food court? We handle everything — identify the part, verify compatibility, navigate base access, deliver it, and install it. One call, one team, zero logistical delays.
+            Need a part fast? Don't know what fits? We handle everything — identify the part, verify compatibility, deliver it, and install it. One call, one team, zero guesswork.
           </p>
         </div>
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">On-Base Franchise Operators</h3>
+          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Running a franchise on base means meeting both corporate and federal compliance standards. We stock the parts your system needs and install them with full documentation for your records.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Franklin and Williamson County.
           </p>
         </div>
       </div>
@@ -366,21 +371,23 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Fort Campbell Parts &amp; Installation Service Area
+        Franklin Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across the entirety of the Fort Campbell installation. Whether you manage a massive DFAC, an on-base fast-food franchise at the PX, or an officers' club, we stock the parts Fort Campbell kitchens need and install them with full federal compliance documentation.
+          DDAN delivers exhaust fan parts and professional installation across all of Franklin and Williamson County. Whether your restaurant is on historic Main Street, in the CoolSprings Galleria area, at Maryland Farms, or near The Factory at Franklin, we stock the parts your kitchen needs and install them the same day.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also at Fort Campbell:</span>
-            <a href="/cleaning/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Franklin:</span>
+            <a href="/cleaning/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Clarksville</a>
+            <a href="/parts-installation/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>,
+            <a href="/parts-installation/thompsons-station-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Thompsons Station</a>, and
+            <a href="/parts-installation/nolensville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nolensville</a>
           </p>
         </div>
       </div>
@@ -391,7 +398,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Fort Campbell Parts &amp; Installation FAQ
+        Franklin Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

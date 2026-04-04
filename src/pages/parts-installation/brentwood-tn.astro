@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Can you clean heavy BBQ and smoker exhaust systems in Shelbyville?',
-    a: 'Yes. Traditional Southern BBQ produces a thick, hardened carbon creosote that standard pressure washing cannot touch. Our technicians use specialized scrapers and heavy-duty chemicals to strip your entire exhaust system down to bare metal, eliminating a major fire hazard.',
+    q: 'My Brentwood landlord requires proof of proper grease containment. Can you help?',
+    a: 'Absolutely. Property managers in Brentwood are exceptionally strict about roof damage. We install high-capacity, multi-layer rooftop grease containment systems designed specifically to protect white TPO membranes. We also provide comprehensive photo reports after every service to prove to your landlord that the roof is secure.',
   },
   {
-    q: 'Do I need to install an access panel in my restaurant\'s ductwork?',
-    a: 'If you operate in an older building near the Shelbyville square, likely yes. NFPA 96 code requires fire-rated access panels at every change of duct direction to ensure the system can be completely cleaned. We frequently install these for older establishments.',
+    q: 'Are you certified to meet Brentwood Fire & Rescue NFPA 96 standards?',
+    a: 'Yes. Our technicians are fully certified and follow strict NFPA 96 guidelines. We clean your entire exhaust system — from the hood filters through the ductwork to the rooftop fan — down to bare metal, ensuring you pass even the most rigorous fire marshal inspections.',
   },
   {
-    q: 'How quickly can you replace a snapped exhaust fan belt in Shelbyville?',
-    a: 'We offer 24/7 emergency service. If your exhaust fan goes down during the lunch rush, our technicians will dispatch immediately with the right commercial-grade belts and motors to get your kitchen pulling air again.',
+    q: 'Can you service my Brentwood restaurant after hours?',
+    a: 'Yes. We understand that upscale dining establishments cannot afford daytime disruptions. We schedule our hood cleaning and non-emergency repair services during your off-hours or overnight to ensure your kitchen is pristine and ready for the next service.',
   },
   {
-    q: 'Can you service institutional kitchen equipment?',
-    a: `Yes. Shelbyville's institutional kitchens — including those near Tyson Foods and the Celebration grounds — run heavy-duty, high-capacity exhaust systems that demand industrial-grade parts. We stock 3-phase motors, commercial belts, and high-capacity grease containment components designed for institutional-scale operations. Call ${business.phone} for a free fitting consult.`,
+    q: 'Can you install a complete new exhaust system?',
+    a: `Yes. Whether you're building out a new restaurant space in Maryland Farms or upgrading an existing system that can no longer handle your kitchen's output, we design, source, and install complete commercial kitchen exhaust systems to NFPA 96 standards. Call ${business.phone} for a consultation and estimate.`,
   },
 ];
 
@@ -45,7 +45,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Shelbyville",
+        "name": "Brentwood",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Shelbyville",
+        "name": "Brentwood",
         "addressRegion": "TN"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Shelbyville's commercial kitchens. Walking Horse Country to Highway 231."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Brentwood's premium commercial kitchens. Maryland Farms to CityPark."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Shelbyville, TN", "item": `${siteUrl}/parts/shelbyville-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Brentwood, TN", "item": `${siteUrl}/parts-installation/brentwood-tn/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Shelbyville Hood Fan Parts & Installation | DDAN"
-  description="Same-day exhaust fan parts for Shelbyville's commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Walking Horse Country to Highway 231. (615) 881-6968."
+  title="Brentwood Restaurant Hood Parts | Same-Day | DDAN"
+  description="Same-day exhaust fan parts for Brentwood's premium commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Maryland Farms to CityPark. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Shelbyville, TN</li>
+          <li class="text-white">Brentwood, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Shelbyville Hood Fan Parts — <span class="text-[#FF5E15]">Walking Horse Country</span>
+        Brentwood Premium Kitchen Parts &amp; <span class="text-[#FF5E15]">Installation</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Shelbyville's Southern diners and Celebration-week kitchens need parts that handle industrial-volume cooking. We stock locally and install the same day.
+        Maryland Farms landlords have zero tolerance for grease damage. We deliver premium parts and install with documentation that satisfies property management.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,17 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Shelbyville's Commercial Kitchens Need Fast Parts Access
+        Why Brentwood's Premium Kitchens Need Elite Parts Service
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Shelbyville's dining scene serves a massive industrial and agricultural workforce, meaning local fryers and grills run at maximum capacity every single day. The Tyson Foods plant and surrounding industrial parks generate intense daily lunch rushes that push exhaust fan motors past their intended limits, frequently causing snapped belts and seized bearings. When a part fails during the lunch rush, every minute of downtime costs the revenue that keeps your kitchen running.
+          Brentwood's restaurant market operates at the intersection of demanding fire codes and exacting corporate property management. Class-A office parks like Maryland Farms house premium steakhouses, corporate catering operations, and refined international cuisine beneath pristine white TPO and PVC roofing membranes. The landlords who own these buildings have zero tolerance for grease damage — a single containment failure can trigger thousands of dollars in lease penalties and mandatory remediation.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Shelbyville's culinary identity leans heavily into traditional Southern diners, BBQ, and high-volume meat-and-threes. Solid-fuel smoking and heavy frying produce thick, stubborn grease that coats fan impellers and migrates into every component of the exhaust system. This aggressive grease production quickly overwhelms standard rooftop catchers, and Shelbyville Water & Sewer Systems aggressively monitors local grease interceptors to protect municipal infrastructure.
+          Brentwood Fire and Rescue maintains extremely strict NFPA 96 enforcement, expecting flawless compliance and perfectly maintained fire suppression systems during every inspection. For premium dining establishments that rely on their reputation for excellence, a failed inspection or equipment shutdown during a Saturday dinner service is catastrophic. Every component of the exhaust system must perform reliably, from the motor and bearings down to the hinge kit and grease containment.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The Shelbyville Fire Department strictly enforces fire codes, especially in the historic downtown where shared-wall fires are a catastrophic risk. Older BBQ and Southern diners often have outdated ductwork requiring specialized scraping and fire-rated access panel installation. Many older rooftop fans lack hinge kits, turning simple maintenance into expensive projects.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Massive spikes in service calls hit during the late-summer Tennessee Walking Horse National Celebration, when local dining volume explodes and systems are pushed to the brink. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Bedford County for same-day installation. When your part fails during Celebration week, you need a local partner, not a tracking number.
+          Brentwood's high-end restaurants operate on strict preventative maintenance schedules to avoid any possibility of downtime during lucrative dinner services. This means parts need to be available immediately when a scheduled maintenance visit reveals worn belts, failing bearings, or degraded containment pads. Waiting for a shipped part is not an option when your next dinner service generates premium revenue.
         </p>
       </div>
     </div>
@@ -189,12 +186,13 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Shelbyville Kitchens
+        Exhaust Fans for Brentwood Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Shelbyville's Southern diners, BBQ joints, and industrial commissaries demand exhaust fans that can handle heavy grease loads and constant operation. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Brentwood's premium dining establishments demand exhaust systems that perform flawlessly under strict property management and fire code standards. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
+      <!-- Upblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
@@ -206,6 +204,7 @@ const schemaData = {
         </ul>
       </div>
 
+      <!-- Downblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
@@ -215,6 +214,7 @@ const schemaData = {
         </ul>
       </div>
 
+      <!-- Inline -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
@@ -224,6 +224,7 @@ const schemaData = {
         </ul>
       </div>
 
+      <!-- Fan Replacement Parts -->
       <div class="mb-8 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -287,7 +288,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Shelbyville Water & Sewer Systems aggressively monitors local grease interceptors. We supply and install complete containment systems to protect your roof and avoid fines.
+        Brentwood Water Services and corporate landlords enforce zero-tolerance grease policies. We supply and install premium containment systems with full photo documentation for property management.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -309,7 +310,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/shelbyville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Shelbyville exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -319,24 +320,25 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN SHELBYVILLE -->
+  <!-- COMMON EQUIPMENT ISSUES IN BRENTWOOD -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Shelbyville
+        Common Equipment Issues in Brentwood
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The intense daily lunch rush from Shelbyville's manufacturing plants pushes exhaust fan motors past their intended limits, causing snapped belts and seized bearings. These high-volume kitchens run heavy-duty 3-phase motors through continuous duty cycles, and standard OEM parts simply cannot keep up. When a <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motor or belt</a> fails, the kitchen fills with smoke and service stops immediately.
+          The dominant issue in Brentwood is property management compliance. Landlords in Maryland Farms and CityPark have zero tolerance for grease spills on their expensive white TPO roofs. Many restaurant tenants discover too late that their factory-installed grease catchers are inadequate for high-volume premium kitchen operations. A single grease leak can trigger mandatory roof cleaning, membrane repairs, and lease penalties that cost far more than proactive containment would have. See our <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment</a> page for system options.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Older BBQ and Southern diners near the square often have outdated ductwork requiring specialized scraping and fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panel</a> installation. Many older rooftop fans also lack <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, making maintenance difficult and risking roof damage every time a technician services the equipment.
+          Brentwood Fire and Rescue expects flawless NFPA 96 compliance with properly installed <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a>, and up-to-date service documentation. Premium steakhouses and high-end establishments rely on strict preventative maintenance schedules, and any worn component discovered during a maintenance visit needs to be replaced immediately to avoid disrupting dinner service. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for motor specifications.
         </p>
       </div>
 
+      <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "Right before the massive influx of visitors for the Tennessee Walking Horse National Celebration, a high-volume diner on Highway 231 had their main exhaust fan motor seize. DDAN's emergency team arrived the same day, installed a new heavy-duty 3-phase motor, and calibrated the fan belts, allowing the kitchen to handle their busiest week of the year without a hitch."
+          "A premium steakhouse in Maryland Farms was threatened with a severe lease penalty because their aging exhaust fan was beginning to stain the building's new white TPO roof. DDAN installed a custom, heavy-duty rooftop grease containment system, retrofitted a new NFPA-compliant hinge kit, and instituted a rigorous preventative maintenance schedule, entirely resolving the issue with the property manager."
         </p>
       </div>
     </div>
@@ -355,7 +357,7 @@ const schemaData = {
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
           <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Bedford County.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Brentwood and Williamson County.
           </p>
         </div>
       </div>
@@ -366,22 +368,23 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Shelbyville Parts &amp; Installation Service Area
+        Brentwood Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Shelbyville and Bedford County. Whether your restaurant is on the historic square, along Highway 231, near the Celebration grounds, or in an industrial commissary, we stock the parts Shelbyville kitchens need and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across all of Brentwood. Whether your restaurant is in Maryland Farms, CityPark, along Franklin Road, or in the northern Cool Springs corridor, we stock the parts your kitchen needs and install them the same day. Our after-hours scheduling ensures zero disruption to your dinner service.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Shelbyville:</span>
-            <a href="/cleaning/shelbyville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/shelbyville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Brentwood:</span>
+            <a href="/cleaning/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Murfreesboro</a> and
-            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lewisburg</a>
+            <a href="/parts-installation/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>,
+            <a href="/parts-installation/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Franklin</a>, and
+            <a href="/parts-installation/nolensville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nolensville</a>
           </p>
         </div>
       </div>
@@ -392,7 +395,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Shelbyville Parts &amp; Installation FAQ
+        Brentwood Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

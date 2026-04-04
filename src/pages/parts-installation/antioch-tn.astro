@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'What happens if Murfreesboro Fire Rescue finds my hood non-compliant?',
-    a: "MFRD's Community Risk Reduction Division can issue citations, mandate immediate remediation, or in severe fire-risk cases, temporarily shut down cooking operations until a certified NFPA 96 cleaning is completed and documented.",
+    q: 'Can you clean hoods used for high-heat wok cooking in Antioch?',
+    a: 'Yes. Wok cooking and open-flame grilling create a hardened carbon scale that is much tougher than standard fryer grease. Our crews use specialized scraping tools and heavy-duty, food-safe chemicals to strip your entire system down to bare metal as required by NFPA 96.',
   },
   {
-    q: 'Can you fix a vibrating exhaust fan on my Murfreesboro restaurant?',
-    a: 'Yes. Severe vibration usually indicates an imbalanced impeller wheel (due to grease buildup), a failing motor bearing, or an uneven fan belt. We diagnose the issue, scrape the fan blades bare, and replace any worn parts immediately.',
+    q: 'My Antioch restaurant is in an older building. Do I need duct access panels?',
+    a: 'Most likely. Metro Nashville Fire Code dictates that any changes in duct direction must have fire-rated access panels so the entire system can be cleaned. We frequently install these panels for restaurants moving into older Antioch strip centers.',
   },
   {
-    q: 'Why do I need an access panel installed in my kitchen ductwork?',
-    a: 'NFPA 96 code requires fire-rated access panels at every change of direction in your ductwork so technicians can clean the entire system to bare metal. Many older builds near the Murfreesboro square lack these, making them technically non-compliant.',
+    q: 'How fast can you replace a broken exhaust fan belt near Hickory Hollow?',
+    a: 'We offer 24/7 emergency repair services for Antioch restaurants. If a snapped belt or burnt motor shuts down your kitchen, we carry the parts to get you back up and running immediately, usually within a few hours of your call.',
   },
   {
-    q: 'How fast can you get parts?',
-    a: `We stock the most common exhaust fan motors, belts, bearings, and filters locally in Mt. Juliet. For Murfreesboro kitchens, that means same-day delivery and installation in most cases. If your part is specialty or discontinued, we can typically source it within 24 to 48 hours. Call ${business.phone} for immediate availability.`,
+    q: 'Do you stock parts for wok and open-flame exhaust systems?',
+    a: `Yes. Antioch's diverse kitchens use high-heat wok ranges and open-flame grills that demand specialized exhaust components — higher-CFM fans, heavy-duty motors rated for extreme heat, and aggressive baffle filters designed for carbon-heavy cooking. We match the right parts to your specific cooking style. Call ${business.phone} for a free fitting consult.`,
   },
 ];
 
@@ -45,7 +45,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Murfreesboro",
+        "name": "Antioch",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Murfreesboro",
+        "name": "Antioch",
         "addressRegion": "TN"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Murfreesboro's commercial kitchens. MTSU campus to The Avenue."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Antioch's diverse commercial kitchens. Bell Road to Century Farms."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Murfreesboro, TN", "item": `${siteUrl}/parts/murfreesboro-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Antioch, TN", "item": `${siteUrl}/parts-installation/antioch-tn/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Murfreesboro Exhaust Fan Parts & Installation | DDAN"
-  description="Same-day exhaust fan parts for Murfreesboro commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. MTSU to The Avenue. (615) 881-6968."
+  title="Same-Day Exhaust Parts in Antioch, TN | DDAN"
+  description="Same-day exhaust fan parts for Antioch's diverse commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Bell Road to Century Farms. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Murfreesboro, TN</li>
+          <li class="text-white">Antioch, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Murfreesboro Restaurant Exhaust Fan Parts &amp; <span class="text-[#FF5E15]">Installation</span>
+        Antioch Diverse Kitchen Exhaust Parts &amp; <span class="text-[#FF5E15]">Installation</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        MTSU sports bars and wing joints burn through parts fast. We stock what Murfreesboro needs and install it the same day.
+        Antioch's international kitchens demand specialized parts for wok, open-flame, and high-heat cooking. We match parts to your cuisine and install the same day.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Murfreesboro's Commercial Kitchens Need Fast Parts Access
+        Why Antioch's Commercial Kitchens Need Fast Parts Access
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Murfreesboro is one of the fastest-growing cities in Tennessee, and its commercial kitchen infrastructure is expanding just as rapidly. From the massive outdoor shopping complexes along Medical Center Parkway to the high-volume sports bars and wing joints surrounding the MTSU campus, Rutherford County kitchens run their fryers relentlessly. That constant output means exhaust fan motors, belts, bearings, and filters wear out faster than the national average, and waiting days for a shipped part means losing thousands per shift in downtime.
+          Antioch is home to some of the most dynamic, high-output kitchens in Middle Tennessee. The area's massive concentration of authentic Latin American, Asian, and Middle Eastern cuisine creates exhaust system demands that standard commercial equipment was never designed to handle. High-heat wok cooking and open-flame grills produce intense carbon buildup and thick, sticky grease that defies standard cleaning — and destroys standard fan components at an accelerated rate.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The heavy fryer usage from MTSU-area sports bars creates extreme grease runoff that overwhelms cheap, factory-installed rooftop grease catchers. This is especially problematic on the newer builds along Medical Center Parkway and The Avenue, where expensive white TPO roofing membranes can be permanently damaged by F.O.G. (Fats, Oils, and Grease) leaks. The Murfreesboro Water Resources Department operates one of the strictest F.O.G. programs in Middle Tennessee, and violations carry severe municipal fines.
+          New restaurant concepts frequently move into older buildings on Bell Road without upgrading the existing, undersized exhaust systems. A space built for a sandwich shop gets converted into a high-heat Asian fusion kitchen, and the original motor burns out within weeks because it was never rated for that grease load. This leads to overworked upblast fan motors and heavy grease saturation on older, vulnerable roofs. The older built-up roofing common on Antioch's aging strip centers is particularly susceptible to grease damage.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          High winds across the flat, open parking lots of The Avenue and Memorial Boulevard create another hazard: upblast exhaust fans without properly installed heavy-duty hinge kits can be ripped off their curbs during maintenance or severe weather. Murfreesboro Fire Rescue Department's Community Risk Reduction Division utilizes modern tracking systems and aggressively pursues NFPA 96 violations, making proactive parts replacement and proper equipment installation essential for every restaurant in the city.
+          Since Antioch falls under Metro Nashville jurisdiction, the Metro Nashville Fire Marshal aggressively targets older, repurposed restaurant spaces to ensure ventilation systems have been brought up to current NFPA 96 codes. Metro Water Services monitors F.O.G. levels closely, and the high volume of heavy grease production from Antioch's diverse kitchens makes containment compliance a major target for utility inspectors.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Service demand surges align with the MTSU academic calendar, particularly August through September and January, when tens of thousands of students flood the area and every restaurant operates at peak capacity. During these windows, a single fan failure can cost a restaurant its most profitable weeks of the year. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Murfreesboro for same-day installation.
+          Major summer heatwaves push aging fan motors to the point of failure. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Antioch for same-day installation. When your part fails during the Friday dinner rush, you need a local partner, not a tracking number.
         </p>
       </div>
     </div>
@@ -189,13 +189,12 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Murfreesboro Kitchens
+        Exhaust Fans for Antioch Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Murfreesboro's high-volume sports bars and wing restaurants demand exhaust fans that can handle relentless fryer output. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Antioch's diverse cooking styles — wok, open-flame, heavy frying, and high-heat grilling — demand exhaust fans matched to extreme conditions. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
-      <!-- Upblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
@@ -207,7 +206,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Downblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
@@ -217,7 +215,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Inline -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
@@ -227,7 +224,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Fan Replacement Parts -->
       <div class="mb-8 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -291,7 +287,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Murfreesboro Water Resources Department operates a strict F.O.G. program targeting rooftop grease runoff. We supply and install complete containment systems to protect your roof and avoid fines.
+        Metro Water Services aggressively monitors F.O.G. levels across Antioch. The high volume of heavy grease from diverse cooking styles makes containment a top priority. We supply and install complete systems to protect your roof and avoid fines.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -313,7 +309,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Murfreesboro exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Antioch exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -323,25 +319,24 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN MURFREESBORO -->
+  <!-- COMMON EQUIPMENT ISSUES IN ANTIOCH -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Murfreesboro
+        Common Equipment Issues in Antioch
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Heavy fryer usage from MTSU-area sports bars and wing restaurants creates extreme grease runoff that overwhelms cheap factory grease catchers and destroys the white TPO roofs common on newer Murfreesboro builds. The high winds across the flat parking lots of The Avenue and Memorial Boulevard require properly installed heavy-duty <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> to prevent upblast fans from being ripped off their curbs during maintenance. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for details on motor replacements.
+          New restaurant concepts frequently move into older Bell Road buildings without upgrading the existing, undersized exhaust systems. This leads to overworked upblast fan motors and heavy grease saturation on older, vulnerable roofs. High-heat wok cooking requires aggressive, specialized scraping to remove baked-on carbon from fan impellers — carbon buildup throws the blades off balance and destroys <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motors and bearings</a> rapidly.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Many older restaurants near the Murfreesboro square lack the fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> required for a full NFPA 96 bare-metal cleaning, making them technically non-compliant during MFRD inspections. Newer corporate franchises along Medical Center Parkway frequently suffer from premature exhaust fan belt failure due to high daily volumes and cheap OEM parts installed during initial construction.
+          Older repurposed strip centers near the Global Mall at the Crossings frequently lack fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> in the ductwork, making them technically non-compliant during Metro Nashville Fire Marshal inspections. Many older rooftop installations also lack <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, turning simple fan maintenance into expensive projects that risk damaging the roof.
         </p>
       </div>
 
-      <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "A high-volume wing restaurant near The Avenue was facing thousands in roof repairs due to grease pooling on their white TPO membrane. DDAN conducted a deep hood cleaning, installed a custom-fit, multi-layer rooftop grease containment system, and retrofitted a heavy-duty hinge kit, completely halting the roof degradation and satisfying local inspectors."
+          "A busy Asian fusion restaurant on Bell Road kept burning out exhaust fan motors due to heavy carbon buildup throwing the fan blades off balance. DDAN came in, scraped the entire system down to bare metal, installed a proper high-capacity motor, and fitted a new rooftop grease containment box, permanently solving their airflow and maintenance nightmare."
         </p>
       </div>
     </div>
@@ -360,7 +355,7 @@ const schemaData = {
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
           <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Murfreesboro and Rutherford County.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Antioch.
           </p>
         </div>
       </div>
@@ -371,23 +366,23 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Murfreesboro Parts &amp; Installation Service Area
+        Antioch Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Murfreesboro and Rutherford County. Whether your restaurant is near the MTSU campus, along Medical Center Parkway, at The Avenue, or on the historic downtown square, we stock the parts Murfreesboro kitchens need and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across all of Antioch. Whether your restaurant is on Bell Road, near Century Farms, at the Global Mall, or along Murfreesboro Pike, we stock the parts Antioch kitchens need and install them the same day.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Murfreesboro:</span>
-            <a href="/cleaning/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Antioch:</span>
+            <a href="/cleaning/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Smyrna</a>,
-            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">La Vergne</a>, and
-            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Shelbyville</a>
+            <a href="/parts-installation/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>,
+            <a href="/parts-installation/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Smyrna</a>, and
+            <a href="/parts-installation/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">La Vergne</a>
           </p>
         </div>
       </div>
@@ -398,7 +393,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Murfreesboro Parts &amp; Installation FAQ
+        Antioch Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

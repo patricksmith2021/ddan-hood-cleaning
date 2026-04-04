@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'What does the Metro Nashville Fire Marshal look for during a hood inspection?',
-    a: 'Metro Nashville inspectors rigorously check for bare metal cleanliness throughout the entire system, proper installation of fire-rated duct access panels, functional fan hinge kits, and up-to-date service tags proving NFPA 96 compliance.',
+    q: 'Are your technicians credentialed to work on-base at Fort Campbell?',
+    a: 'Yes. We understand the strict security and access protocols required to operate on a federal military installation. Our crews are organized, professional, and ready to deploy for on-base service without logistical delays.',
   },
   {
-    q: 'Can heavy grease void my commercial roof warranty in Nashville?',
-    a: 'Yes. Many new restaurant builds in areas like The Gulch use white TPO roofing. If rooftop grease containment fails and F.O.G. (Fats, Oils, and Grease) bleeds onto the membrane, it rapidly degrades the material and voids most manufacturer warranties.',
+    q: 'Can you service massive military Dining Facility (DFAC) exhaust systems?',
+    a: 'Absolutely. We specialize in high-capacity industrial and institutional kitchens. We have the heavy-duty scraping equipment, specialized chemicals, and commercial-grade replacement parts necessary to handle the massive output of a base DFAC.',
   },
   {
-    q: 'Do you install hinge kits on older Nashville buildings?',
-    a: 'Absolutely. Upblast exhaust fan hinge kits are required by NFPA 96 to allow safe cleaning without damaging the fan or the roof. We regularly retrofit hinge kits on older rooftop systems throughout historic Nashville neighborhoods.',
+    q: 'What fire codes do you follow for Fort Campbell kitchens?',
+    a: 'We strictly adhere to NFPA 96 standards, which align with the heavy federal scrutiny of Department of Defense fire marshals. This includes bare-metal duct cleaning, functional hinge kits, and up-to-date fire suppression links.',
   },
   {
-    q: 'Do I need to know my exact fan model to order parts?',
-    a: `No. If you can read us the data plate on the fan housing, we can identify the exact motor, belt, and bearing specs. If the plate is unreadable, send us a photo and we'll match it from the housing dimensions and wiring configuration. Call ${business.phone} for a free fitting consult.`,
+    q: 'Are your technicians credentialed for on-base installation?',
+    a: `Yes. Our team is experienced in navigating the strict Department of Defense security protocols and base access requirements at Fort Campbell. We coordinate with base facilities management to ensure smooth, efficient service with zero logistical delays. Call ${business.phone} to schedule on-base parts delivery and installation.`,
   },
 ];
 
@@ -45,8 +45,8 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Nashville",
-        "addressRegion": "TN"
+        "name": "Fort Campbell",
+        "addressRegion": "KY"
       },
       "priceRange": "$$"
     },
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Nashville",
-        "addressRegion": "TN"
+        "name": "Fort Campbell",
+        "addressRegion": "KY"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Nashville's 3,000+ commercial kitchens. Broadway to Vanderbilt."
+      "description": "Heavy-duty exhaust fan parts, motors, belts, bearings, and professional installation for Fort Campbell military kitchens, DFACs, and PX food courts."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Nashville, TN", "item": `${siteUrl}/parts/nashville-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Fort Campbell, KY", "item": `${siteUrl}/parts-installation/fort-campbell-ky/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Nashville Exhaust Fan Parts & Installation | DDAN"
-  description="Same-day exhaust fan parts for Nashville's 3,000+ commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Broadway to Vanderbilt. (615) 881-6968."
+  title="Fort Campbell Military Kitchen Parts | DDAN"
+  description="Heavy-duty exhaust fan parts and professional installation for Fort Campbell military kitchens, DFACs, and PX food courts. 3-phase motors, commercial belts, and industrial-grade components. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Nashville, TN</li>
+          <li class="text-white">Fort Campbell, KY</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Nashville Exhaust Fan Parts &amp; <span class="text-[#FF5E15]">Professional Installation</span>
+        Fort Campbell Military Kitchen <span class="text-[#FF5E15]">Exhaust Parts</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Broadway's 18-hour kitchens burn through parts. We stock what Nashville needs and install it the same day.
+        The 101st Airborne's kitchens feed thousands daily. We deliver the heavy-duty parts that military-grade exhaust systems demand.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Nashville's Commercial Kitchens Need Fast Parts Access
+        Why Fort Campbell's Military Kitchens Need Specialized Parts
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Nashville operates more than 3,000 commercial kitchens, from the neon-lit honky-tonks on Lower Broadway to the institutional dining halls at Vanderbilt University and Music City Center. Every one of these kitchens depends on exhaust fan motors, belts, bearings, and filters that wear out faster than almost any other market in the Southeast. Lower Broadway venues run their kitchens 18 or more hours daily, seven days a week. Standard exhaust fan motors are rated for 8 to 12 hours of daily use. When they run double that, motors overheat, bearings seize, and belts snap. Waiting days for a part to ship means losing thousands in revenue per shift.
+          Fort Campbell is home to the 101st Airborne Division and represents one of the largest continuous dining populations in the region. Sprawling Military Dining Facilities (DFACs), large-scale Post Exchange (PX) food courts, and on-base corporate franchises feed thousands of troops daily. The unprecedented scale of institutional feeding — high-volume grilling, frying, and massive cafeteria operations running constantly — subjects exhaust fan motors to continuous, punishing duty cycles that no standard commercial equipment was designed to sustain.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Nashville's signature hot chicken cuisine makes the problem worse. Solid shortening heated to extreme temperatures in high-capacity fryers produces heavy, sticky grease that migrates into fan housings, coats impeller blades unevenly, and creates the kind of progressive imbalance that destroys bearings in weeks. That aggressive grease also degrades the white TPO roofing membranes common on newer builds in The Gulch and Midtown, meaning grease containment components need regular replacement to avoid roof warranty violations and Metro Water Services F.O.G. fines.
+          Operating on a major military installation presents challenges that civilian contractors rarely encounter. Compliance is not just local — it is federal. Department of Defense fire marshals rigidly enforce both NFPA 96 standards and federal Unified Facilities Criteria (UFC). Zero margin for error. Federal base public works enforces rigorous environmental controls requiring impeccable rooftop grease containment. Every component in your exhaust system must meet these exacting federal standards.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The neighborhoods tell the story. East Nashville's chef-driven kitchens in converted warehouses need non-standard fan configurations. Germantown's boutique restaurants in historic structures require custom ductwork access panels. The Gulch and Midtown pack high-end restaurants into modern mixed-use buildings where rooftop fan access is restricted by building management. Vanderbilt University and the Opryland Resort add institutional-scale exhaust systems with multiple fan units demanding coordinated parts replacement. Every neighborhood generates parts demand, and every kitchen needs a supplier who stocks locally and can install the same day.
+          The sheer scale of DFAC operations means exhaust fan motors are subjected to relentless duty cycles, requiring heavy-duty 3-phase commercial motors and constant belt monitoring. Standard OEM parts rated for 8 to 12 hours of daily use cannot handle the 16 to 20 hours that military dining facilities routinely demand. Motors overheat, bearings seize, and belts snap without warning. You need a parts supplier who stocks the heavy-duty replacements that military-grade systems require.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          CMA Fest, summer tourism surges, and Nashville's year-round convention calendar push already-stressed systems past their breaking point. The busiest weekends are exactly when a fan failure costs you the most and exactly when national suppliers can't expedite shipping. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Metro Nashville for same-day installation. When your part fails during the Friday dinner rush, you need a local partner, not a tracking number.
+          Navigating base access and strict federal security protocols requires highly organized, credentialed service teams. DDAN's crews are experienced in Fort Campbell's access requirements and coordinate with base facilities management for efficient, delay-free service. When your DFAC exhaust fan fails during the dinner rush for hundreds of troops, you need a partner who can get through the gate and get the job done.
         </p>
       </div>
     </div>
@@ -189,13 +189,12 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Nashville Kitchens
+        Exhaust Fans for Fort Campbell Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Nashville's 18-hour Broadway kitchens and high-volume hot chicken operations demand exhaust fans that can handle relentless use. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Fort Campbell's institutional dining facilities demand exhaust fans built for extreme, continuous duty cycles. We stock, source, and install every type of commercial and institutional kitchen exhaust fan.
       </p>
 
-      <!-- Upblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
@@ -207,7 +206,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Downblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
@@ -217,7 +215,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Inline -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
@@ -227,7 +224,6 @@ const schemaData = {
         </ul>
       </div>
 
-      <!-- Fan Replacement Parts -->
       <div class="mb-8 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -264,9 +260,9 @@ const schemaData = {
       </p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
         {[
-          { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter to maintain comfort and airflow balance.' },
-          { title: 'Unheated / Ambient', desc: 'Simpler installation for mild climates or seasonal operations. Brings in outside air without conditioning.' },
-          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
+          { title: 'Gas-Fired Heated', desc: 'The standard for military installations. Tempers incoming air during winter to maintain comfort and airflow balance in large dining facilities.' },
+          { title: 'Unheated / Ambient', desc: 'Simpler installation for seasonal operations or supplemental airflow. Brings in outside air without conditioning.' },
+          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding institutional environments.' },
         ].map((item) => (
           <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
             <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
@@ -291,7 +287,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Nashville's Metro Water Services F.O.G. program aggressively targets rooftop grease runoff. We supply and install complete containment systems to protect your roof and avoid fines.
+        Federal base public works enforces rigorous environmental controls. We supply and install complete containment systems to maintain base infrastructure and meet federal requirements.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -313,7 +309,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fort Campbell exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -323,25 +319,24 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN NASHVILLE -->
+  <!-- COMMON EQUIPMENT ISSUES AT FORT CAMPBELL -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Nashville
+        Common Equipment Issues at Fort Campbell
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Lower Broadway bars are notorious for burned-out exhaust fan motors caused by 18-hour daily runtimes that no standard commercial motor was designed to sustain. The largest venues run 3-phase motors powering massive upblast fans through grease-laden ductwork. These motors run hot for months, then seize catastrophically with no warning. The 3-phase configuration means you can't source a replacement from a general supplier — you need exact frame size, voltage, and RPM specs matched immediately. DDAN stocks the most common 3-phase configurations for Broadway-class exhaust systems. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for details.
+          The sheer scale of DFAC operations means exhaust fan motors are subjected to continuous, punishing duty cycles. Heavy-duty 3-phase commercial motors running 16 to 20 hours daily require exact frame size, voltage, and RPM specs matched immediately. Standard OEM parts burn out rapidly under this kind of load. DDAN stocks the heavy-duty <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motors and belts</a> that military-grade systems demand.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Extreme hot chicken grease degrades white TPO roofs in Midtown and The Gulch when grease containment systems aren't perfectly maintained. Historic buildings throughout downtown frequently lack proper fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> in the ductwork, making them technically non-compliant during Metro Nashville Fire Marshal inspections. And older buildings across East Nashville and Germantown often have fans bolted directly to curbs without <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, turning simple maintenance into expensive, time-consuming projects.
+          Strict federal Unified Facilities Criteria require impeccable <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit</a> installation on all upblast fans, properly installed fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> at every duct direction change, and flawless rooftop grease containment. Department of Defense fire marshals enforce these requirements with zero tolerance.
         </p>
       </div>
 
-      <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "During the CMA Fest rush, a high-volume Broadway honky-tonk experienced a catastrophic exhaust fan motor failure. DDAN's emergency team sourced the exact 3-phase motor, navigated downtown road closures, and completed the installation by 4:00 AM, ensuring the kitchen didn't miss a single shift."
+          "When an aging, heavy-duty exhaust fan motor at a major Fort Campbell DFAC began seizing just before the dinner rush for hundreds of troops, DDAN's team swiftly navigated base access protocols and arrived on-site. We replaced the massive 3-phase motor, installed commercial-grade belts, and completely restored the cafeteria's airflow without a single missed meal."
         </p>
       </div>
     </div>
@@ -352,15 +347,15 @@ const schemaData = {
     <div class="max-w-[900px] mx-auto">
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Restaurant Owners</h3>
+          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Base Facilities Management</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need a part fast? Don't know what fits? We handle everything — identify the part, verify compatibility, deliver it, and install it. One call, one team, zero guesswork.
+            Need a part fast for a DFAC or PX food court? We handle everything — identify the part, verify compatibility, navigate base access, deliver it, and install it. One call, one team, zero logistical delays.
           </p>
         </div>
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
+          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">On-Base Franchise Operators</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Metro Nashville.
+            Running a franchise on base means meeting both corporate and federal compliance standards. We stock the parts your system needs and install them with full documentation for your records.
           </p>
         </div>
       </div>
@@ -371,24 +366,21 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Nashville Parts &amp; Installation Service Area
+        Fort Campbell Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Metro Nashville and Davidson County. Whether your restaurant is on Lower Broadway, in The Gulch, East Nashville, Germantown, Midtown, The Nations, or Antioch, we stock the parts Nashville kitchens need and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across the entirety of the Fort Campbell installation. Whether you manage a massive DFAC, an on-base fast-food franchise at the PX, or an officers' club, we stock the parts Fort Campbell kitchens need and install them with full federal compliance documentation.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Nashville:</span>
-            <a href="/cleaning/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also at Fort Campbell:</span>
+            <a href="/cleaning/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hermitage</a>,
-            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Madison</a>,
-            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>, and
-            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Antioch</a>
+            <a href="/parts-installation/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Clarksville</a>
           </p>
         </div>
       </div>
@@ -399,7 +391,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Nashville Parts &amp; Installation FAQ
+        Fort Campbell Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

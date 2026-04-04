@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Can you quickly fix a broken exhaust fan near the Dickson I-40 exit?',
-    a: 'Absolutely. Interstate-adjacent restaurants cannot afford downtime. We offer 24/7 emergency repair in Dickson. If a belt snaps or a motor burns out during the lunch rush, we dispatch immediately with the heavy-duty parts needed to restore your airflow.',
+    q: 'Does my Hendersonville restaurant need a rooftop grease containment system?',
+    a: 'Yes. Not only is it required by NFPA 96 fire codes, but the Hendersonville Utility District heavily penalizes Fats, Oils, and Grease (F.O.G.) runoff that reaches storm drains, especially near Old Hickory Lake. We install high-capacity systems to capture this grease before it damages your roof or the environment.',
   },
   {
-    q: 'Why is my upblast exhaust fan leaking grease onto the roof?',
-    a: 'High-volume frying quickly overwhelms standard factory grease catchers. Leaking grease is a massive fire hazard and will rapidly destroy your commercial roof. We install high-capacity rooftop grease containment systems to capture this runoff, protecting your property and keeping you compliant with Dickson Water Authority regulations.',
+    q: 'Why is my upblast exhaust fan rattling so loudly?',
+    a: 'Loud rattling usually means the fan blades are coated in hardened grease, throwing the impeller off balance, or the motor bearings are failing due to heavy use. We will scrape the blades down to bare metal and diagnose the motor immediately.',
   },
   {
-    q: 'Can you bring my historic Dickson building\'s exhaust system up to code?',
-    a: 'Yes. Older buildings downtown often have concealed ductwork. We install code-compliant, fire-rated access doors that allow our technicians to perform the bare-metal cleaning required by the Dickson Fire Department without damaging your historic structure.',
+    q: 'Are your technicians familiar with Hendersonville Fire Department codes?',
+    a: "Absolutely. We ensure your entire kitchen exhaust system — from the hood to the rooftop fan — meets the strict NFPA 96 standards enforced by the Hendersonville Fire Marshal, keeping you compliant and avoiding costly operational shutdowns.",
   },
   {
-    q: 'Do you service the TriStar Horizon Medical Center area?',
-    a: `Yes. We provide exhaust fan parts and professional installation to commercial kitchens throughout the Dickson area, including the TriStar Horizon Medical Center corridor and surrounding industrial parks. Institutional cafeterias and nearby restaurants all rely on us for same-day parts delivery and installation. Call ${business.phone} for a free fitting consult.`,
+    q: 'Can you source discontinued or hard-to-find parts?',
+    a: `Yes. If your exhaust fan is an older or discontinued model, we can often cross-reference the data plate specifications to find compatible replacement motors, belts, and bearings. If the data plate is unreadable, send us a photo and we'll match it from housing dimensions and wiring configuration. Call ${business.phone} — we've matched parts for systems over 20 years old.`,
   },
 ];
 
@@ -45,7 +45,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Dickson",
+        "name": "Hendersonville",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Dickson",
+        "name": "Hendersonville",
         "addressRegion": "TN"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Dickson's commercial kitchens. I-40 corridor to historic downtown."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Hendersonville's commercial kitchens. Indian Lake to Old Hickory Lake."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Dickson, TN", "item": `${siteUrl}/parts/dickson-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Hendersonville, TN", "item": `${siteUrl}/parts-installation/hendersonville-tn/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Restaurant Exhaust Parts Near Dickson | DDAN"
-  description="Same-day exhaust fan parts for Dickson's commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. I-40 corridor to historic downtown. (615) 881-6968."
+  title="Hendersonville Exhaust Fan Parts & Installation | DDAN"
+  description="Same-day exhaust fan parts for Hendersonville commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Indian Lake to Old Hickory Lake. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Dickson, TN</li>
+          <li class="text-white">Hendersonville, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Dickson I-40 Restaurant <span class="text-[#FF5E15]">Exhaust Fan Parts</span>
+        Hendersonville Kitchen Exhaust Fan Parts &amp; <span class="text-[#FF5E15]">Installation</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Dickson's interstate kitchens run non-stop. We stock the heavy-duty parts that I-40 corridor restaurants burn through and install them the same day.
+        Lakeside humidity accelerates equipment wear. We stock what Hendersonville kitchens need and install it the same day.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Dickson's Commercial Kitchens Need Fast Parts Access
+        Why Hendersonville Kitchens Need Fast Parts Access
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Dickson's dining scene is heavily fueled by continuous I-40 interstate traffic. Kitchens along the Highway 46 corridor are running their fryers and grills virtually non-stop, producing massive amounts of vaporized grease and pushing exhaust fan motors to their breaking points. The massive fast-food footprint catering to interstate travelers, combined with traditional Southern comfort food operations and high-volume corporate chains, means fryers operate relentlessly. Standard OEM fan belts and motors rated for 8 to 12 hours of daily use simply cannot sustain the 16-plus-hour duty cycles these kitchens demand.
+          Hendersonville's dining scene sits on the shores of Old Hickory Lake, and that lakeside location creates equipment challenges that inland kitchens never face. The combination of high-volume fryer grease and ambient humidity from the lake accelerates rust on unprotected rooftop fan housings, corrodes hinge mechanisms, and degrades motor bearings far faster than expected. An exhaust fan motor that would last three years in a dry environment might fail in 18 months on a Hendersonville rooftop.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          This extreme volume shreds standard fan belts and quickly overwhelms factory grease catchers. The continuous high heat rapidly stretches and snaps belts, burns out motors, and produces grease loads that standard rooftop containment cannot handle. The Dickson Water Authority actively monitors local grease traps and interceptors to protect municipal infrastructure from heavy F.O.G. runoff, meaning your containment components need regular replacement.
+          The restaurant density at the Streets of Indian Lake and along Gallatin Road creates consistent, high-volume parts demand. Casual dining chains, seafood restaurants, and lakeside bar and grills run their fryers heavily, producing grease loads that overwhelm standard containment systems. The Hendersonville Utility District is highly protective of local water quality due to proximity to Old Hickory Lake, treating rooftop grease runoff as a serious environmental violation with severe penalties.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Downtown Dickson's revitalized historic buildings present a different challenge. Older buildings often lack proper fire-rated access panels, complicating thorough NFPA 96 cleaning. The Dickson Fire Department strictly enforces fire codes, prioritizing the high-traffic Highway 46 corridor and ensuring rapid-turnover kitchens maintain safe, bare-metal exhaust systems.
+          Older restaurants along Gallatin Road often operate with outdated, undersized fan motors that struggle to pull heavy grease-laden air during peak summer volume when the lakeside humidity is at its worst. The Hendersonville Fire Department maintains strict enforcement during routine annual inspections, checking for bare metal cleanliness, functional hinge kits, and up-to-date service documentation.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Emergency call spikes hit during the intense heat of late summer when overworked rooftop motors finally seize. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Dickson County for same-day installation. When your part fails during a massive summer travel weekend, you need a local partner, not a tracking number.
+          Demand spikes in late spring and summer as lakeside dining volume peaks, putting maximum strain on exhaust fans and belts at exactly the time humidity does the most damage. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet — just minutes from Hendersonville — and delivers for same-day installation across Sumner County.
         </p>
       </div>
     </div>
@@ -189,12 +189,13 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Dickson Kitchens
+        Exhaust Fans for Hendersonville Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Dickson's interstate-driven kitchens and Southern comfort food operations demand exhaust fans that can handle relentless, non-stop use. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Hendersonville's lakeside humidity and high-volume frying operations demand exhaust fans rated for harsh conditions. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
+      <!-- Upblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
@@ -206,6 +207,7 @@ const schemaData = {
         </ul>
       </div>
 
+      <!-- Downblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
@@ -215,6 +217,7 @@ const schemaData = {
         </ul>
       </div>
 
+      <!-- Inline -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
@@ -224,6 +227,7 @@ const schemaData = {
         </ul>
       </div>
 
+      <!-- Fan Replacement Parts -->
       <div class="mb-8 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -287,7 +291,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        The Dickson Water Authority actively monitors local grease traps and interceptors. We supply and install complete containment systems to protect your roof and avoid fines.
+        The Hendersonville Utility District heavily penalizes F.O.G. runoff near Old Hickory Lake. We supply and install complete containment systems to protect your roof and the local watershed.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -309,7 +313,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/dickson-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Dickson exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hendersonville exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -319,24 +323,25 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN DICKSON -->
+  <!-- COMMON EQUIPMENT ISSUES IN HENDERSONVILLE -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Dickson
+        Common Equipment Issues in Hendersonville
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The continuous interstate traffic pushes fast-food exhaust fans past their intended duty cycles, leading to frequent belt snapping and motor overheating. These Highway 46 kitchens run fryers non-stop, and standard OEM <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belts and motors</a> simply cannot sustain the load. When a belt snaps during the lunch rush, the kitchen fills with smoke and service stops immediately.
+          Lakeside humidity combined with heavy airborne grease accelerates the rusting and degradation of rooftop fan housings and hinges across Hendersonville. Standard carbon steel components that would last years in a dry environment corrode rapidly near Old Hickory Lake. Motors and bearings absorb moisture and fail prematurely, especially during the humid summer months when lakeside dining is at its peak. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for motor replacement options.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Downtown Dickson's older buildings often lack proper fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a>, complicating thorough NFPA 96 cleaning. Many older rooftop fans also lack <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, making maintenance difficult and risking roof damage. The Dickson Fire Department strictly enforces these requirements across both the historic downtown and the Highway 46 corridor.
+          Older restaurants on Gallatin Road often have outdated, undersized fan motors that struggle to pull heavy grease air during peak summer volume. Many of these systems lack proper <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, making routine maintenance dangerous and time-consuming. Fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> are frequently missing from ductwork in older buildings, leaving concealed sections of grease-laden duct inaccessible during cleaning.
         </p>
       </div>
 
+      <!-- PROOF POINT -->
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "During a massive summer travel weekend, a high-volume fast-food franchise on Highway 46 had their exhaust fan belt snap, filling the kitchen with smoke and halting operations. DDAN's emergency team arrived within an hour, installed a commercial-grade notched V-belt, and calibrated the motor, saving the restaurant from a devastating weekend shutdown."
+          "A popular lakeside restaurant in Hendersonville was experiencing severe exhaust fan vibration just as the summer boating season kicked off. DDAN technicians arrived same-day, discovered a heavily grease-laden impeller and a failing motor bearing, scraped the system clean, and installed a heavy-duty replacement motor so the kitchen didn't miss the weekend rush."
         </p>
       </div>
     </div>
@@ -355,7 +360,7 @@ const schemaData = {
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
           <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Dickson County.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet — just minutes from Hendersonville. Same-day pickup or delivery.
           </p>
         </div>
       </div>
@@ -366,22 +371,22 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Dickson Parts &amp; Installation Service Area
+        Hendersonville Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Dickson and Dickson County. Whether your restaurant is on Highway 46, off the I-40 exits, in historic downtown Dickson, or near TriStar Horizon Medical Center, we stock the parts Dickson kitchens need and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across all of Hendersonville and Sumner County. Whether your restaurant is at the Streets of Indian Lake, along Gallatin Road, near the Hendersonville Medical Center, or on the lakefront, we stock the parts your kitchen needs and install them the same day.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Dickson:</span>
-            <a href="/cleaning/dickson-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/dickson-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Hendersonville:</span>
+            <a href="/cleaning/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fairview</a> and
-            <a href="/parts/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>
+            <a href="/parts-installation/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a> and
+            <a href="/parts-installation/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>
           </p>
         </div>
       </div>
@@ -392,7 +397,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Dickson Parts &amp; Installation FAQ
+        Hendersonville Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

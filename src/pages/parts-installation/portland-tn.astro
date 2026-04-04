@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Why do Goodlettsville I-65 restaurants need parts so frequently?',
-    a: 'Goodlettsville sits at the I-65 interchange with one of Middle Tennessee\'s densest fast-food concentrations. Many restaurants operate 24/7 to serve interstate travelers, meaning exhaust fans never rest. A fan designed for 14-hour daily operation running 24 hours hits its rated lifespan in roughly half the expected time — belts stretch past adjustment, motors accumulate thermal fatigue, and bearings wear at double the normal rate.',
+    q: 'What exhaust fan parts do Portland industrial kitchens need most?',
+    a: 'Portland\'s manufacturing workforce drives massive lunch rushes that push aging exhaust systems past their limits. The most frequently replaced parts are fan motors (burned out from continuous peak-load operation), fan belts (shredded from high-RPM duty cycles), and bearings (seized from heat accumulation during non-stop summer operation). Industrial commissaries also need heavy-duty 3-phase motors and oversized impellers that generic suppliers don\'t stock.',
   },
   {
-    q: 'Can you protect white TPO roofs during parts installation?',
-    a: 'Yes. Many of Goodlettsville\'s newer commercial buildings around Rivergate and Dollar General HQ have pristine white TPO roof membranes. Corporate landlords issue massive fines for grease staining. During every parts installation, we take precautions to prevent grease contact with the membrane and install upgraded containment systems to prevent future runoff.',
+    q: 'How quickly can DDAN deliver and install parts in Portland?',
+    a: `We carry common fan motors, belts, bearings, hinge kits, and grease containment components on every truck. Most Portland emergency parts installations are completed same-day. For specialty industrial-grade components, we source and install within 48 hours. Call ${business.phone} any time — 24/7 emergency dispatch for Sumner County.`,
   },
   {
-    q: 'How quickly can DDAN deliver and install parts in Goodlettsville?',
-    a: `Goodlettsville is one of our closest service areas from our Mt. Juliet base. We carry common motors, belts, bearings, hinge kits, and grease containment components on every truck. Most emergency parts installations in Goodlettsville are completed same-day. Call ${business.phone} any time — 24/7 dispatch.`,
+    q: 'Why is my exhaust fan rattling so loudly?',
+    a: 'Severe rattling typically means the fan blades are coated in hardened grease, throwing the impeller out of balance, or the motor bearings are failing from heavy use. Left unchecked, the vibration destroys the fan housing and can damage roofing materials. We scrape the impeller clean, replace worn bearings, and rebalance the entire assembly.',
   },
   {
-    q: 'Do you service both Davidson and Sumner County restaurants?',
-    a: 'Yes. Goodlettsville straddles both counties, and DDAN is familiar with both jurisdictions\' fire inspection requirements. We provide parts installation documentation that satisfies either county\'s fire marshal — no confusion, no gaps in compliance, regardless of which side of the county line your address falls on.',
+    q: 'Can you deliver parts near the Kentucky border?',
+    a: 'Yes. Portland sits near the Tennessee-Kentucky state line, and we service the entire area. Whether your restaurant or industrial commissary is on Highway 109, near the manufacturing parks, or right at the border, DDAN delivers and installs exhaust parts with the same response time as any other Sumner County location.',
   },
 ];
 
@@ -44,7 +44,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Goodlettsville",
+        "name": "Portland",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -55,17 +55,17 @@ const schemaData = {
       "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Goodlettsville",
+        "name": "Portland",
         "addressRegion": "TN"
       },
-      "description": "Exhaust fan parts and installation for Goodlettsville's I-65 corridor restaurants. Heavy-duty motors and belts for 24/7 operations near Rivergate and Dollar General HQ."
+      "description": "Industrial kitchen exhaust parts and installation for Portland's manufacturing corridor. Heavy-duty motors, belts, and bearings for high-volume operations near the Kentucky border."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Goodlettsville, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/goodlettsville-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Portland, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/portland-tn/` }
       ]
     },
     {
@@ -84,31 +84,31 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Exhaust Fan Parts Goodlettsville, TN | DDAN"
-  description="Heavy-duty exhaust fan parts for Goodlettsville's 24/7 I-65 corridor restaurants. Motors, belts, bearings, hinge kits. Same-day installation. (615) 881-6968."
+  title="Restaurant Exhaust Parts Near Portland | DDAN"
+  description="Industrial kitchen exhaust parts for Portland's manufacturing corridor. Heavy-duty motors, belts, bearings, hinge kits. Same-day installation. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
   <!-- HERO -->
   <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-2.jpg');"></div>
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/hero-3.jpg');"></div>
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
     <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
       <nav aria-label="Breadcrumb" class="mb-4">
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Goodlettsville, TN</li>
+          <li class="text-white">Portland, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Exhaust Fan Parts & Installation in <span class="text-[#FF5E15]">Goodlettsville</span>
+        Portland Industrial Kitchen <span class="text-[#FF5E15]">Exhaust Parts</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        I-65 corridor fans run 24/7 and burn through OEM parts twice as fast — heavy-duty replacements sourced and installed same-day
+        Heavy-duty motors, belts, and bearings for the kitchens feeding Portland's manufacturing workforce
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -159,17 +159,17 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Goodlettsville's I-65 Corridor Burns Through Exhaust Parts Faster Than Anywhere
+        Why Portland's Manufacturing Kitchens Destroy Exhaust Parts
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Goodlettsville sits at the I-65 interchange with one of Middle Tennessee's densest concentrations of fast-food and chain restaurants. Dollar General Corporate HQ anchors the commercial landscape, Rivergate Mall drives dozens of surrounding restaurant operations, and the interstate feeds a constant stream of travelers who need to eat fast and keep moving. Many of these restaurants operate 24/7, and their exhaust fans never get a rest cycle. A fan designed for 14-hour daily operation running continuously hits its rated lifespan in roughly half the expected time — every component wears at an accelerated rate.
+          Portland's dining scene is built to feed an industrial workforce. Massive manufacturing and logistics hubs near the Kentucky border drive concentrated, high-volume lunch rushes that push aging exhaust fan motors to their breaking point. Restaurants and industrial commissaries along Highway 109 run their fryers and grills relentlessly during peak hours, producing massive amounts of vaporized grease and demanding maximum airflow from equipment that was never sized for this kind of punishment.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Generic parts catalogs don't account for this. They sell you the same OEM belt that failed in three months and expect a different result. DDAN sources commercial-grade components specifically rated for continuous-duty applications — notched V-belts that resist the stretching caused by 24/7 operation, sealed high-heat bearings that survive without rest cycles, and motors with thermal protection rated for the actual duty demands of I-65 corridor kitchens. We deliver and install with full documentation that satisfies both Davidson and Sumner County fire marshals.
+          Traditional Southern diners — the backbone of Portland's food scene — present a different parts challenge. Years of heavy frying produce thick, hardened grease deposits that coat impellers and throw fans out of balance. Older buildings often have outdated ductwork with no access points, making it impossible to service the system without installing fire-rated access panels first. When the Portland Fire Department shows up for an NFPA 96 inspection and finds inaccessible ductwork, the remediation order follows immediately.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Corporate landlords around the Rivergate area add another parts dimension — white TPO roofs on newer buildings come with aggressive grease-stain fines. When containment components fail, grease escapes onto the membrane and the landlord sends a bill measured in thousands. DDAN installs upgraded grease containment systems that prevent this scenario, protecting both your compliance and your lease.
+          DDAN sources and installs the heavy-duty commercial parts that actually survive Portland's demanding environment — heat-rated 3-phase motors, commercial-grade notched V-belts, sealed high-heat bearings, and the fire-rated access panels that bring older systems into compliance. Every installation includes full documentation for the Portland Fire Department.
         </p>
       </div>
     </div>
@@ -179,19 +179,19 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Exhaust Fan Parts — Built for Goodlettsville's Non-Stop Volume
+        Exhaust Fan Parts — Heavy-Duty Components for Portland's Volume
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
-        I-65 restaurants run harder and longer than standard operations. Every part we install is rated for the actual duty cycle:
+        Portland's industrial lunch rushes and aging diner infrastructure create constant demand for robust replacement parts:
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
         {[
-          { title: 'Continuous-Duty Motors', desc: '24/7 operation burns through motor windings at double the normal rate. We install commercial-grade units with thermal overload protection rated for non-stop I-65 corridor demand.' },
-          { title: 'Commercial V-Belts', desc: 'Non-stop operation shreds OEM belts within months. Commercial-grade notched V-belts with proper tensioning handle Goodlettsville\'s relentless duty cycles without stretching past adjustment.' },
-          { title: 'Sealed High-Heat Bearings', desc: 'Continuous operation without rest cycles accelerates bearing fatigue exponentially. Sealed bearings rated for 24/7 commercial kitchen environments resist heat and grease infiltration.' },
-          { title: 'Grease Containment Systems', desc: 'Multi-tier rooftop catchers that protect Rivergate\'s white TPO roofs from grease staining. Prevents the massive landlord fines that hit Goodlettsville operators.' },
-          { title: 'Hinge Kits', desc: 'NFPA 96 requires service access via hinge kits on upblast fans. Many I-65 corridor installations were done without them — we retrofit to standard and non-standard curbs.' },
-          { title: 'VFD & Speed Controllers', desc: 'Variable frequency drives optimize fan speed for energy efficiency. High-volume I-65 operations wear VFD components faster — we stock commercial-grade replacements.' },
+          { title: 'Heavy-Duty Fan Motors', desc: 'Heat-rated 3-phase motors that survive Portland\'s punishing lunch-rush duty cycles. Industrial commissaries need motors rated for higher CFM than standard restaurant equipment.' },
+          { title: 'Commercial Fan Belts', desc: 'Notched V-belts that resist the rapid stretching and snapping caused by concentrated peak-hour operation. Proper tensioning included with every installation.' },
+          { title: 'Bearings & Pillow Blocks', desc: 'Sealed high-heat bearings that resist seizure during summer rooftop temperatures. Portland\'s hottest months are when overworked motors and bearings finally fail.' },
+          { title: 'Impellers & Fan Wheels', desc: 'Years of heavy Southern frying coat impellers with hardened grease, destroying balance. We clean or replace and rebalance the entire assembly.' },
+          { title: 'Hinge Kits', desc: 'Many older Portland rooftop fans lack the NFPA 96 required hinge kits. We retrofit to standard curbs so technicians can safely access the fan without damaging the roof.' },
+          { title: 'Fire-Rated Access Panels', desc: 'Older Portland diners have concealed ductwork with no inspection access. Fire-rated panels bring the system into compliance without altering the building structure.' },
         ].map((card) => (
           <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
             <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
@@ -209,13 +209,13 @@ const schemaData = {
         Beyond Fans — Complete Exhaust System Parts
       </h2>
       <ul class="space-y-3 max-w-3xl">
-        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Rooftop grease containment</a> — multi-tier systems to protect TPO roofs from landlord fines</li>
-        <li class="check-item reveal-child">Fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">duct access panels</a> for inspection and cleaning access</li>
+        <li class="check-item reveal-child"><a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Grease containment systems</a> — rooftop pads, boxes, and high-capacity catchers</li>
+        <li class="check-item reveal-child">Fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">duct access panels</a> — essential for Portland's older diner ductwork</li>
         <li class="check-item reveal-child">Baffle filters, mesh filters, and spark arrestor screens</li>
         <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression</a> links, nozzles, and fusible elements</li>
         <li class="check-item reveal-child">Duct clamps, transitions, and cleanout ports</li>
+        <li class="check-item reveal-child">Speed controllers and VFD units for industrial applications</li>
         <li class="check-item reveal-child">Hood light fixtures and make-up air dampers</li>
-        <li class="check-item reveal-child">Impellers and fan wheels — cleaned or replaced with balanced assemblies</li>
       </ul>
     </div>
   </section>
@@ -226,10 +226,10 @@ const schemaData = {
       <div class="bg-[#111111] border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
         <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts Without Installation Is Just a Box on Your Roof</h2>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 max-w-3xl">
-          Incorrect installation voids warranties, fails inspections, and causes premature failure. Every DDAN parts order includes professional installation with full NFPA 96 documentation that satisfies both Davidson and Sumner County fire marshals. Need repair instead?
+          Incorrect installation voids warranties, fails Portland Fire Department inspections, and causes premature failure. Every DDAN parts order includes professional installation with full NFPA 96 documentation. Need diagnostics or repair instead?
         </p>
-        <a href="/repair/goodlettsville-tn/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold hover:text-white transition-all duration-300">
-          Goodlettsville Exhaust Repair Services
+        <a href="/repair/portland-tn/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold hover:text-white transition-all duration-300">
+          Portland Exhaust Repair Services
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -240,14 +240,14 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Goodlettsville Kitchens
+        Common Equipment Issues in Portland Kitchens
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Factory-installed OEM belts are rated for standard restaurant schedules — 12 to 16 hours per day with overnight rest. When those belts run continuously without rest at Goodlettsville's 24/7 franchises, they reach failure in months instead of years. The belt stretches past its adjustment range, starts slipping on the pulleys, and either snaps outright or causes the motor to overheat trying to compensate. Motors burn through windings at double the normal rate under continuous duty. Standard bearings fail even faster — continuous rotation without cooling periods accelerates seal degradation and grease breakdown.
+          The immense, rapid lunch rushes catering to Portland's manufacturing workforce push aging exhaust fan motors to their breaking point, causing frequent bearing failures and snapped belts. When ambient rooftop temperatures hit triple digits in summer, motors that have been accumulating thermal fatigue all year finally seize. The entire kitchen fills with smoke, service stops, and the lunch crowd walks out. Emergency motor replacement during summer is Portland's single most common exhaust parts call.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Corporate landlords around Rivergate issue massive fines for TPO roof grease stains. When exhaust fan bearings fail, the housing vibrates loose, and grease escapes containment onto the pristine white membrane below. Once grease stains TPO, it doesn't come off — the membrane is permanently discolored. DDAN installs upgraded multi-tier <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> that prevent this scenario entirely.
+          Older diners throughout Portland often have significant carbon and grease buildup on fan impellers from years of heavy Southern frying. A grease-coated impeller throws the fan out of balance, which accelerates bearing destruction and causes the entire housing to vibrate against the roof curb. Left unchecked, the vibration damages the roof flashing and allows water infiltration. DDAN scrapes impellers clean, replaces damaged bearings, and rebalances the assembly — preventing the cascade of damage that starts with a dirty fan wheel.
         </p>
       </div>
     </div>
@@ -257,16 +257,16 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Who Needs Exhaust Parts in Goodlettsville?
+        Who Needs Exhaust Parts in Portland?
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {[
-          { title: 'I-65 Fast-Food Franchises', desc: '24/7 operations that destroy OEM components at double the normal rate. Heavy-duty commercial parts are the only solution that survives the duty cycle.' },
-          { title: 'Rivergate Area Restaurants', desc: 'High-volume dining near the mall with corporate landlords who fine heavily for roof grease stains. Upgraded containment is mandatory.' },
-          { title: 'Dollar General HQ Corridor', desc: 'Corporate dining facilities and surrounding restaurants serving massive daily lunch crowds need parts that handle concentrated peak-hour demand.' },
-          { title: 'Hotel Kitchen Operations', desc: 'Goodlettsville\'s I-65 hotel clusters include breakfast-to-late-night kitchen operations that push equipment beyond standard duty ratings.' },
-          { title: 'Multi-Location Operators', desc: 'Standardized commercial-grade parts across multiple Goodlettsville locations reduces emergency downtime and simplifies maintenance scheduling.' },
-          { title: 'New Franchise Builds', desc: 'Builder-installed components are often the cheapest available. Upgrade to commercial-grade before the first belt snaps during your busiest shift.' },
+          { title: 'Industrial Commissaries', desc: 'Manufacturing park cafeterias running heavy-duty exhaust systems with 3-phase motors and higher CFM than typical restaurants. Specialty parts are our stock in trade.' },
+          { title: 'Hwy 109 Fast-Food Chains', desc: 'High-volume operations that burn through OEM belts and motors during concentrated lunch-rush cycles. Commercial-grade parts are essential for survival.' },
+          { title: 'Southern Diners & BBQ', desc: 'Heavy frying and smoking produce aggressive grease loads that coat impellers, overwhelm filters, and demand upgraded containment systems.' },
+          { title: 'Corporate Cafeterias', desc: 'Manufacturing campus dining operations with strict uptime requirements. Parts failures during the lunch window are unacceptable — proactive replacement prevents them.' },
+          { title: 'Restaurants Near the KY Border', desc: 'Portland\'s proximity to Kentucky means some operators are underserved by Tennessee-based suppliers. DDAN covers the entire border corridor.' },
+          { title: 'Aging Building Operators', desc: 'Older Portland buildings need fire-rated access panels, custom ductwork transitions, and hinge kit retrofits to meet current NFPA 96 standards.' },
         ].map((card) => (
           <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
             <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
@@ -281,23 +281,21 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Goodlettsville Parts & Installation Service Area
+        Portland Parts & Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers and installs commercial kitchen exhaust parts across all of Goodlettsville — the I-65 interchange, Rivergate Mall area, Dollar General Corporate HQ corridor, and both Davidson and Sumner County sides of the city. We carry common parts on every truck for same-day emergency installation.
+          DDAN delivers and installs commercial kitchen exhaust parts across all of Portland and the surrounding Sumner County industrial corridor. From the Highway 109 franchise strip to the manufacturing park commissaries near the Kentucky border, we carry common parts on every truck for same-day emergency installation.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/madison-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Madison</a>,
-            <a href="/repair/hendersonville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hendersonville</a>, and
-            <a href="/parts/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Springfield</a>
+            <a href="/repair/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a> and
+            <a href="/parts-installation/white-house-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">White House</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">All DDAN services in Goodlettsville:</span>
-            <a href="/cleaning/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">All DDAN services in Portland:</span>
+            <a href="/repair/portland-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
         </div>
       </div>
@@ -308,7 +306,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Goodlettsville Exhaust Parts FAQ
+        Portland Exhaust Parts FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

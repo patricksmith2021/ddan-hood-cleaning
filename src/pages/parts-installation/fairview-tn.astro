@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'My Nolensville landlord requires proof of proper grease containment. Can you provide parts and install them?',
-    a: `Yes. Property managers in new Nolensville developments are exceptionally strict about roof damage. We supply and install high-capacity, multi-layer rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white">grease containment systems</a> designed specifically to protect white TPO membranes. Every installation includes detailed photo reports for your records and compliance needs.`,
+    q: 'How fast can you get replacement fan parts to Fairview?',
+    a: `We carry common commercial fan belts, motors, and bearings on every service truck. For emergency calls along Highway 100, we dispatch immediately with the parts needed for same-day installation. For less common components, we source directly from the manufacturer within 24 to 48 hours. Call ${business.phone} any time.`,
   },
   {
-    q: 'Do you stock parts for new-build exhaust systems in Nolensville?',
-    a: 'Yes. We carry common commercial fan belts, motors, bearings, and impeller components on every service truck. For less common OEM parts specific to Nolensville\'s newer builds, we source directly from the manufacturer and can typically have them on-site within 24 to 48 hours.',
+    q: 'Can you protect my Fairview restaurant\'s TPO roof with proper grease containment parts?',
+    a: `Yes. Corporate landlords in Fairview's newer developments have zero tolerance for roof damage. We supply and install high-capacity, multi-tier rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white">grease containment systems</a> designed specifically to capture grease while letting rainwater flow through, completely protecting your expensive roofing membrane from F.O.G. degradation.`,
   },
   {
-    q: 'Do you offer emergency exhaust fan parts and installation in Nolensville?',
-    a: `Absolutely. Upscale dining establishments cannot afford downtime. If a fan motor burns out or a belt snaps during service, our 24/7 emergency team dispatches immediately with the parts needed to get your kitchen running again. Call ${business.phone} any time.`,
+    q: 'What does the Fairview Fire Department look for regarding exhaust system parts?',
+    a: `The Fairview Fire Department utilizes full-time inspectors who expect strict <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white">NFPA 96 compliance</a>. This means your exhaust system must have functional hinge kits, proper fire-rated access panels, clean fire suppression links, and components in good working order. We supply and install every part needed to pass inspection.`,
   },
   {
-    q: 'Why do new restaurant exhaust parts fail so quickly?',
-    a: 'General contractors building new Nolensville restaurant spaces select the cheapest OEM components that meet minimum building code. These factory-installed belts, motors, and bearings are not rated for the sustained heat, grease loads, and extended runtimes of a real commercial kitchen. Under actual cooking conditions, they fail within 1 to 3 years. DDAN replaces them with commercial-grade parts rated for real-world performance.',
+    q: 'How far do you deliver parts?',
+    a: 'We deliver and install commercial kitchen exhaust parts across all of Middle Tennessee, including Fairview and the entire Highway 100 corridor. Our service area extends from Nashville through Williamson County and into Dickson County. There is no separate delivery fee — parts delivery is included with professional installation on every service call.',
   },
 ];
 
@@ -44,7 +44,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Nolensville",
+        "name": "Fairview",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -55,17 +55,17 @@ const schemaData = {
       "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Nolensville",
+        "name": "Fairview",
         "addressRegion": "TN"
       },
-      "description": "Commercial kitchen exhaust fan parts, replacement components, and professional installation for Nolensville restaurants. OEM upgrades, belts, motors, and grease containment systems."
+      "description": "Hood parts and professional installation for Fairview commercial kitchens. Fan belts, motors, grease containment, and access panels for Highway 100 corridor restaurants."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Nolensville, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/nolensville-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Fairview, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/fairview-tn/` }
       ]
     },
     {
@@ -84,8 +84,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Nolensville Commercial Kitchen Fan Parts | DDAN"
-  description="Commercial kitchen exhaust fan parts and installation for Nolensville restaurants. OEM upgrades, belts, motors, grease containment. 24/7 service. (615) 881-6968."
+  title="Hood Parts & Installation Fairview, TN | DDAN"
+  description="Commercial kitchen hood parts and installation in Fairview, TN. Fan belts, motors, grease containment for Highway 100 restaurants. 24/7 service. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -98,17 +98,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Nolensville, TN</li>
+          <li class="text-white">Fairview, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Nolensville Commercial Kitchen Fan Parts <span class="text-[#FF5E15]">& Installation</span>
+        Hood Parts & Installation <span class="text-[#FF5E15]">in Fairview, Tennessee</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        OEM replacement parts, commercial-grade upgrades, and professional installation for Nolensville's new-build kitchens
+        Commercial-grade replacement parts and professional installation for Fairview's growing Highway 100 restaurant corridor
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -159,14 +159,14 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Commercial Kitchen Exhaust Parts for Nolensville Restaurants
+        Commercial Exhaust Parts for Fairview's Growing Restaurant Scene
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Nolensville is one of Williamson County's fastest-growing communities, with massive affluent residential developments driving demand for premium dining, fast-casual concepts, and specialty food operations. Nearly every new commercial build sits beneath a pristine white TPO roof membrane — and Nolensville property managers are ruthless about grease stains. When a cheap factory-installed fan belt snaps or a grease catcher overflows, the consequences go well beyond kitchen downtime. You are looking at lease violations, expensive roof repairs, and fire code citations from Nolensville Fire & Rescue.
+          Fairview's dining sector is booming. Fueled by massive residential growth and heavy traffic along the Highway 100 corridor, fast-food franchises, family casual restaurants, and pizza shops are pushing their exhaust systems harder than ever. The continuously running fryers and ovens tear through standard OEM fan belts, overheat factory motors, and overwhelm cheap grease catchers that were never designed for this kind of volume. When a component fails, the kitchen stops — and in a highway-traffic restaurant, every hour of downtime is money lost.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN Hood Cleaning and Repair supplies and installs the commercial-grade <a href="/restaurant-exhaust-fan-parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan parts</a> that Nolensville kitchens actually need — not the budget OEM components that builders install to save on construction costs. From heavy-duty fan belts and motors to complete grease containment systems, we deliver the right parts and handle the installation so your kitchen stays running, your roof stays clean, and your fire inspection passes without a question.
+          DDAN Hood Cleaning and Repair supplies and installs the commercial-grade <a href="/restaurant-exhaust-fan-parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan parts</a> that Fairview kitchens actually need. We carry heavy-duty fan belts, motors, bearings, and grease containment components on every service truck. No waiting for a parts order. No coordinating a second installer. One call gets the right parts delivered and professionally installed on the same visit.
         </p>
       </div>
     </div>
@@ -179,16 +179,16 @@ const schemaData = {
         Exhaust Fan Parts We Supply & Install
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
-        Factory-installed components are the most common failure point in Nolensville's new restaurant buildings. We stock and install commercial-grade replacements:
+        Fairview's highway-volume kitchens need parts rated for continuous, high-heat operation:
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
         {[
-          { title: 'Fan Motors', desc: 'Commercial-grade 1-phase and 3-phase motors sized for real cooking volume. Direct replacements for undersized OEM units.' },
-          { title: 'Fan Belts', desc: 'Heavy-duty notched V-belts that resist heat, grease, and stretching. Replace factory smooth belts that snap under load.' },
-          { title: 'Bearings & Pillow Blocks', desc: 'Sealed commercial bearings rated for high-heat environments. OEM bearings run hot under real loads and seize prematurely.' },
-          { title: 'Impellers & Fan Wheels', desc: 'Balanced replacement impellers and fan wheels. Grease buildup throws factory impellers off-balance, destroying motors.' },
-          { title: 'Grease Containment Systems', desc: 'Multi-tier rooftop grease catchers designed for Nolensville\'s pristine TPO roofs. Protect your lease and your roof.' },
-          { title: 'Hinge Kits', desc: 'NFPA 96-required hinge kits for rooftop upblast fans. Allow safe cleaning access without lifting the entire fan unit.' },
+          { title: 'Fan Motors', desc: 'Commercial-grade 1-phase and 3-phase motors sized for real cooking volume. Replace factory units that overheat under continuous use.' },
+          { title: 'Fan Belts', desc: 'Heavy-duty notched V-belts that resist heat, grease, and stretching. Factory smooth belts snap fast in Fairview\'s high-volume kitchens.' },
+          { title: 'Bearings & Pillow Blocks', desc: 'Sealed commercial bearings rated for high-heat environments. Prevent the premature seizures that plague OEM bearings.' },
+          { title: 'Impellers & Fan Wheels', desc: 'Balanced replacement impellers. Grease-coated fan wheels create dangerous vibration and accelerate motor failure.' },
+          { title: 'Grease Containment', desc: 'Multi-tier rooftop grease catchers designed for Fairview\'s newer TPO roofs. Protect your lease and satisfy landlord requirements.' },
+          { title: 'Hinge Kits', desc: 'NFPA 96-compliant hinge kits for upblast exhaust fans. Required for safe rooftop cleaning access during maintenance.' },
         ].map((card) => (
           <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
             <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
@@ -208,7 +208,7 @@ const schemaData = {
       <ul class="space-y-3 max-w-3xl">
         <li class="check-item reveal-child"><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire-rated duct access panels</a> — required by NFPA 96 at every change of duct direction</li>
         <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression</a> links, nozzles, and fusible alloy replacements</li>
-        <li class="check-item reveal-child">Baffle grease filters — stainless steel replacement filters for hood canopies</li>
+        <li class="check-item reveal-child">Stainless steel baffle grease filters for hood canopies</li>
         <li class="check-item reveal-child">Duct connectors, transitions, and replacement sections</li>
         <li class="check-item reveal-child">Speed controllers and VFDs for exhaust fan systems</li>
         <li class="check-item reveal-child">Rooftop grease pads and curb adapters</li>
@@ -220,10 +220,10 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <div class="bg-[#111111] border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
-        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts + Installation in One Visit</h2>
-        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-4">Save time. Save money. Get it done right.</p>
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts + Installation in One Trip</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-4">No second contractor. No waiting. Done right the first time.</p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-3xl">
-          Every part we supply gets installed by our certified technicians on the same trip. No waiting for a second contractor. No coordination headaches. We show up with the right parts, install them to NFPA 96 standards, and document everything with photos for your fire inspector and your landlord. One call handles the entire job.
+          Every part we supply gets installed by our certified technicians on the same visit. We arrive with the right components, install them to NFPA 96 standards, and document everything with photos for the Fairview Fire Department and your records. One call handles the entire job — parts, labor, and compliance documentation.
         </p>
         <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
           {business.phone}
@@ -236,14 +236,14 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Nolensville Kitchens
+        Common Equipment Issues in Fairview
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Because almost all commercial infrastructure in Nolensville is newly built, property managers are ruthless regarding grease stains on expensive white TPO roofs. New restaurant owners often discover that cheaper OEM fan belts installed by builders fail rapidly under heavy commercial use. The factory-installed smooth V-belts stretch and crack within 18 months, and the undersized motors overheat when pushed to actual cooking-volume CFM demands for 12 to 16 hours a day.
+          The rapidly growing volume of highway travelers and new residents means Fairview's fast-food exhaust fans are running constantly. This continuous high-heat operation rapidly stretches standard OEM fan belts and overwhelms cheap factory grease catchers. During the hottest summer months, ambient rooftop temperatures compound the problem — overworked motors overheat and seize, shutting down exhaust airflow entirely.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Nolensville's premium dining establishments rely on strict preventative maintenance schedules to avoid any risk of downtime. When a fan component fails, the cascade is immediate — kitchen fills with smoke, fire suppression risks triggering, and the landlord's roof is exposed to uncontained grease. We stock the <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">commercial-grade belts and motors</a> that prevent these failures before they happen.
+          Landlords in Fairview's newer developments issue massive fines when leaking grease damages their white TPO roofs. A single failed grease catcher can cascade into a containment failure, a roof staining incident, and a lease violation. We supply and install the heavy-duty <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">commercial-grade components</a> and <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> that prevent these costly failures.
         </p>
       </div>
     </div>
@@ -253,16 +253,16 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Who We Supply Parts For in Nolensville
+        Who We Supply Parts For in Fairview
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
         {[
-          'Upscale casual dining restaurants',
-          'Artisan cafes and coffee roasters',
-          'Fast-casual and QSR franchises',
-          'Local smokehouses and BBQ joints',
-          'Pizza restaurants with high-heat ovens',
-          'Corporate food concepts in mixed-use developments',
+          'Fast-food and QSR franchises on Highway 100',
+          'Family casual dining restaurants',
+          'Pizza shops and high-heat oven operations',
+          'Standalone restaurant outparcels',
+          'Strip center food service tenants',
+          'Growing suburban dining concepts',
         ].map((item) => (
           <div class="check-item reveal-child">{item}</div>
         ))}
@@ -274,23 +274,22 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Nolensville Parts & Installation Service Area
+        Fairview Parts & Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN provides 24/7 commercial kitchen exhaust parts and installation across all of Nolensville and surrounding Williamson County. Whether your restaurant is in a brand-new development off Nolensville Road or an established location near the village center, we deliver and install the parts your kitchen needs — day or night.
+          DDAN provides 24/7 commercial kitchen exhaust parts and installation across all of Fairview and the Highway 100 corridor. Whether you manage a high-speed corporate franchise, a local pizza shop, or a casual dining spot near Bowie Nature Park, we deliver and install the parts your kitchen needs — day or night.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Nolensville:</span>
-            <a href="/cleaning/nolensville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/nolensville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Fairview:</span>
+            <a href="/cleaning/fairview-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/fairview-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Franklin</a>,
-            <a href="/parts/brentwood-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Brentwood</a>, and
-            <a href="/parts/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Murfreesboro</a>
+            <a href="/parts-installation/dickson-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Dickson</a> and
+            <a href="/parts-installation/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>
           </p>
         </div>
       </div>
@@ -301,7 +300,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Nolensville Parts & Installation FAQ
+        Fairview Parts & Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

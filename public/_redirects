@@ -1,8 +1,10 @@
 /kitchen-hood-cleaning-services/ /cleaning/ 301
 /commercial-hood-repair/ /repair/ 301
-/kitchen-exhaust-installation-services/ /parts/ 301
-/restaurant-exhaust-fan-parts/ /parts/ 301
-/installation-and-parts/ /parts/ 301
+/kitchen-exhaust-installation-services/ /parts-installation/ 301
+/restaurant-exhaust-fan-parts/ /parts-installation/ 301
+/installation-and-parts/ /parts-installation/ 301
+/parts/ /parts-installation/ 301
+/parts/* /parts-installation/:splat 301
 /locations/ /cleaning/ 301
 /locations/nashville-tn/ /cleaning/nashville-tn/ 301
 /locations/murfreesboro-tn/ /cleaning/murfreesboro-tn/ 301

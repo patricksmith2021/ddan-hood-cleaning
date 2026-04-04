@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Can you fix a broken restaurant exhaust fan in La Vergne quickly?',
-    a: 'Yes. We know you cannot afford downtime during the industrial lunch rush. DDAN offers 24/7 emergency repair in La Vergne, arriving with the heavy-duty belts, bearings, and 3-phase motors needed to get your exhaust system running immediately.',
+    q: 'Can you quickly fix a broken exhaust fan near the Dickson I-40 exit?',
+    a: 'Absolutely. Interstate-adjacent restaurants cannot afford downtime. We offer 24/7 emergency repair in Dickson. If a belt snaps or a motor burns out during the lunch rush, we dispatch immediately with the heavy-duty parts needed to restore your airflow.',
   },
   {
-    q: 'What is required to pass a La Vergne Fire Department hood inspection?',
-    a: 'Inspectors look for your entire system to be cleaned to bare metal, ensuring no flammable grease remains in the ductwork. They also verify that your upblast fans have proper hinge kits, your fire suppression links are clean, and your NFPA 96 service tags are current.',
+    q: 'Why is my upblast exhaust fan leaking grease onto the roof?',
+    a: 'High-volume frying quickly overwhelms standard factory grease catchers. Leaking grease is a massive fire hazard and will rapidly destroy your commercial roof. We install high-capacity rooftop grease containment systems to capture this runoff, protecting your property and keeping you compliant with Dickson Water Authority regulations.',
   },
   {
-    q: 'Do you service Hispanic bakeries and taquerias in La Vergne?',
-    a: 'Absolutely. High-heat griddles and traditional baking produce unique carbon and grease buildup that standard cleaning misses. We use specialized scraping techniques to completely clear your system. Se habla espanol!',
+    q: 'Can you bring my historic Dickson building\'s exhaust system up to code?',
+    a: 'Yes. Older buildings downtown often have concealed ductwork. We install code-compliant, fire-rated access doors that allow our technicians to perform the bare-metal cleaning required by the Dickson Fire Department without damaging your historic structure.',
   },
   {
-    q: 'Do you carry industrial-grade parts for high-volume operations?',
-    a: `Yes. La Vergne's Interchange City industrial parks house commissaries and cafeterias running at extreme volumes. We stock heavy-duty 3-phase motors, commercial-grade belts, and high-capacity grease containment systems designed for continuous industrial use. Call ${business.phone} for a free fitting consult.`,
+    q: 'Do you service the TriStar Horizon Medical Center area?',
+    a: `Yes. We provide exhaust fan parts and professional installation to commercial kitchens throughout the Dickson area, including the TriStar Horizon Medical Center corridor and surrounding industrial parks. Institutional cafeterias and nearby restaurants all rely on us for same-day parts delivery and installation. Call ${business.phone} for a free fitting consult.`,
   },
 ];
 
@@ -45,7 +45,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "La Vergne",
+        "name": "Dickson",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -56,17 +56,17 @@ const schemaData = {
       "provider": { "@id": `${siteUrl}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "La Vergne",
+        "name": "Dickson",
         "addressRegion": "TN"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for La Vergne's industrial and commercial kitchens. Interchange City to Murfreesboro Road."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Dickson's commercial kitchens. I-40 corridor to historic downtown."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "La Vergne, TN", "item": `${siteUrl}/parts/la-vergne-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Dickson, TN", "item": `${siteUrl}/parts-installation/dickson-tn/` }
       ]
     },
     {
@@ -85,8 +85,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="La Vergne Hood Fan Parts & Installation | DDAN"
-  description="Same-day exhaust fan parts for La Vergne's industrial and commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. Interchange City to Murfreesboro Road. (615) 881-6968."
+  title="Restaurant Exhaust Parts Near Dickson | DDAN"
+  description="Same-day exhaust fan parts for Dickson's commercial kitchens. Motors, belts, bearings, filters, and discounted professional installation. I-40 corridor to historic downtown. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -99,17 +99,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">La Vergne, TN</li>
+          <li class="text-white">Dickson, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        La Vergne Industrial Kitchen Parts &amp; <span class="text-[#FF5E15]">Installation</span>
+        Dickson I-40 Restaurant <span class="text-[#FF5E15]">Exhaust Fan Parts</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Interchange City's industrial kitchens burn through parts at industrial speed. We stock heavy-duty components and install them the same day.
+        Dickson's interstate kitchens run non-stop. We stock the heavy-duty parts that I-40 corridor restaurants burn through and install them the same day.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -166,20 +166,20 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why La Vergne's Commercial Kitchens Need Fast Parts Access
+        Why Dickson's Commercial Kitchens Need Fast Parts Access
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          La Vergne's dining scene is built on speed and volume. Restaurants serving the massive logistics workforce at Interchange City — one of the largest industrial parks in Tennessee — run their fryers and grills non-stop to meet crushing lunch demands. This constant, high-heat operation rapidly stretches fan belts, burns out motors, and produces massive amounts of vaporized grease that overwhelms standard factory equipment. When a part fails during the industrial lunch rush, every minute of downtime costs revenue.
+          Dickson's dining scene is heavily fueled by continuous I-40 interstate traffic. Kitchens along the Highway 46 corridor are running their fryers and grills virtually non-stop, producing massive amounts of vaporized grease and pushing exhaust fan motors to their breaking points. The massive fast-food footprint catering to interstate travelers, combined with traditional Southern comfort food operations and high-volume corporate chains, means fryers operate relentlessly. Standard OEM fan belts and motors rated for 8 to 12 hours of daily use simply cannot sustain the 16-plus-hour duty cycles these kitchens demand.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The Murfreesboro Road corridor is densely packed with highway-fronting fast food, authentic Latin American bakeries and taquerias, and high-volume quick-service restaurants. High-heat griddles and continuous fryer use produce heavy, sticky grease output that degrades fan components faster than typical commercial cooking. Older strip centers along Murfreesboro Road often have standard EPDM roofing that is vulnerable to grease damage, and many of these buildings lack proper NFPA-compliant hinge kits, leading to roof damage during maintenance.
+          This extreme volume shreds standard fan belts and quickly overwhelms factory grease catchers. The continuous high heat rapidly stretches and snaps belts, burns out motors, and produces grease loads that standard rooftop containment cannot handle. The Dickson Water Authority actively monitors local grease traps and interceptors to protect municipal infrastructure from heavy F.O.G. runoff, meaning your containment components need regular replacement.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The La Vergne Fire Department strictly enforces NFPA 96 standards, heavily targeting the densely packed Murfreesboro Road corridor. Industrial commissaries in Interchange City must maintain impeccable fire suppression readiness. La Vergne Public Works actively monitors the municipal sewer system for F.O.G. violations, meaning your rooftop grease containment components need regular replacement to stay compliant.
+          Downtown Dickson's revitalized historic buildings present a different challenge. Older buildings often lack proper fire-rated access panels, complicating thorough NFPA 96 cleaning. The Dickson Fire Department strictly enforces fire codes, prioritizing the high-traffic Highway 46 corridor and ensuring rapid-turnover kitchens maintain safe, bare-metal exhaust systems.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Emergency calls spike in late summer when ambient roof temperatures cause overworked exhaust fan motors to seize. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across La Vergne for same-day installation. When your part fails during the Friday lunch rush, you need a local partner, not a tracking number.
+          Emergency call spikes hit during the intense heat of late summer when overworked rooftop motors finally seize. DDAN stocks the most common exhaust fan parts locally in Mt. Juliet and delivers across Dickson County for same-day installation. When your part fails during a massive summer travel weekend, you need a local partner, not a tracking number.
         </p>
       </div>
     </div>
@@ -189,10 +189,10 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for La Vergne Kitchens
+        Exhaust Fans for Dickson Kitchens
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        La Vergne's industrial commissaries and high-volume quick-service restaurants demand exhaust fans built for punishing duty cycles. We stock, source, and install every type of commercial kitchen exhaust fan.
+        Dickson's interstate-driven kitchens and Southern comfort food operations demand exhaust fans that can handle relentless, non-stop use. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
       <div class="mb-12 reveal">
@@ -287,7 +287,7 @@ const schemaData = {
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        La Vergne Public Works actively monitors the municipal sewer system for F.O.G. violations. We supply and install complete containment systems to protect your roof and avoid fines.
+        The Dickson Water Authority actively monitors local grease traps and interceptors. We supply and install complete containment systems to protect your roof and avoid fines.
       </p>
       <ul class="space-y-3">
         <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
@@ -309,7 +309,7 @@ const schemaData = {
           Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">La Vergne exhaust fan repair</a> page for diagnostic and repair services.
+          Need a full repair instead of just parts? Visit our <a href="/repair/dickson-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Dickson exhaust fan repair</a> page for diagnostic and repair services.
         </p>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -319,24 +319,24 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN LA VERGNE -->
+  <!-- COMMON EQUIPMENT ISSUES IN DICKSON -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in La Vergne
+        Common Equipment Issues in Dickson
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The intense, rapid-fire lunch rushes catering to La Vergne's industrial workforce push exhaust fan motors to their limits, causing frequent bearing failures and snapped belts. Industrial commissaries in Interchange City run heavy-duty 3-phase motors through continuous duty cycles that exceed standard equipment ratings. These motors need exact frame size, voltage, and RPM specs matched immediately — you cannot wait for a national supplier to ship. See our <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt and motor repair</a> page for details.
+          The continuous interstate traffic pushes fast-food exhaust fans past their intended duty cycles, leading to frequent belt snapping and motor overheating. These Highway 46 kitchens run fryers non-stop, and standard OEM <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belts and motors</a> simply cannot sustain the load. When a belt snaps during the lunch rush, the kitchen fills with smoke and service stops immediately.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Older strip centers along Murfreesboro Road often lack proper NFPA-compliant <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, leading to roof damage during maintenance. Many of these aging buildings also need fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> installed to allow proper bare-metal cleaning of concealed ductwork. The La Vergne Fire Department strictly enforces these requirements.
+          Downtown Dickson's older buildings often lack proper fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a>, complicating thorough NFPA 96 cleaning. Many older rooftop fans also lack <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a>, making maintenance difficult and risking roof damage. The Dickson Fire Department strictly enforces these requirements across both the historic downtown and the Highway 46 corridor.
         </p>
       </div>
 
       <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "When a high-volume taqueria on Murfreesboro Road suffered a snapped exhaust fan belt right as the Friday lunch rush began, DDAN's emergency team was on-site within 45 minutes. We replaced the belt with a notched, heat-resistant commercial V-belt and calibrated the motor, allowing the kitchen to reopen safely with minimal lost revenue."
+          "During a massive summer travel weekend, a high-volume fast-food franchise on Highway 46 had their exhaust fan belt snap, filling the kitchen with smoke and halting operations. DDAN's emergency team arrived within an hour, installed a commercial-grade notched V-belt, and calibrated the motor, saving the restaurant from a devastating weekend shutdown."
         </p>
       </div>
     </div>
@@ -355,7 +355,7 @@ const schemaData = {
         <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
           <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across La Vergne.
+            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery across Dickson County.
           </p>
         </div>
       </div>
@@ -366,23 +366,22 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        La Vergne Parts &amp; Installation Service Area
+        Dickson Parts &amp; Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of La Vergne. Whether your restaurant is on Murfreesboro Road, in the Interchange City industrial parks, or near Percy Priest Lake, we stock the parts La Vergne kitchens need and install them the same day.
+          DDAN delivers exhaust fan parts and professional installation across all of Dickson and Dickson County. Whether your restaurant is on Highway 46, off the I-40 exits, in historic downtown Dickson, or near TriStar Horizon Medical Center, we stock the parts Dickson kitchens need and install them the same day.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in La Vergne:</span>
-            <a href="/cleaning/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Dickson:</span>
+            <a href="/cleaning/dickson-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/dickson-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/murfreesboro-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Murfreesboro</a>,
-            <a href="/parts/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Smyrna</a>, and
-            <a href="/parts/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Antioch</a>
+            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fairview</a> and
+            <a href="/parts-installation/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>
           </p>
         </div>
       </div>
@@ -393,7 +392,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        La Vergne Parts &amp; Installation FAQ
+        Dickson Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

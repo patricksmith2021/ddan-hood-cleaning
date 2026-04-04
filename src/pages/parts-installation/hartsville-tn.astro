@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'My Thompson\'s Station landlord requires proof of proper grease containment. Can you supply and install it?',
-    a: `Absolutely. Property managers in developments like Tollgate Village are exceptionally strict about roof damage. We supply and install high-capacity, multi-layer rooftop <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white">grease containment systems</a> designed specifically to protect white TPO membranes. Every installation includes detailed photo reports proving your roof is protected.`,
+    q: 'Can you supply parts for massive institutional kitchen exhaust systems in Hartsville?',
+    a: 'Yes. We specialize in high-capacity commercial and institutional kitchens. We stock the heavy-duty 3-phase motors, commercial-grade fan belts, and oversized bearings that institutional feeding operations demand. For specialized institutional components, we source directly from the manufacturer and typically deliver within 24 to 48 hours.',
   },
   {
-    q: 'Why are factory-installed fan parts failing in my Thompson\'s Station restaurant?',
-    a: 'General contractors building new restaurant spaces in Thompson\'s Station select the cheapest OEM components that meet minimum building code — not parts rated for real commercial kitchen use. Factory-installed smooth V-belts stretch and crack within 18 months under sustained cooking loads. Motors are sized to minimum CFM code, not the actual demands of a busy kitchen running 12 to 16 hours daily. We replace these with commercial-grade parts rated for real-world performance.',
+    q: 'Do I need access panels installed in my Hartsville restaurant\'s ductwork?',
+    a: `If you operate in an older building near the Hartsville square, likely yes. NFPA 96 code requires <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white">fire-rated access panels</a> at every change of duct direction to ensure the entire system can be properly cleaned. We supply and install these panels to bring older Trousdale County establishments up to current fire code.`,
   },
   {
-    q: 'What does Williamson County Fire/Rescue look for regarding exhaust parts?',
-    a: `WCFR inspectors expect flawless <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white">NFPA 96 compliance</a>. This means your exhaust system must have functional hinge kits on all upblast fans, fire-rated access panels installed at every duct direction change, clean fire suppression links, and all components in proper working order. We supply and install every part needed to pass.`,
+    q: 'How quickly can you replace a seized exhaust fan motor in Hartsville?',
+    a: `We offer 24/7 emergency parts and installation service. If your exhaust fan goes down during a critical shift, our technicians dispatch immediately with common commercial-grade motors, belts, and bearings on every truck. Call ${business.phone} any time — day or night.`,
   },
   {
-    q: 'Is there a warranty when I buy parts and installation together?',
-    a: `Yes. New motors carry the manufacturer's warranty (typically 1-3 years depending on brand), and our installation labor is backed by our workmanship guarantee. We document every installation with photos and a detailed service report for your records. Buying parts and installation together from DDAN means one point of accountability — if anything goes wrong, you call us and we handle it. Call ${business.phone} for details.`,
+    q: 'Can you supply parts for institutional kitchen exhaust systems?',
+    a: 'Absolutely. Institutional kitchens like correctional facilities, school cafeterias, and hospital kitchens run at extreme volume and require heavy-duty components that consumer-grade parts suppliers cannot provide. We source and install commercial 3-phase motors, industrial-rated fan belts, and high-capacity grease containment systems designed for continuous institutional duty cycles.',
   },
 ];
 
@@ -44,7 +44,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Thompson's Station",
+        "name": "Hartsville",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -55,17 +55,17 @@ const schemaData = {
       "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Thompson's Station",
+        "name": "Hartsville",
         "addressRegion": "TN"
       },
-      "description": "Commercial kitchen exhaust fan parts, OEM upgrades, and professional installation for Thompson's Station restaurants. Belts, motors, grease containment for Williamson County kitchens."
+      "description": "Institutional and commercial kitchen exhaust parts and installation for Hartsville and Trousdale County. Heavy-duty motors, fan belts, access panels, and grease containment systems."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Thompson's Station, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/thompsons-station-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Hartsville, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/hartsville-tn/` }
       ]
     },
     {
@@ -84,8 +84,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Thompson's Station Kitchen Fan Parts | DDAN"
-  description="Commercial kitchen exhaust fan parts and installation for Thompson's Station restaurants. OEM upgrades, belts, motors, grease containment. Williamson County 24/7 service. (615) 881-6968."
+  title="Hartsville Commercial Kitchen Fan Parts | DDAN"
+  description="Institutional and commercial kitchen exhaust parts and installation in Hartsville, TN. Heavy-duty motors, fan belts, access panels. Trousdale County 24/7 service. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -98,17 +98,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Thompson's Station, TN</li>
+          <li class="text-white">Hartsville, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Thompson's Station Kitchen Fan Parts <span class="text-[#FF5E15]">& Installation</span>
+        Hartsville Institutional Kitchen Parts <span class="text-[#FF5E15]">& Installation</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        OEM replacement parts, commercial-grade upgrades, and professional installation for Williamson County's premium kitchens
+        Heavy-duty exhaust parts and professional installation for Trousdale County's institutional and commercial kitchens
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -159,14 +159,14 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Commercial Kitchen Exhaust Parts for Thompson's Station
+        Exhaust System Parts for Hartsville's Toughest Kitchens
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Thompson's Station is experiencing explosive commercial growth, with master-planned developments like Tollgate Village and high-end outparcels along Columbia Pike attracting premium dining concepts, artisan cafes, and upscale casual restaurants. Nearly every new commercial build sits beneath an expensive white TPO roof membrane — and Williamson County property managers enforce zero-tolerance policies for grease stains, roof damage, and any visible sign of exhaust system neglect. A single containment failure can trigger a lease violation that costs far more than the parts themselves.
+          Hartsville's commercial kitchen landscape is unique in Trousdale County. The town square is home to traditional Southern diners that have been feeding the community for decades, while massive institutional kitchens — including the Trousdale Turner Correctional Center — represent some of the highest-volume feeding operations in the region. Both ends of this spectrum put extraordinary demands on exhaust system components that standard parts suppliers simply cannot meet.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN Hood Cleaning and Repair supplies and installs the commercial-grade <a href="/restaurant-exhaust-fan-parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan parts</a> that Thompson's Station kitchens actually need — not the budget OEM components that builders install to save on construction costs. From heavy-duty fan belts and motors to complete grease containment systems, we deliver the right parts and handle the professional installation so your kitchen stays running, your roof stays clean, and your fire inspection passes without a question.
+          DDAN Hood Cleaning and Repair supplies and installs the <a href="/restaurant-exhaust-fan-parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">commercial-grade exhaust parts</a> that Hartsville kitchens actually need. From heavy-duty 3-phase motors for institutional operations to fire-rated access panels for older downtown ductwork, we deliver the right components and handle the full installation. Every part we supply is rated for real cooking loads — not the minimum-spec components that fail under actual use.
         </p>
       </div>
     </div>
@@ -179,16 +179,16 @@ const schemaData = {
         Exhaust Fan Parts We Supply & Install
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
-        Factory-installed components are the most common failure point in Thompson's Station's new restaurant buildings. We stock and install commercial-grade replacements:
+        Hartsville's institutional and commercial kitchens demand components built for punishing duty cycles:
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
         {[
-          { title: 'Fan Motors', desc: 'Commercial-grade 1-phase and 3-phase motors sized for real cooking volume. Direct replacements for undersized builder-installed units.' },
-          { title: 'Fan Belts', desc: 'Heavy-duty notched V-belts that resist heat, grease, and stretching. Replace cheap factory belts that snap under commercial load.' },
-          { title: 'Bearings & Pillow Blocks', desc: 'Sealed commercial bearings rated for high-heat environments. OEM bearings run hot under real loads and seize prematurely.' },
-          { title: 'Impellers & Fan Wheels', desc: 'Balanced replacement impellers and fan wheels. Grease buildup throws factory impellers off-balance, destroying motors.' },
-          { title: 'Grease Containment Systems', desc: 'Multi-tier rooftop grease catchers for Thompson\'s Station\'s pristine TPO roofs. Protect your lease and your roof investment.' },
-          { title: 'Hinge Kits', desc: 'NFPA 96-required hinge kits for rooftop upblast fans. Allow safe cleaning access without lifting the entire fan unit.' },
+          { title: 'Fan Motors', desc: 'Heavy-duty 3-phase motors rated for continuous institutional operation. Direct replacements for seized and overheated OEM units.' },
+          { title: 'Fan Belts', desc: 'Commercial-grade notched V-belts that resist the extreme heat and grease from high-volume Southern cooking and institutional frying.' },
+          { title: 'Bearings & Pillow Blocks', desc: 'Sealed commercial bearings for high-heat environments. Replace failed factory bearings before they destroy the entire motor assembly.' },
+          { title: 'Impellers & Fan Wheels', desc: 'Balanced replacement impellers and fan wheels. Heavy institutional grease loads throw impellers off-balance rapidly.' },
+          { title: 'Grease Containment', desc: 'Rooftop grease catchers and containment pads that satisfy Trousdale County wastewater regulations and protect your roof.' },
+          { title: 'Hinge Kits', desc: 'NFPA 96-required hinge kits for rooftop upblast fans. Essential for safe cleaning access on institutional and commercial systems.' },
         ].map((card) => (
           <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
             <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
@@ -206,11 +206,11 @@ const schemaData = {
         Additional Parts & Components
       </h2>
       <ul class="space-y-3 max-w-3xl">
-        <li class="check-item reveal-child"><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire-rated duct access panels</a> — required by NFPA 96 at every change of duct direction</li>
+        <li class="check-item reveal-child"><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire-rated duct access panels</a> — critical for Hartsville's older downtown buildings with concealed ductwork</li>
         <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression</a> links, nozzles, and fusible alloy replacements</li>
         <li class="check-item reveal-child">Stainless steel baffle grease filters for hood canopies</li>
         <li class="check-item reveal-child">Duct connectors, transitions, and replacement sections</li>
-        <li class="check-item reveal-child">Speed controllers and VFDs for exhaust fan systems</li>
+        <li class="check-item reveal-child">Speed controllers and VFDs for institutional exhaust systems</li>
         <li class="check-item reveal-child">Rooftop grease pads and curb adapters</li>
       </ul>
     </div>
@@ -221,9 +221,9 @@ const schemaData = {
     <div class="max-w-[1280px] mx-auto">
       <div class="bg-[#111111] border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
         <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts + Installation in One Visit</h2>
-        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-4">Save time. Save money. One point of accountability.</p>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-4">No second contractor. No coordination. Done right the first time.</p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-3xl">
-          Every part we supply gets installed by our certified technicians on the same trip. No waiting for a second contractor. No coordination headaches. We show up with the right parts, install them to NFPA 96 standards, and document everything with photos for Williamson County Fire/Rescue and your property manager. One call handles the entire job — parts, labor, warranty, and compliance documentation.
+          Every part we supply gets installed by our certified technicians on the same trip. Whether it is a 3-phase motor for a massive institutional kitchen or access panels for an older downtown diner, we arrive with the right components, install them to NFPA 96 standards, and document everything with photos for the Hartsville/Trousdale County Fire Department.
         </p>
         <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
           {business.phone}
@@ -236,14 +236,11 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Thompson's Station
+        Common Equipment Issues in Hartsville
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Because almost all commercial infrastructure in Thompson's Station is newly built, property managers in Tollgate Village and along Columbia Pike are ruthless regarding grease stains on expensive white TPO roofs. New restaurant owners often discover that cheaper OEM fan belts installed by builders fail rapidly under heavy commercial use. The factory-installed smooth V-belts stretch and crack within 18 months, and the undersized motors overheat when pushed to actual cooking-volume demands for extended daily runtimes.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Thompson's Station's premium dining establishments rely on strict preventative maintenance to avoid any risk of downtime. When a fan component fails, the cascade is immediate — kitchen fills with smoke, fire suppression risks triggering, and the landlord's pristine roof is exposed to uncontained grease. We stock the <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">commercial-grade belts and motors</a> that prevent these failures before they happen.
+          The intense daily volume required to feed massive institutional populations pushes exhaust fan motors past their intended limits, causing snapped belts and seized bearings. These are not standard restaurant loads — institutional kitchens run heavy-duty 3-phase motors at near-continuous duty cycles, and when those motors fail, the consequences cascade through the entire feeding operation. Meanwhile, older Southern diners on the Hartsville town square often have outdated, concealed ductwork that requires specialized <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panel installation</a> before the system can even be properly cleaned or inspected.
         </p>
       </div>
     </div>
@@ -253,16 +250,16 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Who We Supply Parts For in Thompson's Station
+        Who We Supply Parts For in Hartsville
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
         {[
-          'Upscale casual dining restaurants',
-          'Artisan cafes and specialty food concepts',
-          'High-end pizza restaurants',
-          'Fast-casual and QSR franchises',
-          'Corporate food concepts in mixed-use developments',
-          'Tollgate Village and Columbia Pike restaurants',
+          'Institutional and correctional facility kitchens',
+          'School and cafeteria operations',
+          'Southern diners and meat-and-threes',
+          'Historic downtown restaurants',
+          'Highway restaurant and fast-food operations',
+          'High-volume frying and cooking operations',
         ].map((item) => (
           <div class="check-item reveal-child">{item}</div>
         ))}
@@ -274,22 +271,22 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Thompson's Station Parts & Installation Service Area
+        Hartsville Parts & Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN provides 24/7 commercial kitchen exhaust parts and installation across all of Thompson's Station and southern Williamson County. Whether your restaurant is in Tollgate Village, along Columbia Pike, or in a new development off I-65, we deliver and install the parts your kitchen needs — day or night.
+          DDAN provides 24/7 commercial kitchen exhaust parts and installation across all of Hartsville and Trousdale County. Whether you need a 3-phase motor for an institutional kitchen, access panels for a downtown diner, or emergency fan parts on Highway 25, we deliver and install — day or night.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Thompson's Station:</span>
-            <a href="/cleaning/thompsons-station-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/thompsons-station-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Hartsville:</span>
+            <a href="/cleaning/hartsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/hartsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/spring-hill-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Spring Hill</a> and
-            <a href="/parts/franklin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Franklin</a>
+            <a href="/parts-installation/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lebanon</a> and
+            <a href="/parts-installation/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a>
           </p>
         </div>
       </div>
@@ -300,7 +297,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Thompson's Station Parts & Installation FAQ
+        Hartsville Parts & Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (

@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Can you supply parts for massive institutional kitchen exhaust systems in Hartsville?',
-    a: 'Yes. We specialize in high-capacity commercial and institutional kitchens. We stock the heavy-duty 3-phase motors, commercial-grade fan belts, and oversized bearings that institutional feeding operations demand. For specialized institutional components, we source directly from the manufacturer and typically deliver within 24 to 48 hours.',
+    q: 'Can you clean and supply parts for heavy BBQ exhaust systems in Lewisburg?',
+    a: `Yes. Traditional Southern BBQ and solid-fuel cooking produces thick, hardened carbon creosote that destroys standard components fast. We supply heavy-duty scrapers, commercial-grade replacement filters, and upgraded <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white">fan belts and motors</a> rated for the extreme grease loads that Lewisburg's BBQ joints produce.`,
   },
   {
-    q: 'Do I need access panels installed in my Hartsville restaurant\'s ductwork?',
-    a: `If you operate in an older building near the Hartsville square, likely yes. NFPA 96 code requires <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white">fire-rated access panels</a> at every change of duct direction to ensure the entire system can be properly cleaned. We supply and install these panels to bring older Trousdale County establishments up to current fire code.`,
+    q: 'Do I need access panels installed in my Lewisburg restaurant\'s ductwork?',
+    a: `If you operate in an older building near the Lewisburg square, likely yes. NFPA 96 code requires <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white">fire-rated access panels</a> at every change of duct direction to ensure the entire system can be properly cleaned. We supply and install these panels to bring older establishments up to code.`,
   },
   {
-    q: 'How quickly can you replace a seized exhaust fan motor in Hartsville?',
-    a: `We offer 24/7 emergency parts and installation service. If your exhaust fan goes down during a critical shift, our technicians dispatch immediately with common commercial-grade motors, belts, and bearings on every truck. Call ${business.phone} any time — day or night.`,
+    q: 'How quickly can you get replacement fan parts to Lewisburg?',
+    a: `We carry common commercial fan belts, motors, and bearings on every service truck. For emergency calls, we dispatch immediately with the parts needed for same-day installation. For less common components, we source directly from the manufacturer within 24 to 48 hours. Call ${business.phone} any time.`,
   },
   {
-    q: 'Can you supply parts for institutional kitchen exhaust systems?',
-    a: 'Absolutely. Institutional kitchens like correctional facilities, school cafeterias, and hospital kitchens run at extreme volume and require heavy-duty components that consumer-grade parts suppliers cannot provide. We source and install commercial 3-phase motors, industrial-rated fan belts, and high-capacity grease containment systems designed for continuous institutional duty cycles.',
+    q: 'Do you service restaurants in small towns?',
+    a: 'Absolutely. We service commercial kitchens across all of Middle Tennessee, from downtown Nashville to smaller communities like Lewisburg. Marshall County restaurants deserve the same professional-grade parts and installation as any metro kitchen. Our trucks are stocked and our crews are experienced with the older building infrastructure and industrial commissaries common in smaller Tennessee towns.',
   },
 ];
 
@@ -44,7 +44,7 @@ const schemaData = {
       },
       "areaServed": {
         "@type": "City",
-        "name": "Hartsville",
+        "name": "Lewisburg",
         "addressRegion": "TN"
       },
       "priceRange": "$$"
@@ -55,17 +55,17 @@ const schemaData = {
       "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
       "areaServed": {
         "@type": "City",
-        "name": "Hartsville",
+        "name": "Lewisburg",
         "addressRegion": "TN"
       },
-      "description": "Institutional and commercial kitchen exhaust parts and installation for Hartsville and Trousdale County. Heavy-duty motors, fan belts, access panels, and grease containment systems."
+      "description": "Hood parts and professional installation for Lewisburg commercial kitchens. Heavy-duty fan belts, motors, access panels, and grease containment for Marshall County restaurants."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/` },
-        { "@type": "ListItem", "position": 3, "name": "Hartsville, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts/hartsville-tn/` }
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Lewisburg, TN", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/lewisburg-tn/` }
       ]
     },
     {
@@ -84,8 +84,8 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Hartsville Commercial Kitchen Fan Parts | DDAN"
-  description="Institutional and commercial kitchen exhaust parts and installation in Hartsville, TN. Heavy-duty motors, fan belts, access panels. Trousdale County 24/7 service. (615) 881-6968."
+  title="Hood Parts & Installation Lewisburg, TN | DDAN"
+  description="Commercial kitchen hood parts and installation in Lewisburg, TN. Fan belts, motors, access panels, grease containment. Marshall County 24/7 service. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
@@ -98,17 +98,17 @@ const schemaData = {
         <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
           <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
+          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts & Installation</a></li>
           <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Hartsville, TN</li>
+          <li class="text-white">Lewisburg, TN</li>
         </ol>
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Hartsville Institutional Kitchen Parts <span class="text-[#FF5E15]">& Installation</span>
+        Hood Parts & Installation <span class="text-[#FF5E15]">in Lewisburg, Tennessee</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Heavy-duty exhaust parts and professional installation for Trousdale County's institutional and commercial kitchens
+        Heavy-duty replacement parts and professional installation for Marshall County's hardest-working kitchens
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
         <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
@@ -159,14 +159,14 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Exhaust System Parts for Hartsville's Toughest Kitchens
+        Commercial Exhaust Parts for Lewisburg's Working Kitchens
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Hartsville's commercial kitchen landscape is unique in Trousdale County. The town square is home to traditional Southern diners that have been feeding the community for decades, while massive institutional kitchens — including the Trousdale Turner Correctional Center — represent some of the highest-volume feeding operations in the region. Both ends of this spectrum put extraordinary demands on exhaust system components that standard parts suppliers simply cannot meet.
+          Lewisburg's dining scene is built to feed Marshall County's strong manufacturing workforce, and that means local kitchens run hard. Southern diners on the historic square, BBQ joints along Highway 31A, and industrial commissaries near the local manufacturing parks push their exhaust systems to the breaking point every lunch rush. When a fan belt snaps or a motor seizes during peak hours, the kitchen shuts down — and so does your revenue stream.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN Hood Cleaning and Repair supplies and installs the <a href="/restaurant-exhaust-fan-parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">commercial-grade exhaust parts</a> that Hartsville kitchens actually need. From heavy-duty 3-phase motors for institutional operations to fire-rated access panels for older downtown ductwork, we deliver the right components and handle the full installation. Every part we supply is rated for real cooking loads — not the minimum-spec components that fail under actual use.
+          DDAN Hood Cleaning and Repair supplies and installs the commercial-grade <a href="/restaurant-exhaust-fan-parts/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">exhaust fan parts</a> that Lewisburg kitchens demand. We carry heavy-duty fan belts, motors, bearings, and grease containment components on every service truck, and we handle the full installation so you are not coordinating between a parts supplier and a separate installer. One call, one crew, one trip — your kitchen stays running.
         </p>
       </div>
     </div>
@@ -179,16 +179,16 @@ const schemaData = {
         Exhaust Fan Parts We Supply & Install
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 max-w-4xl reveal-child">
-        Hartsville's institutional and commercial kitchens demand components built for punishing duty cycles:
+        Lewisburg's high-volume kitchens destroy standard parts fast. We stock commercial-grade replacements built for real cooking loads:
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
         {[
-          { title: 'Fan Motors', desc: 'Heavy-duty 3-phase motors rated for continuous institutional operation. Direct replacements for seized and overheated OEM units.' },
-          { title: 'Fan Belts', desc: 'Commercial-grade notched V-belts that resist the extreme heat and grease from high-volume Southern cooking and institutional frying.' },
-          { title: 'Bearings & Pillow Blocks', desc: 'Sealed commercial bearings for high-heat environments. Replace failed factory bearings before they destroy the entire motor assembly.' },
-          { title: 'Impellers & Fan Wheels', desc: 'Balanced replacement impellers and fan wheels. Heavy institutional grease loads throw impellers off-balance rapidly.' },
-          { title: 'Grease Containment', desc: 'Rooftop grease catchers and containment pads that satisfy Trousdale County wastewater regulations and protect your roof.' },
-          { title: 'Hinge Kits', desc: 'NFPA 96-required hinge kits for rooftop upblast fans. Essential for safe cleaning access on institutional and commercial systems.' },
+          { title: 'Fan Motors', desc: 'Heavy-duty 1-phase and 3-phase motors rated for the sustained runtimes of Lewisburg\'s busiest diners and commissaries.' },
+          { title: 'Fan Belts', desc: 'Commercial-grade notched V-belts that resist the intense heat and grease loads from heavy Southern cooking.' },
+          { title: 'Bearings & Pillow Blocks', desc: 'Sealed commercial bearings designed for high-heat environments. Replace seized factory bearings before they destroy the motor.' },
+          { title: 'Impellers & Fan Wheels', desc: 'Balanced replacement impellers. Grease-caked fan wheels throw systems off-balance and cause destructive vibration.' },
+          { title: 'Grease Containment', desc: 'Rooftop grease catchers and containment pads. Keep Marshall County wastewater inspectors satisfied and your roof protected.' },
+          { title: 'Hinge Kits', desc: 'NFPA 96-compliant hinge kits for upblast exhaust fans. Required for safe rooftop cleaning access.' },
         ].map((card) => (
           <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 reveal-child">
             <h3 class="font-heading text-white text-lg font-semibold mb-2">{card.title}</h3>
@@ -206,11 +206,11 @@ const schemaData = {
         Additional Parts & Components
       </h2>
       <ul class="space-y-3 max-w-3xl">
-        <li class="check-item reveal-child"><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire-rated duct access panels</a> — critical for Hartsville's older downtown buildings with concealed ductwork</li>
+        <li class="check-item reveal-child"><a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire-rated duct access panels</a> — critical for Lewisburg's older downtown buildings with concealed ductwork</li>
         <li class="check-item reveal-child"><a href="/restaurant-fire-suppression-systems/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fire suppression</a> links, nozzles, and fusible alloy replacements</li>
         <li class="check-item reveal-child">Stainless steel baffle grease filters for hood canopies</li>
         <li class="check-item reveal-child">Duct connectors, transitions, and replacement sections</li>
-        <li class="check-item reveal-child">Speed controllers and VFDs for institutional exhaust systems</li>
+        <li class="check-item reveal-child">Speed controllers and VFDs for exhaust fan systems</li>
         <li class="check-item reveal-child">Rooftop grease pads and curb adapters</li>
       </ul>
     </div>
@@ -220,10 +220,10 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <div class="bg-[#111111] border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
-        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts + Installation in One Visit</h2>
-        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-4">No second contractor. No coordination. Done right the first time.</p>
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-bold mb-3">Parts + Installation in One Trip</h2>
+        <p class="text-[#FF5E15] font-heading text-lg font-semibold mb-4">No second contractor. No waiting. Done right the first time.</p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 max-w-3xl">
-          Every part we supply gets installed by our certified technicians on the same trip. Whether it is a 3-phase motor for a massive institutional kitchen or access panels for an older downtown diner, we arrive with the right components, install them to NFPA 96 standards, and document everything with photos for the Hartsville/Trousdale County Fire Department.
+          Every part we supply gets installed by our certified technicians on the same visit. We arrive with the right components, install them to NFPA 96 standards, and document everything with photos for the Lewisburg Fire Department and your records. One call handles the entire job — parts, labor, and compliance documentation.
         </p>
         <a href={`tel:${business.phoneRaw}`} class="inline-block text-white font-display text-3xl md:text-5xl font-bold tracking-wide hover:text-[#FF5E15] transition-all duration-300">
           {business.phone}
@@ -236,11 +236,14 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Hartsville
+        Common Equipment Issues in Lewisburg
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The intense daily volume required to feed massive institutional populations pushes exhaust fan motors past their intended limits, causing snapped belts and seized bearings. These are not standard restaurant loads — institutional kitchens run heavy-duty 3-phase motors at near-continuous duty cycles, and when those motors fail, the consequences cascade through the entire feeding operation. Meanwhile, older Southern diners on the Hartsville town square often have outdated, concealed ductwork that requires specialized <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panel installation</a> before the system can even be properly cleaned or inspected.
+          The intense daily lunch rush from Lewisburg's local manufacturing plants pushes exhaust fan motors past their intended limits, causing snapped belts and seized bearings. Older Southern diners on the historic square often have outdated, concealed ductwork requiring specialized scraping and fire-rated access panel installation. The Lewisburg Fire Department strictly enforces fire codes in the downtown overlay, where shared brick walls make a grease fire catastrophic for entire blocks.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Heavy BBQ and solid-fuel cooking operations generate a thick carbon creosote that standard pressure washing cannot remove. This hardened buildup accelerates component wear — fan wheels become unbalanced, belts run hot against coated pulleys, and bearings fail from the additional strain. We supply the heavy-duty <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">commercial parts</a> designed to withstand these extreme conditions.
         </p>
       </div>
     </div>
@@ -250,16 +253,16 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Who We Supply Parts For in Hartsville
+        Who We Supply Parts For in Lewisburg
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
         {[
-          'Institutional and correctional facility kitchens',
-          'School and cafeteria operations',
           'Southern diners and meat-and-threes',
+          'BBQ restaurants and smokehouses',
+          'Fast-casual and QSR franchises',
+          'Industrial park commissaries and cafeterias',
           'Historic downtown restaurants',
-          'Highway restaurant and fast-food operations',
-          'High-volume frying and cooking operations',
+          'High-volume frying operations',
         ].map((item) => (
           <div class="check-item reveal-child">{item}</div>
         ))}
@@ -271,22 +274,22 @@ const schemaData = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Hartsville Parts & Installation Service Area
+        Lewisburg Parts & Installation Service Area
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN provides 24/7 commercial kitchen exhaust parts and installation across all of Hartsville and Trousdale County. Whether you need a 3-phase motor for an institutional kitchen, access panels for a downtown diner, or emergency fan parts on Highway 25, we deliver and install — day or night.
+          DDAN provides 24/7 commercial kitchen exhaust parts and installation across all of Lewisburg and Marshall County. Whether you need an emergency fan motor at a diner on the square or scheduled parts installation at an industrial commissary on Highway 31A, we deliver and install — day or night.
         </p>
         <div class="space-y-3 reveal-child">
           <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Hartsville:</span>
-            <a href="/cleaning/hartsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/hartsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
+            <span class="text-[#FF5E15] font-semibold">Also in Lewisburg:</span>
+            <a href="/cleaning/lewisburg-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+            <a href="/repair/lewisburg-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
           </p>
           <p class="text-[#D4D4D4] font-body text-base">
             <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts/lebanon-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Lebanon</a> and
-            <a href="/parts/gallatin-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Gallatin</a>
+            <a href="/parts-installation/shelbyville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Shelbyville</a> and
+            <a href="/parts-installation/columbia-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Columbia</a>
           </p>
         </div>
       </div>
@@ -297,7 +300,7 @@ const schemaData = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Hartsville Parts & Installation FAQ
+        Lewisburg Parts & Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (
