@@ -6,20 +6,20 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'Are your technicians credentialed to work on-base at Fort Campbell?',
-    a: 'Yes. We understand the strict security and access protocols required to operate on a federal military installation. Our crews are organized, professional, and ready to deploy for on-base service without logistical delays.',
+    q: 'Are your technicians credentialed for on-base installation?',
+    a: 'Yes. We understand the strict security and access protocols required to operate on a federal military installation like Fort Campbell. Our crews are organized, professional, and experienced with DoD facility requirements. We coordinate with base contracting and fire marshal offices to ensure seamless on-base service without logistical delays.',
   },
   {
     q: 'Can you service massive military Dining Facility (DFAC) exhaust systems?',
-    a: 'Absolutely. We specialize in high-capacity industrial and institutional kitchens. We have the heavy-duty scraping equipment, specialized chemicals, and commercial-grade replacement parts necessary to handle the massive output of a base DFAC.',
+    a: 'Absolutely. We specialize in high-capacity industrial and institutional kitchens. We have the heavy-duty scraping equipment, specialized chemicals, and commercial-grade replacement parts — including the heavy-duty 3-phase motors required to handle the massive output of a base DFAC feeding thousands of troops daily.',
   },
   {
     q: 'What fire codes do you follow for Fort Campbell kitchens?',
-    a: 'We strictly adhere to NFPA 96 standards, which align with the heavy federal scrutiny of Department of Defense fire marshals. This includes bare-metal duct cleaning, functional hinge kits, and up-to-date fire suppression links.',
+    a: 'We strictly adhere to NFPA 96 standards, which align with the stringent federal Unified Facilities Criteria (UFC) enforced by Department of Defense fire marshals. This includes bare-metal duct cleaning, functional hinge kits, fire-rated access panels, and up-to-date fire suppression links.',
   },
   {
-    q: 'Are your technicians credentialed for on-base installation?',
-    a: `Yes. Our team is experienced in navigating the strict Department of Defense security protocols and base access requirements at Fort Campbell. We coordinate with base facilities management to ensure smooth, efficient service with zero logistical delays. Call ${business.phone} to schedule on-base parts delivery and installation.`,
+    q: 'What if I ordered the wrong part?',
+    a: `If you bought from us, our free fitting consult means we verified the part before ordering — wrong parts don't happen. If you bought elsewhere and it doesn't fit, call us. We can source the correct part and install it, often same-day. ${business.phone}`,
   },
 ];
 
@@ -59,7 +59,7 @@ const schemaData = {
         "name": "Fort Campbell",
         "addressRegion": "KY"
       },
-      "description": "Heavy-duty exhaust fan parts, motors, belts, bearings, and professional installation for Fort Campbell military kitchens, DFACs, and PX food courts."
+      "description": "Heavy-duty exhaust fan parts, motors, belts, bearings, filters, and professional installation for Fort Campbell's military DFACs, PX food courts, and on-base kitchens."
     },
     {
       "@type": "BreadcrumbList",
@@ -86,11 +86,11 @@ const schemaData = {
 
 <BaseLayout
   title="Fort Campbell Military Kitchen Parts | DDAN"
-  description="Heavy-duty exhaust fan parts and professional installation for Fort Campbell military kitchens, DFACs, and PX food courts. 3-phase motors, commercial belts, and industrial-grade components. (615) 881-6968."
+  description="Heavy-duty exhaust fan parts for Fort Campbell's military DFACs, PX food courts, and on-base kitchens. DoD fire marshal compliant. Same-day available. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
-  <!-- HERO -->
+  <!-- SECTION 1: HERO -->
   <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/exhaust-fan-parts.webp');"></div>
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
@@ -106,20 +106,20 @@ const schemaData = {
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Fort Campbell Military Kitchen <span class="text-[#FF5E15]">Exhaust Parts</span>
+        Military Kitchen Exhaust Parts at <span class="text-[#FF5E15]">Fort Campbell, KY</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        The 101st Airborne's kitchens feed thousands daily. We deliver the heavy-duty parts that military-grade exhaust systems demand.
+        Serving Fort Campbell's massive DFACs, PX food courts, and on-base franchise kitchens. Heavy-duty 3-phase parts ready now or next-day sourced. DoD fire marshal compliant.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
-        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#FF5E15] text-white font-body text-lg font-medium rounded hover:scale-95 hover:bg-[#E54F0D] transition-all duration-150">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Free Consult: {business.phone}
+          Free Fitting Consult: {business.phone}
         </a>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Request Service
-        </button>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-red-600 rounded hover:bg-red-600 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          EMERGENCY FAN REPLACEMENT
+        </a>
       </div>
       <div class="flex flex-row items-center gap-3 md:gap-8">
         {[
@@ -138,7 +138,7 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- VALUE PROPOSITION BANNER -->
+  <!-- SECTION 2: VALUE PROP CARDS -->
   <section class="bg-[#111111] py-10 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -148,7 +148,7 @@ const schemaData = {
           { icon: 'shield', label: 'Warranty on Parts & Labor' },
           { icon: 'phone', label: 'Free Fitting Consult' },
         ].map((item) => (
-          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 text-center transition-all duration-300 reveal-child">
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-4 text-center transition-all duration-300 reveal-child">
             <div class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full mx-auto mb-3">
               {item.icon === 'bolt' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>}
               {item.icon === 'tools' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>}
@@ -162,41 +162,24 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- LOCAL INTRO -->
+  <!-- SECTION 3: PRODUCT CATALOG -->
+
+  <!-- Exhaust Fans -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Fort Campbell's Military Kitchens Need Specialized Parts
-      </h2>
-      <div class="max-w-4xl space-y-5">
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Fort Campbell is home to the 101st Airborne Division and represents one of the largest continuous dining populations in the region. Sprawling Military Dining Facilities (DFACs), large-scale Post Exchange (PX) food courts, and on-base corporate franchises feed thousands of troops daily. The unprecedented scale of institutional feeding — high-volume grilling, frying, and massive cafeteria operations running constantly — subjects exhaust fan motors to continuous, punishing duty cycles that no standard commercial equipment was designed to sustain.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Operating on a major military installation presents challenges that civilian contractors rarely encounter. Compliance is not just local — it is federal. Department of Defense fire marshals rigidly enforce both NFPA 96 standards and federal Unified Facilities Criteria (UFC). Zero margin for error. Federal base public works enforces rigorous environmental controls requiring impeccable rooftop grease containment. Every component in your exhaust system must meet these exacting federal standards.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The sheer scale of DFAC operations means exhaust fan motors are subjected to relentless duty cycles, requiring heavy-duty 3-phase commercial motors and constant belt monitoring. Standard OEM parts rated for 8 to 12 hours of daily use cannot handle the 16 to 20 hours that military dining facilities routinely demand. Motors overheat, bearings seize, and belts snap without warning. You need a parts supplier who stocks the heavy-duty replacements that military-grade systems require.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Navigating base access and strict federal security protocols requires highly organized, credentialed service teams. DDAN's crews are experienced in Fort Campbell's access requirements and coordinate with base facilities management for efficient, delay-free service. When your DFAC exhaust fan fails during the dinner rush for hundreds of troops, you need a partner who can get through the gate and get the job done.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXHAUST FANS — THE MAIN EVENT -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Fort Campbell Kitchens
+        Exhaust Fans — The Heart of Your Kitchen
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Fort Campbell's institutional dining facilities demand exhaust fans built for extreme, continuous duty cycles. We stock, source, and install every type of commercial and institutional kitchen exhaust fan.
+        Your exhaust fan moves every cubic foot of air through your kitchen ventilation system. When it fails, your kitchen shuts down. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
+      <!-- Upblast -->
       <div class="mb-12 reveal">
-        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
+        <div class="flex items-center gap-3 mb-4">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl reveal-child">Upblast Centrifugal Exhaust Fans</h3>
+          <span class="bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wider px-3 py-1 rounded-full">MOST POPULAR</span>
+        </div>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
         <ul class="space-y-2 mb-4">
           <li class="check-item reveal-child">Direct drive — sealed motor, less maintenance, more energy efficient</li>
@@ -204,8 +187,10 @@ const schemaData = {
           <li class="check-item reveal-child">High-speed direct drive (CaptiveAire DU series and equivalents)</li>
           <li class="check-item reveal-child">Sizes from 400 CFM to 6,000+ CFM — matched to your kitchen's requirements</li>
         </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
       </div>
 
+      <!-- Downblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
@@ -213,8 +198,10 @@ const schemaData = {
           <li class="check-item reveal-child">Discharges air downward along the rooftop for quieter operation</li>
           <li class="check-item reveal-child">Direct and belt drive options for different performance needs</li>
         </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
       </div>
 
+      <!-- Inline -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
@@ -222,11 +209,27 @@ const schemaData = {
           <li class="check-item reveal-child">Ideal for interior installations and multi-floor exhaust runs</li>
           <li class="check-item reveal-child">Available in grease-rated and general ventilation configurations</li>
         </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
       </div>
 
+      <!-- Axial + Propeller -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="reveal">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Axial / Tube Fans</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">High-volume air movement through duct systems. Common in industrial kitchens and large-scale food production facilities.</p>
+          <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+        </div>
+        <div class="reveal">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Propeller Wall &amp; Roof Fans</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">General ventilation for warehouses, loading docks, and storage areas adjacent to commercial kitchens.</p>
+          <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Fan Replacement Parts -->
       <div class="mb-8 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             'Motors (ODP, TEFC, single & 3-phase)',
             'Fan wheels & blade assemblies',
@@ -236,8 +239,9 @@ const schemaData = {
             'Hinge kits (NFPA 96 required)',
             'Speed controllers & VFDs',
             'Electrical disconnects & switches',
+            'Impellers & replacement wheels',
           ].map((part) => (
-            <div class="flex items-start gap-2 bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 transition-all duration-300 reveal-child">
+            <div class="flex items-start gap-2 bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-4 transition-all duration-300 reveal-child">
               <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
               <span class="text-[#D4D4D4] text-sm font-heading">{part}</span>
             </div>
@@ -249,8 +253,8 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- OTHER PARTS: MUA, FILTERS, GREASE -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+  <!-- Make-Up Air Units -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
         Make-Up Air Units
@@ -258,111 +262,155 @@ const schemaData = {
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
         Your exhaust system can't function without proper make-up air. If your front doors slam shut or you feel negative pressure, you need a MUA unit.
       </p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
         {[
-          { title: 'Gas-Fired Heated', desc: 'The standard for military installations. Tempers incoming air during winter to maintain comfort and airflow balance in large dining facilities.' },
-          { title: 'Unheated / Ambient', desc: 'Simpler installation for seasonal operations or supplemental airflow. Brings in outside air without conditioning.' },
-          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding institutional environments.' },
+          { title: 'Gas-Fired Heated', desc: 'The standard for military installations. Tempers incoming air during Kentucky winters to maintain comfort and airflow balance.' },
+          { title: 'Electric Heated', desc: 'Alternative heating option for locations without gas access. Higher operating cost but simpler installation.' },
+          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding DFAC environments.' },
+          { title: 'Perforated Supply Plenum', desc: 'Mounts directly to your hood. Delivers tempered air right at the cooking line for maximum efficiency.' },
         ].map((item) => (
-          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
             <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
             <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
           </div>
         ))}
       </div>
+    </div>
+  </section>
 
+  <!-- Filters & Baffles -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
         Filters &amp; Baffles
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Wrong filter = fire hazard + failed inspection. We match exact specs for your hood system. Standard sizes in stock, custom sizes sourced within 24-48 hours.
+        Wrong filter = fire hazard + failed inspection. We match exact specifications for your hood system.
       </p>
-      <ul class="space-y-3 mb-12">
-        <li class="check-item reveal-child">Stainless steel baffle filters — Type 304 or 430, dishwasher safe</li>
-        <li class="check-item reveal-child">Mesh grease filters — aluminum or galvanized steel for lower-grease applications</li>
-        <li class="check-item reveal-child">Charcoal / carbon filters — odor control for ventless and recirculating systems</li>
-      </ul>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+        {[
+          { title: 'Stainless Steel Baffle Filters', desc: 'Industry standard. Type 304 or 430 stainless steel. Captures grease through multi-pass baffles. Dishwasher safe.' },
+          { title: 'Mesh Grease Filters', desc: 'Budget option for lower-grease applications. Aluminum or galvanized steel mesh construction.' },
+          { title: 'Charcoal / Carbon Filters', desc: 'Odor control for ventless hoods and recirculating systems. Removes smoke and cooking odors from exhaust air.' },
+        ].map((item) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#999] text-sm reveal-child">Standard sizes in stock. Custom sizes sourced within 24-48 hours. <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call to verify your specs — {business.phone}</a></p>
+    </div>
+  </section>
 
+  <!-- Grease Containment -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Federal base public works enforces rigorous environmental controls. We supply and install complete containment systems to maintain base infrastructure and meet federal requirements.
+        Federal base public works enforces rigorous environmental controls to maintain base infrastructure. Rooftop grease containment must be impeccable. We supply and install complete containment systems that meet DoD requirements.
       </p>
-      <ul class="space-y-3">
-        <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
-        <li class="check-item reveal-child">Grease cups, drip pans, and overflow protection</li>
-        <li class="check-item reveal-child">Grease pillows and absorbent pads — replaceable media</li>
-        <li class="check-item reveal-child">Grease duct access doors — NFPA 96 required every 12 feet</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- INSTALLATION UPSELL -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
-        <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-4">
-          Discounted Installation When You Buy From Us
-        </h2>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
-          Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fort Campbell exhaust fan repair</a> page for diagnostic and repair services.
-        </p>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Schedule Installation
-        </button>
+      <div class="grid sm:grid-cols-2 gap-4 mb-6">
+        {[
+          { title: 'Rooftop Grease Boxes', desc: 'Full containment systems that capture grease before it hits your roof membrane. Sized for DFAC-volume output.' },
+          { title: 'Grease Cups & Drip Pans', desc: 'For individual fan units and overflow protection on existing systems.' },
+          { title: 'Grease Pillows & Absorbent Pads', desc: 'Replaceable absorption media for ongoing rooftop grease management.' },
+          { title: 'Grease Duct Access Doors', desc: 'NFPA 96 required every 12 feet for proper cleaning access. Fire-rated.' },
+        ].map((item) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES AT FORT CAMPBELL -->
+  <!-- SECTION 4: EMERGENCY CALLOUT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-red-600 rounded-2xl p-8 md:p-12 reveal-child">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="w-8 h-8 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h2 class="font-heading text-red-500 text-lg md:text-[2.2rem] font-semibold leading-[1.2]">
+            Emergency Parts &amp; Installation for Fort Campbell, KY
+          </h2>
+        </div>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
+          DFAC exhaust fan seized before the dinner rush for hundreds of troops? Motor grinding at the PX food court? Fort Campbell's kitchens feed the 101st Airborne — they don't stop. DDAN provides emergency exhaust fan parts and installation for Fort Campbell, KY — including nights, weekends, and holidays.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
+          We stock heavy-duty 3-phase motors, commercial-grade belts, and bearings for same-day emergency deployment to Fort Campbell. Our crews navigate base access protocols efficiently. One call gets a credentialed technician with the right part heading your way.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2 px-7 py-3 bg-red-600 text-white font-heading text-lg font-bold rounded hover:bg-red-700 transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          Emergency Line: {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: COMMON EQUIPMENT ISSUES AT FORT CAMPBELL -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues at Fort Campbell
+        Common Equipment Issues at Fort Campbell, KY
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The sheer scale of DFAC operations means exhaust fan motors are subjected to continuous, punishing duty cycles. Heavy-duty 3-phase commercial motors running 16 to 20 hours daily require exact frame size, voltage, and RPM specs matched immediately. Standard OEM parts burn out rapidly under this kind of load. DDAN stocks the heavy-duty <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">motors and belts</a> that military-grade systems demand.
+          The sheer scale of Fort Campbell's DFAC operations means exhaust fan motors are subjected to continuous, punishing duty cycles that civilian restaurants rarely approach. These massive kitchens feed thousands of soldiers daily with high-volume grilling, frying, and cafeteria operations running constantly. Standard OEM motors fail rapidly under this military-grade workload — you need heavy-duty 3-phase commercial motors designed for continuous operation. DDAN stocks and sources the exact motors, belts, and bearings required for <a href="/repair/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">military kitchen exhaust repair at Fort Campbell</a>.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Strict federal Unified Facilities Criteria require impeccable <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kit</a> installation on all upblast fans, properly installed fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> at every duct direction change, and flawless rooftop grease containment. Department of Defense fire marshals enforce these requirements with zero tolerance.
+          Navigating base access and strict federal security protocols requires highly organized, credentialed service teams. Many contractors struggle with the logistics of on-base work — delayed gate access, incomplete documentation, unfamiliarity with DoD facility requirements. DDAN's crews are experienced with military installation protocols, ensuring we arrive on-time and fully prepared. We coordinate with base contracting and DoD fire marshals to ensure zero disruption to your dining operations.
         </p>
-      </div>
-
-      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "When an aging, heavy-duty exhaust fan motor at a major Fort Campbell DFAC began seizing just before the dinner rush for hundreds of troops, DDAN's team swiftly navigated base access protocols and arrived on-site. We replaced the massive 3-phase motor, installed commercial-grade belts, and completely restored the cafeteria's airflow without a single missed meal."
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Fort Campbell's heavy-duty industrial roofing — standing seam metal and strictly maintained flat commercial membranes — requires equally robust grease containment. The unprecedented scale of institutional feeding means grease output far exceeds what standard containment systems can handle. We install <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">oversized rooftop grease containment systems</a> designed for DFAC-volume output, protecting your roof and satisfying federal environmental controls. Pair with <a href="/cleaning/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">regular hood cleaning</a> to maintain compliance.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- WHO THIS IS FOR -->
+  <!-- SECTION 6: LOCAL COMPLIANCE -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[900px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Base Facilities Management</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need a part fast for a DFAC or PX food court? We handle everything — identify the part, verify compatibility, navigate base access, deliver it, and install it. One call, one team, zero logistical delays.
-          </p>
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Fort Campbell Parts &amp; Compliance
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <div class="bg-black border border-[#333] rounded-2xl p-6 reveal-child">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+              <strong class="text-white">Department of Defense (DoD) Fire Marshals / Fort Campbell Fire Department</strong> enforce extreme compliance standards. Facilities must comply not only with NFPA 96 but also with stringent federal Unified Facilities Criteria (UFC) codes. Zero margin for error. Inspectors verify hinge kits, fire-rated access panels, fire suppression tags, and bare-metal cleanliness with military precision.
+            </p>
+          </div>
         </div>
-        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">On-Base Franchise Operators</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Running a franchise on base means meeting both corporate and federal compliance standards. We stock the parts your system needs and install them with full documentation for your records.
+        <div class="bg-black border border-[#333] rounded-2xl p-6 reveal-child">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+              <strong class="text-white">Federal Base Public Works</strong> enforces rigorous environmental controls to maintain base infrastructure, requiring impeccable rooftop grease containment. Degraded grease boxes, missing pads, or leaking drip pans trigger federal corrective action — a far more serious consequence than civilian municipal fines.
+            </p>
+          </div>
+        </div>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our full <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance guide</a> for details on what inspectors look for and how every part we sell meets those standards.
+        </p>
+        <div class="border-l-4 border-[#FF5E15] bg-black p-6 rounded-r-xl reveal-child">
+          <p class="text-white font-heading font-semibold text-base leading-relaxed">
+            Every part we sell meets NFPA 96 and UFC specifications. Every installation we perform passes DoD fire marshal inspection.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICE AREA -->
+  <!-- SECTION 7: SERVICE AREA + CROSS-LINKS -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
@@ -370,24 +418,31 @@ const schemaData = {
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across the entirety of the Fort Campbell installation. Whether you manage a massive DFAC, an on-base fast-food franchise at the PX, or an officers' club, we stock the parts Fort Campbell kitchens need and install them with full federal compliance documentation.
+          DDAN delivers exhaust fan parts and professional installation across the entirety of the Fort Campbell installation in Kentucky — massive DFACs, PX food courts, on-base franchise restaurants, and officers' clubs. We also service the immediate off-base corridors.
         </p>
-        <div class="space-y-3 reveal-child">
-          <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also at Fort Campbell:</span>
-            <a href="/cleaning/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/fort-campbell-ky/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
-          </p>
-          <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts-installation/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Clarksville</a>
-          </p>
+        <div class="space-y-4 reveal-child">
+          <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-5">
+            <p class="text-white font-heading font-semibold mb-2">All DDAN services at Fort Campbell:</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/cleaning/fort-campbell-ky/" class="inline-flex items-center gap-2 px-4 py-2 bg-black border border-[#FF5E15] rounded-xl text-[#FF5E15] font-heading text-sm font-semibold hover:bg-[#FF5E15] hover:text-white transition-all duration-300">Hood Cleaning</a>
+              <a href="/repair/fort-campbell-ky/" class="inline-flex items-center gap-2 px-4 py-2 bg-black border border-[#FF5E15] rounded-xl text-[#FF5E15] font-heading text-sm font-semibold hover:bg-[#FF5E15] hover:text-white transition-all duration-300">Hood Repair</a>
+            </div>
+          </div>
+          <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-5">
+            <p class="text-white font-heading font-semibold mb-2">Also serving nearby:</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/parts-installation/clarksville-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Clarksville</a>
+            </div>
+          </div>
         </div>
+        <p class="reveal-child">
+          <a href="/parts-installation/" class="text-[#FF5E15] font-heading font-semibold underline hover:text-white transition-all duration-300">View all 29 parts &amp; installation service areas &rarr;</a>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- SECTION 8: FAQ -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
@@ -395,13 +450,13 @@ const schemaData = {
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (
-          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
             <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
               <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
               <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
             </summary>
             <div class="px-5 pb-5">
-              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+              <p class="text-[#D4D4D4] font-heading text-base leading-relaxed" set:html={faq.a}></p>
             </div>
           </details>
         ))}
@@ -409,6 +464,7 @@ const schemaData = {
     </div>
   </section>
 
+  <!-- SECTION 9: TRUCK CTA -->
   <TruckCTA />
 </BaseLayout>
 

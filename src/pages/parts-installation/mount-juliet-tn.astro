@@ -6,34 +6,35 @@ const HP = '/images/homepage';
 
 const faqs = [
   {
-    q: 'My Mount Juliet landlord is demanding a rooftop grease containment system. Can you install one?',
-    a: 'Yes. Providence Marketplace and North Mt. Juliet Road property managers are increasingly requiring rooftop grease containment as a lease condition. We install high-capacity grease boxes, containment pads, and drain-line systems that protect expensive white TPO roofing membranes. Every installation includes photo documentation for your landlord\'s property management records.',
-  },
-  {
-    q: 'How fast can you get exhaust fan parts in Mount Juliet?',
-    a: 'Because DDAN is headquartered in Mount Juliet, we stock the most common motors, belts, bearings, and fan wheels locally for same-day pickup or installation. For specialty or less common parts, we source through our commercial supply network within 24–48 hours. Mt. Juliet businesses get the fastest parts access in our entire service area.',
-  },
-  {
-    q: "Are you familiar with the Fire Department of Mt. Juliet's equipment requirements?",
-    a: "Absolutely — FDMJ is our local fire department. They enforce NFPA 96 rigorously on all new builds and existing inspections. We know exactly what their inspectors look for: proper hinge kits, functional fire suppression, and equipment that meets current commercial standards. Every part we install comes with documentation for your compliance file.",
-  },
-  {
     q: 'Do you offer priority parts service for local Mt. Juliet restaurants?',
-    a: "Yes. As our home base, Mount Juliet businesses receive first-priority scheduling, same-day parts availability from our local stock, and zero travel fees. When a Providence Marketplace kitchen needs a motor replaced, our crew can often be on-site within 20 minutes with the exact part in hand.",
+    a: 'Absolutely. Mt. Juliet is our hometown — our trucks deploy from here. Local restaurants get the fastest response times in our entire service area. If your fan goes down during the dinner rush, we can often be on-site with the correct replacement part before the kitchen cools down.',
+  },
+  {
+    q: 'My Mount Juliet landlord is demanding a rooftop grease containment system. Can you install one?',
+    a: 'Yes. Property managers in developments like Providence Marketplace have zero tolerance for grease damaging their white TPO roofs. We install high-capacity, multi-tier rooftop grease containment systems and provide photo documentation to satisfy your landlord\'s requirements.',
+  },
+  {
+    q: 'Are you familiar with the Fire Department of Mt. Juliet\'s inspection requirements?',
+    a: 'We work closely with local codes. We ensure your entire exhaust system — from installing NFPA-compliant hinge kits to executing flawless bare-metal cleaning — meets the exact standards required by Mt. Juliet fire inspectors. Every part we install is documented with photos for your compliance records.',
+  },
+  {
+    q: 'What if I ordered the wrong part?',
+    a: `If you bought from us, our free fitting consult means we verified the part before ordering — wrong parts don't happen. If you bought elsewhere and it doesn't fit, call us. We can source the correct part and install it, often same-day. ${business.phone}`,
   },
 ];
 
-const schema = {
+const siteUrl = import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev';
+const schemaData = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "@id": `${siteUrl}/#business`,
       "name": business.name,
-      "image": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/images/hero/hero-1.jpg`,
       "telephone": business.phone,
       "email": business.email,
-      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "url": siteUrl,
+      "image": `${siteUrl}/images/logo.png`,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": business.address.street,
@@ -42,21 +43,30 @@ const schema = {
         "postalCode": "37122",
         "addressCountry": "US"
       },
-      "areaServed": { "@type": "City", "name": "Mount Juliet, TN" }
+      "areaServed": {
+        "@type": "City",
+        "name": "Mount Juliet",
+        "addressRegion": "TN"
+      },
+      "priceRange": "$$"
     },
     {
       "@type": "Service",
-      "name": "Commercial Kitchen Exhaust Fan Parts & Installation",
-      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
-      "areaServed": { "@type": "City", "name": "Mount Juliet, TN" },
-      "description": "Same-day exhaust fan parts and professional installation from DDAN's home base in Mount Juliet — motors, belts, bearings, filters, grease containment, and make-up air units."
+      "serviceType": "Commercial Kitchen Exhaust Parts and Installation",
+      "provider": { "@id": `${siteUrl}/#business` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Mount Juliet",
+        "addressRegion": "TN"
+      },
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Mount Juliet's fast-growing restaurant scene. Our home base — fastest response times guaranteed."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
-        { "@type": "ListItem", "position": 3, "name": "Mount Juliet, TN" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Mount Juliet, TN", "item": `${siteUrl}/parts-installation/mount-juliet-tn/` }
       ]
     },
     {
@@ -64,7 +74,10 @@ const schema = {
       "mainEntity": faqs.map(faq => ({
         "@type": "Question",
         "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
       }))
     }
   ]
@@ -72,12 +85,12 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Same-Day Exhaust Parts in Mt. Juliet, TN | DDAN"
-  description="Same-day exhaust fan parts and professional installation from DDAN's home base in Mt. Juliet. Motors, belts, filters, grease containment. Call (615) 881-6968."
+  title="Same-Day Exhaust Parts in Mt. Juliet — Our Home Base | DDAN"
+  description="DDAN's home base in Mt. Juliet means fastest exhaust fan parts delivery in Middle TN. Motors, belts, filters from local stock. Discounted installation. (615) 881-6968."
 >
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
-  <!-- HERO -->
+  <!-- SECTION 1: HERO -->
   <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/exhaust-fan-parts.webp');"></div>
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
@@ -91,24 +104,23 @@ const schema = {
           <li class="text-white">Mount Juliet, TN</li>
         </ol>
       </nav>
-      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
+      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair — Home Base</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Same-Day Exhaust Fan Parts in <span class="text-[#FF5E15]">Mt. Juliet</span> — Our Home Base
+        Same-Day Exhaust Parts in <span class="text-[#FF5E15]">Mt. Juliet</span> — Our Home Base
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Local stock, zero travel fees, and the fastest parts service in Middle Tennessee — because this is home
+        Our trucks deploy from Mt. Juliet. Providence Marketplace to Lebanon Road — fastest parts response in Middle Tennessee.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
-        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#FF5E15] text-white font-body text-lg font-medium rounded hover:scale-95 hover:bg-[#E54F0D] transition-all duration-150">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Free Consult: {business.phone}
+          Free Fitting Consult: {business.phone}
         </a>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Request Parts
-        </button>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-red-600 rounded hover:bg-red-600 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          EMERGENCY FAN REPLACEMENT
+        </a>
       </div>
-      <!-- Review Badges -->
       <div class="flex flex-row items-center gap-3 md:gap-8">
         {[
           { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
@@ -126,219 +138,327 @@ const schema = {
     </div>
   </section>
 
-  <!-- VALUE PROP BANNER -->
-  <section class="bg-[#FF5E15] py-4 px-5">
-    <div class="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-white font-heading font-semibold text-sm md:text-base">
-      <div class="flex items-center justify-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>
-        Same-Day Parts
-      </div>
-      <div class="flex items-center justify-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        All Major Brands
-      </div>
-      <div class="flex items-center justify-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        24/7 Emergency
-      </div>
-      <div class="flex items-center justify-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-        Photo Documentation
+  <!-- SECTION 2: VALUE PROP CARDS -->
+  <section class="bg-[#111111] py-10 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { icon: 'bolt', label: 'Same-Day Parts' },
+          { icon: 'tools', label: 'Discounted Installation' },
+          { icon: 'shield', label: 'Warranty on Parts & Labor' },
+          { icon: 'phone', label: 'Free Fitting Consult' },
+        ].map((item) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-4 text-center transition-all duration-300 reveal-child">
+            <div class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full mx-auto mb-3">
+              {item.icon === 'bolt' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>}
+              {item.icon === 'tools' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>}
+              {item.icon === 'shield' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
+              {item.icon === 'phone' && <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>}
+            </div>
+            <p class="text-white font-heading font-semibold text-sm">{item.label}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- LOCAL INTRO -->
+  <!-- SECTION 3: PRODUCT CATALOG -->
+
+  <!-- Exhaust Fans -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-10 items-start">
-        <div>
-          <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-            DDAN's Home Base — Mt. Juliet's Local Parts Supply
-          </h2>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-            Mount Juliet is where DDAN Hood Cleaning and Repair keeps its warehouse and parts inventory. That means when your exhaust fan motor burns out at a Providence Marketplace restaurant or a belt snaps in a North Mt. Juliet Road kitchen, we don't have to ship anything — we grab the part from our local stock and drive it to your door.
-          </p>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-            We stock motors, belts, bearings, fan wheels, baffle filters, and grease containment components for all major commercial kitchen exhaust brands. CaptiveAire, Loren Cook, Greenheck, Canarm, NAKS, Accurex, PennBarry, Dayton, Fantech — if it sits on a commercial roof or hangs over a kitchen line, we carry the parts for it.
-          </p>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-            Being headquartered here also means Mt. Juliet restaurants get priority scheduling, zero travel fees, and response times that are often under 20 minutes. No other exhaust parts supplier can match that in this market.
-          </p>
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Exhaust Fans — The Heart of Your Kitchen
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
+        Your exhaust fan moves every cubic foot of air through your kitchen ventilation system. When it fails, your kitchen shuts down. We stock, source, and install every type of commercial kitchen exhaust fan.
+      </p>
+
+      <!-- Upblast -->
+      <div class="mb-12 reveal">
+        <div class="flex items-center gap-3 mb-4">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl reveal-child">Upblast Centrifugal Exhaust Fans</h3>
+          <span class="bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wider px-3 py-1 rounded-full">MOST POPULAR</span>
         </div>
-        <div class="reveal-child">
-          <img
-            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
-            alt="Exhaust fan parts and installation in Mount Juliet TN - DDAN home base"
-            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
-            loading="lazy"
-          />
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">Direct drive — sealed motor, less maintenance, more energy efficient</li>
+          <li class="check-item reveal-child">Belt drive — quieter operation, cheaper upfront, adjustable speed via pulleys</li>
+          <li class="check-item reveal-child">High-speed direct drive (CaptiveAire DU series and equivalents)</li>
+          <li class="check-item reveal-child">Sizes from 400 CFM to 6,000+ CFM — matched to your kitchen's requirements</li>
+        </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+      </div>
+
+      <!-- Downblast -->
+      <div class="mb-12 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">Discharges air downward along the rooftop for quieter operation</li>
+          <li class="check-item reveal-child">Direct and belt drive options for different performance needs</li>
+        </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+      </div>
+
+      <!-- Inline -->
+      <div class="mb-12 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="check-item reveal-child">Ideal for interior installations and multi-floor exhaust runs</li>
+          <li class="check-item reveal-child">Available in grease-rated and general ventilation configurations</li>
+        </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+      </div>
+
+      <!-- Axial + Propeller -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="reveal">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Axial / Tube Fans</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">High-volume air movement through duct systems. Common in industrial kitchens and large-scale food production facilities.</p>
+          <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
         </div>
+        <div class="reveal">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Propeller Wall &amp; Roof Fans</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">General ventilation for warehouses, loading docks, and storage areas adjacent to commercial kitchens.</p>
+          <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Fan Replacement Parts -->
+      <div class="mb-8 reveal">
+        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            'Motors (ODP, TEFC, single & 3-phase)',
+            'Fan wheels & blade assemblies',
+            'Belts & drive kits',
+            'Bearings & pillow blocks',
+            'Roof curbs & adapters',
+            'Hinge kits (NFPA 96 required)',
+            'Speed controllers & VFDs',
+            'Electrical disconnects & switches',
+            'Impellers & replacement wheels',
+          ].map((part) => (
+            <div class="flex items-start gap-2 bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-4 transition-all duration-300 reveal-child">
+              <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-[#D4D4D4] text-sm font-heading">{part}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <p class="text-[#999] text-sm reveal-child">Not sure what you need? <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call for a free fitting consult — {business.phone}</a></p>
+    </div>
+  </section>
+
+  <!-- Make-Up Air Units -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Make-Up Air Units
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
+        Your exhaust system can't function without proper make-up air. If your front doors slam shut or you feel negative pressure, you need a MUA unit.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
+        {[
+          { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter to maintain comfort and airflow balance.' },
+          { title: 'Electric Heated', desc: 'Alternative heating option for locations without gas access. Higher operating cost but simpler installation.' },
+          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
+          { title: 'Perforated Supply Plenum', desc: 'Mounts directly to your hood. Delivers tempered air right at the cooking line for maximum efficiency.' },
+        ].map((item) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- EXHAUST FANS — MAIN SECTION -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+  <!-- Filters & Baffles -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Exhaust Fan Parts — Mt. Juliet's Most Common Needs
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Filters &amp; Baffles
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        The high-volume corporate kitchens in Providence Marketplace run their exhaust systems 16+ hours daily. That kind of continuous operation chews through factory-grade components. Here's what we replace most often in Mount Juliet:
+        Wrong filter = fire hazard + failed inspection. We match exact specifications for your hood system.
       </p>
-      <ul class="space-y-3 mb-6">
-        <li class="check-item reveal-child"><strong>Motors</strong> — Single-phase and 3-phase upblast fan motors. We stock the most common sizes for same-day swap.</li>
-        <li class="check-item reveal-child"><strong>Belts</strong> — Notched, heat-resistant V-belts that outlast factory belts in high-heat environments.</li>
-        <li class="check-item reveal-child"><strong>Bearings</strong> — Sealed pillow-block bearings that resist grease infiltration and extend motor life.</li>
-        <li class="check-item reveal-child"><strong>Fan Wheels & Impellers</strong> — Balanced replacements that restore proper airflow and eliminate vibration.</li>
-        <li class="check-item reveal-child"><strong>Hinge Kits</strong> — NFPA 96 compliant hinge kits for safe rooftop fan access during cleaning and maintenance.</li>
-        <li class="check-item reveal-child"><strong>Speed Controllers</strong> — Variable-speed fan controllers to match exhaust to cooking demand and reduce energy costs.</li>
-      </ul>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+        {[
+          { title: 'Stainless Steel Baffle Filters', desc: 'Industry standard. Type 304 or 430 stainless steel. Captures grease through multi-pass baffles. Dishwasher safe.' },
+          { title: 'Mesh Grease Filters', desc: 'Budget option for lower-grease applications. Aluminum or galvanized steel mesh construction.' },
+          { title: 'Charcoal / Carbon Filters', desc: 'Odor control for ventless hoods and recirculating systems. Removes smoke and cooking odors from exhaust air.' },
+        ].map((item) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#999] text-sm reveal-child">Standard sizes in stock. Custom sizes sourced within 24-48 hours. <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call to verify your specs — {business.phone}</a></p>
     </div>
   </section>
 
-  <!-- OTHER PARTS — MUA, FILTERS, GREASE CONTAINMENT -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+  <!-- Grease Containment -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Beyond Exhaust Fans — Complete Parts Inventory
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Grease Containment
       </h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
-          <h3 class="font-heading text-white text-lg font-semibold mb-3">Make-Up Air Units</h3>
-          <p class="text-[#D4D4D4] text-sm leading-relaxed">
-            Replacement components for make-up air systems that balance your kitchen's air pressure. Filters, motors, dampers, and controls. Proper make-up air is critical for exhaust efficiency and employee comfort in Mt. Juliet's hot summers.
-          </p>
-        </div>
-        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
-          <h3 class="font-heading text-white text-lg font-semibold mb-3">Hood Filters & Baffles</h3>
-          <p class="text-[#D4D4D4] text-sm leading-relaxed">
-            Stainless steel baffle filters, mesh grease filters, and charcoal odor-control filters. We match exact dimensions for your hood canopy. Providence Marketplace kitchens go through filters fast — we keep your sizes in stock.
-          </p>
-        </div>
-        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
-          <h3 class="font-heading text-white text-lg font-semibold mb-3">Grease Containment</h3>
-          <p class="text-[#D4D4D4] text-sm leading-relaxed">
-            Rooftop grease boxes, containment pads, drain lines, and filter systems. Mt. Juliet landlords are ruthless about white TPO roof protection — our <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">grease containment systems</a> keep you in compliance and off their radar.
-          </p>
-        </div>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
+        West Wilson Utility District is extremely strict on F.O.G. management. Mt. Juliet landlords — especially in Providence — have zero tolerance for grease on their white TPO roofs. We supply and install complete containment systems.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4 mb-6">
+        {[
+          { title: 'Rooftop Grease Boxes', desc: 'Full containment systems that capture grease before it hits your roof membrane.' },
+          { title: 'Grease Cups & Drip Pans', desc: 'For individual fan units and overflow protection on existing systems.' },
+          { title: 'Grease Pillows & Absorbent Pads', desc: 'Replaceable absorption media for ongoing rooftop grease management.' },
+          { title: 'Grease Duct Access Doors', desc: 'NFPA 96 required every 12 feet for proper cleaning access. Fire-rated.' },
+        ].map((item) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- INSTALLATION UPSELL -->
+  <!-- SECTION 4: EMERGENCY CALLOUT -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
-      <div class="border-l-4 border-[#FF5E15] bg-black p-6 rounded-r-xl reveal-child">
-        <h2 class="font-heading text-[#FF5E15] text-xl font-semibold mb-3">Need More Than Parts?</h2>
+      <div class="bg-black border-2 border-red-600 rounded-2xl p-8 md:p-12 reveal-child">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="w-8 h-8 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h2 class="font-heading text-red-500 text-lg md:text-[2.2rem] font-semibold leading-[1.2]">
+            Emergency Parts &amp; Installation — Mt. Juliet
+          </h2>
+        </div>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
-          If your exhaust system needs diagnosis, repair, or a full overhaul — not just a part swap — our repair team handles everything from motor replacements to complete system rebuilds. One contractor, one call.
+          Fan seized during the dinner rush at Providence? Motor smoking at your Lebanon Road sports bar? Because Mt. Juliet is our home base, no other parts provider can match our response time. DDAN provides emergency exhaust fan parts and installation across Mt. Juliet — including nights, weekends, and holidays.
         </p>
-        <a href="/repair/mt-juliet-tn/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold hover:text-white transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Hood Repair Services in Mt. Juliet
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
+          We stock the most common exhaust fan motors, belts, and bearings right here in Mt. Juliet. When your kitchen goes down, we can often be on-site with the correct part within minutes — not hours.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2 px-7 py-3 bg-red-600 text-white font-heading text-lg font-bold rounded hover:bg-red-700 transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          Emergency Line: {business.phone}
         </a>
       </div>
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES -->
+  <!-- SECTION 5: COMMON EQUIPMENT ISSUES IN MT. JULIET -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Mount Juliet
+        Common Equipment Issues in Mt. Juliet
       </h2>
-      <div class="space-y-6">
-        <div class="reveal-child">
-          <h3 class="font-heading text-white text-lg font-semibold mb-2">High-Volume Motor & Belt Wear</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            High-volume corporate kitchens in Providence run exhaust systems 16+ hours daily, leading to burned-out fan motors and the need for frequent preventive <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">belt replacements</a>. These aren't emergencies when you stay on schedule — but they become emergencies fast when you don't. DDAN inspects belts, bearings, and motors during every service visit and flags components approaching failure before they shut you down.
-          </p>
-        </div>
-        <div class="reveal-child">
-          <h3 class="font-heading text-white text-lg font-semibold mb-2">Aggressive Landlord Rooftop Standards</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Providence and North Mt. Juliet Road landlords are ruthless regarding grease stains on their new TPO roofs. Proper rooftop grease containment isn't a suggestion — it's enforced in lease agreements with financial penalties that can run into thousands of dollars per incident. We install high-capacity containment systems and provide the photographic proof your landlord requires.
-          </p>
-        </div>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          High-volume corporate kitchens in Providence Marketplace run their exhaust systems 16+ hours a day, burning through factory fan belts and motor bearings at alarming rates. These systems were designed for standard 8-hour shifts — Providence's restaurant traffic pushes them to double that. When a belt snaps on a Saturday night, you need a replacement from local stock, not a 3-day shipping wait. Because DDAN is headquartered right here in Mt. Juliet, we carry the most common belts and motors for <a href="/repair/mount-juliet-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">same-day replacement</a>.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Mt. Juliet's explosive growth means most commercial buildings feature expensive white TPO and PVC roofing membranes. Corporate landlords in Providence and North Mt. Juliet have zero tolerance for grease stains — they will issue severe penalties or terminate your lease. If your rooftop grease containment system has degraded or your factory grease catcher is overwhelmed, you need an upgrade immediately. We supply and install <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">complete rooftop grease containment systems</a> designed for high-volume operations.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          The Fire Department of Mt. Juliet (FDMJ) is highly proactive, strictly enforcing NFPA 96 standards on both new builds and existing kitchens. Inspectors verify hinge kits, access panels, fire suppression tags, and bare-metal cleanliness. Every part we sell and install is documented with photos for your compliance records. Pair parts with <a href="/cleaning/mount-juliet-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">regular hood cleaning</a> for a fully compliant system.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- WHO THIS IS FOR -->
+  <!-- SECTION 6: LOCAL COMPLIANCE -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Who Buys Parts From DDAN in Mt. Juliet?
+        Mt. Juliet Parts &amp; Compliance
       </h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
-          <h3 class="font-heading text-white text-lg font-semibold mb-3">Restaurant Owners & Managers</h3>
-          <p class="text-[#D4D4D4] text-sm leading-relaxed">
-            Your exhaust fan is making noise, your belt snapped, or your motor died during service. You need the right commercial part fast, installed correctly, with documentation for your landlord and fire inspector. That's what we do — same day, from right here in town.
-          </p>
+      <div class="max-w-4xl space-y-5">
+        <div class="bg-black border border-[#333] rounded-2xl p-6 reveal-child">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+              <strong class="text-white">Fire Department of Mt. Juliet (FDMJ)</strong> is highly proactive in enforcing NFPA 96 compliance across all commercial kitchen operations. Inspectors closely monitor the explosive growth areas like Providence Marketplace and North Mt. Juliet, verifying hinge kits, access panels, fire suppression links, and bare-metal cleanliness.
+            </p>
+          </div>
         </div>
-        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
-          <h3 class="font-heading text-white text-lg font-semibold mb-3">Other Hood Service Companies</h3>
-          <p class="text-[#D4D4D4] text-sm leading-relaxed">
-            We supply parts to other hood cleaning and repair companies across Middle Tennessee. Same-day availability, competitive pricing, and we can ship or arrange pickup from our Mt. Juliet location. No markup games — just the right part, fast.
+        <div class="bg-black border border-[#333] rounded-2xl p-6 reveal-child">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+              <strong class="text-white">West Wilson Utility District</strong> is extremely strict on F.O.G. management to protect the infrastructure of the "City Between the Lakes." Rooftop grease runoff carries severe penalties. Degraded grease boxes, missing pads, or leaking drip pans trigger fines and mandatory corrective action.
+            </p>
+          </div>
+        </div>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our full <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance guide</a> for details on what inspectors look for and how every part we sell meets those standards.
+        </p>
+        <div class="border-l-4 border-[#FF5E15] bg-black p-6 rounded-r-xl reveal-child">
+          <p class="text-white font-heading font-semibold text-base leading-relaxed">
+            Every part we sell meets NFPA 96 specifications. Every installation we perform passes fire marshal inspection.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICE AREA LINKS -->
+  <!-- SECTION 7: SERVICE AREA + CROSS-LINKS -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Mount Juliet Service Area & Nearby Cities
+        Mt. Juliet Parts &amp; Installation Service Area
       </h2>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-        Year-round high demand. Because Mount Juliet is our home base, we handle an immense volume of parts orders and installations locally. Schedule now before our calendar fills up.
-      </p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-        <div class="reveal-child">
-          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Other Services in Mt. Juliet</p>
-          <ul class="space-y-2">
-            <li><a href="/cleaning/mount-juliet-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning — Mt. Juliet, TN</a></li>
-            <li><a href="/repair/mt-juliet-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hood Repair — Mt. Juliet, TN</a></li>
-          </ul>
+      <div class="max-w-4xl space-y-5">
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Because our trucks deploy from Mt. Juliet, we offer the fastest response times in the city. We provide comprehensive 24/7 exhaust parts and installation to the bustling kitchens in Providence Marketplace, the classic establishments along Lebanon Road, and the new developments in North Mt. Juliet.
+        </p>
+        <div class="space-y-4 reveal-child">
+          <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-5">
+            <p class="text-white font-heading font-semibold mb-2">All DDAN services in Mt. Juliet:</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/cleaning/mount-juliet-tn/" class="inline-flex items-center gap-2 px-4 py-2 bg-black border border-[#FF5E15] rounded-xl text-[#FF5E15] font-heading text-sm font-semibold hover:bg-[#FF5E15] hover:text-white transition-all duration-300">Hood Cleaning</a>
+              <a href="/repair/mount-juliet-tn/" class="inline-flex items-center gap-2 px-4 py-2 bg-black border border-[#FF5E15] rounded-xl text-[#FF5E15] font-heading text-sm font-semibold hover:bg-[#FF5E15] hover:text-white transition-all duration-300">Hood Repair</a>
+            </div>
+          </div>
+          <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-5">
+            <p class="text-white font-heading font-semibold mb-2">Also serving nearby:</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/parts-installation/lebanon-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Lebanon</a>
+              <span class="text-[#333]">&middot;</span>
+              <a href="/parts-installation/hermitage-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Hermitage</a>
+            </div>
+          </div>
         </div>
-        <div class="reveal-child">
-          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Nearby Cities</p>
-          <ul class="space-y-2">
-            <li><a href="/parts-installation/lebanon-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Lebanon, TN</a></li>
-            <li><a href="/parts-installation/hermitage-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hermitage, TN</a></li>
-          </ul>
-        </div>
-        <div class="reveal-child">
-          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Service Hub</p>
-          <ul class="space-y-2">
-            <li><a href="/parts-installation/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">All Parts & Installation Areas</a></li>
-            <li><a href="/restaurant-exhaust-fan-parts/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Exhaust Fan Parts Overview</a></li>
-          </ul>
-        </div>
+        <p class="reveal-child">
+          <a href="/parts-installation/" class="text-[#FF5E15] font-heading font-semibold underline hover:text-white transition-all duration-300">View all 29 parts &amp; installation service areas &rarr;</a>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- SECTION 8: FAQ -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Mt. Juliet Parts & Installation FAQ
+        Mt. Juliet Parts &amp; Installation FAQ
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (
-          <details class="faq-item bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
             <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
               <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
               <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="px-5 pb-5 bg-black rounded-b-2xl">
-              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            <div class="px-5 pb-5">
+              <p class="text-[#D4D4D4] font-heading text-base leading-relaxed" set:html={faq.a}></p>
             </div>
           </details>
         ))}
@@ -346,7 +466,7 @@ const schema = {
     </div>
   </section>
 
-  <!-- TRUCK CTA -->
+  <!-- SECTION 9: TRUCK CTA -->
   <TruckCTA />
 </BaseLayout>
 

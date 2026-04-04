@@ -7,19 +7,19 @@ const HP = '/images/homepage';
 const faqs = [
   {
     q: 'How often should Clarksville fast-food restaurants have their hoods cleaned?',
-    a: 'Under NFPA 96 standards, high-volume quick-service restaurants and 24-hour diners typically require quarterly (every 3 months) or even monthly hood cleaning to mitigate severe grease fire risks.',
+    a: 'Under NFPA 96, high-volume quick-service restaurants typically require quarterly or monthly hood cleaning. But that cleaning schedule directly impacts your parts lifespan — dirty systems burn through belts and motors twice as fast. DDAN pairs <a href="/cleaning/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">regular hood cleaning</a> with proactive parts replacement to keep your total cost down.',
   },
   {
     q: 'Do you provide emergency exhaust fan repair near Fort Campbell?',
-    a: 'Yes, we offer 24/7 emergency repair services for exhaust fans, snapped belts, and burned-out motors. We understand that military-town volume means you cannot afford kitchen downtime.',
+    a: `Yes. We offer 24/7 emergency parts and installation for exhaust fans, snapped belts, and burned-out motors across Clarksville. Military-town volume means zero tolerance for kitchen downtime — we stock the most common replacement parts locally for same-day deployment. ${business.phone}`,
   },
   {
     q: 'Are rooftop grease pads required by Clarksville code?',
-    a: 'Proper grease containment is required by NFPA 96 and enforced by local fire inspectors. We install and maintain high-capacity rooftop grease containment systems to protect your roof and comply with Clarksville Gas & Water F.O.G. initiatives.',
+    a: 'Proper grease containment is required by NFPA 96 and enforced by local fire inspectors. We supply and install high-capacity rooftop grease containment systems — boxes, trays, and absorbent pads — to protect your roof and comply with Clarksville Gas & Water F.O.G. initiatives.',
   },
   {
-    q: 'How fast can you get parts?',
-    a: `We stock the most common exhaust fan motors, belts, bearings, filters, and fan wheels locally for same-day pickup or delivery. For specialty or less common parts, we source through our commercial supply network within 24-48 hours. Call ${business.phone} to check availability.`,
+    q: 'Do you install the parts you sell?',
+    a: `Every part we sell comes with discounted professional installation. We don't just ship you a box — we verify the fit, install it correctly, and document the work for your compliance records. That's the DDAN difference. ${business.phone}`,
   },
 ];
 
@@ -59,7 +59,7 @@ const schemaData = {
         "name": "Clarksville",
         "addressRegion": "TN"
       },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Clarksville commercial kitchens near Fort Campbell and APSU."
+      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Clarksville's high-volume kitchens serving Fort Campbell and APSU."
     },
     {
       "@type": "BreadcrumbList",
@@ -86,11 +86,11 @@ const schemaData = {
 
 <BaseLayout
   title="Parts & Installation in Clarksville, TN | DDAN"
-  description="Exhaust fan parts and professional installation for Clarksville's high-volume kitchens near Fort Campbell and APSU. Same-day motors, belts, bearings, and filters. (615) 881-6968."
+  description="Exhaust fan parts for Clarksville's Fort Campbell and APSU corridor kitchens. Same-day from local stock. Discounted installation with every part. (615) 881-6968."
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
 
-  <!-- HERO -->
+  <!-- SECTION 1: HERO -->
   <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/services/exhaust-fan-parts.webp');"></div>
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
@@ -106,20 +106,20 @@ const schemaData = {
       </nav>
       <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Commercial Kitchen Parts &amp; Installation in <span class="text-[#FF5E15]">Clarksville</span>
+        Exhaust Fan Parts &amp; Installation for <span class="text-[#FF5E15]">Clarksville, TN</span>
       </h1>
       <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Fort Campbell's high-volume kitchens chew through parts. We stock locally and install the same day.
+        Keeping Fort Campbell and APSU corridor kitchens running. Replacement parts from local stock or next-day sourced.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
-        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#FF5E15] text-white font-body text-lg font-medium rounded hover:scale-95 hover:bg-[#E54F0D] transition-all duration-150">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Free Consult: {business.phone}
+          Free Fitting Consult: {business.phone}
         </a>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Request Service
-        </button>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-red-600 rounded hover:bg-red-600 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          EMERGENCY FAN REPLACEMENT
+        </a>
       </div>
       <div class="flex flex-row items-center gap-3 md:gap-8">
         {[
@@ -138,7 +138,7 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- VALUE PROPOSITION BANNER -->
+  <!-- SECTION 2: VALUE PROP CARDS -->
   <section class="bg-[#111111] py-10 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -148,7 +148,7 @@ const schemaData = {
           { icon: 'shield', label: 'Warranty on Parts & Labor' },
           { icon: 'phone', label: 'Free Fitting Consult' },
         ].map((item) => (
-          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 text-center transition-all duration-300 reveal-child">
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-4 text-center transition-all duration-300 reveal-child">
             <div class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full mx-auto mb-3">
               {item.icon === 'bolt' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>}
               {item.icon === 'tools' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>}
@@ -162,75 +162,74 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- LOCAL INTRO -->
+  <!-- SECTION 3: PRODUCT CATALOG -->
+
+  <!-- Exhaust Fans -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Why Clarksville Restaurants Need Fast Exhaust Fan Parts
-      </h2>
-      <div class="max-w-4xl space-y-5">
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Clarksville's dining sector is built on relentless volume. Fort Campbell's massive military population and the Austin Peay State University campus drive enormous daily traffic into the quick-service and fast-casual restaurants packed along Wilma Rudolph Boulevard and Fort Campbell Boulevard. These restaurants run their fryers and grills nonstop from early morning through late night, seven days a week. That kind of continuous operation tears through exhaust fan belts, burns out motors, and overwhelms standard grease containment components far faster than normal commercial use would predict. When a fan belt snaps during the lunch rush, a Clarksville restaurant can't wait three days for a part to ship from a national distributor.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The heavy concentration of Southern comfort food and quick-service franchises in Clarksville means fryers are running at extreme capacity throughout the day. That cooking volume produces massive grease loads that saturate baffle filters, coat fan impellers, and fill rooftop grease boxes rapidly. Clarksville Fire Rescue closely monitors these high-traffic franchise corridors, and Clarksville Gas & Water enforces strict grease trap and wastewater regulations. A failing grease containment pad or a degraded filter set doesn't just risk a fire — it triggers fines from multiple agencies simultaneously.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Many older commercial buildings near the APSU campus and along the original Fort Campbell Boulevard corridor have aging exhaust infrastructure with undersized fan motors and degraded grease containment boxes that leak runoff down building exteriors. These systems need component upgrades, not just cleaning. DDAN stocks the most common exhaust fan motors, belts, bearings, filters, and grease containment components locally and delivers to Clarksville for same-day installation. We also supply parts to other hood service companies operating in the Clarksville market.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Service demand spikes during APSU move-in weeks and military deployment returns when the local dining population surges overnight. Every restaurant on Wilma Rudolph Boulevard feels the spike, and the kitchens that haven't replaced worn belts and aging motors are the ones that go down first. Proactive parts replacement before peak periods is significantly cheaper than emergency service during them.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXHAUST FANS — THE MAIN EVENT -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans for Clarksville Kitchens
+        Exhaust Fans — The Heart of Your Kitchen
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Clarksville's Fort Campbell corridor and franchise-heavy strip centers demand exhaust fans built for continuous, high-volume operation. We stock, source, and install every type.
+        Your exhaust fan moves every cubic foot of air through your kitchen ventilation system. When it fails, your kitchen shuts down. We stock, source, and install every type of commercial kitchen exhaust fan.
       </p>
 
       <!-- Upblast -->
       <div class="mb-12 reveal">
-        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Upblast Centrifugal Exhaust Fans</h3>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry common sizes for same-day replacement across Clarksville.</p>
+        <div class="flex items-center gap-3 mb-4">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl reveal-child">Upblast Centrifugal Exhaust Fans</h3>
+          <span class="bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wider px-3 py-1 rounded-full">MOST POPULAR</span>
+        </div>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
         <ul class="space-y-2 mb-4">
           <li class="check-item reveal-child">Direct drive — sealed motor, less maintenance, more energy efficient</li>
           <li class="check-item reveal-child">Belt drive — quieter operation, cheaper upfront, adjustable speed via pulleys</li>
           <li class="check-item reveal-child">High-speed direct drive (CaptiveAire DU series and equivalents)</li>
           <li class="check-item reveal-child">Sizes from 400 CFM to 6,000+ CFM — matched to your kitchen's requirements</li>
         </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
       </div>
 
       <!-- Downblast -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
         <ul class="space-y-2 mb-4">
           <li class="check-item reveal-child">Discharges air downward along the rooftop for quieter operation</li>
           <li class="check-item reveal-child">Direct and belt drive options for different performance needs</li>
         </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
       </div>
 
       <!-- Inline -->
       <div class="mb-12 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside ductwork for installations where rooftop mounting isn't practical — common in Clarksville's older strip center configurations.</p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
         <ul class="space-y-2 mb-4">
           <li class="check-item reveal-child">Ideal for interior installations and multi-floor exhaust runs</li>
           <li class="check-item reveal-child">Available in grease-rated and general ventilation configurations</li>
         </ul>
+        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+      </div>
+
+      <!-- Axial + Propeller -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="reveal">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Axial / Tube Fans</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">High-volume air movement through duct systems. Common in industrial kitchens and large-scale food production facilities.</p>
+          <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+        </div>
+        <div class="reveal">
+          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Propeller Wall &amp; Roof Fans</h3>
+          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">General ventilation for warehouses, loading docks, and storage areas adjacent to commercial kitchens.</p>
+          <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+        </div>
       </div>
 
       <!-- Fan Replacement Parts -->
       <div class="mb-8 reveal">
         <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             'Motors (ODP, TEFC, single & 3-phase)',
             'Fan wheels & blade assemblies',
@@ -240,8 +239,9 @@ const schemaData = {
             'Hinge kits (NFPA 96 required)',
             'Speed controllers & VFDs',
             'Electrical disconnects & switches',
+            'Impellers & replacement wheels',
           ].map((part) => (
-            <div class="flex items-start gap-2 bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl p-4 transition-all duration-300 reveal-child">
+            <div class="flex items-start gap-2 bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-4 transition-all duration-300 reveal-child">
               <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
               <span class="text-[#D4D4D4] text-sm font-heading">{part}</span>
             </div>
@@ -253,77 +253,109 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- OTHER PARTS: MUA, FILTERS, GREASE -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+  <!-- Make-Up Air Units -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
         Make-Up Air Units
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-        Your exhaust system can't function without proper make-up air. Negative pressure causes doors to slam, makes kitchens uncomfortable, and reduces exhaust efficiency.
+        Your exhaust system can't function without proper make-up air. If your front doors slam shut or you feel negative pressure, you need a MUA unit.
       </p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
         {[
-          { title: 'Gas-Fired Heated', desc: 'Standard for Tennessee winters. Tempers incoming air to maintain kitchen comfort and airflow balance.' },
-          { title: 'Unheated / Ambient', desc: 'Budget option for seasonal or mild-climate operations. Brings in outside air without conditioning.' },
-          { title: 'Heated + Cooled', desc: 'Year-round comfort for demanding environments. Conditions air in both winter and summer.' },
+          { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter to maintain comfort and airflow balance.' },
+          { title: 'Electric Heated', desc: 'Alternative heating option for locations without gas access. Higher operating cost but simpler installation.' },
+          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
+          { title: 'Perforated Supply Plenum', desc: 'Mounts directly to your hood. Delivers tempered air right at the cooking line for maximum efficiency.' },
         ].map((item) => (
-          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
             <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
             <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
           </div>
         ))}
       </div>
+    </div>
+  </section>
 
+  <!-- Filters & Baffles -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
         Filters &amp; Baffles
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Wrong filter = fire hazard + failed inspection. We match exact specs for your hood system. Standard sizes in stock, custom sizes within 24-48 hours.
+        Wrong filter = fire hazard + failed inspection. We match exact specifications for your hood system.
       </p>
-      <ul class="space-y-3 mb-12">
-        <li class="check-item reveal-child">Stainless steel baffle filters — Type 304 or 430, dishwasher safe</li>
-        <li class="check-item reveal-child">Mesh grease filters — aluminum or galvanized steel for lower-grease applications</li>
-        <li class="check-item reveal-child">Charcoal / carbon filters — odor control for ventless and recirculating systems</li>
-      </ul>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+        {[
+          { title: 'Stainless Steel Baffle Filters', desc: 'Industry standard. Type 304 or 430 stainless steel. Captures grease through multi-pass baffles. Dishwasher safe.' },
+          { title: 'Mesh Grease Filters', desc: 'Budget option for lower-grease applications. Aluminum or galvanized steel mesh construction.' },
+          { title: 'Charcoal / Carbon Filters', desc: 'Odor control for ventless hoods and recirculating systems. Removes smoke and cooking odors from exhaust air.' },
+        ].map((item) => (
+          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#999] text-sm reveal-child">Standard sizes in stock. Custom sizes sourced within 24-48 hours. <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call to verify your specs — {business.phone}</a></p>
+    </div>
+  </section>
 
+  <!-- Grease Containment -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
         Grease Containment
       </h2>
       <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Clarksville Gas & Water enforces strict grease trap and wastewater regulations. We supply and install complete rooftop containment systems.
+        Clarksville Gas & Water enforces strict grease trap and wastewater regulations. We supply and install complete containment systems.
       </p>
-      <ul class="space-y-3">
-        <li class="check-item reveal-child">Rooftop grease boxes and full containment systems</li>
-        <li class="check-item reveal-child">Grease cups, drip pans, and overflow protection</li>
-        <li class="check-item reveal-child">Grease pillows and absorbent pads — replaceable media</li>
-        <li class="check-item reveal-child">Grease duct access doors — NFPA 96 required every 12 feet</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- INSTALLATION UPSELL -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 md:p-12 reveal-child">
-        <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-4">
-          Discounted Installation When You Buy From Us
-        </h2>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
-          Purchase your exhaust fan parts through DDAN and installation is discounted. We verify compatibility before ordering so you never get the wrong part. Every install includes testing, documentation, and our workmanship guarantee.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          Need a full repair instead of just parts? Visit our <a href="/repair/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Clarksville exhaust fan repair</a> page for diagnostic and repair services.
-        </p>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Schedule Installation
-        </button>
+      <div class="grid sm:grid-cols-2 gap-4 mb-6">
+        {[
+          { title: 'Rooftop Grease Boxes', desc: 'Full containment systems that capture grease before it hits your roof membrane.' },
+          { title: 'Grease Cups & Drip Pans', desc: 'For individual fan units and overflow protection on existing systems.' },
+          { title: 'Grease Pillows & Absorbent Pads', desc: 'Replaceable absorption media for ongoing rooftop grease management.' },
+          { title: 'Grease Duct Access Doors', desc: 'NFPA 96 required every 12 feet for proper cleaning access. Fire-rated.' },
+        ].map((item) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- COMMON EQUIPMENT ISSUES IN CLARKSVILLE -->
+  <!-- SECTION 4: EMERGENCY CALLOUT -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="bg-black border-2 border-red-600 rounded-2xl p-8 md:p-12 reveal-child">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="w-8 h-8 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h2 class="font-heading text-red-500 text-lg md:text-[2.2rem] font-semibold leading-[1.2]">
+            Emergency Parts &amp; Installation for Clarksville
+          </h2>
+        </div>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
+          Fan belt snapped during the dinner rush? Motor seized on a Friday night near Fort Campbell Blvd? Clarksville's high-volume kitchens can't wait until Monday. DDAN provides emergency exhaust fan parts and installation across Clarksville — including nights, weekends, and holidays.
+        </p>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
+          We stock the most common exhaust fan motors, belts, and bearings locally in Mt. Juliet for same-day emergency deployment to Clarksville. One call gets a technician with the right part heading your way.
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2 px-7 py-3 bg-red-600 text-white font-heading text-lg font-bold rounded hover:bg-red-700 transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          Emergency Line: {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: COMMON EQUIPMENT ISSUES IN CLARKSVILLE -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
@@ -331,43 +363,54 @@ const schemaData = {
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The sheer volume of quick-service output along Wilma Rudolph Boulevard leads to rapidly stretched and snapped fan belts. These franchise-heavy corridors run their exhaust systems at maximum capacity from open to close, and the continuous heat and vibration causes belts to dry rot, crack, and fail well before their expected service life. When a belt snaps, the fan stops pulling air, grease vapor accumulates in the ductwork, and the kitchen has to shut down cooking operations. DDAN stocks heavy-duty commercial <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">fan belts and motors</a> for same-day replacement across Clarksville.
+          The sheer volume of quick-service output along Wilma Rudolph Blvd puts extreme stress on exhaust fan belts. High-volume fryers running back-to-back shifts generate heat that rapidly stretches and dries out standard fan belts until they snap — usually at the worst possible time. DDAN stocks heavy-duty commercial V-belts and notched belts that handle Clarksville's relentless pace. When a belt snaps mid-rush, we deliver and install the replacement same-day from our <a href="/repair/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Clarksville repair service</a>.
         </p>
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Many older establishments near the APSU campus have degraded grease containment boxes that allow runoff down the sides of buildings. These aging systems were often factory-installed as minimum-spec equipment and were never designed for the grease volume that high-output Southern cooking produces. Replacing the containment system, upgrading to properly sized <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">hinge kits</a> for rooftop fan access, and installing fire-rated <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">access panels</a> in older ductwork are the most common parts and installation requests we handle in Clarksville.
+          Many older establishments near the APSU campus have degraded grease containment boxes that allow runoff down the sides of buildings. This isn't just an eyesore — it's a code violation and a roof killer. We supply upgraded, high-capacity rooftop grease boxes and absorbent pads that handle the heavy grease output of Southern comfort food kitchens. Pair new containment with <a href="/cleaning/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">regular hood cleaning</a> and your system runs cleaner, longer.
         </p>
-      </div>
-
-      <!-- PROOF POINT -->
-      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl max-w-3xl mt-10 reveal-child">
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed italic">
-          "When an aging exhaust fan motor seized at a busy sports bar near Austin Peay just before a major game day, DDAN arrived within hours. We replaced the motor, installed a new heavy-duty belt, and upgraded their rooftop grease containment, allowing them to handle the weekend rush without a hitch."
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Clarksville's metal-roofed older commercial strips and newer EPDM/TPO outparcels both suffer when grease containment fails. Whether the grease is corroding metal seams or chemically degrading TPO membranes, the fix is the same: proper containment parts installed by a crew that understands your roofing. We supply and install <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">complete rooftop grease containment systems</a> matched to your specific roof type.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- WHO THIS IS FOR -->
+  <!-- SECTION 6: LOCAL COMPLIANCE -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[900px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Restaurant Owners</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need a part fast? Don't know what fits? We handle everything — identify the part, verify compatibility, deliver it, and install it. One call, one team, zero guesswork.
-          </p>
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Clarksville Parts &amp; Compliance
+      </h2>
+      <div class="max-w-4xl space-y-5">
+        <div class="bg-black border border-[#333] rounded-2xl p-6 reveal-child">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+              <strong class="text-white">Clarksville Fire Rescue - Fire Prevention Bureau</strong> strictly enforces NFPA 96 compliance, particularly regarding fire suppression link replacements and routine cleaning schedules in high-density franchise corridors. Inspectors verify hinge kits, access panels, and bare-metal cleanliness. Non-compliant parts result in immediate violations.
+            </p>
+          </div>
         </div>
-        <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
-          <h3 class="font-heading font-bold text-[#FF5E15] text-xl mb-3">Other Hood Companies</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-            Need parts faster than your wholesaler? We stock common motors, belts, bearings, and filters locally in Mt. Juliet. Same-day pickup or delivery to Clarksville.
+        <div class="bg-black border border-[#333] rounded-2xl p-6 reveal-child">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
+              <strong class="text-white">Clarksville Gas & Water F.O.G. Program</strong> enforces strict grease trap and wastewater regulations. Degraded grease boxes, missing absorbent pads, or leaking containment systems trigger fines and mandatory corrective action.
+            </p>
+          </div>
+        </div>
+        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
+          Read our full <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance guide</a> for details on what inspectors look for and how every part we sell meets those standards.
+        </p>
+        <div class="border-l-4 border-[#FF5E15] bg-black p-6 rounded-r-xl reveal-child">
+          <p class="text-white font-heading font-semibold text-base leading-relaxed">
+            Every part we sell meets NFPA 96 specifications. Every installation we perform passes fire marshal inspection.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICE AREA -->
+  <!-- SECTION 7: SERVICE AREA + CROSS-LINKS -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
@@ -375,25 +418,33 @@ const schemaData = {
       </h2>
       <div class="max-w-4xl space-y-5">
         <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Our crews serve the entirety of Clarksville and Montgomery County, delivering parts and professional installation from historic downtown cafes to the massive franchise clusters along Fort Campbell Blvd and Wilma Rudolph Blvd.
+          DDAN delivers exhaust fan parts and professional installation across all of Clarksville and Montgomery County — from the franchise clusters along Wilma Rudolph Blvd and Fort Campbell Blvd to the historic downtown cafes and APSU campus eateries.
         </p>
-        <div class="space-y-3 reveal-child">
-          <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also in Clarksville:</span>
-            <a href="/cleaning/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
-            <a href="/repair/clarksville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Repair</a>
-          </p>
-          <p class="text-[#D4D4D4] font-body text-base">
-            <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fort Campbell</a> and
-            <a href="/parts-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Springfield</a>
-          </p>
+        <div class="space-y-4 reveal-child">
+          <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-5">
+            <p class="text-white font-heading font-semibold mb-2">All DDAN services in Clarksville:</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/cleaning/clarksville-tn/" class="inline-flex items-center gap-2 px-4 py-2 bg-black border border-[#FF5E15] rounded-xl text-[#FF5E15] font-heading text-sm font-semibold hover:bg-[#FF5E15] hover:text-white transition-all duration-300">Hood Cleaning</a>
+              <a href="/repair/clarksville-tn/" class="inline-flex items-center gap-2 px-4 py-2 bg-black border border-[#FF5E15] rounded-xl text-[#FF5E15] font-heading text-sm font-semibold hover:bg-[#FF5E15] hover:text-white transition-all duration-300">Hood Repair</a>
+            </div>
+          </div>
+          <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-5">
+            <p class="text-white font-heading font-semibold mb-2">Also serving nearby:</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/parts-installation/fort-campbell-ky/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Fort Campbell</a>
+              <span class="text-[#333]">&middot;</span>
+              <a href="/parts-installation/springfield-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Springfield</a>
+            </div>
+          </div>
         </div>
+        <p class="reveal-child">
+          <a href="/parts-installation/" class="text-[#FF5E15] font-heading font-semibold underline hover:text-white transition-all duration-300">View all 29 parts &amp; installation service areas &rarr;</a>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- SECTION 8: FAQ -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
@@ -401,13 +452,13 @@ const schemaData = {
       </h2>
       <div class="max-w-3xl space-y-4">
         {faqs.map((faq) => (
-          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
             <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
               <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
               <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
             </summary>
             <div class="px-5 pb-5">
-              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed" set:html={faq.a}></p>
+              <p class="text-[#D4D4D4] font-heading text-base leading-relaxed" set:html={faq.a}></p>
             </div>
           </details>
         ))}
@@ -415,6 +466,7 @@ const schemaData = {
     </div>
   </section>
 
+  <!-- SECTION 9: TRUCK CTA -->
   <TruckCTA />
 </BaseLayout>
 
