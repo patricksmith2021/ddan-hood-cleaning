@@ -104,12 +104,12 @@ const mapCities = [
     </div>
     <div class="flex flex-row items-center justify-center gap-3 md:gap-10 mt-6 md:mt-8 animate-fadeInUp" style="animation-delay:0.7s">
       {[
-        { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
-        { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
-        { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
+        { img: `${HP}/google-white-logo-1024x337.png`, w: '70%', alt: 'Google Reviews - 5 Stars' },
+        { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%', alt: 'Facebook Reviews - 5 Stars' },
+        { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%', alt: 'Yelp Reviews - 5 Stars' },
       ].map((badge) => (
         <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-6 md:py-2.5">
-          <img src={badge.img} alt="" class="h-5 md:h-11 object-contain" style={`width:${badge.w};max-width:220px`} loading="lazy" />
+          <img src={badge.img} alt={badge.alt} class="h-5 md:h-11 object-contain" style={`width:${badge.w};max-width:220px`} loading="lazy" />
           <div class="flex gap-0.5 md:gap-1">
             {Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-6 md:h-6 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
           </div>

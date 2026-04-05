@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://ddanhoodcleaning.com/sitemap-index.xml
+
+Disallow: /api/
+Disallow: /preview/
