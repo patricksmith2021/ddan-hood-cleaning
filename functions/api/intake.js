@@ -78,11 +78,15 @@ export async function onRequestPost(context) {
       lead.email ? sendCustomerEmail(lead, env) : Promise.resolve('no email')
     ]);
 
-    // Log any failures
-    const failures = results.filter(r => r.status === 'rejected');
-    if (failures.length > 0) {
-      console.error('Notification failures:', failures.map(f => f.reason));
-    }
+    // Log ALL results, not just failures
+    results.forEach((result, index) => {
+      const labels = ['Google Sheets', 'Team Email', 'Team SMS', 'Customer Email'];
+      if (result.status === 'fulfilled') {
+        console.log(labels[index] + ': SUCCESS', JSON.stringify(result.value).substring(0, 200));
+      } else {
+        console.error(labels[index] + ': FAILED', result.reason?.message || result.reason || 'Unknown error');
+      }
+    });
 
     return new Response(JSON.stringify({ success: true }), { status: 200, headers: corsHeaders });
 
@@ -138,7 +142,9 @@ async function sendTeamEmail(lead, toEmail, env) {
     })
   });
 
-  const result = await response.json();
+  const resultText = await response.text();
+  console.log('SMTP2GO team email raw response:', resultText);
+  const result = JSON.parse(resultText);
   if (result.data && result.data.failed > 0) {
     throw new Error('SMTP2GO failed: ' + JSON.stringify(result.data.failures));
   }
@@ -156,7 +162,7 @@ async function sendCustomerEmail(lead, env) {
     '<p>— DDAN Hood Cleaning and Repair<br>Mt. Juliet, TN | Serving All of Middle Tennessee</p>' +
     '</div>';
 
-  return fetch('https://api.smtp2go.com/v3/email/send', {
+  const response = await fetch('https://api.smtp2go.com/v3/email/send', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -168,6 +174,10 @@ async function sendCustomerEmail(lead, env) {
       custom_headers: [{ header: 'Reply-To', value: 'service@ddanhoodcleaning.com' }]
     })
   });
+
+  const resultText = await response.text();
+  console.log('SMTP2GO customer email raw response:', resultText);
+  return JSON.parse(resultText);
 }
 
 // --- TWILIO SMS ---
@@ -203,13 +213,21 @@ async function sendTeamSms(lead, toNumber, env) {
 
 // --- GOOGLE SHEETS ---
 async function logToGoogleSheets(lead, tabName, env) {
+  console.log('Google Sheets: parsing service account JSON...');
   const serviceAccount = JSON.parse(env.GOOGLE_SERVICE_ACCOUNT_JSON);
+  console.log('Google Sheets: service account email:', serviceAccount.client_email);
 
   // Create JWT for Google API auth
+  console.log('Google Sheets: creating JWT...');
   const jwt = await createGoogleJWT(serviceAccount);
+  console.log('JWT created for:', serviceAccount.client_email);
+
+  console.log('Google Sheets: getting access token...');
   const token = await getGoogleAccessToken(jwt);
+  console.log('Got Google access token');
 
   const sheetId = env.GOOGLE_SHEET_ID;
+  console.log('Google Sheets: sheet ID:', sheetId);
   const range = tabName + '!A:N';
 
   const values = [[
@@ -229,23 +247,27 @@ async function logToGoogleSheets(lead, tabName, env) {
     lead.pageUrl
   ]];
 
-  const response = await fetch(
-    'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/' + encodeURIComponent(range) + ':append?valueInputOption=USER_ENTERED',
-    {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer ' + token,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ values })
-    }
-  );
+  const sheetsUrl = 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/' + encodeURIComponent(range) + ':append?valueInputOption=USER_ENTERED';
+  console.log('Google Sheets: calling API at:', sheetsUrl);
 
+  const response = await fetch(sheetsUrl, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + token,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ values })
+  });
+
+  console.log('Sheets API response status:', response.status);
   if (!response.ok) {
-    const error = await response.text();
-    throw new Error('Google Sheets failed: ' + error);
+    const errorText = await response.text();
+    console.error('Sheets error body:', errorText);
+    throw new Error('Google Sheets failed: ' + errorText);
   }
-  return response.json();
+  const result = await response.json();
+  console.log('Google Sheets: success', JSON.stringify(result).substring(0, 200));
+  return result;
 }
 
 // --- GOOGLE JWT AUTH HELPERS ---
