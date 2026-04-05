@@ -134,14 +134,16 @@ const schema = {
       <!-- Consult Bar -->
       <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 mb-10 reveal-child">
         <p class="text-white font-heading font-semibold text-lg text-center md:text-left">Don't know what you need? Call for a FREE consult from a pro.</p>
-        <p class="text-[#FF5E15] font-heading font-bold text-sm whitespace-nowrap">SAME DAY / NEXT DAY SERVICE</p>
+        <div class="text-center whitespace-nowrap">
+          <p class="text-[#FF5E15] font-heading font-bold text-sm">SAME DAY / NEXT DAY SERVICE</p>
+          <p class="text-[#FF5E15] font-heading font-bold text-xs">24/7 Emergency Line Available</p>
+        </div>
         <div class="text-center md:text-right">
           <a href={`tel:${business.phoneRaw}`} class="block text-white font-heading font-bold text-2xl hover:text-[#FF5E15] transition-colors">{business.phone}</a>
-          <span class="text-[#FF5E15] font-heading font-bold text-xs">24/7 Emergency</span>
         </div>
       </div>
       <!-- Category Heading -->
-      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl text-center mb-8 reveal-child">What We Supply, Deliver and Install</h2>
+      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl text-center mb-8 reveal-child">Complete Restaurant Hood System Parts and Installation</h2>
       <!-- Jump-Nav Cards -->
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
         <a href="#exhaust-fans" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
@@ -176,37 +178,43 @@ const schema = {
     </div>
   </section>
 
-  <!-- INSTALLATION UPSELL -->
-  <section class="py-16 reveal" style="background: linear-gradient(135deg, rgba(255,94,21,0.15) 0%, rgba(0,0,0,0.9) 100%), url('/images/services/kitchen-exhaust-installation.jpg') center/cover no-repeat;">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wide rounded-full px-4 py-1 reveal-child">Exclusive Benefit</span>
-      <h2 class="text-white font-heading font-bold text-2xl md:text-3xl mt-4 reveal-child">Buy From Us — Get Discounted Professional Installation</h2>
-      <p class="text-gray-300 text-lg max-w-2xl mx-auto mt-4 reveal-child">When you purchase parts through DDAN, installation labor is discounted. We spec it, we source it, we install it — all under one warranty.</p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
-        <div class="reveal-child">
-          <p class="text-[#FF5E15] font-heading font-bold text-4xl">1</p>
-          <p class="text-white text-sm font-heading font-semibold mt-1">Warranty</p>
-          <p class="text-gray-400 text-xs mt-1">Parts and labor combined</p>
+  <!-- INSTALLATION UPSELL — TRUCK STYLE -->
+  <section class="bg-[#0A0A0A] py-12 md:py-16 lg:py-20 overflow-hidden reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <div class="lg:w-[55%]">
+          <span class="inline-block bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wide rounded-full px-4 py-1 reveal-child">Exclusive Benefit</span>
+          <h2 class="text-white font-heading font-bold text-2xl md:text-3xl mt-4 reveal-child">Buy From Us — Get Discounted Professional Installation</h2>
+          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">When you purchase parts through DDAN, installation labor is discounted. We spec it, we source it, we install it — all under one warranty.</p>
+          <ul class="space-y-3 mt-6">
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Parts and labor under one warranty</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>We verify fit before we order — no returns, no delays</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Same technician specs, sources, and installs your part</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Photo documentation for your compliance files</span>
+            </li>
+          </ul>
+          <button type="button" class="popup-trigger inline-flex items-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold rounded-lg hover:scale-95 transition-all duration-300 mt-6 reveal-child">
+            Get a Parts and Install Quote
+          </button>
+          <p class="text-gray-400 text-sm mt-3 reveal-child">
+            Or call now: <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline">{business.phone}</a>
+          </p>
         </div>
-        <div class="reveal-child">
-          <p class="text-[#FF5E15] font-heading font-bold text-4xl">0</p>
-          <p class="text-white text-sm font-heading font-semibold mt-1">Wrong Parts</p>
-          <p class="text-gray-400 text-xs mt-1">We verify fit before ordering</p>
-        </div>
-        <div class="reveal-child">
-          <svg class="w-10 h-10 text-[#FF5E15] mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <p class="text-white text-sm font-heading font-semibold mt-2">Same-Day</p>
-          <p class="text-gray-400 text-xs mt-1">Installation often available</p>
-        </div>
-        <div class="reveal-child">
-          <svg class="w-10 h-10 text-[#FF5E15] mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          <p class="text-white text-sm font-heading font-semibold mt-2">Documented</p>
-          <p class="text-gray-400 text-xs mt-1">Photo proof for compliance</p>
+        <div class="lg:w-[45%] flex justify-end">
+          <img src="/images/truck.png" alt="DDAN Hood Cleaning and Repair truck" class="truck-drive-in max-w-full" loading="lazy" />
         </div>
       </div>
-      <button type="button" class="popup-trigger inline-flex items-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold text-lg rounded-lg hover:scale-95 transition-all duration-300 mt-10 reveal-child">
-        Get a Parts and Install Quote
-      </button>
     </div>
   </section>
 
