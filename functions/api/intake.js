@@ -1,58 +1,47 @@
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  // CORS headers
-  const corsHeaders = {
+  const headers = {
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, X-API-Key',
-    'Content-Type': 'application/json'
+    'Access-Control-Allow-Headers': 'Content-Type'
   };
 
   try {
     const body = await request.json();
-    console.log('Lead received:', JSON.stringify({ source: body.source, name: body.firstName + ' ' + body.lastName, phone: body.phone }));
 
-    // --- TURNSTILE VERIFICATION ---
-    const turnstileToken = body['cf-turnstile-response'];
-    if (!turnstileToken) {
-      return new Response(JSON.stringify({ error: 'Security check failed' }), { status: 400, headers: corsHeaders });
-    }
-
-    const turnstileResult = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        secret: env.TURNSTILE_SECRET_KEY,
-        response: turnstileToken,
-        remoteip: request.headers.get('CF-Connecting-IP')
-      })
-    });
-    const turnstileData = await turnstileResult.json();
-    if (!turnstileData.success) {
-      return new Response(JSON.stringify({ error: 'Security verification failed' }), { status: 403, headers: corsHeaders });
+    // Turnstile verification
+    const token = body['cf-turnstile-response'] || '';
+    if (token) {
+      try {
+        const tv = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ secret: env.TURNSTILE_SECRET_KEY, response: token })
+        });
+        const tr = await tv.json();
+        if (!tr.success) {
+          return new Response(JSON.stringify({ error: 'Security check failed' }), { status: 403, headers });
+        }
+      } catch (e) {
+        console.error('Turnstile error:', e.message);
+      }
     }
 
-    // --- VALIDATE REQUIRED FIELDS ---
-    if (!body.firstName || !body.firstName.trim()) {
-      return new Response(JSON.stringify({ error: 'First name is required' }), { status: 400, headers: corsHeaders });
-    }
-    if (!body.lastName || !body.lastName.trim()) {
-      return new Response(JSON.stringify({ error: 'Last name is required' }), { status: 400, headers: corsHeaders });
-    }
-    if (!body.phone || !body.phone.trim()) {
-      return new Response(JSON.stringify({ error: 'Phone number is required' }), { status: 400, headers: corsHeaders });
+    // Validate
+    if (!body.firstName || !body.phone) {
+      return new Response(JSON.stringify({ error: 'Name and phone required' }), { status: 400, headers });
     }
 
-    // --- BUILD LEAD OBJECT ---
+    // Build lead
     const lead = {
-      timestamp: new Date().toISOString(),
       date: new Date().toLocaleDateString('en-US', { timeZone: 'America/Chicago' }),
       time: new Date().toLocaleTimeString('en-US', { timeZone: 'America/Chicago' }),
       source: body.source || 'website',
-      firstName: body.firstName.trim(),
-      lastName: body.lastName.trim(),
-      phone: body.phone.trim(),
+      firstName: (body.firstName || '').trim(),
+      lastName: (body.lastName || '').trim(),
+      phone: (body.phone || '').trim(),
       email: (body.email || '').trim(),
       businessName: (body.businessName || '').trim(),
       businessAddress: (body.businessAddress || '').trim(),
@@ -60,302 +49,182 @@ export async function onRequestPost(context) {
       multipleLocations: body.multipleLocations || 'No',
       flatRoof: body.flatRoof || 'No',
       comments: (body.comments || '').trim(),
-      pageUrl: body.page_url || '',
-      test: body.test === true
+      pageUrl: body.page_url || ''
     };
 
-    // --- DETERMINE RECIPIENTS ---
-    const isTest = lead.test;
-    // TEMP: All leads routed to test recipients during testing — revert before launch
-    const teamEmail = 'patricksmith.phd@gmail.com';
-    const teamSms = '+12289346002';
-    const sheetTab = 'Test Leads';
+    const name = lead.firstName + ' ' + lead.lastName;
+    const debug = {};
 
-    // --- RUN ALL NOTIFICATIONS IN PARALLEL ---
-    const results = await Promise.allSettled([
-      logToGoogleSheets(lead, sheetTab, env),
-      sendTeamEmail(lead, teamEmail, env),
-      sendTeamSms(lead, teamSms, env),
-      lead.email ? sendCustomerEmail(lead, env) : Promise.resolve('no email'),
-      lead.phone ? sendCustomerSms(lead, env) : Promise.resolve('no phone')
-    ]);
+    // 1. TEAM EMAIL via SMTP2GO
+    try {
+      const emailRes = await fetch('https://api.smtp2go.com/v3/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          api_key: env.SMTP2GO_API_KEY,
+          sender: 'DDAN Leads <leads@ddanhoodcleaning.com>',
+          to: ['patricksmith.phd@gmail.com'],
+          subject: 'New DDAN Lead: ' + name + ' - ' + lead.service,
+          html_body: '<h2>New Lead</h2><p><b>Name:</b> ' + name + '</p><p><b>Phone:</b> <a href="tel:' + lead.phone + '">' + lead.phone + '</a></p><p><b>Email:</b> ' + (lead.email || 'N/A') + '</p><p><b>Business:</b> ' + (lead.businessName || 'N/A') + '</p><p><b>Address:</b> ' + (lead.businessAddress || 'N/A') + '</p><p><b>Service:</b> ' + lead.service + '</p><p><b>Source:</b> ' + lead.source + '</p><p><b>Page:</b> ' + lead.pageUrl + '</p><p><b>Time:</b> ' + lead.date + ' ' + lead.time + '</p>',
+          text_body: 'New lead: ' + name + ' | ' + lead.phone + ' | ' + lead.service
+        })
+      });
+      const emailData = await emailRes.json();
+      debug.teamEmail = { status: emailRes.status, response: emailData };
+    } catch (e) {
+      debug.teamEmail = { error: e.message };
+    }
 
-    // Log ALL results
-    results.forEach((result, index) => {
-      const labels = ['Google Sheets', 'Team Email', 'Team SMS', 'Customer Email', 'Customer SMS'];
-      if (result.status === 'fulfilled') {
-        console.log(labels[index] + ': SUCCESS');
-      } else {
-        console.error(labels[index] + ': FAILED —', result.reason?.message || String(result.reason));
+    // 2. CUSTOMER EMAIL via SMTP2GO
+    if (lead.email) {
+      try {
+        const custRes = await fetch('https://api.smtp2go.com/v3/email/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            api_key: env.SMTP2GO_API_KEY,
+            sender: 'DDAN Hood Cleaning <service@ddanhoodcleaning.com>',
+            to: [lead.email],
+            subject: 'Thanks for contacting DDAN Hood Cleaning!',
+            html_body: '<p>Hi ' + lead.firstName + ',</p><p>We received your request and will get back to you shortly.</p><p>For immediate help: <a href="tel:6158816968"><b>(615) 881-6968</b></a> — available 24/7</p><p>— DDAN Hood Cleaning and Repair</p>',
+            text_body: 'Hi ' + lead.firstName + ', thanks for contacting DDAN Hood Cleaning! We will get back to you shortly. For immediate help call (615) 881-6968.'
+          })
+        });
+        const custData = await custRes.json();
+        debug.customerEmail = { status: custRes.status, response: custData };
+      } catch (e) {
+        debug.customerEmail = { error: e.message };
       }
-    });
+    }
 
-    return new Response(JSON.stringify({ success: true }), { status: 200, headers: corsHeaders });
+    // 3. TEAM SMS via Twilio
+    try {
+      const smsRes = await fetch('https://api.twilio.com/2010-04-01/Accounts/' + env.TWILIO_ACCOUNT_SID + '/Messages.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': 'Basic ' + btoa(env.TWILIO_ACCOUNT_SID + ':' + env.TWILIO_AUTH_TOKEN)
+        },
+        body: new URLSearchParams({
+          To: '+12289346002',
+          From: env.TWILIO_PHONE_NUMBER,
+          Body: 'New DDAN lead: ' + name + ' | ' + lead.phone + ' | ' + lead.service + ' | ' + lead.pageUrl
+        })
+      });
+      const smsData = await smsRes.json();
+      debug.teamSms = { status: smsRes.status, sid: smsData.sid || smsData.message };
+    } catch (e) {
+      debug.teamSms = { error: e.message };
+    }
+
+    // 4. CUSTOMER SMS via Twilio
+    if (lead.phone) {
+      try {
+        const custSmsRes = await fetch('https://api.twilio.com/2010-04-01/Accounts/' + env.TWILIO_ACCOUNT_SID + '/Messages.json', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Basic ' + btoa(env.TWILIO_ACCOUNT_SID + ':' + env.TWILIO_AUTH_TOKEN)
+          },
+          body: new URLSearchParams({
+            To: lead.phone,
+            From: env.TWILIO_PHONE_NUMBER,
+            Body: 'Thanks for contacting DDAN Hood Cleaning! We received your request and will get back to you shortly. For immediate help call (615) 881-6968.'
+          })
+        });
+        const custSmsData = await custSmsRes.json();
+        debug.customerSms = { status: custSmsRes.status, sid: custSmsData.sid || custSmsData.message };
+      } catch (e) {
+        debug.customerSms = { error: e.message };
+      }
+    }
+
+    // 5. GOOGLE SHEETS
+    try {
+      const sa = JSON.parse(env.GOOGLE_SERVICE_ACCOUNT_JSON);
+
+      // Create JWT
+      const now = Math.floor(Date.now() / 1000);
+      const headerB64 = btoa(JSON.stringify({ alg: 'RS256', typ: 'JWT' }))
+        .replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+      const claimB64 = btoa(JSON.stringify({
+        iss: sa.client_email,
+        scope: 'https://www.googleapis.com/auth/spreadsheets',
+        aud: 'https://oauth2.googleapis.com/token',
+        iat: now,
+        exp: now + 3600
+      })).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+
+      const pem = sa.private_key
+        .replace('-----BEGIN PRIVATE KEY-----', '')
+        .replace('-----END PRIVATE KEY-----', '')
+        .replace(/\n/g, '');
+      const keyBytes = Uint8Array.from(atob(pem), c => c.charCodeAt(0));
+
+      const key = await crypto.subtle.importKey(
+        'pkcs8', keyBytes,
+        { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
+        false, ['sign']
+      );
+
+      const sig = await crypto.subtle.sign(
+        'RSASSA-PKCS1-v1_5', key,
+        new TextEncoder().encode(headerB64 + '.' + claimB64)
+      );
+      const sigB64 = btoa(String.fromCharCode(...new Uint8Array(sig)))
+        .replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+
+      const jwt = headerB64 + '.' + claimB64 + '.' + sigB64;
+
+      // Get access token
+      const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=' + jwt
+      });
+      const tokenData = await tokenRes.json();
+
+      if (!tokenData.access_token) {
+        throw new Error('No access token: ' + JSON.stringify(tokenData));
+      }
+
+      // Append to sheet
+      const sheetRes = await fetch(
+        'https://sheets.googleapis.com/v4/spreadsheets/' + env.GOOGLE_SHEET_ID + '/values/Website%20Leads!A:N:append?valueInputOption=USER_ENTERED',
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + tokenData.access_token,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            values: [[
+              lead.date, lead.time, lead.source, lead.firstName, lead.lastName,
+              lead.phone, lead.email, lead.businessName, lead.businessAddress,
+              lead.service, lead.multipleLocations, lead.flatRoof, lead.comments, lead.pageUrl
+            ]]
+          })
+        }
+      );
+      const sheetData = await sheetRes.json();
+      debug.sheets = { status: sheetRes.status, response: sheetData };
+    } catch (e) {
+      debug.sheets = { error: e.message, stack: e.stack?.substring(0, 200) };
+    }
+
+    return new Response(JSON.stringify({ success: true, debug }), { status: 200, headers });
 
   } catch (err) {
-    console.error('Lead router error:', err);
-    return new Response(JSON.stringify({ error: 'Server error' }), { status: 500, headers: corsHeaders });
+    return new Response(JSON.stringify({ error: err.message, stack: err.stack?.substring(0, 300) }), { status: 500, headers });
   }
 }
 
-// Handle OPTIONS for CORS
 export async function onRequestOptions() {
   return new Response(null, {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, X-API-Key'
+      'Access-Control-Allow-Headers': 'Content-Type'
     }
   });
-}
-
-// --- SMTP2GO TEAM EMAIL ---
-async function sendTeamEmail(lead, toEmail, env) {
-  console.log('Sending team email to:', toEmail);
-  const subject = '🔧 New Lead! — ' + lead.firstName + ' ' + lead.lastName + ' — ' + (lead.service || 'General');
-  const html = '<div style="font-family:sans-serif;max-width:600px;">' +
-    '<h2 style="color:#FF5E15;">New Lead from DDAN Website</h2>' +
-    '<table style="width:100%;border-collapse:collapse;">' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">' + lead.firstName + ' ' + lead.lastName + '</td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Phone</td><td style="padding:8px;border-bottom:1px solid #eee;"><a href="tel:' + lead.phone + '">' + lead.phone + '</a></td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;"><a href="mailto:' + lead.email + '">' + (lead.email || 'Not provided') + '</a></td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Business</td><td style="padding:8px;border-bottom:1px solid #eee;">' + (lead.businessName || 'Not provided') + '</td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Address</td><td style="padding:8px;border-bottom:1px solid #eee;">' + (lead.businessAddress || 'Not provided') + '</td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Service</td><td style="padding:8px;border-bottom:1px solid #eee;">' + lead.service + '</td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Multiple Locations</td><td style="padding:8px;border-bottom:1px solid #eee;">' + lead.multipleLocations + '</td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Flat Roof</td><td style="padding:8px;border-bottom:1px solid #eee;">' + lead.flatRoof + '</td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Comments</td><td style="padding:8px;border-bottom:1px solid #eee;">' + (lead.comments || 'None') + '</td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Source</td><td style="padding:8px;border-bottom:1px solid #eee;">' + lead.source + '</td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Page</td><td style="padding:8px;border-bottom:1px solid #eee;">' + lead.pageUrl + '</td></tr>' +
-    '<tr><td style="padding:8px;font-weight:bold;">Time</td><td style="padding:8px;">' + lead.date + ' ' + lead.time + '</td></tr>' +
-    '</table>' +
-    (lead.test ? '<p style="color:red;font-weight:bold;">⚠️ TEST SUBMISSION</p>' : '') +
-    '</div>';
-
-  const response = await fetch('https://api.smtp2go.com/v3/email/send', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      api_key: env.SMTP2GO_API_KEY,
-      sender: 'leads@ddanhoodcleaning.com',
-      to: [toEmail],
-      subject: subject,
-      html_body: html,
-      text_body: 'New lead: ' + lead.firstName + ' ' + lead.lastName + ' | Phone: ' + lead.phone + ' | Service: ' + lead.service
-    })
-  });
-
-  const responseText = await response.text();
-  console.log('SMTP2GO team email response:', responseText);
-  const result = JSON.parse(responseText);
-  if (result.data && result.data.failed > 0) {
-    throw new Error('SMTP2GO team email failed: ' + JSON.stringify(result.data.failures));
-  }
-  return result;
-}
-
-// --- CUSTOMER CONFIRMATION EMAIL ---
-async function sendCustomerEmail(lead, env) {
-  console.log('Sending customer email to:', lead.email);
-  const html = '<div style="font-family:sans-serif;max-width:600px;">' +
-    '<h2 style="color:#FF5E15;">Thanks for contacting DDAN Hood Cleaning and Repair!</h2>' +
-    '<p>Hi ' + lead.firstName + ',</p>' +
-    '<p>We received your request and will get back to you shortly. For immediate assistance, call us anytime:</p>' +
-    '<p style="font-size:24px;font-weight:bold;"><a href="tel:6158816968" style="color:#FF5E15;text-decoration:none;">(615) 881-6968</a></p>' +
-    '<p>We are available 24/7 for emergencies.</p>' +
-    '<p>— DDAN Hood Cleaning and Repair<br>Mt. Juliet, TN | Serving All of Middle Tennessee</p>' +
-    '</div>';
-
-  const response = await fetch('https://api.smtp2go.com/v3/email/send', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      api_key: env.SMTP2GO_API_KEY,
-      sender: 'service@ddanhoodcleaning.com',
-      to: [lead.email],
-      subject: 'Thanks for contacting DDAN Hood Cleaning and Repair!',
-      html_body: html,
-      text_body: 'Thanks for contacting DDAN Hood Cleaning and Repair! We received your request and will get back to you shortly. For immediate help call (615) 881-6968.'
-    })
-  });
-
-  const responseText = await response.text();
-  console.log('SMTP2GO customer email response:', responseText);
-  return JSON.parse(responseText);
-}
-
-// --- TWILIO TEAM SMS ---
-async function sendTeamSms(lead, toNumber, env) {
-  console.log('Sending team SMS to:', toNumber);
-  const message = (lead.test ? '🧪 TEST — ' : '') +
-    '🔧 New DDAN lead: ' + lead.firstName + ' ' + lead.lastName +
-    '\nPhone: ' + lead.phone +
-    '\nService: ' + lead.service +
-    '\nBusiness: ' + (lead.businessName || 'N/A') +
-    '\nFrom: ' + lead.pageUrl;
-
-  const twilioUrl = 'https://api.twilio.com/2010-04-01/Accounts/' + env.TWILIO_ACCOUNT_SID + '/Messages.json';
-
-  const response = await fetch(twilioUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Basic ' + btoa(env.TWILIO_ACCOUNT_SID + ':' + env.TWILIO_AUTH_TOKEN)
-    },
-    body: new URLSearchParams({
-      To: toNumber,
-      From: env.TWILIO_PHONE_NUMBER,
-      Body: message
-    })
-  });
-
-  if (!response.ok) {
-    const error = await response.text();
-    throw new Error('Twilio team SMS failed: ' + error);
-  }
-  return response.json();
-}
-
-// --- TWILIO CUSTOMER SMS ---
-async function sendCustomerSms(lead, env) {
-  console.log('Sending customer SMS to:', lead.phone);
-  const message = 'Thanks for contacting DDAN Hood Cleaning and Repair! ' +
-    'We received your request and will get back to you shortly. ' +
-    'For immediate help call (615) 881-6968 — we are available 24/7.';
-
-  const twilioUrl = 'https://api.twilio.com/2010-04-01/Accounts/' + env.TWILIO_ACCOUNT_SID + '/Messages.json';
-
-  const response = await fetch(twilioUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Basic ' + btoa(env.TWILIO_ACCOUNT_SID + ':' + env.TWILIO_AUTH_TOKEN)
-    },
-    body: new URLSearchParams({
-      To: lead.phone,
-      From: env.TWILIO_PHONE_NUMBER,
-      Body: message
-    })
-  });
-
-  if (!response.ok) {
-    const error = await response.text();
-    throw new Error('Twilio customer SMS failed: ' + error);
-  }
-  return response.json();
-}
-
-// --- GOOGLE SHEETS ---
-async function logToGoogleSheets(lead, tabName, env) {
-  console.log('Google Sheets: parsing service account JSON...');
-  const serviceAccount = JSON.parse(env.GOOGLE_SERVICE_ACCOUNT_JSON);
-  console.log('Google Sheets: creating JWT for', serviceAccount.client_email);
-
-  const jwt = await createGoogleJWT(serviceAccount);
-  console.log('Google Sheets: JWT created, getting access token');
-
-  const token = await getGoogleAccessToken(jwt);
-  console.log('Google Sheets: got access token, appending to sheet tab:', tabName);
-
-  const sheetId = env.GOOGLE_SHEET_ID;
-  console.log('Google Sheets: sheet ID:', sheetId);
-  const range = tabName + '!A:N';
-
-  const values = [[
-    lead.date,
-    lead.time,
-    lead.source,
-    lead.firstName,
-    lead.lastName,
-    lead.phone,
-    lead.email,
-    lead.businessName,
-    lead.businessAddress,
-    lead.service,
-    lead.multipleLocations,
-    lead.flatRoof,
-    lead.comments,
-    lead.pageUrl
-  ]];
-
-  const sheetsUrl = 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/' + encodeURIComponent(range) + ':append?valueInputOption=USER_ENTERED';
-  console.log('Google Sheets: calling API at:', sheetsUrl);
-
-  const response = await fetch(sheetsUrl, {
-    method: 'POST',
-    headers: {
-      'Authorization': 'Bearer ' + token,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ values })
-  });
-
-  const responseText = await response.text();
-  console.log('Google Sheets response:', response.status, responseText);
-  if (!response.ok) {
-    throw new Error('Google Sheets failed (' + response.status + '): ' + responseText);
-  }
-  return JSON.parse(responseText);
-}
-
-// --- GOOGLE JWT AUTH HELPERS ---
-async function createGoogleJWT(serviceAccount) {
-  const header = btoa(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
-  const now = Math.floor(Date.now() / 1000);
-  const payload = btoa(JSON.stringify({
-    iss: serviceAccount.client_email,
-    scope: 'https://www.googleapis.com/auth/spreadsheets',
-    aud: 'https://oauth2.googleapis.com/token',
-    iat: now,
-    exp: now + 3600
-  }));
-
-  const unsignedToken = header + '.' + payload;
-
-  // Import the private key
-  const pemContents = serviceAccount.private_key
-    .replace('-----BEGIN PRIVATE KEY-----', '')
-    .replace('-----END PRIVATE KEY-----', '')
-    .replace(/\n/g, '');
-
-  const binaryKey = Uint8Array.from(atob(pemContents), c => c.charCodeAt(0));
-
-  const key = await crypto.subtle.importKey(
-    'pkcs8',
-    binaryKey,
-    { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
-    false,
-    ['sign']
-  );
-
-  const signature = await crypto.subtle.sign(
-    'RSASSA-PKCS1-v1_5',
-    key,
-    new TextEncoder().encode(unsignedToken)
-  );
-
-  const signatureBase64 = btoa(String.fromCharCode(...new Uint8Array(signature)))
-    .replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
-
-  const headerBase64 = header.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
-  const payloadBase64 = payload.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
-
-  return headerBase64 + '.' + payloadBase64 + '.' + signatureBase64;
-}
-
-async function getGoogleAccessToken(jwt) {
-  const response = await fetch('https://oauth2.googleapis.com/token', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion: jwt
-    })
-  });
-
-  const data = await response.json();
-  if (!data.access_token) {
-    throw new Error('Google auth failed: ' + JSON.stringify(data));
-  }
-  return data.access_token;
 }
