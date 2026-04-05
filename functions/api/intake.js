@@ -41,7 +41,8 @@ export async function onRequestPost(context) {
       source: body.source || 'website',
       firstName: (body.firstName || '').trim(),
       lastName: (body.lastName || '').trim(),
-      phone: (body.phone || '').trim(),
+      phone: formatPhone((body.phone || '').trim()),
+      phoneRaw: (body.phone || '').trim().replace(/\D/g, '').replace(/^1/, ''),
       email: (body.email || '').trim(),
       businessName: (body.businessName || '').trim(),
       businessAddress: (body.businessAddress || '').trim(),
@@ -87,7 +88,7 @@ export async function onRequestPost(context) {
         '<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:20px;">' +
         '<tr><td style="padding:16px 20px;background-color:#222222;border-left:4px solid #FF5E15;">' +
         '<div style="color:#FFFFFF;font-size:22px;font-weight:700;margin-bottom:6px;">' + name + '</div>' +
-        '<a href="tel:' + lead.phone + '" style="color:#FF5E15;font-size:20px;font-weight:700;text-decoration:none;">' + lead.phone + '</a>' +
+        '<a href="tel:' + lead.phoneRaw + '" style="color:#FF5E15;font-size:20px;font-weight:700;text-decoration:none;">' + lead.phone + '</a>' +
         '</td></tr>' +
         '</table>' +
 
@@ -107,7 +108,7 @@ export async function onRequestPost(context) {
         // Quick action button
         '<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:24px;">' +
         '<tr><td align="center">' +
-        '<a href="tel:' + lead.phone + '" style="display:inline-block;background-color:#FF5E15;color:#FFFFFF;font-size:16px;font-weight:700;padding:14px 40px;text-decoration:none;border-radius:4px;">Call ' + lead.firstName + ' Now</a>' +
+        '<a href="tel:' + lead.phoneRaw + '" style="display:inline-block;background-color:#FF5E15;color:#FFFFFF;font-size:16px;font-weight:700;padding:14px 40px;text-decoration:none;border-radius:4px;">Call ' + lead.firstName + ' Now</a>' +
         '</td></tr>' +
         '</table>' +
 
@@ -344,6 +345,15 @@ export async function onRequestOptions() {
       'Access-Control-Allow-Headers': 'Content-Type'
     }
   });
+}
+
+// --- PHONE FORMATTER ---
+function formatPhone(phone) {
+  var digits = phone.replace(/\D/g, '').replace(/^1/, '');
+  if (digits.length === 10) {
+    return '(' + digits.substring(0, 3) + ') ' + digits.substring(3, 6) + '-' + digits.substring(6);
+  }
+  return phone;
 }
 
 // --- EMAIL TEMPLATE HELPERS ---
