@@ -75,6 +75,8 @@ import business from '../data/business.json';
             </div>
             <input type="tel" name="phone" placeholder="Phone" required
               class="w-full bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300" />
+            <input type="email" name="email" placeholder="Email"
+              class="w-full bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300" />
 
             <p class="text-xs text-[#FF5E15] font-heading font-semibold uppercase tracking-wide pt-2">Business Info</p>
             <input type="text" name="businessName" placeholder="Business Name"
@@ -106,9 +108,12 @@ import business from '../data/business.json';
               <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="no" checked /> No</label>
             </div>
 
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAC06KZwCltnZFIp-" data-theme="dark"></div>
+
             <button type="submit" class="btn-primary w-full justify-center mt-2">
               Request Callback ASAP
             </button>
+            <div id="contact-form-error" class="text-red-500 text-sm text-center mt-2"></div>
           </form>
         </div>
 
@@ -119,10 +124,62 @@ import business from '../data/business.json';
   </section>
 </BaseLayout>
 
-<script>
-  // Set loaded_at timestamp for spam check
-  document.addEventListener('DOMContentLoaded', () => {
-    const loadedAt = document.querySelector('#contact-form input[name="_loaded_at"]') as HTMLInputElement;
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('contact-form');
+    var loadedAt = document.querySelector('#contact-form input[name="_loaded_at"]');
     if (loadedAt) loadedAt.value = String(Date.now());
+
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var errorDiv = document.getElementById('contact-form-error');
+
+        btn.disabled = true;
+        btn.textContent = 'Submitting...';
+        if (errorDiv) errorDiv.textContent = '';
+
+        var turnstileInput = document.querySelector('#contact-form [name="cf-turnstile-response"]');
+        var data = {
+          source: 'contact-page',
+          firstName: form.querySelector('[name="firstName"]').value,
+          lastName: form.querySelector('[name="lastName"]').value,
+          phone: form.querySelector('[name="phone"]').value,
+          email: form.querySelector('[name="email"]').value || '',
+          businessName: form.querySelector('[name="businessName"]').value || '',
+          businessAddress: form.querySelector('[name="businessAddress"]').value || '',
+          service: form.querySelector('[name="service"]').value || 'Not specified',
+          multipleLocations: (form.querySelector('[name="multipleLocations"]:checked') || {}).value || 'No',
+          flatRoof: (form.querySelector('[name="flatRoof"]:checked') || {}).value || 'No',
+          page_url: window.location.href,
+          'cf-turnstile-response': turnstileInput ? turnstileInput.value : '',
+          test: false
+        };
+
+        try {
+          var response = await fetch('/api/intake', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+
+          if (response.ok) {
+            window.location.href = '/thank-you/';
+          } else {
+            var result = await response.json();
+            if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong. Please call (615) 881-6968.';
+            btn.disabled = false;
+            btn.textContent = 'Request Callback ASAP';
+            if (typeof turnstile !== 'undefined') turnstile.reset();
+          }
+        } catch (err) {
+          if (errorDiv) errorDiv.textContent = 'Connection error. Please call (615) 881-6968.';
+          btn.disabled = false;
+          btn.textContent = 'Request Callback ASAP';
+          if (typeof turnstile !== 'undefined') turnstile.reset();
+        }
+      });
+    }
   });
 </script>

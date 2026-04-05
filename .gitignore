@@ -10,3 +10,5 @@ feedback-screenshots/
 Thumbs.db
 .vscode/
 .idea/
+ddan_credentials_env.txt
+.dev.vars

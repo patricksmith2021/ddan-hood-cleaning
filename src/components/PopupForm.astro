@@ -1,6 +1,9 @@
 ---
 ---
 
+<!-- Turnstile Script -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+
 <!-- Inline Popup Form (email field + bigger badges) -->
 <div id="popup-form" class="popup-overlay" role="dialog" aria-modal="true" aria-label="Request Service">
   <div class="popup-content">
@@ -40,7 +43,9 @@
         <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="yes" /> Yes</label>
         <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="no" checked /> No</label>
       </div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAC06KZwCltnZFIp-" data-theme="dark"></div>
       <button type="submit" class="btn-primary w-full justify-center mt-2">Request Callback ASAP</button>
+      <div id="popup-form-error" class="text-red-500 text-sm text-center mt-2"></div>
     </form>
     <!-- Review Badges — 60% bigger -->
     <div class="flex justify-center gap-8 mt-6 pt-4 border-t border-[#333]">
@@ -65,17 +70,89 @@
     </div>
   </div>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.getElementById('popup-form');
-    const closeBtn = document.getElementById('popup-close');
-    const loadedAt = document.querySelector('input[name="_loaded_at"]') as HTMLInputElement;
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var popup = document.getElementById('popup-form');
+    var closeBtn = document.getElementById('popup-close');
+    var loadedAt = document.querySelector('#service-form input[name="_loaded_at"]');
     if (loadedAt) loadedAt.value = String(Date.now());
-    document.querySelectorAll('.popup-trigger').forEach((btn) => {
-      btn.addEventListener('click', () => { popup?.classList.add('active'); document.body.style.overflow = 'hidden'; });
+
+    // Open popup
+    document.querySelectorAll('.popup-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (popup) { popup.classList.add('active'); document.body.style.overflow = 'hidden'; }
+      });
     });
-    closeBtn?.addEventListener('click', () => { popup?.classList.remove('active'); document.body.style.overflow = ''; });
-    popup?.addEventListener('click', (e) => { if (e.target === popup) { popup.classList.remove('active'); document.body.style.overflow = ''; } });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && popup?.classList.contains('active')) { popup.classList.remove('active'); document.body.style.overflow = ''; } });
+
+    // Close popup
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        if (popup) { popup.classList.remove('active'); document.body.style.overflow = ''; }
+      });
+    }
+    if (popup) {
+      popup.addEventListener('click', function(e) {
+        if (e.target === popup) { popup.classList.remove('active'); document.body.style.overflow = ''; }
+      });
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && popup && popup.classList.contains('active')) {
+        popup.classList.remove('active'); document.body.style.overflow = '';
+      }
+    });
+
+    // Form submission
+    var form = document.getElementById('service-form');
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var errorDiv = document.getElementById('popup-form-error');
+
+        btn.disabled = true;
+        btn.textContent = 'Submitting...';
+        if (errorDiv) errorDiv.textContent = '';
+
+        var turnstileInput = document.querySelector('#service-form [name="cf-turnstile-response"]');
+        var data = {
+          source: 'popup-form',
+          firstName: form.querySelector('[name="firstName"]').value,
+          lastName: form.querySelector('[name="lastName"]').value,
+          phone: form.querySelector('[name="phone"]').value,
+          email: form.querySelector('[name="email"]').value || '',
+          businessName: form.querySelector('[name="businessName"]').value || '',
+          businessAddress: form.querySelector('[name="businessAddress"]').value || '',
+          service: form.querySelector('[name="service"]').value || 'Not specified',
+          multipleLocations: (form.querySelector('[name="multipleLocations"]:checked') || {}).value || 'No',
+          flatRoof: (form.querySelector('[name="flatRoof"]:checked') || {}).value || 'No',
+          page_url: window.location.href,
+          'cf-turnstile-response': turnstileInput ? turnstileInput.value : '',
+          test: false
+        };
+
+        try {
+          var response = await fetch('/api/intake', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+
+          if (response.ok) {
+            window.location.href = '/thank-you/';
+          } else {
+            var result = await response.json();
+            if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong. Please call (615) 881-6968.';
+            btn.disabled = false;
+            btn.textContent = 'Request Callback ASAP';
+            if (typeof turnstile !== 'undefined') turnstile.reset();
+          }
+        } catch (err) {
+          if (errorDiv) errorDiv.textContent = 'Connection error. Please call (615) 881-6968.';
+          btn.disabled = false;
+          btn.textContent = 'Request Callback ASAP';
+          if (typeof turnstile !== 'undefined') turnstile.reset();
+        }
+      });
+    }
   });
 </script>
