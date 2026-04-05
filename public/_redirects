@@ -1,20 +1,36 @@
-/kitchen-hood-cleaning-services/ /cleaning/ 301
-/commercial-hood-repair/ /repair/ 301
-/kitchen-exhaust-installation-services/ /parts-installation/ 301
-/restaurant-exhaust-fan-parts/ /parts-installation/ 301
-/installation-and-parts/ /parts-installation/ 301
-/parts/ /parts-installation/ 301
-/parts/* /parts-installation/:splat 301
-/locations/ /cleaning/ 301
-/locations/nashville-tn/ /cleaning/nashville-tn/ 301
-/locations/murfreesboro-tn/ /cleaning/murfreesboro-tn/ 301
-/locations/mt-juliet-tn/ /cleaning/mount-juliet-tn/ 301
-/locations/hendersonville-tn/ /cleaning/hendersonville-tn/ 301
-/locations/goodlettsville-tn/ /cleaning/goodlettsville-tn/ 301
-/locations/franklin-tn/ /repair/franklin-tn/ 301
-/locations/smyrna-tn/ /cleaning/smyrna-tn/ 301
-/locations/gallatin-tn/ /cleaning/gallatin-tn/ 301
-/locations/bellevue-tn/ /cleaning/nashville-tn/ 301
-/locations/brentwood-tn/ /cleaning/brentwood-tn/ 301
-/locations/la-vergne-tn/ /cleaning/la-vergne-tn/ 301
-/locations/lebanon-tn/ /cleaning/lebanon-tn/ 301
+# ===========================================
+# DDAN Hood Cleaning — 301 Redirect Map
+# Last updated: April 2026
+# ===========================================
+
+# --- Old service hub pages ---
+/kitchen-hood-cleaning-services/          /cleaning/              301
+/commercial-hood-repair/                  /repair/                301
+/kitchen-exhaust-installation-services/   /parts-installation/    301
+/restaurant-exhaust-fan-parts/            /parts-installation/    301
+/installation-and-parts/                  /parts-installation/    301
+/kitchen-exhaust-services-overview/       /                       301
+
+# --- Old locations hub ---
+/locations/                               /cleaning/              301
+
+# --- Old location pages → new cleaning city pages ---
+/locations/smyrna-tn/                     /cleaning/smyrna-tn/           301
+/locations/murfreesboro-tn/               /cleaning/murfreesboro-tn/     301
+/locations/mt-juliet-tn/                  /cleaning/mount-juliet-tn/     301
+/locations/lebanon-tn/                    /cleaning/lebanon-tn/          301
+/locations/la-vergne-tn/                  /cleaning/la-vergne-tn/        301
+/locations/hendersonville-tn/             /cleaning/hendersonville-tn/   301
+/locations/goodlettsville-tn/             /cleaning/goodlettsville-tn/   301
+/locations/gallatin-tn/                   /cleaning/gallatin-tn/         301
+/locations/brentwood-tn/                  /cleaning/brentwood-tn/        301
+
+# --- Old location pages with NO direct cleaning equivalent ---
+/locations/franklin-tn/                   /repair/franklin-tn/           301
+/locations/bellevue-tn/                   /cleaning/nashville-tn/        301
+
+# --- Catch-all for any other old /locations/ URLs ---
+/locations/:city                          /cleaning/                     301
+
+# --- Catch-all for any old /parts/ URLs ---
+/parts/*                                  /parts-installation/:splat     301
