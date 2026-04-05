@@ -9,7 +9,7 @@
 /kitchen-exhaust-installation-services/   /parts-installation/    301
 /restaurant-exhaust-fan-parts/            /parts-installation/    301
 /installation-and-parts/                  /parts-installation/    301
-/kitchen-exhaust-services-overview/       /                       301
+# /kitchen-exhaust-services-overview/ still exists as a page — no redirect needed
 
 # --- Old locations hub ---
 /locations/                               /cleaning/              301
@@ -32,8 +32,8 @@
 # --- Catch-all for any other old /locations/ URLs ---
 /locations/:city                          /cleaning/                     301
 
-# --- Sitemap alias ---
-/sitemap.xml                              /sitemap-index.xml             301
+# --- Old sitemap URLs ---
+/sitemap-index.xml                        /sitemap.xml                   301
 
 # --- Catch-all for any old /parts/ URLs ---
 /parts/*                                  /parts-installation/:splat     301
