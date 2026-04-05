@@ -171,8 +171,8 @@ export async function onRequestPost(context) {
           '<h2 style="color:#FFFFFF;font-size:18px;font-weight:600;margin:28px 0 16px 0;">What Happens Next</h2>' +
 
           '<table width="100%" cellpadding="0" cellspacing="0">' +
-          buildStep('1', 'A team member will review your request') +
-          buildStep('2', 'We\'ll call you to confirm details and schedule service') +
+          buildStep('1', 'We\'re reviewing your request right now') +
+          buildStep('2', 'We\'ll be in touch ASAP') +
           buildStep('3', 'Our crew arrives on time — every time') +
           '</table>' +
 
@@ -181,8 +181,13 @@ export async function onRequestPost(context) {
           '<tr><td style="background-color:#222222;padding:20px;border-radius:4px;">' +
           '<h3 style="color:#FF5E15;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px 0;">Your Request</h3>' +
           '<table width="100%" cellpadding="0" cellspacing="0">' +
-          '<tr><td style="color:#999999;font-size:13px;padding:4px 0;">Service:</td><td style="color:#FFFFFF;font-size:13px;padding:4px 0;text-align:right;">' + lead.service + '</td></tr>' +
-          (lead.businessName ? '<tr><td style="color:#999999;font-size:13px;padding:4px 0;">Business:</td><td style="color:#FFFFFF;font-size:13px;padding:4px 0;text-align:right;">' + lead.businessName + '</td></tr>' : '') +
+          '<tr><td style="color:#999999;font-size:13px;padding:6px 0;border-bottom:1px solid #333;">Service</td><td style="color:#FFFFFF;font-size:13px;padding:6px 0;text-align:right;border-bottom:1px solid #333;">' + lead.service + '</td></tr>' +
+          (lead.businessName ? '<tr><td style="color:#999999;font-size:13px;padding:6px 0;border-bottom:1px solid #333;">Business</td><td style="color:#FFFFFF;font-size:13px;padding:6px 0;text-align:right;border-bottom:1px solid #333;">' + lead.businessName + '</td></tr>' : '') +
+          (lead.businessAddress ? '<tr><td style="color:#999999;font-size:13px;padding:6px 0;border-bottom:1px solid #333;">Address</td><td style="color:#FFFFFF;font-size:13px;padding:6px 0;text-align:right;border-bottom:1px solid #333;">' + lead.businessAddress + '</td></tr>' : '') +
+          '<tr><td style="color:#999999;font-size:13px;padding:6px 0;border-bottom:1px solid #333;">Phone</td><td style="color:#FFFFFF;font-size:13px;padding:6px 0;text-align:right;border-bottom:1px solid #333;">' + lead.phone + '</td></tr>' +
+          '<tr><td style="color:#999999;font-size:13px;padding:6px 0;border-bottom:1px solid #333;">Flat Roof</td><td style="color:#FFFFFF;font-size:13px;padding:6px 0;text-align:right;border-bottom:1px solid #333;">' + lead.flatRoof + '</td></tr>' +
+          '<tr><td style="color:#999999;font-size:13px;padding:6px 0;">Multiple Locations</td><td style="color:#FFFFFF;font-size:13px;padding:6px 0;text-align:right;">' + lead.multipleLocations + '</td></tr>' +
+          (lead.comments ? '<tr><td colspan="2" style="color:#999999;font-size:13px;padding:10px 0 0 0;border-top:1px solid #333;"><span style="display:block;margin-bottom:4px;">Message</span><span style="color:#D4D4D4;">' + lead.comments + '</span></td></tr>' : '') +
           '</table>' +
           '</td></tr>' +
           '</table>' +
