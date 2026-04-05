@@ -80,31 +80,52 @@ const schema = {
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <!-- HERO -->
-  <section class="min-h-[500px] flex items-center" style="background: linear-gradient(135deg, rgba(255,94,21,0.15) 0%, rgba(0,0,0,0.85) 70%), url('/images/hero/rooftop-exhaust-fan.jpg') center/cover no-repeat;">
-    <div class="max-w-[1200px] mx-auto px-5 py-20 relative z-10">
-      <nav class="flex items-center gap-2 text-sm font-heading tracking-widest uppercase text-white/70 mb-6 " aria-label="Breadcrumb">
+  <section class="min-h-[400px] md:min-h-[550px] flex items-center justify-center" style="background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%), url('/images/services/kitchen-exhaust-installation.jpg') center/cover no-repeat;">
+    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <p class="text-[#FF5E15] font-heading font-bold text-xs md:text-sm tracking-widest uppercase mb-4">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">Same-Day Exhaust Fan Parts and Installation in <span class="text-[#FF5E15]">Nashville, TN</span></h1>
+      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">Serving Nashville's 3,000+ commercial kitchens. Replacement parts in stock or next-day sourced.</p>
+      <p class="text-white font-heading font-bold text-base md:text-lg mb-2">Same-Day / Next-Day Warrantied Parts and Installation by a Licensed Professional</p>
+      <div class="w-20 h-1 bg-[#FF5E15] mx-auto mt-3 mb-8"></div>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold text-lg rounded-lg hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          Free Fitting Consult: {business.phone}
+        </a>
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#FF5E15] text-[#FF5E15] font-heading font-bold text-lg rounded-lg hover:bg-[#FF5E15] hover:text-white hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          EMERGENCY FAN REPLACEMENT
+        </a>
+      </div>
+      <div class="flex justify-center items-center gap-6 mt-8">
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/google-white-logo-1024x337.png" alt="Google" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/facebook-logo-white-full-transparent-1024x341.png" alt="Facebook" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/YELP_BIG.D-5a67c069-1024x392.png" alt="Yelp" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB STRIP -->
+  <div class="bg-[#0A0A0A] py-2 px-5">
+    <div class="max-w-[1200px] mx-auto">
+      <nav class="flex items-center gap-2 text-sm font-heading text-gray-400" aria-label="Breadcrumb">
         <a href="/" class="hover:text-[#FF5E15] transition-colors">Home</a>
         <span class="text-[#FF5E15]">/</span>
         <a href="/parts-installation/" class="hover:text-[#FF5E15] transition-colors">Parts & Installation</a>
         <span class="text-[#FF5E15]">/</span>
-        <span class="text-white">Nashville, TN</span>
+        <span class="text-gray-300">Nashville, TN</span>
       </nav>
-      <p class="text-[#FF5E15] font-heading font-bold text-sm tracking-widest uppercase mb-4">DDAN HOOD CLEANING AND REPAIR</p>
-      <h1 class="font-display text-white text-2xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5 max-w-3xl">Same-Day Exhaust Fan Parts and Installation in <span class="text-[#FF5E15]">Nashville, TN</span></h1>
-      <p class="text-gray-300 font-body text-lg md:text-xl max-w-2xl mb-8">Serving Nashville's 3,000+ commercial kitchens. Replacement parts in stock or next-day sourced.</p>
-      <p class="border-l-4 border-[#FF5E15] pl-4 text-white font-heading font-bold text-lg md:text-xl mb-8">Same-Day / Next-Day Warrantied Parts and Installation by a Licensed Professional</p>
-      <div class="flex flex-wrap gap-4 mb-8">
-        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2 px-7 py-3 bg-[#032C5B] text-white font-heading font-semibold rounded hover:scale-95 transition-all duration-300">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-          Free Fitting Consult: {business.phone}
-        </a>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-7 py-3 border-2 border-red-500 text-red-400 font-heading font-semibold rounded hover:bg-red-500 hover:text-white hover:scale-95 transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          EMERGENCY FAN REPLACEMENT
-        </button>
-      </div>
     </div>
-  </section>
+  </div>
 
   <!-- CATEGORY SUMMARY + CONSULT CARD -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 reveal">
