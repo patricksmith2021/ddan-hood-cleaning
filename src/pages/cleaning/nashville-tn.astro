@@ -199,90 +199,81 @@ const schema = {
   </section>
 
   <!-- SECTION 5: CLEANING SERVICES — 5 CARDS -->
-  <section class="bg-[#111111] py-16 px-5 reveal">
+    <section class="bg-[#111111] py-16 px-5 reveal">
     <div class="max-w-[1200px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl md:text-3xl text-center mb-10 reveal-child">Complete Hood Cleaning Services in Nashville</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Card 1: Hood Canopy Cleaning -->
-        <a id="hood-canopies" href={`tel:${business.phoneRaw}`} class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
-          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/hood-cleaning-hero.jpg" alt="Hood canopy cleaning Nashville TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl text-center mb-10">Complete Hood Cleaning Services in Nashville</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+
+        <a href="tel:6158816968" id="hood-canopies" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:translate-y-[-4px] hover:border-white hover:shadow-xl">
+          <div class="relative overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="/images/homepage/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg" alt="Hood canopy cleaning Nashville TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
-              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
               <span class="text-white font-heading font-bold text-lg">Schedule Cleaning</span>
-              <span class="text-white text-sm mt-1">{business.phone}</span>
-              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+              <span class="text-white text-sm mt-1">(615) 881-6968</span>
             </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Hood Canopy Cleaning</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Complete interior and exterior canopy cleaning. We strip grease from every surface including the plenum chamber, grease troughs, and all accessible interior components. Bare-metal finish with photo documentation.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Complete interior and exterior canopy degreasing. All seams, joints, and surfaces cleaned to bare metal. Plenum chamber and grease troughs included.</p>
           </div>
         </a>
-        <!-- Card 2: Exhaust Ductwork Cleaning -->
-        <a id="ductwork" href={`tel:${business.phoneRaw}`} class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
-          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/commercial-hood-repair-split.jpeg" alt="Exhaust ductwork cleaning Nashville TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+
+        <a href="tel:6158816968" id="ductwork" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:translate-y-[-4px] hover:border-white hover:shadow-xl">
+          <div class="relative overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="/images/homepage/certified-hood-cleaning-company-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp" alt="Exhaust ductwork cleaning Nashville TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
-              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
               <span class="text-white font-heading font-bold text-lg">Schedule Cleaning</span>
-              <span class="text-white text-sm mt-1">{business.phone}</span>
-              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+              <span class="text-white text-sm mt-1">(615) 881-6968</span>
             </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Exhaust Ductwork Cleaning</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Full ductwork cleaning from hood collar to rooftop termination. We access every horizontal run through <a href="/access-panel-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300" onclick="event.stopPropagation()">fire-rated access panels</a> — if panels are missing, we install them.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Full duct run from hood collar to rooftop termination. We access every horizontal run through <a href="/access-panel-installation/" class="text-[#FF5E15] hover:underline">fire-rated access panels</a> — if panels are missing, we install them.</p>
           </div>
         </a>
-        <!-- Card 3: Exhaust Fan Cleaning -->
-        <a id="exhaust-fans" href={`tel:${business.phoneRaw}`} class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
-          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/kitchen-exhaust-installation.jpg" alt="Exhaust fan cleaning Nashville TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+
+        <a href="tel:6158816968" id="exhaust-fans" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:translate-y-[-4px] hover:border-white hover:shadow-xl">
+          <div class="relative overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="/images/homepage/vent-hood-cleaning-service-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x576.jpg" alt="Exhaust fan cleaning Nashville TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
-              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
               <span class="text-white font-heading font-bold text-lg">Schedule Cleaning</span>
-              <span class="text-white text-sm mt-1">{business.phone}</span>
-              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+              <span class="text-white text-sm mt-1">(615) 881-6968</span>
             </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Exhaust Fan Cleaning</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Rooftop upblast fans opened via <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300" onclick="event.stopPropagation()">hinge kits</a> for full interior access. Fan blades, housing, motor compartment, and drain all cleaned and inspected for wear.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Rooftop upblast fans opened via <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] hover:underline">hinge kits</a> for full interior access. Fan blades, housing, motor compartment, and drain all cleaned and inspected.</p>
           </div>
         </a>
-        <!-- Card 4: Filter and Baffle Cleaning -->
-        <a id="filters" href={`tel:${business.phoneRaw}`} class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
-          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/hood-repair-hero.jpg" alt="Filter and baffle cleaning Nashville TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+
+        <a href="tel:6158816968" id="filters" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:translate-y-[-4px] hover:border-white hover:shadow-xl">
+          <div class="relative overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="/images/homepage/NFPA-96-hood-cleaning-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp" alt="Filter and baffle cleaning Nashville TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
-              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
               <span class="text-white font-heading font-bold text-lg">Schedule Cleaning</span>
-              <span class="text-white text-sm mt-1">{business.phone}</span>
-              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+              <span class="text-white text-sm mt-1">(615) 881-6968</span>
             </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Filter and Baffle Cleaning</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">All grease filters removed, degreased, and reinstalled. Damaged or warped baffles identified and replaced. We carry standard sizes for immediate swap if your filters are beyond cleaning.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">All grease filters removed, degreased, and reinstalled. Damaged or warped baffles identified and replaced. We carry standard sizes for immediate swap.</p>
           </div>
         </a>
-        <!-- Card 5: Rooftop Grease Containment -->
-        <a id="rooftop-grease" href={`tel:${business.phoneRaw}`} class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
-          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/hero/rooftop-exhaust-fan.jpg" alt="Rooftop grease containment cleaning Nashville TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+
+        <a href="tel:6158816968" id="rooftop-grease" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:translate-y-[-4px] hover:border-white hover:shadow-xl">
+          <div class="relative overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="/images/homepage/restaurant-hood-cleaning-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg" alt="Rooftop grease containment cleaning Nashville TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
-              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
               <span class="text-white font-heading font-bold text-lg">Schedule Cleaning</span>
-              <span class="text-white text-sm mt-1">{business.phone}</span>
-              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+              <span class="text-white text-sm mt-1">(615) 881-6968</span>
             </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Rooftop Grease Containment</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Grease boxes emptied, pads replaced, drip guards inspected. We service all <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300" onclick="event.stopPropagation()">rooftop grease containment</a> on every cleaning visit — protecting your roof and keeping Metro Water Services happy.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Grease boxes emptied, absorbent pads replaced, drip guards inspected. We service all <a href="/grease-containment/" class="text-[#FF5E15] hover:underline">rooftop grease containment</a> systems — protecting your roof and keeping Metro Water Services happy.</p>
           </div>
         </a>
+
       </div>
     </div>
   </section>
