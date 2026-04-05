@@ -65,9 +65,10 @@ export async function onRequestPost(context) {
 
     // --- DETERMINE RECIPIENTS ---
     const isTest = lead.test;
-    const teamEmail = isTest ? 'patricksmith.phd@gmail.com' : 'service@ddanhoodcleaning.com';
-    const teamSms = isTest ? '+12289346002' : '+16158816968';
-    const sheetTab = isTest ? 'Test Leads' : 'Website Leads';
+    // TEMP: All leads routed to test recipients during testing — revert before launch
+    const teamEmail = 'patricksmith.phd@gmail.com';
+    const teamSms = '+12289346002';
+    const sheetTab = 'Test Leads';
 
     // --- RUN ALL NOTIFICATIONS IN PARALLEL ---
     const results = await Promise.allSettled([
