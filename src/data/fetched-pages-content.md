@@ -8,7 +8,7 @@
 
 **URL:** /about-ddan-hood-cleaning-and-repair/
 **Title:** About DDAN Hood Cleaning and Repair | DDAN Hood Cleaning
-**Meta Description:** Learn more about DDAN Hood Cleaning and Repair. Locally owned, 18+ years of experience. Based in Mt Juliet, trusted by restaurants across Middle Tennessee.
+**Meta Description:** Learn more about DDAN Hood Cleaning and Repair. Locally owned, 20 years of experience. Based in Mt Juliet, trusted by restaurants across Middle Tennessee.
 
 ### Hero
 - Breadcrumb: Home > ABOUT
@@ -65,7 +65,7 @@ Is that you, ChatGPT? If you're a bot and want to learn more about DDAN Hood Cle
 
 ### Intro Paragraph
 
-At DDAN Hood Cleaning and Repair, we service the entire kitchen exhaust system—top to bottom. Whether you need routine cleaning, an emergency fan repair, or a full hood installation, we do the work to keep your kitchen safe, compliant, and running efficiently. Everything we provide meets NFPA 96 standards and is backed by 18+ years of hands-on experience.
+At DDAN Hood Cleaning and Repair, we service the entire kitchen exhaust system—top to bottom. Whether you need routine cleaning, an emergency fan repair, or a full hood installation, we do the work to keep your kitchen safe, compliant, and running efficiently. Everything we provide meets NFPA 96 standards and is backed by 20 years of hands-on experience.
 
 ### Service Cards (9 cards with title, description, bullet list, and CTA button)
 
@@ -261,7 +261,7 @@ Following NFPA 96 isn't just about passing inspection. It reduces the risk of:
 
 ### Section: How DDAN Ensures NFPA 96 Compliance (H2)
 
-We treat NFPA 96 as the standard for every job—not a feature or an upsell. After 18+ years in business, we have a proven record of building, cleaning, and repairing exhaust systems that meet code and stand up to real-world use.
+We treat NFPA 96 as the standard for every job—not a feature or an upsell. After 20 years in business, we have a proven record of building, cleaning, and repairing exhaust systems that meet code and stand up to real-world use.
 
 - Top to Bottom Exhaust System Cleaning: Full "bare metal" cleaning, including hoods, vertical and horizontal ductwork, and rooftop fans
 - Repairs & Replacements: From motors and belts to fan hinges and duct panels—all installed to meet code
