@@ -11,6 +11,7 @@ export async function onRequestPost(context) {
 
   try {
     const body = await request.json();
+    console.log('Lead received:', JSON.stringify({ source: body.source, name: body.firstName + ' ' + body.lastName, phone: body.phone }));
 
     // --- TURNSTILE VERIFICATION ---
     const turnstileToken = body['cf-turnstile-response'];
@@ -75,16 +76,17 @@ export async function onRequestPost(context) {
       logToGoogleSheets(lead, sheetTab, env),
       sendTeamEmail(lead, teamEmail, env),
       sendTeamSms(lead, teamSms, env),
-      lead.email ? sendCustomerEmail(lead, env) : Promise.resolve('no email')
+      lead.email ? sendCustomerEmail(lead, env) : Promise.resolve('no email'),
+      lead.phone ? sendCustomerSms(lead, env) : Promise.resolve('no phone')
     ]);
 
-    // Log ALL results, not just failures
+    // Log ALL results
     results.forEach((result, index) => {
-      const labels = ['Google Sheets', 'Team Email', 'Team SMS', 'Customer Email'];
+      const labels = ['Google Sheets', 'Team Email', 'Team SMS', 'Customer Email', 'Customer SMS'];
       if (result.status === 'fulfilled') {
-        console.log(labels[index] + ': SUCCESS', JSON.stringify(result.value).substring(0, 200));
+        console.log(labels[index] + ': SUCCESS');
       } else {
-        console.error(labels[index] + ': FAILED', result.reason?.message || result.reason || 'Unknown error');
+        console.error(labels[index] + ': FAILED —', result.reason?.message || String(result.reason));
       }
     });
 
@@ -107,8 +109,9 @@ export async function onRequestOptions() {
   });
 }
 
-// --- SMTP2GO EMAIL ---
+// --- SMTP2GO TEAM EMAIL ---
 async function sendTeamEmail(lead, toEmail, env) {
+  console.log('Sending team email to:', toEmail);
   const subject = '🔧 New Lead! — ' + lead.firstName + ' ' + lead.lastName + ' — ' + (lead.service || 'General');
   const html = '<div style="font-family:sans-serif;max-width:600px;">' +
     '<h2 style="color:#FF5E15;">New Lead from DDAN Website</h2>' +
@@ -134,25 +137,26 @@ async function sendTeamEmail(lead, toEmail, env) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       api_key: env.SMTP2GO_API_KEY,
-      sender: 'DDAN Hood Cleaning <leads@ddanhoodcleaning.com>',
+      sender: 'leads@ddanhoodcleaning.com',
       to: [toEmail],
-      subject: (lead.test ? '🧪 TEST — ' : '') + subject,
+      subject: subject,
       html_body: html,
       text_body: 'New lead: ' + lead.firstName + ' ' + lead.lastName + ' | Phone: ' + lead.phone + ' | Service: ' + lead.service
     })
   });
 
-  const resultText = await response.text();
-  console.log('SMTP2GO team email raw response:', resultText);
-  const result = JSON.parse(resultText);
+  const responseText = await response.text();
+  console.log('SMTP2GO team email response:', responseText);
+  const result = JSON.parse(responseText);
   if (result.data && result.data.failed > 0) {
-    throw new Error('SMTP2GO failed: ' + JSON.stringify(result.data.failures));
+    throw new Error('SMTP2GO team email failed: ' + JSON.stringify(result.data.failures));
   }
   return result;
 }
 
 // --- CUSTOMER CONFIRMATION EMAIL ---
 async function sendCustomerEmail(lead, env) {
+  console.log('Sending customer email to:', lead.email);
   const html = '<div style="font-family:sans-serif;max-width:600px;">' +
     '<h2 style="color:#FF5E15;">Thanks for contacting DDAN Hood Cleaning and Repair!</h2>' +
     '<p>Hi ' + lead.firstName + ',</p>' +
@@ -167,21 +171,22 @@ async function sendCustomerEmail(lead, env) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       api_key: env.SMTP2GO_API_KEY,
-      sender: 'DDAN Hood Cleaning <service@ddanhoodcleaning.com>',
+      sender: 'service@ddanhoodcleaning.com',
       to: [lead.email],
       subject: 'Thanks for contacting DDAN Hood Cleaning and Repair!',
       html_body: html,
-      custom_headers: [{ header: 'Reply-To', value: 'service@ddanhoodcleaning.com' }]
+      text_body: 'Thanks for contacting DDAN Hood Cleaning and Repair! We received your request and will get back to you shortly. For immediate help call (615) 881-6968.'
     })
   });
 
-  const resultText = await response.text();
-  console.log('SMTP2GO customer email raw response:', resultText);
-  return JSON.parse(resultText);
+  const responseText = await response.text();
+  console.log('SMTP2GO customer email response:', responseText);
+  return JSON.parse(responseText);
 }
 
-// --- TWILIO SMS ---
+// --- TWILIO TEAM SMS ---
 async function sendTeamSms(lead, toNumber, env) {
+  console.log('Sending team SMS to:', toNumber);
   const message = (lead.test ? '🧪 TEST — ' : '') +
     '🔧 New DDAN lead: ' + lead.firstName + ' ' + lead.lastName +
     '\nPhone: ' + lead.phone +
@@ -206,7 +211,36 @@ async function sendTeamSms(lead, toNumber, env) {
 
   if (!response.ok) {
     const error = await response.text();
-    throw new Error('Twilio failed: ' + error);
+    throw new Error('Twilio team SMS failed: ' + error);
+  }
+  return response.json();
+}
+
+// --- TWILIO CUSTOMER SMS ---
+async function sendCustomerSms(lead, env) {
+  console.log('Sending customer SMS to:', lead.phone);
+  const message = 'Thanks for contacting DDAN Hood Cleaning and Repair! ' +
+    'We received your request and will get back to you shortly. ' +
+    'For immediate help call (615) 881-6968 — we are available 24/7.';
+
+  const twilioUrl = 'https://api.twilio.com/2010-04-01/Accounts/' + env.TWILIO_ACCOUNT_SID + '/Messages.json';
+
+  const response = await fetch(twilioUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic ' + btoa(env.TWILIO_ACCOUNT_SID + ':' + env.TWILIO_AUTH_TOKEN)
+    },
+    body: new URLSearchParams({
+      To: lead.phone,
+      From: env.TWILIO_PHONE_NUMBER,
+      Body: message
+    })
+  });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error('Twilio customer SMS failed: ' + error);
   }
   return response.json();
 }
@@ -215,16 +249,13 @@ async function sendTeamSms(lead, toNumber, env) {
 async function logToGoogleSheets(lead, tabName, env) {
   console.log('Google Sheets: parsing service account JSON...');
   const serviceAccount = JSON.parse(env.GOOGLE_SERVICE_ACCOUNT_JSON);
-  console.log('Google Sheets: service account email:', serviceAccount.client_email);
+  console.log('Google Sheets: creating JWT for', serviceAccount.client_email);
 
-  // Create JWT for Google API auth
-  console.log('Google Sheets: creating JWT...');
   const jwt = await createGoogleJWT(serviceAccount);
-  console.log('JWT created for:', serviceAccount.client_email);
+  console.log('Google Sheets: JWT created, getting access token');
 
-  console.log('Google Sheets: getting access token...');
   const token = await getGoogleAccessToken(jwt);
-  console.log('Got Google access token');
+  console.log('Google Sheets: got access token, appending to sheet tab:', tabName);
 
   const sheetId = env.GOOGLE_SHEET_ID;
   console.log('Google Sheets: sheet ID:', sheetId);
@@ -259,15 +290,12 @@ async function logToGoogleSheets(lead, tabName, env) {
     body: JSON.stringify({ values })
   });
 
-  console.log('Sheets API response status:', response.status);
+  const responseText = await response.text();
+  console.log('Google Sheets response:', response.status, responseText);
   if (!response.ok) {
-    const errorText = await response.text();
-    console.error('Sheets error body:', errorText);
-    throw new Error('Google Sheets failed: ' + errorText);
+    throw new Error('Google Sheets failed (' + response.status + '): ' + responseText);
   }
-  const result = await response.json();
-  console.log('Google Sheets: success', JSON.stringify(result).substring(0, 200));
-  return result;
+  return JSON.parse(responseText);
 }
 
 // --- GOOGLE JWT AUTH HELPERS ---
