@@ -2,82 +2,71 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TruckCTA from '../../components/TruckCTA.astro';
 import business from '../../data/business.json';
-const HP = '/images/homepage';
+
 
 const faqs = [
   {
-    q: 'My restaurant in Spring Hill is brand new. Do I already need parts replaced?',
-    a: 'Often, yes. Many new-build restaurants along Saturn Parkway and The Crossings use cheap OEM fan belts and motors to cut construction costs. These factory parts frequently snap or burn out within the first year of high-volume operation. We replace them with commercial-grade components that last.',
+    q: 'My restaurant in Spring Hill is brand new. Do I really need hood cleaning yet?',
+    a: 'Yes. Depending on your cooking volume, NFPA 96 code may require professional cleaning every 30 to 90 days. High-volume fryers can completely saturate a new exhaust system with highly flammable grease in just a few months.',
   },
   {
     q: 'Can you protect the white TPO roof on my Spring Hill restaurant from grease?',
-    a: 'Absolutely. Corporate landlords in new developments are strict about roof damage. We install multi-layer, high-capacity rooftop grease containment systems — boxes, trays, and absorbent pads — that guarantee grease never reaches your roofing membrane.',
+    a: 'Absolutely. Corporate landlords in new developments like The Crossings are incredibly strict about roof damage. We install multi-layer, high-capacity rooftop grease containment systems that guarantee grease will not reach or degrade your roofing membrane.',
   },
   {
-    q: "What's included in the free fitting consult?",
-    a: `We verify your exact fan model, motor specs, belt size, and mounting configuration before ordering anything. This means the part fits the first time — no returns, no second trips, no kitchen downtime. Call to schedule: ${business.phone}`,
+    q: 'Do you repair broken commercial exhaust fans?',
+    a: 'Yes. If your exhaust fan goes down, your kitchen fills with smoke and you cannot legally operate. We offer 24/7 emergency service in Spring Hill to replace burned-out motors, snapped belts, and failing bearings.',
   },
   {
-    q: 'What if I ordered the wrong part?',
-    a: `If you bought from us, our free fitting consult means we verified the part before ordering — wrong parts don't happen. If you bought elsewhere and it doesn't fit, call us. We can source the correct part and install it, often same-day. ${business.phone}`,
+    q: 'How fast can you get parts to a Spring Hill restaurant?',
+    a: 'We stock common motors, belts, bearings, filters, hinge kits, and grease cups locally. For in-stock parts, same-day delivery is standard. Specialty items are typically next-day via our distributor network.',
   },
 ];
 
-const siteUrl = import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev';
-const schemaData = {
+const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": `${siteUrl}/#business`,
       "name": business.name,
       "telephone": business.phone,
       "email": business.email,
-      "url": siteUrl,
-      "image": `${siteUrl}/images/logo.png`,
+      "url": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/spring-hill-tn/`,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": business.address.street,
-        "addressLocality": "Mt. Juliet",
-        "addressRegion": "TN",
-        "postalCode": "37122",
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
         "addressCountry": "US"
       },
       "areaServed": {
         "@type": "City",
-        "name": "Spring Hill",
-        "addressRegion": "TN"
+        "name": "Spring Hill, TN"
       },
       "priceRange": "$$"
     },
     {
       "@type": "Service",
-      "serviceType": "Commercial Kitchen Exhaust Parts and Installation",
-      "provider": { "@id": `${siteUrl}/#business` },
-      "areaServed": {
-        "@type": "City",
-        "name": "Spring Hill",
-        "addressRegion": "TN"
-      },
-      "description": "Same-day exhaust fan parts, motors, belts, bearings, filters, and professional installation for Spring Hill's rapidly growing commercial kitchen market."
+      "name": "Commercial Kitchen Exhaust Parts and Installation",
+      "provider": { "@type": "LocalBusiness", "name": business.name },
+      "areaServed": { "@type": "City", "name": "Spring Hill, TN" },
+      "description": "Same-day exhaust fan parts and professional installation for Spring Hill commercial kitchens. Motors, belts, filters, hinge kits, grease containment, and make-up air units."
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${siteUrl}/parts-installation/` },
-        { "@type": "ListItem", "position": 3, "name": "Spring Hill, TN", "item": `${siteUrl}/parts-installation/spring-hill-tn/` }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Spring Hill, TN" }
       ]
     },
     {
       "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
+      "mainEntity": faqs.map(f => ({
         "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
       }))
     }
   ]
@@ -85,407 +74,517 @@ const schemaData = {
 ---
 
 <BaseLayout
-  title="Spring Hill Restaurant Hood Parts | Same-Day | DDAN"
-  description="Exhaust fan parts for Spring Hill's fast-growing restaurant scene. Same-day from local stock. Discounted installation. Free fitting consult. (615) 881-6968."
+  title="Spring Hill Kitchen Parts and Installation | DDAN"
+  description="Same-day exhaust fan parts and professional installation in Spring Hill TN. Motors, belts, filters, hinge kits, grease containment. Call (615) 881-6968."
+  ogImage="/images/services/kitchen-exhaust-installation.jpg"
 >
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <!-- SECTION 1: HERO -->
-  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/rooftop-exhaust-fan.jpg');"></div>
-    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
-    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
-      <nav aria-label="Breadcrumb" class="mb-4">
-        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
-          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
-          <li class="text-[#FF5E15]">/</li>
-          <li><a href="/parts-installation/" class="hover:text-[#FF5E15] transition-all duration-300">Parts &amp; Installation</a></li>
-          <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Spring Hill, TN</li>
-        </ol>
-      </nav>
-      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
-      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Restaurant Hood Parts &amp; Installation in <span class="text-[#FF5E15]">Spring Hill, TN</span>
-      </h1>
-      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Spring Hill is growing fast. Your kitchen equipment needs to keep up. Same-day parts from local stock or next-day sourced.
-      </p>
-      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
-        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#FF5E15] text-white font-body text-lg font-medium rounded hover:scale-95 hover:bg-[#E54F0D] transition-all duration-150">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  <!-- HERO -->
+  <section class="min-h-[400px] md:min-h-[550px] flex items-center justify-center" style="background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%), url('/images/services/kitchen-exhaust-installation.jpg') center/cover no-repeat;">
+    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <p class="text-[#FF5E15] font-heading font-bold text-xs md:text-sm tracking-widest uppercase mb-4">DDAN Hood Cleaning and Repair</p>
+      <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">Same-Day Exhaust Fan Parts and Installation in <span class="text-[#FF5E15]">Spring Hill, TN</span></h1>
+      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">Serving Spring Hill's 3,000+ commercial kitchens. Replacement parts in stock or next-day sourced.</p>
+      <p class="text-white font-heading font-bold text-base md:text-lg mb-2">Same-Day / Next-Day Warrantied Parts and Installation by a Licensed Professional</p>
+      <div class="w-20 h-1 bg-[#FF5E15] mx-auto mt-3 mb-8"></div>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold text-lg rounded-lg hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
           Free Fitting Consult: {business.phone}
         </a>
-        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-red-600 rounded hover:bg-red-600 transition-all duration-300">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#FF5E15] text-[#FF5E15] font-heading font-bold text-lg rounded-lg hover:bg-[#FF5E15] hover:text-white hover:scale-95 transition-all duration-300">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           EMERGENCY FAN REPLACEMENT
         </a>
       </div>
-      <div class="flex flex-row items-center gap-3 md:gap-8">
-        {[
-          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
-          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
-          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
-        ].map((badge) => (
-          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
-            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
-            <div class="flex gap-0.5">
-              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 2: VALUE PROP CARDS -->
-  <section class="bg-[#111111] py-10 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          { icon: 'bolt', label: 'Same-Day Parts' },
-          { icon: 'tools', label: 'Discounted Installation' },
-          { icon: 'shield', label: 'Warranty on Parts & Labor' },
-          { icon: 'phone', label: 'Free Fitting Consult' },
-        ].map((item) => (
-          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-4 text-center transition-all duration-300 reveal-child">
-            <div class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full mx-auto mb-3">
-              {item.icon === 'bolt' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>}
-              {item.icon === 'tools' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>}
-              {item.icon === 'shield' && <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
-              {item.icon === 'phone' && <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>}
-            </div>
-            <p class="text-white font-heading font-semibold text-sm">{item.label}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 3: PRODUCT CATALOG -->
-
-  <!-- Exhaust Fans -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.8rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Exhaust Fans — The Heart of Your Kitchen
-      </h2>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-12 reveal-child">
-        Your exhaust fan moves every cubic foot of air through your kitchen ventilation system. When it fails, your kitchen shuts down. We stock, source, and install every type of commercial kitchen exhaust fan.
-      </p>
-
-      <!-- Upblast -->
-      <div class="mb-12 reveal">
-        <div class="flex items-center gap-3 mb-4">
-          <h3 class="font-heading font-bold text-white text-xl md:text-2xl reveal-child">Upblast Centrifugal Exhaust Fans</h3>
-          <span class="bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wider px-3 py-1 rounded-full">MOST POPULAR</span>
+      <div class="flex justify-center items-center gap-6 mt-8">
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/google-white-logo-1024x337.png" alt="Google" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
         </div>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">The most common exhaust fan in commercial kitchens. Mounted on your rooftop, it pulls grease-laden air up and out. We carry the most common sizes for same-day replacement.</p>
-        <ul class="space-y-2 mb-4">
-          <li class="check-item reveal-child">Direct drive — sealed motor, less maintenance, more energy efficient</li>
-          <li class="check-item reveal-child">Belt drive — quieter operation, cheaper upfront, adjustable speed via pulleys</li>
-          <li class="check-item reveal-child">High-speed direct drive (CaptiveAire DU series and equivalents)</li>
-          <li class="check-item reveal-child">Sizes from 400 CFM to 6,000+ CFM — matched to your kitchen's requirements</li>
-        </ul>
-        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
-      </div>
-
-      <!-- Downblast -->
-      <div class="mb-12 reveal">
-        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Downblast Centrifugal Exhaust Fans</h3>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">For non-grease exhaust applications — dining rooms, dishwashing areas, restrooms. Direct and belt drive options available.</p>
-        <ul class="space-y-2 mb-4">
-          <li class="check-item reveal-child">Discharges air downward along the rooftop for quieter operation</li>
-          <li class="check-item reveal-child">Direct and belt drive options for different performance needs</li>
-        </ul>
-        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
-      </div>
-
-      <!-- Inline -->
-      <div class="mb-12 reveal">
-        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Inline Centrifugal Fans</h3>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">Mounted inside your ductwork for commercial and light industrial applications where rooftop mounting isn't practical.</p>
-        <ul class="space-y-2 mb-4">
-          <li class="check-item reveal-child">Ideal for interior installations and multi-floor exhaust runs</li>
-          <li class="check-item reveal-child">Available in grease-rated and general ventilation configurations</li>
-        </ul>
-        <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
-      </div>
-
-      <!-- Axial + Propeller -->
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <div class="reveal">
-          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Axial / Tube Fans</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">High-volume air movement through duct systems. Common in industrial kitchens and large-scale food production facilities.</p>
-          <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/facebook-logo-white-full-transparent-1024x341.png" alt="Facebook" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
         </div>
-        <div class="reveal">
-          <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-4 reveal-child">Propeller Wall &amp; Roof Fans</h3>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">General ventilation for warehouses, loading docks, and storage areas adjacent to commercial kitchens.</p>
-          <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-sm hover:text-white transition-all duration-300 reveal-child">Call for Availability &rarr;</button>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/YELP_BIG.D-5a67c069-1024x392.png" alt="Yelp" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Fan Replacement Parts -->
-      <div class="mb-8 reveal">
-        <h3 class="font-heading font-bold text-white text-xl md:text-2xl mb-6 reveal-child">Fan Replacement Parts</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            'Motors (ODP, TEFC, single & 3-phase)',
-            'Fan wheels & blade assemblies',
-            'Belts & drive kits',
-            'Bearings & pillow blocks',
-            'Roof curbs & adapters',
-            'Hinge kits (NFPA 96 required)',
-            'Speed controllers & VFDs',
-            'Electrical disconnects & switches',
-            'Impellers & replacement wheels',
-          ].map((part) => (
-            <div class="flex items-start gap-2 bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-4 transition-all duration-300 reveal-child">
-              <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span class="text-[#D4D4D4] text-sm font-heading">{part}</span>
-            </div>
-          ))}
+  <!-- BREADCRUMB STRIP -->
+  <div class="bg-[#0A0A0A] py-2 px-5">
+    <div class="max-w-[1200px] mx-auto">
+      <nav class="flex items-center gap-2 text-sm font-heading text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF5E15] transition-colors">Home</a>
+        <span class="text-[#FF5E15]">/</span>
+        <a href="/parts-installation/" class="hover:text-[#FF5E15] transition-colors">Parts & Installation</a>
+        <span class="text-[#FF5E15]">/</span>
+        <span class="text-gray-300">Spring Hill, TN</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- CONSULT BAR + JUMP-NAV GRID -->
+  <section class="bg-[#111111] py-12 reveal">
+    <div class="max-w-[1200px] mx-auto px-5">
+      <!-- Category Heading -->
+      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl text-center mb-8 reveal-child">Complete Restaurant Hood System Parts and Installation</h2>
+      <!-- Jump-Nav Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
+        <a href="#exhaust-fans" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3M12 12L6 9"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Exhaust Fans</span>
+        </a>
+        <a href="#fan-parts" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4m-7.07-15.07l2.83 2.83m8.48 8.48l2.83 2.83M1 12h4m14 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Fan Parts</span>
+        </a>
+        <a href="#make-up-air" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 12h10M12 8v8"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Make-Up Air</span>
+        </a>
+        <a href="#filters" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Filters</span>
+        </a>
+        <a href="#grease-containment" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Grease Containment</span>
+        </a>
+        <a href="#hood-systems" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Hood Systems</span>
+        </a>
+        <a href="#hood-systems" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Accessories</span>
+        </a>
+      </div>
+      <!-- Consult Bar -->
+      <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 mt-10 reveal-child">
+        <p class="text-white font-heading font-semibold text-lg text-center md:text-left">Don't know what you need? Call for a FREE consult from a pro.</p>
+        <div class="text-center whitespace-nowrap">
+          <p class="text-[#FF5E15] font-heading font-bold text-sm">SAME DAY / NEXT DAY SERVICE</p>
+          <p class="text-[#FF5E15] font-heading font-bold text-xs">24/7 Emergency Line Available</p>
+        </div>
+        <div class="text-center md:text-right">
+          <a href={`tel:${business.phoneRaw}`} class="block text-white font-heading font-bold text-2xl hover:text-[#FF5E15] transition-colors">{business.phone}</a>
         </div>
       </div>
-
-      <p class="text-[#999] text-sm reveal-child">Not sure what you need? <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call for a free fitting consult — {business.phone}</a></p>
     </div>
   </section>
 
-  <!-- Make-Up Air Units -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Make-Up Air Units
-      </h2>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-        Your exhaust system can't function without proper make-up air. If your front doors slam shut or you feel negative pressure, you need a MUA unit.
-      </p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
-        {[
-          { title: 'Gas-Fired Heated', desc: 'The standard for Tennessee. Tempers incoming air during winter to maintain comfort and airflow balance.' },
-          { title: 'Electric Heated', desc: 'Alternative heating option for locations without gas access. Higher operating cost but simpler installation.' },
-          { title: 'Heated + Cooled', desc: 'Year-round comfort. Conditions incoming air in both winter and summer for demanding environments.' },
-          { title: 'Perforated Supply Plenum', desc: 'Mounts directly to your hood. Delivers tempered air right at the cooking line for maximum efficiency.' },
-        ].map((item) => (
-          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
-            <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
-            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
-            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Filters & Baffles -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Filters &amp; Baffles
-      </h2>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Wrong filter = fire hazard + failed inspection. We match exact specifications for your hood system.
-      </p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
-        {[
-          { title: 'Stainless Steel Baffle Filters', desc: 'Industry standard. Type 304 or 430 stainless steel. Captures grease through multi-pass baffles. Dishwasher safe.' },
-          { title: 'Mesh Grease Filters', desc: 'Budget option for lower-grease applications. Aluminum or galvanized steel mesh construction.' },
-          { title: 'Charcoal / Carbon Filters', desc: 'Odor control for ventless hoods and recirculating systems. Removes smoke and cooking odors from exhaust air.' },
-        ].map((item) => (
-          <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
-            <h3 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h3>
-            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
-            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
-          </div>
-        ))}
-      </div>
-      <p class="text-[#999] text-sm reveal-child">Standard sizes in stock. Custom sizes sourced within 24-48 hours. <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline font-semibold">Call to verify your specs — {business.phone}</a></p>
-    </div>
-  </section>
-
-  <!-- Grease Containment -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Grease Containment
-      </h2>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6 reveal-child">
-        Spring Hill Water enforces strict grease trap and interceptor rules. We supply and install complete containment systems to protect your roof and keep you compliant.
-      </p>
-      <div class="grid sm:grid-cols-2 gap-4 mb-6">
-        {[
-          { title: 'Rooftop Grease Boxes', desc: 'Full containment systems that capture grease before it hits your roof membrane.' },
-          { title: 'Grease Cups & Drip Pans', desc: 'For individual fan units and overflow protection on existing systems.' },
-          { title: 'Grease Pillows & Absorbent Pads', desc: 'Replaceable absorption media for ongoing rooftop grease management.' },
-          { title: 'Grease Duct Access Doors', desc: 'NFPA 96 required every 12 feet for proper cleaning access. Fire-rated.' },
-        ].map((item) => (
-          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-5 transition-all duration-300 reveal-child">
-            <h3 class="font-heading font-semibold text-white text-base mb-2">{item.title}</h3>
-            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
-            <button type="button" class="popup-trigger text-[#FF5E15] font-heading font-semibold text-xs mt-3 hover:text-white transition-all duration-300">Call for Availability &rarr;</button>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 4: EMERGENCY CALLOUT -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <div class="bg-black border-2 border-red-600 rounded-2xl p-8 md:p-12 reveal-child">
-        <div class="flex items-center gap-3 mb-4">
-          <svg class="w-8 h-8 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <h2 class="font-heading text-red-500 text-lg md:text-[2.2rem] font-semibold leading-[1.2]">
-            Emergency Parts &amp; Installation for Spring Hill
-          </h2>
+  <!-- INSTALLATION UPSELL — TRUCK STYLE -->
+  <section class="py-12 md:py-16 lg:py-20 overflow-hidden reveal" style="background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.7) 100%), url('/images/homepage-hero/vent-hood-cleaning-service-spring-hill-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg') center/cover no-repeat;">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <div class="lg:w-[55%]">
+          <span class="inline-block bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wide rounded-full px-4 py-1 reveal-child">DDAN Advantage</span>
+          <h2 class="text-white font-heading font-bold text-2xl md:text-3xl mt-4 reveal-child">Order From Us — Get Discounted Professional Installation</h2>
+          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">When you order parts through DDAN, installation labor is discounted. We spec it, we source it, we install it — all under one warranty.</p>
+          <ul class="space-y-3 mt-6">
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Parts and labor under one warranty</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>We verify fit before we order — no returns, no delays</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Same technician specs, sources, and installs your part</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Photo documentation for your compliance files</span>
+            </li>
+          </ul>
+          <button type="button" class="popup-trigger inline-flex items-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold rounded-lg hover:scale-95 transition-all duration-300 mt-6 reveal-child">
+            Get a Parts and Install Quote
+          </button>
+          <p class="text-gray-400 text-sm mt-3 reveal-child">
+            Or call now: <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline">{business.phone}</a>
+          </p>
         </div>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4">
-          Fan seized during the dinner rush? Motor smoking on a Saturday night? Spring Hill kitchens can't wait until Monday. DDAN provides emergency exhaust fan parts and installation across Spring Hill — including nights, weekends, and holidays.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-6">
-          We stock the most common exhaust fan motors, belts, and bearings locally in Mt. Juliet for same-day emergency deployment to Spring Hill. One call gets a technician with the right part heading your way.
-        </p>
-        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2 px-7 py-3 bg-red-600 text-white font-heading text-lg font-bold rounded hover:bg-red-700 transition-all duration-300">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-          Emergency Line: {business.phone}
+        <div class="lg:w-[45%] flex justify-end">
+          <img src="/images/truck.png" alt="DDAN Hood Cleaning and Repair truck" class="truck-drive-in max-w-full" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXHAUST FANS ==================== -->
+  <section id="exhaust-fans" class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Restaurant Exhaust Fans for Spring Hill Kitchens</h2>
+      <p class="text-[#D4D4D4] font-body mb-6 reveal-child">The heart of your kitchen ventilation. We stock common sizes for same-day replacement.</p>
+      <div class="bg-[#FF5E15] rounded-lg py-4 px-6 text-center mb-8 reveal-child">
+        <p class="text-white font-heading font-bold text-lg md:text-xl uppercase tracking-widest">All Sizes — All Power Levels — Variable Speed and Standard</p>
+        <p class="text-white/90 text-sm mt-1">From 400 CFM to 6,000+ CFM. If your restaurant uses it, we carry it.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
+          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
+            <img src="/images/services/kitchen-exhaust-installation.jpg" alt="Direct drive upblast exhaust fan Spring Hill TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Direct Drive Upblast Fans</h3>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">The number one restaurant exhaust fan. Sealed motor compartment protects from heat, grease, and moisture. Low maintenance, high efficiency. All sizes from 400 CFM to 6,000+ CFM. Variable speed and standard configurations. Same-day replacement from local stock.</p>
+          </div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
+          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
+            <img src="/images/services/commercial-hood-repair-split.jpeg" alt="Belt drive upblast exhaust fan Spring Hill TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Belt Drive Upblast Fans</h3>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Quieter operation with adjustable speed via belt and pulley system. Cost-effective for moderate-volume kitchens. All belt sizes and motor configurations in stock. We carry every size and can match any existing unit.</p>
+          </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 5: COMMON EQUIPMENT ISSUES IN SPRING HILL -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Equipment Issues in Spring Hill
-      </h2>
-      <div class="max-w-4xl space-y-5">
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Spring Hill's explosive commercial growth means most restaurant buildings are under 10 years old — but that doesn't mean the equipment is reliable. Builders frequently install cheap OEM fan belts and undersized motors to cut construction costs. These factory parts are designed to pass initial inspection, not to survive years of high-volume restaurant use. When that belt snaps during a Friday dinner rush, you need a commercial-grade replacement from local stock, not a 3-day shipping wait. DDAN stocks heavy-duty notched V-belts and commercial motors for <a href="/repair/spring-hill-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">same-day replacement across Spring Hill</a>.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          The family-style casual dining and fast-food operations concentrated near The Crossings and along US-31 run their fryers constantly. This heavy, continuous cooking rapidly saturates standard exhaust filters and produces massive amounts of vaporized grease that overwhelms factory-installed rooftop catchers. If that grease reaches the white TPO roofing membrane on your new-build restaurant, it permanently stains and chemically degrades the material — leading to massive landlord penalties. We carry the correct stainless steel baffle filters for every standard hood size and install <a href="/grease-containment/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">complete rooftop grease containment systems</a>.
-        </p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Spring Hill's rapid expansion means new restaurant concepts open constantly, but many inherit existing exhaust infrastructure from previous tenants. If the previous operation ran lighter cooking and you're now running heavy fryers, your fan motor and filters are undersized. We assess, upgrade, and replace the components that matter — matching your actual cooking volume to the right parts. Pair new parts with <a href="/cleaning/spring-hill-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">regular hood cleaning</a> to maximize equipment life.
-        </p>
+  <!-- ==================== FAN REPLACEMENT PARTS ==================== -->
+  <section id="fan-parts" class="bg-[#111111] py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Spring Hill Exhaust Fan Replacement Parts — In Stock</h2>
+      <p class="text-[#D4D4D4] font-body mb-8 reveal-child">Common components stocked locally. Call to verify fit for your specific unit.</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/fan-motor-odp.webp" alt="Commercial exhaust fan motor ODP TEFC Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Motors (ODP and TEFC)</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Replacement motors for all fan types. Single and 3-phase. All horsepower ratings.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/fan-wheel-blades.webp" alt="Exhaust fan wheel blade assembly Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Wheels and Blades</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Impellers and blade assemblies. Precision balanced per AMCA standard.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/belt-drive-kit.webp" alt="Exhaust fan belt drive kit Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Belts and Drive Kits</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">V-belts, sheaves, pulleys, and tensioners. All common sizes in stock.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/bearing-pillow-block.webp" alt="Pillow block bearing for exhaust fan Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Bearings</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Pillow block and flange bearings. Heavy-duty regreasable ball type.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/roof-curb-galvanized.webp" alt="Galvanized roof curb for exhaust fan Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Roof Curbs</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Standard and custom curb adapters. Galvanized steel construction.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/hinge-kit.webp" alt="Exhaust fan hinge kit Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Hinge Kits</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">NFPA 96 compliant fan access kits. Required for safe cleaning access.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/speed-controller.webp" alt="Variable speed controller VFD exhaust fan Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Speed Controllers and VFDs</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Variable frequency drives and manual speed controls for all fan types.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/grease-cup-drain.webp" alt="Grease cup drain fitting exhaust fan Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Grease Cups and Fittings</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Drain cups, nipples, and adapters for exhaust fan bases.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/motor-cover.webp" alt="Exhaust fan motor cover weather guard Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Motor Covers and Guards</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Weather shields and safety guards for rooftop fan motors.</p></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 6: LOCAL COMPLIANCE -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Spring Hill Parts &amp; Compliance
-      </h2>
-      <div class="max-w-4xl space-y-5">
-        <div class="bg-black border border-[#333] rounded-2xl p-6 reveal-child">
-          <div class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
-            <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-              <strong class="text-white">Spring Hill Fire Department</strong> is rigorous on new builds. The city is growing so fast that inspectors focus heavily on ensuring initial installations — hinge kits, access panels, and fire suppression systems — are perfectly to NFPA 96 code. Non-compliant parts or missing components result in immediate violations.
-            </p>
+
+  <!-- ==================== MAKE-UP AIR UNITS ==================== -->
+  <section id="make-up-air" class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Commercial Make-Up Air Units for Spring Hill Restaurants</h2>
+      <p class="text-[#D4D4D4] font-body mb-8 reveal-child">Your exhaust system cannot function without balanced airflow. We supply and install all MUA types for Spring Hill kitchens.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/mua-heated-gas.webp" alt="Gas fired heated make up air unit Spring Hill restaurant - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
           </div>
-        </div>
-        <div class="bg-black border border-[#333] rounded-2xl p-6 reveal-child">
-          <div class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-[#FF5E15] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
-            <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-              <strong class="text-white">Spring Hill Water F.O.G. Program</strong> enforces strict grease trap and interceptor rules. Degraded grease boxes, missing pads, or leaking drip pans trigger fines and mandatory corrective action — making rooftop containment parts essential, not optional.
-            </p>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Gas-Fired Heated MUA</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Required for Tennessee winters. Direct gas-fired heating prevents freezing drafts and dangerous negative pressure.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/mua-unheated.webp" alt="Unheated make up air unit Spring Hill commercial kitchen - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
           </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Untempered / Passive MUA</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Budget fresh air supply for mild climates and supplemental use. Belt or direct drive options.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/mua-heated-cooled.webp" alt="Heated cooled make up air unit Spring Hill restaurant - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">MUA Replacement Parts</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Filters, dampers, motors, and control boards for existing MUA units. We service all major brands.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FILTERS AND BAFFLES ==================== -->
+  <section id="filters" class="bg-[#111111] py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Commercial Hood Filters and Baffles in Spring Hill</h2>
+      <p class="text-[#D4D4D4] font-body mb-8 reveal-child">The first line of defense in your exhaust system. Wrong filter means failed inspection — call us to verify.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/baffle-filter-stainless.webp" alt="Stainless steel baffle grease filter Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Stainless Steel Baffle Filters</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Industry standard. Dishwasher safe. UL 1046 listed. Type 304 and 430 stainless. All standard sizes.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/mesh-grease-filter.webp" alt="Aluminum mesh grease filter Spring Hill commercial kitchen - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Mesh Grease Filters</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Budget-friendly option. Aluminum mesh construction for light-duty cooking applications.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/charcoal-carbon-filter.webp" alt="Charcoal carbon odor filter Spring Hill restaurant hood - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Charcoal / Carbon Filters</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Activated carbon for smoke and odor control in ventless hoods. Replace every 3 to 6 months.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GREASE CONTAINMENT ==================== -->
+  <section id="grease-containment" class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Rooftop Grease Containment Systems for Spring Hill</h2>
+      <p class="text-[#D4D4D4] font-body mb-8 reveal-child">Protect your roof and stay compliant. Systems for every Spring Hill building type.</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-box-standard.webp" alt="Rooftop grease containment box Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Rooftop Grease Boxes</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Enclosed containment around fan base. Galvanized steel. Pillows included.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-box-xtreme.webp" alt="High volume grease containment box Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">High-Volume Grease Boxes</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Extra large for heavy grease operations. Holds 50+ pounds.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-trap-drip-pan.webp" alt="Grease trap drip pan Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Grease Containment Trays</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Catches grease at fan drainage. Galvanized and stainless options.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-pillow-pad.webp" alt="Grease absorbent pillow pad Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Absorbent Pads and Pillows</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Disposable grease pads. Absorbs oil, repels water. Replace monthly.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/duct-access-door.webp" alt="Grease duct access door panel Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Grease Duct Access Doors</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">NFPA 96 required for duct cleaning access. All sizes available.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-gutter-360.webp" alt="360 degree grease gutter containment Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Grease Gutters (360 Protection)</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Full perimeter wrap-around grease capture for high-volume operations.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOOD SYSTEMS ==================== -->
+  <section id="hood-systems" class="bg-[#111111] py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Complete Hood Systems and Kitchen Accessories in Spring Hill</h2>
+      <p class="text-[#D4D4D4] font-body mb-8 reveal-child">Turnkey systems, safety components, and professional-grade accessories.</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/complete-hood-system.webp" alt="Complete commercial kitchen hood system Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Complete Hood Systems</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Full stainless steel canopy hoods. Type I and Type II. Custom-sized.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/fire-suppression-system.webp" alt="Kitchen fire suppression system UL 300 Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Fire Suppression Systems</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">UL 300 wet chemical. Inspection, recharge, and full installation.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/hood-light-canopy.webp" alt="Commercial hood canopy light fixture Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Hood Lights</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Recessed and surface-mount canopy lighting. Tempered glass globes.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/exhaust-fan-interceptor.webp" alt="Exhaust fan grease interceptor Spring Hill - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Exhaust Fan Interceptors</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Grease capture at the fan drain. No filter medium needed.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/splash-guard.webp" alt="Stainless steel splash guard Spring Hill commercial kitchen - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Splash Guards</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Wall-mounted stainless steel protection behind cooking equipment.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TRUST BANNER ==================== -->
+  <section class="bg-[#111111] py-12 px-5 reveal" style="border-top: 2px solid rgba(255,94,21,0.3); border-bottom: 2px solid rgba(255,94,21,0.3);">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-8 reveal-child">The #1 Rated Commercial Hood Company in Tennessee</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">51+</span><div class="text-[#FFB800] text-lg mt-1">★★★★★</div><span class="text-white text-sm">Google Reviews</span></div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">5.0</span><div class="text-[#FFB800] text-lg mt-1">★★★★★</div><span class="text-white text-sm">Star Average</span></div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">20+</span><div class="text-[#FFB800] text-lg mt-1">★★★★★</div><span class="text-white text-sm">Facebook Reviews</span></div>
+      </div>
+      <p class="text-gray-300 text-sm mt-6 reveal-child">Trusted by restaurants, churches, schools, and institutions across Middle Tennessee since 2007.</p>
+    </div>
+  </section>
+
+  <!-- TWO AUDIENCES -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-10 text-center reveal-child">Who We Serve</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-8 reveal-child">
+          <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Restaurant Owners & Managers</h3>
+          <p class="text-[#D4D4D4] mb-4">Your fan is down, your kitchen is closed, and your staff is standing around. We get that. Call us and we will get your part sourced and installed as fast as possible — often same day.</p>
+          <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-semibold hover:underline">{business.phone} &rarr;</a>
         </div>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          Read our full <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 compliance guide</a> for details on what inspectors look for and how every part we sell meets those standards.
-        </p>
-        <div class="border-l-4 border-[#FF5E15] bg-black p-6 rounded-r-xl reveal-child">
-          <p class="text-white font-heading font-semibold text-base leading-relaxed">
-            Every part we sell meets NFPA 96 specifications. Every installation we perform passes fire marshal inspection.
-          </p>
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-8 reveal-child">
+          <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M11.42 15.17l-5.66-5.66a8 8 0 1111.31 0l-5.65 5.66zM12 12a3 3 0 100-6 3 3 0 000 6z"/><path d="M12 22c4-4 8-7.58 8-12a8 8 0 10-16 0c0 4.42 4 8 8 12z"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Hood Cleaning Companies</h3>
+          <p class="text-[#D4D4D4] mb-4">Need parts for your cleaning clients? We supply hinge kits, access panels, grease cups, filters, and containment systems at contractor pricing. One call, we handle sourcing.</p>
+          <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-semibold hover:underline">Contractor Line: {business.phone} &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 7: SERVICE AREA + CROSS-LINKS -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Spring Hill Parts &amp; Installation Service Area
-      </h2>
-      <div class="max-w-4xl space-y-5">
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-          DDAN delivers exhaust fan parts and professional installation across all of Spring Hill — from the commercial corridors along Saturn Parkway and US-31 to The Crossings retail developments and every neighborhood in between.
-        </p>
-        <div class="space-y-4 reveal-child">
-          <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-5">
-            <p class="text-white font-heading font-semibold mb-2">All DDAN services in Spring Hill:</p>
-            <div class="flex flex-wrap gap-3">
-              <a href="/cleaning/spring-hill-tn/" class="inline-flex items-center gap-2 px-4 py-2 bg-black border border-[#FF5E15] rounded-xl text-[#FF5E15] font-heading text-sm font-semibold hover:bg-[#FF5E15] hover:text-white transition-all duration-300">Hood Cleaning</a>
-              <a href="/repair/spring-hill-tn/" class="inline-flex items-center gap-2 px-4 py-2 bg-black border border-[#FF5E15] rounded-xl text-[#FF5E15] font-heading text-sm font-semibold hover:bg-[#FF5E15] hover:text-white transition-all duration-300">Hood Repair</a>
-            </div>
-          </div>
-          <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-5">
-            <p class="text-white font-heading font-semibold mb-2">Also serving nearby:</p>
-            <div class="flex flex-wrap gap-3">
-              <a href="/parts-installation/brentwood-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Brentwood</a>
-              <span class="text-[#333]">&middot;</span>
-              <a href="/parts-installation/columbia-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Columbia</a>
-              <span class="text-[#333]">&middot;</span>
-              <a href="/parts-installation/thompsons-station-tn/" class="text-[#FF5E15] font-heading text-sm underline hover:text-white transition-all duration-300">Thompsons Station</a>
-            </div>
-          </div>
-        </div>
-        <p class="reveal-child">
-          <a href="/parts-installation/" class="text-[#FF5E15] font-heading font-semibold underline hover:text-white transition-all duration-300">View all 29 parts &amp; installation service areas &rarr;</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 8: FAQ -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Spring Hill Parts &amp; Installation FAQ
-      </h2>
-      <div class="max-w-3xl space-y-4">
-        {faqs.map((faq) => (
-          <details class="faq-item bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
-            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
-              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
-              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-            </summary>
-            <div class="px-5 pb-5">
-              <p class="text-[#D4D4D4] font-heading text-base leading-relaxed" set:html={faq.a}></p>
-            </div>
-          </details>
+  <!-- BRANDS -->
+  <section class="bg-[#111111] py-12 md:py-16 reveal">
+    <div class="max-w-[1280px] mx-auto px-5 text-center">
+      <h2 class="font-heading text-[#FF5E15] text-xl md:text-2xl font-bold mb-8 reveal-child">Brands We Source & Install</h2>
+      <div class="flex flex-wrap justify-center gap-3 reveal-child">
+        {['Captive-Aire', 'Greenheck', 'Loren Cook', 'Dayton', 'DERA', 'Fantech', 'CaptiveAire', 'Accurex', 'Streivor', 'Larkin', 'Ventmaster', 'Avtec'].map(brand => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-heading text-sm px-5 py-2 rounded-full">{brand}</span>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- SECTION 9: TRUCK CTA -->
-  <TruckCTA />
-</BaseLayout>
+  <!-- BOTTOM ROW 1: EQUIPMENT ISSUES + COMPLIANCE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8">
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Why Spring Hill Restaurants Choose DDAN for Parts and Installation</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Spring Hill: Equipment Stress</h3>
+              <p class="text-[#D4D4D4]">Spring Hill's Lower Broadway restaurants run exhaust systems 16-20 hours a day. Motors burn out faster in high-volume, grease-heavy environments. Direct-drive upblast fans with sealed motors last longer, but even they need replacement every 3-5 years under these conditions. If your motor is screaming, vibrating, or tripping breakers — <a href="/repair/spring-hill-tn/" class="text-[#FF5E15] hover:underline">call for emergency repair</a> before it seizes and takes the fan wheel with it.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Hot Chicken Joints: Filter Saturation</h3>
+              <p class="text-[#D4D4D4]">Spring Hill hot chicken generates extreme grease loads. Standard cleaning schedules aren't enough — filters saturate faster, ductwork builds up quicker, and fire risk climbs. We supply extra filter sets so you can rotate while cleaning, and our <a href="/cleaning/spring-hill-tn/" class="text-[#FF5E15] hover:underline">hood cleaning crews</a> know exactly what hot chicken kitchens demand.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">The Gulch & Midtown: TPO Roof Damage</h3>
+              <p class="text-[#D4D4D4]">Newer Spring Hill construction uses white TPO roofing. Grease runoff from exhaust fans stains and degrades TPO membranes, voiding manufacturer warranties. Our <a href="/grease-containment/" class="text-[#FF5E15] hover:underline">rooftop grease containment systems</a> — boxes, trays, and absorbent pads — prevent grease from ever reaching your roof surface.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Spring Hill Commercial Kitchen Compliance and NFPA 96</h2>
+          <div class="space-y-5">
+            <p class="text-[#D4D4D4]">The <strong class="text-white">Spring Hill Fire Department</strong> enforces NFPA 96 for all commercial kitchen exhaust systems. Rigorous on new builds. The city is growing so fast that inspectors are highly focused on ensuring initial installations (hinge kits, access panels, suppression systems) are perfectly to code. Every part we install meets or exceeds these standards.</p>
+            <p class="text-[#D4D4D4]"><strong class="text-white">Metro Water Services (MWS)</strong> enforces Fats, Oils, and Grease (FOG) regulations. Grease leaving your property — whether through drains or rooftop runoff — can result in fines. Proper grease containment on your rooftop exhaust fans keeps you compliant on both fire and environmental codes.</p>
+            <p class="text-[#D4D4D4]">Every part we install is documented with photos and service records for your compliance files. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards and what they mean for your kitchen</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<style>
-  details summary::-webkit-details-marker {
-    display: none;
-  }
-  details summary {
-    list-style: none;
-  }
-  details[open] .faq-icon {
-    transform: rotate(180deg);
-  }
-  details[open] {
-    border-color: #FF5E15;
-  }
-  .faq-icon {
-    transition: transform 0.2s ease;
-  }
-</style>
+  <!-- BOTTOM ROW 2: SERVICE AREA + FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-5">Spring Hill Parts and Installation Service Area</h2>
+          <p class="text-[#D4D4D4] text-lg mb-8 max-w-2xl">We serve Spring Hill and all surrounding communities. Same-day parts available for most locations.</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {[
+              { name: 'Hermitage', href: '/parts-installation/hermitage-tn/' },
+              { name: 'Madison', href: '/parts-installation/madison-tn/' },
+              { name: 'Brentwood', href: '/parts-installation/brentwood-tn/' },
+              { name: 'Antioch', href: '/parts-installation/antioch-tn/' },
+              { name: 'Mt. Juliet', href: '/parts-installation/mount-juliet-tn/' },
+              { name: 'Hendersonville', href: '/parts-installation/hendersonville-tn/' },
+              { name: 'Goodlettsville', href: '/parts-installation/goodlettsville-tn/' },
+              { name: 'Lebanon', href: '/parts-installation/lebanon-tn/' },
+              { name: 'Gallatin', href: '/parts-installation/gallatin-tn/' },
+              { name: 'Franklin', href: '/parts-installation/franklin-tn/' },
+              { name: 'Murfreesboro', href: '/parts-installation/murfreesboro-tn/' },
+              { name: 'Clarksville', href: '/parts-installation/clarksville-tn/' },
+            ].map(city => (
+              <a href={city.href} class="flex items-center gap-2 bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl px-4 py-3 transition-all duration-300">
+                <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                <span class="text-[#D4D4D4] font-heading text-sm">{city.name}</span>
+              </a>
+            ))}
+          </div>
+          <div class="mt-6 rounded-xl overflow-hidden" style="max-height:200px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206252.72681578025!2d-86.9081726!3d36.1744653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2sSpring Hill%2C%20TN!5e0!3m2!1sen!2sus!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-10">Frequently Asked Questions — Spring Hill Parts and Installation</h2>
+          <div class="space-y-4">
+            {faqs.map(faq => (
+              <details class="bg-[#1A1A1A] border border-[#333] rounded-xl overflow-hidden transition-all duration-300">
+                <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-white font-heading font-semibold">
+                  <span class="pr-4">{faq.q}</span>
+                  <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-6 pb-5">
+                  <p class="text-[#D4D4D4]">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DON'T WAIT CTA — custom bg for this page -->
+  <section class="relative overflow-hidden bg-black reveal" id="urgency-cta">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('/images/homepage/gallery-11.jpg')"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, #FF5E158F 0%, #000000 100%); opacity:0.78"></div>
+    <div class="relative z-10 max-w-[1280px] mx-auto px-5 pt-20 pb-0 flex flex-col lg:flex-row items-end">
+      <div class="lg:w-[66%] pb-12 flex flex-col gap-2.5">
+        <h2 class="font-heading text-white text-xl md:text-[45px] font-semibold capitalize leading-[1.1] mb-2">Don't Wait Until You're <span class="text-white">Fined or Shut Down!</span></h2>
+        <div class="w-16 h-0.5 bg-[#FF5E15] my-2"></div>
+        <p class="text-[#E0E0E0] font-heading text-base mb-4">Whether you need a one-time deep clean, an urgent emergency repair, or a complete kitchen exhaust system installation, <strong class="text-white">{business.name}</strong> is here to keep you up and running.</p>
+        <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-3 mb-3">
+          <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-xl">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          </span>
+          <span class="text-white font-heading text-lg font-semibold hover:text-[#FF5E15] transition-all duration-300">Call Now: {business.phone}</span>
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 w-fit px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service Online
+        </button>
+      </div>
+      <div class="w-full lg:w-[60%] flex justify-center lg:justify-end items-end -mb-2.5">
+        <img src="/images/truck.png" alt="DDAN Hood Cleaning truck" class="truck-drive-in max-w-full w-full md:w-auto" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <style>
+    details summary::-webkit-details-marker { display: none; }
+    details summary { list-style: none; }
+    details[open] .faq-icon { transform: rotate(180deg); }
+    details[open] { border-color: #FF5E15; }
+    .faq-icon { transition: transform 0.2s ease; }
+  </style>
+</BaseLayout>
