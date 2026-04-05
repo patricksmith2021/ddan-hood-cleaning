@@ -1,0 +1,1205 @@
+/**
+ * Generate 15 city pages (cleaning, repair, parts-installation)
+ * for: Antioch, Spring Hill, Smyrna, Gallatin, Lebanon
+ *
+ * Uses Nashville templates as base, replaces with city-specific data from ddan_cities_data.json
+ */
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+
+// Load city data
+const citiesData = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/data/ddan_cities_data.json'), 'utf8'));
+
+// Load Nashville templates
+const cleaningTpl = fs.readFileSync(path.join(ROOT, 'src/pages/cleaning/nashville-tn.astro'), 'utf8');
+const repairTpl = fs.readFileSync(path.join(ROOT, 'src/pages/repair/nashville-tn.astro'), 'utf8');
+const partsTpl = fs.readFileSync(path.join(ROOT, 'src/pages/parts-installation/nashville-tn.astro'), 'utf8');
+
+const cities = [
+  {
+    key: 'antioch',
+    name: 'Antioch',
+    slug: 'antioch-tn',
+    state: 'TN',
+    neighbors: [
+      { name: 'La Vergne', slug: 'la-vergne-tn' },
+      { name: 'Smyrna', slug: 'smyrna-tn' },
+      { name: 'Nashville', slug: 'nashville-tn' },
+    ],
+    titles: {
+      cleaning: 'Antioch Hood Cleaning Experts | DDAN',
+      cleaningDesc: 'NFPA 96 certified hood cleaning for Antioch TN restaurants. Bare-metal clean, overnight service, photo documentation. Call (615) 881-6968.',
+      repair: 'Professional Exhaust Fan Repair Antioch TN | DDAN',
+      repairDesc: '24/7 emergency exhaust fan repair in Antioch TN. Same-day motor and belt replacement. All brands serviced. Call (615) 881-6968.',
+      parts: 'Antioch Kitchen Parts and Installation | DDAN',
+      partsDesc: 'Same-day exhaust fan parts and professional installation in Antioch TN. Motors, belts, filters, hinge kits, grease containment. Call (615) 881-6968.',
+    },
+  },
+  {
+    key: 'spring-hill',
+    name: 'Spring Hill',
+    slug: 'spring-hill-tn',
+    state: 'TN',
+    neighbors: [
+      { name: 'Brentwood', slug: 'brentwood-tn' },
+      { name: 'Columbia', slug: 'columbia-tn' },
+      { name: 'Thompsons Station', slug: 'thompsons-station-tn' },
+    ],
+    titles: {
+      cleaning: 'Professional Hood Cleaning Spring Hill TN | DDAN',
+      cleaningDesc: 'NFPA 96 certified hood cleaning for Spring Hill TN restaurants. Bare-metal clean, overnight service, photo documentation. Call (615) 881-6968.',
+      repair: 'Spring Hill Exhaust Fan Repair Experts | DDAN',
+      repairDesc: '24/7 emergency exhaust fan repair in Spring Hill TN. Same-day motor and belt replacement. All brands serviced. Call (615) 881-6968.',
+      parts: 'Spring Hill Kitchen Parts and Installation | DDAN',
+      partsDesc: 'Same-day exhaust fan parts and professional installation in Spring Hill TN. Motors, belts, filters, hinge kits, grease containment. Call (615) 881-6968.',
+    },
+  },
+  {
+    key: 'smyrna',
+    name: 'Smyrna',
+    slug: 'smyrna-tn',
+    state: 'TN',
+    neighbors: [
+      { name: 'Murfreesboro', slug: 'murfreesboro-tn' },
+      { name: 'La Vergne', slug: 'la-vergne-tn' },
+    ],
+    titles: {
+      cleaning: 'Smyrna Hood Cleaning Experts | DDAN',
+      cleaningDesc: 'NFPA 96 certified hood cleaning for Smyrna TN restaurants. Bare-metal clean, overnight service, photo documentation. Call (615) 881-6968.',
+      repair: 'Professional Exhaust Fan Repair Smyrna TN | DDAN',
+      repairDesc: '24/7 emergency exhaust fan repair in Smyrna TN. Same-day motor and belt replacement. All brands serviced. Call (615) 881-6968.',
+      parts: 'Smyrna Kitchen Parts and Installation | DDAN',
+      partsDesc: 'Same-day exhaust fan parts and professional installation in Smyrna TN. Motors, belts, filters, hinge kits, grease containment. Call (615) 881-6968.',
+    },
+  },
+  {
+    key: 'gallatin',
+    name: 'Gallatin',
+    slug: 'gallatin-tn',
+    state: 'TN',
+    neighbors: [
+      { name: 'Hendersonville', slug: 'hendersonville-tn' },
+      { name: 'Lebanon', slug: 'lebanon-tn' },
+      { name: 'Portland', slug: 'portland-tn' },
+    ],
+    titles: {
+      cleaning: 'Professional Hood Cleaning Gallatin TN | DDAN',
+      cleaningDesc: 'NFPA 96 certified hood cleaning for Gallatin TN restaurants. Bare-metal clean, overnight service, photo documentation. Call (615) 881-6968.',
+      repair: 'Gallatin Exhaust Fan Repair Experts | DDAN',
+      repairDesc: '24/7 emergency exhaust fan repair in Gallatin TN. Same-day motor and belt replacement. All brands serviced. Call (615) 881-6968.',
+      parts: 'Gallatin Kitchen Parts and Installation | DDAN',
+      partsDesc: 'Same-day exhaust fan parts and professional installation in Gallatin TN. Motors, belts, filters, hinge kits, grease containment. Call (615) 881-6968.',
+    },
+  },
+  {
+    key: 'lebanon',
+    name: 'Lebanon',
+    slug: 'lebanon-tn',
+    state: 'TN',
+    neighbors: [
+      { name: 'Mount Juliet', slug: 'mount-juliet-tn' },
+      { name: 'Gallatin', slug: 'gallatin-tn' },
+      { name: 'Hartsville', slug: 'hartsville-tn' },
+    ],
+    titles: {
+      cleaning: 'Lebanon Hood Cleaning Experts | DDAN',
+      cleaningDesc: 'NFPA 96 certified hood cleaning for Lebanon TN restaurants. Bare-metal clean, overnight service, photo documentation. Call (615) 881-6968.',
+      repair: 'Professional Exhaust Fan Repair Lebanon TN | DDAN',
+      repairDesc: '24/7 emergency exhaust fan repair in Lebanon TN. Same-day motor and belt replacement. All brands serviced. Call (615) 881-6968.',
+      parts: 'Lebanon Kitchen Parts and Installation | DDAN',
+      partsDesc: 'Same-day exhaust fan parts and professional installation in Lebanon TN. Motors, belts, filters, hinge kits, grease containment. Call (615) 881-6968.',
+    },
+  },
+];
+
+
+function buildCleaningPage(city, data) {
+  const faqs = data.contentSnippets.citySpecificFAQs;
+  const fireMarshal = data.complianceAndAHJ.fireMarshal;
+  const fogProgram = data.complianceAndAHJ.fogProgram;
+  const neighborLinks = city.neighbors.map(n =>
+    `              <a href="/cleaning/${n.slug}/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">${n.name}</a>`
+  ).join(',\n');
+
+  // Build "why this city" content sections from the data
+  const commonProblems = data.industrySpecific.commonProblems;
+  const cuisineImpact = data.commercialInfrastructure.cuisineImpact;
+  const restaurantDensity = data.commercialInfrastructure.restaurantDensity;
+  const buildingDensity = data.commercialInfrastructure.buildingDensity;
+  const dominantRoofs = data.commercialInfrastructure.dominantCommercialRoofs;
+  const highVolume = data.commercialInfrastructure.highVolumeInstitutions;
+  const enforcement = data.complianceAndAHJ.enforcementLevel;
+  const proofPoint = data.contentSnippets.proofPoint;
+
+  // Create unique "Why [City]" sections from the raw data
+  let whySections = '';
+
+  // Section 1: Kitchen activity / cuisine
+  if (city.key === 'antioch') {
+    whySections = `
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">International Cuisine: Extreme Carbon Buildup</h3>
+              <p class="text-[#D4D4D4]">${cuisineImpact} Standard surface cleaning cannot handle this type of accumulation — you need aggressive scraping and commercial-grade degreasers applied by certified technicians who understand the difference between fryer grease and wok carbon.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Older Buildings: Undersized Systems</h3>
+              <p class="text-[#D4D4D4]">${commonProblems} When you move a high-output kitchen into a building designed for a different concept, the exhaust system cannot keep up. DDAN assesses these situations and recommends the right upgrades — from access panel installation to full fan motor replacement.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Metro Nashville Jurisdiction</h3>
+              <p class="text-[#D4D4D4]">Antioch falls under the Metro Nashville Fire Marshal, which means the same strict NFPA 96 enforcement that applies to Broadway applies to Bell Road. Every hood system in Antioch must be cleaned to bare metal, with proper access panels and documented service records.</p>
+            </div>`;
+  } else if (city.key === 'spring-hill') {
+    whySections = `
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">New Construction, New Challenges</h3>
+              <p class="text-[#D4D4D4]">${commonProblems} Brand new does not mean maintenance-free — it means you need to establish a cleaning schedule before cheap OEM components fail under heavy daily use.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">White TPO Roofs at Risk</h3>
+              <p class="text-[#D4D4D4]">${dominantRoofs} If your rooftop exhaust fan leaks grease onto these surfaces, it permanently stains and degrades the membrane. Landlords in new developments like The Crossings will charge massive penalties for roof damage. Proper <a href="/grease-containment/" class="text-[#FF5E15] hover:underline">grease containment</a> is non-negotiable.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Growing Fast, Inspectors Watching</h3>
+              <p class="text-[#D4D4D4]">${enforcement} The Spring Hill Fire Department is especially focused on making sure initial installations are done right. If your hinge kits, access panels, or cleaning documentation are not in order, you will hear about it.</p>
+            </div>`;
+  } else if (city.key === 'smyrna') {
+    whySections = `
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Nissan Plant: Nonstop Lunch Rush</h3>
+              <p class="text-[#D4D4D4]">${commonProblems} When thousands of workers flood Sam Ridley Parkway for lunch, your exhaust system takes the full hit. That kind of volume accelerates grease buildup far beyond normal schedules.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Heavy Grease on Commercial Roofs</h3>
+              <p class="text-[#D4D4D4]">${dominantRoofs} Without proper rooftop grease containment, the massive grease output from Smyrna's high-volume kitchens will damage these membranes and trigger violations from both the fire department and Smyrna Utilities.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Smyrna Fire Department Enforcement</h3>
+              <p class="text-[#D4D4D4]">${enforcement} The density of industrial operations and high-traffic restaurants in Smyrna means inspectors are especially focused on fire suppression readiness and clean ductwork. Proactive maintenance is far cheaper than citations.</p>
+            </div>`;
+  } else if (city.key === 'gallatin') {
+    whySections = `
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Historic Square: Shared-Wall Fire Risk</h3>
+              <p class="text-[#D4D4D4]">${commonProblems} In the historic downtown, connected 19th-century buildings mean a grease fire in one kitchen can spread to every adjacent business. The Gallatin Fire Department enforces fire codes with zero tolerance in this district.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Nashville Pike Growth Corridor</h3>
+              <p class="text-[#D4D4D4]">${dominantRoofs} The rapid expansion along Nashville Pike brings new restaurants with expensive roofing that grease runoff will quickly damage. High-volume franchises running fryers all day need specialized rooftop containment from day one.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Gallatin Fire Prevention Division</h3>
+              <p class="text-[#D4D4D4]">${enforcement} Whether you are in the historic overlay or a new-build on the pike, the Gallatin Fire Department expects flawless NFPA 96 compliance. Documented cleaning records, proper access panels, and functional hinge kits are all required.</p>
+            </div>`;
+  } else if (city.key === 'lebanon') {
+    whySections = `
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">BBQ and Smoker Operations: Carbon Creosote</h3>
+              <p class="text-[#D4D4D4]">${cuisineImpact} Wood-fired smokers and heavy BBQ produce a thick, hardened carbon creosote that standard pressure washing cannot remove. This carbon is extremely flammable and requires specialized scraping to eliminate.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">I-40 Corridor: High-Volume Dining</h3>
+              <p class="text-[#D4D4D4]">${commonProblems} The massive logistics hubs off I-40 drive enormous lunch traffic to Lebanon's restaurants. Continuous, high-heat operation pushes exhaust systems past their limits and demands aggressive maintenance schedules.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Lebanon Fire Department Standards</h3>
+              <p class="text-[#D4D4D4]">${enforcement} Lebanon's fire department is highly proactive about NFPA 96 compliance. With the Wilson County Fair bringing massive seasonal volume, restaurants that are not properly maintained face the highest risk of failure during their most profitable period.</p>
+            </div>`;
+  }
+
+  return `---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+
+const faqs = [
+  { q: '${faqs[0].question.replace(/'/g, "\\'")}', a: '${faqs[0].answer.replace(/'/g, "\\'")}' },
+  { q: '${faqs[1].question.replace(/'/g, "\\'")}', a: '${faqs[1].answer.replace(/'/g, "\\'")}' },
+  { q: '${faqs[2].question.replace(/'/g, "\\'")}', a: '${faqs[2].answer.replace(/'/g, "\\'")}' },
+  { q: 'How long does a commercial hood cleaning take?', a: 'Most single-hood restaurant systems take 3-5 hours for a thorough bare-metal cleaning. Larger systems with multiple hoods or extensive ductwork can take 6-8 hours. We schedule overnight so your kitchen is ready by morning.' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": \`\${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/${city.slug}/\`,
+      "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
+      "areaServed": { "@type": "City", "name": "${city.name}, ${city.state}" },
+      "priceRange": "$$"
+    },
+    { "@type": "Service", "name": "Commercial Kitchen Hood Cleaning", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "${city.name}, ${city.state}" }, "description": "NFPA 96 certified commercial kitchen hood cleaning for ${city.name} restaurants. Bare-metal clean with before-and-after photo documentation." },
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": \`\${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/\` },
+      { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": \`\${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/\` },
+      { "@type": "ListItem", "position": 3, "name": "${city.name}, ${city.state}" }
+    ]},
+    { "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) }
+  ]
+};
+---
+
+<BaseLayout
+  title="${city.titles.cleaning}"
+  description="${city.titles.cleaningDesc}"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- SECTION 1: HERO -->
+  <section class="min-h-[400px] md:min-h-[550px] flex items-center justify-center" style="background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%), url('/images/homepage/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg') center/cover no-repeat;">
+    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <p class="text-[#FF5E15] font-heading font-bold text-xs md:text-sm tracking-widest uppercase mb-4">DDAN HOOD CLEANING AND REPAIR</p>
+      <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">Commercial Kitchen Hood Cleaning in <span class="text-[#FF5E15]">${city.name}, ${city.state}</span></h1>
+      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">${data.contentSnippets.heroParagraph.substring(0, 180).trim()}.</p>
+      <p class="text-white font-heading font-bold text-base md:text-lg mb-2">Certified Hood Cleaning With Full Compliance Documentation</p>
+      <div class="w-20 h-1 bg-[#FF5E15] mx-auto mt-3 mb-8"></div>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+        <a href={\`tel:\${business.phoneRaw}\`} class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold text-lg rounded-lg hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          Schedule Cleaning: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#FF5E15] text-[#FF5E15] font-heading font-bold text-lg rounded-lg hover:bg-[#FF5E15] hover:text-white hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          EMERGENCY CLEAN
+        </button>
+      </div>
+      <div class="flex justify-center items-center gap-6 mt-8">
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/google-white-logo-1024x337.png" alt="Google" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/facebook-logo-white-full-transparent-1024x341.png" alt="Facebook" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/YELP_BIG.D-5a67c069-1024x392.png" alt="Yelp" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB STRIP -->
+  <div class="bg-[#0A0A0A] py-2 px-5">
+    <div class="max-w-[1200px] mx-auto">
+      <nav class="flex items-center gap-2 text-sm font-heading text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF5E15] transition-colors">Home</a>
+        <span class="text-[#FF5E15]">/</span>
+        <a href="/cleaning/" class="hover:text-[#FF5E15] transition-colors">Hood Cleaning</a>
+        <span class="text-[#FF5E15]">/</span>
+        <span class="text-gray-300">${city.name}, ${city.state}</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CONSULT BAR + JUMP-NAV -->
+  <section class="bg-[#111111] py-12 reveal">
+    <div class="max-w-[1200px] mx-auto px-5">
+      <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 reveal-child">
+        <p class="text-white font-heading font-semibold text-lg text-center md:text-left">Need a quote? Get a FREE inspection from a certified technician.</p>
+        <div class="text-center whitespace-nowrap">
+          <p class="text-[#FF5E15] font-heading font-bold text-sm">OVERNIGHT SERVICE AVAILABLE</p>
+          <p class="text-[#FF5E15] font-heading font-bold text-xs">24/7 Emergency Cleaning</p>
+        </div>
+        <div class="text-center md:text-right">
+          <a href={\`tel:\${business.phoneRaw}\`} class="block text-white font-heading font-bold text-2xl hover:text-[#FF5E15] transition-colors">{business.phone}</a>
+        </div>
+      </div>
+      <h2 class="font-heading text-white font-bold text-2xl text-center mt-8 mb-6 reveal-child">What We Clean — Hood to Rooftop</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <a href="#hood-canopies" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Hood Canopies</span>
+        </a>
+        <a href="#ductwork" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M4 6v12M20 6v12"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Ductwork</span>
+        </a>
+        <a href="#exhaust-fans" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3M12 12L6 9"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Exhaust Fans</span>
+        </a>
+        <a href="#filters" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Filters</span>
+        </a>
+        <a href="#rooftop-grease" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Rooftop Grease</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: WHAT YOU GET — 4 CARDS -->
+  <section class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl md:text-3xl text-center mb-10 reveal-child">${city.name}'s Most Thorough Hood Cleaning Service</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Complete Bare-Metal Clean</h3>
+          <p class="text-gray-300 text-sm">Every surface cleaned to bare metal per NFPA 96 — hoods, plenums, ducts, fans, and filters.</p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Photo Documentation</h3>
+          <p class="text-gray-300 text-sm">Before-and-after photos of every component for your compliance files and fire marshal inspections.</p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Overnight Service</h3>
+          <p class="text-gray-300 text-sm">We work 10 PM to 6 AM. Your kitchen is clean, tagged, and ready before your morning crew arrives.</p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Free Inspection and Quote</h3>
+          <p class="text-gray-300 text-sm">We assess your entire system and provide a detailed quote with scope of work — no obligation, no pressure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: DDAN DIFFERENCE — TRUCK -->
+  <section class="py-12 md:py-16 lg:py-20 overflow-hidden reveal" style="background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.7) 100%), url('/images/homepage/gallery-11.jpg') center/cover no-repeat;">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <div class="lg:w-[55%]">
+          <span class="inline-block bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wide rounded-full px-4 py-1 reveal-child">DDAN DIFFERENCE</span>
+          <h2 class="text-white font-heading font-bold text-2xl md:text-3xl mt-4 reveal-child">The Most Thorough Clean in ${city.name} — Guaranteed</h2>
+          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">Most hood cleaners spray and wipe. We strip every surface to bare metal — hoods, plenums, ductwork, fans, and filters — then document it all with photos. If the Fire Marshal has questions, you have answers.</p>
+          <ul class="space-y-3 mt-6">
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Every component cleaned to NFPA 96 bare-metal standard</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Before-and-after photo documentation for every job</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Overnight service — zero disruption to your business</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Deficiency report with repair recommendations included</span>
+            </li>
+          </ul>
+          <button type="button" class="popup-trigger inline-flex items-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold rounded-lg hover:scale-95 transition-all duration-300 mt-6 reveal-child">
+            Schedule Your Clean
+          </button>
+          <p class="text-gray-400 text-sm mt-3 reveal-child">
+            Or call now: <a href={\`tel:\${business.phoneRaw}\`} class="text-[#FF5E15] hover:underline">{business.phone}</a>
+          </p>
+        </div>
+        <div class="lg:w-[45%] flex justify-end">
+          <img src="/images/truck.png" alt="DDAN Hood Cleaning and Repair truck" class="truck-drive-in max-w-full" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEANING SERVICES -->
+  <section class="bg-[#111111] py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl text-center mb-10 reveal-child">Complete Hood Cleaning Services in ${city.name}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="hood-canopies" class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden reveal-child">
+          <img src="/images/homepage/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg" alt="Hood canopy cleaning ${city.name} ${city.state}" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg mb-2">Hood Canopy Cleaning</h3>
+            <p class="text-[#D4D4D4] text-sm font-body">Complete interior and exterior canopy degreasing. All seams, joints, and surfaces cleaned to bare metal. Plenum chamber and grease troughs included.</p>
+          </div>
+        </div>
+        <div id="ductwork" class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden reveal-child">
+          <img src="/images/homepage/certified-hood-cleaning-company-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp" alt="Exhaust ductwork cleaning ${city.name} ${city.state}" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg mb-2">Exhaust Ductwork Cleaning</h3>
+            <p class="text-[#D4D4D4] text-sm font-body">Full duct run from hood collar to rooftop termination. We access every section through <a href="/access-panel-installation/" class="text-[#FF5E15] hover:underline">fire-rated access panels</a> — if panels are missing, we install them.</p>
+          </div>
+        </div>
+        <div id="exhaust-fans" class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden reveal-child">
+          <img src="/images/homepage/vent-hood-cleaning-service-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x576.jpg" alt="Exhaust fan cleaning ${city.name} ${city.state}" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg mb-2">Exhaust Fan Cleaning</h3>
+            <p class="text-[#D4D4D4] text-sm font-body">Rooftop upblast fans opened via <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] hover:underline">hinge kits</a> for full interior access. Fan blades, housing, motor compartment, and drain all cleaned.</p>
+          </div>
+        </div>
+        <div id="filters" class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden reveal-child">
+          <img src="/images/homepage/NFPA-96-hood-cleaning-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp" alt="Filter and baffle cleaning ${city.name} ${city.state}" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg mb-2">Filter and Baffle Cleaning</h3>
+            <p class="text-[#D4D4D4] text-sm font-body">All grease filters removed, degreased, and reinstalled. Damaged or warped baffles identified and replaced. We carry standard sizes for immediate swap.</p>
+          </div>
+        </div>
+        <div id="rooftop-grease" class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden reveal-child">
+          <img src="/images/homepage/restaurant-hood-cleaning-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg" alt="Rooftop grease containment cleaning ${city.name} ${city.state}" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg mb-2">Rooftop Grease Containment</h3>
+            <p class="text-[#D4D4D4] text-sm font-body">Grease boxes emptied, pads replaced, drip guards inspected. We service all <a href="/grease-containment/" class="text-[#FF5E15] hover:underline">rooftop grease containment</a> systems — protecting your roof and keeping you compliant.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEANING FREQUENCY GUIDE -->
+  <section class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl md:text-3xl text-center mb-10 reveal-child">How Often Should ${city.name} Restaurants Clean Their Hoods?</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-[#1A1A1A] border-t-4 border-red-500 border-x border-b border-x-[#333] border-b-[#333] rounded-xl p-6 reveal-child">
+          <h3 class="text-red-500 font-heading font-bold text-xl mb-2">Monthly</h3>
+          <p class="text-white font-heading font-semibold text-sm mb-3">High-Volume / Charbroiling</p>
+          <ul class="text-[#D4D4D4] text-sm space-y-1"><li>24-hour kitchens</li><li>Charbroilers and woks</li><li>Heavy fryer operations</li><li>Wood-fired grills</li></ul>
+        </div>
+        <div class="bg-[#1A1A1A] border-t-4 border-[#FF5E15] border-x border-b border-x-[#333] border-b-[#333] rounded-xl p-6 reveal-child">
+          <h3 class="text-[#FF5E15] font-heading font-bold text-xl mb-2">Quarterly</h3>
+          <p class="text-white font-heading font-semibold text-sm mb-3">Standard Restaurants</p>
+          <ul class="text-[#D4D4D4] text-sm space-y-1"><li>Full-service restaurants</li><li>Fast food kitchens</li><li>Hotel kitchens</li><li>Food trucks (base)</li></ul>
+        </div>
+        <div class="bg-[#1A1A1A] border-t-4 border-yellow-500 border-x border-b border-x-[#333] border-b-[#333] rounded-xl p-6 reveal-child">
+          <h3 class="text-yellow-500 font-heading font-bold text-xl mb-2">Semi-Annually</h3>
+          <p class="text-white font-heading font-semibold text-sm mb-3">Moderate Volume</p>
+          <ul class="text-[#D4D4D4] text-sm space-y-1"><li>Day-only restaurants</li><li>Churches and schools</li><li>Assisted living</li><li>Low-grease menus</li></ul>
+        </div>
+        <div class="bg-[#1A1A1A] border-t-4 border-green-500 border-x border-b border-x-[#333] border-b-[#333] rounded-xl p-6 reveal-child">
+          <h3 class="text-green-500 font-heading font-bold text-xl mb-2">Annually</h3>
+          <p class="text-white font-heading font-semibold text-sm mb-3">Light Cooking</p>
+          <ul class="text-[#D4D4D4] text-sm space-y-1"><li>Seasonal kitchens</li><li>Pizza ovens (gas)</li><li>Steam / convection only</li><li>Event venues</li></ul>
+        </div>
+      </div>
+      <p class="text-gray-400 text-sm text-center mt-6 reveal-child">Based on NFPA 96 Table 11.4. Your specific schedule depends on cooking volume, menu type, and equipment. <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">Read more about NFPA 96 standards</a>.</p>
+    </div>
+  </section>
+
+  <!-- TRUST BANNER -->
+  <section class="bg-[#111111] py-12 px-5 reveal" style="border-top: 2px solid rgba(255,94,21,0.3); border-bottom: 2px solid rgba(255,94,21,0.3);">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-8 reveal-child">The #1 Rated Commercial Hood Company in Tennessee</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child">
+          <span class="text-[#FF5E15] font-heading font-bold text-4xl">51+</span>
+          <div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <span class="text-white text-sm">Google Reviews</span>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child">
+          <span class="text-[#FF5E15] font-heading font-bold text-4xl">5.0</span>
+          <div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <span class="text-white text-sm">Star Average</span>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child">
+          <span class="text-[#FF5E15] font-heading font-bold text-4xl">20+</span>
+          <div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <span class="text-white text-sm">Facebook Reviews</span>
+        </div>
+      </div>
+      <p class="text-gray-300 text-sm mt-6 reveal-child">Trusted by restaurants, churches, schools, and institutions across Middle Tennessee since 2007.</p>
+    </div>
+  </section>
+
+  <!-- WHO WE CLEAN FOR -->
+  <section class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-bold mb-10 text-center reveal-child">Who We Serve in ${city.name}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-8 reveal-child">
+          <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Restaurants and Commercial Kitchens</h3>
+          <p class="text-[#D4D4D4] mb-4">${data.contentSnippets.serviceAreaParagraph}</p>
+          <a href={\`tel:\${business.phoneRaw}\`} class="text-[#FF5E15] font-heading font-semibold hover:underline">{business.phone} &rarr;</a>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-8 reveal-child">
+          <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Institutions and Facilities</h3>
+          <p class="text-[#D4D4D4] mb-4">${highVolume ? `${city.name} institutions including ${highVolume} rely on DDAN for scheduled hood cleaning with full NFPA 96 documentation. Large-scale systems with strict compliance requirements handled professionally.` : `Schools, churches, hospitals, assisted living facilities, and corporate cafeterias in ${city.name}. Large-scale systems with strict compliance requirements.`}</p>
+          <a href={\`tel:\${business.phoneRaw}\`} class="text-[#FF5E15] font-heading font-semibold hover:underline">{business.phone} &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS STRIP -->
+  <section class="bg-[#111111] py-8 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto text-center">
+      <p class="text-[#D4D4D4] font-heading text-base reveal-child">
+        We clean systems from all manufacturers: <span class="text-white font-semibold">CaptiveAire</span> &middot; <span class="text-white font-semibold">Loren Cook</span> &middot; <span class="text-white font-semibold">Canarm</span> &middot; <span class="text-white font-semibold">Greenheck</span> &middot; <span class="text-white font-semibold">Accurex</span> &middot; <span class="text-white font-semibold">PennBarry</span> &middot; <span class="text-white font-semibold">Dayton</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- BOTTOM ROW 1 — WHY [CITY] + COMPLIANCE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8">
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Why ${city.name} Restaurants Choose DDAN for Hood Cleaning</h2>
+          <div class="space-y-6">${whySections}
+          </div>
+        </div>
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">${city.name} Commercial Kitchen Compliance and NFPA 96</h2>
+          <div class="space-y-5">
+            <p class="text-[#D4D4D4]">The <strong class="text-white">${fireMarshal}</strong> enforces NFPA 96 with strict standards. ${enforcement}</p>
+            <p class="text-[#D4D4D4]"><strong class="text-white">${fogProgram}</strong> enforces Fats, Oils, and Grease (FOG) regulations. Grease leaving your property — whether through drains or rooftop exhaust — can result in significant fines. Proper grease containment on your rooftop fans keeps you compliant on both fire and environmental codes.</p>
+            <p class="text-[#D4D4D4]">Every cleaning is documented with photos and service records for your compliance files. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards and what they mean for your kitchen</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM ROW 2 — SERVICE AREA + FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-5">${city.name} Hood Cleaning Service Area</h2>
+          <p class="text-[#D4D4D4] text-lg mb-6 max-w-2xl">${data.contentSnippets.serviceAreaParagraph}</p>
+          <div class="space-y-3 mb-6">
+            <p class="text-[#D4D4D4] font-body text-base">
+              <span class="text-[#FF5E15] font-semibold">Also in ${city.name}:</span>
+              <a href="/repair/${city.slug}/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Exhaust Fan Repair</a> &middot;
+              <a href="/parts-installation/${city.slug}/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+            </p>
+            <p class="text-[#D4D4D4] font-body text-base">
+              <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+${neighborLinks}
+            </p>
+          </div>
+          <div class="rounded-xl overflow-hidden" style="max-height:200px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206252.72681578025!2d-86.9081726!3d36.1744653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2s${encodeURIComponent(city.name + ', ' + city.state)}!5e0!3m2!1sen!2sus!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-10">Frequently Asked Questions — ${city.name} Hood Cleaning</h2>
+          <div class="space-y-4">
+            {faqs.map(faq => (
+              <details class="bg-[#1A1A1A] border border-[#333] rounded-xl overflow-hidden transition-all duration-300">
+                <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-white font-heading font-semibold">
+                  <span class="pr-4">{faq.q}</span>
+                  <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-6 pb-5">
+                  <p class="text-[#D4D4D4]">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DON'T WAIT CTA -->
+  <section class="relative overflow-hidden bg-black reveal" id="urgency-cta">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('/images/homepage/gallery-11.jpg')"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, #FF5E158F 0%, #000000 100%); opacity:0.78"></div>
+    <div class="relative z-10 max-w-[1280px] mx-auto px-5 pt-20 pb-0 flex flex-col lg:flex-row items-end">
+      <div class="lg:w-[66%] pb-12 flex flex-col gap-2.5">
+        <h2 class="font-heading text-white text-xl md:text-[45px] font-semibold capitalize leading-[1.1] mb-2">Don't Wait Until You're <span class="text-white">Fined or Shut Down!</span></h2>
+        <div class="w-16 h-0.5 bg-[#FF5E15] my-2"></div>
+        <p class="text-[#E0E0E0] font-heading text-base mb-4">Whether you need a one-time deep clean, an urgent emergency cleaning, or a recurring maintenance schedule, <strong class="text-white">{business.name}</strong> is here to keep your kitchen safe and compliant.</p>
+        <a href={\`tel:\${business.phoneRaw}\`} class="flex items-center gap-3 mb-3">
+          <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-xl">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          </span>
+          <span class="text-white font-heading text-lg font-semibold hover:text-[#FF5E15] transition-all duration-300">Call Now: {business.phone}</span>
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 w-fit px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service Online
+        </button>
+      </div>
+      <div class="w-full lg:w-[60%] flex justify-center lg:justify-end items-end -mb-2.5">
+        <img src="/images/truck.png" alt="DDAN Hood Cleaning truck" class="truck-drive-in max-w-full w-full md:w-auto" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <style>
+    details summary::-webkit-details-marker { display: none; }
+    details summary { list-style: none; }
+    details[open] .faq-icon { transform: rotate(180deg); }
+    details[open] { border-color: #FF5E15; }
+    .faq-icon { transition: transform 0.2s ease; }
+  </style>
+</BaseLayout>
+`;
+}
+
+// Generate all cleaning pages
+for (const city of cities) {
+  const data = citiesData[city.key];
+  if (!data) {
+    console.error(`No city data for key: ${city.key}`);
+    continue;
+  }
+  const content = buildCleaningPage(city, data);
+  const outPath = path.join(ROOT, `src/pages/cleaning/${city.slug}.astro`);
+  fs.writeFileSync(outPath, content, 'utf8');
+  console.log(`Wrote cleaning: ${city.slug}.astro (${content.split('\n').length} lines)`);
+}
+
+console.log('\nCleaning pages complete. Now generating repair pages...\n');
+
+// ===== REPAIR PAGES =====
+function buildRepairPage(city, data) {
+  const faqs = data.contentSnippets.citySpecificFAQs;
+  const fireMarshal = data.complianceAndAHJ.fireMarshal;
+  const fogProgram = data.complianceAndAHJ.fogProgram;
+  const enforcement = data.complianceAndAHJ.enforcementLevel;
+  const commonProblems = data.industrySpecific.commonProblems;
+  const proofPoint = data.contentSnippets.proofPoint;
+  const neighborLinks = city.neighbors.map(n =>
+    `              <a href="/repair/${n.slug}/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">${n.name}</a>`
+  ).join(',\n');
+
+  // City-specific repair content
+  let whySections = '';
+  if (city.key === 'antioch') {
+    whySections = `
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">High-Heat Cooking: Carbon-Caked Fans</h3>
+              <p class="text-[#D4D4D4]">Antioch's diverse international cuisine — woks, open flames, and heavy oils — produces intense carbon buildup that throws fan impellers off balance. This imbalance destroys bearings in weeks and burns out motors far faster than standard restaurant operations.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Older Buildings: Undersized Motors</h3>
+              <p class="text-[#D4D4D4]">${commonProblems}</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Summer Heat: Motor Failure Season</h3>
+              <p class="text-[#D4D4D4]">Antioch sees upticks in emergency motor failures during major summer heatwaves when aging fan motors on older rooftops are pushed to the point of failure. DDAN carries local stock for same-day replacement.</p>
+            </div>`;
+  } else if (city.key === 'spring-hill') {
+    whySections = `
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Cheap OEM Parts Failing Early</h3>
+              <p class="text-[#D4D4D4]">${commonProblems}</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">New Buildings, Expensive Roofs</h3>
+              <p class="text-[#D4D4D4]">When exhaust fan bearings fail in Spring Hill, housings vibrate loose and grease escapes containment onto pristine white TPO roofs. A single failed fan can turn a compliant rooftop into a violation — and a massive landlord penalty — in days.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Growing Volume, Growing Stress</h3>
+              <p class="text-[#D4D4D4]">Spring Hill's explosive growth means restaurants are pushing their equipment harder than ever. High demand for preventative maintenance programs shows that new restaurant owners are learning the limitations of their factory-installed exhaust equipment.</p>
+            </div>`;
+  } else if (city.key === 'smyrna') {
+    whySections = `
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Nissan Plant: Continuous Operation Burnout</h3>
+              <p class="text-[#D4D4D4]">${commonProblems}</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">July and August: Peak Failure Season</h3>
+              <p class="text-[#D4D4D4]">Emergency repair calls spike during the peak heat of summer when ambient roof temperatures cause overworked exhaust fan motors to seize. Smyrna's consistent heavy demand means you cannot afford to wait for parts — DDAN stocks them locally.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Heavy Grease Loads on Equipment</h3>
+              <p class="text-[#D4D4D4]">The massive grease output from Smyrna's high-volume kitchens coats fan blades unevenly, creates progressive imbalance, and destroys bearings. Regular fan maintenance is not optional — it is the only way to prevent catastrophic failure during your busiest shifts.</p>
+            </div>`;
+  } else if (city.key === 'gallatin') {
+    whySections = `
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Historic Buildings: Non-Standard Equipment</h3>
+              <p class="text-[#D4D4D4]">${commonProblems}</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Nashville Pike: High-Volume Belt Failures</h3>
+              <p class="text-[#D4D4D4]">The newer corporate franchises expanding along Nashville Pike run fryers constantly, generating heavy grease loads that accelerate belt wear and motor fatigue. DDAN stocks heavy-duty commercial replacement belts for same-day service.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Early Summer: Motor Failure Spike</h3>
+              <p class="text-[#D4D4D4]">Gallatin sees noticeable spikes in emergency repair requests during the first major heatwaves of early summer, which push aging fan motors to failure. Proactive belt replacement and motor maintenance prevent the most costly breakdowns.</p>
+            </div>`;
+  } else if (city.key === 'lebanon') {
+    whySections = `
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">BBQ Operations: Carbon Destroys Components</h3>
+              <p class="text-[#D4D4D4]">${commonProblems}</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Wilson County Fair: Peak Demand Failures</h3>
+              <p class="text-[#D4D4D4]">The Wilson County Fair — the largest in Tennessee — creates massive seasonal volume spikes that push already-stressed exhaust systems past their limits. This is precisely the time when a fan failure costs you the most revenue. DDAN provides 24/7 emergency repair year-round.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Industrial Commissaries: Continuous Strain</h3>
+              <p class="text-[#D4D4D4]">Lebanon's massive logistics and distribution center commissaries run exhaust systems continuously, leading to frequent fan belt snapping and bearing failures. These high-capacity systems require heavy-duty commercial-grade replacement parts — not consumer-grade substitutes.</p>
+            </div>`;
+  }
+
+  return `---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+
+const faqs = [
+  { q: '${faqs[0].question.replace(/'/g, "\\'")}', a: '${faqs[0].answer.replace(/'/g, "\\'")}' },
+  { q: '${faqs[1].question.replace(/'/g, "\\'")}', a: '${faqs[1].answer.replace(/'/g, "\\'")}' },
+  { q: '${faqs[2].question.replace(/'/g, "\\'")}', a: '${faqs[2].answer.replace(/'/g, "\\'")}' },
+  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": \`\${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/${city.slug}/\`,
+      "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
+      "areaServed": { "@type": "City", "name": "${city.name}, ${city.state}" },
+      "priceRange": "$$"
+    },
+    { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "${city.name}, ${city.state}" }, "description": "24/7 emergency exhaust fan motor and belt repair for ${city.name} commercial kitchens. Same-day service from local parts stock." },
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": \`\${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/\` },
+      { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": \`\${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/\` },
+      { "@type": "ListItem", "position": 3, "name": "${city.name}, ${city.state}" }
+    ]},
+    { "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) }
+  ]
+};
+---
+
+<BaseLayout
+  title="${city.titles.repair}"
+  description="${city.titles.repairDesc}"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- HERO -->
+  <section class="min-h-[400px] md:min-h-[550px] flex items-center justify-center" style="background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%), url('/images/hero/rooftop-exhaust-fan.jpg') center/cover no-repeat;">
+    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <p class="text-[#FF5E15] font-heading font-bold text-xs md:text-sm tracking-widest uppercase mb-4">DDAN HOOD CLEANING AND REPAIR</p>
+      <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">Emergency Exhaust Fan Repair in <span class="text-[#FF5E15]">${city.name}, ${city.state}</span></h1>
+      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">Fan down? We carry common motors and belts in local stock. Same-day repair across ${city.name}.</p>
+      <p class="text-white font-heading font-bold text-base md:text-lg mb-2">24/7 Emergency Dispatch — Same-Day Motor and Belt Replacement</p>
+      <div class="w-20 h-1 bg-[#FF5E15] mx-auto mt-3 mb-8"></div>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+        <a href={\`tel:\${business.phoneRaw}\`} class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold text-lg rounded-lg hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          CALL NOW: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#FF5E15] text-[#FF5E15] font-heading font-bold text-lg rounded-lg hover:bg-[#FF5E15] hover:text-white hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          REQUEST EMERGENCY REPAIR
+        </button>
+      </div>
+      <div class="flex justify-center items-center gap-6 mt-8">
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/google-white-logo-1024x337.png" alt="Google" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/facebook-logo-white-full-transparent-1024x341.png" alt="Facebook" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/YELP_BIG.D-5a67c069-1024x392.png" alt="Yelp" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-[#0A0A0A] py-2 px-5">
+    <div class="max-w-[1200px] mx-auto">
+      <nav class="flex items-center gap-2 text-sm font-heading text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF5E15] transition-colors">Home</a>
+        <span class="text-[#FF5E15]">/</span>
+        <a href="/repair/" class="hover:text-[#FF5E15] transition-colors">Hood Repair</a>
+        <span class="text-[#FF5E15]">/</span>
+        <span class="text-gray-300">${city.name}, ${city.state}</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- CONSULT BAR -->
+  <section class="bg-[#111111] py-12 reveal">
+    <div class="max-w-[1200px] mx-auto px-5">
+      <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 reveal-child">
+        <p class="text-white font-heading font-semibold text-lg text-center md:text-left">Kitchen shut down? Our emergency team is on call right now.</p>
+        <div class="text-center whitespace-nowrap">
+          <p class="text-[#FF5E15] font-heading font-bold text-sm">SAME-DAY REPAIR</p>
+          <p class="text-[#FF5E15] font-heading font-bold text-xs">Average response under 2 hours</p>
+        </div>
+        <div class="text-center md:text-right">
+          <a href={\`tel:\${business.phoneRaw}\`} class="block text-white font-heading font-bold text-2xl hover:text-[#FF5E15] transition-colors">{business.phone}</a>
+        </div>
+      </div>
+      <h2 class="font-heading text-white font-bold text-2xl text-center mt-8 mb-6 reveal-child">Expert Repairs — Fans First</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <a href="#fan-motors" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Fan Motors</span>
+        </a>
+        <a href="#belts" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Belts and Drives</span>
+        </a>
+        <a href="#complete-fans" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3v9M12 12l6 3M12 12L6 9"/><circle cx="12" cy="12" r="9"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Complete Fans</span>
+        </a>
+        <a href="#system-repairs" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">System Repairs</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET — 4 CARDS -->
+  <section class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl md:text-3xl text-center mb-10 reveal-child">${city.name}'s Fastest Commercial Kitchen Repair Service</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Same-Day Repair</h3>
+          <p class="text-gray-300 text-sm">Common motors and belts on every truck. Most repairs completed in a single visit.</p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Accurate Diagnosis</h3>
+          <p class="text-gray-300 text-sm">We find the root cause — not just the symptom. Amp draws, bearing checks, belt tension, and airflow testing.</p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Warrantied Work</h3>
+          <p class="text-gray-300 text-sm">Every repair backed by our workmanship warranty. OEM-spec parts with manufacturer warranty included.</p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Photo Documentation</h3>
+          <p class="text-gray-300 text-sm">Before-and-after photos of every repair for your compliance records and fire marshal inspections.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DDAN DIFFERENCE — TRUCK -->
+  <section class="py-12 md:py-16 lg:py-20 overflow-hidden reveal" style="background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.7) 100%), url('/images/homepage/gallery-11.jpg') center/cover no-repeat;">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <div class="lg:w-[55%]">
+          <span class="inline-block bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wide rounded-full px-4 py-1 reveal-child">DDAN DIFFERENCE</span>
+          <h2 class="text-white font-heading font-bold text-2xl md:text-3xl mt-4 reveal-child">${city.name}'s Most Reliable Exhaust Fan Repair Team</h2>
+          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">${proofPoint}</p>
+          <ul class="space-y-3 mt-6">
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Common motors, belts, and bearings stocked on every truck</span></li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>24/7 emergency dispatch — nights, weekends, and holidays</span></li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Before-and-after photo documentation for every repair</span></li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Upfront pricing after diagnosis — no surprises, no hidden fees</span></li>
+          </ul>
+          <button type="button" class="popup-trigger inline-flex items-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold rounded-lg hover:scale-95 transition-all duration-300 mt-6 reveal-child">Request Emergency Repair</button>
+          <p class="text-gray-400 text-sm mt-3 reveal-child">Or call now: <a href={\`tel:\${business.phoneRaw}\`} class="text-[#FF5E15] hover:underline">{business.phone}</a></p>
+        </div>
+        <div class="lg:w-[45%] flex justify-end">
+          <img src="/images/truck.png" alt="DDAN Hood Cleaning and Repair truck" class="truck-drive-in max-w-full" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAN REPAIRS — 6 CARDS -->
+  <section id="fan-motors" class="bg-[#111111] py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl md:text-3xl text-center mb-4 reveal-child">Exhaust Fan Repairs for ${city.name} Restaurants</h2>
+      <div class="bg-[#FF5E15] text-white text-center text-sm md:text-base font-heading font-bold uppercase tracking-wide py-3 px-4 rounded-lg mb-10 reveal-child">${city.name.toUpperCase()}'S #1 EXHAUST FAN REPAIR SERVICE — ALL BRANDS, ALL SIZES</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="belts">
+        <a href="/exhaust-fan-belt-motor-repair/" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
+          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden"><img src="/images/services/hood-repair-hero.jpg" alt="Fan motor replacement ${city.name} ${city.state}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Motor Replacement</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Single-phase, 3-phase, and ECM motors matched to OEM specs. We stock common sizes for same-day replacement.</p></div>
+        </a>
+        <a href="/exhaust-fan-belt-motor-repair/" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
+          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden"><img src="/images/services/commercial-hood-repair-split.jpeg" alt="Fan belt replacement ${city.name} ${city.state}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Belt Replacement</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Worn, cracked, and snapped belts replaced on-site with proper tensioning. Heavy grease coats pulleys and accelerates belt wear.</p></div>
+        </a>
+        <div class="group bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
+          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden"><img src="/images/services/kitchen-exhaust-installation.jpg" alt="Fan wheel repair ${city.name} ${city.state}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Wheel and Blade Repair</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Grease-caked impellers cleaned, rebalanced, or replaced. Uneven grease buildup creates vibration that destroys bearings in weeks.</p></div>
+        </div>
+        <div class="group bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
+          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden"><img src="/images/services/hood-cleaning-hero.jpg" alt="Bearing replacement ${city.name} ${city.state}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Bearing Replacement</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Shaft bearings, pillow blocks, and sealed units. If your fan is grinding or squealing, bearing failure is imminent.</p></div>
+        </div>
+        <a id="complete-fans" href="/parts-installation/${city.slug}/" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
+          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden"><img src="/images/hero/rooftop-exhaust-fan.jpg" alt="Complete fan replacement ${city.name} ${city.state}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Complete Fan Replacement</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">When repair costs exceed replacement value, we install new units sized for your system. All major brands.</p></div>
+        </a>
+        <div class="group bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
+          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden"><img src="/images/services/rooftop-hinge-kit.jpg" alt="Speed controller repair ${city.name} ${city.state}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Speed Controller and VFD Repair</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Variable frequency drives that control fan speed. Faulty VFDs cause erratic fan operation and premature motor damage.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND FANS -->
+  <section id="system-repairs" class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl md:text-3xl text-center mb-10 reveal-child">Complete Exhaust System Repair in ${city.name}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <a href="/access-panel-installation/" class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 reveal-child"><h3 class="font-heading text-white text-lg font-semibold mb-2">Ductwork Repair</h3><p class="text-[#D4D4D4] font-body text-sm leading-relaxed">Disconnected joints, failed seams, and damaged sections repaired or replaced. Includes fire-rated access panel installation.</p></a>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 reveal-child"><h3 class="font-heading text-white text-lg font-semibold mb-2">Hood Body Repair</h3><p class="text-[#D4D4D4] font-body text-sm leading-relaxed">Structural damage to canopies, grease troughs, filters, and mounting hardware repaired or replaced.</p></div>
+        <a href="/restaurant-fire-suppression-systems/" class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 reveal-child"><h3 class="font-heading text-white text-lg font-semibold mb-2">Fire Suppression Repair</h3><p class="text-[#D4D4D4] font-body text-sm leading-relaxed">Nozzle replacement, fusible link installation, tank recharge, and full system testing for fire marshal compliance.</p></a>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 reveal-child"><h3 class="font-heading text-white text-lg font-semibold mb-2">Make-Up Air Repair</h3><p class="text-[#D4D4D4] font-body text-sm leading-relaxed">MUA units that supply replacement air to balance exhaust. When MUA fails, doors slam and gas appliances backdraft.</p></div>
+        <div class="bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 reveal-child"><h3 class="font-heading text-white text-lg font-semibold mb-2">Electrical Troubleshooting</h3><p class="text-[#D4D4D4] font-body text-sm leading-relaxed">Tripped breakers, faulty contactors, damaged wiring, and control panel issues traced from panel to fan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS STRIP -->
+  <section class="bg-[#111111] py-8 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto text-center">
+      <p class="text-[#D4D4D4] font-heading text-base reveal-child">We repair all brands: <span class="text-white font-semibold">CaptiveAire</span> &middot; <span class="text-white font-semibold">Loren Cook</span> &middot; <span class="text-white font-semibold">Canarm</span> &middot; <span class="text-white font-semibold">NAKS</span> &middot; <span class="text-white font-semibold">EconAir</span> &middot; <span class="text-white font-semibold">Greenheck</span> &middot; <span class="text-white font-semibold">Accurex</span> &middot; <span class="text-white font-semibold">PennBarry</span> &middot; <span class="text-white font-semibold">Dayton</span> &middot; <span class="text-white font-semibold">Fantech</span></p>
+    </div>
+  </section>
+
+  <!-- TRUST BANNER -->
+  <section class="bg-[#111111] py-12 px-5 reveal" style="border-top: 2px solid rgba(255,94,21,0.3); border-bottom: 2px solid rgba(255,94,21,0.3);">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-8 reveal-child">The #1 Rated Commercial Hood Company in Tennessee</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">51+</span><div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="text-white text-sm">Google Reviews</span></div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">5.0</span><div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="text-white text-sm">Star Average</span></div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">20+</span><div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="text-white text-sm">Facebook Reviews</span></div>
+      </div>
+      <p class="text-gray-300 text-sm mt-6 reveal-child">Trusted by restaurants, churches, schools, and institutions across Middle Tennessee since 2007.</p>
+    </div>
+  </section>
+
+  <!-- WHY [CITY] + COMPLIANCE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8">
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Why ${city.name} Restaurants Need Dedicated Exhaust Fan Repair</h2>
+          <div class="space-y-6">${whySections}
+          </div>
+        </div>
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">${city.name} Exhaust Repair Compliance</h2>
+          <div class="space-y-5">
+            <p class="text-[#D4D4D4]">The <strong class="text-white">${fireMarshal}</strong> enforces NFPA 96 with strict standards. A non-functional fan is a code violation that triggers immediate shutdown orders. ${enforcement}</p>
+            <p class="text-[#D4D4D4]"><strong class="text-white">${fogProgram}</strong> enforces F.O.G. regulations. When fan bearings fail, housings vibrate loose, and grease escapes containment onto roof surfaces and into storm drains. Repairing fans and maintaining <a href="/grease-containment/" class="text-[#FF5E15] hover:underline">grease containment</a> are inseparable.</p>
+            <p class="text-[#D4D4D4]">Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 compliance standards</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA + FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-5">${city.name} Exhaust Fan Repair Service Area</h2>
+          <p class="text-[#D4D4D4] text-lg mb-6 max-w-2xl">${data.contentSnippets.serviceAreaParagraph}</p>
+          <div class="space-y-3 mb-6">
+            <p class="text-[#D4D4D4] font-body text-base">
+              <span class="text-[#FF5E15] font-semibold">Also in ${city.name}:</span>
+              <a href="/cleaning/${city.slug}/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
+              <a href="/parts-installation/${city.slug}/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+            </p>
+            <p class="text-[#D4D4D4] font-body text-base">
+              <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+${neighborLinks}
+            </p>
+          </div>
+          <div class="rounded-xl overflow-hidden" style="max-height:200px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206252.72681578025!2d-86.9081726!3d36.1744653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2s${encodeURIComponent(city.name + ', ' + city.state)}!5e0!3m2!1sen!2sus!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-10">Frequently Asked Questions — ${city.name} Exhaust Fan Repair</h2>
+          <div class="space-y-4">
+            {faqs.map(faq => (
+              <details class="bg-[#1A1A1A] border border-[#333] rounded-xl overflow-hidden transition-all duration-300">
+                <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-white font-heading font-semibold">
+                  <span class="pr-4">{faq.q}</span>
+                  <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-6 pb-5"><p class="text-[#D4D4D4]">{faq.a}</p></div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DON'T WAIT CTA -->
+  <section class="relative overflow-hidden bg-black reveal" id="urgency-cta">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('/images/homepage/gallery-11.jpg')"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, #FF5E158F 0%, #000000 100%); opacity:0.78"></div>
+    <div class="relative z-10 max-w-[1280px] mx-auto px-5 pt-20 pb-0 flex flex-col lg:flex-row items-end">
+      <div class="lg:w-[66%] pb-12 flex flex-col gap-2.5">
+        <h2 class="font-heading text-white text-xl md:text-[45px] font-semibold capitalize leading-[1.1] mb-2">Don't Wait Until You're <span class="text-white">Fined or Shut Down!</span></h2>
+        <div class="w-16 h-0.5 bg-[#FF5E15] my-2"></div>
+        <p class="text-[#E0E0E0] font-heading text-base mb-4">Whether you need an emergency motor replacement, a scheduled belt change, or a complete fan overhaul, <strong class="text-white">{business.name}</strong> is here to keep your ${city.name} kitchen running and compliant.</p>
+        <a href={\`tel:\${business.phoneRaw}\`} class="flex items-center gap-3 mb-3">
+          <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-xl"><svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg></span>
+          <span class="text-white font-heading text-lg font-semibold hover:text-[#FF5E15] transition-all duration-300">Call Now: {business.phone}</span>
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 w-fit px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Request Service Online
+        </button>
+      </div>
+      <div class="w-full lg:w-[60%] flex justify-center lg:justify-end items-end -mb-2.5">
+        <img src="/images/truck.png" alt="DDAN Hood Cleaning truck" class="truck-drive-in max-w-full w-full md:w-auto" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <style>
+    details summary::-webkit-details-marker { display: none; }
+    details summary { list-style: none; }
+    details[open] .faq-icon { transform: rotate(180deg); }
+    details[open] { border-color: #FF5E15; }
+    .faq-icon { transition: transform 0.2s ease; }
+  </style>
+</BaseLayout>
+`;
+}
+
+// Generate all repair pages
+for (const city of cities) {
+  const data = citiesData[city.key];
+  if (!data) continue;
+  const content = buildRepairPage(city, data);
+  const outPath = path.join(ROOT, `src/pages/repair/${city.slug}.astro`);
+  fs.writeFileSync(outPath, content, 'utf8');
+  console.log(`Wrote repair: ${city.slug}.astro (${content.split('\n').length} lines)`);
+}
+
+console.log('\nRepair pages complete. Now generating parts-installation pages...\n');
+
+// ===== PARTS-INSTALLATION PAGES =====
+// These are the biggest pages. We'll use a simpler approach — take the Nashville template
+// and do string replacement, since the parts catalog is the same across cities.
+
+for (const city of cities) {
+  const data = citiesData[city.key];
+  if (!data) continue;
+
+  const faqs = data.contentSnippets.citySpecificFAQs;
+  const fireMarshal = data.complianceAndAHJ.fireMarshal;
+  const fogProgram = data.complianceAndAHJ.fogProgram;
+  const enforcement = data.complianceAndAHJ.enforcementLevel;
+  const commonProblems = data.industrySpecific.commonProblems;
+  const neighborLinks = city.neighbors.map(n =>
+    `              { name: '${n.name}', href: '/parts-installation/${n.slug}/' },`
+  ).join('\n');
+
+  // For parts pages, do a text substitution from Nashville template
+  let content = partsTpl;
+
+  // Replace title and description
+  content = content.replace(
+    /title="Same-Day Exhaust Fan Parts and Installation Nashville TN \| DDAN"/,
+    `title="${city.titles.parts}"`
+  );
+  content = content.replace(
+    /description="[^"]*"/,
+    `description="${city.titles.partsDesc}"`
+  );
+
+  // Replace all Nashville references
+  content = content.replace(/Nashville, TN/g, `${city.name}, ${city.state}`);
+  content = content.replace(/Nashville's/g, `${city.name}'s`);
+  content = content.replace(/Nashville /g, `${city.name} `);
+  content = content.replace(/nashville-tn/g, city.slug);
+  content = content.replace(/Nashville/g, city.name);
+
+  // Replace FAQs in frontmatter
+  const faqBlock = `const faqs = [
+  {
+    q: '${faqs[0].question.replace(/'/g, "\\'")}',
+    a: '${faqs[0].answer.replace(/'/g, "\\'")}',
+  },
+  {
+    q: '${faqs[1].question.replace(/'/g, "\\'")}',
+    a: '${faqs[1].answer.replace(/'/g, "\\'")}',
+  },
+  {
+    q: '${faqs[2].question.replace(/'/g, "\\'")}',
+    a: '${faqs[2].answer.replace(/'/g, "\\'")}',
+  },
+  {
+    q: 'How fast can you get parts to a ${city.name} restaurant?',
+    a: 'We stock common motors, belts, bearings, filters, hinge kits, and grease cups locally. For in-stock parts, same-day delivery is standard. Specialty items are typically next-day via our distributor network.',
+  },
+];`;
+  content = content.replace(/const faqs = \[[\s\S]*?\];/, faqBlock);
+
+  // Replace the compliance text blocks
+  content = content.replace(
+    /Metro \w+ Fire Marshal/g,
+    fireMarshal
+  );
+
+  // Replace the nearby cities grid
+  const cityGrid = `{[
+${neighborLinks}
+              { name: 'Mt. Juliet', href: '/parts-installation/mount-juliet-tn/' },
+              { name: 'Hendersonville', href: '/parts-installation/hendersonville-tn/' },
+              { name: 'Goodlettsville', href: '/parts-installation/goodlettsville-tn/' },
+              { name: '${city.name === 'Lebanon' ? 'Franklin' : 'Lebanon'}', href: '/parts-installation/${city.name === 'Lebanon' ? 'franklin' : 'lebanon'}-tn/' },
+              { name: '${city.name === 'Gallatin' ? 'Franklin' : 'Gallatin'}', href: '/parts-installation/${city.name === 'Gallatin' ? 'franklin' : 'gallatin'}-tn/' },
+              { name: '${city.name === 'Murfreesboro' ? 'Brentwood' : 'Murfreesboro'}', href: '/parts-installation/${city.name === 'Murfreesboro' ? 'brentwood' : 'murfreesboro'}-tn/' },
+            ]`;
+  content = content.replace(/\{\[\n\s*\{ name: 'Hermitage'[\s\S]*?\]/, cityGrid);
+
+  // Replace "Why Nashville" content sections with city-specific
+  // Replace Broadway content
+  content = content.replace(
+    /Broadway & Downtown: Motor Burnout/,
+    `${city.name}: Equipment Stress`
+  );
+  content = content.replace(
+    /Nashville's Lower Broadway restaurants run[\s\S]*?it seizes and takes the fan wheel with it\.<\/p>/,
+    `${commonProblems}</p>`
+  );
+
+  // Replace compliance section
+  content = content.replace(
+    /The <strong class="text-white">Metro[\s\S]*?these standards\.<\/p>/,
+    `The <strong class="text-white">${fireMarshal}</strong> enforces NFPA 96 for all commercial kitchen exhaust systems. ${enforcement} Every part we install meets or exceeds these standards.</p>`
+  );
+
+  // Fix the "Also in Nashville" links
+  content = content.replace(
+    /Also in [^:]*:/g,
+    `Also in ${city.name}:`
+  );
+
+  // Remove TruckCTA import if present (cleaning template doesn't use it but parts does)
+  // Keep it since parts template uses it
+
+  const outPath = path.join(ROOT, `src/pages/parts-installation/${city.slug}.astro`);
+  fs.writeFileSync(outPath, content, 'utf8');
+  console.log(`Wrote parts-installation: ${city.slug}.astro (${content.split('\n').length} lines)`);
+}
+
+console.log('\n===== ALL 15 PAGES GENERATED =====');
