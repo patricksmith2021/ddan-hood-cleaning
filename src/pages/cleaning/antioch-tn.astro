@@ -1,337 +1,441 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import TruckCTA from '../../components/TruckCTA.astro';
 import business from '../../data/business.json';
-const HP = '/images/homepage';
 
 const faqs = [
-  {
-    q: 'Can you clean hoods used for high-heat wok cooking in Antioch?',
-    a: 'Yes. Wok cooking and open-flame grilling create a hardened carbon scale that is much tougher than standard restaurant grease. Our technicians use aggressive scraping techniques and commercial-grade degreasers specifically designed for this type of buildup.',
-  },
-  {
-    q: 'My Antioch restaurant is in an older building. Do I need duct access panels?',
-    a: 'Most likely. Metro Nashville Fire Code dictates that any changes in duct direction must have fire-rated access panels for proper cleaning. Many older Antioch buildings were not built to current code.',
-  },
-  {
-    q: 'How fast can you replace a broken exhaust fan belt near Hickory Hollow?',
-    a: `We offer 24/7 emergency repair services for Antioch restaurants. If a snapped belt or burnt motor shuts your kitchen down, our team can typically be on-site within an hour. Call ${business.phone}.`,
-  },
-  {
-    q: 'Do you clean overnight to avoid disrupting business?',
-    a: 'Yes. Most Antioch restaurants schedule cleaning between 10 PM and 6 AM. We also accommodate early-morning and weekend scheduling.',
-  },
+  { q: 'Can you clean hoods used for high-heat wok cooking in Antioch?', a: 'Yes. Wok cooking and open-flame grilling create a hardened carbon scale that is much tougher than standard fryer grease. Our crews use specialized scraping tools and heavy-duty, food-safe chemicals to strip your entire system down to bare metal as required by NFPA 96.' },
+  { q: 'My Antioch restaurant is in an older building. Do I need duct access panels?', a: 'Most likely. Metro Nashville Fire Code dictates that any changes in duct direction must have fire-rated access panels so the entire system can be cleaned. We frequently install these panels for restaurants moving into older Antioch strip centers.' },
+  { q: 'How fast can you replace a broken exhaust fan belt near Hickory Hollow?', a: 'We offer 24/7 emergency repair services for Antioch restaurants. If a snapped belt or burnt motor shuts down your kitchen, we carry the parts to get you back up and running immediately, usually within a few hours of your call.' },
+  { q: 'How long does a commercial hood cleaning take?', a: 'Most single-hood restaurant systems take 3-5 hours for a thorough bare-metal cleaning. Larger systems with multiple hoods or extensive ductwork can take 6-8 hours. We schedule overnight so your kitchen is ready by morning.' },
 ];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/antioch-tn/`,
+      "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
+      "areaServed": { "@type": "City", "name": "Antioch, TN" },
+      "priceRange": "$$"
+    },
+    { "@type": "Service", "name": "Commercial Kitchen Hood Cleaning", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Antioch, TN" }, "description": "NFPA 96 certified commercial kitchen hood cleaning for Antioch restaurants. Bare-metal clean with before-and-after photo documentation." },
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
+      { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/` },
+      { "@type": "ListItem", "position": 3, "name": "Antioch, TN" }
+    ]},
+    { "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) }
+  ]
+};
 ---
 
 <BaseLayout
-  title="NFPA 96 Hood Cleaning for Antioch Restaurants | DDAN"
-  description="Expert hood cleaning for Antioch's diverse restaurant scene — Latin, Asian, Middle Eastern cuisine. Metro Nashville compliant. Call (615) 881-6968."
+  title="Antioch Hood Cleaning Experts | DDAN"
+  description="NFPA 96 certified hood cleaning for Antioch TN restaurants. Bare-metal clean, overnight service, photo documentation. Call (615) 881-6968."
 >
-  <!-- Schema: LocalBusiness + Service + BreadcrumbList + FAQPage -->
-  <script type="application/ld+json" is:inline set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
-        "name": business.name,
-        "telephone": business.phone,
-        "email": business.email,
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": business.address.street,
-          "addressLocality": business.address.city,
-          "addressRegion": business.address.state,
-          "postalCode": business.address.zip,
-          "addressCountry": "US"
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Antioch, TN"
-        },
-        "url": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/antioch-tn/`
-      },
-      {
-        "@type": "Service",
-        "name": "Commercial Kitchen Hood Cleaning",
-        "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
-        "areaServed": { "@type": "City", "name": "Antioch, TN" },
-        "description": "NFPA 96 compliant commercial kitchen hood cleaning for Antioch restaurants specializing in high-heat, diverse cuisine cooking methods."
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
-          { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/` },
-          { "@type": "ListItem", "position": 3, "name": "Antioch, TN" }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Can you clean hoods used for high-heat wok cooking in Antioch?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Wok cooking and open-flame grilling create a hardened carbon scale that is much tougher than standard restaurant grease. Our technicians use aggressive scraping techniques and commercial-grade degreasers specifically designed for this type of buildup." }
-          },
-          {
-            "@type": "Question",
-            "name": "My Antioch restaurant is in an older building. Do I need duct access panels?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Most likely. Metro Nashville Fire Code dictates that any changes in duct direction must have fire-rated access panels for proper cleaning. Many older Antioch buildings were not built to current code." }
-          },
-          {
-            "@type": "Question",
-            "name": "How fast can you replace a broken exhaust fan belt near Hickory Hollow?",
-            "acceptedAnswer": { "@type": "Answer", "text": "We offer 24/7 emergency repair services for Antioch restaurants. If a snapped belt or burnt motor shuts your kitchen down, our team can typically be on-site within an hour." }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you clean overnight to avoid disrupting business?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most Antioch restaurants schedule cleaning between 10 PM and 6 AM. We also accommodate early-morning and weekend scheduling." }
-          }
-        ]
-      }
-    ]
-  })} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <!-- HERO -->
-  <section class="relative min-h-[450px] md:min-h-[520px] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/hero/rooftop-exhaust-fan.jpg');"></div>
-    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,94,21,0.2) 0%, rgba(17,17,17,0.75) 70%);"></div>
-    <div class="max-w-[1280px] mx-auto px-5 relative z-10 py-16 text-white w-full">
-      <nav aria-label="Breadcrumb" class="mb-4">
-        <ol class="flex items-center gap-2 text-xs font-heading uppercase tracking-widest text-white/80">
-          <li><a href="/" class="hover:text-[#FF5E15] transition-all duration-300">Home</a></li>
-          <li class="text-[#FF5E15]">/</li>
-          <li><a href="/cleaning/" class="hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning</a></li>
-          <li class="text-[#FF5E15]">/</li>
-          <li class="text-white">Antioch, TN</li>
-        </ol>
-      </nav>
-      <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide mb-2">DDAN Hood Cleaning and Repair</p>
-      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-        Antioch Commercial Kitchen <span class="text-[#FF5E15]">Hood Cleaning Experts</span>
-      </h1>
-      <p class="font-heading text-sm md:text-base text-white/90 max-w-2xl mb-6">
-        Specialized cleaning for Antioch's Latin American, Asian, and Middle Eastern kitchens — where standard methods don't cut it
-      </p>
-      <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
-        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-lg font-medium rounded hover:bg-[#FF5E15] transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Call Us: {business.phone}
+  <!-- SECTION 1: HERO -->
+  <section class="min-h-[400px] md:min-h-[550px] flex items-center justify-center" style="background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%), url('/images/homepage/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg') center/cover no-repeat;">
+    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <p class="text-[#FF5E15] font-heading font-bold text-xs md:text-sm tracking-widest uppercase mb-4">DDAN HOOD CLEANING AND REPAIR</p>
+      <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">Commercial Kitchen Hood Cleaning in <span class="text-[#FF5E15]">Antioch, TN</span></h1>
+      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">Antioch is home to some of the most dynamic, high-output kitchens in Middle Tennessee. At DDAN Hood Cleaning and Repair, we provide the specialized, heavy-duty exhaust system care.</p>
+      <p class="text-white font-heading font-bold text-base md:text-lg mb-2">Certified Hood Cleaning With Full Compliance Documentation</p>
+      <div class="w-20 h-1 bg-[#FF5E15] mx-auto mt-3 mb-8"></div>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold text-lg rounded-lg hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          Schedule Cleaning: {business.phone}
         </a>
-        <button type="button" class="popup-trigger inline-flex items-center gap-2.5 px-7 py-3 bg-transparent text-white font-body text-lg font-medium border-2 border-[#FF5E15] rounded hover:bg-[#FF5E15] transition-all duration-300">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Request Service
+        <button type="button" class="popup-trigger inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#FF5E15] text-[#FF5E15] font-heading font-bold text-lg rounded-lg hover:bg-[#FF5E15] hover:text-white hover:scale-95 transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          EMERGENCY CLEAN
         </button>
       </div>
-      <!-- Review Badges -->
-      <div class="flex flex-row items-center gap-3 md:gap-8">
-        {[
-          { img: `${HP}/google-white-logo-1024x337.png`, w: '70%' },
-          { img: `${HP}/facebook-logo-white-full-transparent-1024x341.png`, w: '100%' },
-          { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%' },
-        ].map((badge) => (
-          <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
-            <img src={badge.img} alt="" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
-            <div class="flex gap-0.5">
-              {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
+      <div class="flex justify-center items-center gap-6 mt-8">
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/google-white-logo-1024x337.png" alt="Google" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/facebook-logo-white-full-transparent-1024x341.png" alt="Facebook" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/YELP_BIG.D-5a67c069-1024x392.png" alt="Yelp" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB STRIP -->
+  <div class="bg-[#0A0A0A] py-2 px-5">
+    <div class="max-w-[1200px] mx-auto">
+      <nav class="flex items-center gap-2 text-sm font-heading text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF5E15] transition-colors">Home</a>
+        <span class="text-[#FF5E15]">/</span>
+        <a href="/cleaning/" class="hover:text-[#FF5E15] transition-colors">Hood Cleaning</a>
+        <span class="text-[#FF5E15]">/</span>
+        <span class="text-gray-300">Antioch, TN</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CONSULT BAR + JUMP-NAV -->
+  <section class="bg-[#111111] py-12 reveal">
+    <div class="max-w-[1200px] mx-auto px-5">
+      <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 reveal-child">
+        <p class="text-white font-heading font-semibold text-lg text-center md:text-left">Need a quote? Get a FREE inspection from a certified technician.</p>
+        <div class="text-center whitespace-nowrap">
+          <p class="text-[#FF5E15] font-heading font-bold text-sm">OVERNIGHT SERVICE AVAILABLE</p>
+          <p class="text-[#FF5E15] font-heading font-bold text-xs">24/7 Emergency Cleaning</p>
+        </div>
+        <div class="text-center md:text-right">
+          <a href={`tel:${business.phoneRaw}`} class="block text-white font-heading font-bold text-2xl hover:text-[#FF5E15] transition-colors">{business.phone}</a>
+        </div>
+      </div>
+      <h2 class="font-heading text-white font-bold text-2xl text-center mt-8 mb-6 reveal-child">What We Clean — Hood to Rooftop</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <a href="#hood-canopies" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Hood Canopies</span>
+        </a>
+        <a href="#ductwork" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M4 6v12M20 6v12"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Ductwork</span>
+        </a>
+        <a href="#exhaust-fans" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3M12 12L6 9"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Exhaust Fans</span>
+        </a>
+        <a href="#filters" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Filters</span>
+        </a>
+        <a href="#rooftop-grease" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Rooftop Grease</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: WHAT YOU GET — 4 CARDS -->
+  <section class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl md:text-3xl text-center mb-10 reveal-child">Antioch's Most Thorough Hood Cleaning Service</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Complete Bare-Metal Clean</h3>
+          <p class="text-gray-300 text-sm">Every surface cleaned to bare metal per NFPA 96 — hoods, plenums, ducts, fans, and filters.</p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Photo Documentation</h3>
+          <p class="text-gray-300 text-sm">Before-and-after photos of every component for your compliance files and fire marshal inspections.</p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Overnight Service</h3>
+          <p class="text-gray-300 text-sm">We work 10 PM to 6 AM. Your kitchen is clean, tagged, and ready before your morning crew arrives.</p>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Free Inspection and Quote</h3>
+          <p class="text-gray-300 text-sm">We assess your entire system and provide a detailed quote with scope of work — no obligation, no pressure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: DDAN DIFFERENCE — TRUCK -->
+  <section class="py-12 md:py-16 lg:py-20 overflow-hidden reveal" style="background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.7) 100%), url('/images/homepage/gallery-11.jpg') center/cover no-repeat;">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <div class="lg:w-[55%]">
+          <span class="inline-block bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wide rounded-full px-4 py-1 reveal-child">DDAN DIFFERENCE</span>
+          <h2 class="text-white font-heading font-bold text-2xl md:text-3xl mt-4 reveal-child">The Most Thorough Clean in Antioch — Guaranteed</h2>
+          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">Most hood cleaners spray and wipe. We strip every surface to bare metal — hoods, plenums, ductwork, fans, and filters — then document it all with photos. If the Fire Marshal has questions, you have answers.</p>
+          <ul class="space-y-3 mt-6">
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Every component cleaned to NFPA 96 bare-metal standard</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Before-and-after photo documentation for every job</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Overnight service — zero disruption to your business</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Deficiency report with repair recommendations included</span>
+            </li>
+          </ul>
+          <button type="button" class="popup-trigger inline-flex items-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold rounded-lg hover:scale-95 transition-all duration-300 mt-6 reveal-child">
+            Schedule Your Clean
+          </button>
+          <p class="text-gray-400 text-sm mt-3 reveal-child">
+            Or call now: <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline">{business.phone}</a>
+          </p>
+        </div>
+        <div class="lg:w-[45%] flex justify-end">
+          <img src="/images/truck.png" alt="DDAN Hood Cleaning and Repair truck" class="truck-drive-in max-w-full" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEANING SERVICES -->
+  <section class="bg-[#111111] py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl text-center mb-10 reveal-child">Complete Hood Cleaning Services in Antioch</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="hood-canopies" class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden reveal-child">
+          <img src="/images/homepage/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg" alt="Hood canopy cleaning Antioch TN" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg mb-2">Hood Canopy Cleaning</h3>
+            <p class="text-[#D4D4D4] text-sm font-body">Complete interior and exterior canopy degreasing. All seams, joints, and surfaces cleaned to bare metal. Plenum chamber and grease troughs included.</p>
+          </div>
+        </div>
+        <div id="ductwork" class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden reveal-child">
+          <img src="/images/homepage/certified-hood-cleaning-company-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp" alt="Exhaust ductwork cleaning Antioch TN" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg mb-2">Exhaust Ductwork Cleaning</h3>
+            <p class="text-[#D4D4D4] text-sm font-body">Full duct run from hood collar to rooftop termination. We access every section through <a href="/access-panel-installation/" class="text-[#FF5E15] hover:underline">fire-rated access panels</a> — if panels are missing, we install them.</p>
+          </div>
+        </div>
+        <div id="exhaust-fans" class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden reveal-child">
+          <img src="/images/homepage/vent-hood-cleaning-service-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x576.jpg" alt="Exhaust fan cleaning Antioch TN" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg mb-2">Exhaust Fan Cleaning</h3>
+            <p class="text-[#D4D4D4] text-sm font-body">Rooftop upblast fans opened via <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] hover:underline">hinge kits</a> for full interior access. Fan blades, housing, motor compartment, and drain all cleaned.</p>
+          </div>
+        </div>
+        <div id="filters" class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden reveal-child">
+          <img src="/images/homepage/NFPA-96-hood-cleaning-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp" alt="Filter and baffle cleaning Antioch TN" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg mb-2">Filter and Baffle Cleaning</h3>
+            <p class="text-[#D4D4D4] text-sm font-body">All grease filters removed, degreased, and reinstalled. Damaged or warped baffles identified and replaced. We carry standard sizes for immediate swap.</p>
+          </div>
+        </div>
+        <div id="rooftop-grease" class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden reveal-child">
+          <img src="/images/homepage/restaurant-hood-cleaning-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg" alt="Rooftop grease containment cleaning Antioch TN" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg mb-2">Rooftop Grease Containment</h3>
+            <p class="text-[#D4D4D4] text-sm font-body">Grease boxes emptied, pads replaced, drip guards inspected. We service all <a href="/grease-containment/" class="text-[#FF5E15] hover:underline">rooftop grease containment</a> systems — protecting your roof and keeping you compliant.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEANING FREQUENCY GUIDE -->
+  <section class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] font-bold text-2xl md:text-3xl text-center mb-10 reveal-child">How Often Should Antioch Restaurants Clean Their Hoods?</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-[#1A1A1A] border-t-4 border-red-500 border-x border-b border-x-[#333] border-b-[#333] rounded-xl p-6 reveal-child">
+          <h3 class="text-red-500 font-heading font-bold text-xl mb-2">Monthly</h3>
+          <p class="text-white font-heading font-semibold text-sm mb-3">High-Volume / Charbroiling</p>
+          <ul class="text-[#D4D4D4] text-sm space-y-1"><li>24-hour kitchens</li><li>Charbroilers and woks</li><li>Heavy fryer operations</li><li>Wood-fired grills</li></ul>
+        </div>
+        <div class="bg-[#1A1A1A] border-t-4 border-[#FF5E15] border-x border-b border-x-[#333] border-b-[#333] rounded-xl p-6 reveal-child">
+          <h3 class="text-[#FF5E15] font-heading font-bold text-xl mb-2">Quarterly</h3>
+          <p class="text-white font-heading font-semibold text-sm mb-3">Standard Restaurants</p>
+          <ul class="text-[#D4D4D4] text-sm space-y-1"><li>Full-service restaurants</li><li>Fast food kitchens</li><li>Hotel kitchens</li><li>Food trucks (base)</li></ul>
+        </div>
+        <div class="bg-[#1A1A1A] border-t-4 border-yellow-500 border-x border-b border-x-[#333] border-b-[#333] rounded-xl p-6 reveal-child">
+          <h3 class="text-yellow-500 font-heading font-bold text-xl mb-2">Semi-Annually</h3>
+          <p class="text-white font-heading font-semibold text-sm mb-3">Moderate Volume</p>
+          <ul class="text-[#D4D4D4] text-sm space-y-1"><li>Day-only restaurants</li><li>Churches and schools</li><li>Assisted living</li><li>Low-grease menus</li></ul>
+        </div>
+        <div class="bg-[#1A1A1A] border-t-4 border-green-500 border-x border-b border-x-[#333] border-b-[#333] rounded-xl p-6 reveal-child">
+          <h3 class="text-green-500 font-heading font-bold text-xl mb-2">Annually</h3>
+          <p class="text-white font-heading font-semibold text-sm mb-3">Light Cooking</p>
+          <ul class="text-[#D4D4D4] text-sm space-y-1"><li>Seasonal kitchens</li><li>Pizza ovens (gas)</li><li>Steam / convection only</li><li>Event venues</li></ul>
+        </div>
+      </div>
+      <p class="text-gray-400 text-sm text-center mt-6 reveal-child">Based on NFPA 96 Table 11.4. Your specific schedule depends on cooking volume, menu type, and equipment. <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">Read more about NFPA 96 standards</a>.</p>
+    </div>
+  </section>
+
+  <!-- TRUST BANNER -->
+  <section class="bg-[#111111] py-12 px-5 reveal" style="border-top: 2px solid rgba(255,94,21,0.3); border-bottom: 2px solid rgba(255,94,21,0.3);">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-8 reveal-child">The #1 Rated Commercial Hood Company in Tennessee</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child">
+          <span class="text-[#FF5E15] font-heading font-bold text-4xl">51+</span>
+          <div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <span class="text-white text-sm">Google Reviews</span>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child">
+          <span class="text-[#FF5E15] font-heading font-bold text-4xl">5.0</span>
+          <div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <span class="text-white text-sm">Star Average</span>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child">
+          <span class="text-[#FF5E15] font-heading font-bold text-4xl">20+</span>
+          <div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <span class="text-white text-sm">Facebook Reviews</span>
+        </div>
+      </div>
+      <p class="text-gray-300 text-sm mt-6 reveal-child">Trusted by restaurants, churches, schools, and institutions across Middle Tennessee since 2007.</p>
+    </div>
+  </section>
+
+  <!-- WHO WE CLEAN FOR -->
+  <section class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-2xl md:text-3xl font-bold mb-10 text-center reveal-child">Who We Serve in Antioch</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-8 reveal-child">
+          <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Restaurants and Commercial Kitchens</h3>
+          <p class="text-[#D4D4D4] mb-4">Our certified technicians serve the entire Antioch area 24/7. Whether you run a bustling taqueria near Century Farms, a large international buffet near the Global Mall, or a fast-casual spot on Bell Road, DDAN arrives ready to work. We also service neighboring communities like La Vergne and Smyrna.</p>
+          <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-semibold hover:underline">{business.phone} &rarr;</a>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-8 reveal-child">
+          <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Institutions and Facilities</h3>
+          <p class="text-[#D4D4D4] mb-4">Antioch institutions including Global Mall at the Crossings, high-density residential developments driving constant takeout/delivery volume. rely on DDAN for scheduled hood cleaning with full NFPA 96 documentation. Large-scale systems with strict compliance requirements handled professionally.</p>
+          <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-semibold hover:underline">{business.phone} &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS STRIP -->
+  <section class="bg-[#111111] py-8 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto text-center">
+      <p class="text-[#D4D4D4] font-heading text-base reveal-child">
+        We clean systems from all manufacturers: <span class="text-white font-semibold">CaptiveAire</span> &middot; <span class="text-white font-semibold">Loren Cook</span> &middot; <span class="text-white font-semibold">Canarm</span> &middot; <span class="text-white font-semibold">Greenheck</span> &middot; <span class="text-white font-semibold">Accurex</span> &middot; <span class="text-white font-semibold">PennBarry</span> &middot; <span class="text-white font-semibold">Dayton</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- BOTTOM ROW 1 — WHY [CITY] + COMPLIANCE -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8">
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Why Antioch Restaurants Choose DDAN for Hood Cleaning</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">International Cuisine: Extreme Carbon Buildup</h3>
+              <p class="text-[#D4D4D4]">Extremely diverse. Antioch has a massive concentration of authentic Latin American, Asian, and Middle Eastern cuisine. High-heat wok cooking and open-flame grills produce intense carbon buildup and thick, sticky grease that defies standard cleaning. Standard surface cleaning cannot handle this type of accumulation — you need aggressive scraping and commercial-grade degreasers applied by certified technicians who understand the difference between fryer grease and wok carbon.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Older Buildings: Undersized Systems</h3>
+              <p class="text-[#D4D4D4]">New restaurant concepts frequently move into older buildings on Bell Road without upgrading the existing, undersized exhaust systems. This leads to overworked upblast fan motors and heavy grease saturation on older, vulnerable roofs. High-heat wok cooking requires aggressive, specialized scraping to remove baked-on carbon from fan impellers. When you move a high-output kitchen into a building designed for a different concept, the exhaust system cannot keep up. DDAN assesses these situations and recommends the right upgrades — from access panel installation to full fan motor replacement.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Metro Nashville Jurisdiction</h3>
+              <p class="text-[#D4D4D4]">Antioch falls under the Metro Nashville Fire Marshal, which means the same strict NFPA 96 enforcement that applies to Broadway applies to Bell Road. Every hood system in Antioch must be cleaned to bare metal, with proper access panels and documented service records.</p>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- LOCAL INTRO — DIVERSE CUISINE -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-10 items-start">
-        <div>
-          <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-            Hood Cleaning for Antioch's Diverse Kitchen Scene
-          </h2>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-            Antioch has one of Nashville's most ethnically diverse restaurant scenes. Bell Road and Murfreesboro Pike are lined with authentic Latin American, Asian, and Middle Eastern restaurants serving cuisines that demand high-heat cooking techniques most hood cleaning companies are not equipped to handle. High-heat wok cooking, open-flame grills, and heavy spice use produce intense carbon buildup and thick, sticky grease that standard cleaning methods simply cannot remove.
-          </p>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-            Global Mall at the Crossings drives heavy foot traffic to the surrounding restaurant corridor, keeping kitchens running at full capacity through lunch and dinner rushes. Many of these restaurants operate in older strip center buildings with built-up roofing (BUR) and undersized exhaust systems that were never designed for the cooking volume they now handle. Newer developments around Century Farms feature TPO-roofed buildings with modern ventilation, but even those systems require specialized cleaning when running high-grease cuisines.
-          </p>
-          <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
-            DDAN provides NFPA 96 compliant hood cleaning specifically calibrated for the type of cooking your Antioch kitchen actually does — not a one-size-fits-all service that leaves hardened carbon behind.
-          </p>
         </div>
         <div class="reveal-child">
-          <img
-            src={`${HP}/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg`}
-            alt="Commercial hood cleaning for Antioch TN restaurants - DDAN Hood Cleaning"
-            class="w-full rounded-2xl border-[3px] border-[#FF5E15]"
-            loading="lazy"
-          />
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Antioch Commercial Kitchen Compliance and NFPA 96</h2>
+          <div class="space-y-5">
+            <p class="text-[#D4D4D4]">The <strong class="text-white">Metro Nashville Fire Marshal's Office</strong> enforces NFPA 96 with strict standards. Strict. Since Antioch falls under Metro Nashville jurisdiction, inspectors aggressively target older, repurposed restaurant spaces to ensure ventilation systems have been brought up to current NFPA 96 codes.</p>
+            <p class="text-[#D4D4D4]"><strong class="text-white">Metro Water Services (MWS). The high volume of heavy grease production makes F.O.G. compliance a major target for utility inspectors here.</strong> enforces Fats, Oils, and Grease (FOG) regulations. Grease leaving your property — whether through drains or rooftop exhaust — can result in significant fines. Proper grease containment on your rooftop fans keeps you compliant on both fire and environmental codes.</p>
+            <p class="text-[#D4D4D4]">Every cleaning is documented with photos and service records for your compliance files. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards and what they mean for your kitchen</a>.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LOCAL COMPLIANCE -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Antioch Fire Code & Compliance
-      </h2>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-        Antioch falls under the Metro Nashville Fire Marshal's Office — the same jurisdiction as downtown Nashville. Inspectors aggressively target older, repurposed restaurant spaces in Antioch to ensure ventilation systems have been brought up to current <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">NFPA 96 codes</a>. If your kitchen was converted from a retail space or inherited an exhaust system from a previous tenant, expect heightened scrutiny during inspections.
-      </p>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-        Metro Water Services F.O.G. (Fats, Oils, and Grease) compliance is a major enforcement target in Antioch due to the high grease production from the area's restaurant density. Rooftop grease runoff that reaches storm drains carries serious fines. A proper grease containment system and regular cleaning schedule are not optional — they are required.
-      </p>
-      <ul class="space-y-3 mb-6">
-        <li class="check-item reveal-child">Metro Nashville Fire Marshal inspections — NFPA 96 bare-metal standard</li>
-        <li class="check-item reveal-child">Metro Water Services F.O.G. compliance for grease discharge</li>
-        <li class="check-item reveal-child">Timestamped before-and-after photo documentation for every visit</li>
-        <li class="check-item reveal-child">Service tag placed on hood after each cleaning</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- COMMON PROBLEMS -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Common Hood Problems in Antioch Kitchens
-      </h2>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-        New restaurant concepts frequently move into older Bell Road buildings without upgrading undersized exhaust systems. The previous tenant may have run a low-grease operation, but a new wok kitchen or charbroiler-heavy menu overwhelms the existing ductwork and fan capacity. This leads to overworked fan motors, heavy grease saturation on older built-up roofs, and a system that cannot pass inspection.
-      </p>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-        High-heat wok cooking requires aggressive, specialized scraping to remove baked-on carbon from fan impellers — standard methods leave residue that creates a serious fire risk. The carbon scale that forms inside exhaust ducts from wok and open-flame cooking is significantly harder than the grease buildup from standard American restaurant cooking. If your cleaning company is not specifically addressing this, your system is not actually clean.
-      </p>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-        DDAN technicians are trained to identify and remove this type of buildup. We also flag <a href="/exhaust-fan-belt-motor-repair/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">failing fan motors and belts</a> before they leave your kitchen without ventilation during a dinner rush.
-      </p>
-    </div>
-  </section>
-
-  <!-- PROOF POINT -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <div class="border-l-4 border-[#FF5E15] bg-[#111111] p-6 rounded-r-xl reveal-child">
-        <p class="text-[#FF5E15] font-heading font-semibold text-lg mb-3">Real Job — Antioch, TN</p>
-        <p class="text-[#D4D4D4] font-body text-base leading-relaxed">
-          A busy Asian fusion restaurant on Bell Road kept burning out exhaust fan motors due to heavy carbon buildup throwing the fan blades off balance. DDAN came in, scraped the entire system down to bare metal, installed a proper high-capacity motor, and fitted a new rooftop grease containment box, permanently solving their airflow and maintenance nightmare.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3-STEP PROCESS -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Our Cleaning Process
-      </h2>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-10 reveal-child">
-        Three steps to a safe, compliant, fully documented kitchen exhaust system.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-        {[
-          { num: '01', title: 'Inspection & Quote', desc: 'We assess your entire exhaust system — hood, ducts, fans, filters, and containment. You get a free, no-obligation estimate. Free within 15 miles of Mt. Juliet.' },
-          { num: '02', title: 'Overnight Deep Clean', desc: 'Our crew works around your schedule — typically 10 PM to 6 AM. Every component cleaned to bare metal per NFPA 96. Aggressive scraping for high-heat carbon buildup.' },
-          { num: '03', title: 'Documentation & Report', desc: 'Before-and-after photos, written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Ready for any Metro Nashville inspector.' },
-        ].map((card) => (
-          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
-            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
-            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
-            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+  <!-- BOTTOM ROW 2 — SERVICE AREA + FAQ -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-5">Antioch Hood Cleaning Service Area</h2>
+          <p class="text-[#D4D4D4] text-lg mb-6 max-w-2xl">Our certified technicians serve the entire Antioch area 24/7. Whether you run a bustling taqueria near Century Farms, a large international buffet near the Global Mall, or a fast-casual spot on Bell Road, DDAN arrives ready to work. We also service neighboring communities like La Vergne and Smyrna.</p>
+          <div class="space-y-3 mb-6">
+            <p class="text-[#D4D4D4] font-body text-base">
+              <span class="text-[#FF5E15] font-semibold">Also in Antioch:</span>
+              <a href="/repair/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Exhaust Fan Repair</a> &middot;
+              <a href="/parts-installation/antioch-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
+            </p>
+            <p class="text-[#D4D4D4] font-body text-base">
+              <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
+              <a href="/cleaning/la-vergne-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">La Vergne</a>,
+              <a href="/cleaning/smyrna-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Smyrna</a>,
+              <a href="/cleaning/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>
+            </p>
           </div>
-        ))}
+          <div class="rounded-xl overflow-hidden" style="max-height:200px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206252.72681578025!2d-86.9081726!3d36.1744653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2sAntioch%2C%20TN!5e0!3m2!1sen!2sus!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="reveal-child">
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-10">Frequently Asked Questions — Antioch Hood Cleaning</h2>
+          <div class="space-y-4">
+            {faqs.map(faq => (
+              <details class="bg-[#1A1A1A] border border-[#333] rounded-xl overflow-hidden transition-all duration-300">
+                <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-white font-heading font-semibold">
+                  <span class="pr-4">{faq.q}</span>
+                  <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-6 pb-5">
+                  <p class="text-[#D4D4D4]">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
       </div>
-      <div class="text-center mt-10">
-        <button type="button" class="popup-trigger inline-flex items-center gap-2 px-12 md:px-[100px] py-5 w-full md:w-auto bg-transparent text-white font-body text-[1.2rem] font-medium border-2 border-[#FF5E15] rounded-full hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
+    </div>
+  </section>
+
+  <!-- DON'T WAIT CTA -->
+  <section class="relative overflow-hidden bg-black reveal" id="urgency-cta">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('/images/homepage/gallery-11.jpg')"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, #FF5E158F 0%, #000000 100%); opacity:0.78"></div>
+    <div class="relative z-10 max-w-[1280px] mx-auto px-5 pt-20 pb-0 flex flex-col lg:flex-row items-end">
+      <div class="lg:w-[66%] pb-12 flex flex-col gap-2.5">
+        <h2 class="font-heading text-white text-xl md:text-[45px] font-semibold capitalize leading-[1.1] mb-2">Don't Wait Until You're <span class="text-white">Fined or Shut Down!</span></h2>
+        <div class="w-16 h-0.5 bg-[#FF5E15] my-2"></div>
+        <p class="text-[#E0E0E0] font-heading text-base mb-4">Whether you need a one-time deep clean, an urgent emergency cleaning, or a recurring maintenance schedule, <strong class="text-white">{business.name}</strong> is here to keep your kitchen safe and compliant.</p>
+        <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-3 mb-3">
+          <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-xl">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          </span>
+          <span class="text-white font-heading text-lg font-semibold hover:text-[#FF5E15] transition-all duration-300">Call Now: {business.phone}</span>
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center gap-2 w-fit px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Schedule Your Cleaning
+          Request Service Online
         </button>
       </div>
-    </div>
-  </section>
-
-  <!-- SERVICE AREA LINKS -->
-  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
-        Antioch Service Area & Nearby Cities
-      </h2>
-      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 reveal-child">
-        Steady year-round demand, with upticks during major summer heatwaves that push aging fan motors past their limits. Don't wait for a breakdown — schedule proactive cleaning now.
-      </p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-        <div class="reveal-child">
-          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Other Services in Antioch</p>
-          <ul class="space-y-2">
-            <li><a href="/repair/antioch-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hood Repair — Antioch, TN</a></li>
-            <li><a href="/parts-installation/antioch-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Exhaust Fan Parts — Antioch, TN</a></li>
-          </ul>
-        </div>
-        <div class="reveal-child">
-          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Nearby Cities</p>
-          <ul class="space-y-2">
-            <li><a href="/cleaning/la-vergne-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">La Vergne, TN</a></li>
-            <li><a href="/cleaning/smyrna-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Smyrna, TN</a></li>
-            <li><a href="/cleaning/nashville-tn/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Nashville, TN</a></li>
-          </ul>
-        </div>
-        <div class="reveal-child">
-          <p class="text-[#FF5E15] font-heading font-semibold mb-2">Service Hub</p>
-          <ul class="space-y-2">
-            <li><a href="/cleaning/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">All Hood Cleaning Service Areas</a></li>
-            <li><a href="/kitchen-hood-cleaning-services/" class="text-[#D4D4D4] hover:text-[#FF5E15] transition-all duration-300">Hood Cleaning Services Overview</a></li>
-          </ul>
-        </div>
+      <div class="w-full lg:w-[60%] flex justify-center lg:justify-end items-end -mb-2.5">
+        <img src="/images/truck.png" alt="DDAN Hood Cleaning truck" class="truck-drive-in max-w-full w-full md:w-auto" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
-        Antioch Hood Cleaning FAQ
-      </h2>
-      <div class="max-w-3xl space-y-4">
-        {faqs.map((faq) => (
-          <details class="faq-item bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
-            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
-              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
-              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-            </summary>
-            <div class="px-5 pb-5 bg-[#111111] rounded-b-2xl">
-              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
-            </div>
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUCK CTA -->
-  <TruckCTA />
+  <style>
+    details summary::-webkit-details-marker { display: none; }
+    details summary { list-style: none; }
+    details[open] .faq-icon { transform: rotate(180deg); }
+    details[open] { border-color: #FF5E15; }
+    .faq-icon { transition: transform 0.2s ease; }
+  </style>
 </BaseLayout>
-
-<style>
-  details summary::-webkit-details-marker {
-    display: none;
-  }
-  details summary {
-    list-style: none;
-  }
-  details[open] .faq-icon {
-    transform: rotate(180deg);
-  }
-  details[open] {
-    border-color: #FF5E15;
-  }
-  .faq-icon {
-    transition: transform 0.2s ease;
-  }
-</style>
