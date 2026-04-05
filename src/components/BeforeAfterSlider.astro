@@ -9,8 +9,8 @@ const { beforeSrc, afterSrc, beforeAlt = 'Before', afterAlt = 'After' } = Astro.
 ---
 
 <div class="ba-container" style="position:relative; overflow:hidden; aspect-ratio:4/3; border-radius:12px; cursor:ew-resize; user-select:none;">
-  <img src={afterSrc} alt={afterAlt} style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;" />
-  <img src={beforeSrc} alt={beforeAlt} class="ba-before" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; clip-path:inset(0 50% 0 0);" />
+  <img src={afterSrc} alt={afterAlt} width="1024" height="768" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;" />
+  <img src={beforeSrc} alt={beforeAlt} width="1024" height="768" loading="lazy" class="ba-before" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; clip-path:inset(0 50% 0 0);" />
   <div class="ba-line" style="position:absolute; top:0; bottom:0; left:50%; width:4px; background:#FF5E15; transform:translateX(-50%); z-index:10; pointer-events:none;">
     <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:40px; height:40px; border-radius:50%; background:#FF5E15; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; font-size:16px; box-shadow:0 2px 8px rgba(0,0,0,0.4); pointer-events:none;">&#8660;</div>
   </div>
