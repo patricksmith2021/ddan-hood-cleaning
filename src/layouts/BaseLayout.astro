@@ -54,6 +54,24 @@ const isStaging = Astro.site?.hostname?.includes('pages.dev');
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/logos/DDAN Hood Cleaning and Repair Logo Black BG.png" />
+
+  <!-- Google Analytics (gtag.js) -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-94R1BV2D32"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-94R1BV2D32');
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script is:inline>
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w72dziy55j");
+  </script>
 </head>
 <body style="background:#000000;">
   <Header />
