@@ -18,7 +18,7 @@ export async function onRequestPost(context) {
         const tv = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ secret: env.TURNSTILE_SECRET_KEY, response: token })
+          body: JSON.stringify({ secret: env.TURNSTILE_SECRET_KEY || env.SECRET_KEY || '', response: token })
         });
         const tr = await tv.json();
         if (!tr.success) {
@@ -55,13 +55,33 @@ export async function onRequestPost(context) {
     const name = lead.firstName + ' ' + lead.lastName;
     const debug = {};
 
+    // Resolve env var names (support both naming conventions)
+    const SMTP_KEY = env.SMTP2GO_API_KEY || env.SMTP2GO_API || '';
+    const TURNSTILE_KEY = env.TURNSTILE_SECRET_KEY || env.SECRET_KEY || '';
+    const SHEET_ID = env.GOOGLE_SHEET_ID || '';
+
+    // Debug: show which env vars are present (not their values)
+    debug.envCheck = {
+      SMTP2GO_API_KEY: !!env.SMTP2GO_API_KEY,
+      SMTP2GO_API: !!env.SMTP2GO_API,
+      TWILIO_ACCOUNT_SID: !!env.TWILIO_ACCOUNT_SID,
+      TWILIO_AUTH_TOKEN: !!env.TWILIO_AUTH_TOKEN,
+      TWILIO_PHONE_NUMBER: !!env.TWILIO_PHONE_NUMBER,
+      TURNSTILE_SECRET_KEY: !!env.TURNSTILE_SECRET_KEY,
+      SECRET_KEY: !!env.SECRET_KEY,
+      GOOGLE_SHEET_ID: !!env.GOOGLE_SHEET_ID,
+      GOOGLE_SERVICE_ACCOUNT_JSON: !!env.GOOGLE_SERVICE_ACCOUNT_JSON,
+      resolvedSmtpKey: !!SMTP_KEY,
+      resolvedSheetId: !!SHEET_ID
+    };
+
     // 1. TEAM EMAIL via SMTP2GO
     try {
       const emailRes = await fetch('https://api.smtp2go.com/v3/email/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          api_key: env.SMTP2GO_API_KEY,
+          api_key: SMTP_KEY,
           sender: 'DDAN Leads <leads@ddanhoodcleaning.com>',
           to: ['patricksmith.phd@gmail.com'],
           subject: 'New DDAN Lead: ' + name + ' - ' + lead.service,
@@ -82,7 +102,7 @@ export async function onRequestPost(context) {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
-            api_key: env.SMTP2GO_API_KEY,
+            api_key: SMTP_KEY,
             sender: 'DDAN Hood Cleaning <service@ddanhoodcleaning.com>',
             to: [lead.email],
             subject: 'Thanks for contacting DDAN Hood Cleaning!',
@@ -190,7 +210,7 @@ export async function onRequestPost(context) {
 
       // Append to sheet
       const sheetRes = await fetch(
-        'https://sheets.googleapis.com/v4/spreadsheets/' + env.GOOGLE_SHEET_ID + '/values/Website%20Leads!A:N:append?valueInputOption=USER_ENTERED',
+        'https://sheets.googleapis.com/v4/spreadsheets/' + SHEET_ID + '/values/Website%20Leads!A:N:append?valueInputOption=USER_ENTERED',
         {
           method: 'POST',
           headers: {
