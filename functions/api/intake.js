@@ -36,8 +36,7 @@ export async function onRequestPost(context) {
 
     // Build lead
     const lead = {
-      date: (function() { var d = new Date(); var opts = { timeZone: 'America/Chicago' }; var m = d.toLocaleString('en-US', Object.assign({ month: 'numeric' }, opts)); var day = d.toLocaleString('en-US', Object.assign({ day: 'numeric' }, opts)); var y = d.toLocaleString('en-US', Object.assign({ year: '2-digit' }, opts)); return m + '/' + day + '/' + y; })(),
-      time: (function() { var d = new Date(); var h = parseInt(d.toLocaleString('en-US', { timeZone: 'America/Chicago', hour: 'numeric', hour12: true })); var min = d.toLocaleString('en-US', { timeZone: 'America/Chicago', minute: '2-digit' }); var ap = d.toLocaleString('en-US', { timeZone: 'America/Chicago', hour: 'numeric', hour12: true }).slice(-2).toLowerCase().charAt(0); return h + ':' + min + ap; })(),
+      dateReceived: new Date().toLocaleString('en-US', { timeZone: 'America/Chicago', month: '2-digit', day: '2-digit', year: '2-digit', hour: 'numeric', minute: '2-digit', hour12: true }),
       source: body.source || 'website',
       firstName: (body.firstName || '').trim(),
       lastName: (body.lastName || '').trim(),
@@ -78,7 +77,7 @@ export async function onRequestPost(context) {
         // Orange accent bar
         '<tr><td style="background-color:#FF5E15;padding:14px 30px;">' +
         '<span style="color:#FFFFFF;font-size:18px;font-weight:700;letter-spacing:0.5px;">NEW LEAD</span>' +
-        '<span style="color:#FFFFFF;font-size:14px;float:right;padding-top:3px;">' + lead.date + ' &bull; ' + lead.time + ' CT</span>' +
+        '<span style="color:#FFFFFF;font-size:14px;float:right;padding-top:3px;">' + lead.dateReceived + ' CT</span>' +
         '</td></tr>' +
 
         // Lead details
@@ -130,7 +129,7 @@ export async function onRequestPost(context) {
           to: ['patricksmith.phd@gmail.com'],
           subject: 'New Lead: ' + name + ' — ' + lead.service,
           html_body: teamHtml,
-          text_body: 'New DDAN Lead\nName: ' + name + '\nPhone: ' + lead.phone + '\nEmail: ' + (lead.email || 'N/A') + '\nBusiness: ' + (lead.businessName || 'N/A') + '\nService: ' + lead.service + '\nTime: ' + lead.date + ' ' + lead.time + ' CT'
+          text_body: 'New DDAN Lead\nName: ' + name + '\nPhone: ' + lead.phone + '\nEmail: ' + (lead.email || 'N/A') + '\nBusiness: ' + (lead.businessName || 'N/A') + '\nService: ' + lead.service + '\nTime: ' + lead.dateReceived + ' CT'
         })
       });
       const emailData = await emailRes.json();
@@ -234,7 +233,7 @@ export async function onRequestPost(context) {
         body: new URLSearchParams({
           To: '+12289346002',
           From: env.TWILIO_PHONE_NUMBER,
-          Body: '🔧 DDAN LEAD!\nName: ' + name + '\nPhone: ' + lead.phone + '\nService: ' + lead.service + '\nFor ' + (lead.businessName || 'N/A') + '\nAt ' + (lead.businessAddress || 'N/A') + '\nFlat Roof? ' + lead.flatRoof + '\nMultiple Locations? ' + lead.multipleLocations + '\n' + lead.date + ' ' + lead.time + ' CT'
+          Body: '🔧 DDAN LEAD!\nName: ' + name + '\nPhone: ' + lead.phone + '\nService: ' + lead.service + '\nFor ' + (lead.businessName || 'N/A') + '\nAt ' + (lead.businessAddress || 'N/A') + '\nFlat Roof? ' + lead.flatRoof + '\nMultiple Locations? ' + lead.multipleLocations + '\n' + lead.dateReceived + ' CT'
         })
       });
       const smsData = await smsRes.json();
@@ -313,7 +312,7 @@ export async function onRequestPost(context) {
       }
 
       const sheetRes = await fetch(
-        'https://sheets.googleapis.com/v4/spreadsheets/' + SHEET_ID + '/values/Website!A:N:append?valueInputOption=USER_ENTERED',
+        'https://sheets.googleapis.com/v4/spreadsheets/' + SHEET_ID + '/values/Website!A:M:append?valueInputOption=USER_ENTERED',
         {
           method: 'POST',
           headers: {
@@ -322,7 +321,7 @@ export async function onRequestPost(context) {
           },
           body: JSON.stringify({
             values: [[
-              lead.date, lead.time, lead.source, lead.firstName, lead.lastName,
+              lead.dateReceived, lead.source, lead.firstName, lead.lastName,
               lead.phone, lead.email, lead.businessName, lead.businessAddress,
               lead.service, lead.multipleLocations, lead.flatRoof, lead.comments, lead.pageUrl
             ]]
