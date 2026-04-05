@@ -82,7 +82,7 @@ export async function onRequestPost(context) {
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           api_key: SMTP_KEY,
-          sender: 'DDAN Leads <leads@ddanhoodcleaning.com>',
+          sender: 'leads@ddanhoodcleaning.com',
           to: ['patricksmith.phd@gmail.com'],
           subject: 'New DDAN Lead: ' + name + ' - ' + lead.service,
           html_body: '<h2>New Lead</h2><p><b>Name:</b> ' + name + '</p><p><b>Phone:</b> <a href="tel:' + lead.phone + '">' + lead.phone + '</a></p><p><b>Email:</b> ' + (lead.email || 'N/A') + '</p><p><b>Business:</b> ' + (lead.businessName || 'N/A') + '</p><p><b>Address:</b> ' + (lead.businessAddress || 'N/A') + '</p><p><b>Service:</b> ' + lead.service + '</p><p><b>Source:</b> ' + lead.source + '</p><p><b>Page:</b> ' + lead.pageUrl + '</p><p><b>Time:</b> ' + lead.date + ' ' + lead.time + '</p>',
@@ -103,7 +103,7 @@ export async function onRequestPost(context) {
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
             api_key: SMTP_KEY,
-            sender: 'DDAN Hood Cleaning <service@ddanhoodcleaning.com>',
+            sender: 'service@ddanhoodcleaning.com',
             to: [lead.email],
             subject: 'Thanks for contacting DDAN Hood Cleaning!',
             html_body: '<p>Hi ' + lead.firstName + ',</p><p>We received your request and will get back to you shortly.</p><p>For immediate help: <a href="tel:6158816968"><b>(615) 881-6968</b></a> — available 24/7</p><p>— DDAN Hood Cleaning and Repair</p>',
