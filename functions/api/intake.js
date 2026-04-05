@@ -228,7 +228,7 @@ export async function onRequestPost(context) {
         body: new URLSearchParams({
           To: '+12289346002',
           From: env.TWILIO_PHONE_NUMBER,
-          Body: 'New DDAN lead: ' + name + ' | ' + lead.phone + ' | ' + lead.service + ' | ' + lead.pageUrl
+          Body: '🔧 DDAN LEAD!\nName: ' + name + '\nPhone: ' + lead.phone + '\nService: ' + lead.service + '\nFor ' + (lead.businessName || 'N/A') + '\nAt ' + (lead.businessAddress || 'N/A') + '\nFlat Roof? ' + lead.flatRoof + '\nMultiple Locations? ' + lead.multipleLocations + '\n' + lead.date + ' ' + lead.time + ' CT'
         })
       });
       const smsData = await smsRes.json();
