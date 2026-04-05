@@ -210,7 +210,7 @@ export async function onRequestPost(context) {
 
       // Append to sheet
       const sheetRes = await fetch(
-        'https://sheets.googleapis.com/v4/spreadsheets/' + SHEET_ID + '/values/Website%20Leads!A:N:append?valueInputOption=USER_ENTERED',
+        'https://sheets.googleapis.com/v4/spreadsheets/' + SHEET_ID + '/values/Website!A:N:append?valueInputOption=USER_ENTERED',
         {
           method: 'POST',
           headers: {
