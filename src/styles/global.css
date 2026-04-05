@@ -77,97 +77,131 @@
     }
   }
 
+  /* === PRIMARY BUTTON (orange bg) === */
   .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.75rem;
+    padding: 0.875rem 2rem;
     background-color: #FF5E15;
     color: #FFFFFF;
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.9375rem;
-    border-radius: 4px;
-    border: none;
+    border-radius: 8px;
+    border: 2px solid #FF5E15;
     cursor: pointer;
-    transition: all 200ms ease;
-    box-shadow: 0 2px 8px rgba(255, 94, 21, 0.0);
+    position: relative;
+    overflow: hidden;
+    transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease, border-color 200ms ease;
+    box-shadow: 0 2px 8px rgba(255, 94, 21, 0);
   }
-
   .btn-primary:hover {
-    transform: scale(1.03);
-    background-color: #E54F0D;
-    box-shadow: 0 4px 20px rgba(255, 94, 21, 0.4);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 94, 21, 0.4), 0 4px 12px rgba(255, 94, 21, 0.2);
+    background-color: #ff6f2e;
+    border-color: #ff6f2e;
   }
-
+  .btn-primary:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: 3px;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 94, 21, 0.4);
+  }
   .btn-primary:active {
-    transform: scale(0.97);
-    box-shadow: 0 2px 8px rgba(255, 94, 21, 0.2);
+    transform: translateY(0px) scale(0.97);
+    box-shadow: 0 2px 6px rgba(255, 94, 21, 0.3);
+    background-color: #e55410;
+    transition-duration: 80ms;
   }
 
+  /* === SECONDARY BUTTON (dark bg) === */
   .btn-secondary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.75rem;
+    padding: 0.875rem 2rem;
     background-color: #000000;
     color: #FFFFFF;
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.9375rem;
-    border-radius: 4px;
-    border: none;
+    border-radius: 8px;
+    border: 2px solid #333;
     cursor: pointer;
-    transition: all 300ms ease;
+    position: relative;
+    overflow: hidden;
+    transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
   }
-
   .btn-secondary:hover {
-    transform: scale(0.95);
-    opacity: 0.9;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    background-color: #1A1A1A;
+  }
+  .btn-secondary:focus-visible {
+    outline: 2px solid #FF5E15;
+    outline-offset: 3px;
+  }
+  .btn-secondary:active {
+    transform: translateY(0px) scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition-duration: 80ms;
   }
 
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.75rem;
-    background-color: transparent;
-    color: #FFFFFF;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.9375rem;
-    border-radius: 4px;
-    border: 2px solid #FF5E15;
-    cursor: pointer;
-    transition: all 300ms ease;
-  }
-
-  .btn-ghost:hover {
-    transform: scale(0.95);
-    background-color: #FF5E15;
-    color: #FFFFFF;
-  }
-
+  /* === GHOST / OUTLINE BUTTON (transparent bg, orange border) === */
+  .btn-ghost,
   .btn-outline-primary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.75rem;
+    padding: 0.875rem 2rem;
     background-color: transparent;
     color: #FF5E15;
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.9375rem;
-    border-radius: 4px;
+    border-radius: 8px;
     border: 2px solid #FF5E15;
     cursor: pointer;
-    transition: all 300ms ease;
+    position: relative;
+    overflow: hidden;
+    transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease, color 200ms ease;
+    box-shadow: 0 2px 8px rgba(255, 94, 21, 0);
   }
-
+  .btn-ghost:hover,
   .btn-outline-primary:hover {
-    transform: scale(0.95);
     background-color: #FF5E15;
     color: #FFFFFF;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 94, 21, 0.35), 0 4px 12px rgba(255, 94, 21, 0.15);
+  }
+  .btn-ghost:focus-visible,
+  .btn-outline-primary:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: 3px;
+    background-color: #FF5E15;
+    color: #FFFFFF;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 94, 21, 0.35);
+  }
+  .btn-ghost:active,
+  .btn-outline-primary:active {
+    transform: translateY(0px) scale(0.97);
+    box-shadow: 0 2px 6px rgba(255, 94, 21, 0.2);
+    background-color: #e55410;
+    color: #FFFFFF;
+    transition-duration: 80ms;
+  }
+
+  /* === Reduced motion === */
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary, .btn-secondary, .btn-ghost, .btn-outline-primary {
+      transition: none;
+    }
+    .btn-primary:hover, .btn-secondary:hover, .btn-ghost:hover, .btn-outline-primary:hover {
+      transform: none;
+    }
   }
 
   .section-headline {
