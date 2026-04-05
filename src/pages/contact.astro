@@ -88,25 +88,25 @@ import business from '../data/business.json';
               class="w-full bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300">
               <option value="">Select Service...</option>
               <option value="Hood Cleaning">Hood Cleaning</option>
-              <option value="Filter Cleaning">Filter Cleaning</option>
-              <option value="Hood Repair">Hood Repair</option>
-              <option value="Grease Containment">Grease Containment</option>
-              <option value="New Installation">New Installation</option>
+              <option value="System Repair">System Repair</option>
               <option value="Looking for Parts">Looking for Parts</option>
-              <option value="Other">Other</option>
+              <option value="New Installation">New Installation</option>
             </select>
 
             <div class="flex items-center gap-4 text-sm text-white">
               <span>Multiple locations?</span>
-              <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="yes" /> Yes</label>
-              <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="no" checked /> No</label>
+              <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="Yes" /> Yes</label>
+              <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="No" checked /> No</label>
             </div>
 
             <div class="flex items-center gap-4 text-sm text-white">
               <span>Flat roof?</span>
-              <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="yes" /> Yes</label>
-              <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="no" checked /> No</label>
+              <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="Yes" /> Yes</label>
+              <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="No" checked /> No</label>
             </div>
+
+            <textarea name="comments" placeholder="Message (optional)" rows="3"
+              class="w-full bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300 resize-none"></textarea>
 
             <div class="cf-turnstile" data-sitekey="0x4AAAAAAC06KZwCltnZFIp-" data-theme="dark"></div>
 
@@ -130,6 +130,20 @@ import business from '../data/business.json';
     var loadedAt = document.querySelector('#contact-form input[name="_loaded_at"]');
     if (loadedAt) loadedAt.value = String(Date.now());
 
+    // Phone auto-format
+    var phoneInput = document.querySelector('#contact-form [name="phone"]');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function() {
+        var digits = this.value.replace(/\D/g, '');
+        if (digits.length > 10 && digits.charAt(0) === '1') digits = digits.substring(1);
+        if (digits.length > 10) digits = digits.substring(0, 10);
+        if (digits.length === 0) { this.value = ''; return; }
+        if (digits.length <= 3) { this.value = '(' + digits; }
+        else if (digits.length <= 6) { this.value = '(' + digits.substring(0, 3) + ') ' + digits.substring(3); }
+        else { this.value = '(' + digits.substring(0, 3) + ') ' + digits.substring(3, 6) + '-' + digits.substring(6); }
+      });
+    }
+
     if (form) {
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -152,6 +166,7 @@ import business from '../data/business.json';
           service: form.querySelector('[name="service"]').value || 'Not specified',
           multipleLocations: (form.querySelector('[name="multipleLocations"]:checked') || {}).value || 'No',
           flatRoof: (form.querySelector('[name="flatRoof"]:checked') || {}).value || 'No',
+          comments: (form.querySelector('[name="comments"]') || {}).value || '',
           page_url: window.location.href,
           'cf-turnstile-response': turnstileInput ? turnstileInput.value : '',
           test: false

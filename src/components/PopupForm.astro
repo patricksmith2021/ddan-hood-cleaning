@@ -4,78 +4,181 @@
 <!-- Turnstile Script -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
 
-<!-- Inline Popup Form (email field + bigger badges) -->
+<!-- 2-Step Popup Form -->
 <div id="popup-form" class="popup-overlay" role="dialog" aria-modal="true" aria-label="Request Service">
-  <div class="popup-content">
-    <button type="button" class="absolute top-3 right-3 text-primary text-2xl font-bold hover:opacity-80 transition-opacity" id="popup-close" aria-label="Close form">&times;</button>
-    <h2 class="font-heading font-bold text-xl text-white mb-1">Get Service <span class="text-primary">Fast!</span></h2>
-    <p class="text-sm text-muted-text mb-4">Fill out the form and we'll get back to you ASAP.</p>
-    <form id="service-form" class="space-y-3">
+  <div class="popup-content" style="border-radius:12px;border-top:4px solid #FF5E15;max-width:460px;">
+    <!-- Close button -->
+    <button type="button" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-[#333] text-white text-lg hover:bg-[#FF5E15] transition-all duration-200" id="popup-close" aria-label="Close form">&times;</button>
+
+    <!-- Header -->
+    <div class="text-center mb-5">
+      <h2 class="font-heading font-bold text-2xl text-white mb-1">Get Service <span class="text-[#FF5E15]">Fast!</span></h2>
+      <p class="text-sm text-[#999]">Fill out the form and we'll call you back ASAP.</p>
+    </div>
+
+    <!-- Step indicators -->
+    <div class="flex items-center justify-center gap-3 mb-6">
+      <div id="step-ind-1" class="flex items-center gap-2">
+        <span class="w-7 h-7 rounded-full bg-[#FF5E15] text-white text-xs font-bold flex items-center justify-center">1</span>
+        <span class="text-xs font-heading font-semibold text-white uppercase tracking-wide">Your Info</span>
+      </div>
+      <div class="w-8 h-px bg-[#444]"></div>
+      <div id="step-ind-2" class="flex items-center gap-2">
+        <span class="w-7 h-7 rounded-full bg-[#333] text-[#666] text-xs font-bold flex items-center justify-center" id="step-ind-2-dot">2</span>
+        <span class="text-xs font-heading font-semibold text-[#666] uppercase tracking-wide" id="step-ind-2-text">Service Details</span>
+      </div>
+    </div>
+
+    <form id="service-form">
       <input type="text" class="hidden" name="website" tabindex="-1" autocomplete="off" />
       <input type="hidden" name="_loaded_at" />
-      <p class="text-xs text-primary font-heading font-semibold uppercase tracking-wide">Your Info</p>
-      <div class="grid grid-cols-2 gap-3">
-        <input type="text" name="firstName" placeholder="First Name" required class="bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
-        <input type="text" name="lastName" placeholder="Last Name" required class="bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
+
+      <!-- STEP 1: Your Info -->
+      <div id="form-step-1">
+        <div class="space-y-3">
+          <div class="grid grid-cols-2 gap-3">
+            <input type="text" name="firstName" placeholder="First Name *" required class="bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+            <input type="text" name="lastName" placeholder="Last Name *" required class="bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          </div>
+          <input type="tel" name="phone" placeholder="Phone *" required class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          <input type="email" name="email" placeholder="Email" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+        </div>
+        <button type="button" id="step-next" class="w-full mt-5 py-3 bg-[#FF5E15] hover:bg-[#E54F0D] text-white font-heading font-bold text-sm rounded-lg transition-all duration-200 flex items-center justify-center gap-2" style="transform:scale(1);transition:transform 0.15s ease,background 0.2s ease;" onmouseover="this.style.transform='scale(0.97)'" onmouseout="this.style.transform='scale(1)'">
+          Next Step
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+        </button>
       </div>
-      <input type="tel" name="phone" placeholder="Phone" required class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
-      <input type="email" name="email" placeholder="Email" class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
-      <p class="text-xs text-primary font-heading font-semibold uppercase tracking-wide pt-2">Business Info</p>
-      <input type="text" name="businessName" placeholder="Business Name" class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
-      <input type="text" name="businessAddress" placeholder="Business Address" class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary" />
-      <select name="service" required class="w-full bg-white text-dark-base px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-primary">
-        <option value="">Select Service...</option>
-        <option value="Hood Cleaning">Hood Cleaning</option>
-        <option value="Filter Cleaning">Filter Cleaning</option>
-        <option value="Hood Repair">Hood Repair</option>
-        <option value="Grease Containment">Grease Containment</option>
-        <option value="New Installation">New Installation</option>
-        <option value="Looking for Parts">Looking for Parts</option>
-        <option value="Other">Other</option>
-      </select>
-      <div class="flex items-center gap-4 text-sm text-white">
-        <span>Multiple locations?</span>
-        <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="yes" /> Yes</label>
-        <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="no" checked /> No</label>
+
+      <!-- STEP 2: Service Details -->
+      <div id="form-step-2" class="hidden">
+        <div class="space-y-3">
+          <input type="text" name="businessName" placeholder="Business Name" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          <input type="text" name="businessAddress" placeholder="Business Address" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          <select name="service" required class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 appearance-none" style="background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23999%22 d=%22M6 8.825L1.175 4 2.238 2.938 6 6.7 9.763 2.937 10.825 4z%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;">
+            <option value="" class="text-[#666]">Select Service... *</option>
+            <option value="Hood Cleaning">Hood Cleaning</option>
+            <option value="System Repair">System Repair</option>
+            <option value="Looking for Parts">Looking for Parts</option>
+            <option value="New Installation">New Installation</option>
+          </select>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-[#111] rounded-lg border border-[#333] px-4 py-3">
+              <span class="text-xs text-[#999] block mb-2">Multiple locations?</span>
+              <div class="flex items-center gap-4">
+                <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="multipleLocations" value="Yes" class="accent-[#FF5E15]" /> Yes</label>
+                <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="multipleLocations" value="No" checked class="accent-[#FF5E15]" /> No</label>
+              </div>
+            </div>
+            <div class="bg-[#111] rounded-lg border border-[#333] px-4 py-3">
+              <span class="text-xs text-[#999] block mb-2">Flat roof?</span>
+              <div class="flex items-center gap-4">
+                <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="flatRoof" value="Yes" class="accent-[#FF5E15]" /> Yes</label>
+                <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="flatRoof" value="No" checked class="accent-[#FF5E15]" /> No</label>
+              </div>
+            </div>
+          </div>
+          <textarea name="comments" placeholder="Message (optional)" rows="3" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666] resize-none"></textarea>
+        </div>
+
+        <div class="cf-turnstile mt-4" data-sitekey="0x4AAAAAAC06KZwCltnZFIp-" data-theme="dark"></div>
+
+        <div class="flex gap-3 mt-5">
+          <button type="button" id="step-back" class="py-3 px-5 bg-[#333] hover:bg-[#444] text-white font-heading font-semibold text-sm rounded-lg transition-all duration-200 flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"></path></svg>
+            Back
+          </button>
+          <button type="submit" class="flex-1 py-3 bg-[#FF5E15] hover:bg-[#E54F0D] text-white font-heading font-bold text-sm rounded-lg transition-all duration-200 flex items-center justify-center gap-2" style="transform:scale(1);transition:transform 0.15s ease,background 0.2s ease;" onmouseover="this.style.transform='scale(0.97)'" onmouseout="this.style.transform='scale(1)'">
+            Request Callback ASAP
+          </button>
+        </div>
+        <div id="popup-form-error" class="text-red-500 text-sm text-center mt-3"></div>
       </div>
-      <div class="flex items-center gap-4 text-sm text-white">
-        <span>Flat roof?</span>
-        <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="yes" /> Yes</label>
-        <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="no" checked /> No</label>
-      </div>
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAAC06KZwCltnZFIp-" data-theme="dark"></div>
-      <button type="submit" class="btn-primary w-full justify-center mt-2">Request Callback ASAP</button>
-      <div id="popup-form-error" class="text-red-500 text-sm text-center mt-2"></div>
     </form>
-    <!-- Review Badges — 60% bigger -->
-    <div class="flex justify-center gap-8 mt-6 pt-4 border-t border-[#333]">
+
+    <!-- Review Badges -->
+    <div class="flex justify-center gap-8 mt-6 pt-5 border-t border-[#333]">
       <div class="text-center">
-        <img src="/images/trust/google-logo.png" alt="Google Reviews" class="h-8 mx-auto mb-1.5 opacity-90" />
-        <div class="flex gap-1 justify-center">
-          {Array(5).fill(0).map(() => <span class="text-star-rating text-lg">&#9733;</span>)}
+        <img src="/images/trust/google-logo.png" alt="Google Reviews" class="h-7 mx-auto mb-1.5 opacity-80" loading="lazy" />
+        <div class="flex gap-0.5 justify-center">
+          {Array(5).fill(0).map(() => <span class="text-[#FFB800] text-base">&#9733;</span>)}
         </div>
       </div>
       <div class="text-center">
-        <img src="/images/trust/facebook-logo.png" alt="Facebook Reviews" class="h-8 mx-auto mb-1.5 opacity-90" />
-        <div class="flex gap-1 justify-center">
-          {Array(5).fill(0).map(() => <span class="text-star-rating text-lg">&#9733;</span>)}
+        <img src="/images/trust/facebook-logo.png" alt="Facebook Reviews" class="h-7 mx-auto mb-1.5 opacity-80" loading="lazy" />
+        <div class="flex gap-0.5 justify-center">
+          {Array(5).fill(0).map(() => <span class="text-[#FFB800] text-base">&#9733;</span>)}
         </div>
       </div>
       <div class="text-center">
-        <img src="/images/trust/yelp-logo.png" alt="Yelp Reviews" class="h-8 mx-auto mb-1.5 opacity-90" />
-        <div class="flex gap-1 justify-center">
-          {Array(5).fill(0).map(() => <span class="text-star-rating text-lg">&#9733;</span>)}
+        <img src="/images/trust/yelp-logo.png" alt="Yelp Reviews" class="h-7 mx-auto mb-1.5 opacity-80" loading="lazy" />
+        <div class="flex gap-0.5 justify-center">
+          {Array(5).fill(0).map(() => <span class="text-[#FFB800] text-base">&#9733;</span>)}
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function() {
     var popup = document.getElementById('popup-form');
     var closeBtn = document.getElementById('popup-close');
     var loadedAt = document.querySelector('#service-form input[name="_loaded_at"]');
     if (loadedAt) loadedAt.value = String(Date.now());
+
+    // Phone auto-format
+    var phoneInput = document.querySelector('#service-form [name="phone"]');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function() {
+        var digits = this.value.replace(/\D/g, '');
+        // Strip leading 1 (country code)
+        if (digits.length > 10 && digits.charAt(0) === '1') digits = digits.substring(1);
+        if (digits.length > 10) digits = digits.substring(0, 10);
+        if (digits.length === 0) { this.value = ''; return; }
+        if (digits.length <= 3) { this.value = '(' + digits; }
+        else if (digits.length <= 6) { this.value = '(' + digits.substring(0, 3) + ') ' + digits.substring(3); }
+        else { this.value = '(' + digits.substring(0, 3) + ') ' + digits.substring(3, 6) + '-' + digits.substring(6); }
+      });
+    }
+
+    // Step navigation
+    var step1 = document.getElementById('form-step-1');
+    var step2 = document.getElementById('form-step-2');
+    var nextBtn = document.getElementById('step-next');
+    var backBtn = document.getElementById('step-back');
+    var ind2Dot = document.getElementById('step-ind-2-dot');
+    var ind2Text = document.getElementById('step-ind-2-text');
+    var ind1 = document.getElementById('step-ind-1');
+
+    function goToStep2() {
+      // Validate step 1
+      var fn = document.querySelector('#service-form [name="firstName"]');
+      var ln = document.querySelector('#service-form [name="lastName"]');
+      var ph = document.querySelector('#service-form [name="phone"]');
+      if (!fn.value.trim()) { fn.focus(); return; }
+      if (!ln.value.trim()) { ln.focus(); return; }
+      if (!ph.value.trim()) { ph.focus(); return; }
+      step1.classList.add('hidden');
+      step2.classList.remove('hidden');
+      // Update indicators
+      ind1.querySelector('span:first-child').className = 'w-7 h-7 rounded-full bg-[#333] text-[#FF5E15] text-xs font-bold flex items-center justify-center';
+      ind1.querySelector('span:first-child').textContent = '\u2713';
+      ind2Dot.className = 'w-7 h-7 rounded-full bg-[#FF5E15] text-white text-xs font-bold flex items-center justify-center';
+      ind2Text.className = 'text-xs font-heading font-semibold text-white uppercase tracking-wide';
+    }
+
+    function goToStep1() {
+      step2.classList.add('hidden');
+      step1.classList.remove('hidden');
+      // Reset indicators
+      ind1.querySelector('span:first-child').className = 'w-7 h-7 rounded-full bg-[#FF5E15] text-white text-xs font-bold flex items-center justify-center';
+      ind1.querySelector('span:first-child').textContent = '1';
+      ind2Dot.className = 'w-7 h-7 rounded-full bg-[#333] text-[#666] text-xs font-bold flex items-center justify-center';
+      ind2Text.className = 'text-xs font-heading font-semibold text-[#666] uppercase tracking-wide';
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', goToStep2);
+    if (backBtn) backBtn.addEventListener('click', goToStep1);
 
     // Open popup
     document.querySelectorAll('.popup-trigger').forEach(function(btn) {
@@ -110,10 +213,11 @@
         var errorDiv = document.getElementById('popup-form-error');
 
         btn.disabled = true;
-        btn.textContent = 'Submitting...';
+        btn.innerHTML = 'Submitting...';
         if (errorDiv) errorDiv.textContent = '';
 
         var turnstileInput = document.querySelector('#service-form [name="cf-turnstile-response"]');
+        var commentsEl = form.querySelector('[name="comments"]');
         var data = {
           source: 'popup-form',
           firstName: form.querySelector('[name="firstName"]').value,
@@ -125,6 +229,7 @@
           service: form.querySelector('[name="service"]').value || 'Not specified',
           multipleLocations: (form.querySelector('[name="multipleLocations"]:checked') || {}).value || 'No',
           flatRoof: (form.querySelector('[name="flatRoof"]:checked') || {}).value || 'No',
+          comments: commentsEl ? commentsEl.value : '',
           page_url: window.location.href,
           'cf-turnstile-response': turnstileInput ? turnstileInput.value : '',
           test: false
@@ -143,13 +248,13 @@
             var result = await response.json();
             if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong. Please call (615) 881-6968.';
             btn.disabled = false;
-            btn.textContent = 'Request Callback ASAP';
+            btn.innerHTML = 'Request Callback ASAP';
             if (typeof turnstile !== 'undefined') turnstile.reset();
           }
         } catch (err) {
           if (errorDiv) errorDiv.textContent = 'Connection error. Please call (615) 881-6968.';
           btn.disabled = false;
-          btn.textContent = 'Request Callback ASAP';
+          btn.innerHTML = 'Request Callback ASAP';
           if (typeof turnstile !== 'undefined') turnstile.reset();
         }
       });
