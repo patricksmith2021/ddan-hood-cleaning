@@ -1,0 +1,113 @@
+# DDAN Hood Cleaning and Repair — Full Site Documentation
+
+## Company Overview
+DDAN Hood Cleaning and Repair is a Christian, family-owned commercial kitchen exhaust system service company headquartered in Mt. Juliet, Tennessee. Founded in 2007, DDAN has grown to serve 29 cities across Middle Tennessee and Southern Kentucky. The company specializes in three core verticals: NFPA 96 compliant hood cleaning, 24/7 emergency exhaust fan repair, and commercial kitchen exhaust parts sales with professional installation.
+
+DDAN serves restaurants, fast food chains, churches, schools, hospitals, hotels, catering companies, food trucks, and all commercial cooking facilities. The company maintains a 5.0 star average across 51+ Google reviews and 20+ Facebook reviews, making it the highest-rated commercial hood cleaning company in Tennessee.
+
+Key differentiators: 24/7 emergency service, same-day parts from local stock, before-and-after photo documentation on every service, overnight cleaning to avoid business disruption, discounted installation with parts purchase, and free fitting consultations.
+
+Contact: (615) 881-6968 | service@ddanhoodcleaning.com | Se Habla Espanol
+
+## Services Detailed
+
+### Commercial Kitchen Hood Cleaning
+DDAN provides NFPA 96 compliant commercial kitchen hood cleaning that includes complete bare-metal cleaning of hood canopies, exhaust ductwork from hood collar to rooftop termination, exhaust fan interiors (housing, wheel assembly, motor compartment, drain), all baffle filters, and rooftop grease containment systems. Every service includes before-and-after photo documentation and a compliance certificate suitable for fire marshal inspections and insurance records. DDAN offers overnight cleaning service to avoid disrupting kitchen operations. Emergency cleaning is available 24/7 for failed inspections or urgent compliance needs.
+
+Cleaning frequency per NFPA 96 Table 11.4:
+- Monthly: 24-hour cooking operations, charbroiling, wok cooking
+- Quarterly: High-volume restaurants, fast food
+- Semi-annually: Moderate volume (churches, schools, seasonal kitchens)
+- Annually: Low-volume operations (senior centers, seasonal catering)
+
+Cleaning service area: Nashville, Murfreesboro, Antioch, Hendersonville, Spring Hill, Smyrna, Gallatin, Lebanon, Goodlettsville, Brentwood, Mount Juliet, Hermitage, Madison, La Vergne (14 cities)
+
+URL: https://ddanhoodcleaning.com/cleaning/
+
+### Commercial Exhaust Fan Repair
+DDAN provides 24/7 emergency exhaust fan repair with same-day motor and belt replacement from local stock. Repair services include fan motor replacement (ODP and TEFC, single and 3-phase), fan belt replacement (all sizes), fan wheel and blade assembly replacement, bearing replacement, speed controller and VFD repair, complete fan replacement, ductwork repair and sealing, hood body repair, fire suppression system inspection and recharge, make-up air unit repair, and electrical troubleshooting. DDAN services all major commercial kitchen exhaust brands including CaptiveAire, Loren Cook, Canarm, Greenheck, NAKS, EconAir, and Accurex.
+
+Repair service area: 29 cities across Middle Tennessee and Southern Kentucky (full list below)
+
+URL: https://ddanhoodcleaning.com/repair/
+
+### Parts and Installation
+DDAN supplies and professionally installs commercial kitchen exhaust system parts. This is not an e-commerce operation — customers call for a free fitting consultation to verify exact specifications before ordering. Parts categories include:
+
+Exhaust Fans: Upblast centrifugal (direct drive and belt drive) in all sizes from 400 CFM to 6,000+ CFM, variable speed and standard configurations.
+
+Fan Replacement Parts: Motors (ODP and TEFC), fan wheels and blades, belts and drive kits, bearings, roof curbs, hinge kits, speed controllers and VFDs, grease cups and drain fittings, motor covers.
+
+Make-Up Air Units: Gas-fired heated, unheated/passive, heated and cooled.
+
+Filters and Baffles: Stainless steel baffle filters (Type 304 and 430), mesh grease filters, charcoal/carbon filters.
+
+Grease Containment: Rooftop grease boxes (standard and high-volume), grease containment trays, absorbent pads and pillows, grease duct access doors, grease gutters (360 protection).
+
+Hood Systems and Accessories: Complete hood systems (Type I and Type II), fire suppression systems (UL 300), hood lights, exhaust fan interceptors, splash guards.
+
+Parts are available same-day or next-day. Discounted professional installation is included with parts purchase. All work is warrantied.
+
+Parts and installation service area: 29 cities (same as repair)
+
+URL: https://ddanhoodcleaning.com/parts-installation/
+
+### Additional Service Detail Pages
+- Grease Containment: https://ddanhoodcleaning.com/grease-containment/
+- Exhaust Fan Hinge Kit Installation: https://ddanhoodcleaning.com/exhaust-fan-hinge-kit-installation/
+- Exhaust Fan Belt and Motor Repair: https://ddanhoodcleaning.com/exhaust-fan-belt-motor-repair/
+- Access Panel Installation: https://ddanhoodcleaning.com/access-panel-installation/
+- Restaurant Fire Suppression Systems: https://ddanhoodcleaning.com/restaurant-fire-suppression-systems/
+
+## Service Area — All Cities
+
+### Tennessee (27 cities)
+Nashville, Murfreesboro, Antioch, Hendersonville, Spring Hill, Smyrna, Gallatin, Lebanon, Goodlettsville, Brentwood, Mount Juliet, Hermitage, Madison, La Vergne, Clarksville, Franklin, Columbia, Shelbyville, Springfield, Dickson, Nolensville, Portland, White House, Lewisburg, Hartsville, Fairview, Thompsons Station
+
+### Kentucky (2 cities)
+Bowling Green, Fort Campbell
+
+### City-Specific Pages
+Each city has dedicated pages for applicable services:
+
+Cleaning city pages (14): https://ddanhoodcleaning.com/cleaning/[city-slug]/
+Repair city pages (29): https://ddanhoodcleaning.com/repair/[city-slug]/
+Parts city pages (29): https://ddanhoodcleaning.com/parts-installation/[city-slug]/
+
+## Compliance and Standards
+- All cleaning services meet NFPA 96 (Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations)
+- Photo documentation provided for every service for fire marshal and insurance verification
+- Company is licensed, bonded, and insured in Tennessee
+- BBB Accredited Business
+
+## Core Pages
+- Homepage: https://ddanhoodcleaning.com/
+- About: https://ddanhoodcleaning.com/about-ddan-hood-cleaning-and-repair/
+- Contact: https://ddanhoodcleaning.com/contact/
+- Reviews: https://ddanhoodcleaning.com/verified-reviews/
+- Gallery: https://ddanhoodcleaning.com/gallery/
+- News: https://ddanhoodcleaning.com/news/
+- NFPA 96 Standards: https://ddanhoodcleaning.com/nfpa-code-96-standards/
+- FAQ: https://ddanhoodcleaning.com/kitchen-exhaust-faq/
+- How Your System Works: https://ddanhoodcleaning.com/how-your-kitchen-ventilation-system-works/
+- Sitemap: https://ddanhoodcleaning.com/sitemap/
+
+## Frequently Asked Questions
+
+Q: How often should a commercial kitchen hood be cleaned?
+A: Per NFPA 96, high-volume operations (restaurants, fast food) require quarterly cleaning. 24-hour operations and charbroiling require monthly cleaning. Moderate-volume facilities (churches, schools) need semi-annual cleaning. Low-volume operations need annual cleaning.
+
+Q: Do you offer emergency hood cleaning or repair?
+A: Yes, DDAN provides 24/7 emergency service for both hood cleaning and exhaust fan repair. We carry common motors and belts in local stock for same-day replacement.
+
+Q: What brands of exhaust fans do you service?
+A: We service all major brands including CaptiveAire, Loren Cook, Canarm, Greenheck, NAKS, EconAir, and Accurex. If your brand is not listed, call us — we can still help.
+
+Q: Do you sell parts online?
+A: We do not operate an online store. All parts orders go through a free fitting consultation to verify exact specifications, ensuring you receive the correct part the first time. Call (615) 881-6968 for a free consult.
+
+Q: What is included in a hood cleaning?
+A: Every DDAN cleaning includes bare-metal cleaning of hood canopies, exhaust ductwork, exhaust fans, filters, and rooftop grease containment. We provide before-and-after photo documentation and a compliance certificate.
+
+Q: Do you offer installation with parts purchase?
+A: Yes, every part purchased through DDAN includes discounted professional installation. We spec the part, verify fit, and install it — all under one warranty.

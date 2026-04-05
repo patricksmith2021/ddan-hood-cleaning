@@ -25,6 +25,7 @@ const isStaging = Astro.site?.hostname?.includes('pages.dev');
   <title>{title}</title>
   {description && <meta name="description" content={description} />}
   <link rel="canonical" href={canonicalURL} />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Information" />
 
   {(noindex || isStaging) && <meta name="robots" content="noindex, nofollow" />}
 
