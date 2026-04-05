@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
 import business from '../../data/business.json';
 
+
 const faqs = [
-  { q: "Can you quickly replace a fan near the Dickson I-40 exit?", a: "Yes. We offer 24/7 emergency fan replacement in Dickson. If your unit is beyond repair, we stock common sizes for same-day installation." },
-  { q: "What type of motor should I use for Dickson summers?", a: "We recommend TEFC (Totally Enclosed Fan Cooled) motors for Dickson rooftops. They handle extreme summer heat far better than standard ODP motors." },
-  { q: "Can you bring my historic Dickson building up to code?", a: "Yes. We install fire-rated access panels, hinge kits, and proper grease containment in older downtown buildings without damaging historic structures." },
-  { q: "How fast can you get parts to a Dickson restaurant?", a: "Common motors, belts, bearings, and filters are stocked locally for same-day delivery. Specialty items are typically next-day." },
-];
+  { q: 'Can you quickly fix a broken exhaust fan near the Dickson I-40 exit?', a: 'Absolutely. Interstate-adjacent restaurants cannot afford downtime. We offer 24/7 emergency repair in Dickson. If a belt snaps or a motor burns out during the lunch rush, we dispatch immediately with the heavy-duty parts needed to restore your airflow.' },
+  { q: 'Why is my upblast exhaust fan leaking grease onto the roof?', a: 'High-volume frying quickly overwhelms standard factory grease catchers. Leaking grease is a massive fire hazard and will rapidly destroy your commercial roof. We install high-capacity rooftop grease containment systems to capture this runoff, protecting your property and keeping you compliant with Dickson Water Authority regulations.' },
+  { q: 'Can you bring my historic Dickson building\'s exhaust system up to code?', a: 'Yes. Older buildings downtown often have concealed ductwork. We install code-compliant, fire-rated access doors that allow our technicians to perform the bare-metal cleaning required by the Dickson Fire Department without damaging your historic structure.' },
+]
 
 const schema = {
   "@context": "https://schema.org",
@@ -18,24 +19,50 @@ const schema = {
       "telephone": business.phone,
       "email": business.email,
       "url": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/dickson-tn/`,
-      "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
-      "areaServed": { "@type": "City", "name": "Dickson, TN" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Dickson, TN"
+      },
       "priceRange": "$$"
     },
-    { "@type": "Service", "name": "Commercial Kitchen Exhaust Parts and Installation", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Dickson, TN" }, "description": "Same-day exhaust fan parts and professional installation for Dickson commercial kitchens. I-40 corridor and Highway 46 specialists." },
-    { "@type": "BreadcrumbList", "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
-      { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
-      { "@type": "ListItem", "position": 3, "name": "Dickson, TN" }
-    ]},
-    { "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) }
+    {
+      "@type": "Service",
+      "name": "Commercial Kitchen Exhaust Parts and Installation",
+      "provider": { "@type": "LocalBusiness", "name": business.name },
+      "areaServed": { "@type": "City", "name": "Dickson, TN" },
+      "description": "Same-day exhaust fan parts and professional installation for Dickson commercial kitchens. Motors, belts, filters, hinge kits, grease containment, and make-up air units."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
+        { "@type": "ListItem", "position": 3, "name": "Dickson, TN" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
   ]
 };
 ---
 
 <BaseLayout
-  title="Dickson Restaurant Parts & Installation | DDAN"
-  description="Same-day exhaust fan parts and installation for Dickson restaurants. I-40 corridor specialists. Warrantied parts. Call (615) 881-6968."
+  title="Fast Kitchen Parts Near Dickson | DDAN"
+  description="Restaurant exhaust fan parts and professional installation in Dickson. Same-day service, warrantied parts, free fitting consult. Call (615) 881-6968."
   ogImage="/images/services/kitchen-exhaust-installation.jpg"
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
@@ -45,7 +72,7 @@ const schema = {
     <div class="max-w-4xl mx-auto px-6 py-20 text-center">
       <p class="text-[#FF5E15] font-heading font-bold text-xs md:text-sm tracking-widest uppercase mb-4">DDAN Hood Cleaning and Repair</p>
       <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">Same-Day Exhaust Fan Parts and Installation in <span class="text-[#FF5E15]">Dickson, TN</span></h1>
-      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">Serving Dickson's Highway 46 restaurants and I-40 corridor kitchens. Parts in stock or next-day sourced.</p>
+      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">From the bustling interstate franchises on Highway 46 to the classic eateries of historic downtown, DDAN Hood Cleaning and Repair keeps Dickson's kitchens firing safely. We provide elite, 24/7 commercial exhaust system care—including emergency fan motor repairs and strict NFPA 96 bare-metal cleaning—to handle the relentless volume of Dickson County's busiest restaurants.</p>
       <p class="text-white font-heading font-bold text-base md:text-lg mb-2">Same-Day / Next-Day Warrantied Parts and Installation by a Licensed Professional</p>
       <div class="w-20 h-1 bg-[#FF5E15] mx-auto mt-3 mb-8"></div>
       <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
@@ -91,7 +118,9 @@ const schema = {
   <!-- CONSULT BAR + JUMP-NAV GRID -->
   <section class="bg-[#111111] py-12 reveal">
     <div class="max-w-[1200px] mx-auto px-5">
+      <!-- Category Heading -->
       <h2 class="font-heading text-[#FF5E15] font-bold text-2xl text-center mb-8 reveal-child">Complete Restaurant Hood System Parts and Installation</h2>
+      <!-- Jump-Nav Cards -->
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
         <a href="#exhaust-fans" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
           <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3M12 12L6 9"/></svg>
@@ -100,6 +129,10 @@ const schema = {
         <a href="#fan-parts" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
           <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4m-7.07-15.07l2.83 2.83m8.48 8.48l2.83 2.83M1 12h4m14 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
           <span class="text-white font-heading font-semibold text-sm">Fan Parts</span>
+        </a>
+        <a href="#make-up-air" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
+          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 12h10M12 8v8"/></svg>
+          <span class="text-white font-heading font-semibold text-sm">Make-Up Air</span>
         </a>
         <a href="#filters" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
           <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
@@ -113,15 +146,12 @@ const schema = {
           <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
           <span class="text-white font-heading font-semibold text-sm">Hood Systems</span>
         </a>
-        <a href="#make-up-air" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
-          <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 12h10M12 8v8"/></svg>
-          <span class="text-white font-heading font-semibold text-sm">Make-Up Air</span>
-        </a>
         <a href="#hood-systems" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
           <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           <span class="text-white font-heading font-semibold text-sm">Accessories</span>
         </a>
       </div>
+      <!-- Consult Bar -->
       <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 mt-10 reveal-child">
         <p class="text-white font-heading font-semibold text-lg text-center md:text-left">Don't know what you need? Call for a FREE consult from a pro.</p>
         <div class="text-center whitespace-nowrap">
@@ -144,13 +174,29 @@ const schema = {
           <h2 class="text-white font-heading font-bold text-2xl md:text-3xl mt-4 reveal-child">Order From Us — Get Discounted Professional Installation</h2>
           <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">When you order parts through DDAN, installation labor is discounted. We spec it, we source it, we install it — all under one warranty.</p>
           <ul class="space-y-3 mt-6">
-            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Parts and labor under one warranty</span></li>
-            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>We verify fit before we order — no returns, no delays</span></li>
-            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Same technician specs, sources, and installs your part</span></li>
-            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Photo documentation for your compliance files</span></li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Parts and labor under one warranty</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>We verify fit before we order — no returns, no delays</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Same technician specs, sources, and installs your part</span>
+            </li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
+              <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Photo documentation for your compliance files</span>
+            </li>
           </ul>
-          <button type="button" class="popup-trigger inline-flex items-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold rounded-lg hover:scale-95 transition-all duration-300 mt-6 reveal-child">Get a Parts and Install Quote</button>
-          <p class="text-gray-400 text-sm mt-3 reveal-child">Or call now: <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline">{business.phone}</a></p>
+          <button type="button" class="popup-trigger inline-flex items-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold rounded-lg hover:scale-95 transition-all duration-300 mt-6 reveal-child">
+            Get a Parts and Install Quote
+          </button>
+          <p class="text-gray-400 text-sm mt-3 reveal-child">
+            Or call now: <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline">{business.phone}</a>
+          </p>
         </div>
         <div class="lg:w-[45%] flex justify-end">
           <img src="/images/truck.png" alt="DDAN Hood Cleaning and Repair truck" class="truck-drive-in max-w-full" loading="lazy" />
@@ -159,7 +205,7 @@ const schema = {
     </div>
   </section>
 
-  <!-- EXHAUST FANS -->
+  <!-- ==================== EXHAUST FANS ==================== -->
   <section id="exhaust-fans" class="bg-black py-16 px-5 reveal">
     <div class="max-w-[1200px] mx-auto">
       <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Restaurant Exhaust Fans for Dickson Kitchens</h2>
@@ -170,139 +216,309 @@ const schema = {
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
-          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden"><img src="/images/services/kitchen-exhaust-installation.jpg" alt="Direct drive upblast exhaust fan Dickson TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
-          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Direct Drive Upblast Fans</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">The number one restaurant exhaust fan. Sealed motor compartment protects from heat, grease, and moisture. All sizes from 400 CFM to 6,000+ CFM. Same-day replacement from local stock.</p></div>
+          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
+            <img src="/images/services/kitchen-exhaust-installation.jpg" alt="Direct drive upblast exhaust fan Dickson TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Direct Drive Upblast Fans</h3>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">The number one restaurant exhaust fan. Sealed motor compartment protects from heat, grease, and moisture. Low maintenance, high efficiency. All sizes from 400 CFM to 6,000+ CFM. Variable speed and standard configurations. Same-day replacement from local stock.</p>
+          </div>
         </a>
         <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
-          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden"><img src="/images/services/commercial-hood-repair-split.jpeg" alt="Belt drive upblast exhaust fan Dickson TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
-          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Belt Drive Upblast Fans</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Quieter operation with adjustable speed via belt and pulley system. Cost-effective for moderate-volume kitchens. All belt sizes and motor configurations in stock.</p></div>
+          <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
+            <img src="/images/services/commercial-hood-repair-split.jpeg" alt="Belt drive upblast exhaust fan Dickson TN - DDAN Hood Cleaning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Belt Drive Upblast Fans</h3>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Quieter operation with adjustable speed via belt and pulley system. Cost-effective for moderate-volume kitchens. All belt sizes and motor configurations in stock. We carry every size and can match any existing unit.</p>
+          </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FAN REPLACEMENT PARTS -->
+  <!-- ==================== FAN REPLACEMENT PARTS ==================== -->
   <section id="fan-parts" class="bg-[#111111] py-16 px-5 reveal">
     <div class="max-w-[1200px] mx-auto">
       <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Dickson Exhaust Fan Replacement Parts — In Stock</h2>
       <p class="text-[#D4D4D4] font-body mb-8 reveal-child">Common components stocked locally. Call to verify fit for your specific unit.</p>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/fan-motor-odp.webp" alt="Commercial exhaust fan motor Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Motors (ODP and TEFC)</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Replacement motors for all fan types. Single and 3-phase. All horsepower ratings.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/fan-wheel-blades.webp" alt="Exhaust fan wheel blades Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Wheels and Blades</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Impellers and blade assemblies. Precision balanced per AMCA standard.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/belt-drive-kit.webp" alt="Exhaust fan belt drive kit Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Belts and Drive Kits</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">V-belts, sheaves, pulleys, and tensioners. All common sizes in stock.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/bearing-pillow-block.webp" alt="Pillow block bearing Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Bearings</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Pillow block and flange bearings. Heavy-duty regreasable ball type.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/hinge-kit.webp" alt="Exhaust fan hinge kit Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Hinge Kits</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">NFPA 96 compliant fan access kits. Required for safe cleaning access.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/speed-controller.webp" alt="Speed controller VFD Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Speed Controllers and VFDs</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Variable frequency drives and manual speed controls for all fan types.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/fan-motor-odp.webp" alt="Commercial exhaust fan motor ODP TEFC Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Motors (ODP and TEFC)</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Replacement motors for all fan types. Single and 3-phase. All horsepower ratings.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/fan-wheel-blades.webp" alt="Exhaust fan wheel blade assembly Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Wheels and Blades</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Impellers and blade assemblies. Precision balanced per AMCA standard.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/belt-drive-kit.webp" alt="Exhaust fan belt drive kit Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Belts and Drive Kits</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">V-belts, sheaves, pulleys, and tensioners. All common sizes in stock.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/bearing-pillow-block.webp" alt="Pillow block bearing for exhaust fan Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Bearings</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Pillow block and flange bearings. Heavy-duty regreasable ball type.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/roof-curb-galvanized.webp" alt="Galvanized roof curb for exhaust fan Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Roof Curbs</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Standard and custom curb adapters. Galvanized steel construction.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/hinge-kit.webp" alt="Exhaust fan hinge kit Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Hinge Kits</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">NFPA 96 compliant fan access kits. Required for safe cleaning access.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/speed-controller.webp" alt="Variable speed controller VFD exhaust fan Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Speed Controllers and VFDs</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Variable frequency drives and manual speed controls for all fan types.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/grease-cup-drain.webp" alt="Grease cup drain fitting exhaust fan Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Grease Cups and Fittings</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Drain cups, nipples, and adapters for exhaust fan bases.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/motor-cover.webp" alt="Exhaust fan motor cover weather guard Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Motor Covers and Guards</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Weather shields and safety guards for rooftop fan motors.</p></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- FILTERS -->
-  <section id="filters" class="bg-black py-16 px-5 reveal">
+
+  <!-- ==================== MAKE-UP AIR UNITS ==================== -->
+  <section id="make-up-air" class="bg-black py-16 px-5 reveal">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Commercial Make-Up Air Units for Dickson Restaurants</h2>
+      <p class="text-[#D4D4D4] font-body mb-8 reveal-child">Your exhaust system cannot function without balanced airflow. We supply and install all MUA types for Dickson kitchens.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/mua-heated-gas.webp" alt="Gas fired heated make up air unit Dickson restaurant - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Gas-Fired Heated MUA</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Required for Tennessee winters. Direct gas-fired heating prevents freezing drafts and dangerous negative pressure.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/mua-unheated.webp" alt="Unheated make up air unit Dickson commercial kitchen - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Untempered / Passive MUA</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Budget fresh air supply for mild climates and supplemental use. Belt or direct drive options.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/mua-heated-cooled.webp" alt="Heated cooled make up air unit Dickson restaurant - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">MUA Replacement Parts</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Filters, dampers, motors, and control boards for existing MUA units. We service all major brands.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FILTERS AND BAFFLES ==================== -->
+  <section id="filters" class="bg-[#111111] py-16 px-5 reveal">
     <div class="max-w-[1200px] mx-auto">
       <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Commercial Hood Filters and Baffles in Dickson</h2>
       <p class="text-[#D4D4D4] font-body mb-8 reveal-child">The first line of defense in your exhaust system. Wrong filter means failed inspection — call us to verify.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/baffle-filter-stainless.webp" alt="Stainless steel baffle filter Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Stainless Steel Baffle Filters</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Industry standard. Dishwasher safe. UL 1046 listed. Type 304 and 430 stainless. All standard sizes.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/mesh-grease-filter.webp" alt="Mesh grease filter Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Mesh Grease Filters</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Budget-friendly option. Aluminum mesh construction for light-duty cooking applications.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/charcoal-carbon-filter.webp" alt="Charcoal carbon filter Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Charcoal / Carbon Filters</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Activated carbon for smoke and odor control in ventless hoods. Replace every 3 to 6 months.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/baffle-filter-stainless.webp" alt="Stainless steel baffle grease filter Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Stainless Steel Baffle Filters</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Industry standard. Dishwasher safe. UL 1046 listed. Type 304 and 430 stainless. All standard sizes.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/mesh-grease-filter.webp" alt="Aluminum mesh grease filter Dickson commercial kitchen - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Mesh Grease Filters</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Budget-friendly option. Aluminum mesh construction for light-duty cooking applications.</p></div>
+        </a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child">
+          <div class="relative aspect-square bg-white rounded-t-xl overflow-hidden">
+            <img src="/images/products/charcoal-carbon-filter.webp" alt="Charcoal carbon odor filter Dickson restaurant hood - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div>
+          </div>
+          <div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Charcoal / Carbon Filters</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Activated carbon for smoke and odor control in ventless hoods. Replace every 3 to 6 months.</p></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- GREASE CONTAINMENT -->
-  <section id="grease-containment" class="bg-[#111111] py-16 px-5 reveal">
+  <!-- ==================== GREASE CONTAINMENT ==================== -->
+  <section id="grease-containment" class="bg-black py-16 px-5 reveal">
     <div class="max-w-[1200px] mx-auto">
       <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Rooftop Grease Containment Systems for Dickson</h2>
       <p class="text-[#D4D4D4] font-body mb-8 reveal-child">Protect your roof and stay compliant. Systems for every Dickson building type.</p>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-box-standard.webp" alt="Rooftop grease box Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Rooftop Grease Boxes</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Enclosed containment around fan base. Galvanized steel. Pillows included.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-pillow-pad.webp" alt="Grease absorbent pad Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Absorbent Pads and Pillows</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Disposable grease pads. Absorbs oil, repels water. Replace monthly.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/duct-access-door.webp" alt="Duct access door Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Grease Duct Access Doors</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">NFPA 96 required for duct cleaning access. All sizes available.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-box-standard.webp" alt="Rooftop grease containment box Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Rooftop Grease Boxes</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Enclosed containment around fan base. Galvanized steel. Pillows included.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-box-xtreme.webp" alt="High volume grease containment box Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">High-Volume Grease Boxes</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Extra large for heavy grease operations. Holds 50+ pounds.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-trap-drip-pan.webp" alt="Grease trap drip pan Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Grease Containment Trays</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Catches grease at fan drainage. Galvanized and stainless options.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-pillow-pad.webp" alt="Grease absorbent pillow pad Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Absorbent Pads and Pillows</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Disposable grease pads. Absorbs oil, repels water. Replace monthly.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/duct-access-door.webp" alt="Grease duct access door panel Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Grease Duct Access Doors</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">NFPA 96 required for duct cleaning access. All sizes available.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/grease-gutter-360.webp" alt="360 degree grease gutter containment Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Grease Gutters (360 Protection)</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Full perimeter wrap-around grease capture for high-volume operations.</p></div></a>
       </div>
     </div>
   </section>
 
-  <!-- HOOD SYSTEMS -->
-  <section id="hood-systems" class="bg-black py-16 px-5 reveal">
+  <!-- ==================== HOOD SYSTEMS ==================== -->
+  <section id="hood-systems" class="bg-[#111111] py-16 px-5 reveal">
     <div class="max-w-[1200px] mx-auto">
-      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Complete Hood Systems and Accessories in Dickson</h2>
+      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Complete Hood Systems and Kitchen Accessories in Dickson</h2>
       <p class="text-[#D4D4D4] font-body mb-8 reveal-child">Turnkey systems, safety components, and professional-grade accessories.</p>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/complete-hood-system.webp" alt="Complete hood system Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Complete Hood Systems</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Full stainless steel canopy hoods. Type I and Type II. Custom-sized.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/fire-suppression-system.webp" alt="Fire suppression system Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Fire Suppression Systems</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">UL 300 wet chemical. Inspection, recharge, and full installation.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/hood-light-canopy.webp" alt="Hood light Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Hood Lights</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Recessed and surface-mount canopy lighting. Tempered glass globes.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/complete-hood-system.webp" alt="Complete commercial kitchen hood system Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Complete Hood Systems</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Full stainless steel canopy hoods. Type I and Type II. Custom-sized.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/fire-suppression-system.webp" alt="Kitchen fire suppression system UL 300 Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Fire Suppression Systems</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">UL 300 wet chemical. Inspection, recharge, and full installation.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/hood-light-canopy.webp" alt="Commercial hood canopy light fixture Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Hood Lights</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Recessed and surface-mount canopy lighting. Tempered glass globes.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/exhaust-fan-interceptor.webp" alt="Exhaust fan grease interceptor Dickson - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Exhaust Fan Interceptors</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Grease capture at the fan drain. No filter medium needed.</p></div></a>
+        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/splash-guard.webp" alt="Stainless steel splash guard Dickson commercial kitchen - DDAN Hood Cleaning" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);"><svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span class="text-white font-heading font-bold text-lg">Verify Fit and Specs</span><span class="text-white text-sm mt-1">(615) 881-6968</span><span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span></div></div><div class="p-4"><h3 class="text-[#FF5E15] font-heading font-semibold text-base">Splash Guards</h3><p class="text-[#D4D4D4] text-xs mt-1 font-body">Wall-mounted stainless steel protection behind cooking equipment.</p></div></a>
       </div>
     </div>
   </section>
 
-  <!-- MAKE-UP AIR -->
-  <section id="make-up-air" class="bg-[#111111] py-16 px-5 reveal">
-    <div class="max-w-[1200px] mx-auto">
-      <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-2 reveal-child">Commercial Make-Up Air Units for Dickson</h2>
-      <p class="text-[#D4D4D4] font-body mb-8 reveal-child">Your exhaust system cannot function without balanced airflow. We supply and install all MUA types.</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/mua-heated-gas.webp" alt="Gas fired heated MUA Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Gas-Fired Heated MUA</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Required for Tennessee winters. Direct gas-fired heating prevents freezing drafts and dangerous negative pressure.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/mua-unheated.webp" alt="Unheated MUA Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Untempered / Passive MUA</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Budget fresh air supply for mild climates and supplemental use. Belt or direct drive options.</p></div></a>
-        <a href="tel:6158816968" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white reveal-child"><div class="relative aspect-square bg-white rounded-t-xl overflow-hidden"><img src="/images/products/mua-heated-cooled.webp" alt="MUA replacement parts Dickson - DDAN" class="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div><div class="p-5"><h3 class="text-[#FF5E15] font-heading font-semibold text-lg">MUA Replacement Parts</h3><p class="text-[#D4D4D4] text-sm mt-2 font-body">Filters, dampers, motors, and control boards for existing MUA units. We service all major brands.</p></div></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUST BANNER -->
+  <!-- ==================== TRUST BANNER ==================== -->
   <section class="bg-[#111111] py-12 px-5 reveal" style="border-top: 2px solid rgba(255,94,21,0.3); border-bottom: 2px solid rgba(255,94,21,0.3);">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-[#FF5E15] font-heading font-bold text-2xl md:text-3xl mb-8 reveal-child">The #1 Rated Commercial Hood Company in Tennessee</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">51+</span><div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="text-white text-sm">Google Reviews</span></div>
-        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">5.0</span><div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="text-white text-sm">Star Average</span></div>
-        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">20+</span><div class="text-[#FFB800] text-lg mt-1">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="text-white text-sm">Facebook Reviews</span></div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">51+</span><div class="text-[#FFB800] text-lg mt-1">★★★★★</div><span class="text-white text-sm">Google Reviews</span></div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">5.0</span><div class="text-[#FFB800] text-lg mt-1">★★★★★</div><span class="text-white text-sm">Star Average</span></div>
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-6 text-center reveal-child"><span class="text-[#FF5E15] font-heading font-bold text-4xl">20+</span><div class="text-[#FFB800] text-lg mt-1">★★★★★</div><span class="text-white text-sm">Facebook Reviews</span></div>
       </div>
       <p class="text-gray-300 text-sm mt-6 reveal-child">Trusted by restaurants, churches, schools, and institutions across Middle Tennessee since 2007.</p>
     </div>
   </section>
 
-  <!-- WHY + COMPLIANCE -->
+  <!-- TWO AUDIENCES -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 reveal">
+    <div class="max-w-[1280px] mx-auto px-5">
+      <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-10 text-center reveal-child">Who We Serve</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-8 reveal-child">
+          <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Restaurant Owners & Managers</h3>
+          <p class="text-[#D4D4D4] mb-4">Your fan is down, your kitchen is closed, and your staff is standing around. We get that. Call us and we will get your part sourced and installed as fast as possible — often same day.</p>
+          <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-semibold hover:underline">{business.phone} &rarr;</a>
+        </div>
+        <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-8 reveal-child">
+          <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M11.42 15.17l-5.66-5.66a8 8 0 1111.31 0l-5.65 5.66zM12 12a3 3 0 100-6 3 3 0 000 6z"/><path d="M12 22c4-4 8-7.58 8-12a8 8 0 10-16 0c0 4.42 4 8 8 12z"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Hood Cleaning Companies</h3>
+          <p class="text-[#D4D4D4] mb-4">Need parts for your cleaning clients? We supply hinge kits, access panels, grease cups, filters, and containment systems at contractor pricing. One call, we handle sourcing.</p>
+          <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-semibold hover:underline">Contractor Line: {business.phone} &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="bg-[#111111] py-12 md:py-16 reveal">
+    <div class="max-w-[1280px] mx-auto px-5 text-center">
+      <h2 class="font-heading text-[#FF5E15] text-xl md:text-2xl font-bold mb-8 reveal-child">Brands We Source & Install</h2>
+      <div class="flex flex-wrap justify-center gap-3 reveal-child">
+        {['Captive-Aire', 'Greenheck', 'Loren Cook', 'Dayton', 'DERA', 'Fantech', 'CaptiveAire', 'Accurex', 'Streivor', 'Larkin', 'Ventmaster', 'Avtec'].map(brand => (
+          <span class="bg-[#1A1A1A] border border-[#333] text-[#D4D4D4] font-heading text-sm px-5 py-2 rounded-full">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM ROW 1: EQUIPMENT ISSUES + COMPLIANCE -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 reveal">
     <div class="max-w-[1280px] mx-auto px-5">
       <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8">
         <div class="reveal-child">
           <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Why Dickson Restaurants Choose DDAN for Parts and Installation</h2>
           <div class="space-y-6">
-            <div><h3 class="font-heading text-white text-lg font-semibold mb-2">I-40 and Highway 46: Non-Stop Wear</h3><p class="text-[#D4D4D4]">Dickson's I-40 interstate traffic fuels non-stop kitchen operation along Highway 46. This extreme volume shreds standard fan belts and causes motor overheating. We supply commercial-grade replacement parts rated for continuous duty cycles.</p></div>
-            <div><h3 class="font-heading text-white text-lg font-semibold mb-2">Summer Heat Motor Protection</h3><p class="text-[#D4D4D4]">Late-summer rooftop temperatures combined with non-stop fan operation create the perfect conditions for motor failure. We supply heavy-duty TEFC motors with higher thermal ratings for Dickson's demanding conditions.</p></div>
-            <div><h3 class="font-heading text-white text-lg font-semibold mb-2">Historic Downtown Retrofits</h3><p class="text-[#D4D4D4]">Downtown Dickson's older buildings need <a href="/access-panel-installation/" class="text-[#FF5E15] hover:underline">fire-rated access panels</a> and specialized components for non-standard ductwork configurations.</p></div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Dickson: Motor Burnout From Heavy Use</h3>
+              <p class="text-[#D4D4D4]">The continuous interstate traffic pushes fast-food exhaust fans past their intended duty cycles, leading to frequent belt snapping and motor overheating. Downtown Dickson's older buildings often lack proper fire-rated access panels, complicating thorough NFPA 96 cleaning..<a href="/repair/dickson-tn/" class="text-[#FF5E15] hover:underline">call for emergency repair</a> before it seizes and takes the fan wheel with it.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Dickson: Filter Saturation</h3>
+              <p class="text-[#D4D4D4]">This means kitchens along the Highway 46 corridor are running their fryers and grills virtually non-stop, producing massive amounts of vaporized grease and pushing exhaust fan motors to their breaking points. This extreme volume shreds standard fan belts and quickly overwhelms factory grease catchers.<a href="/cleaning/dickson-tn/" class="text-[#FF5E15] hover:underline">hood cleaning crews</a> know exactly what hot chicken kitchens demand.</p>
+            </div>
+            <div>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Dickson: Roof Protection</h3>
+              <p class="text-[#D4D4D4]">Newer Dickson construction uses white TPO roofing. Grease runoff from exhaust fans stains and degrades TPO membranes, voiding manufacturer warranties. Our <a href="/grease-containment/" class="text-[#FF5E15] hover:underline">rooftop grease containment systems</a> — boxes, trays, and absorbent pads — prevent grease from ever reaching your roof surface.</p>
+            </div>
           </div>
         </div>
         <div class="reveal-child">
-          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Dickson Compliance and NFPA 96</h2>
+          <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Dickson Commercial Kitchen Compliance and NFPA 96</h2>
           <div class="space-y-5">
-            <p class="text-[#D4D4D4]">The <strong class="text-white">Dickson Fire Department</strong> strictly enforces NFPA 96, prioritizing the Highway 46 corridor. Every part we install — hinge kits, access panels, filters, and containment — meets or exceeds code requirements.</p>
-            <p class="text-[#D4D4D4]"><strong class="text-white">Dickson Water Authority</strong> monitors local grease traps. Rooftop grease runoff from failed containment triggers environmental penalties. Proper containment is essential.</p>
-            <p class="text-[#D4D4D4]">Every part we install is documented with photos and service records. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards</a>.</p>
+            <p class="text-[#D4D4D4]">The <strong class="text-white">Dickson Fire Department</strong> Strict. Inspectors prioritize the high-traffic Highway 46 corridor, ensuring rapid-turnover kitchens maintain safe, bare-metal exhaust systems.</p>
+Dickson Water Authority actively monitors local grease traps and interceptors to protect the municipal infrastructure from heavy F.O.G. runoff.</p>
+            <p class="text-[#D4D4D4]">Every part we install is documented with photos and service records for your compliance files. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards and what they mean for your kitchen</a>.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICE AREA + FAQ -->
+  <!-- BOTTOM ROW 2: SERVICE AREA + FAQ -->
   <section class="bg-black py-12 md:py-16 lg:py-20 reveal">
     <div class="max-w-[1280px] mx-auto px-5">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div class="reveal-child">
           <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-5">Dickson Parts and Installation Service Area</h2>
-          <p class="text-[#D4D4D4] text-lg mb-8 max-w-2xl">We serve Dickson and Dickson County. Same-day parts available for Highway 46, downtown, and I-40 interchange restaurants.</p>
-          <div class="space-y-3 mb-6">
-            <p class="text-[#D4D4D4] font-body text-base">
-              <span class="text-[#FF5E15] font-semibold">Also in Dickson:</span>
-              <a href="/repair/dickson-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Exhaust Fan Repair</a>
-            </p>
-            <p class="text-[#D4D4D4] font-body text-base">
-              <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-              <a href="/parts-installation/fairview-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fairview</a>,
-              <a href="/parts-installation/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>
-            </p>
+          <p class="text-[#D4D4D4] text-lg mb-8 max-w-2xl">Our certified crews provide comprehensive commercial hood services across all of Dickson. Whether you manage a high-speed corporate franchise off I-40, a historic cafe in downtown Dickson, or an institutional kitchen near TriStar Horizon, DDAN is fully equipped to deploy. We also seamlessly service nearby Fairview and Burns.</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {[
+              { name: 'Hermitage', href: '/parts-installation/hermitage-tn/' },
+              { name: 'Madison', href: '/parts-installation/madison-tn/' },
+              { name: 'Brentwood', href: '/parts-installation/brentwood-tn/' },
+              { name: 'Antioch', href: '/parts-installation/antioch-tn/' },
+              { name: 'Mt. Juliet', href: '/parts-installation/mount-juliet-tn/' },
+              { name: 'Hendersonville', href: '/parts-installation/hendersonville-tn/' },
+              { name: 'Goodlettsville', href: '/parts-installation/goodlettsville-tn/' },
+              { name: 'Lebanon', href: '/parts-installation/lebanon-tn/' },
+              { name: 'Gallatin', href: '/parts-installation/gallatin-tn/' },
+              { name: 'Franklin', href: '/parts-installation/franklin-tn/' },
+              { name: 'Murfreesboro', href: '/parts-installation/murfreesboro-tn/' },
+              { name: 'Clarksville', href: '/parts-installation/clarksville-tn/' },
+            ].map(city => (
+              <a href={city.href} class="flex items-center gap-2 bg-[#1A1A1A] border border-[#333] hover:border-[#FF5E15] rounded-xl px-4 py-3 transition-all duration-300">
+                <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                <span class="text-[#D4D4D4] font-heading text-sm">{city.name}</span>
+              </a>
+            ))}
+          </div>
+          <div class="mt-6 rounded-xl overflow-hidden" style="max-height:200px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206252.72681578025!2d-86.9081726!3d36.1744653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2sDickson%2C%20TN!5e0!3m2!1sen!2sus!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
         <div class="reveal-child">
@@ -314,7 +530,9 @@ const schema = {
                   <span class="pr-4">{faq.q}</span>
                   <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
                 </summary>
-                <div class="px-6 pb-5"><p class="text-[#D4D4D4]">{faq.a}</p></div>
+                <div class="px-6 pb-5">
+                  <p class="text-[#D4D4D4]">{faq.a}</p>
+                </div>
               </details>
             ))}
           </div>
@@ -323,7 +541,7 @@ const schema = {
     </div>
   </section>
 
-  <!-- DON'T WAIT CTA -->
+  <!-- DON'T WAIT CTA — custom bg for this page -->
   <section class="relative overflow-hidden bg-black reveal" id="urgency-cta">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('/images/homepage/gallery-11.jpg')"></div>
     <div class="absolute inset-0" style="background:linear-gradient(180deg, #FF5E158F 0%, #000000 100%); opacity:0.78"></div>
@@ -333,7 +551,9 @@ const schema = {
         <div class="w-16 h-0.5 bg-[#FF5E15] my-2"></div>
         <p class="text-[#E0E0E0] font-heading text-base mb-4">Whether you need a one-time deep clean, an urgent emergency repair, or a complete kitchen exhaust system installation, <strong class="text-white">{business.name}</strong> is here to keep you up and running.</p>
         <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-3 mb-3">
-          <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-xl"><svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg></span>
+          <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-xl">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          </span>
           <span class="text-white font-heading text-lg font-semibold hover:text-[#FF5E15] transition-all duration-300">Call Now: {business.phone}</span>
         </a>
         <button type="button" class="popup-trigger inline-flex items-center gap-2 w-fit px-7 py-3 bg-[#FF5E15] text-white font-heading text-lg font-medium rounded hover:bg-black transition-all duration-300">
