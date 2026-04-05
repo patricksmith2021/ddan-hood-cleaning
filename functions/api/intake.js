@@ -36,8 +36,8 @@ export async function onRequestPost(context) {
 
     // Build lead
     const lead = {
-      date: new Date().toLocaleDateString('en-US', { timeZone: 'America/Chicago' }),
-      time: new Date().toLocaleTimeString('en-US', { timeZone: 'America/Chicago' }),
+      date: (function() { var d = new Date(); var opts = { timeZone: 'America/Chicago' }; var m = d.toLocaleString('en-US', Object.assign({ month: 'numeric' }, opts)); var day = d.toLocaleString('en-US', Object.assign({ day: 'numeric' }, opts)); var y = d.toLocaleString('en-US', Object.assign({ year: '2-digit' }, opts)); return m + '/' + day + '/' + y; })(),
+      time: (function() { var d = new Date(); var h = parseInt(d.toLocaleString('en-US', { timeZone: 'America/Chicago', hour: 'numeric', hour12: true })); var min = d.toLocaleString('en-US', { timeZone: 'America/Chicago', minute: '2-digit' }); var ap = d.toLocaleString('en-US', { timeZone: 'America/Chicago', hour: 'numeric', hour12: true }).slice(-2).toLowerCase().charAt(0); return h + ':' + min + ap; })(),
       source: body.source || 'website',
       firstName: (body.firstName || '').trim(),
       lastName: (body.lastName || '').trim(),
