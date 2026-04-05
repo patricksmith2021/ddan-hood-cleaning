@@ -5,17 +5,17 @@ import BottomCTA from '../components/BottomCTA.astro';
 
 const cities = [
   { name: 'Nashville', state: 'Tennessee', slug: 'nashville-tn' },
-  { name: 'Mt. Juliet', state: 'Tennessee', slug: 'mt-juliet-tn' },
+  { name: 'Mt. Juliet', state: 'Tennessee', slug: 'mount-juliet-tn' },
   { name: 'Goodlettsville', state: 'Tennessee', slug: 'goodlettsville-tn' },
   { name: 'Hendersonville', state: 'Tennessee', slug: 'hendersonville-tn' },
   { name: 'Murfreesboro', state: 'Tennessee', slug: 'murfreesboro-tn' },
-  { name: 'Franklin', state: 'Tennessee', slug: 'franklin-tn' },
   { name: 'Smyrna', state: 'Tennessee', slug: 'smyrna-tn' },
   { name: 'Gallatin', state: 'Tennessee', slug: 'gallatin-tn' },
-  { name: 'Bellevue', state: 'Tennessee', slug: 'bellevue-tn' },
   { name: 'Brentwood', state: 'Tennessee', slug: 'brentwood-tn' },
   { name: 'La Vergne', state: 'Tennessee', slug: 'la-vergne-tn' },
   { name: 'Lebanon', state: 'Tennessee', slug: 'lebanon-tn' },
+  { name: 'Hermitage', state: 'Tennessee', slug: 'hermitage-tn' },
+  { name: 'Madison', state: 'Tennessee', slug: 'madison-tn' },
 ];
 ---
 
@@ -40,7 +40,7 @@ const cities = [
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 reveal">
         {cities.map((city) => (
           <a
-            href={`/locations/${city.slug}/`}
+            href={`/cleaning/${city.slug}/`}
             class="bg-[#1A1A1A] border border-[#333] p-6 rounded text-center hover:border-[#FF5E15] transition-all duration-300 group reveal-child block"
           >
             <!-- Map Pin Icon -->
