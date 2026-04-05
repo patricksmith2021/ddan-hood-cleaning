@@ -1,127 +1,269 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroBanner from '../components/HeroBanner.astro';
 import business from '../data/business.json';
+
+const cleaningCities = [
+  { name: 'Antioch', slug: 'antioch-tn' }, { name: 'Brentwood', slug: 'brentwood-tn' },
+  { name: 'Gallatin', slug: 'gallatin-tn' }, { name: 'Goodlettsville', slug: 'goodlettsville-tn' },
+  { name: 'Hendersonville', slug: 'hendersonville-tn' }, { name: 'Hermitage', slug: 'hermitage-tn' },
+  { name: 'La Vergne', slug: 'la-vergne-tn' }, { name: 'Lebanon', slug: 'lebanon-tn' },
+  { name: 'Madison', slug: 'madison-tn' }, { name: 'Mount Juliet', slug: 'mount-juliet-tn' },
+  { name: 'Murfreesboro', slug: 'murfreesboro-tn' }, { name: 'Nashville', slug: 'nashville-tn' },
+  { name: 'Smyrna', slug: 'smyrna-tn' }, { name: 'Spring Hill', slug: 'spring-hill-tn' },
+];
+
+const repairCities = [
+  { name: 'Antioch', slug: 'antioch-tn' }, { name: 'Bowling Green, KY', slug: 'bowling-green-ky' },
+  { name: 'Brentwood', slug: 'brentwood-tn' }, { name: 'Clarksville', slug: 'clarksville-tn' },
+  { name: 'Columbia', slug: 'columbia-tn' }, { name: 'Dickson', slug: 'dickson-tn' },
+  { name: 'Fairview', slug: 'fairview-tn' }, { name: 'Fort Campbell, KY', slug: 'fort-campbell-ky' },
+  { name: 'Franklin', slug: 'franklin-tn' }, { name: 'Gallatin', slug: 'gallatin-tn' },
+  { name: 'Goodlettsville', slug: 'goodlettsville-tn' }, { name: 'Hartsville', slug: 'hartsville-tn' },
+  { name: 'Hendersonville', slug: 'hendersonville-tn' }, { name: 'Hermitage', slug: 'hermitage-tn' },
+  { name: 'La Vergne', slug: 'la-vergne-tn' }, { name: 'Lebanon', slug: 'lebanon-tn' },
+  { name: 'Lewisburg', slug: 'lewisburg-tn' }, { name: 'Madison', slug: 'madison-tn' },
+  { name: 'Mount Juliet', slug: 'mount-juliet-tn' }, { name: 'Murfreesboro', slug: 'murfreesboro-tn' },
+  { name: 'Nashville', slug: 'nashville-tn' }, { name: 'Nolensville', slug: 'nolensville-tn' },
+  { name: 'Portland', slug: 'portland-tn' }, { name: 'Shelbyville', slug: 'shelbyville-tn' },
+  { name: 'Smyrna', slug: 'smyrna-tn' }, { name: 'Spring Hill', slug: 'spring-hill-tn' },
+  { name: 'Springfield', slug: 'springfield-tn' }, { name: 'Thompsons Station', slug: 'thompsons-station-tn' },
+  { name: 'White House', slug: 'white-house-tn' },
+];
+
+const partsCities = repairCities;
 ---
 
 <BaseLayout
-  title="Contact Us | DDAN Hood Cleaning and Repair"
-  description="Contact DDAN Hood Cleaning and Repair for commercial kitchen exhaust services. Call (615) 881-6968 or fill out our form for a fast callback."
+  title="Contact DDAN Hood Cleaning and Repair | (615) 881-6968"
+  description="Call (615) 881-6968 for 24/7 commercial hood cleaning, repair, and exhaust fan parts in Nashville and Middle Tennessee. Licensed, bonded, and insured since 2006."
 >
-  <HeroBanner
-    headline="Contact DDAN Hood Cleaning and Repair"
-    backgroundImage="/images/services/hood-cleaning-hero.jpg"
-    breadcrumbs={[
-      { label: 'Home', href: '/' },
-      { label: 'Contact' },
-    ]}
-  />
 
-  <!-- Intro -->
-  <section class="py-12 md:py-16 lg:py-20 px-5 bg-[#111111] reveal">
-    <div class="max-w-[1200px] mx-auto">
-      <p class="text-center max-w-2xl mx-auto text-[#D4D4D4] reveal-child">Ready to schedule a service, request a quote, or ask a question? Reach out to DDAN Hood Cleaning and Repair — we're here to help keep your commercial kitchen safe, compliant, and running smoothly.</p>
-    </div>
-  </section>
-
-  <!-- 2 Contact Cards -->
-  <section class="pb-12 px-5 bg-[#111111] reveal">
-    <div class="max-w-[600px] mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Phone -->
-        <div class="bg-[#1A1A1A] p-6 border-t-2 border-[#FF5E15] rounded text-center reveal-child">
-          <div class="flex justify-center mb-4">
-            <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-            </span>
-          </div>
-          <h3 class="font-heading font-semibold text-lg text-white mb-2">Call Us</h3>
-          <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-bold text-xl hover:underline transition-all duration-300">{business.phone}</a>
-          <p class="text-[#999] text-sm mt-2">Available 24/7 for emergencies</p>
-        </div>
-
-        <!-- Email -->
-        <div class="bg-[#1A1A1A] p-6 border-t-2 border-[#FF5E15] rounded text-center reveal-child">
-          <div class="flex justify-center mb-4">
-            <span class="w-12 h-12 flex items-center justify-center bg-[#FF5E15] rounded-full">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
-            </span>
-          </div>
-          <h3 class="font-heading font-semibold text-lg text-white mb-2">Email Us</h3>
-          <a href={`mailto:${business.email}`} class="text-[#FF5E15] font-heading font-bold text-xl hover:underline transition-all duration-300">{business.email}</a>
-          <p class="text-[#999] text-sm mt-2">We respond within 1 business day</p>
-        </div>
+  <!-- SECTION 1: Hero -->
+  <section class="relative overflow-hidden flex items-center justify-center px-5" style="min-height:60vh; background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)), url('/images/homepage/certified-hood-cleaning-company-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp'); background-size:cover; background-position:center;">
+    <div class="relative z-10 max-w-[800px] mx-auto text-center py-20">
+      <p class="font-heading text-[#FF5E15] text-xs md:text-sm font-semibold uppercase tracking-[0.1em] mb-4">24/7 Emergency Service &bull; Se Habla Espa&ntilde;ol</p>
+      <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5">Get in Touch With DDAN</h1>
+      <p class="font-body text-[#D4D4D4] text-base md:text-lg leading-relaxed max-w-[600px] mx-auto mb-8">Whether it's an emergency fan repair or a routine cleaning quote — we pick up the phone.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href={`tel:${business.phoneRaw}`} class="btn-primary text-lg justify-center px-8">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          Call {business.phone}
+        </a>
+        <a href="#contact-form-section" class="inline-flex items-center gap-2 px-8 py-3 border border-[#FF5E15] text-[#FF5E15] font-heading font-semibold text-base rounded transition-all duration-200 hover:bg-[#FF5E15] hover:text-white" style="transform:scale(1);transition:transform 0.15s ease,background 0.2s ease,color 0.2s ease;" onmouseover="this.style.transform='scale(0.97)'" onmouseout="this.style.transform='scale(1)'">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Send a Message
+        </a>
+      </div>
+      <!-- Truck drives in -->
+      <div class="mt-8">
+        <img src="/images/truck.png" alt="DDAN Hood Cleaning and Repair truck" class="truck-drive-in max-w-full w-full md:w-auto mx-auto" loading="eager" />
       </div>
     </div>
   </section>
 
-  <!-- Form + Map -->
-  <section class="py-12 md:py-16 lg:py-20 px-5 bg-[#1A1A1A] reveal">
-    <div class="max-w-[1200px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Inline Form -->
-        <div class="reveal-child">
-          <h2 class="font-heading font-bold text-2xl md:text-3xl text-[#FF5E15] mb-6">Request a Callback</h2>
-          <form id="contact-form" class="space-y-4">
-            <input type="text" class="hidden" name="website" tabindex="-1" autocomplete="off" />
-            <input type="hidden" name="_loaded_at" />
+  <!-- SECTION 2: Form + Contact Info -->
+  <section class="py-16 md:py-20 px-5 bg-[#111111]" id="contact-form-section">
 
-            <p class="text-xs text-[#FF5E15] font-heading font-semibold uppercase tracking-wide">Your Info</p>
-            <div class="grid grid-cols-2 gap-4">
-              <input type="text" name="firstName" placeholder="First Name" required
-                class="bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300" />
-              <input type="text" name="lastName" placeholder="Last Name" required
-                class="bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300" />
+    <style>
+      .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }
+      @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr !important; } }
+    </style>
+
+    <div class="contact-grid">
+
+      <!-- Left: Inline Form -->
+      <div class="reveal">
+        <h2 class="font-heading font-bold text-2xl md:text-3xl text-[#FF5E15] mb-6">Send Your Request</h2>
+        <form id="contact-form" class="space-y-4">
+          <input type="text" class="hidden" name="website" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_loaded_at" />
+
+          <p class="text-xs text-[#FF5E15] font-heading font-semibold uppercase tracking-wide">Your Info</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+            <input type="text" name="firstName" placeholder="First Name *" required class="bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+            <input type="text" name="lastName" placeholder="Last Name *" required class="bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          </div>
+          <input type="tel" name="phone" placeholder="Phone *" required class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          <input type="email" name="email" placeholder="Email" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+
+          <p class="text-xs text-[#FF5E15] font-heading font-semibold uppercase tracking-wide pt-2">Business Info</p>
+          <input type="text" name="businessName" placeholder="Business Name" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          <input type="text" name="businessAddress" placeholder="Business Address" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+
+          <select name="service" required class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 appearance-none" style="background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23999%22 d=%22M6 8.825L1.175 4 2.238 2.938 6 6.7 9.763 2.937 10.825 4z%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;">
+            <option value="">Select Service... *</option>
+            <option value="Hood Cleaning">Hood Cleaning</option>
+            <option value="System Repair">System Repair</option>
+            <option value="Looking for Parts">Looking for Parts</option>
+            <option value="New Installation">New Installation</option>
+          </select>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+            <div class="bg-[#111] rounded-lg border border-[#333] px-4 py-3">
+              <span class="text-xs text-[#999] block mb-2">Multiple locations?</span>
+              <div class="flex items-center gap-4">
+                <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="multipleLocations" value="Yes" class="accent-[#FF5E15]" /> Yes</label>
+                <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="multipleLocations" value="No" checked class="accent-[#FF5E15]" /> No</label>
+              </div>
             </div>
-            <input type="tel" name="phone" placeholder="Phone" required
-              class="w-full bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300" />
-            <input type="email" name="email" placeholder="Email"
-              class="w-full bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300" />
-
-            <p class="text-xs text-[#FF5E15] font-heading font-semibold uppercase tracking-wide pt-2">Business Info</p>
-            <input type="text" name="businessName" placeholder="Business Name"
-              class="w-full bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300" />
-            <input type="text" name="businessAddress" placeholder="Business Address"
-              class="w-full bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300" />
-
-            <select name="service" required
-              class="w-full bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300">
-              <option value="">Select Service...</option>
-              <option value="Hood Cleaning">Hood Cleaning</option>
-              <option value="System Repair">System Repair</option>
-              <option value="Looking for Parts">Looking for Parts</option>
-              <option value="New Installation">New Installation</option>
-            </select>
-
-            <div class="flex items-center gap-4 text-sm text-white">
-              <span>Multiple locations?</span>
-              <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="Yes" /> Yes</label>
-              <label class="flex items-center gap-1"><input type="radio" name="multipleLocations" value="No" checked /> No</label>
+            <div class="bg-[#111] rounded-lg border border-[#333] px-4 py-3">
+              <span class="text-xs text-[#999] block mb-2">Flat roof?</span>
+              <div class="flex items-center gap-4">
+                <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="flatRoof" value="Yes" class="accent-[#FF5E15]" /> Yes</label>
+                <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="flatRoof" value="No" checked class="accent-[#FF5E15]" /> No</label>
+              </div>
             </div>
+          </div>
 
-            <div class="flex items-center gap-4 text-sm text-white">
-              <span>Flat roof?</span>
-              <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="Yes" /> Yes</label>
-              <label class="flex items-center gap-1"><input type="radio" name="flatRoof" value="No" checked /> No</label>
+          <textarea name="comments" placeholder="Message (optional)" rows="3" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666] resize-none"></textarea>
+
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAC06KZwCltnZFIp-" data-size="invisible"></div>
+
+          <button type="submit" class="btn-primary w-full justify-center mt-2 text-base py-3.5" style="border-radius:8px;">
+            Send Your Request
+          </button>
+          <div id="contact-form-error" class="text-red-500 text-sm text-center mt-2"></div>
+        </form>
+      </div>
+
+      <!-- Right: Contact Info Card -->
+      <div class="reveal">
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-8">
+          <h3 class="font-heading text-white text-xl font-semibold mb-6">Reach Us Directly</h3>
+
+          <!-- Phone -->
+          <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-4 mb-5 group">
+            <span class="w-11 h-11 flex items-center justify-center bg-[#FF5E15]/10 rounded-lg flex-shrink-0">
+              <svg class="w-5 h-5 text-[#FF5E15]" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+            </span>
+            <div>
+              <p class="text-white font-heading font-bold text-lg group-hover:text-[#FF5E15] transition-colors duration-200">{business.phone}</p>
+              <p class="text-[#999] text-xs">Tap to call</p>
             </div>
+          </a>
 
-            <textarea name="comments" placeholder="Message (optional)" rows="3"
-              class="w-full bg-white text-[#111] px-3 py-2 text-sm rounded border border-gray-300 outline-none focus:border-[#FF5E15] transition-all duration-300 resize-none"></textarea>
+          <!-- Email -->
+          <a href={`mailto:${business.email}`} class="flex items-center gap-4 mb-5 group">
+            <span class="w-11 h-11 flex items-center justify-center bg-[#FF5E15]/10 rounded-lg flex-shrink-0">
+              <svg class="w-5 h-5 text-[#FF5E15]" fill="currentColor" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            </span>
+            <div>
+              <p class="text-white font-heading font-semibold group-hover:text-[#FF5E15] transition-colors duration-200">{business.email}</p>
+              <p class="text-[#999] text-xs">We respond within 1 business day</p>
+            </div>
+          </a>
 
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAC06KZwCltnZFIp-" data-size="invisible"></div>
+          <!-- Hours -->
+          <div class="flex items-center gap-4 mb-6">
+            <span class="w-11 h-11 flex items-center justify-center bg-[#FF5E15]/10 rounded-lg flex-shrink-0">
+              <svg class="w-5 h-5 text-[#FF5E15]" fill="currentColor" viewBox="0 0 512 512"><path d="M256 0a256 256 0 110 512A256 256 0 01256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
+            </span>
+            <div>
+              <p class="text-white font-heading font-semibold">24/7 Emergency Service</p>
+              <p class="text-[#999] text-xs">Always available for urgent repairs</p>
+            </div>
+          </div>
 
-            <button type="submit" class="btn-primary w-full justify-center mt-2">
-              Request Callback ASAP
-            </button>
-            <div id="contact-form-error" class="text-red-500 text-sm text-center mt-2"></div>
-          </form>
+          <div class="border-t border-white/10 my-6"></div>
+
+          <!-- Se Habla Espanol -->
+          <div class="flex items-center gap-4 mb-6">
+            <span class="w-11 h-11 flex items-center justify-center bg-[#FF5E15]/10 rounded-lg flex-shrink-0">
+              <svg class="w-5 h-5 text-[#FF5E15]" fill="currentColor" viewBox="0 0 512 512"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6C399 29.1 467.1 97.7 493.4 160zM256 0c36.8 0 79.9 66.7 103.1 160H152.9C176.1 66.7 219.2 0 256 0zM135.3 8.4C109.8 42.6 90 96.1 80 160H8.1C34.3 97.7 102.4 29.1 135.3 8.4zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.7-15.6-22-33.5-30.7-53.6H68.5c23.3 45.2 59.1 82.7 101.6 107.2C158.5 493.1 148.1 483 135.3 469.3l-5.3-5.7c15.4 18.4 34.5-7.4 64.7-17zM135.3 503.6C102.4 482.9 34.3 414.3 8.1 352H80c10 63.9 29.8 117.4 55.3 151.6zM256 512c-36.8 0-79.9-66.7-103.1-160H359.1C335.9 445.3 292.8 512 256 512zm120.7-8.4c25.5-34.2 45.2-87.7 55.3-151.6h71.9c-26.2 62.3-94.3 130.9-127.2 151.6z"/></svg>
+            </span>
+            <p class="text-white font-heading font-semibold">Se Habla Espa&ntilde;ol</p>
+          </div>
+
+          <div class="border-t border-white/10 my-6"></div>
+
+          <!-- Service Area -->
+          <div class="flex items-start gap-4 mb-6">
+            <span class="w-11 h-11 flex items-center justify-center bg-[#FF5E15]/10 rounded-lg flex-shrink-0 mt-0.5">
+              <svg class="w-5 h-5 text-[#FF5E15]" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+            </span>
+            <div>
+              <p class="text-white font-heading font-semibold mb-1">Serving Nashville, Middle Tennessee &amp; Southern Kentucky</p>
+              <p class="text-[#999] text-xs">29 cities across TN and KY</p>
+            </div>
+          </div>
+
+          <!-- Trust line -->
+          <p class="text-[#666] text-xs text-center mt-6 pt-4 border-t border-white/10">
+            Licensed, Bonded &amp; Insured &bull; NFPA 96 Compliant &bull; Since 2006
+          </p>
         </div>
 
         <!-- Google Maps -->
-        <div class="reveal-child rounded overflow-hidden" set:html={business.googleMapsEmbed} />
+        <div class="mt-6 rounded-xl overflow-hidden [&_iframe]:!h-[250px]" set:html={business.googleMapsEmbed} />
       </div>
     </div>
   </section>
+
+  <!-- SECTION 3: Service Area Quick Links -->
+  <section class="py-16 md:py-20 px-5 bg-[#000000]">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-heading text-white text-2xl md:text-3xl font-semibold text-center mb-3">Our Service Areas</h2>
+      <p class="font-body text-[#D4D4D4] text-center mb-10 max-w-[600px] mx-auto">Hood cleaning, repair, and parts across Middle Tennessee and Southern Kentucky</p>
+
+      <style>
+        .service-area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        @media (max-width: 768px) { .service-area-grid { grid-template-columns: 1fr !important; } }
+        .area-toggle { display: none; }
+        @media (max-width: 768px) {
+          .area-toggle { display: flex; cursor: pointer; }
+          .area-list { display: none; }
+          .area-list.open { display: block; }
+        }
+      </style>
+
+      <div class="service-area-grid">
+
+        <!-- Cleaning -->
+        <div class="reveal">
+          <div class="area-toggle items-center justify-between bg-[#1A1A1A] p-4 rounded-lg border border-[#333] mb-3" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('svg').classList.toggle('rotate-180')">
+            <h3 class="font-heading text-[#FF5E15] text-lg font-bold">Hood Cleaning</h3>
+            <svg class="w-5 h-5 text-[#FF5E15] transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+          <h3 class="font-heading text-[#FF5E15] text-lg font-bold mb-4 hidden md:block">Hood Cleaning</h3>
+          <ul class="area-list space-y-2 md:!block">
+            {cleaningCities.map(c => (
+              <li><a href={`/cleaning/${c.slug}/`} class="text-[#D4D4D4] hover:text-[#FF5E15] transition-colors duration-200 text-sm font-body">{c.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Repair -->
+        <div class="reveal">
+          <div class="area-toggle items-center justify-between bg-[#1A1A1A] p-4 rounded-lg border border-[#333] mb-3" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('svg').classList.toggle('rotate-180')">
+            <h3 class="font-heading text-[#FF5E15] text-lg font-bold">Hood Repair</h3>
+            <svg class="w-5 h-5 text-[#FF5E15] transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+          <h3 class="font-heading text-[#FF5E15] text-lg font-bold mb-4 hidden md:block">Hood Repair</h3>
+          <ul class="area-list space-y-2 md:!block">
+            {repairCities.map(c => (
+              <li><a href={`/repair/${c.slug}/`} class="text-[#D4D4D4] hover:text-[#FF5E15] transition-colors duration-200 text-sm font-body">{c.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Parts -->
+        <div class="reveal">
+          <div class="area-toggle items-center justify-between bg-[#1A1A1A] p-4 rounded-lg border border-[#333] mb-3" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('svg').classList.toggle('rotate-180')">
+            <h3 class="font-heading text-[#FF5E15] text-lg font-bold">Parts &amp; Installation</h3>
+            <svg class="w-5 h-5 text-[#FF5E15] transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+          <h3 class="font-heading text-[#FF5E15] text-lg font-bold mb-4 hidden md:block">Parts &amp; Installation</h3>
+          <ul class="area-list space-y-2 md:!block">
+            {partsCities.map(c => (
+              <li><a href={`/parts-installation/${c.slug}/`} class="text-[#D4D4D4] hover:text-[#FF5E15] transition-colors duration-200 text-sm font-body">{c.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
 
 <script is:inline>
@@ -155,6 +297,7 @@ import business from '../data/business.json';
         if (errorDiv) errorDiv.textContent = '';
 
         var turnstileInput = document.querySelector('#contact-form [name="cf-turnstile-response"]');
+        var commentsEl = form.querySelector('[name="comments"]');
         var data = {
           source: 'contact-page',
           firstName: form.querySelector('[name="firstName"]').value,
@@ -166,7 +309,7 @@ import business from '../data/business.json';
           service: form.querySelector('[name="service"]').value || 'Not specified',
           multipleLocations: (form.querySelector('[name="multipleLocations"]:checked') || {}).value || 'No',
           flatRoof: (form.querySelector('[name="flatRoof"]:checked') || {}).value || 'No',
-          comments: (form.querySelector('[name="comments"]') || {}).value || '',
+          comments: commentsEl ? commentsEl.value : '',
           page_url: window.location.href,
           'cf-turnstile-response': turnstileInput ? turnstileInput.value : '',
           test: false
@@ -185,13 +328,13 @@ import business from '../data/business.json';
             var result = await response.json();
             if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong. Please call (615) 881-6968.';
             btn.disabled = false;
-            btn.textContent = 'Request Callback ASAP';
+            btn.textContent = 'Send Your Request';
             if (typeof turnstile !== 'undefined') turnstile.reset();
           }
         } catch (err) {
           if (errorDiv) errorDiv.textContent = 'Connection error. Please call (615) 881-6968.';
           btn.disabled = false;
-          btn.textContent = 'Request Callback ASAP';
+          btn.textContent = 'Send Your Request';
           if (typeof turnstile !== 'undefined') turnstile.reset();
         }
       });
