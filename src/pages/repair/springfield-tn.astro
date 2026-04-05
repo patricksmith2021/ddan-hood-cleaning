@@ -3,11 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import business from '../../data/business.json';
 
 const faqs = [
-  { q: "Can you bring my historic Springfield building up to fire code?", a: "Yes. Older buildings on the Springfield square often have concealed, non-standard ductwork. We install code-compliant, fire-rated access doors that allow bare-metal cleaning without damaging your building." },
-  { q: "Why is my restaurant exhaust fan leaking grease onto the roof?", a: "Standard factory grease catchers are easily overwhelmed by high-volume cooking. We install high-capacity rooftop grease containment systems to capture this runoff and keep you compliant with local regulations." },
-  { q: "Do you repair broken exhaust fan motors in Springfield?", a: "Absolutely. If your fan motor burns out or a belt snaps, we offer 24/7 emergency repair in Springfield, arriving with the exact commercial parts needed to restore your airflow immediately." },
-  { q: "What does the Springfield Fire Department look for during inspections?", a: "Inspectors check for bare-metal cleanliness, functional fire suppression, proper hinge kits on upblast fans, fire-rated access panels at every duct change, and documented service history." },
-];
+  { q: 'Can you bring my historic Springfield building up to fire code?', a: 'Yes. Older buildings on the Springfield square often have concealed, non-standard ductwork. We install code-compliant, fire-rated access doors that allow our technicians to perform the bare-metal cleaning required by the Springfield Fire Department without damaging your building.' },
+  { q: 'Why is my restaurant exhaust fan leaking grease onto the roof?', a: 'Standard factory grease catchers are easily overwhelmed by high-volume cooking. Leaking grease is a massive fire hazard and will quickly destroy your commercial roof. We install high-capacity rooftop grease containment systems to capture this runoff and keep you compliant with local regulations.' },
+  { q: 'Do you repair broken exhaust fan motors in Springfield?', a: 'Absolutely. If your fan motor burns out or a belt snaps, your kitchen fills with smoke and service stops. We offer 24/7 emergency repair in Springfield, arriving with the exact commercial parts needed to restore your airflow immediately.' },
+]
 
 const schema = {
   "@context": "https://schema.org",
@@ -22,7 +21,7 @@ const schema = {
       "areaServed": { "@type": "City", "name": "Springfield, TN" },
       "priceRange": "$$"
     },
-    { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Springfield, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Springfield commercial kitchens. Historic square and Highway 431 corridor specialists." },
+    { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Springfield, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Springfield commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
       { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
@@ -34,8 +33,8 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Springfield Restaurant Hood Repair | DDAN"
-  description="24/7 emergency exhaust fan repair in Springfield. Robertson County specialists. Same-day motor and belt replacement. Call (615) 881-6968."
+  title="Fast Exhaust Fan Repair Near Springfield | DDAN"
+  description="24/7 emergency exhaust fan repair in Springfield. Same-day motor and belt replacement from local stock. All brands. Call (615) 881-6968."
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
@@ -44,7 +43,7 @@ const schema = {
     <div class="max-w-4xl mx-auto px-6 py-20 text-center">
       <p class="text-[#FF5E15] font-heading font-bold text-xs md:text-sm tracking-widest uppercase mb-4">DDAN HOOD CLEANING AND REPAIR</p>
       <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">Emergency Exhaust Fan Repair in <span class="text-[#FF5E15]">Springfield, TN</span></h1>
-      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">Fan down? We carry common motors and belts in local stock. Same-day repair across Springfield and Robertson County.</p>
+      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">As Robertson County's dining scene grows from the historic Springfield square to the bustling Highway 431 corridor, DDAN Hood Cleaning and Repair is here to ensure your kitchen stays compliant and open. We specialize in NFPA 96 bare-metal hood cleaning, advanced grease containment, and 24/7 emergency fan repairs for Springfield's busiest restaurants.</p>
       <p class="text-white font-heading font-bold text-base md:text-lg mb-2">24/7 Emergency Dispatch — Same-Day Motor and Belt Replacement</p>
       <div class="w-20 h-1 bg-[#FF5E15] mx-auto mt-3 mb-8"></div>
       <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
@@ -90,17 +89,20 @@ const schema = {
   <!-- SECTION 2: CONSULT BAR + JUMP-NAV -->
   <section class="bg-[#111111] py-12 reveal">
     <div class="max-w-[1200px] mx-auto px-5">
+      <!-- Consult Bar -->
       <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 reveal-child">
         <p class="text-white font-heading font-semibold text-lg text-center md:text-left">Kitchen shut down? Our emergency team is on call right now.</p>
         <div class="text-center whitespace-nowrap">
           <p class="text-[#FF5E15] font-heading font-bold text-sm">SAME-DAY REPAIR</p>
-          <p class="text-[#FF5E15] font-heading font-bold text-xs">Same-day service for Robertson County</p>
+          <p class="text-[#FF5E15] font-heading font-bold text-xs">Average response under 2 hours</p>
         </div>
         <div class="text-center md:text-right">
           <a href={`tel:${business.phoneRaw}`} class="block text-white font-heading font-bold text-2xl hover:text-[#FF5E15] transition-colors">{business.phone}</a>
         </div>
       </div>
+      <!-- Category Heading -->
       <h2 class="font-heading text-white font-bold text-2xl text-center mt-8 mb-6 reveal-child">Expert Repairs — Fans First</h2>
+      <!-- Jump-Nav Cards -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         <a href="#fan-motors" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
           <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>
@@ -158,7 +160,7 @@ const schema = {
         <div class="lg:w-[55%]">
           <span class="inline-block bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wide rounded-full px-4 py-1 reveal-child">DDAN DIFFERENCE</span>
           <h2 class="text-white font-heading font-bold text-2xl md:text-3xl mt-4 reveal-child">Springfield's Most Reliable Exhaust Fan Repair Team</h2>
-          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">When your fan motor burns out at a Highway 431 franchise during the lunch rush, you need a team that arrives with parts — not excuses. We carry the components, know the buildings, and fix it before your next shift.</p>
+          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">When your exhaust system fails during peak service in Springfield, you need a team that shows up — not an answering service. We carry the parts, know the rooftops, and fix it before your next shift.</p>
           <ul class="space-y-3 mt-6">
             <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
               <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -195,56 +197,95 @@ const schema = {
   <section id="fan-motors" class="bg-[#111111] py-16 px-5 reveal">
     <div class="max-w-[1200px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] font-bold text-2xl md:text-3xl text-center mb-4 reveal-child">Exhaust Fan Repairs for Springfield Restaurants</h2>
-      <div class="bg-[#FF5E15] text-white text-center text-sm md:text-base font-heading font-bold uppercase tracking-wide py-3 px-4 rounded-lg mb-10 reveal-child">SPRINGFIELD'S EXHAUST FAN REPAIR SERVICE — ALL BRANDS, ALL SIZES</div>
+      <div class="bg-[#FF5E15] text-white text-center text-sm md:text-base font-heading font-bold uppercase tracking-wide py-3 px-4 rounded-lg mb-10 reveal-child">SPRINGFIELD'S #1 EXHAUST FAN REPAIR SERVICE — ALL BRANDS, ALL SIZES</div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="belts">
+        <!-- Card 1: Fan Motor Replacement -->
         <a href="/exhaust-fan-belt-motor-repair/" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/hood-repair-hero.jpg" alt="Fan motor replacement Springfield TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/services/hood-repair-hero.jpg" alt="Fan motor replacement Springfield TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Learn More</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Belt & Motor Repair</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Motor Replacement</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Single-phase, 3-phase, and ECM motors matched to OEM specs. We stock common sizes for same-day replacement on Springfield square restaurants and Highway 431 franchise kitchens.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Single-phase, 3-phase, and ECM motors matched to OEM specs. We stock common sizes for same-day replacement on Broadway's 18-hour kitchens and high-volume Springfield restaurants.</p>
           </div>
         </a>
+        <!-- Card 2: Fan Belt Replacement -->
         <a href="/exhaust-fan-belt-motor-repair/" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/commercial-hood-repair-split.jpeg" alt="Fan belt replacement Springfield TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/services/commercial-hood-repair-split.jpeg" alt="Fan belt replacement Springfield TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Learn More</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Belt & Motor Repair</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Belt Replacement</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Worn, cracked, and snapped belts replaced on-site with proper tensioning. High-volume Highway 431 fast-food operations shred standard OEM belts from constant lunch traffic.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Worn, cracked, and snapped belts replaced on-site with proper tensioning. Hot chicken grease coats pulleys and accelerates belt wear — Springfield kitchens need more frequent belt service than most markets.</p>
           </div>
         </a>
+        <!-- Card 3: Fan Wheel and Blade Repair -->
         <div class="group bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/kitchen-exhaust-installation.jpg" alt="Fan wheel repair Springfield TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/services/kitchen-exhaust-installation.jpg" alt="Fan wheel and blade repair Springfield TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Call for Service</span>
+              <span class="text-white text-sm mt-1">{business.phone}</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Wheel and Blade Repair</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Grease-caked impellers cleaned, rebalanced, or replaced. Heavy frying from fast-food and diner operations creates uneven grease buildup that throws fans dangerously off balance.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Grease-caked impellers cleaned, rebalanced, or replaced. Uneven grease buildup from Springfield's high-volume fryers creates vibration that destroys bearings in weeks.</p>
           </div>
         </div>
+        <!-- Card 4: Bearing Replacement -->
         <div class="group bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/hood-cleaning-hero.jpg" alt="Bearing replacement Springfield TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/services/hood-cleaning-hero.jpg" alt="Bearing replacement Springfield TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Call for Service</span>
+              <span class="text-white text-sm mt-1">{business.phone}</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Bearing Replacement</h3>
             <p class="text-[#D4D4D4] text-sm mt-2 font-body">Shaft bearings, pillow blocks, and sealed units. If your fan is grinding or squealing, bearing failure is imminent — call before the motor seizes completely.</p>
           </div>
         </div>
+        <!-- Card 5: Complete Fan Replacement -->
         <a id="complete-fans" href="/parts-installation/springfield-tn/" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/hero/rooftop-exhaust-fan.jpg" alt="Complete fan replacement Springfield TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/hero/rooftop-exhaust-fan.jpg" alt="Complete fan replacement Springfield TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Learn More</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Parts & Installation</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Complete Fan Replacement</h3>
             <p class="text-[#D4D4D4] text-sm mt-2 font-body">When repair costs exceed replacement value, we install new units sized and configured for your system. All major brands — CaptiveAire, Greenheck, Loren Cook, and more.</p>
           </div>
         </a>
+        <!-- Card 6: Speed Controller and VFD Repair -->
         <div class="group bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/rooftop-hinge-kit.jpg" alt="Speed controller repair Springfield TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/services/rooftop-hinge-kit.jpg" alt="Speed controller and VFD repair Springfield TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Call for Service</span>
+              <span class="text-white text-sm mt-1">{business.phone}</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Speed Controller and VFD Repair</h3>
@@ -327,8 +368,8 @@ const schema = {
           <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
             <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
           </div>
-          <h3 class="font-heading text-white text-xl font-bold mb-3">Restaurants and Franchises</h3>
-          <p class="text-[#D4D4D4] mb-4">Classic diners on the historic square, fast-food franchises on Highway 431, local Mexican restaurants, NorthCrest Medical Center cafeteria, and every commercial kitchen in Robertson County.</p>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Restaurants and Commercial Kitchens</h3>
+          <p class="text-[#D4D4D4] mb-4">Moderate, concentrated around the square and Highway 431. Classic American diners, expanding corporate fast-food chains, and local Mexican cuisine. High fryer and griddle usage. Every exhaust fan fails eventually — we fix them all.</p>
           <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-semibold hover:underline">{business.phone} &rarr;</a>
         </div>
         <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-8 reveal-child">
@@ -336,14 +377,14 @@ const schema = {
             <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
           </div>
           <h3 class="font-heading text-white text-xl font-bold mb-3">Institutions and Facilities</h3>
-          <p class="text-[#D4D4D4] mb-4">NorthCrest Medical Center, Robertson County schools, churches, assisted living facilities, and manufacturing plant cafeterias. Multi-fan systems with strict compliance requirements.</p>
+          <p class="text-[#D4D4D4] mb-4">NorthCrest Medical Center, expanding local manufacturing hubs.. Area schools, churches, hospitals, assisted living facilities, and corporate cafeterias. Multi-fan systems with coordinated repair schedules and strict compliance requirements.</p>
           <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-semibold hover:underline">{business.phone} &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 10: WHY + COMPLIANCE -->
+  <!-- SECTION 10: BOTTOM ROW 1 — SPRINGFIELD REPAIR + COMPLIANCE -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 reveal">
     <div class="max-w-[1280px] mx-auto px-5">
       <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8">
@@ -351,24 +392,24 @@ const schema = {
           <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Why Springfield Restaurants Need Dedicated Exhaust Fan Repair</h2>
           <div class="space-y-6">
             <div>
-              <h3 class="font-heading text-white text-lg font-semibold mb-2">Highway 431: Franchise Belt Failures</h3>
-              <p class="text-[#D4D4D4]">Springfield's growing Highway 431 corridor is packed with fast-food franchises pushing exhaust fans to their limits during the concentrated lunch rush. Standard OEM belts and motors are not built for this kind of sustained high-volume demand. Belt snapping and motor overheating are the most common emergency calls from this corridor.</p>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Springfield: Motor Burnout From Heavy Use</h3>
+              <p class="text-[#D4D4D4]">Retrofitting modern NFPA 96 compliance into 19th-century buildings on the square is a major challenge. Older upblast fans frequently lack hinge kits, leading to roof damage during servicing.</p>
             </div>
             <div>
-              <h3 class="font-heading text-white text-lg font-semibold mb-2">Historic Square: Complex Ductwork</h3>
-              <p class="text-[#D4D4D4]">Restaurants operating out of 19th-century buildings on the Springfield square face unique challenges. Non-standard, winding ductwork hidden in historic walls requires specialized access panel installation and experienced technicians who can navigate tight spaces without damaging the building's character.</p>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Springfield: Grease That Destroys Components</h3>
+              <p class="text-[#D4D4D4]">For restaurants located on the historic square, the Springfield Fire Department rigidly enforces fire codes, meaning aging ductwork must have proper access panels and exhaust fans must be equipped with hinge kits. Meanwhile, the growing fast-food corridor on Highway 431 pushes fan motors and belts to their absolute limits, requiring heavy-duty commercial replacements.</p>
             </div>
             <div>
-              <h3 class="font-heading text-white text-lg font-semibold mb-2">Steady Year-Round Demand</h3>
-              <p class="text-[#D4D4D4]">Springfield's growing population and expanding commercial base mean there is no slow season for restaurant exhaust wear. Increased demand for pre-holiday deep cleaning and preventative maintenance makes proactive belt and motor inspection essential to avoid failures during your busiest periods.</p>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Springfield: Seasonal Demand Spikes</h3>
+              <p class="text-[#D4D4D4]">DDAN brings both historic cafes and brand-new franchises fully up to code, protecting your property and preventing costly shutdowns..</p>
             </div>
           </div>
         </div>
         <div class="reveal-child">
           <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Springfield Exhaust Repair Compliance</h2>
           <div class="space-y-5">
-            <p class="text-[#D4D4D4]">The <strong class="text-white">Springfield Fire Department</strong> strictly enforces NFPA 96, particularly regarding historic preservation codes on the downtown square and initial compliance for new franchise builds. A non-functional fan triggers immediate remediation orders.</p>
-            <p class="text-[#D4D4D4]"><strong class="text-white">Springfield Water & Wastewater</strong> monitors the local system tightly. Property owners face severe penalties if rooftop grease leaks into storm drains. Repairing fans and maintaining <a href="/grease-containment/" class="text-[#FF5E15] hover:underline">grease containment</a> are inseparable.</p>
+            <p class="text-[#D4D4D4]">The <strong class="text-white">Springfield Fire Department</strong> Strict, particularly regarding historic preservation codes on the downtown square and initial compliance for new franchise builds.<a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] hover:underline">hinge kits</a>, access panels, and documented service history.</p>
+Springfield Water & Wastewater monitors the local system tightly. Property owners face severe penalties if rooftop grease leaks into the storm drain system.<a href="/grease-containment/" class="text-[#FF5E15] hover:underline">grease containment</a> are inseparable.</p>
             <p class="text-[#D4D4D4]">Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 compliance standards</a> to understand the full scope of what inspectors evaluate.</p>
           </div>
         </div>
@@ -376,24 +417,28 @@ const schema = {
     </div>
   </section>
 
-  <!-- SECTION 11: SERVICE AREA + FAQ -->
+  <!-- SECTION 11: BOTTOM ROW 2 — SERVICE AREA + FAQ -->
   <section class="bg-black py-12 md:py-16 lg:py-20 reveal">
     <div class="max-w-[1280px] mx-auto px-5">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div class="reveal-child">
           <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-5">Springfield Exhaust Fan Repair Service Area</h2>
-          <p class="text-[#D4D4D4] text-lg mb-6 max-w-2xl">We provide 24/7 exhaust fan repair across all of Springfield and Robertson County — the historic downtown square, Highway 431 corridor, NorthCrest area, and every restaurant in between.</p>
+          <p class="text-[#D4D4D4] text-lg mb-6 max-w-2xl">We provide rapid, comprehensive commercial exhaust services across the entirety of Springfield. Whether you manage a corporate franchise near NorthCrest Medical Center, a classic diner on the historic square, or a high-traffic spot on Memorial Blvd, our crews are ready to deploy. We also proudly serve neighboring White House and Pleasant View.</p>
           <div class="space-y-3 mb-6">
             <p class="text-[#D4D4D4] font-body text-base">
               <span class="text-[#FF5E15] font-semibold">Also in Springfield:</span>
+              <a href="/cleaning/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
               <a href="/parts-installation/springfield-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
             </p>
             <p class="text-[#D4D4D4] font-body text-base">
               <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
               <a href="/repair/goodlettsville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Goodlettsville</a>,
-              <a href="/repair/white-house-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">White House</a>,
+              <a href="/repair/white-house-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">White House</a>, and
               <a href="/repair/portland-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Portland</a>
             </p>
+          </div>
+          <div class="rounded-xl overflow-hidden" style="max-height:200px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206252.72681578025!2d-86.9081726!3d36.1744653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2sSpringfield%2C%20TN!5e0!3m2!1sen!2sus!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
         <div class="reveal-child">
