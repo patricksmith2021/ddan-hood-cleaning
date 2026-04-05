@@ -3,11 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import business from '../../data/business.json';
 
 const faqs = [
-  { q: "Can you quickly fix a broken exhaust fan near the Dickson I-40 exit?", a: "Absolutely. Interstate-adjacent restaurants cannot afford downtime. We offer 24/7 emergency repair in Dickson. If a belt snaps or a motor burns out during the lunch rush, we dispatch immediately with the heavy-duty parts needed." },
-  { q: "Why is my upblast exhaust fan leaking grease onto the roof?", a: "High-volume frying quickly overwhelms standard factory grease catchers. We install high-capacity rooftop grease containment systems to capture runoff, protecting your property and keeping you compliant with Dickson Water Authority regulations." },
-  { q: "Can you bring my historic Dickson building's exhaust system up to code?", a: "Yes. Older buildings downtown often have concealed ductwork. We install code-compliant, fire-rated access doors for bare-metal cleaning without damaging your historic structure." },
-  { q: "What causes exhaust fan motors to fail in summer?", a: "Ambient temperatures above 95 degrees combined with non-stop operation create extreme thermal stress on motor windings. Proactive inspection and belt replacement before summer prevents the most costly breakdowns." },
-];
+  { q: 'Can you quickly fix a broken exhaust fan near the Dickson I-40 exit?', a: 'Absolutely. Interstate-adjacent restaurants cannot afford downtime. We offer 24/7 emergency repair in Dickson. If a belt snaps or a motor burns out during the lunch rush, we dispatch immediately with the heavy-duty parts needed to restore your airflow.' },
+  { q: 'Why is my upblast exhaust fan leaking grease onto the roof?', a: 'High-volume frying quickly overwhelms standard factory grease catchers. Leaking grease is a massive fire hazard and will rapidly destroy your commercial roof. We install high-capacity rooftop grease containment systems to capture this runoff, protecting your property and keeping you compliant with Dickson Water Authority regulations.' },
+  { q: 'Can you bring my historic Dickson building\'s exhaust system up to code?', a: 'Yes. Older buildings downtown often have concealed ductwork. We install code-compliant, fire-rated access doors that allow our technicians to perform the bare-metal cleaning required by the Dickson Fire Department without damaging your historic structure.' },
+]
 
 const schema = {
   "@context": "https://schema.org",
@@ -22,7 +21,7 @@ const schema = {
       "areaServed": { "@type": "City", "name": "Dickson, TN" },
       "priceRange": "$$"
     },
-    { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Dickson, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Dickson commercial kitchens. I-40 corridor and Highway 46 specialists." },
+    { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Dickson, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Dickson commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
       { "@type": "ListItem", "position": 2, "name": "Hood Repair", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/repair/` },
@@ -34,8 +33,8 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Dickson Restaurant Hood Repair | DDAN"
-  description="24/7 emergency exhaust fan repair in Dickson. I-40 corridor specialists. Same-day motor and belt replacement. Call (615) 881-6968."
+  title="Dickson Restaurant Exhaust Fan Repair | DDAN"
+  description="24/7 emergency exhaust fan repair in Dickson. Same-day motor and belt replacement from local stock. All brands. Call (615) 881-6968."
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
@@ -44,7 +43,7 @@ const schema = {
     <div class="max-w-4xl mx-auto px-6 py-20 text-center">
       <p class="text-[#FF5E15] font-heading font-bold text-xs md:text-sm tracking-widest uppercase mb-4">DDAN HOOD CLEANING AND REPAIR</p>
       <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">Emergency Exhaust Fan Repair in <span class="text-[#FF5E15]">Dickson, TN</span></h1>
-      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">Fan down? We carry common motors and belts in local stock. Same-day repair across Dickson and Dickson County.</p>
+      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">From the bustling interstate franchises on Highway 46 to the classic eateries of historic downtown, DDAN Hood Cleaning and Repair keeps Dickson's kitchens firing safely. We provide elite, 24/7 commercial exhaust system care—including emergency fan motor repairs and strict NFPA 96 bare-metal cleaning—to handle the relentless volume of Dickson County's busiest restaurants.</p>
       <p class="text-white font-heading font-bold text-base md:text-lg mb-2">24/7 Emergency Dispatch — Same-Day Motor and Belt Replacement</p>
       <div class="w-20 h-1 bg-[#FF5E15] mx-auto mt-3 mb-8"></div>
       <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
@@ -90,17 +89,20 @@ const schema = {
   <!-- SECTION 2: CONSULT BAR + JUMP-NAV -->
   <section class="bg-[#111111] py-12 reveal">
     <div class="max-w-[1200px] mx-auto px-5">
+      <!-- Consult Bar -->
       <div class="bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 reveal-child">
         <p class="text-white font-heading font-semibold text-lg text-center md:text-left">Kitchen shut down? Our emergency team is on call right now.</p>
         <div class="text-center whitespace-nowrap">
           <p class="text-[#FF5E15] font-heading font-bold text-sm">SAME-DAY REPAIR</p>
-          <p class="text-[#FF5E15] font-heading font-bold text-xs">Same-day service for Dickson County</p>
+          <p class="text-[#FF5E15] font-heading font-bold text-xs">Average response under 2 hours</p>
         </div>
         <div class="text-center md:text-right">
           <a href={`tel:${business.phoneRaw}`} class="block text-white font-heading font-bold text-2xl hover:text-[#FF5E15] transition-colors">{business.phone}</a>
         </div>
       </div>
+      <!-- Category Heading -->
       <h2 class="font-heading text-white font-bold text-2xl text-center mt-8 mb-6 reveal-child">Expert Repairs — Fans First</h2>
+      <!-- Jump-Nav Cards -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         <a href="#fan-motors" class="bg-[#1A1A1A] border border-[#FF5E15]/40 hover:border-[#FF5E15] rounded-xl p-4 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
           <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>
@@ -158,7 +160,7 @@ const schema = {
         <div class="lg:w-[55%]">
           <span class="inline-block bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wide rounded-full px-4 py-1 reveal-child">DDAN DIFFERENCE</span>
           <h2 class="text-white font-heading font-bold text-2xl md:text-3xl mt-4 reveal-child">Dickson's Most Reliable Exhaust Fan Repair Team</h2>
-          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">When your fan dies during the summer travel rush on Highway 46, you need a team that arrives with parts — not a voicemail. We carry the components, know the rooftops, and fix it before your next shift.</p>
+          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">When your exhaust system fails during peak service in Dickson, you need a team that shows up — not an answering service. We carry the parts, know the rooftops, and fix it before your next shift.</p>
           <ul class="space-y-3 mt-6">
             <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
               <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -195,56 +197,95 @@ const schema = {
   <section id="fan-motors" class="bg-[#111111] py-16 px-5 reveal">
     <div class="max-w-[1200px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] font-bold text-2xl md:text-3xl text-center mb-4 reveal-child">Exhaust Fan Repairs for Dickson Restaurants</h2>
-      <div class="bg-[#FF5E15] text-white text-center text-sm md:text-base font-heading font-bold uppercase tracking-wide py-3 px-4 rounded-lg mb-10 reveal-child">DICKSON'S EXHAUST FAN REPAIR SERVICE — ALL BRANDS, ALL SIZES</div>
+      <div class="bg-[#FF5E15] text-white text-center text-sm md:text-base font-heading font-bold uppercase tracking-wide py-3 px-4 rounded-lg mb-10 reveal-child">DICKSON'S #1 EXHAUST FAN REPAIR SERVICE — ALL BRANDS, ALL SIZES</div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="belts">
+        <!-- Card 1: Fan Motor Replacement -->
         <a href="/exhaust-fan-belt-motor-repair/" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/hood-repair-hero.jpg" alt="Fan motor replacement Dickson TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/services/hood-repair-hero.jpg" alt="Fan motor replacement Dickson TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Learn More</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Belt & Motor Repair</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Motor Replacement</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Single-phase, 3-phase, and ECM motors matched to OEM specs. We stock common sizes for same-day replacement on Highway 46 franchises and downtown Dickson restaurants.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Single-phase, 3-phase, and ECM motors matched to OEM specs. We stock common sizes for same-day replacement on Broadway's 18-hour kitchens and high-volume Dickson restaurants.</p>
           </div>
         </a>
+        <!-- Card 2: Fan Belt Replacement -->
         <a href="/exhaust-fan-belt-motor-repair/" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/commercial-hood-repair-split.jpeg" alt="Fan belt replacement Dickson TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/services/commercial-hood-repair-split.jpeg" alt="Fan belt replacement Dickson TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Learn More</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Belt & Motor Repair</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Belt Replacement</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Worn, cracked, and snapped belts replaced on-site with proper tensioning. Continuous I-40 interstate traffic pushes fast-food fans past their intended duty cycles, shredding standard belts.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Worn, cracked, and snapped belts replaced on-site with proper tensioning. Hot chicken grease coats pulleys and accelerates belt wear — Dickson kitchens need more frequent belt service than most markets.</p>
           </div>
         </a>
+        <!-- Card 3: Fan Wheel and Blade Repair -->
         <div class="group bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/kitchen-exhaust-installation.jpg" alt="Fan wheel repair Dickson TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/services/kitchen-exhaust-installation.jpg" alt="Fan wheel and blade repair Dickson TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Call for Service</span>
+              <span class="text-white text-sm mt-1">{business.phone}</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Fan Wheel and Blade Repair</h3>
-            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Grease-caked impellers cleaned, rebalanced, or replaced. Relentless frying operations from interstate fast-food creates uneven grease deposits that throw blades off balance.</p>
+            <p class="text-[#D4D4D4] text-sm mt-2 font-body">Grease-caked impellers cleaned, rebalanced, or replaced. Uneven grease buildup from Dickson's high-volume fryers creates vibration that destroys bearings in weeks.</p>
           </div>
         </div>
+        <!-- Card 4: Bearing Replacement -->
         <div class="group bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/hood-cleaning-hero.jpg" alt="Bearing replacement Dickson TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/services/hood-cleaning-hero.jpg" alt="Bearing replacement Dickson TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Call for Service</span>
+              <span class="text-white text-sm mt-1">{business.phone}</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Bearing Replacement</h3>
             <p class="text-[#D4D4D4] text-sm mt-2 font-body">Shaft bearings, pillow blocks, and sealed units. If your fan is grinding or squealing, bearing failure is imminent — call before the motor seizes completely.</p>
           </div>
         </div>
+        <!-- Card 5: Complete Fan Replacement -->
         <a id="complete-fans" href="/parts-installation/dickson-tn/" class="group block bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/hero/rooftop-exhaust-fan.jpg" alt="Complete fan replacement Dickson TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/hero/rooftop-exhaust-fan.jpg" alt="Complete fan replacement Dickson TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Learn More</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Parts & Installation</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Complete Fan Replacement</h3>
             <p class="text-[#D4D4D4] text-sm mt-2 font-body">When repair costs exceed replacement value, we install new units sized and configured for your system. All major brands — CaptiveAire, Greenheck, Loren Cook, and more.</p>
           </div>
         </a>
+        <!-- Card 6: Speed Controller and VFD Repair -->
         <div class="group bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-xl hover:shadow-orange-500/10 reveal-child">
           <div class="relative aspect-video bg-[#0A0A0A] rounded-t-xl overflow-hidden">
-            <img src="/images/services/rooftop-hinge-kit.jpg" alt="Speed controller repair Dickson TN - DDAN" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <img src="/images/services/rooftop-hinge-kit.jpg" alt="Speed controller and VFD repair Dickson TN - DDAN Hood Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 flex flex-col items-center justify-end p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style="background: linear-gradient(to top, rgba(255,94,21,0.95) 0%, rgba(255,94,21,0.8) 40%, rgba(0,0,0,0.6) 100%);">
+              <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="text-white font-heading font-bold text-lg">Call for Service</span>
+              <span class="text-white text-sm mt-1">{business.phone}</span>
+              <span class="text-white/80 text-xs uppercase tracking-widest mt-2">Tap to Call</span>
+            </div>
           </div>
           <div class="p-5">
             <h3 class="text-[#FF5E15] font-heading font-semibold text-lg">Speed Controller and VFD Repair</h3>
@@ -327,23 +368,23 @@ const schema = {
           <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
             <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
           </div>
-          <h3 class="font-heading text-white text-xl font-bold mb-3">Highway Corridor Restaurants</h3>
-          <p class="text-[#D4D4D4] mb-4">Fast-food franchises on Highway 46, I-40 interchange restaurants, classic Southern diners, local eateries, and every commercial kitchen serving Dickson County interstate travelers and residents.</p>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Restaurants and Commercial Kitchens</h3>
+          <p class="text-[#D4D4D4] mb-4">Moderate, intensely concentrated along Highway 46 and I-40. Massive fast-food footprint catering to interstate travelers, traditional Southern comfort food, and high-volume corporate chains. Fryers operate relentlessly. Every exhaust fan fails eventually — we fix them all.</p>
           <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-semibold hover:underline">{business.phone} &rarr;</a>
         </div>
         <div class="bg-[#1A1A1A] border border-[#333] rounded-2xl p-8 reveal-child">
           <div class="w-14 h-14 bg-[#FF5E15]/10 rounded-xl flex items-center justify-center mb-5">
             <svg class="w-7 h-7 text-[#FF5E15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
           </div>
-          <h3 class="font-heading text-white text-xl font-bold mb-3">Institutional and Medical</h3>
-          <p class="text-[#D4D4D4] mb-4">TriStar Horizon Medical Center cafeteria, Dickson County schools, churches, industrial park cafeterias, and assisted living facilities. Multi-fan systems with coordinated repair schedules.</p>
+          <h3 class="font-heading text-white text-xl font-bold mb-3">Institutions and Facilities</h3>
+          <p class="text-[#D4D4D4] mb-4">TriStar Horizon Medical Center, dense industrial parks, continuous I-40 transit traffic.. Area schools, churches, hospitals, assisted living facilities, and corporate cafeterias. Multi-fan systems with coordinated repair schedules and strict compliance requirements.</p>
           <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] font-heading font-semibold hover:underline">{business.phone} &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 10: WHY + COMPLIANCE -->
+  <!-- SECTION 10: BOTTOM ROW 1 — DICKSON REPAIR + COMPLIANCE -->
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 reveal">
     <div class="max-w-[1280px] mx-auto px-5">
       <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8">
@@ -351,24 +392,24 @@ const schema = {
           <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Why Dickson Restaurants Need Dedicated Exhaust Fan Repair</h2>
           <div class="space-y-6">
             <div>
-              <h3 class="font-heading text-white text-lg font-semibold mb-2">I-40 and Highway 46: Non-Stop Traffic</h3>
-              <p class="text-[#D4D4D4]">Dickson's dining scene is heavily fueled by continuous I-40 interstate traffic. Kitchens along the Highway 46 corridor are running fryers and grills virtually non-stop, pushing exhaust fan motors past their intended duty cycles. This extreme volume shreds standard fan belts and causes motor overheating, especially during intense summer heat.</p>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Dickson: Motor Burnout From Heavy Use</h3>
+              <p class="text-[#D4D4D4]">The continuous interstate traffic pushes fast-food exhaust fans past their intended duty cycles, leading to frequent belt snapping and motor overheating. Downtown Dickson's older buildings often lack proper fire-rated access panels, complicating thorough NFPA 96 cleaning..</p>
             </div>
             <div>
-              <h3 class="font-heading text-white text-lg font-semibold mb-2">Summer Heat Motor Failures</h3>
-              <p class="text-[#D4D4D4]">Dickson sees noticeable emergency call spikes during late summer when overworked rooftop motors finally seize. Ambient temperatures above 95 degrees combined with constant operation create the perfect conditions for motor failure. Proactive belt and motor inspection before summer prevents the most costly breakdowns.</p>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Dickson: Grease That Destroys Components</h3>
+              <p class="text-[#D4D4D4]">This means kitchens along the Highway 46 corridor are running their fryers and grills virtually non-stop, producing massive amounts of vaporized grease and pushing exhaust fan motors to their breaking points. This extreme volume shreds standard fan belts and quickly overwhelms factory grease catchers.</p>
             </div>
             <div>
-              <h3 class="font-heading text-white text-lg font-semibold mb-2">Historic Downtown Challenges</h3>
-              <p class="text-[#D4D4D4]">Downtown Dickson's older buildings often lack proper fire-rated access panels, complicating thorough NFPA 96 cleaning and making fan service difficult. We install proper access panels during repairs so future maintenance is easier and your system stays fully inspectable.</p>
+              <h3 class="font-heading text-white text-lg font-semibold mb-2">Dickson: Seasonal Demand Spikes</h3>
+              <p class="text-[#D4D4D4]">Furthermore, the Dickson Fire Department strictly enforces NFPA 96 fire codes, requiring perfectly clean ductwork and functional upblast fan hinge kits. DDAN delivers the heavy-duty commercial parts and advanced grease containment needed to keep your kitchen compliant and your doors open..</p>
             </div>
           </div>
         </div>
         <div class="reveal-child">
           <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-8">Dickson Exhaust Repair Compliance</h2>
           <div class="space-y-5">
-            <p class="text-[#D4D4D4]">The <strong class="text-white">Dickson Fire Department</strong> strictly enforces NFPA 96, prioritizing the high-traffic Highway 46 corridor. A non-functional fan is a code violation that triggers immediate remediation orders. Inspectors check fan operation, functional <a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] hover:underline">hinge kits</a>, and documented service history.</p>
-            <p class="text-[#D4D4D4]"><strong class="text-white">Dickson Water Authority</strong> actively monitors local grease traps and interceptors. Rooftop grease runoff from failed containment systems triggers environmental penalties. Repairing fans and maintaining <a href="/grease-containment/" class="text-[#FF5E15] hover:underline">grease containment</a> are inseparable.</p>
+            <p class="text-[#D4D4D4]">The <strong class="text-white">Dickson Fire Department</strong> Strict. Inspectors prioritize the high-traffic Highway 46 corridor, ensuring rapid-turnover kitchens maintain safe, bare-metal exhaust systems.<a href="/exhaust-fan-hinge-kit-installation/" class="text-[#FF5E15] hover:underline">hinge kits</a>, access panels, and documented service history.</p>
+Dickson Water Authority actively monitors local grease traps and interceptors to protect the municipal infrastructure from heavy F.O.G. runoff.<a href="/grease-containment/" class="text-[#FF5E15] hover:underline">grease containment</a> are inseparable.</p>
             <p class="text-[#D4D4D4]">Read our complete guide to <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 compliance standards</a> to understand the full scope of what inspectors evaluate.</p>
           </div>
         </div>
@@ -376,23 +417,27 @@ const schema = {
     </div>
   </section>
 
-  <!-- SECTION 11: SERVICE AREA + FAQ -->
+  <!-- SECTION 11: BOTTOM ROW 2 — SERVICE AREA + FAQ -->
   <section class="bg-black py-12 md:py-16 lg:py-20 reveal">
     <div class="max-w-[1280px] mx-auto px-5">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div class="reveal-child">
           <h2 class="font-heading text-[#FF5E15] text-2xl md:text-4xl font-bold mb-5">Dickson Exhaust Fan Repair Service Area</h2>
-          <p class="text-[#D4D4D4] text-lg mb-6 max-w-2xl">We provide 24/7 exhaust fan repair across all of Dickson — the Highway 46 franchise corridor, historic downtown, I-40 interchange area, TriStar Horizon district, and every restaurant in between.</p>
+          <p class="text-[#D4D4D4] text-lg mb-6 max-w-2xl">Our certified crews provide comprehensive commercial hood services across all of Dickson. Whether you manage a high-speed corporate franchise off I-40, a historic cafe in downtown Dickson, or an institutional kitchen near TriStar Horizon, DDAN is fully equipped to deploy. We also seamlessly service nearby Fairview and Burns.</p>
           <div class="space-y-3 mb-6">
             <p class="text-[#D4D4D4] font-body text-base">
               <span class="text-[#FF5E15] font-semibold">Also in Dickson:</span>
+              <a href="/cleaning/dickson-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Hood Cleaning</a> &middot;
               <a href="/parts-installation/dickson-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Parts & Installation</a>
             </p>
             <p class="text-[#D4D4D4] font-body text-base">
               <span class="text-[#FF5E15] font-semibold">Also serving nearby:</span>
-              <a href="/repair/fairview-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fairview</a>,
-              <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Nashville</a>
+              <a href="/repair/fairview-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Fairview</a>, and
+              <a href="/repair/nashville-tn/" class="text-[#FF5E15] underline hover:text-white transition-all duration-300">Dickson</a>
             </p>
+          </div>
+          <div class="rounded-xl overflow-hidden" style="max-height:200px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206252.72681578025!2d-86.9081726!3d36.1744653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2sDickson%2C%20TN!5e0!3m2!1sen!2sus!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
         <div class="reveal-child">
