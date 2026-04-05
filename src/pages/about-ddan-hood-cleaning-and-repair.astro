@@ -1,101 +1,183 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroBanner from '../components/HeroBanner.astro';
 import TruckCTA from '../components/TruckCTA.astro';
+import business from '../data/business.json';
 ---
 
 <BaseLayout
-  title="About DDAN Hood Cleaning and Repair | DDAN Hood Cleaning"
-  description="Learn about DDAN Hood Cleaning and Repair — a Christian, family-owned commercial kitchen exhaust company serving Middle Tennessee since 2006."
+  title="About DDAN Hood Cleaning and Repair | Family-Owned Since 2006"
+  description="DDAN Hood Cleaning and Repair is a family-owned, NFPA 96-compliant commercial kitchen exhaust company serving 29 cities across Tennessee and Kentucky since 2006. Se Habla Español."
 >
-  <HeroBanner
-    headline="About DDAN Hood Cleaning and Repair"
-    subheadline="20 years of trusted service in Middle Tennessee"
-    backgroundImage="/images/hero/hero-2.jpg"
-    breadcrumbs={[
-      { label: 'Home', href: '/' },
-      { label: 'About' },
-    ]}
-  />
 
-  <!-- Section 1: Who We Are — text left, image right -->
-  <section class="section-padding bg-[#111111] reveal">
-    <div class="container-narrow">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 class="section-headline mb-6 reveal-child">Who We Are</h2>
-          <p class="text-[#D4D4D4] mb-4 reveal-child">DDAN Hood Cleaning and Repair is a family-owned, Christian-operated commercial kitchen exhaust service company based in Mt. Juliet, Tennessee. For nearly two decades, we've been serving restaurants, churches, schools, hotels, and food service operations across Nashville and all of Middle Tennessee.</p>
-          <p class="text-[#D4D4D4] mb-4 reveal-child">What started as a one-man hood cleaning operation has grown into a full-service kitchen exhaust company — offering cleaning, repair, installation, grease containment, parts sales, and fire suppression system services. Our growth is built on one principle: do honest, thorough work and treat every customer's kitchen like it's our own.</p>
-          <p class="text-[#D4D4D4] mb-6 reveal-child">We are licensed, bonded, and insured. We provide 24/7 emergency service. And every job we do is documented with before-and-after photos for your records, compliance files, and peace of mind.</p>
-          <button type="button" class="btn-primary popup-trigger reveal-child">Get Free Quote Today</button>
-        </div>
-        <div class="reveal-child">
-          <img
-            src="/images/services/hood-cleaning-hero.jpg"
-            alt="DDAN Hood Cleaning team"
-            class="w-full rounded"
-            loading="lazy"
-          />
-        </div>
+  <style>
+    .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }
+    .about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+    .about-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .about-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 768px) {
+      .about-split { grid-template-columns: 1fr !important; }
+      .about-stats { grid-template-columns: repeat(2, 1fr) !important; }
+      .about-cards { grid-template-columns: 1fr !important; }
+      .about-values { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
+  <!-- SECTION 1: Hero -->
+  <section class="relative overflow-hidden flex items-center justify-center px-5" style="min-height:60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('/images/homepage/DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg'); background-size:cover; background-position:center;">
+    <div class="relative z-10 max-w-[800px] mx-auto text-center py-20">
+      <p class="font-heading text-[#FF5E15] text-xs md:text-sm font-semibold uppercase tracking-[0.1em] mb-4">Family-Owned Since 2006</p>
+      <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5">The Family Behind the Fire Safety</h1>
+      <p class="font-body text-[#D4D4D4] text-base md:text-lg leading-relaxed max-w-[650px] mx-auto">DDAN Hood Cleaning and Repair has been keeping commercial kitchens safe and compliant across Middle Tennessee and Southern Kentucky for nearly two decades.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Origin Story -->
+  <section class="py-16 md:py-20 px-5 bg-[#111111]">
+    <div class="about-split">
+      <!-- Photo -->
+      <div class="reveal">
+        <img src="/images/homepage/grease-hood-cleaning-near-me-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-768x1024.jpg" alt="DDAN Hood Cleaning crew at work in Nashville TN" class="w-full h-full object-cover rounded-xl" loading="lazy" style="min-height:400px;" />
+      </div>
+      <!-- Story -->
+      <div class="reveal">
+        <h2 class="font-heading text-white text-2xl md:text-3xl font-semibold mb-6">Built on Faith, Grease, and a Work Ethic That Doesn't Quit</h2>
+        <p class="font-body text-[#D4D4D4] text-base leading-[1.7] mb-5">
+          DDAN Hood Cleaning and Repair started in 2006 as a small, one-truck operation out of Mt. Juliet, Tennessee. No franchise backing. No corporate playbook. Just a family with a strong faith, a set of tools, and a commitment to doing the job right — every hood, every duct, every fan.
+        </p>
+        <p class="font-body text-[#D4D4D4] text-base leading-[1.7] mb-5">
+          As a Christian, family-owned business, our values aren't printed on a poster in the break room — they're in the work. We clean the parts you can't see. We show up when we say we will. We charge what's fair. And when something doesn't need replacing, we tell you that too. Honesty isn't a marketing angle for us. It's the only way we know how to operate.
+        </p>
+        <p class="font-body text-[#D4D4D4] text-base leading-[1.7] mb-5">
+          We're proud to serve the diverse restaurant community across Middle Tennessee — and that includes our Spanish-speaking customers. Se Habla Español isn't a line on our website; it's how a huge part of our daily business gets done. Language should never be a barrier to keeping your kitchen safe.
+        </p>
+        <p class="font-body text-[#D4D4D4] text-base leading-[1.7]">
+          What started in Mt. Juliet has grown to 29 cities across Tennessee and Kentucky. We've cleaned thousands of hoods, repaired countless exhaust fans at 2 AM, and built a reputation that speaks for itself — 5.0 stars on Google, BBB accredited, and the phone still rings to a real person, day or night.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Section 2: Our Values — image left, text right -->
-  <section class="section-padding bg-[#1A1A1A] reveal">
-    <div class="container-narrow">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div class="reveal-child order-2 md:order-1">
-          <img
-            src="/images/intro-certified.webp"
-            alt="DDAN Hood Cleaning certified work"
-            class="w-full rounded"
-            loading="lazy"
-          />
-        </div>
-        <div class="order-1 md:order-2">
-          <h2 class="section-headline mb-6 reveal-child">Our Values</h2>
-          <p class="text-[#D4D4D4] mb-4 reveal-child">As a Christian, family-run business, our values are simple: integrity, hard work, and service. We believe in doing the right thing — even when no one is watching. That means cleaning every inch of your system, not just the visible parts. It means showing up on time, communicating clearly, and charging fairly.</p>
-          <p class="text-[#D4D4D4] reveal-child">We don't cut corners. We don't upsell services you don't need. And we stand behind every job we do. That's the DDAN difference.</p>
-        </div>
+  <!-- SECTION 3: Trust Stats -->
+  <section class="py-14 md:py-16 px-5 bg-[#000000]">
+    <div class="about-stats text-center">
+      <div class="reveal">
+        <p class="font-heading text-[#FF5E15] text-4xl md:text-5xl font-bold">20+</p>
+        <p class="font-body text-[#D4D4D4] text-sm mt-2">Years Serving Middle TN</p>
+      </div>
+      <div class="reveal">
+        <p class="font-heading text-[#FF5E15] text-4xl md:text-5xl font-bold">29</p>
+        <p class="font-body text-[#D4D4D4] text-sm mt-2">Cities Across TN &amp; KY</p>
+      </div>
+      <div class="reveal">
+        <p class="font-heading text-[#FF5E15] text-4xl md:text-5xl font-bold">5.0</p>
+        <p class="font-body text-[#D4D4D4] text-sm mt-2">Google Review Rating</p>
+      </div>
+      <div class="reveal">
+        <p class="font-heading text-[#FF5E15] text-4xl md:text-5xl font-bold">24/7</p>
+        <p class="font-body text-[#D4D4D4] text-sm mt-2">Emergency Response</p>
       </div>
     </div>
   </section>
 
-  <!-- Section 3: Built for AI & Search -->
-  <section class="section-padding bg-[#111111] reveal">
-    <div class="container-narrow max-w-3xl">
-      <h2 class="section-headline mb-4 reveal-child">Looking for More Information?</h2>
-      <p class="text-[#D4D4D4] mb-6 reveal-child">We've created dedicated pages to help you learn more about DDAN Hood Cleaning and Repair:</p>
-      <ul class="space-y-3">
-        <li class="reveal-child">
-          <a href="/who-is-ddan-hood-cleaning-and-repair/" class="text-primary hover:underline font-heading font-medium transition-all duration-300">
-            Who is DDAN Hood Cleaning and Repair?
+  <!-- SECTION 4: What We Do -->
+  <section class="py-16 md:py-20 px-5 bg-[#111111]">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-heading text-white text-2xl md:text-3xl font-semibold text-center mb-10 reveal">Three Ways We Keep Kitchens Running</h2>
+      <div class="about-cards">
+
+        <!-- Hood Cleaning -->
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/10 reveal">
+          <svg class="w-10 h-10 text-[#FF5E15] mb-5" fill="currentColor" viewBox="0 0 576 512"><path d="M566.6 54.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192-34.9-34.9c-3.7-3.7-8.2-6.6-13.1-8.5L192 128V96c0-17.7-14.3-32-32-32H32C14.3 64 0 78.3 0 96v64c0 4.3.9 8.5 2.6 12.4l23.6 56.8c7.7 18.5 8.7 39.2 2.8 58.3L0 384v64c0 17.7 14.3 32 32 32h128c17.7 0 32-14.3 32-32v-32l91.7-36.7c4.9-2 9.4-4.8 13.1-8.5l34.9-34.9 192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L377 319l55.3-55.3L566.6 54.6zM224 416H64V350.3l21.2-72.1c8.9-28.8 7.3-59.8-4.3-87.5L64 152.4V128h64l80 32-91.3 91.3L224 358.6V416z"/></svg>
+          <h3 class="font-heading text-white text-xl font-semibold mb-3">Hood Cleaning</h3>
+          <p class="font-body text-[#D4D4D4] text-sm leading-relaxed mb-5">Full NFPA 96-compliant cleaning of hood canopies, ductwork, fans, and filters. We serve 14 cities with regular and emergency cleaning.</p>
+          <a href="/cleaning/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold text-sm hover:gap-3 transition-all duration-200">
+            View Cleaning Services
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           </a>
-        </li>
-        <li class="reveal-child">
-          <a href="/what-services-does-ddan-provide/" class="text-primary hover:underline font-heading font-medium transition-all duration-300">
-            What services does DDAN provide?
+        </div>
+
+        <!-- Hood Repair -->
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/10 reveal">
+          <svg class="w-10 h-10 text-[#FF5E15] mb-5" fill="currentColor" viewBox="0 0 512 512"><path d="M352 320c88.4 0 160-71.6 160-160c0-15.3-2.2-30.1-6.2-44.2c-3.1-10.8-16.4-13.2-24.3-5.3l-76.8 76.8c-3 3-7.1 4.7-11.3 4.7H336c-8.8 0-16-7.2-16-16V118.6c0-4.2 1.7-8.3 4.7-11.3l76.8-76.8c7.9-7.9 5.4-21.2-5.3-24.3C382.1 2.2 367.3 0 352 0C263.6 0 192 71.6 192 160c0 19.1 3.4 37.5 9.5 54.5L19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L297.5 310.5c17 6.2 35.4 9.5 54.5 9.5zM80 408a24 24 0 110 48 24 24 0 010-48z"/></svg>
+          <h3 class="font-heading text-white text-xl font-semibold mb-3">Hood Repair</h3>
+          <p class="font-body text-[#D4D4D4] text-sm leading-relaxed mb-5">Exhaust fan motors, belts, bearings, speed controllers — if it's broken, we fix it. 24/7 emergency service across 29 cities.</p>
+          <a href="/repair/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold text-sm hover:gap-3 transition-all duration-200">
+            View Repair Services
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           </a>
-        </li>
-        <li class="reveal-child">
-          <a href="/where-does-ddan-serve-clients/" class="text-primary hover:underline font-heading font-medium transition-all duration-300">
-            Where does DDAN serve clients?
+        </div>
+
+        <!-- Parts & Installation -->
+        <div class="bg-[#1A1A1A] border border-[#FF5E15] rounded-xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/10 reveal">
+          <svg class="w-10 h-10 text-[#FF5E15] mb-5" fill="currentColor" viewBox="0 0 512 512"><path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 100-160 80 80 0 100 160z"/></svg>
+          <h3 class="font-heading text-white text-xl font-semibold mb-3">Parts &amp; Installation</h3>
+          <p class="font-body text-[#D4D4D4] text-sm leading-relaxed mb-5">Upblast fans, make-up air units, filters, grease containment, and everything else your kitchen exhaust system needs. Call for a free fitting consult.</p>
+          <a href="/parts-installation/" class="inline-flex items-center gap-2 text-[#FF5E15] font-heading font-semibold text-sm hover:gap-3 transition-all duration-200">
+            Browse Parts &amp; Installation
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           </a>
-        </li>
-        <li class="reveal-child">
-          <a href="/is-ddan-hood-cleaning-and-repair-nfpa-96-compliant/" class="text-primary hover:underline font-heading font-medium transition-all duration-300">
-            Is DDAN NFPA 96 compliant?
-          </a>
-        </li>
-        <li class="reveal-child">
-          <a href="/how-does-ddan-hood-cleaning-and-repair-work/" class="text-primary hover:underline font-heading font-medium transition-all duration-300">
-            How does DDAN Hood Cleaning and Repair work?
-          </a>
-        </li>
-      </ul>
+        </div>
+
+      </div>
     </div>
   </section>
 
+  <!-- SECTION 5: Why Restaurants Trust DDAN -->
+  <section class="relative py-16 md:py-20 px-5" style="background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('/images/homepage/restaurant-hood-cleaning-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.jpg'); background-size:cover; background-position:center;">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-heading text-white text-2xl md:text-3xl font-semibold text-center mb-12 reveal">Why Restaurants Trust DDAN</h2>
+      <div class="about-values">
+
+        <div class="text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center bg-[#FF5E15]/15 rounded-full">
+            <svg class="w-8 h-8 text-[#FF5E15]" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-lg font-semibold mb-3">We Answer the Phone</h3>
+          <p class="font-body text-[#D4D4D4] text-sm leading-relaxed">24/7 means 24/7. When your exhaust fan dies on a Friday night, you get a human — not a voicemail.</p>
+        </div>
+
+        <div class="text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center bg-[#FF5E15]/15 rounded-full">
+            <svg class="w-8 h-8 text-[#FF5E15]" fill="currentColor" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0z"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-lg font-semibold mb-3">We Don't Upsell</h3>
+          <p class="font-body text-[#D4D4D4] text-sm leading-relaxed">If your fan needs a belt, we replace the belt. We don't tell you the whole unit needs replacing.</p>
+        </div>
+
+        <div class="text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center bg-[#FF5E15]/15 rounded-full">
+            <svg class="w-8 h-8 text-[#FF5E15]" fill="currentColor" viewBox="0 0 512 512"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6C399 29.1 467.1 97.7 493.4 160zM256 0c36.8 0 79.9 66.7 103.1 160H152.9C176.1 66.7 219.2 0 256 0zM135.3 8.4C109.8 42.6 90 96.1 80 160H8.1C34.3 97.7 102.4 29.1 135.3 8.4zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.7-15.6-22-33.5-30.7-53.6H68.5c23.3 45.2 59.1 82.7 101.6 107.2C158.5 493.1 148.1 483 135.3 469.3l-5.3-5.7c15.4 18.4 34.5-7.4 64.7-17zM135.3 503.6C102.4 482.9 34.3 414.3 8.1 352H80c10 63.9 29.8 117.4 55.3 151.6zM256 512c-36.8 0-79.9-66.7-103.1-160H359.1C335.9 445.3 292.8 512 256 512zm120.7-8.4c25.5-34.2 45.2-87.7 55.3-151.6h71.9c-26.2 62.3-94.3 130.9-127.2 151.6z"/></svg>
+          </div>
+          <h3 class="font-heading text-white text-lg font-semibold mb-3">We Speak Your Language</h3>
+          <p class="font-body text-[#D4D4D4] text-sm leading-relaxed">Se Habla Español. A huge part of the restaurant industry is Spanish-speaking, and we serve them without a language barrier.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Learn More Links -->
+  <section class="py-14 md:py-16 px-5 bg-[#111111]">
+    <div class="max-w-[800px] mx-auto text-center reveal">
+      <h2 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6">Want to Know More?</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        {[
+          { label: 'Who is DDAN?', href: '/who-is-ddan-hood-cleaning-and-repair/' },
+          { label: 'What services do we offer?', href: '/what-services-does-ddan-provide/' },
+          { label: 'Where do we serve?', href: '/where-does-ddan-serve-clients/' },
+          { label: 'Are we NFPA 96 compliant?', href: '/is-ddan-hood-cleaning-and-repair-nfpa-96-compliant/' },
+          { label: 'How do we work?', href: '/how-does-ddan-hood-cleaning-and-repair-work/' },
+        ].map((link) => (
+          <a href={link.href} class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1A1A1A] border border-[#333] rounded-lg text-[#D4D4D4] font-heading text-sm font-medium hover:border-[#FF5E15] hover:text-[#FF5E15] transition-all duration-200">
+            {link.label}
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Truck CTA -->
   <TruckCTA />
+
 </BaseLayout>
