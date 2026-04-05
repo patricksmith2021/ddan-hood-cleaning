@@ -152,35 +152,168 @@ const serviceAreaCategories = [
 
 </header>
 
-<!-- Mobile Header -->
-<div class="md:hidden sticky top-0 z-50 bg-[#1A1A1A] h-14 flex items-center justify-between px-4">
+<!-- Mobile Header Bar -->
+<div class="md:hidden sticky top-0 z-[1000] bg-[#1A1A1A] flex items-center justify-between px-4" style="height:60px;">
   <a href="/" class="flex-shrink-0">
-    <img src="/images/logos/DDAN Hood Cleaning and Repair Logo PNG.png" alt={business.name} class="h-8 w-auto object-contain" />
+    <img src="/images/logos/DDAN Hood Cleaning and Repair Logo PNG.png" alt={business.name} class="h-9 w-auto object-contain" />
   </a>
-  <div class="flex items-center gap-3">
-    <a href={`tel:${business.phoneRaw}`} class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full">
-      <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+  <div class="flex items-center gap-2.5">
+    <a href={`tel:${business.phoneRaw}`} class="flex items-center gap-1.5 bg-[#FF5E15] text-white font-heading font-bold text-xs px-3 py-2 rounded-lg">
+      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+      {business.phone}
     </a>
-    <button type="button" id="mobile-menu-btn" aria-label="Open menu" class="w-10 h-10 flex flex-col items-center justify-center gap-1.5">
-      <span class="block w-6 h-0.5 bg-white"></span>
-      <span class="block w-6 h-0.5 bg-white"></span>
-      <span class="block w-6 h-0.5 bg-white"></span>
+    <button type="button" id="mobile-menu-btn" aria-label="Open menu" class="w-11 h-11 flex flex-col items-center justify-center gap-1.5">
+      <span class="block w-6 h-0.5 bg-white rounded"></span>
+      <span class="block w-6 h-0.5 bg-white rounded"></span>
+      <span class="block w-6 h-0.5 bg-white rounded"></span>
     </button>
   </div>
 </div>
 
-<!-- Mobile Menu Overlay -->
-<div id="mobile-menu-overlay" class="fixed inset-0 bg-[#1A1A1A]/95 z-[999] hidden flex-col items-center justify-center">
-  <button type="button" id="mobile-menu-close" aria-label="Close menu" class="absolute top-4 right-4 text-[#FF5E15] text-3xl font-bold">&times;</button>
-  <nav class="flex flex-col items-center gap-0 w-full px-8 max-h-[80vh] overflow-y-auto">
-    {navLinks.map((link) => (
-      <a href={link.href} class="mobile-nav-link block w-full text-center text-white text-lg font-heading font-medium py-3 border-b border-[#333]">{link.label}</a>
-    ))}
-    <a href="/cleaning/" class="mobile-nav-link block w-full text-center text-[#FF5E15] text-lg font-heading font-bold py-3 border-b border-[#333]">Cleaning Areas</a>
-    <a href="/repair/" class="mobile-nav-link block w-full text-center text-[#FF5E15] text-lg font-heading font-bold py-3 border-b border-[#333]">Repair Areas</a>
-    <a href="/parts-installation/" class="mobile-nav-link block w-full text-center text-[#FF5E15] text-lg font-heading font-bold py-3 border-b border-[#333]">Parts Areas</a>
-    <button type="button" class="popup-trigger mt-6 w-full py-3 bg-[#FF5E15] text-white text-lg font-heading font-bold rounded">Request Service Online</button>
-  </nav>
+<!-- Mobile Full-Screen Menu -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-[#111111] z-[1001] flex-col" style="display:none; transform:translateX(100%); transition:transform 300ms ease;">
+
+  <!-- Menu Header -->
+  <div class="flex items-center justify-between px-5 border-b border-white/10" style="height:60px;">
+    <a href="/" class="mobile-nav-link flex-shrink-0">
+      <img src="/images/logos/DDAN Hood Cleaning and Repair Logo PNG.png" alt={business.name} class="h-8 w-auto object-contain" />
+    </a>
+    <button type="button" id="mobile-menu-close" aria-label="Close menu" class="w-11 h-11 flex items-center justify-center text-white text-2xl">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Scrollable Menu Content -->
+  <div class="flex-1 overflow-y-auto px-5 pb-8">
+
+    <!-- Call CTA -->
+    <a href={`tel:${business.phoneRaw}`} class="mobile-nav-link flex items-center justify-center gap-2 w-full mt-5 mb-4 py-3.5 bg-[#FF5E15] text-white font-heading font-bold text-base rounded-lg">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+      Call Now: {business.phone}
+    </a>
+
+    <!-- Main Navigation -->
+    <p class="text-[#FF5E15] font-heading font-bold text-xs uppercase tracking-widest mt-4 mb-2 px-1">Navigation</p>
+    <a href="/" class="mobile-nav-link mobile-menu-item">Home</a>
+    <a href="/about-ddan-hood-cleaning-and-repair/" class="mobile-nav-link mobile-menu-item">About</a>
+    <a href="/nfpa-code-96-standards/" class="mobile-nav-link mobile-menu-item">NFPA Standards</a>
+    <a href="/contact/" class="mobile-nav-link mobile-menu-item">Contact</a>
+
+    <!-- Services -->
+    <p class="text-[#FF5E15] font-heading font-bold text-xs uppercase tracking-widest mt-6 mb-2 px-1">Our Services</p>
+    <a href="/cleaning/" class="mobile-nav-link mobile-menu-item">Hood Cleaning</a>
+    <a href="/repair/" class="mobile-nav-link mobile-menu-item">Hood Repair</a>
+    <a href="/parts-installation/" class="mobile-nav-link mobile-menu-item">Parts &amp; Installation</a>
+    <a href="/grease-containment/" class="mobile-nav-link mobile-menu-item">Grease Containment</a>
+    <a href="/exhaust-fan-hinge-kit-installation/" class="mobile-nav-link mobile-menu-item">Hinge Kit Installation</a>
+    <a href="/exhaust-fan-belt-motor-repair/" class="mobile-nav-link mobile-menu-item">Belt &amp; Motor Repair</a>
+    <a href="/access-panel-installation/" class="mobile-nav-link mobile-menu-item">Access Panels</a>
+    <a href="/restaurant-fire-suppression-systems/" class="mobile-nav-link mobile-menu-item">Fire Suppression</a>
+
+    <!-- Service Areas with Accordions -->
+    <p class="text-[#FF5E15] font-heading font-bold text-xs uppercase tracking-widest mt-6 mb-2 px-1">Service Areas</p>
+
+    <!-- Cleaning Accordion -->
+    <button type="button" class="mobile-accordion-btn mobile-menu-item w-full flex items-center justify-between" data-accordion="cleaning">
+      <span>Cleaning Areas <span class="text-[#999] text-sm">(14 cities)</span></span>
+      <svg class="w-4 h-4 text-[#FF5E15] transition-transform duration-200 accordion-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <div class="mobile-accordion-panel" data-panel="cleaning" style="display:none; overflow:hidden;">
+      {cleaningCities.map((c) => (
+        <a href={c.href} class="mobile-nav-link block text-[#D4D4D4] font-body text-sm py-2.5 pl-8 pr-4 border-b border-white/5 hover:text-[#FF5E15] hover:bg-[#FF5E15]/5 transition-all duration-200">{c.label}</a>
+      ))}
+    </div>
+
+    <!-- Repair Accordion -->
+    <button type="button" class="mobile-accordion-btn mobile-menu-item w-full flex items-center justify-between" data-accordion="repair">
+      <span>Repair Areas <span class="text-[#999] text-sm">(29 cities)</span></span>
+      <svg class="w-4 h-4 text-[#FF5E15] transition-transform duration-200 accordion-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <div class="mobile-accordion-panel" data-panel="repair" style="display:none; overflow:hidden;">
+      {[
+        { label: 'Nashville', href: '/repair/nashville-tn/' },
+        { label: 'Murfreesboro', href: '/repair/murfreesboro-tn/' },
+        { label: 'Clarksville', href: '/repair/clarksville-tn/' },
+        { label: 'Franklin', href: '/repair/franklin-tn/' },
+        { label: 'Hendersonville', href: '/repair/hendersonville-tn/' },
+        { label: 'Mt. Juliet', href: '/repair/mount-juliet-tn/' },
+        { label: 'Antioch', href: '/repair/antioch-tn/' },
+        { label: 'Smyrna', href: '/repair/smyrna-tn/' },
+        { label: 'Gallatin', href: '/repair/gallatin-tn/' },
+        { label: 'Lebanon', href: '/repair/lebanon-tn/' },
+        { label: 'Brentwood', href: '/repair/brentwood-tn/' },
+        { label: 'Spring Hill', href: '/repair/spring-hill-tn/' },
+        { label: 'Goodlettsville', href: '/repair/goodlettsville-tn/' },
+        { label: 'Hermitage', href: '/repair/hermitage-tn/' },
+        { label: 'Madison', href: '/repair/madison-tn/' },
+        { label: 'La Vergne', href: '/repair/la-vergne-tn/' },
+        { label: 'Columbia', href: '/repair/columbia-tn/' },
+        { label: 'Dickson', href: '/repair/dickson-tn/' },
+        { label: 'Shelbyville', href: '/repair/shelbyville-tn/' },
+        { label: 'Springfield', href: '/repair/springfield-tn/' },
+        { label: 'Nolensville', href: '/repair/nolensville-tn/' },
+        { label: 'Portland', href: '/repair/portland-tn/' },
+        { label: 'White House', href: '/repair/white-house-tn/' },
+        { label: 'Lewisburg', href: '/repair/lewisburg-tn/' },
+        { label: 'Hartsville', href: '/repair/hartsville-tn/' },
+        { label: 'Fairview', href: '/repair/fairview-tn/' },
+        { label: 'Thompsons Station', href: '/repair/thompsons-station-tn/' },
+        { label: 'Bowling Green, KY', href: '/repair/bowling-green-ky/' },
+        { label: 'Fort Campbell, KY', href: '/repair/fort-campbell-ky/' },
+      ].map((c) => (
+        <a href={c.href} class="mobile-nav-link block text-[#D4D4D4] font-body text-sm py-2.5 pl-8 pr-4 border-b border-white/5 hover:text-[#FF5E15] hover:bg-[#FF5E15]/5 transition-all duration-200">{c.label}</a>
+      ))}
+    </div>
+
+    <!-- Parts Accordion -->
+    <button type="button" class="mobile-accordion-btn mobile-menu-item w-full flex items-center justify-between" data-accordion="parts">
+      <span>Parts &amp; Install <span class="text-[#999] text-sm">(29 cities)</span></span>
+      <svg class="w-4 h-4 text-[#FF5E15] transition-transform duration-200 accordion-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <div class="mobile-accordion-panel" data-panel="parts" style="display:none; overflow:hidden;">
+      {[
+        { label: 'Nashville', href: '/parts-installation/nashville-tn/' },
+        { label: 'Murfreesboro', href: '/parts-installation/murfreesboro-tn/' },
+        { label: 'Clarksville', href: '/parts-installation/clarksville-tn/' },
+        { label: 'Franklin', href: '/parts-installation/franklin-tn/' },
+        { label: 'Hendersonville', href: '/parts-installation/hendersonville-tn/' },
+        { label: 'Mt. Juliet', href: '/parts-installation/mount-juliet-tn/' },
+        { label: 'Antioch', href: '/parts-installation/antioch-tn/' },
+        { label: 'Smyrna', href: '/parts-installation/smyrna-tn/' },
+        { label: 'Gallatin', href: '/parts-installation/gallatin-tn/' },
+        { label: 'Lebanon', href: '/parts-installation/lebanon-tn/' },
+        { label: 'Brentwood', href: '/parts-installation/brentwood-tn/' },
+        { label: 'Spring Hill', href: '/parts-installation/spring-hill-tn/' },
+        { label: 'Goodlettsville', href: '/parts-installation/goodlettsville-tn/' },
+        { label: 'Hermitage', href: '/parts-installation/hermitage-tn/' },
+        { label: 'Madison', href: '/parts-installation/madison-tn/' },
+        { label: 'La Vergne', href: '/parts-installation/la-vergne-tn/' },
+        { label: 'Columbia', href: '/parts-installation/columbia-tn/' },
+        { label: 'Dickson', href: '/parts-installation/dickson-tn/' },
+        { label: 'Shelbyville', href: '/parts-installation/shelbyville-tn/' },
+        { label: 'Springfield', href: '/parts-installation/springfield-tn/' },
+        { label: 'Nolensville', href: '/parts-installation/nolensville-tn/' },
+        { label: 'Portland', href: '/parts-installation/portland-tn/' },
+        { label: 'White House', href: '/parts-installation/white-house-tn/' },
+        { label: 'Lewisburg', href: '/parts-installation/lewisburg-tn/' },
+        { label: 'Hartsville', href: '/parts-installation/hartsville-tn/' },
+        { label: 'Fairview', href: '/parts-installation/fairview-tn/' },
+        { label: 'Thompsons Station', href: '/parts-installation/thompsons-station-tn/' },
+        { label: 'Bowling Green, KY', href: '/parts-installation/bowling-green-ky/' },
+        { label: 'Fort Campbell, KY', href: '/parts-installation/fort-campbell-ky/' },
+      ].map((c) => (
+        <a href={c.href} class="mobile-nav-link block text-[#D4D4D4] font-body text-sm py-2.5 pl-8 pr-4 border-b border-white/5 hover:text-[#FF5E15] hover:bg-[#FF5E15]/5 transition-all duration-200">{c.label}</a>
+      ))}
+    </div>
+
+    <!-- Request Service CTA -->
+    <button type="button" class="popup-trigger mobile-nav-link w-full mt-6 py-3.5 bg-[#FF5E15] text-white font-heading font-bold text-base rounded-lg">
+      Request Service Online
+    </button>
+
+    <!-- Trust Footer -->
+    <p class="text-[#999] text-xs text-center mt-5">Se Habla Espa&ntilde;ol &bull; Licensed &amp; Insured &bull; 24/7 Emergency</p>
+  </div>
 </div>
 
 <style>
@@ -189,21 +322,19 @@ const serviceAreaCategories = [
     visibility: visible;
   }
 
+  /* Desktop sticky nav */
   [data-nav-bar] {
     transition: height 300ms ease, box-shadow 300ms ease;
   }
-
   [data-nav-logo],
   [data-nav-cta] {
     transition: opacity 200ms ease, max-width 200ms ease, max-height 200ms ease;
     overflow: hidden;
   }
-
   [data-nav-bar].nav-shrunk {
     height: 48px !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
-
   [data-nav-bar].nav-shrunk [data-nav-logo],
   [data-nav-bar].nav-shrunk [data-nav-cta] {
     opacity: 0;
@@ -211,21 +342,93 @@ const serviceAreaCategories = [
     max-height: 0;
     pointer-events: none;
   }
+
+  /* Mobile menu items */
+  .mobile-menu-item {
+    display: block;
+    text-align: left;
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.0625rem;
+    padding: 0.875rem 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: all 200ms ease;
+  }
+  .mobile-menu-item:active {
+    background: rgba(255,94,21,0.1);
+    border-left: 3px solid #FF5E15;
+    padding-left: calc(0.75rem - 3px);
+  }
+
+  /* Mobile menu visible state */
+  #mobile-menu-overlay.menu-open {
+    display: flex !important;
+    transform: translateX(0) !important;
+  }
 </style>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu
+    // Mobile menu — slide in/out
     var menuBtn = document.getElementById('mobile-menu-btn');
     var menuOverlay = document.getElementById('mobile-menu-overlay');
     var menuClose = document.getElementById('mobile-menu-close');
-    if (menuBtn && menuOverlay) {
-      menuBtn.addEventListener('click', function() { menuOverlay.classList.remove('hidden'); menuOverlay.classList.add('flex'); document.body.style.overflow = 'hidden'; });
-      if (menuClose) menuClose.addEventListener('click', function() { menuOverlay.classList.add('hidden'); menuOverlay.classList.remove('flex'); document.body.style.overflow = ''; });
+
+    function openMenu() {
+      if (!menuOverlay) return;
+      menuOverlay.style.display = 'flex';
+      requestAnimationFrame(function() {
+        menuOverlay.classList.add('menu-open');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      if (!menuOverlay) return;
+      menuOverlay.classList.remove('menu-open');
+      document.body.style.overflow = '';
+      setTimeout(function() {
+        if (!menuOverlay.classList.contains('menu-open')) {
+          menuOverlay.style.display = 'none';
+        }
+      }, 300);
+    }
+
+    if (menuBtn) menuBtn.addEventListener('click', openMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
+
+    // Close on nav link tap
+    if (menuOverlay) {
       menuOverlay.querySelectorAll('.mobile-nav-link').forEach(function(link) {
-        link.addEventListener('click', function() { menuOverlay.classList.add('hidden'); menuOverlay.classList.remove('flex'); document.body.style.overflow = ''; });
+        link.addEventListener('click', closeMenu);
       });
     }
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && menuOverlay && menuOverlay.classList.contains('menu-open')) closeMenu();
+    });
+
+    // Accordion — only one open at a time
+    document.querySelectorAll('.mobile-accordion-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var target = btn.getAttribute('data-accordion');
+        var panel = document.querySelector('[data-panel="' + target + '"]');
+        var arrow = btn.querySelector('.accordion-arrow');
+        var isOpen = panel.style.display !== 'none';
+
+        // Close all panels first
+        document.querySelectorAll('.mobile-accordion-panel').forEach(function(p) { p.style.display = 'none'; });
+        document.querySelectorAll('.accordion-arrow').forEach(function(a) { a.style.transform = ''; });
+
+        // Toggle clicked panel
+        if (!isOpen) {
+          panel.style.display = 'block';
+          if (arrow) arrow.style.transform = 'rotate(90deg)';
+        }
+      });
+    });
 
     // Sticky header with shrinking nav (desktop only)
     var header = document.querySelector('[data-site-header]');
