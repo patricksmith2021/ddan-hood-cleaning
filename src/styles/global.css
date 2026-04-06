@@ -281,10 +281,35 @@
 .truck-drive-in {
   transform: translateX(100%);
   transition: transform 0.9s ease-out;
+  will-change: transform;
 }
 
 .truck-drive-in.driven-in {
   transform: translateX(0);
+}
+
+/* Mobile: ensure the truck is fully visible after it drives in.
+   On narrow viewports the image was getting clipped by tight parent
+   containers / flex justify-end. Force it to a sensible size, center
+   it, and let it sit flush with the section padding. */
+@media (max-width: 1023px) {
+  img.truck-drive-in,
+  .truck-drive-in > img {
+    display: block;
+    width: 88vw;
+    max-width: 460px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  img.truck-drive-in,
+  .truck-drive-in > img {
+    width: 92vw;
+    max-width: 360px;
+  }
 }
 
 /* === Before/After Slider === */
