@@ -118,7 +118,10 @@ const resolvedOgImage = ogImage || defaultOgImage;
             }
           });
         },
-        { threshold: 0.2 }
+        // rootMargin extends detection 2000px to the right so the observer
+        // still fires when the truck is initially translated off-screen right
+        // (translateX(100%)) on narrow viewports.
+        { threshold: 0, rootMargin: '0px 2000px 0px 0px' }
       );
       document.querySelectorAll('.truck-drive-in').forEach((el) => truckObserver.observe(el));
     });
