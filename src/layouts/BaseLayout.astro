@@ -14,7 +14,6 @@ interface Props {
 
 const { title, description, ogImage, noindex = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const isStaging = Astro.site?.hostname?.includes('pages.dev');
 const defaultOgImage = new URL('/images/homepage/ddan-og-image.webp', Astro.site).href;
 const resolvedOgImage = ogImage || defaultOgImage;
 ---
@@ -29,7 +28,7 @@ const resolvedOgImage = ogImage || defaultOgImage;
   <link rel="canonical" href={canonicalURL} />
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Information" />
 
-  {(noindex || isStaging) && <meta name="robots" content="noindex, nofollow" />}
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
 
   <!-- Open Graph -->
   <meta property="og:locale" content="en_US" />
