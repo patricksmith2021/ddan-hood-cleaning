@@ -52,7 +52,7 @@ const pages: string[] = [
   '/cleaning/madison-tn/',
   '/cleaning/la-vergne-tn/',
 
-  // Repair city pages (29)
+  // Repair city pages (27)
   '/repair/nashville-tn/',
   '/repair/murfreesboro-tn/',
   '/repair/antioch-tn/',
@@ -69,7 +69,6 @@ const pages: string[] = [
   '/repair/la-vergne-tn/',
   '/repair/clarksville-tn/',
   '/repair/franklin-tn/',
-  '/repair/bowling-green-ky/',
   '/repair/columbia-tn/',
   '/repair/shelbyville-tn/',
   '/repair/springfield-tn/',
@@ -77,13 +76,12 @@ const pages: string[] = [
   '/repair/nolensville-tn/',
   '/repair/portland-tn/',
   '/repair/white-house-tn/',
-  '/repair/fort-campbell-ky/',
   '/repair/lewisburg-tn/',
   '/repair/hartsville-tn/',
   '/repair/fairview-tn/',
   '/repair/thompsons-station-tn/',
 
-  // Parts-Installation city pages (29)
+  // Parts-Installation city pages (27)
   '/parts-installation/nashville-tn/',
   '/parts-installation/murfreesboro-tn/',
   '/parts-installation/antioch-tn/',
@@ -100,7 +98,6 @@ const pages: string[] = [
   '/parts-installation/la-vergne-tn/',
   '/parts-installation/clarksville-tn/',
   '/parts-installation/franklin-tn/',
-  '/parts-installation/bowling-green-ky/',
   '/parts-installation/columbia-tn/',
   '/parts-installation/shelbyville-tn/',
   '/parts-installation/springfield-tn/',
@@ -108,7 +105,6 @@ const pages: string[] = [
   '/parts-installation/nolensville-tn/',
   '/parts-installation/portland-tn/',
   '/parts-installation/white-house-tn/',
-  '/parts-installation/fort-campbell-ky/',
   '/parts-installation/lewisburg-tn/',
   '/parts-installation/hartsville-tn/',
   '/parts-installation/fairview-tn/',

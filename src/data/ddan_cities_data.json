@@ -217,50 +217,6 @@
       "proofPoint": "A high-end steakhouse in Cool Springs was facing a severe penalty from their property manager due to an older upblast fan leaking grease onto the building's new white TPO roof. DDAN responded immediately, deep-cleaned the fan, installed an advanced multi-tier grease containment system, and provided a full photo report, saving the restaurant from a costly lease violation."
     }
   },
-  "bowling-green": {
-    "name": "Bowling Green",
-    "state": "KY",
-    "slug": "bowling-green-ky",
-    "metro": "bowling-green",
-    "tier": 1,
-    "commercialInfrastructure": {
-      "restaurantDensity": "Moderate to High, heavily clustered.",
-      "buildingDensity": "Major commercial strip corridors, massive industrial manufacturing plants, and sprawling university dining infrastructure.",
-      "dominantCommercialRoofs": "Standard EPDM and metal roofs on commercial strips, heavy industrial roofs on manufacturing commissaries.",
-      "highVolumeInstitutions": "Western Kentucky University (WKU), General Motors Corvette Assembly Plant, large medical centers.",
-      "cuisineImpact": "Heavy reliance on steakhouses, BBQ, and high-volume institutional cafeterias. High grease output and extreme fan motor wear."
-    },
-    "complianceAndAHJ": {
-      "fireMarshal": "Bowling Green Fire Department & Kentucky State Fire Marshal",
-      "enforcementLevel": "Rigorous, particularly concerning large institutional kitchens (WKU) and industrial cafeterias where life safety codes are heavily monitored.",
-      "fogProgram": "Bowling Green Municipal Utilities (BGMU) monitors grease interceptors and wastewater heavily, indirectly enforcing better rooftop containment."
-    },
-    "industrySpecific": {
-      "commonProblems": "Industrial commissaries and college dining halls run exhaust systems at maximum capacity for 16+ hours a day, causing fan belts to dry rot, stretch, and snap frequently. Severe grease volume from local BBQ and steakhouse concepts overwhelms cheap, factory-installed grease boxes.",
-      "seasonalDemand": "Major service spikes just before the WKU fall semester begins, and during planned shutdown maintenance windows at local manufacturing plants.",
-      "competitors": ["FASCO", "Local Kentucky regional cleaners"]
-    },
-    "contentSnippets": {
-      "heroParagraph": "Serving the high-volume kitchens of Western Kentucky, DDAN Hood Cleaning and Repair brings elite NFPA 96 exhaust services to Bowling Green. From the massive dining halls at WKU to the bustling steakhouses on Scottsville Road, we provide the 24/7 emergency repairs and bare-metal cleaning required to keep your operations running safely and smoothly.",
-      "whyThisCityNeeds": "Bowling Green's unique mix of massive university infrastructure, industrial plant commissaries, and busy retail corridors means local exhaust fans are pushed to their limits. Kitchens running 16+ hours a day chew through fan belts and burn out motors rapidly. Furthermore, the Bowling Green Fire Department and Kentucky State Fire Marshal strictly enforce NFPA 96 codes, meaning heavy-grease concepts like BBQ joints and steakhouses must maintain flawless rooftop grease containment and clean ductwork to avoid operational shutdowns.",
-      "serviceAreaParagraph": "Our certified technicians service the entirety of Bowling Green and Warren County. Whether you operate a fast-casual franchise near the Greenwood Mall, a historic cafe near Fountain Square, or an institutional kitchen off I-65, DDAN is your 24-hour solution. We also serve nearby Franklin, KY and Scottsville.",
-      "citySpecificFAQs": [
-        {
-          "question": "Do you service large institutional kitchens at WKU or local factories?",
-          "answer": "Yes. We specialize in high-capacity commercial and industrial kitchen exhaust systems. We can coordinate with your facilities managers for after-hours or shutdown-window cleaning to minimize disruption to your massive operations."
-        },
-        {
-          "question": "How quickly can you replace a snapped fan belt in Bowling Green?",
-          "answer": "Because we offer 24/7 emergency service, we can dispatch a technician to Bowling Green immediately. We carry a massive inventory of heavy-duty commercial fan belts and motors to get your exhaust system pulling air again without missing a shift."
-        },
-        {
-          "question": "What is required to pass a Bowling Green Fire Department hood inspection?",
-          "answer": "Inspectors look for the system to be cleaned to bare metal (no grease accumulation), functioning fire suppression links, properly installed hinge kits on the roof fans, and visible, up-to-date certification tags proving NFPA 96 compliance."
-        }
-      ],
-      "proofPoint": "Right before the fall semester rush, a massive university dining facility in Bowling Green suffered a total exhaust fan motor failure, filling the kitchen with smoke. DDAN dispatched an emergency crew, replaced the heavy-duty 3-phase motor, and calibrated the fan belts on the spot, allowing the cafeteria to open safely for the incoming student body."
-    }
-  },
   "hendersonville": {
     "name": "Hendersonville",
     "state": "TN",
@@ -1051,50 +1007,6 @@
         }
       ],
       "proofPoint": "On a busy Friday evening, a high-volume fast-food franchise right off I-65 in White House had a factory-installed fan belt snap, filling the kitchen with smoke and threatening to shut down operations. DDAN arrived within 45 minutes, upgraded the unit to a commercial-grade notched V-belt, and verified the motor tension, saving the restaurant from a disastrous weekend shutdown."
-    }
-  },
-  "fort-campbell": {
-    "name": "Fort Campbell",
-    "state": "KY",
-    "slug": "fort-campbell-ky",
-    "metro": "clarksville",
-    "tier": 1,
-    "commercialInfrastructure": {
-      "restaurantDensity": "Massive, concentrated inside secure base perimeters.",
-      "buildingDensity": "Sprawling Military Dining Facilities (DFACs), large-scale Post Exchange (PX) food courts, and on-base corporate franchises.",
-      "dominantCommercialRoofs": "Heavy-duty industrial roofing, standing seam metal, and strictly maintained flat commercial membranes.",
-      "highVolumeInstitutions": "Fort Campbell US Army Installation (home to the 101st Airborne Division). Represents one of the largest continuous dining populations in the region.",
-      "cuisineImpact": "Unprecedented scale of institutional feeding. High-volume grilling, frying, and massive cafeteria operations running constantly to feed thousands of troops daily."
-    },
-    "complianceAndAHJ": {
-      "fireMarshal": "Department of Defense (DoD) Fire Marshals / Fort Campbell Fire Department",
-      "enforcementLevel": "Extreme. Facilities must comply not only with NFPA 96 but also with stringent federal Unified Facilities Criteria (UFC) codes. Zero margin for error.",
-      "fogProgram": "Federal base public works enforces rigorous environmental controls to maintain base infrastructure, requiring impeccable rooftop grease containment."
-    },
-    "industrySpecific": {
-      "commonProblems": "The sheer scale of DFAC operations means exhaust fan motors are subjected to continuous, punishing duty cycles, requiring heavy-duty 3-phase commercial motors and constant belt monitoring. Navigating base access and strict federal security protocols requires highly organized, credentialed service teams.",
-      "seasonalDemand": "Extremely consistent, with surges aligning with major troop deployments and returns when on-base dining volume fluctuates wildly.",
-      "competitors": ["National federal contractors", "Averus"]
-    },
-    "contentSnippets": {
-      "heroParagraph": "Serving the massive institutional kitchens and PX food courts of the 101st Airborne, DDAN Hood Cleaning and Repair is uniquely equipped to handle Fort Campbell's commercial exhaust needs. We navigate strict Department of Defense fire codes and base security protocols to deliver elite NFPA 96 compliance, heavy-duty bare-metal cleaning, and robust fan repairs to the hardest-working kitchens in the region.",
-      "whyThisCityNeeds": "Operating a commercial kitchen on a major military installation like Fort Campbell presents unparalleled challenges. Dining Facilities (DFACs) and on-base franchises must feed thousands of troops daily, pushing exhaust fan motors and belts to their absolute breaking points. Furthermore, compliance is not just local—it's federal. Department of Defense fire marshals rigidly enforce both NFPA 96 standards and federal Unified Facilities Criteria (UFC). You need a certified, credentialed exhaust system partner capable of passing strict base access protocols, performing impeccable bare-metal cleaning, and sourcing the heavy-duty 3-phase motors required to handle military-grade volume. DDAN is that partner.",
-      "serviceAreaParagraph": "Our credentialed crews provide comprehensive commercial hood services across the entirety of the Fort Campbell installation. Whether you manage a massive DFAC, an on-base fast-food franchise at the PX, or an officers' club, DDAN is equipped to handle the extreme volume. We also service the immediate off-base corridors in Clarksville and Oak Grove.",
-      "citySpecificFAQs": [
-        {
-          "question": "Are your technicians credentialed to work on-base at Fort Campbell?",
-          "answer": "Yes. We understand the strict security and access protocols required to operate on a federal military installation. Our crews are organized, professional, and ready to deploy for on-base service without logistical delays."
-        },
-        {
-          "question": "Can you service massive military Dining Facility (DFAC) exhaust systems?",
-          "answer": "Absolutely. We specialize in high-capacity industrial and institutional kitchens. We have the heavy-duty scraping equipment, specialized chemicals, and commercial-grade replacement parts necessary to handle the massive output of a base DFAC."
-        },
-        {
-          "question": "What fire codes do you follow for Fort Campbell kitchens?",
-          "answer": "We strictly adhere to NFPA 96 standards, which align with the heavy federal scrutiny of Department of Defense fire marshals. This includes bare-metal duct cleaning, functional hinge kits, and up-to-date fire suppression links."
-        }
-      ],
-      "proofPoint": "When an aging, heavy-duty exhaust fan motor at a major Fort Campbell DFAC began seizing just before the dinner rush for hundreds of troops, DDAN's team swiftly navigated base access protocols and arrived on-site. We replaced the massive 3-phase motor, installed commercial-grade belts, and completely restored the cafeteria's airflow without a single missed meal."
     }
   },
   "lewisburg": {

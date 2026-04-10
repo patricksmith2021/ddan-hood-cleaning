@@ -1,7 +1,7 @@
 # DDAN Hood Cleaning and Repair — Full Site Documentation
 
 ## Company Overview
-DDAN Hood Cleaning and Repair is a Christian, family-owned commercial kitchen exhaust system service company headquartered in Mt. Juliet, Tennessee. Founded in 2006, DDAN has grown to serve 29 cities across Middle Tennessee and Southern Kentucky. The company specializes in three core verticals: NFPA 96 compliant hood cleaning, 24/7 emergency exhaust fan repair, and commercial kitchen exhaust parts sales with professional installation.
+DDAN Hood Cleaning and Repair is a Christian, family-owned commercial kitchen exhaust system service company headquartered in Mt. Juliet, Tennessee. Founded in 2006, DDAN has grown to serve 27 cities across Middle Tennessee. The company specializes in three core verticals: NFPA 96 compliant hood cleaning, 24/7 emergency exhaust fan repair, and commercial kitchen exhaust parts sales with professional installation.
 
 DDAN serves restaurants, fast food chains, churches, schools, hospitals, hotels, catering companies, food trucks, and all commercial cooking facilities. The company maintains a 5.0 star average across 51+ Google reviews and 20+ Facebook reviews, making it the highest-rated commercial hood cleaning company in Tennessee.
 
@@ -27,7 +27,7 @@ URL: https://ddanhoodcleaning.com/cleaning/
 ### Commercial Exhaust Fan Repair
 DDAN provides 24/7 emergency exhaust fan repair with same-day motor and belt replacement from local stock. Repair services include fan motor replacement (ODP and TEFC, single and 3-phase), fan belt replacement (all sizes), fan wheel and blade assembly replacement, bearing replacement, speed controller and VFD repair, complete fan replacement, ductwork repair and sealing, hood body repair, fire suppression system inspection and recharge, make-up air unit repair, and electrical troubleshooting. DDAN services all major commercial kitchen exhaust brands including CaptiveAire, Loren Cook, Canarm, Greenheck, NAKS, EconAir, and Accurex.
 
-Repair service area: 29 cities across Middle Tennessee and Southern Kentucky (full list below)
+Repair service area: 27 cities across Middle Tennessee (full list below)
 
 URL: https://ddanhoodcleaning.com/repair/
 
@@ -48,7 +48,7 @@ Hood Systems and Accessories: Complete hood systems (Type I and Type II), fire s
 
 Parts are available same-day or next-day. Discounted professional installation is included with parts purchase. All work is warrantied.
 
-Parts and installation service area: 29 cities (same as repair)
+Parts and installation service area: 27 cities (same as repair)
 
 URL: https://ddanhoodcleaning.com/parts-installation/
 
@@ -64,15 +64,12 @@ URL: https://ddanhoodcleaning.com/parts-installation/
 ### Tennessee (27 cities)
 Nashville, Murfreesboro, Antioch, Hendersonville, Spring Hill, Smyrna, Gallatin, Lebanon, Goodlettsville, Brentwood, Mount Juliet, Hermitage, Madison, La Vergne, Clarksville, Franklin, Columbia, Shelbyville, Springfield, Dickson, Nolensville, Portland, White House, Lewisburg, Hartsville, Fairview, Thompsons Station
 
-### Kentucky (2 cities)
-Bowling Green, Fort Campbell
-
 ### City-Specific Pages
 Each city has dedicated pages for applicable services:
 
 Cleaning city pages (14): https://ddanhoodcleaning.com/cleaning/[city-slug]/
-Repair city pages (29): https://ddanhoodcleaning.com/repair/[city-slug]/
-Parts city pages (29): https://ddanhoodcleaning.com/parts-installation/[city-slug]/
+Repair city pages (27): https://ddanhoodcleaning.com/repair/[city-slug]/
+Parts city pages (27): https://ddanhoodcleaning.com/parts-installation/[city-slug]/
 
 ## Compliance and Standards
 - All cleaning services meet NFPA 96 (Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations)
