@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
 import business from '../data/business.json';
 
 const HP = '/images/homepage';
@@ -35,8 +34,8 @@ const areas = [
 const faqs = [
   { q: 'How often do I need my commercial kitchen hood cleaned?', a: 'Most high-volume commercial kitchens, especially restaurants, require cleaning <strong>every 3 months (quarterly)</strong> to stay code-compliant with <strong>NFPA 96</strong> and fire-safe. Some lower-use facilities can extend to 6 months, but we consistently recommend quarterly service for optimal safety and compliance.' },
   { q: 'Do you service all types of commercial kitchens, including restaurants, churches, and schools?', a: 'Yes! We specialize in and proudly serve commercial kitchens of all types, including quick-service restaurants, full-service restaurants, church kitchens, school cafeterias, hotel kitchens, and commissaries.' },
-  { q: 'What if something is found broken or damaged during a cleaning service?', a: "Transparency is key. We'll immediately show you the issue, document it thoroughly with photos, and provide you with clear, no-pressure options for repair or replacement before proceeding." },
-  { q: 'Do you provide compliance certificates?', a: 'While Tennessee itself may not always mandate formal "hood cleaning certificates," we clean all systems to the <strong>full NFPA 96 standards</strong> and provide <strong>comprehensive digital photo evidence and detailed reports</strong> that consistently satisfy local fire marshals, health inspectors, and insurance requirements.' },
+  { q: 'What if something is found broken or damaged during a cleaning service?', a: "Transparency is key. We'll immediately show you the issue, document it thoroughly in our service report, and provide you with clear, no-pressure options for repair or replacement before proceeding." },
+  { q: 'Do you provide compliance certificates?', a: 'While Tennessee itself may not always mandate formal "hood cleaning certificates," we clean all systems to the <strong>full NFPA 96 standards</strong> and provide <strong>comprehensive detailed reports</strong> that consistently satisfy local fire marshals, health inspectors, and insurance requirements.' },
   { q: 'How quickly can I get service, especially for an emergency?', a: 'For <strong>emergencies</strong>, we offer <strong>24/7 same-day response</strong> to get your kitchen back online as quickly as possible. For scheduled work, we typically book appointments within 1\u20133 business days, often accommodating urgent requests.' },
   { q: 'Do you handle everything, or do I need multiple contractors for cleaning, repair, and installation?', a: "DDAN is your <strong>all-in-one solution</strong>. We expertly handle <strong>cleaning, repairs, installation, and parts sales</strong> for commercial kitchen exhaust systems. You'll only deal with one trusted, professional team \u2013 no subcontractors, no delays, and consistent quality across all services." },
 ];
@@ -204,7 +203,7 @@ const mapCities = [
     <div>
       <h2 class="font-heading text-[#FF5E15] text-xl md:text-[3rem] font-semibold leading-[1.2] mb-3 text-center md:text-left reveal-child">Why Choose DDAN Hood Cleaning and Repair?</h2>
       <h3 class="font-heading text-white text-xl md:text-2xl font-semibold leading-snug mb-4 reveal-child">We do more than just clean; we fix, install, and protect your commercial kitchen's most vital system.</h3>
-      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-6 reveal-child">Unlike many "hood cleaners" who only provide surface-level work, DDAN offers end-to-end commercial kitchen exhaust system care. We meticulously clean every component to bare metal, expertly repair exhaust fan failures, professionally install new restaurant hood systems, and proactively solve ventilation problems before they can shut you down. Our work consistently meets and exceeds all health, fire, and safety standards, and every service is thoroughly documented with photos for your records.</p>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-6 reveal-child">Unlike many "hood cleaners" who only provide surface-level work, DDAN offers end-to-end commercial kitchen exhaust system care. We meticulously clean every component to bare metal, expertly repair exhaust fan failures, professionally install new restaurant hood systems, and proactively solve ventilation problems before they can shut you down. Our work consistently meets and exceeds all health, fire, and safety standards, and every service is thoroughly documented with detailed reports for your records.</p>
       <a href="/contact/" class="inline-flex items-center flex-row-reverse gap-2.5 px-7 py-3 bg-[#032C5B] text-white font-body text-base font-medium rounded hover:bg-[#FF5E15] transition-all duration-300 reveal-child">
         Get Service Today
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -266,7 +265,7 @@ const mapCities = [
     <!-- Review Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full md:w-[90%] mx-auto mb-8">
       {[
-        { name: 'E Smith', date: '2 months ago', text: 'DDAN Hood Cleaning did an outstanding job on our restaurant exhaust system. They were thorough, professional, and left everything spotless. The before and after photos they provided were impressive. Highly recommend their services to any commercial kitchen in Nashville!' },
+        { name: 'E Smith', date: '2 months ago', text: 'DDAN Hood Cleaning did an outstanding job on our restaurant exhaust system. They were thorough, professional, and left everything spotless. The detailed service report they provided was impressive — every component documented. Highly recommend their services to any commercial kitchen in Nashville!' },
         { name: 'Brian Dahdouh', date: '3 months ago', text: "Excellent service from start to finish. The team arrived on time, worked efficiently through the night so we didn't lose any business hours, and the quality of their cleaning was top-notch. Every component was cleaned to bare metal. They also identified a belt issue on our rooftop fan and fixed it on the spot." },
         { name: 'Sean Morris', date: '4 months ago', text: "We've used DDAN for quarterly hood cleanings at our church kitchen for over two years now. Always reliable, always thorough, and the documentation they provide makes our fire inspections a breeze. Great communication and fair pricing. Can't recommend them enough." },
       ].map((review) => (
@@ -367,24 +366,7 @@ const mapCities = [
   </div>
 </section>
 
-<!-- ===================== SECTION 10: BEFORE & AFTER ===================== -->
-<section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
-  <div class="max-w-[1280px] mx-auto text-center">
-    <h2 class="font-heading text-white text-[1.75rem] md:text-[3.1rem] font-semibold capitalize leading-[1.2] w-full md:w-[86%] mx-auto mb-2 reveal-child">
-      See Our Work: <span class="text-[#FF5E15] font-heading">Before &amp; After Photo Documentation</span>
-    </h2>
-    <div class="w-16 h-0.5 bg-[#FF5E15] mx-auto my-4"></div>
-    <p class="text-[#DDDDDD] font-body text-base leading-relaxed w-full md:w-[80%] mx-auto mb-10 reveal-child">Every service we perform includes detailed before-and-after photo documentation. These photos provide invaluable visual records for your kitchen's ongoing maintenance log, insurance needs, and preparation for any fire or health inspection.</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/484228403_1393752375019792_506057596076959451_n-e1752434231691.jpg`} afterSrc={`${HP}/484303716_1393752738353089_8141754902918181360_n-e1752434270970-768x725.jpg`} beforeAlt="Hood before cleaning" afterAlt="Hood after cleaning" /></div>
-      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/495006042_1437620400632989_3401255195250514154_n.jpg`} afterSrc={`${HP}/494512892_1437622623966100_4044307143311864352_n.jpg`} beforeAlt="Duct before cleaning" afterAlt="Duct after cleaning" /></div>
-      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/3_Before-768x576.jpg`} afterSrc={`${HP}/3_After-768x576.jpg`} beforeAlt="System before service" afterAlt="System after service" /></div>
-      <div class="reveal-child"><BeforeAfterSlider beforeSrc={`${HP}/2_Before.jpg`} afterSrc={`${HP}/2_After.jpg`} beforeAlt="Equipment before repair" afterAlt="Equipment after repair" /></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== SECTION 11: WORK GALLERY ===================== -->
+<!-- ===================== SECTION 10: WORK GALLERY ===================== -->
 <section class="bg-black py-10 md:py-16 lg:py-20 px-5 reveal">
   <div class="max-w-[1280px] mx-auto text-center">
     <h2 class="font-heading text-[#FF5E15] text-xl md:text-[3rem] font-semibold leading-[1.5] mb-6 reveal-child">Our Work Gallery</h2>
@@ -411,7 +393,7 @@ const mapCities = [
       {[
         { num: '01', title: 'Free Inspection & Quote', desc: 'Schedule your free inspection with a veteran of the industry since 2006. No obligations.', cta: 'Free Quote' },
         { num: '02', title: 'Get Scheduled Right Away', desc: 'We completely accommodate your business hours to remove and minimize any disruption to your operations.', cta: 'Get Schedule' },
-        { num: '03', title: 'Get a Report', desc: "You'll receive before and after photos for every cleaning, as well as recommendations on repairs if we assess any issues.", cta: 'Get a Report' },
+        { num: '03', title: 'Get a Report', desc: "You'll receive a detailed written service report for every cleaning, as well as recommendations on repairs if we assess any issues.", cta: 'Get a Report' },
       ].map((step) => (
         <div class="relative w-full md:w-[32%] border-2 border-[#FF5E15] rounded-2xl p-8 pt-14 text-center md:text-left reveal-child">
           <span class="absolute -top-6 left-1/2 -translate-x-1/2 bg-[#FF5E15] text-white font-heading text-[50px] font-semibold px-5 py-1 rounded-xl leading-none">{step.num}</span>

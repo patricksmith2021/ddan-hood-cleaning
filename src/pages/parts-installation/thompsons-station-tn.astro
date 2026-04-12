@@ -7,7 +7,7 @@ import business from '../../data/business.json';
 const faqs = [
   {
     "q": "My Thompson's Station landlord requires proof of proper grease containment. Can you provide this?",
-    "a": "Absolutely. Property managers in new developments like Tollgate Village are exceptionally strict about roof damage. We install high-capacity, multi-layer rooftop grease containment systems designed specifically to protect white TPO membranes, and we provide detailed photo reports after every service to prove your roof is secure."
+    "a": "Absolutely. Property managers in new developments like Tollgate Village are exceptionally strict about roof damage. We install high-capacity, multi-layer rooftop grease containment systems designed specifically to protect white TPO membranes, and we provide detailed written service reports after every installation to prove your roof is secure."
   },
   {
     "q": "My restaurant in Thompson's Station is brand new. Do I really need hood cleaning yet?",
@@ -31,7 +31,7 @@ const schema = {
       "name": business.name,
       "telephone": business.phone,
       "email": business.email,
-      "url": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/thompsons-station-tn/`,
+      "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/parts-installation/thompsons-station-tn/`,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": business.address.street,
@@ -56,8 +56,8 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/` },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/parts-installation/` },
         { "@type": "ListItem", "position": 3, "name": "Thompsons Station, TN" }
       ]
     },
@@ -166,7 +166,7 @@ const schema = {
             <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Parts and labor under one warranty</span></li>
             <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>We verify fit before we order — no returns, no delays</span></li>
             <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Same technician specs, sources, and installs your part</span></li>
-            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Photo documentation for your compliance files</span></li>
+            <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child"><svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Detailed service reports for your compliance files</span></li>
           </ul>
           <button type="button" class="popup-trigger inline-flex items-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold rounded-lg transition-all duration-300 mt-6 reveal-child">
             Get a Parts and Install Quote
@@ -350,7 +350,7 @@ const schema = {
           <div class="space-y-5">
             <p class="text-[#D4D4D4]">The <strong class="text-white">Williamson County Fire/Rescue (WCFR)</strong> enforces NFPA 96 for all commercial kitchen exhaust systems. Inspectors check for hinge kits on upblast fans, fire-rated access panels on ductwork, proper grease containment, and clean filters. Every part we install meets or exceeds these standards.</p>
             <p class="text-[#D4D4D4]">Town of Thompson's Station Wastewater and local HOA/commercial property managers enforce aggressive zero-tolerance policies for F.O.G. runoff and roof degradation. Proper grease containment on your rooftop exhaust fans keeps you compliant on both fire and environmental codes.</p>
-            <p class="text-[#D4D4D4]">Every part we install is documented with photos and service records for your compliance files. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards and what they mean for your kitchen</a>.</p>
+            <p class="text-[#D4D4D4]">Every part we install is documented with detailed service reports for your compliance files. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards and what they mean for your kitchen</a>.</p>
           </div>
         </div>
       </div>

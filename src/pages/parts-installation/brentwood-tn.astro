@@ -5,7 +5,7 @@ import business from '../../data/business.json';
 
 
 const faqs = [
-  { q: "My Brentwood landlord requires proof of proper grease containment. Can you help?", a: "Absolutely. Property managers in Brentwood are exceptionally strict about roof damage. We install high-capacity, multi-layer rooftop grease containment systems designed specifically to protect white TPO membranes. We also provide comprehensive photo reports after every service to prove to your landlord that the roof is secure." },
+  { q: "My Brentwood landlord requires proof of proper grease containment. Can you help?", a: "Absolutely. Property managers in Brentwood are exceptionally strict about roof damage. We install high-capacity, multi-layer rooftop grease containment systems designed specifically to protect white TPO membranes. We also provide comprehensive written service reports after every installation to prove to your landlord that the roof is secure." },
   { q: "Are you certified to meet Brentwood Fire & Rescue NFPA 96 standards?", a: "Yes. Our technicians are fully certified and follow strict NFPA 96 guidelines. We clean your entire exhaust system—from the hood filters through the ductwork to the rooftop fan—down to bare metal, ensuring you pass even the most rigorous fire marshal inspections." },
   { q: "Can you service my Brentwood restaurant after hours?", a: "Yes. We understand that upscale dining establishments cannot afford daytime disruptions. We schedule our hood cleaning and non-emergency repair services during your off-hours or overnight to ensure your kitchen is pristine and ready for the next service." },
   { q: "How fast can you get parts to a Brentwood restaurant?", a: 'We stock common motors, belts, bearings, filters, hinge kits, and grease cups locally. For in-stock parts, same-day delivery is standard. Specialty items are typically next-day via our distributor network.' },
@@ -19,7 +19,7 @@ const schema = {
       "name": business.name,
       "telephone": business.phone,
       "email": business.email,
-      "url": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/brentwood-tn/`,
+      "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/parts-installation/brentwood-tn/`,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": business.address.street,
@@ -44,8 +44,8 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
-        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/parts-installation/` },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/` },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation", "item": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/parts-installation/` },
         { "@type": "ListItem", "position": 3, "name": "Brentwood, TN" }
       ]
     },
@@ -189,7 +189,7 @@ const schema = {
             </li>
             <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
               <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span>Photo documentation for your compliance files</span>
+              <span>Detailed service reports for your compliance files</span>
             </li>
           </ul>
           <button type="button" class="popup-trigger inline-flex items-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold rounded-lg transition-all duration-300 mt-6 reveal-child">
@@ -474,7 +474,7 @@ const schema = {
             </div>
             <div>
               <h3 class="font-heading text-white text-lg font-semibold mb-2">After-Hours Service Requirement</h3>
-              <p class="text-[#D4D4D4]">Brentwood's fine dining establishments cannot tolerate daytime equipment work. Fan replacements, motor installations, and hinge kit retrofits must happen during overnight or early morning hours. We coordinate discreet after-hours installation with full photo documentation delivered to both the restaurant and their property management company.</p>
+              <p class="text-[#D4D4D4]">Brentwood's fine dining establishments cannot tolerate daytime equipment work. Fan replacements, motor installations, and hinge kit retrofits must happen during overnight or early morning hours. We coordinate discreet after-hours installation with full written compliance documentation delivered to both the restaurant and their property management company.</p>
             </div>
           </div>
         </div>
@@ -483,7 +483,7 @@ const schema = {
           <div class="space-y-5">
             <p class="text-[#D4D4D4]">The <strong class="text-white">Brentwood Fire & Rescue</strong> enforces NFPA 96 for all commercial kitchen exhaust systems. Inspectors check for hinge kits on upblast fans, fire-rated access panels on ductwork, proper grease containment, and clean filters. Every part we install meets or exceeds these standards.</p>
             <p class="text-[#D4D4D4]"><strong class="text-white">Brentwood Water Services</strong> enforces Fats, Oils, and Grease (FOG) regulations. Grease leaving your property — whether through drains or rooftop runoff — can result in fines. Proper grease containment on your rooftop exhaust fans keeps you compliant on both fire and environmental codes.</p>
-            <p class="text-[#D4D4D4]">Every part we install is documented with photos and service records for your compliance files. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards and what they mean for your kitchen</a>.</p>
+            <p class="text-[#D4D4D4]">Every part we install is documented with detailed service reports for your compliance files. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards and what they mean for your kitchen</a>.</p>
           </div>
         </div>
       </div>

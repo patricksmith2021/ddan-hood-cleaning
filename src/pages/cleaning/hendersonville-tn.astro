@@ -17,15 +17,15 @@ const schema = {
       "name": business.name,
       "telephone": business.phone,
       "email": business.email,
-      "url": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/hendersonville-tn/`,
+      "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/cleaning/hendersonville-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Hendersonville, TN" },
       "priceRange": "$$"
     },
-    { "@type": "Service", "name": "Commercial Kitchen Hood Cleaning", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Hendersonville, TN" }, "description": "NFPA 96 certified commercial kitchen hood cleaning for Hendersonville restaurants. Bare-metal clean with before-and-after photo documentation." },
+    { "@type": "Service", "name": "Commercial Kitchen Hood Cleaning", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Hendersonville, TN" }, "description": "NFPA 96 certified commercial kitchen hood cleaning for Hendersonville restaurants. Bare-metal clean with detailed service reports and compliance documentation." },
     { "@type": "BreadcrumbList", "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/` },
-      { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/cleaning/` },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/` },
+      { "@type": "ListItem", "position": 2, "name": "Hood Cleaning", "item": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/cleaning/` },
       { "@type": "ListItem", "position": 3, "name": "Hendersonville, TN" }
     ]},
     { "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) }
@@ -35,7 +35,7 @@ const schema = {
 
 <BaseLayout
   title="Hendersonville Hood Cleaning Experts | DDAN"
-  description="Hood cleaning built for Hendersonville's lakeside humidity. Accelerated schedules, NFPA 96 compliance, and photo documentation for every service. Call DDAN today."
+  description="Hood cleaning built for Hendersonville's lakeside humidity. Accelerated schedules, NFPA 96 compliance, and written compliance documentation for every service. Call DDAN today."
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
@@ -141,8 +141,8 @@ const schema = {
         </div>
         <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
           <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg>
-          <h3 class="text-white font-heading font-semibold text-base mb-2">Photo Documentation</h3>
-          <p class="text-gray-300 text-sm">Before-and-after photos of every component for your compliance files and fire marshal inspections.</p>
+          <h3 class="text-white font-heading font-semibold text-base mb-2">Service Documentation</h3>
+          <p class="text-gray-300 text-sm">Detailed written service reports for every component — ready for your compliance files and fire marshal inspections.</p>
         </div>
         <div class="bg-[#1A1A1A] border border-[#FF5E15]/40 rounded-xl p-6 text-center hover:-translate-y-1 transition-all duration-300 reveal-child">
           <svg class="w-8 h-8 text-[#FF5E15] mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
@@ -165,7 +165,7 @@ const schema = {
         <div class="lg:w-[55%]">
           <span class="inline-block bg-[#FF5E15] text-white text-xs font-heading font-bold uppercase tracking-wide rounded-full px-4 py-1 reveal-child">DDAN DIFFERENCE</span>
           <h2 class="text-white font-heading font-bold text-2xl md:text-3xl mt-4 reveal-child">Lakeside-Proof Cleaning for Old Hickory's Toughest Kitchens</h2>
-          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">Most hood cleaners spray and wipe. We strip every surface to bare metal — hoods, plenums, ductwork, fans, and filters — then document it all with photos. If the Fire Marshal has questions, you have answers.</p>
+          <p class="text-gray-300 text-base md:text-lg mt-4 reveal-child">Most hood cleaners spray and wipe. We strip every surface to bare metal — hoods, plenums, ductwork, fans, and filters — then document everything in a detailed service report. If the Fire Marshal has questions, you have answers.</p>
           <ul class="space-y-3 mt-6">
             <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
               <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -173,7 +173,7 @@ const schema = {
             </li>
             <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
               <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span>Before-and-after photo documentation for every job</span>
+              <span>Written compliance documentation and detailed service reports for every job</span>
             </li>
             <li class="flex items-start gap-3 text-[#D4D4D4] reveal-child">
               <svg class="w-5 h-5 text-[#FF5E15] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -364,7 +364,7 @@ const schema = {
             </div>
             <div>
               <h3 class="font-heading text-white text-lg font-semibold mb-2">Streets of Indian Lake: Property Manager Standards</h3>
-              <p class="text-[#D4D4D4]">The upscale dining concepts at the Streets of Indian Lake operate under strict property management oversight. These landlords demand pristine rooftop grease containment, documented photo proof after every service, and overnight scheduling that guarantees zero disruption to neighboring retail tenants. The newer TPO roofing at Indian Lake makes grease damage especially costly — a single containment failure can void the membrane warranty and trigger lease penalties that dwarf the cost of preventive maintenance.</p>
+              <p class="text-[#D4D4D4]">The upscale dining concepts at the Streets of Indian Lake operate under strict property management oversight. These landlords demand pristine rooftop grease containment, documented compliance reports after every service, and overnight scheduling that guarantees zero disruption to neighboring retail tenants. The newer TPO roofing at Indian Lake makes grease damage especially costly — a single containment failure can void the membrane warranty and trigger lease penalties that dwarf the cost of preventive maintenance.</p>
             </div>
             <div>
               <h3 class="font-heading text-white text-lg font-semibold mb-2">Gallatin Road's Undersized Aging Systems</h3>
@@ -377,7 +377,7 @@ const schema = {
           <div class="space-y-5">
             <p class="text-[#D4D4D4]">The <strong class="text-white">Hendersonville Fire Department Fire Marshal's Office</strong> conducts strict annual inspections across the main peninsula, with particular focus on the dense restaurant corridors near Indian Lake and Gallatin Road. Inspectors verify bare-metal cleanliness throughout the entire duct run, check for functional hinge kits and fire-rated access panels, and review service tags and cleaning documentation. Establishments that fail face mandatory remediation before they can resume cooking operations.</p>
             <p class="text-[#D4D4D4]">The <strong class="text-white">Hendersonville Utility District</strong> treats rooftop grease runoff as a serious environmental violation because of Hendersonville's direct proximity to Old Hickory Lake. Any F.O.G. that reaches the storm drain system threatens the local watershed, and the utility district penalizes offenders aggressively. This creates a dual compliance requirement unique to Hendersonville — you need flawless containment to satisfy both fire codes and environmental regulations.</p>
-            <p class="text-[#D4D4D4]">Every cleaning is documented with photos and service records for your compliance files. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards and what they mean for your kitchen</a>.</p>
+            <p class="text-[#D4D4D4]">Every cleaning is documented with detailed service reports for your compliance files. Learn more about <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline">NFPA 96 standards and what they mean for your kitchen</a>.</p>
           </div>
         </div>
       </div>

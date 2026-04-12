@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: 'What does NFPA 96 require for hood cleaning?',
-    a: 'NFPA 96 requires that all grease-laden surfaces be cleaned to bare metal — hoods, plenums, ductwork, exhaust fans, and filters. The cleaning must be performed by a trained, qualified person and documented with before-and-after evidence. DDAN provides full NFPA 96-compliant cleaning with photographic documentation on every visit.',
+    a: 'NFPA 96 requires that all grease-laden surfaces be cleaned to bare metal — hoods, plenums, ductwork, exhaust fans, and filters. The cleaning must be performed by a trained, qualified person and properly documented. DDAN provides full NFPA 96-compliant cleaning with written compliance documentation on every visit.',
   },
   {
     q: 'Do you clean overnight so we don\'t lose business hours?',
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: 'What\'s included in the documentation report?',
-    a: 'Every cleaning visit includes time-stamped before-and-after photos of all cleaned components, a written service report noting the condition of your system, deficiency recommendations, compliance confirmation, and a service tag placed on the hood. This documentation satisfies fire marshal inspections and insurance requirements.',
+    a: 'Every cleaning visit includes a written service report noting the condition of your system, deficiency recommendations, compliance confirmation, and a service tag placed on the hood. This thorough documentation satisfies fire marshal inspections and insurance requirements.',
   },
   {
     q: 'Do you handle emergency hood cleanings?',
@@ -131,7 +131,7 @@ const clientTypes = [
             <li class="check-item reveal-child">Exhaust fans and motors — grease on fan blades restricts airflow and strains motors</li>
             <li class="check-item reveal-child">Grease filters and baffles — first line of defense against grease entering your duct system</li>
             <li class="check-item reveal-child">Rooftop grease containment — prevents runoff from damaging your roof membrane</li>
-            <li class="check-item reveal-child">Before-and-after photo documentation for compliance, insurance, and inspection records</li>
+            <li class="check-item reveal-child">Written compliance documentation for insurance and inspection records</li>
           </ul>
           <p class="text-[#D4D4D4] font-body text-base leading-relaxed reveal-child">
             Your kitchen's ventilation system does more than remove smoke — it protects your staff, customers, and business from fire hazards. We've spent 20 years perfecting our process.
@@ -162,7 +162,7 @@ const clientTypes = [
         {[
           { num: '01', title: 'Inspection & Quote', desc: 'We assess your entire exhaust system — hood, ducts, fans, filters, and containment. You get a free, no-obligation estimate. Free within 15 miles of Mt. Juliet.' },
           { num: '02', title: 'Overnight Deep Clean', desc: 'Our crew works around your schedule — typically 10 PM to 6 AM. Every component cleaned to bare metal per NFPA 96. Eco-friendly degreasers, no shortcuts.' },
-          { num: '03', title: 'Documentation & Report', desc: 'Before-and-after photos, written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Ready for any inspector.' },
+          { num: '03', title: 'Documentation & Report', desc: 'Written service report, deficiency notes, compliance confirmation, and a service tag on your hood. Ready for any inspector.' },
         ].map((card) => (
           <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
             <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
@@ -192,7 +192,7 @@ const clientTypes = [
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           { icon: 'clock', label: '24/7 Emergency Service', desc: 'Failed inspection? Grease fire scare? We provide emergency hood cleaning around the clock.' },
-          { icon: 'camera', label: 'Photo Documentation', desc: 'Every job includes timestamped before-and-after photos for compliance, insurance, and inspection records.' },
+          { icon: 'camera', label: 'Full Documentation', desc: 'Every job includes detailed written service reports for compliance, insurance, and inspection records.' },
           { icon: 'shield', label: 'NFPA 96 Compliant', desc: 'Every cleaning meets or exceeds NFPA 96 bare-metal standards. Pass every fire marshal inspection.' },
           { icon: 'tools', label: '20 Years Experience', desc: 'Serving Middle Tennessee commercial kitchens since 2006. We know every hood system inside and out.' },
           { icon: 'star', label: 'Licensed & Insured', desc: 'Fully licensed, bonded, and insured. Your kitchen is protected from start to finish.' },
