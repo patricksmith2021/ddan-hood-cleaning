@@ -7,7 +7,7 @@ DDAN serves restaurants, fast food chains, churches, schools, hospitals, hotels,
 
 Key differentiators: 24/7 emergency service, same-day parts from local stock, before-and-after photo documentation on every service, overnight cleaning to avoid business disruption, discounted installation with parts purchase, and free fitting consultations.
 
-Contact: (615) 881-6968 | service@ddanhoodcleaning.com | Se Habla Espanol
+Contact: (615) 881-6968 | service@ddanhoodservices.com | Se Habla Espanol
 
 ## Services Detailed
 
@@ -22,14 +22,14 @@ Cleaning frequency per NFPA 96 Table 11.4:
 
 Cleaning service area: Nashville, Murfreesboro, Antioch, Hendersonville, Spring Hill, Smyrna, Gallatin, Lebanon, Goodlettsville, Brentwood, Mount Juliet, Hermitage, Madison, La Vergne (14 cities)
 
-URL: https://ddanhoodcleaning.com/cleaning/
+URL: https://ddanhoodservices.com/cleaning/
 
 ### Commercial Exhaust Fan Repair
 DDAN provides 24/7 emergency exhaust fan repair with same-day motor and belt replacement from local stock. Repair services include fan motor replacement (ODP and TEFC, single and 3-phase), fan belt replacement (all sizes), fan wheel and blade assembly replacement, bearing replacement, speed controller and VFD repair, complete fan replacement, ductwork repair and sealing, hood body repair, fire suppression system inspection and recharge, make-up air unit repair, and electrical troubleshooting. DDAN services all major commercial kitchen exhaust brands including CaptiveAire, Loren Cook, Canarm, Greenheck, NAKS, EconAir, and Accurex.
 
 Repair service area: 27 cities across Middle Tennessee (full list below)
 
-URL: https://ddanhoodcleaning.com/repair/
+URL: https://ddanhoodservices.com/repair/
 
 ### Parts and Installation
 DDAN supplies and professionally installs commercial kitchen exhaust system parts. This is not an e-commerce operation — customers call for a free fitting consultation to verify exact specifications before ordering. Parts categories include:
@@ -50,14 +50,14 @@ Parts are available same-day or next-day. Discounted professional installation i
 
 Parts and installation service area: 27 cities (same as repair)
 
-URL: https://ddanhoodcleaning.com/parts-installation/
+URL: https://ddanhoodservices.com/parts-installation/
 
 ### Additional Service Detail Pages
-- Grease Containment: https://ddanhoodcleaning.com/grease-containment/
-- Exhaust Fan Hinge Kit Installation: https://ddanhoodcleaning.com/exhaust-fan-hinge-kit-installation/
-- Exhaust Fan Belt and Motor Repair: https://ddanhoodcleaning.com/exhaust-fan-belt-motor-repair/
-- Access Panel Installation: https://ddanhoodcleaning.com/access-panel-installation/
-- Restaurant Fire Suppression Systems: https://ddanhoodcleaning.com/restaurant-fire-suppression-systems/
+- Grease Containment: https://ddanhoodservices.com/grease-containment/
+- Exhaust Fan Hinge Kit Installation: https://ddanhoodservices.com/exhaust-fan-hinge-kit-installation/
+- Exhaust Fan Belt and Motor Repair: https://ddanhoodservices.com/exhaust-fan-belt-motor-repair/
+- Access Panel Installation: https://ddanhoodservices.com/access-panel-installation/
+- Restaurant Fire Suppression Systems: https://ddanhoodservices.com/restaurant-fire-suppression-systems/
 
 ## Service Area — All Cities
 
@@ -67,9 +67,9 @@ Nashville, Murfreesboro, Antioch, Hendersonville, Spring Hill, Smyrna, Gallatin,
 ### City-Specific Pages
 Each city has dedicated pages for applicable services:
 
-Cleaning city pages (14): https://ddanhoodcleaning.com/cleaning/[city-slug]/
-Repair city pages (27): https://ddanhoodcleaning.com/repair/[city-slug]/
-Parts city pages (27): https://ddanhoodcleaning.com/parts-installation/[city-slug]/
+Cleaning city pages (14): https://ddanhoodservices.com/cleaning/[city-slug]/
+Repair city pages (27): https://ddanhoodservices.com/repair/[city-slug]/
+Parts city pages (27): https://ddanhoodservices.com/parts-installation/[city-slug]/
 
 ## Compliance and Standards
 - All cleaning services meet NFPA 96 (Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations)
@@ -78,16 +78,16 @@ Parts city pages (27): https://ddanhoodcleaning.com/parts-installation/[city-slu
 - BBB Accredited Business
 
 ## Core Pages
-- Homepage: https://ddanhoodcleaning.com/
-- About: https://ddanhoodcleaning.com/about-ddan-hood-cleaning-and-repair/
-- Contact: https://ddanhoodcleaning.com/contact/
-- Reviews: https://ddanhoodcleaning.com/verified-reviews/
-- Gallery: https://ddanhoodcleaning.com/gallery/
-- News: https://ddanhoodcleaning.com/news/
-- NFPA 96 Standards: https://ddanhoodcleaning.com/nfpa-code-96-standards/
-- FAQ: https://ddanhoodcleaning.com/kitchen-exhaust-faq/
-- How Your System Works: https://ddanhoodcleaning.com/how-your-kitchen-ventilation-system-works/
-- Sitemap: https://ddanhoodcleaning.com/sitemap/
+- Homepage: https://ddanhoodservices.com/
+- About: https://ddanhoodservices.com/about-ddan-hood-cleaning-and-repair/
+- Contact: https://ddanhoodservices.com/contact/
+- Reviews: https://ddanhoodservices.com/verified-reviews/
+- Gallery: https://ddanhoodservices.com/gallery/
+- News: https://ddanhoodservices.com/news/
+- NFPA 96 Standards: https://ddanhoodservices.com/nfpa-code-96-standards/
+- FAQ: https://ddanhoodservices.com/kitchen-exhaust-faq/
+- How Your System Works: https://ddanhoodservices.com/how-your-kitchen-ventilation-system-works/
+- Sitemap: https://ddanhoodservices.com/sitemap/
 
 ## Frequently Asked Questions
 

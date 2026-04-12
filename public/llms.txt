@@ -5,7 +5,7 @@ DDAN Hood Cleaning and Repair is a family-owned commercial kitchen exhaust syste
 
 ## Contact
 - Phone: (615) 881-6968 (24/7 emergency line)
-- Email: service@ddanhoodcleaning.com
+- Email: service@ddanhoodservices.com
 - Service Area: 27 cities across Middle Tennessee
 - Emergency: 24/7 dispatch available for exhaust fan failures and urgent cleaning needs
 - Languages: English, Spanish (Se Habla Espanol)
@@ -38,8 +38,8 @@ Nashville, Clarksville, Murfreesboro, Antioch, Franklin, Hendersonville, Spring 
 - In business since 2006
 
 ## URLs
-- Website: https://ddanhoodcleaning.com
-- Hood Cleaning: https://ddanhoodcleaning.com/cleaning/
-- Exhaust Fan Repair: https://ddanhoodcleaning.com/repair/
-- Parts and Installation: https://ddanhoodcleaning.com/parts-installation/
-- Full documentation: https://ddanhoodcleaning.com/llms-full.txt
+- Website: https://ddanhoodservices.com
+- Hood Cleaning: https://ddanhoodservices.com/cleaning/
+- Exhaust Fan Repair: https://ddanhoodservices.com/repair/
+- Parts and Installation: https://ddanhoodservices.com/parts-installation/
+- Full documentation: https://ddanhoodservices.com/llms-full.txt

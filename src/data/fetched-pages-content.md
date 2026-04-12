@@ -163,7 +163,7 @@ Need a quote? Have questions about your kitchen exhaust system? Whether it's a c
 (615) 881-6968
 
 **Card 2: Email**
-service@ddanhoodcleaning.com
+service@ddanhoodservices.com
 
 **Card 3: Our Office Location**
 Entire Nashville Metro Area

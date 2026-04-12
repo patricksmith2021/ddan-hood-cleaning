@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-const site = 'https://ddanhoodcleaning.com';
+const site = 'https://ddanhoodservices.com';
 
 const pages: string[] = [
   // Core pages

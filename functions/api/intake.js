@@ -60,7 +60,7 @@ export async function onRequestPost(context) {
     const SHEET_ID = env.GOOGLE_SHEET_ID || '';
 
     // Logo URL for emails
-    const logoUrl = 'https://ddanhoodcleaning.com/images/logos/DDAN%20Hood%20Cleaning%20and%20Repair%20Logo%20Black%20BG.png';
+    const logoUrl = 'https://ddanhoodservices.com/images/logos/DDAN%20Hood%20Cleaning%20and%20Repair%20Logo%20Black%20BG.png';
 
     // 1. TEAM EMAIL via SMTP2GO
     try {
@@ -125,8 +125,8 @@ export async function onRequestPost(context) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           api_key: SMTP_KEY,
-          sender: 'DDAN Online <online@ddanhoodcleaning.com>',
-          to: ['service@ddanhoodcleaning.com'],
+          sender: 'DDAN Online <online@ddanhoodservices.com>',
+          to: ['service@ddanhoodservices.com'],
           subject: 'New Lead: ' + name + ' — ' + lead.service,
           html_body: teamHtml,
           text_body: 'New DDAN Lead\nName: ' + name + '\nPhone: ' + lead.phone + '\nEmail: ' + (lead.email || 'N/A') + '\nBusiness: ' + (lead.businessName || 'N/A') + '\nService: ' + lead.service + '\nTime: ' + lead.dateReceived + ' CT'
@@ -198,7 +198,7 @@ export async function onRequestPost(context) {
           '<p style="color:#D4D4D4;font-size:14px;margin:0 0 8px 0;font-weight:600;">DDAN Hood Cleaning and Repair</p>' +
           '<p style="color:#999999;font-size:12px;margin:0 0 4px 0;">Mt. Juliet, TN &bull; Serving All of Middle Tennessee</p>' +
           '<p style="color:#666666;font-size:12px;margin:0 0 12px 0;">Licensed &bull; Bonded &bull; Insured &bull; NFPA 96 Compliant</p>' +
-          '<a href="https://ddanhoodcleaning.com" style="color:#FF5E15;font-size:12px;text-decoration:none;">ddanhoodcleaning.com</a>' +
+          '<a href="https://ddanhoodservices.com" style="color:#FF5E15;font-size:12px;text-decoration:none;">ddanhoodservices.com</a>' +
           '</td></tr>' +
 
           '</table></td></tr></table></body></html>';
@@ -208,11 +208,11 @@ export async function onRequestPost(context) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             api_key: SMTP_KEY,
-            sender: 'DDAN Hood Services <service@ddanhoodcleaning.com>',
+            sender: 'DDAN Hood Services <service@ddanhoodservices.com>',
             to: [lead.email],
             subject: 'Thanks for contacting DDAN Hood Cleaning and Repair!',
             html_body: custHtml,
-            text_body: 'Hi ' + lead.firstName + ',\n\nThanks for contacting DDAN Hood Cleaning and Repair! We received your request for ' + lead.service + ' and will get back to you shortly.\n\nFor immediate help call (615) 881-6968 — we are available 24/7.\n\n— DDAN Hood Cleaning and Repair\nMt. Juliet, TN | Serving All of Middle Tennessee\nddanhoodcleaning.com'
+            text_body: 'Hi ' + lead.firstName + ',\n\nThanks for contacting DDAN Hood Cleaning and Repair! We received your request for ' + lead.service + ' and will get back to you shortly.\n\nFor immediate help call (615) 881-6968 — we are available 24/7.\n\n— DDAN Hood Cleaning and Repair\nMt. Juliet, TN | Serving All of Middle Tennessee\nddanhoodservices.com'
           })
         });
         const custData = await custRes.json();
