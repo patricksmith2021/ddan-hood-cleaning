@@ -381,23 +381,29 @@ const partsCities = repairCities;
         };
 
         try {
+          console.log('[DDAN Contact] Submitting to /api/intake...', data);
           var response = await fetch('/api/intake', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
           });
+          console.log('[DDAN Contact] Response status:', response.status);
 
           if (response.ok) {
+            var result = await response.json();
+            console.log('[DDAN Contact] Success:', result);
             window.location.href = '/thank-you/';
           } else {
-            var result = await response.json();
-            if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong. Please call (615) 881-6968.';
+            var result = await response.json().catch(function() { return {}; });
+            console.error('[DDAN Contact] Server error:', response.status, result);
+            if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong (status ' + response.status + '). Please call (615) 881-6968.';
             btn.disabled = false;
             btn.textContent = 'Send Your Request';
             if (typeof turnstile !== 'undefined') turnstile.reset();
           }
         } catch (err) {
-          if (errorDiv) errorDiv.textContent = 'Connection error. Please call (615) 881-6968.';
+          console.error('[DDAN Contact] Connection error:', err.message, err);
+          if (errorDiv) errorDiv.textContent = 'Connection error: ' + err.message + '. Please call (615) 881-6968.';
           btn.disabled = false;
           btn.textContent = 'Send Your Request';
           if (typeof turnstile !== 'undefined') turnstile.reset();

@@ -144,19 +144,19 @@
     <!-- Review Badges -->
     <div class="flex justify-center gap-8 mt-6 pt-5 border-t border-[#333]">
       <div class="text-center">
-        <img src="/images/trust/google-logo.png" alt="Google Reviews" width="1024" height="337" class="h-7 mx-auto mb-1.5 opacity-80" loading="lazy" />
+        <img src="/images/trust/google-logo.png" alt="Google Reviews" class="h-7 w-auto object-contain mx-auto mb-1.5 opacity-80" loading="lazy" />
         <div class="flex gap-0.5 justify-center">
           {Array(5).fill(0).map(() => <span class="text-[#FFB800] text-base">&#9733;</span>)}
         </div>
       </div>
       <div class="text-center">
-        <img src="/images/trust/facebook-logo.png" alt="Facebook Reviews" width="1024" height="341" class="h-7 mx-auto mb-1.5 opacity-80" loading="lazy" />
+        <img src="/images/trust/facebook-logo.png" alt="Facebook Reviews" class="h-7 w-auto object-contain mx-auto mb-1.5 opacity-80" loading="lazy" />
         <div class="flex gap-0.5 justify-center">
           {Array(5).fill(0).map(() => <span class="text-[#FFB800] text-base">&#9733;</span>)}
         </div>
       </div>
       <div class="text-center">
-        <img src="/images/trust/yelp-logo.png" alt="Yelp Reviews" width="1024" height="392" class="h-7 mx-auto mb-1.5 opacity-80" loading="lazy" />
+        <img src="/images/trust/yelp-logo.png" alt="Yelp Reviews" class="h-7 w-auto object-contain mx-auto mb-1.5 opacity-80" loading="lazy" />
         <div class="flex gap-0.5 justify-center">
           {Array(5).fill(0).map(() => <span class="text-[#FFB800] text-base">&#9733;</span>)}
         </div>
@@ -300,23 +300,29 @@
         };
 
         try {
+          console.log('[DDAN Form] Submitting to /api/intake...', data);
           var response = await fetch('/api/intake', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
           });
+          console.log('[DDAN Form] Response status:', response.status);
 
           if (response.ok) {
+            var result = await response.json();
+            console.log('[DDAN Form] Success:', result);
             window.location.href = '/thank-you/';
           } else {
-            var result = await response.json();
-            if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong. Please call (615) 881-6968.';
+            var result = await response.json().catch(function() { return {}; });
+            console.error('[DDAN Form] Server error:', response.status, result);
+            if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong (status ' + response.status + '). Please call (615) 881-6968.';
             btn.disabled = false;
             btn.innerHTML = 'Request Callback ASAP';
             if (typeof turnstile !== 'undefined') turnstile.reset();
           }
         } catch (err) {
-          if (errorDiv) errorDiv.textContent = 'Connection error. Please call (615) 881-6968.';
+          console.error('[DDAN Form] Connection error:', err.message, err);
+          if (errorDiv) errorDiv.textContent = 'Connection error: ' + err.message + '. Please call (615) 881-6968.';
           btn.disabled = false;
           btn.innerHTML = 'Request Callback ASAP';
           if (typeof turnstile !== 'undefined') turnstile.reset();
