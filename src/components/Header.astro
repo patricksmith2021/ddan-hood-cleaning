@@ -9,6 +9,7 @@ const navLinks = [
     { label: 'Hood Cleaning', href: '/cleaning/' },
     { label: 'Hood Repair', href: '/repair/' },
     { label: 'Parts & Installation', href: '/parts-installation/' },
+    { label: 'Installation Services', href: '/installation/' },
     { label: 'Grease Containment', href: '/grease-containment/' },
     { label: 'Hinge Kit Installation', href: '/exhaust-fan-hinge-kit-installation/' },
     { label: 'Belt & Motor Repair', href: '/exhaust-fan-belt-motor-repair/' },
@@ -61,10 +62,24 @@ const partsCities = [
   { label: 'View All 27 Cities →', href: '/parts-installation/' },
 ];
 
+const installationCities = [
+  { label: 'Nashville', href: '/installation/nashville-tn/' },
+  { label: 'Murfreesboro', href: '/installation/murfreesboro-tn/' },
+  { label: 'Clarksville', href: '/installation/clarksville-tn/' },
+  { label: 'Franklin', href: '/installation/franklin-tn/' },
+  { label: 'Hendersonville', href: '/installation/hendersonville-tn/' },
+  { label: 'Mt. Juliet', href: '/installation/mount-juliet-tn/' },
+  { label: 'Smyrna', href: '/installation/smyrna-tn/' },
+  { label: 'Gallatin', href: '/installation/gallatin-tn/' },
+  { label: 'Lebanon', href: '/installation/lebanon-tn/' },
+  { label: 'View All 27 Cities →', href: '/installation/' },
+];
+
 const serviceAreaCategories = [
   { label: 'Cleaning', href: '/cleaning/', cities: cleaningCities },
   { label: 'Repair', href: '/repair/', cities: repairCities },
   { label: 'Parts & Installation', href: '/parts-installation/', cities: partsCities },
+  { label: 'Installation', href: '/installation/', cities: installationCities },
 ];
 ---
 
@@ -202,6 +217,7 @@ const serviceAreaCategories = [
     <a href="/cleaning/" class="mobile-nav-link mobile-menu-item">Hood Cleaning</a>
     <a href="/repair/" class="mobile-nav-link mobile-menu-item">Hood Repair</a>
     <a href="/parts-installation/" class="mobile-nav-link mobile-menu-item">Parts &amp; Installation</a>
+    <a href="/installation/" class="mobile-nav-link mobile-menu-item">Installation Services</a>
     <a href="/grease-containment/" class="mobile-nav-link mobile-menu-item">Grease Containment</a>
     <a href="/exhaust-fan-hinge-kit-installation/" class="mobile-nav-link mobile-menu-item">Hinge Kit Installation</a>
     <a href="/exhaust-fan-belt-motor-repair/" class="mobile-nav-link mobile-menu-item">Belt &amp; Motor Repair</a>
@@ -295,6 +311,45 @@ const serviceAreaCategories = [
         { label: 'Hartsville', href: '/parts-installation/hartsville-tn/' },
         { label: 'Fairview', href: '/parts-installation/fairview-tn/' },
         { label: 'Thompsons Station', href: '/parts-installation/thompsons-station-tn/' },
+      ].map((c) => (
+        <a href={c.href} class="mobile-nav-link block text-[#D4D4D4] font-body text-sm py-2.5 pl-8 pr-4 border-b border-white/5 hover:text-[#FF5E15] hover:bg-[#FF5E15]/5 transition-all duration-200">{c.label}</a>
+      ))}
+    </div>
+
+    <!-- Installation Accordion -->
+    <button type="button" class="mobile-accordion-btn mobile-menu-item w-full flex items-center justify-between" data-accordion="installation">
+      <span>Installation Areas</span>
+      <svg class="w-4 h-4 text-[#FF5E15] transition-transform duration-200 accordion-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <div class="mobile-accordion-panel" data-panel="installation" style="display:none; overflow:hidden;">
+      {[
+        { label: 'Nashville', href: '/installation/nashville-tn/' },
+        { label: 'Murfreesboro', href: '/installation/murfreesboro-tn/' },
+        { label: 'Antioch', href: '/installation/antioch-tn/' },
+        { label: 'Hendersonville', href: '/installation/hendersonville-tn/' },
+        { label: 'Spring Hill', href: '/installation/spring-hill-tn/' },
+        { label: 'Smyrna', href: '/installation/smyrna-tn/' },
+        { label: 'Gallatin', href: '/installation/gallatin-tn/' },
+        { label: 'Lebanon', href: '/installation/lebanon-tn/' },
+        { label: 'Goodlettsville', href: '/installation/goodlettsville-tn/' },
+        { label: 'Brentwood', href: '/installation/brentwood-tn/' },
+        { label: 'Mt. Juliet', href: '/installation/mount-juliet-tn/' },
+        { label: 'Hermitage', href: '/installation/hermitage-tn/' },
+        { label: 'Madison', href: '/installation/madison-tn/' },
+        { label: 'La Vergne', href: '/installation/la-vergne-tn/' },
+        { label: 'Clarksville', href: '/installation/clarksville-tn/' },
+        { label: 'Franklin', href: '/installation/franklin-tn/' },
+        { label: 'Columbia', href: '/installation/columbia-tn/' },
+        { label: 'Shelbyville', href: '/installation/shelbyville-tn/' },
+        { label: 'Springfield', href: '/installation/springfield-tn/' },
+        { label: 'Dickson', href: '/installation/dickson-tn/' },
+        { label: 'Nolensville', href: '/installation/nolensville-tn/' },
+        { label: 'Portland', href: '/installation/portland-tn/' },
+        { label: 'White House', href: '/installation/white-house-tn/' },
+        { label: 'Lewisburg', href: '/installation/lewisburg-tn/' },
+        { label: 'Hartsville', href: '/installation/hartsville-tn/' },
+        { label: 'Fairview', href: '/installation/fairview-tn/' },
+        { label: 'Thompsons Station', href: '/installation/thompsons-station-tn/' },
       ].map((c) => (
         <a href={c.href} class="mobile-nav-link block text-[#D4D4D4] font-body text-sm py-2.5 pl-8 pr-4 border-b border-white/5 hover:text-[#FF5E15] hover:bg-[#FF5E15]/5 transition-all duration-200">{c.label}</a>
       ))}
