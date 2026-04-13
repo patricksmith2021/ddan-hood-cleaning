@@ -290,6 +290,7 @@ export async function onRequestPost(context) {
 
     // 5. GOOGLE SHEETS — updated columns: Date | Time | Source | First | Last | Phone | Email | Business Name | Street Address | City | Service | Part Needed | Multiple Locations | Flat Roof | Comments | Page URL
     try {
+      if (!env.GOOGLE_SERVICE_ACCOUNT_JSON || !SHEET_ID) throw new Error('Sheets env vars not configured');
       const sa = JSON.parse(env.GOOGLE_SERVICE_ACCOUNT_JSON);
 
       const now = Math.floor(Date.now() / 1000);
