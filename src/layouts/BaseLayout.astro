@@ -80,12 +80,25 @@ const resolvedOgImage = ogImage || defaultOgImage;
   </script>
 </head>
 <body style="background:#000000;">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#FF5E15] focus:text-white focus:font-bold focus:rounded focus:no-underline">Skip to main content</a>
   <Header />
-  <main id="content">
+  <main id="main-content">
     <slot />
   </main>
   <Footer />
   <PopupForm />
+
+  <style is:global>
+    a:focus-visible {
+      outline: 2px solid #FF5E15;
+      outline-offset: 2px;
+    }
+    nav a:focus-visible {
+      outline: 2px solid #FF5E15;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  </style>
 
   <!-- Scroll Reveal Script -->
   <script>

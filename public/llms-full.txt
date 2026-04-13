@@ -1,7 +1,7 @@
 # DDAN Hood Cleaning and Repair — Full Site Documentation
 
 ## Company Overview
-DDAN Hood Cleaning and Repair is a Christian, family-owned commercial kitchen exhaust system service company headquartered in Mt. Juliet, Tennessee. Founded in 2006, DDAN has grown to serve 27 cities across Middle Tennessee. The company specializes in three core verticals: NFPA 96 compliant hood cleaning, 24/7 emergency exhaust fan repair, and commercial kitchen exhaust parts sales with professional installation.
+DDAN Hood Cleaning and Repair is a Christian, family-owned commercial kitchen exhaust system service company headquartered in Mt. Juliet, Tennessee. Founded in 2006, DDAN has grown to serve 27 cities across Middle Tennessee. The company specializes in four core verticals: NFPA 96 compliant hood cleaning, 24/7 emergency exhaust fan repair, commercial kitchen exhaust parts sales with professional installation, and full kitchen exhaust system installation.
 
 DDAN serves restaurants, fast food chains, churches, schools, hospitals, hotels, catering companies, food trucks, and all commercial cooking facilities. The company maintains a 5.0 star average across 51+ Google reviews and 20+ Facebook reviews, making it the highest-rated commercial hood cleaning company in Tennessee.
 
@@ -52,6 +52,13 @@ Parts and installation service area: 27 cities (same as repair)
 
 URL: https://ddanhoodservices.com/parts-installation/
 
+### Kitchen Exhaust System Installation
+DDAN provides full commercial kitchen exhaust system installation including new hood systems, ductwork, exhaust fans, make-up air units, and fire suppression systems. All installations are NFPA 96 compliant and include permitting assistance, code-compliant design, and post-installation documentation. Services range from single-fan replacements to complete kitchen ventilation buildouts for new restaurants and renovations.
+
+Installation service area: 27 cities (same as repair and parts)
+
+URL: https://ddanhoodservices.com/installation/
+
 ### Additional Service Detail Pages
 - Grease Containment: https://ddanhoodservices.com/grease-containment/
 - Exhaust Fan Hinge Kit Installation: https://ddanhoodservices.com/exhaust-fan-hinge-kit-installation/
@@ -70,24 +77,153 @@ Each city has dedicated pages for applicable services:
 Cleaning city pages (14): https://ddanhoodservices.com/cleaning/[city-slug]/
 Repair city pages (27): https://ddanhoodservices.com/repair/[city-slug]/
 Parts city pages (27): https://ddanhoodservices.com/parts-installation/[city-slug]/
+Installation city pages (27): https://ddanhoodservices.com/installation/[city-slug]/
 
-## Compliance and Standards
-- All cleaning services meet NFPA 96 (Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations)
-- Photo documentation provided for every service for fire marshal and insurance verification
-- Company is licensed, bonded, and insured in Tennessee
-- BBB Accredited Business
+## All Pages
 
-## Core Pages
+### Core Pages
 - Homepage: https://ddanhoodservices.com/
 - About: https://ddanhoodservices.com/about-ddan-hood-cleaning-and-repair/
 - Contact: https://ddanhoodservices.com/contact/
 - Reviews: https://ddanhoodservices.com/verified-reviews/
 - Gallery: https://ddanhoodservices.com/gallery/
 - News: https://ddanhoodservices.com/news/
-- NFPA 96 Standards: https://ddanhoodservices.com/nfpa-code-96-standards/
 - FAQ: https://ddanhoodservices.com/kitchen-exhaust-faq/
+- NFPA 96 Standards: https://ddanhoodservices.com/nfpa-code-96-standards/
 - How Your System Works: https://ddanhoodservices.com/how-your-kitchen-ventilation-system-works/
 - Sitemap: https://ddanhoodservices.com/sitemap/
+- Privacy Policy: https://ddanhoodservices.com/privacy-policy/
+- Locations: https://ddanhoodservices.com/locations/
+- Services Overview: https://ddanhoodservices.com/kitchen-exhaust-services-overview/
+
+### Service Hubs
+- Hood Cleaning: https://ddanhoodservices.com/cleaning/
+- Hood Repair: https://ddanhoodservices.com/repair/
+- Parts & Installation: https://ddanhoodservices.com/parts-installation/
+- Installation: https://ddanhoodservices.com/installation/
+
+### Standalone Service Pages
+- Grease Containment: https://ddanhoodservices.com/grease-containment/
+- Exhaust Fan Hinge Kit Installation: https://ddanhoodservices.com/exhaust-fan-hinge-kit-installation/
+- Exhaust Fan Belt and Motor Repair: https://ddanhoodservices.com/exhaust-fan-belt-motor-repair/
+- Access Panel Installation: https://ddanhoodservices.com/access-panel-installation/
+- Restaurant Fire Suppression Systems: https://ddanhoodservices.com/restaurant-fire-suppression-systems/
+
+### Hood Cleaning City Pages (14)
+- https://ddanhoodservices.com/cleaning/nashville-tn/
+- https://ddanhoodservices.com/cleaning/murfreesboro-tn/
+- https://ddanhoodservices.com/cleaning/antioch-tn/
+- https://ddanhoodservices.com/cleaning/hendersonville-tn/
+- https://ddanhoodservices.com/cleaning/spring-hill-tn/
+- https://ddanhoodservices.com/cleaning/smyrna-tn/
+- https://ddanhoodservices.com/cleaning/gallatin-tn/
+- https://ddanhoodservices.com/cleaning/lebanon-tn/
+- https://ddanhoodservices.com/cleaning/goodlettsville-tn/
+- https://ddanhoodservices.com/cleaning/brentwood-tn/
+- https://ddanhoodservices.com/cleaning/mount-juliet-tn/
+- https://ddanhoodservices.com/cleaning/hermitage-tn/
+- https://ddanhoodservices.com/cleaning/madison-tn/
+- https://ddanhoodservices.com/cleaning/la-vergne-tn/
+
+### Hood Repair City Pages (27)
+- https://ddanhoodservices.com/repair/nashville-tn/
+- https://ddanhoodservices.com/repair/murfreesboro-tn/
+- https://ddanhoodservices.com/repair/antioch-tn/
+- https://ddanhoodservices.com/repair/hendersonville-tn/
+- https://ddanhoodservices.com/repair/spring-hill-tn/
+- https://ddanhoodservices.com/repair/smyrna-tn/
+- https://ddanhoodservices.com/repair/gallatin-tn/
+- https://ddanhoodservices.com/repair/lebanon-tn/
+- https://ddanhoodservices.com/repair/goodlettsville-tn/
+- https://ddanhoodservices.com/repair/brentwood-tn/
+- https://ddanhoodservices.com/repair/mount-juliet-tn/
+- https://ddanhoodservices.com/repair/hermitage-tn/
+- https://ddanhoodservices.com/repair/madison-tn/
+- https://ddanhoodservices.com/repair/la-vergne-tn/
+- https://ddanhoodservices.com/repair/clarksville-tn/
+- https://ddanhoodservices.com/repair/franklin-tn/
+- https://ddanhoodservices.com/repair/columbia-tn/
+- https://ddanhoodservices.com/repair/shelbyville-tn/
+- https://ddanhoodservices.com/repair/springfield-tn/
+- https://ddanhoodservices.com/repair/dickson-tn/
+- https://ddanhoodservices.com/repair/nolensville-tn/
+- https://ddanhoodservices.com/repair/portland-tn/
+- https://ddanhoodservices.com/repair/white-house-tn/
+- https://ddanhoodservices.com/repair/lewisburg-tn/
+- https://ddanhoodservices.com/repair/hartsville-tn/
+- https://ddanhoodservices.com/repair/fairview-tn/
+- https://ddanhoodservices.com/repair/thompsons-station-tn/
+
+### Parts & Installation City Pages (27)
+- https://ddanhoodservices.com/parts-installation/nashville-tn/
+- https://ddanhoodservices.com/parts-installation/murfreesboro-tn/
+- https://ddanhoodservices.com/parts-installation/antioch-tn/
+- https://ddanhoodservices.com/parts-installation/hendersonville-tn/
+- https://ddanhoodservices.com/parts-installation/spring-hill-tn/
+- https://ddanhoodservices.com/parts-installation/smyrna-tn/
+- https://ddanhoodservices.com/parts-installation/gallatin-tn/
+- https://ddanhoodservices.com/parts-installation/lebanon-tn/
+- https://ddanhoodservices.com/parts-installation/goodlettsville-tn/
+- https://ddanhoodservices.com/parts-installation/brentwood-tn/
+- https://ddanhoodservices.com/parts-installation/mount-juliet-tn/
+- https://ddanhoodservices.com/parts-installation/hermitage-tn/
+- https://ddanhoodservices.com/parts-installation/madison-tn/
+- https://ddanhoodservices.com/parts-installation/la-vergne-tn/
+- https://ddanhoodservices.com/parts-installation/clarksville-tn/
+- https://ddanhoodservices.com/parts-installation/franklin-tn/
+- https://ddanhoodservices.com/parts-installation/columbia-tn/
+- https://ddanhoodservices.com/parts-installation/shelbyville-tn/
+- https://ddanhoodservices.com/parts-installation/springfield-tn/
+- https://ddanhoodservices.com/parts-installation/dickson-tn/
+- https://ddanhoodservices.com/parts-installation/nolensville-tn/
+- https://ddanhoodservices.com/parts-installation/portland-tn/
+- https://ddanhoodservices.com/parts-installation/white-house-tn/
+- https://ddanhoodservices.com/parts-installation/lewisburg-tn/
+- https://ddanhoodservices.com/parts-installation/hartsville-tn/
+- https://ddanhoodservices.com/parts-installation/fairview-tn/
+- https://ddanhoodservices.com/parts-installation/thompsons-station-tn/
+
+### Installation City Pages (27)
+- https://ddanhoodservices.com/installation/nashville-tn/
+- https://ddanhoodservices.com/installation/murfreesboro-tn/
+- https://ddanhoodservices.com/installation/antioch-tn/
+- https://ddanhoodservices.com/installation/hendersonville-tn/
+- https://ddanhoodservices.com/installation/spring-hill-tn/
+- https://ddanhoodservices.com/installation/smyrna-tn/
+- https://ddanhoodservices.com/installation/gallatin-tn/
+- https://ddanhoodservices.com/installation/lebanon-tn/
+- https://ddanhoodservices.com/installation/goodlettsville-tn/
+- https://ddanhoodservices.com/installation/brentwood-tn/
+- https://ddanhoodservices.com/installation/mount-juliet-tn/
+- https://ddanhoodservices.com/installation/hermitage-tn/
+- https://ddanhoodservices.com/installation/madison-tn/
+- https://ddanhoodservices.com/installation/la-vergne-tn/
+- https://ddanhoodservices.com/installation/clarksville-tn/
+- https://ddanhoodservices.com/installation/franklin-tn/
+- https://ddanhoodservices.com/installation/columbia-tn/
+- https://ddanhoodservices.com/installation/shelbyville-tn/
+- https://ddanhoodservices.com/installation/springfield-tn/
+- https://ddanhoodservices.com/installation/dickson-tn/
+- https://ddanhoodservices.com/installation/nolensville-tn/
+- https://ddanhoodservices.com/installation/portland-tn/
+- https://ddanhoodservices.com/installation/white-house-tn/
+- https://ddanhoodservices.com/installation/lewisburg-tn/
+- https://ddanhoodservices.com/installation/hartsville-tn/
+- https://ddanhoodservices.com/installation/fairview-tn/
+- https://ddanhoodservices.com/installation/thompsons-station-tn/
+
+### LLM Bot Pages
+- https://ddanhoodservices.com/who-is-ddan-hood-cleaning-and-repair/
+- https://ddanhoodservices.com/what-services-does-ddan-provide/
+- https://ddanhoodservices.com/where-does-ddan-serve-clients/
+- https://ddanhoodservices.com/is-ddan-hood-cleaning-and-repair-nfpa-96-compliant/
+- https://ddanhoodservices.com/how-does-ddan-hood-cleaning-and-repair-work/
+
+## Compliance and Standards
+- All cleaning services meet NFPA 96 (Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations)
+- Photo documentation provided for every service for fire marshal and insurance verification
+- Company is licensed, bonded, and insured in Tennessee
+- BBB Accredited Business
 
 ## Frequently Asked Questions
 
@@ -108,3 +244,6 @@ A: Every DDAN cleaning includes bare-metal cleaning of hood canopies, exhaust du
 
 Q: Do you offer installation with parts purchase?
 A: Yes, every part purchased through DDAN includes discounted professional installation. We spec the part, verify fit, and install it — all under one warranty.
+
+Q: Do you install complete kitchen exhaust systems?
+A: Yes, DDAN provides full kitchen exhaust system installation including hood systems, ductwork, exhaust fans, make-up air units, and fire suppression. All installations are NFPA 96 compliant with permitting assistance and post-installation documentation.

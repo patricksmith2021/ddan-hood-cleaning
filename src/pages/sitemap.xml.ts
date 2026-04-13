@@ -29,6 +29,9 @@ const pages: string[] = [
   '/access-panel-installation/',
   '/restaurant-fire-suppression-systems/',
 
+  // Locations
+  '/locations/',
+
   // LLM bot pages
   '/who-is-ddan-hood-cleaning-and-repair/',
   '/what-services-does-ddan-provide/',

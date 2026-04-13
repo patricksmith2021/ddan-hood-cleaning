@@ -1,45 +1,28 @@
-# DDAN Hood Cleaning and Repair
-
-## About
-DDAN Hood Cleaning and Repair is a family-owned commercial kitchen exhaust system service company based in Mt. Juliet, Tennessee, serving the entire Middle Tennessee region since 2006. We provide NFPA 96 compliant hood cleaning, exhaust fan repair, and parts sales with professional installation for restaurants, churches, schools, hospitals, and all commercial cooking facilities.
-
-## Contact
-- Phone: (615) 881-6968 (24/7 emergency line)
-- Email: service@ddanhoodservices.com
-- Service Area: 27 cities across Middle Tennessee
-- Emergency: 24/7 dispatch available for exhaust fan failures and urgent cleaning needs
-- Languages: English, Spanish (Se Habla Espanol)
+# DDAN Hood Services
+> Commercial kitchen exhaust cleaning, repair, installation, and parts for Middle Tennessee.
 
 ## Services
+- Hood Cleaning (14 cities): /cleaning/
+- Hood Repair (27 cities): /repair/
+- Parts & Equipment (27 cities): /parts-installation/
+- Installation Services (27 cities): /installation/
+- Grease Containment: /grease-containment/
+- Exhaust Fan Hinge Kits: /exhaust-fan-hinge-kit-installation/
+- Belt & Motor Repair: /exhaust-fan-belt-motor-repair/
+- Access Panels: /access-panel-installation/
+- Fire Suppression: /restaurant-fire-suppression-systems/
 
-### Hood Cleaning
-NFPA 96 compliant commercial kitchen hood cleaning. Every component cleaned to bare metal — hood canopies, exhaust ductwork, exhaust fans, filters, and rooftop grease containment. Before and after photo documentation with compliance certificates. Overnight service available. Serving 14 cities.
-
-### Exhaust Fan Repair
-24/7 emergency exhaust fan repair. Same-day motor and belt replacement from local stock. We repair all major brands including CaptiveAire, Loren Cook, Canarm, Greenheck, NAKS, EconAir, and Accurex. Serving 27 cities.
-
-### Parts and Installation
-Commercial kitchen exhaust fan parts and professional installation. Upblast fans (direct drive and belt drive), fan motors, belts, bearings, roof curbs, hinge kits, make-up air units, hood filters, grease containment systems, complete hood systems, and fire suppression components. Same-day and next-day parts availability. Discounted installation with parts purchase. Free fitting consultation. Serving 27 cities.
-
-## Service Areas
-
-### Cleaning (14 cities)
-Nashville, Murfreesboro, Antioch, Hendersonville, Spring Hill, Smyrna, Gallatin, Lebanon, Goodlettsville, Brentwood, Mount Juliet, Hermitage, Madison, La Vergne
-
-### Repair and Parts (27 cities)
-Nashville, Clarksville, Murfreesboro, Antioch, Franklin, Hendersonville, Spring Hill, Smyrna, Gallatin, Lebanon, Brentwood, Columbia, Mount Juliet, Hermitage, Madison, La Vergne, Shelbyville, Springfield, Goodlettsville, Dickson, Nolensville, Portland, White House, Lewisburg, Hartsville, Fairview, Thompsons Station
-
-## Credentials
-- Licensed, Bonded, and Insured
-- NFPA 96 Compliant
-- 51+ Google Reviews, 5.0 Star Average
-- 20+ Facebook Reviews, 5.0 Star Average
-- BBB Accredited
-- In business since 2006
-
-## URLs
+## Contact
+- Phone: (615) 881-6968
+- Email: service@ddanhoodservices.com
 - Website: https://ddanhoodservices.com
-- Hood Cleaning: https://ddanhoodservices.com/cleaning/
-- Exhaust Fan Repair: https://ddanhoodservices.com/repair/
-- Parts and Installation: https://ddanhoodservices.com/parts-installation/
-- Full documentation: https://ddanhoodservices.com/llms-full.txt
+- 24/7 Emergency Service
+- Licensed, Bonded, Insured
+- NFPA 96 Compliant
+- Se Habla Español
+- Serving Middle Tennessee since 2006
+
+## Standards
+- NFPA 96 Information: /nfpa-code-96-standards/
+- FAQ: /kitchen-exhaust-faq/
+- How Systems Work: /how-your-kitchen-ventilation-system-works/
