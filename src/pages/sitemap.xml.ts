@@ -109,6 +109,38 @@ const pages: string[] = [
   '/parts-installation/hartsville-tn/',
   '/parts-installation/fairview-tn/',
   '/parts-installation/thompsons-station-tn/',
+
+  // Installation hub
+  '/installation/',
+
+  // Installation city pages (27)
+  '/installation/nashville-tn/',
+  '/installation/murfreesboro-tn/',
+  '/installation/antioch-tn/',
+  '/installation/hendersonville-tn/',
+  '/installation/spring-hill-tn/',
+  '/installation/smyrna-tn/',
+  '/installation/gallatin-tn/',
+  '/installation/lebanon-tn/',
+  '/installation/goodlettsville-tn/',
+  '/installation/brentwood-tn/',
+  '/installation/mount-juliet-tn/',
+  '/installation/hermitage-tn/',
+  '/installation/madison-tn/',
+  '/installation/la-vergne-tn/',
+  '/installation/clarksville-tn/',
+  '/installation/franklin-tn/',
+  '/installation/columbia-tn/',
+  '/installation/shelbyville-tn/',
+  '/installation/springfield-tn/',
+  '/installation/dickson-tn/',
+  '/installation/nolensville-tn/',
+  '/installation/portland-tn/',
+  '/installation/white-house-tn/',
+  '/installation/lewisburg-tn/',
+  '/installation/hartsville-tn/',
+  '/installation/fairview-tn/',
+  '/installation/thompsons-station-tn/',
 ];
 
 export const GET: APIRoute = () => {
