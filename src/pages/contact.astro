@@ -88,14 +88,61 @@ const partsCities = repairCities;
 
           <p class="text-xs text-[#FF5E15] font-heading font-semibold uppercase tracking-wide pt-2">Business Info</p>
           <input type="text" name="businessName" placeholder="Business Name" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
-          <input type="text" name="businessAddress" placeholder="Business Address" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+            <input type="text" name="businessStreetAddress" placeholder="Business Street Address" class="bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+            <input type="text" name="businessCity" placeholder="Business City" class="bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          </div>
 
-          <select name="service" required class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 appearance-none" style="background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23999%22 d=%22M6 8.825L1.175 4 2.238 2.938 6 6.7 9.763 2.937 10.825 4z%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;">
-            <option value="">Select Service... *</option>
+          <select name="service" id="contact-service" required class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 appearance-none" style="background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23999%22 d=%22M6 8.825L1.175 4 2.238 2.938 6 6.7 9.763 2.937 10.825 4z%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;">
+            <option value="" disabled selected>Select a Service *</option>
+            <option value="Repair Services">Repair Services</option>
             <option value="Hood Cleaning">Hood Cleaning</option>
-            <option value="System Repair">System Repair</option>
-            <option value="Looking for Parts">Looking for Parts</option>
-            <option value="New Installation">New Installation</option>
+            <option value="Installation Quote">Installation Quote</option>
+            <option value="Parts Order">Parts Order</option>
+          </select>
+
+          <select name="partNeeded" id="contact-partNeeded" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 appearance-none" style="display:none;background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23999%22 d=%22M6 8.825L1.175 4 2.238 2.938 6 6.7 9.763 2.937 10.825 4z%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;">
+            <option value="" disabled selected>Select a Part</option>
+            <optgroup label="Exhaust Fans">
+              <option value="Direct Drive Upblast Fan">Direct Drive Upblast Fan</option>
+              <option value="Belt Drive Upblast Fan">Belt Drive Upblast Fan</option>
+            </optgroup>
+            <optgroup label="Fan Replacement Parts">
+              <option value="Motors (ODP and TEFC)">Motors (ODP and TEFC)</option>
+              <option value="Fan Wheels and Blades">Fan Wheels and Blades</option>
+              <option value="Belts and Drive Kits">Belts and Drive Kits</option>
+              <option value="Bearings">Bearings</option>
+              <option value="Roof Curbs">Roof Curbs</option>
+              <option value="Hinge Kits">Hinge Kits</option>
+              <option value="Speed Controllers and VFDs">Speed Controllers and VFDs</option>
+              <option value="Grease Cups and Fittings">Grease Cups and Fittings</option>
+              <option value="Motor Covers and Guards">Motor Covers and Guards</option>
+            </optgroup>
+            <optgroup label="Make-Up Air Units">
+              <option value="Gas-Fired Heated MUA">Gas-Fired Heated MUA</option>
+              <option value="Untempered / Passive MUA">Untempered / Passive MUA</option>
+              <option value="MUA Replacement Parts">MUA Replacement Parts</option>
+            </optgroup>
+            <optgroup label="Filters & Baffles">
+              <option value="Stainless Steel Baffle Filters">Stainless Steel Baffle Filters</option>
+              <option value="Mesh Grease Filters">Mesh Grease Filters</option>
+              <option value="Charcoal / Carbon Filters">Charcoal / Carbon Filters</option>
+            </optgroup>
+            <optgroup label="Grease Containment">
+              <option value="Rooftop Grease Boxes">Rooftop Grease Boxes</option>
+              <option value="High-Volume Grease Boxes">High-Volume Grease Boxes</option>
+              <option value="Grease Containment Trays">Grease Containment Trays</option>
+              <option value="Absorbent Pads and Pillows">Absorbent Pads and Pillows</option>
+              <option value="Grease Duct Access Doors">Grease Duct Access Doors</option>
+              <option value="Grease Gutters (360 Protection)">Grease Gutters (360 Protection)</option>
+            </optgroup>
+            <optgroup label="Hood Systems & Accessories">
+              <option value="Complete Hood Systems">Complete Hood Systems</option>
+              <option value="Fire Suppression Systems">Fire Suppression Systems</option>
+              <option value="Hood Lights">Hood Lights</option>
+              <option value="Exhaust Fan Interceptors">Exhaust Fan Interceptors</option>
+              <option value="Splash Guards">Splash Guards</option>
+            </optgroup>
           </select>
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
@@ -286,6 +333,22 @@ const partsCities = repairCities;
       });
     }
 
+    // Parts dropdown toggle
+    var contactService = document.getElementById('contact-service');
+    var contactParts = document.getElementById('contact-partNeeded');
+    if (contactService && contactParts) {
+      contactService.addEventListener('change', function() {
+        if (this.value === 'Parts Order') {
+          contactParts.style.display = 'block';
+          contactParts.required = true;
+        } else {
+          contactParts.style.display = 'none';
+          contactParts.required = false;
+          contactParts.value = '';
+        }
+      });
+    }
+
     if (form) {
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -305,8 +368,10 @@ const partsCities = repairCities;
           phone: form.querySelector('[name="phone"]').value,
           email: form.querySelector('[name="email"]').value || '',
           businessName: form.querySelector('[name="businessName"]').value || '',
-          businessAddress: form.querySelector('[name="businessAddress"]').value || '',
+          businessStreetAddress: form.querySelector('[name="businessStreetAddress"]').value || '',
+          businessCity: form.querySelector('[name="businessCity"]').value || '',
           service: form.querySelector('[name="service"]').value || 'Not specified',
+          partNeeded: form.querySelector('[name="partNeeded"]').value || '',
           multipleLocations: (form.querySelector('[name="multipleLocations"]:checked') || {}).value || 'No',
           flatRoof: (form.querySelector('[name="flatRoof"]:checked') || {}).value || 'No',
           comments: commentsEl ? commentsEl.value : '',
