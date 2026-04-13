@@ -84,7 +84,7 @@ export async function onRequestPost(context) {
     const SHEET_ID = env.GOOGLE_SHEET_ID || '';
 
     // Logo URL for emails
-    const logoUrl = 'https://ddanhoodservices.com/images/logos/DDAN%20Hood%20Cleaning%20and%20Repair%20Logo%20Black%20BG.png';
+    const logoUrl = 'https://ddanhoodservices.com/images/logos/ddan-logo-color-transparent.png';
 
     // 1. TEAM EMAIL via SMTP2GO — dark mode mobile-friendly
     try {
