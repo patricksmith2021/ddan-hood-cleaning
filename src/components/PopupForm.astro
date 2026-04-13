@@ -37,11 +37,11 @@
       <div id="form-step-1">
         <div class="space-y-3">
           <div class="grid grid-cols-2 gap-3">
-            <input type="text" name="firstName" placeholder="First Name *" required class="bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
-            <input type="text" name="lastName" placeholder="Last Name *" required class="bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+            <input type="text" name="firstName" placeholder="First Name *" required aria-label="First Name" class="bg-[#111] text-white px-4 py-3 text-base rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+            <input type="text" name="lastName" placeholder="Last Name *" required aria-label="Last Name" class="bg-[#111] text-white px-4 py-3 text-base rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
           </div>
-          <input type="tel" name="phone" placeholder="Phone *" required class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
-          <input type="email" name="email" placeholder="Email" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          <input type="tel" name="phone" placeholder="Phone *" required aria-label="Phone Number" class="w-full bg-[#111] text-white px-4 py-3 text-base rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          <input type="email" name="email" placeholder="Email" aria-label="Email Address" class="w-full bg-[#111] text-white px-4 py-3 text-base rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
         </div>
         <button type="button" id="step-next" class="w-full mt-5 py-3 bg-[#FF5E15] hover:bg-[#E54F0D] text-white font-heading font-bold text-sm rounded-lg transition-all duration-200 flex items-center justify-center gap-2">
           Next Step
@@ -52,19 +52,19 @@
       <!-- STEP 2: Service Details -->
       <div id="form-step-2" class="hidden">
         <div class="space-y-3">
-          <input type="text" name="businessName" placeholder="Business Name" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+          <input type="text" name="businessName" placeholder="Business Name" aria-label="Business Name" class="w-full bg-[#111] text-white px-4 py-3 text-base rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
           <div class="grid grid-cols-2 gap-3">
-            <input type="text" name="businessStreetAddress" placeholder="Business Street Address" class="bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
-            <input type="text" name="businessCity" placeholder="Business City" class="bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+            <input type="text" name="businessStreetAddress" placeholder="Business Street Address" aria-label="Business Street Address" class="bg-[#111] text-white px-4 py-3 text-base rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
+            <input type="text" name="businessCity" placeholder="Business City" aria-label="Business City" class="bg-[#111] text-white px-4 py-3 text-base rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666]" />
           </div>
-          <select name="service" id="popup-service" required class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 appearance-none" style="background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23999%22 d=%22M6 8.825L1.175 4 2.238 2.938 6 6.7 9.763 2.937 10.825 4z%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;">
+          <select name="service" id="popup-service" required aria-label="Select a Service" class="w-full bg-[#111] text-white px-4 py-3 text-base rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 appearance-none" style="background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23999%22 d=%22M6 8.825L1.175 4 2.238 2.938 6 6.7 9.763 2.937 10.825 4z%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;">
             <option value="" disabled selected class="text-[#666]">Select a Service *</option>
             <option value="Repair Services">Repair Services</option>
             <option value="Hood Cleaning">Hood Cleaning</option>
             <option value="Installation Quote">Installation Quote</option>
             <option value="Parts Order">Parts Order</option>
           </select>
-          <select name="partNeeded" id="popup-partNeeded" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 appearance-none" style="display:none;background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23999%22 d=%22M6 8.825L1.175 4 2.238 2.938 6 6.7 9.763 2.937 10.825 4z%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;">
+          <select name="partNeeded" id="popup-partNeeded" aria-label="Select a Part" class="w-full bg-[#111] text-white px-4 py-3 text-base rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 appearance-none" style="display:none;background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23999%22 d=%22M6 8.825L1.175 4 2.238 2.938 6 6.7 9.763 2.937 10.825 4z%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;">
             <option value="" disabled selected>Select a Part</option>
             <optgroup label="Exhaust Fans">
               <option value="Direct Drive Upblast Fan">Direct Drive Upblast Fan</option>
@@ -123,7 +123,7 @@
               </div>
             </div>
           </div>
-          <textarea name="comments" placeholder="Message (optional)" rows="3" class="w-full bg-[#111] text-white px-4 py-3 text-sm rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666] resize-none"></textarea>
+          <textarea name="comments" placeholder="Message (optional)" rows="3" aria-label="Message" class="w-full bg-[#111] text-white px-4 py-3 text-base rounded-lg border border-[#333] outline-none focus:border-[#FF5E15] transition-all duration-200 placeholder:text-[#666] resize-none"></textarea>
         </div>
 
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAC06KZwCltnZFIp-" data-size="invisible"></div>
@@ -300,28 +300,22 @@
         };
 
         try {
-          console.log('[DDAN Form] Submitting to /api/intake...', data);
           var response = await fetch('/api/intake', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
           });
-          console.log('[DDAN Form] Response status:', response.status);
 
           if (response.ok) {
-            var result = await response.json();
-            console.log('[DDAN Form] Success:', result);
             window.location.href = '/thank-you/';
           } else {
             var result = await response.json().catch(function() { return {}; });
-            console.error('[DDAN Form] Server error:', response.status, result);
             if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong (status ' + response.status + '). Please call (615) 881-6968.';
             btn.disabled = false;
             btn.innerHTML = 'Request Callback ASAP';
             if (typeof turnstile !== 'undefined') turnstile.reset();
           }
         } catch (err) {
-          console.error('[DDAN Form] Connection error:', err.message, err);
           if (errorDiv) errorDiv.textContent = 'Connection error: ' + err.message + '. Please call (615) 881-6968.';
           btn.disabled = false;
           btn.innerHTML = 'Request Callback ASAP';

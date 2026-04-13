@@ -12,3 +12,4 @@ Thumbs.db
 .idea/
 ddan_credentials_env.txt
 .dev.vars
+parts-store-reference-images-for-generation/
