@@ -50,12 +50,52 @@ const faqs = [
     a: `Call us at ${business.phone} or fill out our online form. We'll respond quickly with a free, no-obligation estimate based on your system.`,
   },
 ];
+
+const siteUrl = import.meta.env.SITE || 'https://ddanhoodservices.com';
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${siteUrl}/kitchen-exhaust-faq/`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+      }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+        { "@type": "ListItem", "position": 2, "name": "FAQ" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="Restaurant Kitchen Exhaust Fan Questions? DDAN Hood Services"
   description="Answers to common questions about commercial kitchen hood cleaning, exhaust fan repair, NFPA 96 compliance, and pricing."
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <HeroBanner
     headline="Commercial Kitchen Exhaust & Hood Cleaning FAQ"
     subheadline="Common questions about commercial kitchen exhaust services"

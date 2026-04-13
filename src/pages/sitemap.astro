@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
+import business from '../data/business.json';
 
 const pageGroups = [
   {
@@ -135,12 +136,44 @@ const pageGroups = [
     ],
   },
 ];
+
+const siteUrl = import.meta.env.SITE || 'https://ddanhoodservices.com';
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${siteUrl}/sitemap/`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+        { "@type": "ListItem", "position": 2, "name": "Sitemap" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="Sitemap | DDAN Hood Cleaning and Repair"
   description="Complete sitemap for DDAN Hood Cleaning and Repair website."
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <HeroBanner
     headline="Sitemap"
     breadcrumbs={[

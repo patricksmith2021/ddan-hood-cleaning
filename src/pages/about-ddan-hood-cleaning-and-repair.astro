@@ -2,12 +2,44 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TruckCTA from '../components/TruckCTA.astro';
 import business from '../data/business.json';
+
+const siteUrl = import.meta.env.SITE || 'https://ddanhoodservices.com';
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${siteUrl}/about-ddan-hood-cleaning-and-repair/`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+        { "@type": "ListItem", "position": 2, "name": "About" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
-  title="About DDAN Hood Cleaning and Repair | Family-Owned Since 2006"
-  description="DDAN Hood Cleaning and Repair is a family-owned, NFPA 96-compliant commercial kitchen exhaust company serving 27 cities across Middle Tennessee since 2006. Se Habla Español."
+  title="About DDAN Hood Cleaning | Family-Owned"
+  description="Family-owned, NFPA 96-compliant kitchen exhaust company serving 27 cities across Middle Tennessee since 2006. Se Habla Español. (615) 881-6968"
 >
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <style>
     .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }

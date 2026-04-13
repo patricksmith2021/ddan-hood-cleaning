@@ -2,12 +2,45 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
 import TruckCTA from '../components/TruckCTA.astro';
+import business from '../data/business.json';
+
+const siteUrl = import.meta.env.SITE || 'https://ddanhoodservices.com';
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${siteUrl}/gallery/`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+        { "@type": "ListItem", "position": 2, "name": "Gallery" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="Project Gallery | DDAN Hood Cleaning and Repair"
   description="View photos of our commercial kitchen hood cleaning, repair, and installation work across Nashville and Middle Tennessee."
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <HeroBanner
     headline="Gallery"
     subheadline="Real work from real kitchens across Middle Tennessee"

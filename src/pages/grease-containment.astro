@@ -4,12 +4,50 @@ import InlineCTA from '../components/InlineCTA.astro';
 import ServiceAreaGrid from '../components/ServiceAreaGrid.astro';
 import TruckCTA from '../components/TruckCTA.astro';
 import business from '../data/business.json';
+
+const siteUrl = import.meta.env.SITE || 'https://ddanhoodservices.com';
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${siteUrl}/grease-containment/`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Rooftop Grease Containment Installation",
+      "provider": { "@type": "LocalBusiness", "name": business.name },
+      "areaServed": { "@type": "State", "name": "Tennessee" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+        { "@type": "ListItem", "position": 2, "name": "Grease Containment" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
-  title="Grease Containment Solutions for Restaurants & Commercial Kitchens"
+  title="Grease Containment Solutions | DDAN Hood Services"
   description="Rooftop grease containment installation, service, and replacement. Protect your roof and stay fire-code compliant with DDAN Hood Services."
 >
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <!-- SECTION 1: HERO -->
   <section role="img" aria-label="Rooftop grease containment system installation — DDAN Hood Cleaning and Repair" class="min-h-[400px] md:min-h-[550px] flex items-center justify-center" style="background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%), url('/images/services/rooftop-grease-containment-installation.webp') center/cover no-repeat;">
     <div class="max-w-4xl mx-auto px-6 py-20 text-center">

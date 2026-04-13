@@ -3,12 +3,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
 import TruckCTA from '../components/TruckCTA.astro';
 import business from '../data/business.json';
+
+const siteUrl = import.meta.env.SITE || 'https://ddanhoodservices.com';
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${siteUrl}/news/`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+        { "@type": "ListItem", "position": 2, "name": "News" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="See DDAN in Local Nashville Media"
   description="News and updates from DDAN Hood Cleaning and Repair. Stay informed about commercial kitchen exhaust safety in Nashville."
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <HeroBanner
     headline="News"
     subheadline="Industry insights, safety tips, and company updates"

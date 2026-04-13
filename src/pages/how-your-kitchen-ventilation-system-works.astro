@@ -56,12 +56,44 @@ const warningSigns = [
   'Failed fire or health inspection',
   'Strong cooking odors in dining areas',
 ];
+
+const siteUrl = import.meta.env.SITE || 'https://ddanhoodservices.com';
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${siteUrl}/how-your-kitchen-ventilation-system-works/`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+        { "@type": "ListItem", "position": 2, "name": "How Your System Works" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="How Your Restaurant Kitchen Ventilation Works"
   description="Learn how commercial kitchen ventilation systems work — from exhaust hoods to rooftop fans. Understand your system with DDAN Hood Cleaning."
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <HeroBanner
     headline="How Your Commercial Kitchen Ventilation System Works"
     subheadline="Understanding your commercial kitchen ventilation"

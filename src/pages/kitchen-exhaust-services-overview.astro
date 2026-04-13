@@ -4,6 +4,36 @@ import HeroBanner from '../components/HeroBanner.astro';
 import TruckCTA from '../components/TruckCTA.astro';
 import business from '../data/business.json';
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/kitchen-exhaust-services-overview/`,
+      "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Kitchen Exhaust Services",
+      "provider": { "@type": "LocalBusiness", "name": business.name },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "description": "Complete commercial kitchen exhaust system services: cleaning, repair, installation, grease containment, parts, and fire suppression."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/` },
+        { "@type": "ListItem", "position": 2, "name": "Services" }
+      ]
+    }
+  ]
+};
+
 const services = [
   {
     title: 'Hood Cleaning',
@@ -117,6 +147,7 @@ const services = [
   title="Services - DDAN Hood Cleaning and Repair"
   description="Complete commercial kitchen exhaust system services: cleaning, repair, installation, grease containment, parts, and fire suppression."
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <HeroBanner
     headline="DDAN Kitchen Exhaust Fan & Hood System Services Overview"
     subheadline="Complete commercial kitchen exhaust system care"

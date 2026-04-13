@@ -31,12 +31,44 @@ const repairCities = [
 ];
 
 const partsCities = repairCities;
+
+const siteUrl = import.meta.env.SITE || 'https://ddanhoodservices.com';
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${siteUrl}/contact/`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+        { "@type": "ListItem", "position": 2, "name": "Contact" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="Contact DDAN Hood Cleaning and Repair | (615) 881-6968"
-  description="Call (615) 881-6968 for 24/7 commercial hood cleaning, repair, and exhaust fan parts in Nashville and Middle Tennessee. Licensed, bonded, and insured since 2006."
+  description="Call (615) 881-6968 for 24/7 commercial hood cleaning, repair, and exhaust fan parts in Nashville and Middle Tennessee. Licensed, bonded, insured."
 >
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <!-- SECTION 1: Hero -->
   <section class="relative overflow-hidden flex items-center justify-center px-5" style="min-height:60vh; background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)), url('/images/homepage/certified-hood-cleaning-company-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968-1024x768.webp'); background-size:cover; background-position:center;">

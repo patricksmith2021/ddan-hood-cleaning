@@ -115,12 +115,50 @@ const installChecks = [
   'Electrical — wiring & controls',
   'Final inspection & documentation',
 ];
+
+const siteUrl = import.meta.env.SITE || 'https://ddanhoodservices.com';
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${siteUrl}/parts-installation/`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Commercial Kitchen Exhaust Parts and Installation",
+      "provider": { "@type": "LocalBusiness", "name": business.name },
+      "areaServed": { "@type": "State", "name": "Tennessee" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+        { "@type": "ListItem", "position": 2, "name": "Parts & Installation" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
-  title="Rapid Restaurant Exhaust Fan Parts & Installation | DDAN Nashville"
-  description={`Restaurant exhaust fan parts, make-up air units, hood filters, and grease containment. Same-day parts & discounted professional installation. Call ${business.phone}.`}
+  title="Exhaust Fan Parts & Installation | DDAN"
+  description={`Restaurant exhaust fan parts, hood filters, and grease containment. Same-day parts and professional installation. Call ${business.phone}.`}
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <!-- SECTION 1: HERO -->
   <section role="img" aria-label="Commercial kitchen exhaust parts and installation in Middle Tennessee — DDAN Hood Cleaning and Repair" class="min-h-[400px] md:min-h-[550px] flex items-center justify-center" style="background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%), url('/images/services/kitchen-exhaust-parts-installation.webp') center/cover no-repeat;">

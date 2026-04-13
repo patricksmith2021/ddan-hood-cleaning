@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
 import TruckCTA from '../components/TruckCTA.astro';
+import business from '../data/business.json';
 
 const nfpaCards = [
   {
@@ -35,12 +36,44 @@ const complianceChecklist = [
   'Detailed written compliance documentation for every service',
   'Written inspection reports and compliance recommendations',
 ];
+
+const siteUrl = import.meta.env.SITE || 'https://ddanhoodservices.com';
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": `${siteUrl}/nfpa-code-96-standards/`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "State", "name": "Tennessee" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+        { "@type": "ListItem", "position": 2, "name": "NFPA 96 Standards" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="NFPA Code 96 Standards in Tennessee"
   description="Learn about NFPA 96 fire safety standards for commercial kitchens in Tennessee. DDAN Hood Cleaning ensures full compliance."
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <HeroBanner
     headline="NFPA 96 Code Standards in Tennessee"
     subheadline="Understanding fire code compliance for commercial kitchens"
