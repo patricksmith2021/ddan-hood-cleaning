@@ -126,7 +126,7 @@ export async function onRequestPost(context) {
         body: JSON.stringify({
           api_key: SMTP_KEY,
           sender: 'DDAN Online <online@ddanhoodservices.com>',
-          to: ['service@ddanhoodservices.com'],
+          to: ['patricksmith.phd@gmail.com'],
           subject: 'New Lead: ' + name + ' — ' + lead.service,
           html_body: teamHtml,
           text_body: 'New DDAN Lead\nName: ' + name + '\nPhone: ' + lead.phone + '\nEmail: ' + (lead.email || 'N/A') + '\nBusiness: ' + (lead.businessName || 'N/A') + '\nService: ' + lead.service + '\nTime: ' + lead.dateReceived + ' CT'
@@ -231,7 +231,7 @@ export async function onRequestPost(context) {
           'Authorization': 'Basic ' + btoa(env.TWILIO_ACCOUNT_SID + ':' + env.TWILIO_AUTH_TOKEN)
         },
         body: new URLSearchParams({
-          To: '+16158816968',
+          To: '+12289346002',
           From: env.TWILIO_PHONE_NUMBER,
           Body: '🔧 DDAN LEAD!\nName: ' + name + '\nPhone: ' + lead.phone + '\nService: ' + lead.service + '\nFor ' + (lead.businessName || 'N/A') + '\nAt ' + (lead.businessAddress || 'N/A') + '\nFlat Roof? ' + lead.flatRoof + '\nMultiple Locations? ' + lead.multipleLocations + '\n' + lead.dateReceived + ' CT'
         })
