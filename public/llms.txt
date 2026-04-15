@@ -3,9 +3,9 @@
 
 ## Services
 - Hood Cleaning (14 cities): /cleaning/
-- Hood Repair (27 cities): /repair/
+- Fan Repair (27 cities): /fan-repair/
 - Parts & Equipment (27 cities): /parts-installation/
-- Installation Services (27 cities): /installation/
+- Fan & Hood Installation (27 cities): /fan-hood-installation/
 - Grease Containment: /grease-containment/
 - Exhaust Fan Hinge Kits: /exhaust-fan-hinge-kit-installation/
 - Belt & Motor Repair: /exhaust-fan-belt-motor-repair/

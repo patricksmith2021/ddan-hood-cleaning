@@ -29,7 +29,7 @@ DDAN provides 24/7 emergency exhaust fan repair with same-day motor and belt rep
 
 Repair service area: 27 cities across Middle Tennessee (full list below)
 
-URL: https://ddanhoodservices.com/repair/
+URL: https://ddanhoodservices.com/fan-repair/
 
 ### Parts and Installation
 DDAN supplies and professionally installs commercial kitchen exhaust system parts. This is not an e-commerce operation — customers call for a free fitting consultation to verify exact specifications before ordering. Parts categories include:
@@ -57,7 +57,7 @@ DDAN provides full commercial kitchen exhaust system installation including new 
 
 Installation service area: 27 cities (same as repair and parts)
 
-URL: https://ddanhoodservices.com/installation/
+URL: https://ddanhoodservices.com/fan-hood-installation/
 
 ### Additional Service Detail Pages
 - Grease Containment: https://ddanhoodservices.com/grease-containment/
@@ -75,9 +75,9 @@ Nashville, Murfreesboro, Antioch, Hendersonville, Spring Hill, Smyrna, Gallatin,
 Each city has dedicated pages for applicable services:
 
 Cleaning city pages (14): https://ddanhoodservices.com/cleaning/[city-slug]/
-Repair city pages (27): https://ddanhoodservices.com/repair/[city-slug]/
+Repair city pages (27): https://ddanhoodservices.com/fan-repair/[city-slug]/
 Parts city pages (27): https://ddanhoodservices.com/parts-installation/[city-slug]/
-Installation city pages (27): https://ddanhoodservices.com/installation/[city-slug]/
+Installation city pages (27): https://ddanhoodservices.com/fan-hood-installation/[city-slug]/
 
 ## All Pages
 
@@ -98,9 +98,9 @@ Installation city pages (27): https://ddanhoodservices.com/installation/[city-sl
 
 ### Service Hubs
 - Hood Cleaning: https://ddanhoodservices.com/cleaning/
-- Hood Repair: https://ddanhoodservices.com/repair/
+- Fan Repair: https://ddanhoodservices.com/fan-repair/
 - Parts & Installation: https://ddanhoodservices.com/parts-installation/
-- Installation: https://ddanhoodservices.com/installation/
+- Fan & Hood Installation: https://ddanhoodservices.com/fan-hood-installation/
 
 ### Standalone Service Pages
 - Grease Containment: https://ddanhoodservices.com/grease-containment/
@@ -126,33 +126,33 @@ Installation city pages (27): https://ddanhoodservices.com/installation/[city-sl
 - https://ddanhoodservices.com/cleaning/la-vergne-tn/
 
 ### Hood Repair City Pages (27)
-- https://ddanhoodservices.com/repair/nashville-tn/
-- https://ddanhoodservices.com/repair/murfreesboro-tn/
-- https://ddanhoodservices.com/repair/antioch-tn/
-- https://ddanhoodservices.com/repair/hendersonville-tn/
-- https://ddanhoodservices.com/repair/spring-hill-tn/
-- https://ddanhoodservices.com/repair/smyrna-tn/
-- https://ddanhoodservices.com/repair/gallatin-tn/
-- https://ddanhoodservices.com/repair/lebanon-tn/
-- https://ddanhoodservices.com/repair/goodlettsville-tn/
-- https://ddanhoodservices.com/repair/brentwood-tn/
-- https://ddanhoodservices.com/repair/mount-juliet-tn/
-- https://ddanhoodservices.com/repair/hermitage-tn/
-- https://ddanhoodservices.com/repair/madison-tn/
-- https://ddanhoodservices.com/repair/la-vergne-tn/
-- https://ddanhoodservices.com/repair/clarksville-tn/
-- https://ddanhoodservices.com/repair/franklin-tn/
-- https://ddanhoodservices.com/repair/columbia-tn/
-- https://ddanhoodservices.com/repair/shelbyville-tn/
-- https://ddanhoodservices.com/repair/springfield-tn/
-- https://ddanhoodservices.com/repair/dickson-tn/
-- https://ddanhoodservices.com/repair/nolensville-tn/
-- https://ddanhoodservices.com/repair/portland-tn/
-- https://ddanhoodservices.com/repair/white-house-tn/
-- https://ddanhoodservices.com/repair/lewisburg-tn/
-- https://ddanhoodservices.com/repair/hartsville-tn/
-- https://ddanhoodservices.com/repair/fairview-tn/
-- https://ddanhoodservices.com/repair/thompsons-station-tn/
+- https://ddanhoodservices.com/fan-repair/nashville-tn/
+- https://ddanhoodservices.com/fan-repair/murfreesboro-tn/
+- https://ddanhoodservices.com/fan-repair/antioch-tn/
+- https://ddanhoodservices.com/fan-repair/hendersonville-tn/
+- https://ddanhoodservices.com/fan-repair/spring-hill-tn/
+- https://ddanhoodservices.com/fan-repair/smyrna-tn/
+- https://ddanhoodservices.com/fan-repair/gallatin-tn/
+- https://ddanhoodservices.com/fan-repair/lebanon-tn/
+- https://ddanhoodservices.com/fan-repair/goodlettsville-tn/
+- https://ddanhoodservices.com/fan-repair/brentwood-tn/
+- https://ddanhoodservices.com/fan-repair/mount-juliet-tn/
+- https://ddanhoodservices.com/fan-repair/hermitage-tn/
+- https://ddanhoodservices.com/fan-repair/madison-tn/
+- https://ddanhoodservices.com/fan-repair/la-vergne-tn/
+- https://ddanhoodservices.com/fan-repair/clarksville-tn/
+- https://ddanhoodservices.com/fan-repair/franklin-tn/
+- https://ddanhoodservices.com/fan-repair/columbia-tn/
+- https://ddanhoodservices.com/fan-repair/shelbyville-tn/
+- https://ddanhoodservices.com/fan-repair/springfield-tn/
+- https://ddanhoodservices.com/fan-repair/dickson-tn/
+- https://ddanhoodservices.com/fan-repair/nolensville-tn/
+- https://ddanhoodservices.com/fan-repair/portland-tn/
+- https://ddanhoodservices.com/fan-repair/white-house-tn/
+- https://ddanhoodservices.com/fan-repair/lewisburg-tn/
+- https://ddanhoodservices.com/fan-repair/hartsville-tn/
+- https://ddanhoodservices.com/fan-repair/fairview-tn/
+- https://ddanhoodservices.com/fan-repair/thompsons-station-tn/
 
 ### Parts & Installation City Pages (27)
 - https://ddanhoodservices.com/parts-installation/nashville-tn/
@@ -184,33 +184,33 @@ Installation city pages (27): https://ddanhoodservices.com/installation/[city-sl
 - https://ddanhoodservices.com/parts-installation/thompsons-station-tn/
 
 ### Installation City Pages (27)
-- https://ddanhoodservices.com/installation/nashville-tn/
-- https://ddanhoodservices.com/installation/murfreesboro-tn/
-- https://ddanhoodservices.com/installation/antioch-tn/
-- https://ddanhoodservices.com/installation/hendersonville-tn/
-- https://ddanhoodservices.com/installation/spring-hill-tn/
-- https://ddanhoodservices.com/installation/smyrna-tn/
-- https://ddanhoodservices.com/installation/gallatin-tn/
-- https://ddanhoodservices.com/installation/lebanon-tn/
-- https://ddanhoodservices.com/installation/goodlettsville-tn/
-- https://ddanhoodservices.com/installation/brentwood-tn/
-- https://ddanhoodservices.com/installation/mount-juliet-tn/
-- https://ddanhoodservices.com/installation/hermitage-tn/
-- https://ddanhoodservices.com/installation/madison-tn/
-- https://ddanhoodservices.com/installation/la-vergne-tn/
-- https://ddanhoodservices.com/installation/clarksville-tn/
-- https://ddanhoodservices.com/installation/franklin-tn/
-- https://ddanhoodservices.com/installation/columbia-tn/
-- https://ddanhoodservices.com/installation/shelbyville-tn/
-- https://ddanhoodservices.com/installation/springfield-tn/
-- https://ddanhoodservices.com/installation/dickson-tn/
-- https://ddanhoodservices.com/installation/nolensville-tn/
-- https://ddanhoodservices.com/installation/portland-tn/
-- https://ddanhoodservices.com/installation/white-house-tn/
-- https://ddanhoodservices.com/installation/lewisburg-tn/
-- https://ddanhoodservices.com/installation/hartsville-tn/
-- https://ddanhoodservices.com/installation/fairview-tn/
-- https://ddanhoodservices.com/installation/thompsons-station-tn/
+- https://ddanhoodservices.com/fan-hood-installation/nashville-tn/
+- https://ddanhoodservices.com/fan-hood-installation/murfreesboro-tn/
+- https://ddanhoodservices.com/fan-hood-installation/antioch-tn/
+- https://ddanhoodservices.com/fan-hood-installation/hendersonville-tn/
+- https://ddanhoodservices.com/fan-hood-installation/spring-hill-tn/
+- https://ddanhoodservices.com/fan-hood-installation/smyrna-tn/
+- https://ddanhoodservices.com/fan-hood-installation/gallatin-tn/
+- https://ddanhoodservices.com/fan-hood-installation/lebanon-tn/
+- https://ddanhoodservices.com/fan-hood-installation/goodlettsville-tn/
+- https://ddanhoodservices.com/fan-hood-installation/brentwood-tn/
+- https://ddanhoodservices.com/fan-hood-installation/mount-juliet-tn/
+- https://ddanhoodservices.com/fan-hood-installation/hermitage-tn/
+- https://ddanhoodservices.com/fan-hood-installation/madison-tn/
+- https://ddanhoodservices.com/fan-hood-installation/la-vergne-tn/
+- https://ddanhoodservices.com/fan-hood-installation/clarksville-tn/
+- https://ddanhoodservices.com/fan-hood-installation/franklin-tn/
+- https://ddanhoodservices.com/fan-hood-installation/columbia-tn/
+- https://ddanhoodservices.com/fan-hood-installation/shelbyville-tn/
+- https://ddanhoodservices.com/fan-hood-installation/springfield-tn/
+- https://ddanhoodservices.com/fan-hood-installation/dickson-tn/
+- https://ddanhoodservices.com/fan-hood-installation/nolensville-tn/
+- https://ddanhoodservices.com/fan-hood-installation/portland-tn/
+- https://ddanhoodservices.com/fan-hood-installation/white-house-tn/
+- https://ddanhoodservices.com/fan-hood-installation/lewisburg-tn/
+- https://ddanhoodservices.com/fan-hood-installation/hartsville-tn/
+- https://ddanhoodservices.com/fan-hood-installation/fairview-tn/
+- https://ddanhoodservices.com/fan-hood-installation/thompsons-station-tn/
 
 ### LLM Bot Pages
 - https://ddanhoodservices.com/who-is-ddan-hood-cleaning-and-repair/

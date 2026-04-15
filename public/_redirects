@@ -5,7 +5,7 @@
 
 # --- Old service hub pages ---
 /kitchen-hood-cleaning-services/          /cleaning/              301
-/commercial-hood-repair/                  /repair/                301
+/commercial-hood-repair/                  /fan-repair/            301
 /kitchen-exhaust-installation-services/   /parts-installation/    301
 /restaurant-exhaust-fan-parts/            /parts-installation/    301
 /installation-and-parts/                  /parts-installation/    301
@@ -26,7 +26,7 @@
 /locations/brentwood-tn/                  /cleaning/brentwood-tn/        301
 
 # --- Old location pages with NO direct cleaning equivalent ---
-/locations/franklin-tn/                   /repair/franklin-tn/           301
+/locations/franklin-tn/                   /fan-repair/franklin-tn/       301
 /locations/bellevue-tn/                   /cleaning/nashville-tn/        301
 
 # --- Catch-all for any other old /locations/ URLs ---
@@ -37,3 +37,63 @@
 
 # --- Catch-all for any old /parts/ URLs ---
 /parts/*                                  /parts-installation/:splat     301
+
+# --- Repair vertical URL restructure (/repair/ → /fan-repair/) ---
+/repair/                                  /fan-repair/                              301
+/repair/nashville-tn/                     /fan-repair/nashville-tn/                 301
+/repair/murfreesboro-tn/                  /fan-repair/murfreesboro-tn/              301
+/repair/antioch-tn/                       /fan-repair/antioch-tn/                   301
+/repair/hendersonville-tn/                /fan-repair/hendersonville-tn/            301
+/repair/spring-hill-tn/                   /fan-repair/spring-hill-tn/               301
+/repair/smyrna-tn/                        /fan-repair/smyrna-tn/                    301
+/repair/gallatin-tn/                      /fan-repair/gallatin-tn/                  301
+/repair/lebanon-tn/                       /fan-repair/lebanon-tn/                   301
+/repair/goodlettsville-tn/                /fan-repair/goodlettsville-tn/            301
+/repair/brentwood-tn/                     /fan-repair/brentwood-tn/                 301
+/repair/mount-juliet-tn/                  /fan-repair/mount-juliet-tn/              301
+/repair/hermitage-tn/                     /fan-repair/hermitage-tn/                 301
+/repair/madison-tn/                       /fan-repair/madison-tn/                   301
+/repair/la-vergne-tn/                     /fan-repair/la-vergne-tn/                 301
+/repair/clarksville-tn/                   /fan-repair/clarksville-tn/               301
+/repair/franklin-tn/                      /fan-repair/franklin-tn/                  301
+/repair/columbia-tn/                      /fan-repair/columbia-tn/                  301
+/repair/shelbyville-tn/                   /fan-repair/shelbyville-tn/               301
+/repair/springfield-tn/                   /fan-repair/springfield-tn/               301
+/repair/dickson-tn/                       /fan-repair/dickson-tn/                   301
+/repair/nolensville-tn/                   /fan-repair/nolensville-tn/               301
+/repair/portland-tn/                      /fan-repair/portland-tn/                  301
+/repair/white-house-tn/                   /fan-repair/white-house-tn/               301
+/repair/lewisburg-tn/                     /fan-repair/lewisburg-tn/                 301
+/repair/hartsville-tn/                    /fan-repair/hartsville-tn/                301
+/repair/fairview-tn/                      /fan-repair/fairview-tn/                  301
+/repair/thompsons-station-tn/             /fan-repair/thompsons-station-tn/         301
+
+# --- Installation vertical URL restructure (/installation/ → /fan-hood-installation/) ---
+/installation/                            /fan-hood-installation/                              301
+/installation/nashville-tn/               /fan-hood-installation/nashville-tn/                 301
+/installation/murfreesboro-tn/            /fan-hood-installation/murfreesboro-tn/              301
+/installation/antioch-tn/                 /fan-hood-installation/antioch-tn/                   301
+/installation/hendersonville-tn/          /fan-hood-installation/hendersonville-tn/            301
+/installation/spring-hill-tn/             /fan-hood-installation/spring-hill-tn/               301
+/installation/smyrna-tn/                  /fan-hood-installation/smyrna-tn/                    301
+/installation/gallatin-tn/                /fan-hood-installation/gallatin-tn/                  301
+/installation/lebanon-tn/                 /fan-hood-installation/lebanon-tn/                   301
+/installation/goodlettsville-tn/          /fan-hood-installation/goodlettsville-tn/            301
+/installation/brentwood-tn/               /fan-hood-installation/brentwood-tn/                 301
+/installation/mount-juliet-tn/            /fan-hood-installation/mount-juliet-tn/              301
+/installation/hermitage-tn/               /fan-hood-installation/hermitage-tn/                 301
+/installation/madison-tn/                 /fan-hood-installation/madison-tn/                   301
+/installation/la-vergne-tn/               /fan-hood-installation/la-vergne-tn/                 301
+/installation/clarksville-tn/             /fan-hood-installation/clarksville-tn/               301
+/installation/franklin-tn/                /fan-hood-installation/franklin-tn/                  301
+/installation/columbia-tn/                /fan-hood-installation/columbia-tn/                  301
+/installation/shelbyville-tn/             /fan-hood-installation/shelbyville-tn/               301
+/installation/springfield-tn/             /fan-hood-installation/springfield-tn/               301
+/installation/dickson-tn/                 /fan-hood-installation/dickson-tn/                   301
+/installation/nolensville-tn/             /fan-hood-installation/nolensville-tn/               301
+/installation/portland-tn/                /fan-hood-installation/portland-tn/                  301
+/installation/white-house-tn/             /fan-hood-installation/white-house-tn/               301
+/installation/lewisburg-tn/               /fan-hood-installation/lewisburg-tn/                 301
+/installation/hartsville-tn/              /fan-hood-installation/hartsville-tn/                301
+/installation/fairview-tn/                /fan-hood-installation/fairview-tn/                  301
+/installation/thompsons-station-tn/       /fan-hood-installation/thompsons-station-tn/         301

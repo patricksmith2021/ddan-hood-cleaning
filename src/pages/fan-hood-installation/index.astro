@@ -1,0 +1,377 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TruckCTA from '../../components/TruckCTA.astro';
+import business from '../../data/business.json';
+
+const installationAreas = [
+  { city: 'Nashville', state: 'TN', zips: '37201–37250', slug: 'nashville-tn' },
+  { city: 'Murfreesboro', state: 'TN', zips: '37127–37130', slug: 'murfreesboro-tn' },
+  { city: 'Antioch', state: 'TN', zips: '37013', slug: 'antioch-tn' },
+  { city: 'Hendersonville', state: 'TN', zips: '37075, 37077', slug: 'hendersonville-tn' },
+  { city: 'Spring Hill', state: 'TN', zips: '37174', slug: 'spring-hill-tn' },
+  { city: 'Smyrna', state: 'TN', zips: '37167', slug: 'smyrna-tn' },
+  { city: 'Gallatin', state: 'TN', zips: '37066', slug: 'gallatin-tn' },
+  { city: 'Lebanon', state: 'TN', zips: '37087, 37090', slug: 'lebanon-tn' },
+  { city: 'Goodlettsville', state: 'TN', zips: '37072', slug: 'goodlettsville-tn' },
+  { city: 'Brentwood', state: 'TN', zips: '37027, 37024', slug: 'brentwood-tn' },
+  { city: 'Mount Juliet', state: 'TN', zips: '37122, 37121', slug: 'mount-juliet-tn' },
+  { city: 'Hermitage', state: 'TN', zips: '37076', slug: 'hermitage-tn' },
+  { city: 'Madison', state: 'TN', zips: '37115', slug: 'madison-tn' },
+  { city: 'La Vergne', state: 'TN', zips: '37086', slug: 'la-vergne-tn' },
+  { city: 'Franklin', state: 'TN', zips: '37064, 37067', slug: 'franklin-tn' },
+  { city: 'Clarksville', state: 'TN', zips: '37040–37044', slug: 'clarksville-tn' },
+  { city: 'Columbia', state: 'TN', zips: '38401, 38402', slug: 'columbia-tn' },
+  { city: 'Dickson', state: 'TN', zips: '37055', slug: 'dickson-tn' },
+  { city: 'Shelbyville', state: 'TN', zips: '37160', slug: 'shelbyville-tn' },
+  { city: 'Springfield', state: 'TN', zips: '37172', slug: 'springfield-tn' },
+  { city: 'Nolensville', state: 'TN', zips: '37135', slug: 'nolensville-tn' },
+  { city: 'Portland', state: 'TN', zips: '37148', slug: 'portland-tn' },
+  { city: 'Hartsville', state: 'TN', zips: '37074', slug: 'hartsville-tn' },
+  { city: 'Fairview', state: 'TN', zips: '37062', slug: 'fairview-tn' },
+  { city: 'Lewisburg', state: 'TN', zips: '37091', slug: 'lewisburg-tn' },
+  { city: 'Thompsons Station', state: 'TN', zips: '37179', slug: 'thompsons-station-tn' },
+  { city: 'White House', state: 'TN', zips: '37188', slug: 'white-house-tn' },
+];
+
+const faqs = [
+  {
+    q: 'What types of commercial kitchen exhaust systems do you install?',
+    a: `We handle every type of restaurant exhaust system installation — complete exhaust hood systems, upblast and utility exhaust fans, make-up air units, ductwork runs, grease containment systems, fire suppression systems, hinge kits, and access panels. Whether you need a new hood system install for a restaurant opening or a kitchen exhaust fan installation to replace aging equipment, we handle the full scope — sized, installed, and tested to NFPA 96.`,
+  },
+  {
+    q: 'How long does a typical exhaust fan installation take?',
+    a: 'A single exhaust fan replacement — including roof curb, wiring, and hinge kit — typically takes 4–6 hours. Complete hood system installations for new kitchens can take 2–5 days depending on ductwork complexity and make-up air requirements. We schedule around your operations to minimize downtime.',
+  },
+  {
+    q: 'Do you handle permits and code compliance for installations?',
+    a: `Yes. Every installation meets NFPA 96 standards. We coordinate with local fire marshals, pull required permits, and provide full documentation for your records. Our team has been doing this across Middle Tennessee since 2006 — we know the local requirements in every jurisdiction we serve.`,
+  },
+  {
+    q: 'Can you install a new exhaust system in an existing building?',
+    a: 'Absolutely. Retrofit restaurant hood installation service is a large part of our work — converting retail or office spaces into commercial kitchens, upgrading undersized systems, or replacing equipment that has reached end of life. Our commercial kitchen ventilation design team assesses the existing structure, designs the system to fit, and installs to code.',
+  },
+  {
+    q: 'What brands of equipment do you install?',
+    a: 'We install all major commercial kitchen exhaust brands including CaptiveAire, Greenheck, Loren Cook, Canarm, NAKS, and Accurex. We also source and install make-up air units, fire suppression systems, and grease containment from leading manufacturers. If you have a preferred brand, we can work with it.',
+  },
+  {
+    q: 'Do you provide free installation estimates?',
+    a: `Yes. Call ${business.phone} to schedule a free on-site assessment. We'll evaluate your kitchen layout, airflow needs, and local code requirements, then provide a detailed written estimate with no obligation.`,
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business`,
+      "name": business.name,
+      "telephone": business.phone,
+      "email": business.email,
+      "url": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev',
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Tennessee"
+      },
+      "priceRange": "$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": business.googleReviewRating,
+        "reviewCount": "51"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Kitchen Exhaust Installation",
+      "provider": { "@id": `${import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev'}/#business` },
+      "serviceType": "Commercial Kitchen Exhaust System Installation",
+      "areaServed": installationAreas.map(a => ({ "@type": "City", "name": a.city, "addressRegion": a.state })),
+      "description": "Licensed commercial kitchen exhaust installation across Middle Tennessee — exhaust fans, complete hood systems, make-up air units, ductwork, grease containment, and fire suppression. NFPA 96 compliant."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": import.meta.env.SITE || 'https://ddan-hood-cleaning.pages.dev' },
+        { "@type": "ListItem", "position": 2, "name": "Fan & Hood Installation" }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Commercial Fan & Hood Installation | DDAN"
+  description="Licensed commercial kitchen exhaust installation across Middle Tennessee. Fans, complete systems, make-up air units. Free estimates. (615) 881-6968."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+  <!-- SECTION 1: HERO -->
+  <section role="img" aria-label="Commercial kitchen exhaust system installation across Middle Tennessee — DDAN Hood Cleaning and Repair" class="min-h-[400px] md:min-h-[550px] flex items-center justify-center" style="background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%), url('/images/services/kitchen-exhaust-installation.jpg') center/cover no-repeat;">
+    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <p class="text-[#FF5E15] font-heading font-bold text-xs md:text-sm tracking-widest uppercase mb-4">DDAN HOOD CLEANING AND REPAIR</p>
+      <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">Commercial Kitchen <span class="text-[#FF5E15]">Fan & Hood Installation</span> Across Middle Tennessee</h1>
+      <p class="text-gray-200 font-body text-lg md:text-xl max-w-2xl mx-auto mb-6">Licensed restaurant exhaust fan installation, commercial kitchen hood installation, make-up air, and ductwork across 27 cities in Middle Tennessee. NFPA 96 compliant since 2006.</p>
+      <p class="text-white font-heading font-bold text-base md:text-lg mb-2">New Build or Retrofit — Properly Sized, Code-Compliant, Fully Documented</p>
+      <div class="w-20 h-1 bg-[#FF5E15] mx-auto mt-3 mb-8"></div>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+        <a href={`tel:${business.phoneRaw}`} class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF5E15] text-white font-heading font-bold text-lg rounded-lg transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          Get a Free Estimate: {business.phone}
+        </a>
+        <button type="button" class="popup-trigger inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#FF5E15] text-[#FF5E15] font-heading font-bold text-lg rounded-lg hover:bg-[#FF5E15] hover:text-white transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 320 512"><path d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"/></svg>
+          Request Service Online
+        </button>
+      </div>
+      <div class="flex justify-center items-center gap-6 mt-8">
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/google-white-logo-1024x337.png" alt="Google" width="1024" height="337" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/facebook-logo-white-full-transparent-1024x341.png" alt="Facebook" width="1024" height="341" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <img src="/images/homepage/YELP_BIG.D-5a67c069-1024x392.png" alt="Yelp" width="1024" height="392" class="h-5 md:h-7 object-contain opacity-90" loading="lazy" />
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-3 h-3 md:w-4 md:h-4 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB STRIP -->
+  <div class="bg-[#0A0A0A] py-2 px-5">
+    <div class="max-w-[1200px] mx-auto">
+      <nav class="flex items-center gap-2 text-sm font-heading text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF5E15] transition-colors">Home</a>
+        <span class="text-[#FF5E15]">/</span>
+        <span class="text-gray-300">Installation</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- WHAT WE INSTALL — 4 Categories -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        What We Install
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        From a single kitchen exhaust fan installation to a complete restaurant exhaust system installation — every new hood system install is sized to your kitchen's airflow demands, wired to code, and documented for your records. Our commercial kitchen ventilation design process ensures the right CFM, duct routing, and make-up air balance for your operation.
+      </p>
+
+      <!-- Fan Installation -->
+      <h3 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6 reveal-child">Restaurant Fan Installation</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        {[
+          { title: 'Upblast Exhaust Fans', desc: 'Direct drive and belt drive rooftop exhaust fans — properly sized for your hood\'s CFM requirements. Includes roof curb, wiring, and weatherproofing.' },
+          { title: 'Utility & Inline Fans', desc: 'Supplemental ventilation fans for dishwasher areas, restrooms, and general kitchen exhaust. Ceiling, wall, and duct-mounted configurations.' },
+          { title: 'Exhaust Fan Replacement', desc: 'End-of-life fan swaps with correctly sized replacements. We match CFM, static pressure, and electrical specs to your existing system.' },
+        ].map((item) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h4 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h4>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Complete Systems -->
+      <h3 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6 reveal-child">Complete Hood System Installations</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        {[
+          { title: 'Hood & Ductwork Systems', desc: 'Full restaurant exhaust system installation with properly graded ductwork from hood to rooftop fan. Grease-tight joints, fire-rated access panels, and NFPA 96 compliant ventilation install routing.' },
+          { title: 'Fire Suppression Systems', desc: 'Wet chemical fire suppression installation for new hoods and retrofits. Nozzle placement, agent charge, fusible links, and gas shutoff integration.' },
+          { title: 'Grease Containment Systems', desc: 'Rooftop grease boxes, containment trays, absorbent systems, and 360-degree grease gutters. Sized to your kitchen\'s output and local environmental requirements.' },
+        ].map((item) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h4 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h4>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Make-Up Air -->
+      <h3 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6 reveal-child">Make-Up Air Units</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        {[
+          { title: 'Gas-Fired Heated MUA', desc: 'Tempered make-up air units that replace the air your exhaust system removes — preventing negative pressure, back-drafting, and cold spots in winter.' },
+          { title: 'Untempered / Passive MUA', desc: 'Cost-effective fresh air intake for kitchens in climate zones where heating isn\'t required year-round. Damper-controlled for seasonal adjustment.' },
+          { title: 'MUA Retrofits', desc: 'Adding make-up air to existing kitchens that were built without it. We assess your airflow balance and install the right unit to restore equilibrium.' },
+        ].map((item) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h4 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h4>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Supporting Installations -->
+      <h3 class="font-heading text-white text-xl md:text-2xl font-semibold mb-6 reveal-child">Supporting Duct and Fan Installation</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { title: 'Hinge Kit Installation', desc: 'NFPA 96 compliant hinge kits for rooftop exhaust fans. Enables safe fan tipping for restaurant compliance cleaning and inspection access without removing the unit.' },
+          { title: 'Access Panel Installation', desc: 'Fire-rated grease duct access doors installed at code-required intervals. Allows proper duct cleaning and inspection along the entire run.' },
+          { title: 'Roof Curb & Weatherproofing', desc: 'Properly flashed and sealed roof curbs for exhaust fans. Prevents leaks and structural damage while maintaining a code-compliant installation.' },
+        ].map((item) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h4 class="font-heading font-semibold text-white text-lg mb-2">{item.title}</h4>
+            <p class="text-[#D4D4D4] text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BANNER -->
+  <section class="bg-[#111111] py-10 md:py-14 px-5 reveal">
+    <div class="max-w-[900px] mx-auto text-center">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-4 reveal-child">
+        <div class="flex items-center gap-2">
+          <div class="flex gap-0.5">{Array(5).fill(0).map(() => <svg class="w-5 h-5 text-[#FFB800] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}</div>
+          <span class="text-white font-heading font-bold text-lg">5.0</span>
+        </div>
+        <span class="text-[#999] text-sm">51+ Verified Reviews on Google, Facebook &amp; Yelp</span>
+      </div>
+      <p class="text-[#D4D4D4] font-body text-base reveal-child">
+        Licensed, bonded, and insured since 2006. Every installation is NFPA 96 compliant, fully documented, and backed by our workmanship guarantee.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mt-6 reveal-child">
+        <a href="/cleaning/" class="text-[#FF5E15] hover:underline text-sm font-heading">Hood Cleaning</a>
+        <span class="text-[#333]">|</span>
+        <a href="/fan-repair/" class="text-[#FF5E15] hover:underline text-sm font-heading">Hood Repair</a>
+        <span class="text-[#333]">|</span>
+        <a href="/parts-installation/" class="text-[#FF5E15] hover:underline text-sm font-heading">Parts &amp; Installation</a>
+        <span class="text-[#333]">|</span>
+        <a href="/nfpa-code-96-standards/" class="text-[#FF5E15] hover:underline text-sm font-heading">NFPA 96 Standards</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR INSTALLATION PROCESS -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Our Installation Process
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        From initial assessment to final testing — structured, transparent, and fully documented.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6">
+        {[
+          { num: '01', title: 'On-Site Assessment', desc: 'We evaluate your kitchen layout, existing infrastructure, airflow requirements, and local code specifics. You get a detailed written estimate — no obligation.' },
+          { num: '02', title: 'Equipment Sourcing', desc: 'We source properly sized equipment from trusted commercial brands. Fan CFM, static pressure, electrical requirements, and roof compatibility are all matched to your kitchen.' },
+          { num: '03', title: 'Professional Installation', desc: 'Our licensed technicians install everything to NFPA 96 code — ductwork, wiring, fire suppression integration, and weatherproofing. We work around your schedule.' },
+          { num: '04', title: 'Testing & Documentation', desc: 'Every system is tested under load before we leave. You receive a complete documentation package — permits, test results, equipment specs, and warranty information.' },
+        ].map((card) => (
+          <div class="relative bg-[#1A1A1A] border-2 border-[#FF5E15] rounded-xl pt-12 pb-6 px-6 flex flex-col min-h-[240px] hover:border-white hover:-translate-y-2 transition-all duration-300 reveal-child">
+            <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-[50px] h-[50px] bg-[#FF5E15] rounded-lg flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg">{card.num}</span>
+            <h3 class="font-heading text-[#FF5E15] text-xl font-bold mb-3 text-center md:text-left">{card.title}</h3>
+            <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-4 flex-grow text-center md:text-left">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE INSTALL -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-6 reveal-child">
+        Brands We Install
+      </h2>
+      <p class="text-[#D4D4D4] font-body text-base leading-relaxed mb-8 reveal-child">
+        We install all major commercial kitchen exhaust fan and hood system brands. Our technicians have hands-on experience with every restaurant hood installation service and fan replacement on the market.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-8">
+        {['CaptiveAire', 'Greenheck', 'Loren Cook', 'Canarm', 'NAKS', 'EconAir', 'Accurex', 'PennBarry', 'Dayton', 'Fantech'].map((brand) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-xl px-5 py-3 transition-all duration-300 reveal-child">
+            <p class="text-white font-heading font-semibold text-sm">{brand}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[#999] text-sm reveal-child">
+        Have a preferred brand? <a href={`tel:${business.phoneRaw}`} class="text-[#FF5E15] hover:underline">Call us</a> — we'll source and install it.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA INDEX — 27 CITIES -->
+  <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Installation Service Areas — All of Middle Tennessee
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
+        DDAN provides restaurant fan and hood installation across 27 cities. Select your city for local restaurant exhaust fan installation details.
+      </p>
+      <div class="flex flex-wrap gap-5">
+        {installationAreas.map((area) => (
+          <a href={`/fan-hood-installation/${area.slug}/`} class="block w-full sm:w-[31%] border border-[#FF5E15] rounded-2xl p-5 hover:border-white transition-all duration-300 reveal-child group">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#FF5E15] rounded-full">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 110 128 64 64 0 010-128z"/></svg>
+              </div>
+              <div>
+                <p class="text-white font-heading font-medium group-hover:text-[#FF5E15] transition-all duration-300">{area.city}, {area.state}</p>
+                <p class="text-[#DDDDDD] text-sm">({area.zips})</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-8 reveal-child">
+        Installation FAQ
+      </h2>
+      <div class="max-w-3xl space-y-4">
+        {faqs.map((faq) => (
+          <details class="faq-item bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl transition-all duration-300 group reveal-child">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer">
+              <span class="font-heading font-semibold text-[#FF5E15] text-base">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-[#FF5E15] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-[#DDDDDD] font-heading text-base leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUCK CTA -->
+  <TruckCTA />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details[open] {
+    border-color: #FF5E15;
+  }
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>

@@ -7,9 +7,9 @@ const navLinks = [
   { label: 'NFPA Standards', href: '/nfpa-code-96-standards/' },
   { label: 'Services', href: '/kitchen-exhaust-services-overview/', children: [
     { label: 'Hood Cleaning', href: '/cleaning/' },
-    { label: 'Hood Repair', href: '/repair/' },
+    { label: 'Fan Repair', href: '/fan-repair/' },
     { label: 'Parts & Installation', href: '/parts-installation/' },
-    { label: 'Installation Services', href: '/installation/' },
+    { label: 'Fan & Hood Installation', href: '/fan-hood-installation/' },
     { label: 'Grease Containment', href: '/grease-containment/' },
     { label: 'Hinge Kit Installation', href: '/exhaust-fan-hinge-kit-installation/' },
     { label: 'Belt & Motor Repair', href: '/exhaust-fan-belt-motor-repair/' },
@@ -37,16 +37,16 @@ const cleaningCities = [
 ];
 
 const repairCities = [
-  { label: 'Nashville', href: '/repair/nashville-tn/' },
-  { label: 'Murfreesboro', href: '/repair/murfreesboro-tn/' },
-  { label: 'Clarksville', href: '/repair/clarksville-tn/' },
-  { label: 'Franklin', href: '/repair/franklin-tn/' },
-  { label: 'Hendersonville', href: '/repair/hendersonville-tn/' },
-  { label: 'Mt. Juliet', href: '/repair/mount-juliet-tn/' },
-  { label: 'Smyrna', href: '/repair/smyrna-tn/' },
-  { label: 'Gallatin', href: '/repair/gallatin-tn/' },
-  { label: 'Lebanon', href: '/repair/lebanon-tn/' },
-  { label: 'View All 27 Cities →', href: '/repair/' },
+  { label: 'Nashville', href: '/fan-repair/nashville-tn/' },
+  { label: 'Murfreesboro', href: '/fan-repair/murfreesboro-tn/' },
+  { label: 'Clarksville', href: '/fan-repair/clarksville-tn/' },
+  { label: 'Franklin', href: '/fan-repair/franklin-tn/' },
+  { label: 'Hendersonville', href: '/fan-repair/hendersonville-tn/' },
+  { label: 'Mt. Juliet', href: '/fan-repair/mount-juliet-tn/' },
+  { label: 'Smyrna', href: '/fan-repair/smyrna-tn/' },
+  { label: 'Gallatin', href: '/fan-repair/gallatin-tn/' },
+  { label: 'Lebanon', href: '/fan-repair/lebanon-tn/' },
+  { label: 'View All 27 Cities →', href: '/fan-repair/' },
 ];
 
 const partsCities = [
@@ -63,23 +63,23 @@ const partsCities = [
 ];
 
 const installationCities = [
-  { label: 'Nashville', href: '/installation/nashville-tn/' },
-  { label: 'Murfreesboro', href: '/installation/murfreesboro-tn/' },
-  { label: 'Clarksville', href: '/installation/clarksville-tn/' },
-  { label: 'Franklin', href: '/installation/franklin-tn/' },
-  { label: 'Hendersonville', href: '/installation/hendersonville-tn/' },
-  { label: 'Mt. Juliet', href: '/installation/mount-juliet-tn/' },
-  { label: 'Smyrna', href: '/installation/smyrna-tn/' },
-  { label: 'Gallatin', href: '/installation/gallatin-tn/' },
-  { label: 'Lebanon', href: '/installation/lebanon-tn/' },
-  { label: 'View All 27 Cities →', href: '/installation/' },
+  { label: 'Nashville', href: '/fan-hood-installation/nashville-tn/' },
+  { label: 'Murfreesboro', href: '/fan-hood-installation/murfreesboro-tn/' },
+  { label: 'Clarksville', href: '/fan-hood-installation/clarksville-tn/' },
+  { label: 'Franklin', href: '/fan-hood-installation/franklin-tn/' },
+  { label: 'Hendersonville', href: '/fan-hood-installation/hendersonville-tn/' },
+  { label: 'Mt. Juliet', href: '/fan-hood-installation/mount-juliet-tn/' },
+  { label: 'Smyrna', href: '/fan-hood-installation/smyrna-tn/' },
+  { label: 'Gallatin', href: '/fan-hood-installation/gallatin-tn/' },
+  { label: 'Lebanon', href: '/fan-hood-installation/lebanon-tn/' },
+  { label: 'View All 27 Cities →', href: '/fan-hood-installation/' },
 ];
 
 const serviceAreaCategories = [
   { label: 'Cleaning', href: '/cleaning/', cities: cleaningCities },
-  { label: 'Repair', href: '/repair/', cities: repairCities },
+  { label: 'Repair', href: '/fan-repair/', cities: repairCities },
   { label: 'Parts & Installation', href: '/parts-installation/', cities: partsCities },
-  { label: 'Installation', href: '/installation/', cities: installationCities },
+  { label: 'Installation', href: '/fan-hood-installation/', cities: installationCities },
 ];
 ---
 
@@ -215,9 +215,9 @@ const serviceAreaCategories = [
     <!-- Services -->
     <p class="text-[#FF5E15] font-heading font-bold text-xs uppercase tracking-widest mt-6 mb-2 px-1">Our Services</p>
     <a href="/cleaning/" class="mobile-nav-link mobile-menu-item">Hood Cleaning</a>
-    <a href="/repair/" class="mobile-nav-link mobile-menu-item">Hood Repair</a>
+    <a href="/fan-repair/" class="mobile-nav-link mobile-menu-item">Fan Repair</a>
     <a href="/parts-installation/" class="mobile-nav-link mobile-menu-item">Parts &amp; Installation</a>
-    <a href="/installation/" class="mobile-nav-link mobile-menu-item">Installation Services</a>
+    <a href="/fan-hood-installation/" class="mobile-nav-link mobile-menu-item">Fan & Hood Installation</a>
     <a href="/grease-containment/" class="mobile-nav-link mobile-menu-item">Grease Containment</a>
     <a href="/exhaust-fan-hinge-kit-installation/" class="mobile-nav-link mobile-menu-item">Hinge Kit Installation</a>
     <a href="/exhaust-fan-belt-motor-repair/" class="mobile-nav-link mobile-menu-item">Belt &amp; Motor Repair</a>
@@ -240,38 +240,38 @@ const serviceAreaCategories = [
 
     <!-- Repair Accordion -->
     <button type="button" class="mobile-accordion-btn mobile-menu-item w-full flex items-center justify-between" data-accordion="repair">
-      <span>Repair Areas</span>
+      <span>Fan Repair Areas</span>
       <svg class="w-4 h-4 text-[#FF5E15] transition-transform duration-200 accordion-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
     </button>
     <div class="mobile-accordion-panel" data-panel="repair" style="display:none; overflow:hidden;">
       {[
-        { label: 'Nashville', href: '/repair/nashville-tn/' },
-        { label: 'Murfreesboro', href: '/repair/murfreesboro-tn/' },
-        { label: 'Clarksville', href: '/repair/clarksville-tn/' },
-        { label: 'Franklin', href: '/repair/franklin-tn/' },
-        { label: 'Hendersonville', href: '/repair/hendersonville-tn/' },
-        { label: 'Mt. Juliet', href: '/repair/mount-juliet-tn/' },
-        { label: 'Antioch', href: '/repair/antioch-tn/' },
-        { label: 'Smyrna', href: '/repair/smyrna-tn/' },
-        { label: 'Gallatin', href: '/repair/gallatin-tn/' },
-        { label: 'Lebanon', href: '/repair/lebanon-tn/' },
-        { label: 'Brentwood', href: '/repair/brentwood-tn/' },
-        { label: 'Spring Hill', href: '/repair/spring-hill-tn/' },
-        { label: 'Goodlettsville', href: '/repair/goodlettsville-tn/' },
-        { label: 'Hermitage', href: '/repair/hermitage-tn/' },
-        { label: 'Madison', href: '/repair/madison-tn/' },
-        { label: 'La Vergne', href: '/repair/la-vergne-tn/' },
-        { label: 'Columbia', href: '/repair/columbia-tn/' },
-        { label: 'Dickson', href: '/repair/dickson-tn/' },
-        { label: 'Shelbyville', href: '/repair/shelbyville-tn/' },
-        { label: 'Springfield', href: '/repair/springfield-tn/' },
-        { label: 'Nolensville', href: '/repair/nolensville-tn/' },
-        { label: 'Portland', href: '/repair/portland-tn/' },
-        { label: 'White House', href: '/repair/white-house-tn/' },
-        { label: 'Lewisburg', href: '/repair/lewisburg-tn/' },
-        { label: 'Hartsville', href: '/repair/hartsville-tn/' },
-        { label: 'Fairview', href: '/repair/fairview-tn/' },
-        { label: 'Thompsons Station', href: '/repair/thompsons-station-tn/' },
+        { label: 'Nashville', href: '/fan-repair/nashville-tn/' },
+        { label: 'Murfreesboro', href: '/fan-repair/murfreesboro-tn/' },
+        { label: 'Clarksville', href: '/fan-repair/clarksville-tn/' },
+        { label: 'Franklin', href: '/fan-repair/franklin-tn/' },
+        { label: 'Hendersonville', href: '/fan-repair/hendersonville-tn/' },
+        { label: 'Mt. Juliet', href: '/fan-repair/mount-juliet-tn/' },
+        { label: 'Antioch', href: '/fan-repair/antioch-tn/' },
+        { label: 'Smyrna', href: '/fan-repair/smyrna-tn/' },
+        { label: 'Gallatin', href: '/fan-repair/gallatin-tn/' },
+        { label: 'Lebanon', href: '/fan-repair/lebanon-tn/' },
+        { label: 'Brentwood', href: '/fan-repair/brentwood-tn/' },
+        { label: 'Spring Hill', href: '/fan-repair/spring-hill-tn/' },
+        { label: 'Goodlettsville', href: '/fan-repair/goodlettsville-tn/' },
+        { label: 'Hermitage', href: '/fan-repair/hermitage-tn/' },
+        { label: 'Madison', href: '/fan-repair/madison-tn/' },
+        { label: 'La Vergne', href: '/fan-repair/la-vergne-tn/' },
+        { label: 'Columbia', href: '/fan-repair/columbia-tn/' },
+        { label: 'Dickson', href: '/fan-repair/dickson-tn/' },
+        { label: 'Shelbyville', href: '/fan-repair/shelbyville-tn/' },
+        { label: 'Springfield', href: '/fan-repair/springfield-tn/' },
+        { label: 'Nolensville', href: '/fan-repair/nolensville-tn/' },
+        { label: 'Portland', href: '/fan-repair/portland-tn/' },
+        { label: 'White House', href: '/fan-repair/white-house-tn/' },
+        { label: 'Lewisburg', href: '/fan-repair/lewisburg-tn/' },
+        { label: 'Hartsville', href: '/fan-repair/hartsville-tn/' },
+        { label: 'Fairview', href: '/fan-repair/fairview-tn/' },
+        { label: 'Thompsons Station', href: '/fan-repair/thompsons-station-tn/' },
       ].map((c) => (
         <a href={c.href} class="mobile-nav-link block text-[#D4D4D4] font-body text-sm py-2.5 pl-8 pr-4 border-b border-white/5 hover:text-[#FF5E15] hover:bg-[#FF5E15]/5 transition-all duration-200">{c.label}</a>
       ))}
@@ -318,38 +318,38 @@ const serviceAreaCategories = [
 
     <!-- Installation Accordion -->
     <button type="button" class="mobile-accordion-btn mobile-menu-item w-full flex items-center justify-between" data-accordion="installation">
-      <span>Installation Areas</span>
+      <span>Fan & Hood Installation Areas</span>
       <svg class="w-4 h-4 text-[#FF5E15] transition-transform duration-200 accordion-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
     </button>
     <div class="mobile-accordion-panel" data-panel="installation" style="display:none; overflow:hidden;">
       {[
-        { label: 'Nashville', href: '/installation/nashville-tn/' },
-        { label: 'Murfreesboro', href: '/installation/murfreesboro-tn/' },
-        { label: 'Antioch', href: '/installation/antioch-tn/' },
-        { label: 'Hendersonville', href: '/installation/hendersonville-tn/' },
-        { label: 'Spring Hill', href: '/installation/spring-hill-tn/' },
-        { label: 'Smyrna', href: '/installation/smyrna-tn/' },
-        { label: 'Gallatin', href: '/installation/gallatin-tn/' },
-        { label: 'Lebanon', href: '/installation/lebanon-tn/' },
-        { label: 'Goodlettsville', href: '/installation/goodlettsville-tn/' },
-        { label: 'Brentwood', href: '/installation/brentwood-tn/' },
-        { label: 'Mt. Juliet', href: '/installation/mount-juliet-tn/' },
-        { label: 'Hermitage', href: '/installation/hermitage-tn/' },
-        { label: 'Madison', href: '/installation/madison-tn/' },
-        { label: 'La Vergne', href: '/installation/la-vergne-tn/' },
-        { label: 'Clarksville', href: '/installation/clarksville-tn/' },
-        { label: 'Franklin', href: '/installation/franklin-tn/' },
-        { label: 'Columbia', href: '/installation/columbia-tn/' },
-        { label: 'Shelbyville', href: '/installation/shelbyville-tn/' },
-        { label: 'Springfield', href: '/installation/springfield-tn/' },
-        { label: 'Dickson', href: '/installation/dickson-tn/' },
-        { label: 'Nolensville', href: '/installation/nolensville-tn/' },
-        { label: 'Portland', href: '/installation/portland-tn/' },
-        { label: 'White House', href: '/installation/white-house-tn/' },
-        { label: 'Lewisburg', href: '/installation/lewisburg-tn/' },
-        { label: 'Hartsville', href: '/installation/hartsville-tn/' },
-        { label: 'Fairview', href: '/installation/fairview-tn/' },
-        { label: 'Thompsons Station', href: '/installation/thompsons-station-tn/' },
+        { label: 'Nashville', href: '/fan-hood-installation/nashville-tn/' },
+        { label: 'Murfreesboro', href: '/fan-hood-installation/murfreesboro-tn/' },
+        { label: 'Antioch', href: '/fan-hood-installation/antioch-tn/' },
+        { label: 'Hendersonville', href: '/fan-hood-installation/hendersonville-tn/' },
+        { label: 'Spring Hill', href: '/fan-hood-installation/spring-hill-tn/' },
+        { label: 'Smyrna', href: '/fan-hood-installation/smyrna-tn/' },
+        { label: 'Gallatin', href: '/fan-hood-installation/gallatin-tn/' },
+        { label: 'Lebanon', href: '/fan-hood-installation/lebanon-tn/' },
+        { label: 'Goodlettsville', href: '/fan-hood-installation/goodlettsville-tn/' },
+        { label: 'Brentwood', href: '/fan-hood-installation/brentwood-tn/' },
+        { label: 'Mt. Juliet', href: '/fan-hood-installation/mount-juliet-tn/' },
+        { label: 'Hermitage', href: '/fan-hood-installation/hermitage-tn/' },
+        { label: 'Madison', href: '/fan-hood-installation/madison-tn/' },
+        { label: 'La Vergne', href: '/fan-hood-installation/la-vergne-tn/' },
+        { label: 'Clarksville', href: '/fan-hood-installation/clarksville-tn/' },
+        { label: 'Franklin', href: '/fan-hood-installation/franklin-tn/' },
+        { label: 'Columbia', href: '/fan-hood-installation/columbia-tn/' },
+        { label: 'Shelbyville', href: '/fan-hood-installation/shelbyville-tn/' },
+        { label: 'Springfield', href: '/fan-hood-installation/springfield-tn/' },
+        { label: 'Dickson', href: '/fan-hood-installation/dickson-tn/' },
+        { label: 'Nolensville', href: '/fan-hood-installation/nolensville-tn/' },
+        { label: 'Portland', href: '/fan-hood-installation/portland-tn/' },
+        { label: 'White House', href: '/fan-hood-installation/white-house-tn/' },
+        { label: 'Lewisburg', href: '/fan-hood-installation/lewisburg-tn/' },
+        { label: 'Hartsville', href: '/fan-hood-installation/hartsville-tn/' },
+        { label: 'Fairview', href: '/fan-hood-installation/fairview-tn/' },
+        { label: 'Thompsons Station', href: '/fan-hood-installation/thompsons-station-tn/' },
       ].map((c) => (
         <a href={c.href} class="mobile-nav-link block text-[#D4D4D4] font-body text-sm py-2.5 pl-8 pr-4 border-b border-white/5 hover:text-[#FF5E15] hover:bg-[#FF5E15]/5 transition-all duration-200">{c.label}</a>
       ))}
