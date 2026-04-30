@@ -22,6 +22,7 @@
   "bilingualNote": "Se Habla Espanol",
   "credentials": ["Licensed", "Bonded", "Insured"],
   "emergencyService": true,
+  "openingHours": "Mo-Su 00:00-23:59",
   "compliance": "NFPA 96",
   "identity": "Christian, family-owned",
   "descriptions": {

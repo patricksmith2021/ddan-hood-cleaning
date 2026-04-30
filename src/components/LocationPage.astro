@@ -100,7 +100,7 @@ const introParagraphs = intro.split('\n\n');
           { img: `${HP}/YELP_BIG.D-5a67c069-1024x392.png`, w: '86%', alt: 'Yelp Reviews - 5 Stars' },
         ].map((badge) => (
           <div class="flex flex-col items-center gap-0.5 md:gap-1.5 md:border-2 md:border-[#FF5E15] md:rounded-2xl md:px-5 md:py-2">
-            <img src={badge.img} alt={badge.alt} class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
+            <img src={badge.img} alt={badge.alt} width="1024" height="337" class="h-4 md:h-9 object-contain" style={`width:${badge.w};max-width:180px`} loading="lazy" />
             <div class="flex gap-0.5">
               {Array(5).fill(0).map(() => <svg class="w-2.5 h-2.5 md:w-5 md:h-5 text-[#FF5E15] fill-current" viewBox="0 0 1000 1000"><path d="M450 75L338 312 88 350C46 354 25 417 58 450L238 633 196 896C188 942 238 975 275 954L500 837 725 954C767 975 813 942 804 896L763 633 942 450C975 417 954 358 913 350L663 312 550 75C529 33 471 33 450 75Z"/></svg>)}
             </div>
@@ -151,7 +151,7 @@ const introParagraphs = intro.split('\n\n');
       <div class="flex flex-wrap gap-y-[50px] gap-x-5 justify-start">
         {services.map((svc) => (
           <div class={`${svc.bg} w-full md:w-[48%] lg:w-[32%] rounded-[30px] p-4 text-white overflow-hidden reveal-child`}>
-            <img src={svc.img} alt={`${svc.title} in ${city}`} class="w-full h-[270px] object-cover rounded-2xl mb-4" loading="lazy" />
+            <img src={svc.img} alt={`${svc.title} in ${city}`} width="1024" height="576" class="w-full h-[270px] object-cover rounded-2xl mb-4" loading="lazy" />
             <h3 class="font-heading text-white text-[1.4rem] font-semibold leading-[1.2] mb-2">{svc.title}</h3>
             <p class="text-white/90 text-sm mb-4">{svc.desc}</p>
             <a href={svc.href} class={`inline-flex items-center gap-2 px-5 py-2.5 ${svc.btnBg} text-white text-sm font-heading font-medium rounded hover:bg-black transition-all duration-300`}>
