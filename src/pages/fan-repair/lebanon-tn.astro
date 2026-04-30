@@ -6,7 +6,7 @@ const faqs = [
   { q: 'Can you clean exhaust systems for Lebanon BBQ restaurants and smokers?', a: 'Yes. Wood-fired smokers and heavy BBQ operations produce a tough carbon creosote that standard pressure washing cannot remove. Our crews use specialized heavy-duty scrapers and chemical treatments to strip your entire exhaust system down to bare metal, drastically reducing your fire risk.' },
   { q: 'My Lebanon restaurant\'s exhaust fan is vibrating loudly. What is wrong?', a: 'Severe vibration is usually caused by heavy grease buildup throwing the fan impeller off balance, or a failing motor bearing. Left unchecked, this will destroy the fan. DDAN will immediately diagnose the issue, scrape the fan blades clean, and replace any worn belts or bearings.' },
   { q: 'Do you install hinge kits on commercial exhaust fans in Lebanon?', a: 'Absolutely. NFPA 96 code requires that upblast exhaust fans be equipped with hinge kits so they can be safely tilted open for cleaning without damaging the roof or the fan wiring. We install heavy-duty hinge kits on rooftops across Lebanon.' },
-  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
+  { q: 'How much does exhaust fan motor replacement cost in Lebanon?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/lebanon-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Lebanon, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Lebanon, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Lebanon commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [

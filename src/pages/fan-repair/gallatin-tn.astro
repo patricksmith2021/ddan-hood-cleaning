@@ -6,7 +6,7 @@ const faqs = [
   { q: 'Can you bring my historic Gallatin restaurant\'s exhaust system up to fire code?', a: 'Yes. Many older buildings in downtown Gallatin have concealed ductwork without proper access. We install fire-rated duct access panels so our crews can clean the entire system down to bare metal, ensuring you pass Gallatin Fire Department inspections.' },
   { q: 'My upblast exhaust fan in Gallatin is leaking grease onto the roof. Can you fix this?', a: 'Absolutely. Leaking grease is a severe fire hazard and will quickly destroy your commercial roof. We install high-capacity rooftop grease containment systems that catch the Fats, Oils, and Grease (F.O.G.) before it hits the roof, keeping you compliant and protecting your property.' },
   { q: 'Do you offer emergency exhaust fan motor repair in Gallatin?', a: 'Yes, we provide 24/7 emergency service. If your exhaust fan motor burns out or a belt snaps during a busy Friday night shift, DDAN will dispatch a technician to Gallatin immediately to get your system running again.' },
-  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
+  { q: 'What is the typical cost of fan motor replacement in Gallatin?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/gallatin-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Gallatin, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Gallatin, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Gallatin commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [

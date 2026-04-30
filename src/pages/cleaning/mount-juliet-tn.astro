@@ -6,7 +6,7 @@ const faqs = [
   { q: "My Mount Juliet landlord is demanding a rooftop grease containment system. Can you install one?", a: "Yes. Property managers in developments like Providence Marketplace have zero tolerance for grease damaging their white TPO roofs. We install high-capacity, multi-tier rooftop grease containment systems and provide detailed written service reports to satisfy your landlord's requirements." },
   { q: "How fast can you repair a broken exhaust fan in Mount Juliet?", a: "Because Mount Juliet is our hometown, our response times here are unmatched. If your exhaust fan motor dies or a belt snaps, our 24/7 emergency repair team can be on-site at your restaurant with the right commercial parts almost immediately." },
   { q: "Are you familiar with the Fire Department of Mt. Juliet's inspection requirements?", a: "Absolutely. We work closely with local codes. We ensure your entire exhaust system—from installing NFPA-compliant hinge kits to executing flawless bare-metal cleaning—meets the exact standards required by Mt. Juliet fire inspectors." },
-  { q: 'How long does a commercial hood cleaning take?', a: 'Most single-hood restaurant systems take 3-5 hours for a thorough bare-metal cleaning. Larger systems with multiple hoods or extensive ductwork can take 6-8 hours. We schedule overnight so your kitchen is ready by morning.' },
+  { q: 'How long does the DDAN hood cleaning process take in Mount Juliet?', a: 'Most single-hood restaurant systems take 3-5 hours for a thorough bare-metal cleaning. Larger systems with multiple hoods or extensive ductwork can take 6-8 hours. We schedule overnight so your kitchen is ready by morning.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/cleaning/mount-juliet-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Mount Juliet, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Hood Cleaning", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Mount Juliet, TN" }, "description": "NFPA 96 certified commercial kitchen hood cleaning for Mount Juliet restaurants. Bare-metal clean with detailed service reports and compliance documentation." },
     { "@type": "BreadcrumbList", "itemListElement": [

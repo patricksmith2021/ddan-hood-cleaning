@@ -5,8 +5,8 @@ import business from '../../data/business.json';
 const faqs = [
   { q: 'How fast can DDAN respond to an emergency fan failure in Hendersonville?', a: 'For Hendersonville locations, our emergency team typically arrives within 1-2 hours. We carry common motors, belts, and bearings on every truck for same-day repair.' },
   { q: 'Does lakeside humidity affect my exhaust fan components?', a: 'Yes. The combination of heavy airborne grease and Old Hickory Lake humidity accelerates rusting and degradation of rooftop fan housings, hinges, and bearings. Lakeside restaurants need more frequent equipment inspections and proactive parts replacement.' },
-  { q: 'Do you repair all brands of commercial exhaust fans?', a: 'Yes. We service CaptiveAire, Loren Cook, Canarm, NAKS, EconAir, Greenheck, Accurex, PennBarry, Dayton, Fantech, and all other commercial kitchen exhaust fan brands.' },
-  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
+  { q: 'Which exhaust fan brands can you service in Hendersonville?', a: 'Yes. We service CaptiveAire, Loren Cook, Canarm, NAKS, EconAir, Greenheck, Accurex, PennBarry, Dayton, Fantech, and all other commercial kitchen exhaust fan brands.' },
+  { q: 'How much does exhaust fan motor replacement cost in Hendersonville?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/hendersonville-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Hendersonville, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Hendersonville, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Hendersonville commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [

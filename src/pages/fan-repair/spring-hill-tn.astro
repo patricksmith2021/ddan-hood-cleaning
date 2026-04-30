@@ -6,7 +6,7 @@ const faqs = [
   { q: 'My restaurant in Spring Hill is brand new. Do I really need hood cleaning yet?', a: 'Yes. Depending on your cooking volume, NFPA 96 code may require professional cleaning every 30 to 90 days. High-volume fryers can completely saturate a new exhaust system with highly flammable grease in just a few months.' },
   { q: 'Can you protect the white TPO roof on my Spring Hill restaurant from grease?', a: 'Absolutely. Corporate landlords in new developments like The Crossings are incredibly strict about roof damage. We install multi-layer, high-capacity rooftop grease containment systems that guarantee grease will not reach or degrade your roofing membrane.' },
   { q: 'Do you repair broken commercial exhaust fans?', a: 'Yes. If your exhaust fan goes down, your kitchen fills with smoke and you cannot legally operate. We offer 24/7 emergency service in Spring Hill to replace burned-out motors, snapped belts, and failing bearings.' },
-  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
+  { q: 'What does fan motor replacement cost in Spring Hill?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/spring-hill-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Spring Hill, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Spring Hill, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Spring Hill commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [

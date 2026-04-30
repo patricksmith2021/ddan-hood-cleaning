@@ -6,7 +6,7 @@ const faqs = [
   { q: "Can you fix a vibrating, noisy exhaust fan on my Hermitage restaurant?", a: "Yes. Severe vibration is usually caused by an aging fan motor bearing failing or heavy grease throwing the fan blades off balance. We will diagnose the issue immediately, scrape the blades clean, and install new heavy-duty bearings or motors if needed." },
   { q: "What does the Metro Nashville Fire Marshal's Office look for in Hermitage?", a: "Metro Nashville inspectors require your entire system to be cleaned to bare metal. They also strictly check for NFPA-compliant hinge kits on rooftop fans, fully operational fire suppression links, and properly installed fire-rated access panels in your ductwork." },
   { q: "Do you offer emergency restaurant exhaust repair in Hermitage?", a: "Absolutely. When an exhaust fan belt snaps during the dinner rush, you can't wait for business hours. DDAN provides 24/7 emergency service to Hermitage, arriving with the exact commercial parts needed to get your kitchen pulling air again." },
-  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis -- no surprises.' },
+  { q: 'What does a fan motor replacement typically cost for Hermitage restaurants?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis -- no surprises.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/hermitage-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Hermitage, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Hermitage, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Hermitage commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [

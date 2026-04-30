@@ -6,7 +6,7 @@ const faqs = [
   { q: 'Can you clean hoods used for high-heat wok cooking in Antioch?', a: 'Yes. Wok cooking and open-flame grilling create a hardened carbon scale that is much tougher than standard fryer grease. Our crews use specialized scraping tools and heavy-duty, food-safe chemicals to strip your entire system down to bare metal as required by NFPA 96.' },
   { q: 'My Antioch restaurant is in an older building. Do I need duct access panels?', a: 'Most likely. Metro Nashville Fire Code dictates that any changes in duct direction must have fire-rated access panels so the entire system can be cleaned. We frequently install these panels for restaurants moving into older Antioch strip centers.' },
   { q: 'How fast can you replace a broken exhaust fan belt near Hickory Hollow?', a: 'We offer 24/7 emergency repair services for Antioch restaurants. If a snapped belt or burnt motor shuts down your kitchen, we carry the parts to get you back up and running immediately, usually within a few hours of your call.' },
-  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
+  { q: 'What does an exhaust fan motor replacement typically cost in Antioch?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/antioch-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Antioch, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Antioch, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Antioch commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [

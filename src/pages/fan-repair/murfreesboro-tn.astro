@@ -5,7 +5,7 @@ import business from '../../data/business.json';
 const faqs = [
   { q: 'How fast can DDAN respond to an emergency fan failure in Murfreesboro?', a: 'For Murfreesboro locations, our emergency team typically arrives within 1-2 hours. We carry common motors, belts, and bearings on every truck for same-day repair.' },
   { q: 'What happens if Murfreesboro Fire Rescue finds my exhaust system non-compliant?', a: 'MFRD\'s Community Risk Reduction Division can issue citations, mandate immediate remediation, or temporarily shut down cooking operations. A non-functional exhaust fan is an immediate code violation.' },
-  { q: 'Do you repair all brands of commercial exhaust fans?', a: 'Yes. We service CaptiveAire, Loren Cook, Canarm, NAKS, EconAir, Greenheck, Accurex, PennBarry, Dayton, Fantech, and all other commercial kitchen exhaust fan brands.' },
+  { q: 'Do you service all major exhaust fan brands in Murfreesboro?', a: 'Yes. We service CaptiveAire, Loren Cook, Canarm, NAKS, EconAir, Greenheck, Accurex, PennBarry, Dayton, Fantech, and all other commercial kitchen exhaust fan brands.' },
   { q: 'Can a vibrating exhaust fan be fixed or does it need replacement?', a: 'Most vibrating fans can be repaired. Severe vibration usually indicates an imbalanced impeller wheel due to grease buildup, a failing motor bearing, or an uneven belt. We diagnose the root cause and fix it on-site.' },
 ];
 
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/murfreesboro-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Murfreesboro, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Murfreesboro, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Murfreesboro commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [

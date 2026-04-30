@@ -6,7 +6,7 @@ const faqs = [
   { q: 'Do you offer emergency exhaust fan repair on Sam Ridley Parkway?', a: 'Yes. We know that the Smyrna lunch rush waits for no one. If your exhaust fan motor dies or a belt snaps, our 24/7 emergency repair team will dispatch immediately with the parts needed to get your kitchen operational again.' },
   { q: 'What is the penalty for a dirty kitchen exhaust hood in Smyrna?', a: 'The Smyrna Fire Department enforces NFPA 96 fire codes. A grease-laden system is a severe fire hazard and can result in failed inspections, citations, or in severe cases, the immediate shutdown of your cooking operations until a certified cleaning is performed.' },
   { q: 'How do I stop grease from leaking onto my restaurant roof?', a: 'Grease leaking from the upblast fan requires a high-capacity rooftop grease containment system. We install custom systems with specialized hydrophobic filter pads that capture the grease while letting rain water pass through, protecting your roof and keeping you compliant with Smyrna F.O.G. regulations.' },
-  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
+  { q: 'How much do Smyrna restaurant owners pay for motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/smyrna-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Smyrna, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Smyrna, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Smyrna commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [

@@ -6,7 +6,7 @@ const faqs = [
   { q: 'How fast can DDAN respond to an emergency fan failure in Columbia?', a: 'For Columbia locations, our emergency team dispatches immediately with common motors, belts, and bearings stocked on every truck. We understand that every minute of kitchen downtime costs you revenue.' },
   { q: 'Can you repair exhaust systems in historic Columbia buildings?', a: 'Yes. Historic buildings on the Columbia square often have complex, concealed ductwork. Our technicians are experts at working in preserved structures and installing fire-rated access panels for proper maintenance access.' },
   { q: 'Do you repair broken restaurant exhaust fans in Columbia?', a: 'Absolutely. A broken exhaust fan means your kitchen fills with smoke and must shut down. We offer 24/7 emergency repair in Columbia, arriving with heavy-duty commercial belts, bearings, and motors needed to get you running immediately.' },
-  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
+  { q: 'What does an exhaust fan motor replacement cost in Columbia?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/columbia-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Columbia, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Columbia, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Columbia commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [

@@ -70,11 +70,17 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "Organization"],
+      "@id": `${siteUrl}/#organization`,
       "name": business.name,
       "telephone": business.phone,
       "email": business.email,
       "url": `${siteUrl}/`,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/images/logos/DDAN Hood Cleaning and Repair Logo PNG.png`
+      },
+      "image": `${siteUrl}/images/homepage/ddan-og-image.webp`,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": business.address.street,
@@ -84,7 +90,49 @@ const schema = {
         "addressCountry": "US"
       },
       "areaServed": { "@type": "State", "name": "Tennessee" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "foundingDate": `${business.founded}-01-01`,
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "sameAs": [
+        business.socialLinks.facebook,
+        business.socialLinks.yelp,
+        business.socialLinks.linkedin,
+        business.socialLinks.youtube,
+        business.socialLinks.instagram,
+        business.socialLinks.twitter,
+        business.socialLinks.bbb,
+        business.socialLinks.google
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": business.googleReviewRating,
+        "reviewCount": business.googleReviewCount,
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Professional Certification",
+          "name": "NFPA 96 Compliant",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "National Fire Protection Association"
+          }
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Commercial Kitchen Exhaust Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hood Cleaning" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exhaust Fan Repair" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Parts & Installation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fan & Hood Installation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Grease Containment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fire Suppression Systems" } }
+        ]
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -113,12 +161,9 @@ const schema = {
   </div>
   <div class="relative z-10 w-full max-w-[1280px] mx-auto px-5 py-12 flex flex-col items-center text-center gap-2.5">
     <p class="font-heading text-[#FF5E15] font-bold uppercase text-sm md:text-base tracking-wide animate-fadeInUp">DDAN Hood Services</p>
-    <h1 class="hidden md:block font-display text-white text-2xl md:text-[4.4rem] leading-[1.3] font-semibold">
-      Commercial Kitchen Exhaust <span id="typing-text" class="text-[#FF5E15]"></span><span id="typing-cursor" class="text-[#FF5E15]">|</span><br/> Installation &amp; Parts
+    <h1 class="font-display text-white text-3xl md:text-[4.4rem] leading-[1.3] font-semibold">
+      Commercial Kitchen Exhaust <span id="typing-text" class="text-[#FF5E15]"></span><span id="typing-cursor" class="text-[#FF5E15]">|</span><br class="hidden md:block"/> <span class="md:hidden text-[#FF5E15]">Cleaning &amp; Repair</span><span class="hidden md:inline"> Installation &amp; Parts</span>
     </h1>
-    <h2 class="md:hidden font-display text-white text-3xl leading-[1.3] font-bold">
-      Commercial Kitchen Exhaust Fan <span class="text-[#FF5E15]">Cleaning &amp; Repair</span>, Installation &amp; Parts
-    </h2>
     <p class="text-white font-body text-base md:text-lg font-bold text-center w-full md:w-[70%] max-w-[1000px] mx-auto animate-fadeInUp" style="animation-delay:0.3s">
       Serving Mt. Juliet and the Nashville Metro | 24/7 Emergency Response
     </p>

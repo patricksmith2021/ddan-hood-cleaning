@@ -6,7 +6,7 @@ const faqs = [
   { q: "I'm opening a new restaurant concept in an older Madison building. What do I need?", a: "You must ensure the existing exhaust system meets the Metro Nashville Fire Code for your specific cooking volume. We routinely perform deep bare-metal cleans, install required fire-rated access panels, replace aging fan belts, and ensure your fire suppression links are up to date." },
   { q: "Can you clean heavy carbon buildup from woks and open-flame grills?", a: "Yes. High-heat cooking creates a hardened carbon scale that standard pressure washing cannot remove. Our crews use specialized heavy-duty scrapers and chemical treatments to strip your entire exhaust system down to bare metal, significantly reducing your fire risk." },
   { q: "Do I need a hinge kit on my restaurant's exhaust fan?", a: "Yes. NFPA 96 code—strictly enforced by Metro Nashville—requires upblast exhaust fans to have hinge kits. This allows our crews to safely tilt the fan open for cleaning without damaging the fan wiring or your roof. We frequently install these on older buildings in Madison." },
-  { q: 'How long does a commercial hood cleaning take?', a: 'Most single-hood restaurant systems take 3-5 hours for a thorough bare-metal cleaning. Larger systems with multiple hoods or extensive ductwork can take 6-8 hours. We schedule overnight so your kitchen is ready by morning.' },
+  { q: 'How long does a commercial kitchen cleaning take in Madison?', a: 'Most single-hood restaurant systems take 3-5 hours for a thorough bare-metal cleaning. Larger systems with multiple hoods or extensive ductwork can take 6-8 hours. We schedule overnight so your kitchen is ready by morning.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/cleaning/madison-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Madison, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Hood Cleaning", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Madison, TN" }, "description": "NFPA 96 certified commercial kitchen hood cleaning for Madison restaurants. Bare-metal clean with detailed service reports and compliance documentation." },
     { "@type": "BreadcrumbList", "itemListElement": [

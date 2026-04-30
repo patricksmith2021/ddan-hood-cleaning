@@ -6,7 +6,7 @@ const faqs = [
   { q: 'What happens if Murfreesboro Fire Rescue finds my hood non-compliant?', a: 'MFRD\'s Community Risk Reduction Division can issue citations, mandate immediate remediation, or in severe cases, temporarily shut down cooking operations until a certified NFPA 96 cleaning is completed and documented.' },
   { q: 'How often should Murfreesboro sports bars have their hoods cleaned?', a: 'High-volume sports bars and wing restaurants near MTSU typically require monthly cleaning due to continuous deep-frying. Standard restaurants need quarterly service. The schedule depends on cooking volume and grease accumulation rate per NFPA 96 Table 11.4.' },
   { q: 'Can heavy grease damage my TPO roof at The Avenue?', a: 'Yes. Newer Murfreesboro developments use white TPO roofing that grease runoff will stain and degrade, voiding manufacturer warranties. Proper rooftop grease containment prevents this damage entirely.' },
-  { q: 'How long does a commercial hood cleaning take?', a: 'Most single-hood restaurant systems take 3-5 hours for a thorough bare-metal cleaning. Larger systems with multiple hoods or extensive ductwork can take 6-8 hours. We schedule overnight so your kitchen is ready by morning.' },
+  { q: 'How long does a hood cleaning take for a Murfreesboro restaurant?', a: 'Most single-hood restaurant systems take 3-5 hours for a thorough bare-metal cleaning. Larger systems with multiple hoods or extensive ductwork can take 6-8 hours. We schedule overnight so your kitchen is ready by morning.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/cleaning/murfreesboro-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Murfreesboro, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Hood Cleaning", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Murfreesboro, TN" }, "description": "NFPA 96 certified commercial kitchen hood cleaning for Murfreesboro restaurants. Bare-metal clean with detailed service reports and compliance documentation." },
     { "@type": "BreadcrumbList", "itemListElement": [

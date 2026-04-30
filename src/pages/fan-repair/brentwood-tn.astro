@@ -6,7 +6,7 @@ const faqs = [
   { q: "My Brentwood landlord requires proof of proper grease containment. Can you help?", a: "Absolutely. Property managers in Brentwood are exceptionally strict about roof damage. We install high-capacity, multi-layer rooftop grease containment systems designed specifically to protect white TPO membranes. We also provide comprehensive written service reports after every service to prove to your landlord that the roof is secure." },
   { q: "Are you certified to meet Brentwood Fire & Rescue NFPA 96 standards?", a: "Yes. Our technicians are fully certified and follow strict NFPA 96 guidelines. We clean your entire exhaust system—from the hood filters through the ductwork to the rooftop fan—down to bare metal, ensuring you pass even the most rigorous fire marshal inspections." },
   { q: "Can you service my Brentwood restaurant after hours?", a: "Yes. We understand that upscale dining establishments cannot afford daytime disruptions. We schedule our hood cleaning and non-emergency repair services during your off-hours or overnight to ensure your kitchen is pristine and ready for the next service." },
-  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis -- no surprises.' },
+  { q: 'What does motor replacement typically cost for Brentwood restaurant owners?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis -- no surprises.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/brentwood-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Brentwood, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Brentwood, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Brentwood commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [

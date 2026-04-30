@@ -6,7 +6,7 @@ const faqs = [
   { q: 'How fast can DDAN respond to an emergency fan failure in Franklin?', a: 'For Franklin locations, our emergency team typically arrives within 1-2 hours. We carry common motors, belts, and bearings on every truck for same-day repair.' },
   { q: 'Can you repair exhaust systems in historic downtown Franklin buildings?', a: 'Yes. Historic buildings often have complex, winding ductwork. Our technicians are experts at navigating non-standard configurations and installing fire-rated access panels for proper maintenance access.' },
   { q: 'My Cool Springs landlord requires proof of exhaust system maintenance. Can you provide this?', a: 'Absolutely. Corporate property managers in Franklin are strict about documentation. We provide detailed written service reports and compliance records for every repair, proving compliance to your landlord.' },
-  { q: 'What is the typical cost of an exhaust fan motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
+  { q: 'How much does a Cool Springs restaurant pay for motor replacement?', a: 'Most common motor replacements range from $250 to $600 depending on horsepower, phase type, and motor enclosure. We provide upfront pricing after diagnosis — no surprises.' },
 ];
 
 const schema = {
@@ -20,7 +20,9 @@ const schema = {
       "url": `${import.meta.env.SITE || 'https://ddanhoodservices.com'}/fan-repair/franklin-tn/`,
       "address": { "@type": "PostalAddress", "streetAddress": business.address.street, "addressLocality": business.address.city, "addressRegion": business.address.state, "postalCode": business.address.zip, "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Franklin, TN" },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "description": "Commercial kitchen exhaust cleaning, fan repair, installation, and parts for restaurants across Middle Tennessee. Licensed, bonded, insured. NFPA 96 compliant since 2007.",
+      "hasCredential": [{"@type": "EducationalOccupationalCredential","credentialCategory": "Professional Certification","name": "NFPA 96 Compliant","recognizedBy": {"@type": "Organization","name": "National Fire Protection Association"}}]
     },
     { "@type": "Service", "name": "Commercial Kitchen Exhaust Fan Repair", "provider": { "@type": "LocalBusiness", "name": business.name }, "areaServed": { "@type": "City", "name": "Franklin, TN" }, "description": "24/7 emergency exhaust fan motor and belt repair for Franklin commercial kitchens. Same-day service from local parts stock." },
     { "@type": "BreadcrumbList", "itemListElement": [
