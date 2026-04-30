@@ -194,6 +194,32 @@ const schema = {
     </div>
   </section>
 
+  <!-- WHAT CAUSES EXHAUST FAN FAILURE -->
+  <section class="bg-black py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        What Causes Commercial Exhaust Fan Failure
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-8 reveal-child">
+        Most commercial kitchen exhaust fan failures share four root causes. Understanding which one you have determines whether you need a belt, a motor, a wheel, or a full replacement — and whether the repair takes 30 minutes or 3 hours.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          { cause: 'Worn or Snapped Belt', signs: 'Loud squealing, fan slowing, belt pieces on roof. Belt-drive fans need belt replacement every 1–2 years under heavy load.', fix: 'Belt replacement — 30 min' },
+          { cause: 'Burned-Out Motor', signs: 'Fan won\'t start, breaker trips, burning smell. Direct-drive motors fail from grease buildup blocking airflow or continuous overload.', fix: 'Motor replacement — 1–2 hrs' },
+          { cause: 'Grease-Fouled Wheel', signs: 'Loud rattling, vibration, reduced airflow. Grease coating throws the impeller out of balance and strains bearings.', fix: 'Wheel cleaning or replacement' },
+          { cause: 'Failed Bearings', signs: 'Grinding or squealing at startup, worsening over weeks. Grease contamination of sealed bearings accelerates wear in kitchen environments.', fix: 'Bearing replacement — 1–3 hrs' },
+        ].map((item) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-base mb-1">{item.cause}</h3>
+            <p class="text-[#D4D4D4] font-body text-xs mb-3 leading-relaxed">{item.signs}</p>
+            <span class="text-[#FF5E15] font-heading text-xs font-semibold uppercase tracking-wide">{item.fix}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- EMERGENCY REPAIR CALLOUT -->
   <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
     <div class="max-w-[900px] mx-auto">
@@ -219,7 +245,7 @@ const schema = {
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Our Repair Process
+        How We Diagnose and Repair Exhaust Fan Problems
       </h2>
       <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
         From emergency call to documented repair — fast, professional, and fully transparent.

@@ -444,6 +444,35 @@ const schema = {
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
+       FITTING CONSULTATION — HOW TO ORDER
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        How to Order Parts: Free Fitting Consultation
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-8 reveal-child">
+        We don't sell parts online. Every order starts with a free phone consultation — we verify your exact fan model, motor horsepower, belt cross-section, and mounting dimensions before sourcing anything. This prevents wrong-part returns and ensures first-time installation success.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          { step: '1', label: 'Call With Your Fan Info', desc: 'Have your fan brand, model number, and symptom ready. If you don\'t have it, we can help you find it by describing the unit.' },
+          { step: '2', label: 'We Verify the Right Part', desc: 'We cross-reference specs and confirm the correct replacement — motor frame size, belt length, bearing type, or wheel diameter — before pulling from stock.' },
+          { step: '3', label: 'Same-Day or Next-Day Delivery', desc: 'Common parts ship same-day from local stock. Specialty items arrive next business day via our distributor network. Professional installation included at a discount.' },
+        ].map((s) => (
+          <div class="bg-black border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <div class="w-10 h-10 flex items-center justify-center bg-[#FF5E15] rounded-full mb-3">
+              <span class="text-white font-heading font-bold text-sm">{s.step}</span>
+            </div>
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{s.label}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
        SECTION 7 — BRANDS
        ═══════════════════════════════════════════════════════════════════ -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">

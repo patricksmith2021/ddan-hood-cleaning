@@ -259,11 +259,82 @@ const schemaData = {
     </div>
   </section>
 
+  <!-- TYPE I VS TYPE II -->
+  <section class="bg-[#111111] py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Type I vs. Type II Hood Systems
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-8 reveal-child">
+        The first decision in any commercial kitchen exhaust installation is hood type. Getting this wrong means failed inspections, fire code violations, and a costly replacement. Here's what each type covers and which cooking operations require it.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-8">
+        {[
+          {
+            type: 'Type I Hood',
+            req: 'Required for: Grease-producing cooking',
+            desc: 'Fryers, griddles, charbroilers, woks, open-flame ranges — anything that produces grease-laden vapors requires a Type I hood with grease filters, a grease collection system, and a fire suppression system. NFPA 96 Section 6 governs all Type I installations. This is the most common installation for restaurants.',
+            note: 'Fire suppression system required',
+          },
+          {
+            type: 'Type II Hood',
+            req: 'Required for: Heat and steam without grease',
+            desc: 'Dishwashers, steamers, ovens, and heat lamps produce heat and moisture but not grease-laden vapors. Type II hoods handle heat and condensation control without the fire suppression requirement. Lighter construction, simpler installation — but using a Type II where Type I is required is a serious code violation.',
+            note: 'No fire suppression required',
+          },
+        ].map((hood) => (
+          <div class="bg-black border-2 border-[#FF5E15] rounded-2xl p-8 reveal-child">
+            <h3 class="font-heading font-bold text-white text-2xl mb-1">{hood.type}</h3>
+            <p class="text-[#FF5E15] font-heading text-sm font-semibold mb-3">{hood.req}</p>
+            <p class="text-[#D4D4D4] font-body text-sm leading-relaxed mb-4">{hood.desc}</p>
+            <span class="inline-block px-3 py-1 bg-[#FF5E15]/10 border border-[#FF5E15] rounded text-[#FF5E15] font-heading text-xs font-semibold">{hood.note}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW BUILD VS RETROFIT -->
+  <section class="bg-black py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        New Restaurant Build vs. Retrofit Installation
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-8 reveal-child">
+        The installation process differs significantly depending on whether you're building out a new kitchen or upgrading an existing one. Both require NFPA 96 compliance — but the design constraints, timeline, and permit pathway are different.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-8">
+        {[
+          {
+            scenario: 'New Restaurant Build',
+            items: ['System designed from scratch for your menu and equipment', 'Ductwork routed through walls during rough-in phase', 'Hood placement coordinated with kitchen layout', 'Permit pulled before framing closes in the duct path', 'Make-up air unit sized and installed with the ventilation system'],
+          },
+          {
+            scenario: 'Retrofit / Concept Change',
+            items: ['Existing ductwork evaluated for CFM capacity and code compliance', 'Non-standard curbs and mounting configurations accommodated', 'System upgraded for new cooking equipment without full gut', 'NFPA 96 access panels added where missing', 'Permit pathway through Metro Health for change-of-use kitchens'],
+          },
+        ].map((s) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-8 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-bold text-white text-xl mb-5">{s.scenario}</h3>
+            <ul class="space-y-3">
+              {s.items.map((item) => (
+                <li class="flex items-start gap-3 text-[#D4D4D4] font-body text-sm">
+                  <svg class="w-4 h-4 text-[#FF5E15] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- OUR INSTALLATION PROCESS -->
   <section class="bg-black py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Our Installation Process
+        How We Design and Install Your Exhaust System
       </h2>
       <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
         From initial assessment to final testing — structured, transparent, and fully documented.

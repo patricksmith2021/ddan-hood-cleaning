@@ -193,7 +193,7 @@ const schema = {
   <section class="bg-[#111111] py-12 md:py-16 lg:py-20 px-5 reveal">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
-        Our Cleaning Process
+        How We Clean Commercial Kitchens to Bare Metal
       </h2>
       <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-10 reveal-child">
         Three steps to a safe, compliant, fully documented kitchen exhaust system.
@@ -249,6 +249,30 @@ const schema = {
             </div>
             <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.label}</h3>
             <p class="text-[#D4D4D4] text-sm">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY HOOD CLEANING -->
+  <section class="bg-black py-12 md:py-16 px-5 reveal">
+    <div class="max-w-[1280px] mx-auto">
+      <h2 class="font-heading text-[#FF5E15] text-lg md:text-[2.2rem] font-semibold leading-[1.2] mb-2 reveal-child">
+        Emergency Hood Cleaning — 24/7 Response
+      </h2>
+      <p class="text-[#DDDDDD] font-body text-base leading-relaxed mb-8 reveal-child">
+        Failed your fire marshal inspection? Grease fire in the ductwork? Kitchen shut down pending a cleaning? DDAN dispatches emergency hood cleaning crews around the clock — nights, weekends, holidays. We stock cleaning equipment on every truck so same-day service is the standard, not the exception.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          { label: 'Failed Inspection Response', desc: 'Rescheduled for re-inspection the next morning? We clean overnight and have your compliance documentation ready before the inspector returns.' },
+          { label: 'Pre-Opening Emergencies', desc: 'New restaurant opening delayed by a dirty hood? We clean to bare-metal NFPA 96 standard with turnaround under 8 hours for most single-hood systems.' },
+          { label: 'Health Inspection Compliance', desc: 'Health department requires documented hood cleaning records? Every DDAN cleaning includes a detailed service report with before-and-after photos suitable for your inspection file.' },
+        ].map((card) => (
+          <div class="bg-[#111111] border border-[#333] hover:border-[#FF5E15] rounded-2xl p-6 transition-all duration-300 reveal-child">
+            <h3 class="font-heading font-semibold text-white text-lg mb-2">{card.label}</h3>
+            <p class="text-[#D4D4D4] font-body text-sm">{card.desc}</p>
           </div>
         ))}
       </div>
