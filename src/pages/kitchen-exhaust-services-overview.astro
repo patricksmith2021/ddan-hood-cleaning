@@ -48,7 +48,7 @@ const services = [
       'Detailed written service documentation',
       'Flexible scheduling including nights and weekends',
     ],
-    image: '/images/services/hood-cleaning.jpg',
+    image: '/images/services/hood-cleaning.webp', imgW: 1024, imgH: 576,
   },
   {
     title: 'Hood Repair',
@@ -60,7 +60,7 @@ const services = [
       '24/7 emergency service available',
       'NFPA 96 compliant repairs',
     ],
-    image: '/images/services/hood-repair.jpg',
+    image: '/images/services/hood-repair.webp', imgW: 1024, imgH: 768,
   },
   {
     title: 'Installation Services',
@@ -72,7 +72,7 @@ const services = [
       'New construction and retrofits',
       'NFPA 96 compliant ventilation install',
     ],
-    image: '/images/services/kitchen-exhaust-installation.jpg',
+    image: '/images/services/kitchen-exhaust-installation.webp', imgW: 720, imgH: 960,
   },
   {
     title: 'Parts & Equipment',
@@ -84,7 +84,7 @@ const services = [
       'Same-day local stock — exhaust fan blades for restaurant systems',
       'Professional fitting and installation',
     ],
-    image: '/images/services/exhaust-fan-parts.webp',
+    image: '/images/services/exhaust-fan-parts.webp', imgW: 1024, imgH: 768,
   },
   {
     title: 'Grease Containment',
@@ -96,7 +96,7 @@ const services = [
       'NFPA 96 rooftop grease containment',
       'Rooftop grease maintenance programs',
     ],
-    image: '/images/services/grease-containment.webp',
+    image: '/images/services/grease-containment.webp', imgW: 1024, imgH: 768,
   },
   {
     title: 'Restaurant Fire Suppression',
@@ -108,7 +108,7 @@ const services = [
       'Semi-annual inspections',
       'Code-required for all Type I hoods',
     ],
-    image: '/images/services/fire-suppression.jpg',
+    image: '/images/services/fire-suppression.webp', imgW: 1024, imgH: 768,
   },
   {
     title: 'Exhaust Fan Hinge Kits',
@@ -119,7 +119,7 @@ const services = [
       'Weather-sealed installation',
       'Compatible with all major brands',
     ],
-    image: '/images/services/hinge-kit-installation.jpg',
+    image: '/images/services/hinge-kit-installation.webp', imgW: 768, imgH: 1024,
   },
   {
     title: 'Belt & Motor Repair',
@@ -130,7 +130,7 @@ const services = [
       'Motor and belt replacement',
       'On-site diagnostics',
     ],
-    image: '/images/services/belt-motor-repair.jpg',
+    image: '/images/services/belt-motor-repair.webp', imgW: 1024, imgH: 768,
   },
   {
     title: 'Access Panel Installation',
@@ -141,7 +141,7 @@ const services = [
       'Fire-rated panels',
       'Grease-tight seals',
     ],
-    image: '/images/services/access-panel-installation.webp',
+    image: '/images/services/access-panel-installation.webp', imgW: 890, imgH: 720,
   },
 ];
 ---
@@ -154,7 +154,7 @@ const services = [
   <HeroBanner
     headline="DDAN Kitchen Exhaust Fan & Hood System Services Overview"
     subheadline="Complete commercial kitchen exhaust system care"
-    backgroundImage="/images/hero/hero-4.jpg"
+    backgroundImage="/images/hero/hero-4.webp"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'Services' },
@@ -173,6 +173,7 @@ const services = [
             <img
               src={service.image}
               alt={`${service.title} - ${business.name}`}
+              width={service.imgW} height={service.imgH}
               class="w-full h-48 object-cover border-b-[3px] border-primary"
               loading="lazy"
             />

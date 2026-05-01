@@ -47,7 +47,7 @@ const schema = {
   <HeroBanner
     headline="Gallery"
     subheadline="Real work from real kitchens across Middle Tennessee"
-    backgroundImage="/images/gallery/gallery-1.jpg"
+    backgroundImage="/images/gallery/gallery-1.webp"
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'Gallery' },
@@ -57,11 +57,16 @@ const schema = {
   <section class="py-12 md:py-16 lg:py-20 px-5 bg-[#111111] reveal">
     <div class="max-w-[1200px] mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {Array.from({length: 12}, (_, i) => `/images/gallery/gallery-${i+1}.jpg`).map((img, i) => (
+        {[
+          {w:720,h:960},{w:334,h:334},{w:2048,h:1536},{w:2048,h:1536},
+          {w:1536,h:2048},{w:2048,h:1536},{w:1536,h:2048},{w:2048,h:1536},
+          {w:2048,h:1536},{w:1170,h:881},{w:1536,h:2048},{w:2048,h:1536}
+        ].map(({w,h}, i) => (
           <div class="overflow-hidden rounded reveal-child">
             <img
-              src={img}
+              src={`/images/gallery/gallery-${i+1}.webp`}
               alt={`DDAN Hood Services work photo ${i+1}`}
+              width={w} height={h}
               class="w-full h-48 object-cover border-[3px] border-primary hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
