@@ -310,13 +310,13 @@
             window.location.href = '/thank-you/';
           } else {
             var result = await response.json().catch(function() { return {}; });
-            if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong (status ' + response.status + '). Please call (615) 881-6968.';
+            if (errorDiv) errorDiv.textContent = result.error || 'Something went wrong (status ' + response.status + '). Please call 615-881-6968.';
             btn.disabled = false;
             btn.innerHTML = 'Request Callback ASAP';
             if (typeof turnstile !== 'undefined') turnstile.reset();
           }
         } catch (err) {
-          if (errorDiv) errorDiv.textContent = 'Connection error: ' + err.message + '. Please call (615) 881-6968.';
+          if (errorDiv) errorDiv.textContent = 'Connection error: ' + err.message + '. Please call 615-881-6968.';
           btn.disabled = false;
           btn.innerHTML = 'Request Callback ASAP';
           if (typeof turnstile !== 'undefined') turnstile.reset();

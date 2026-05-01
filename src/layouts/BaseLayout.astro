@@ -16,7 +16,7 @@ const { title, description, ogImage, noindex = false } = Astro.props;
 const isStaging = (import.meta.env.SITE || '').includes('pages.dev') || Astro.url.hostname.includes('pages.dev');
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const defaultOgImage = new URL('/images/homepage/ddan-og-image.webp', Astro.site).href;
-const resolvedOgImage = ogImage || defaultOgImage;
+const resolvedOgImage = ogImage ? new URL(ogImage, Astro.site).href : defaultOgImage;
 ---
 
 <!DOCTYPE html>
