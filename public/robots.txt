@@ -27,5 +27,7 @@ Allow: /
 
 Disallow: /api/
 Disallow: /preview/
+Disallow: /receipts/
+Disallow: /api/receipts
 
 Sitemap: https://ddanhoodservices.com/sitemap.xml
