@@ -1,0 +1,500 @@
+---
+// Standalone page — no layout, no nav, no footer, no SEO markup
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Receipts | DDAN Hood Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Heebo:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #FF5E15 !important;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+    }
+    @media (max-width: 640px) {
+      .two-col-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .action-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</head>
+<body style="background:#000;color:#FFF;font-family:'Heebo',sans-serif;margin:0;padding:0;min-height:100vh;">
+
+  <!-- ===================== SECTION A: PIN GATE ===================== -->
+  <div id="gate" style="min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:2rem;">
+    <img src="/images/homepage/ddan-og-image.webp" alt="DDAN Hood Services" style="max-width:180px;margin-bottom:2rem;" />
+    <h1 style="font-family:'Poppins',sans-serif;font-size:1.5rem;margin:0 0 1.5rem;color:#FFF;">DDAN Receipt System</h1>
+    <input
+      type="password"
+      id="pinInput"
+      placeholder="Enter PIN"
+      style="background:#1A1A1A;border:1px solid #333;color:#FFF;padding:0.875rem 1.5rem;font-size:1rem;border-radius:8px;text-align:center;width:220px;font-family:'Heebo',sans-serif;"
+    />
+    <button
+      id="pinBtn"
+      style="background:#FF5E15;color:#FFF;border:none;padding:0.875rem 2.5rem;border-radius:8px;font-size:1rem;font-weight:600;margin-top:1rem;cursor:pointer;font-family:'Poppins',sans-serif;transition:transform 200ms ease,box-shadow 200ms ease;"
+      onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(255,94,21,0.3)'"
+      onmouseout="this.style.transform='';this.style.boxShadow=''"
+    >
+      Enter
+    </button>
+    <p id="pinError" style="color:#E24B4A;margin-top:0.75rem;display:none;font-size:0.875rem;">Wrong PIN — try again</p>
+  </div>
+
+  <!-- ===================== SECTION B: RECEIPT FORM ===================== -->
+  <div id="formSection" style="display:none;max-width:640px;margin:0 auto;padding:2rem;">
+    <div style="text-align:center;margin-bottom:2rem;">
+      <img src="/images/homepage/ddan-og-image.webp" alt="DDAN" style="max-width:140px;margin-bottom:1rem;" />
+      <h1 style="font-family:'Poppins',sans-serif;font-size:1.5rem;margin:0;color:#FFF;">Create Service Receipt</h1>
+    </div>
+
+    <div id="receiptForm" style="background:#1A1A1A;border:1px solid #FF5E15;border-radius:0.75rem;padding:2rem;">
+
+      <label style="display:block;color:#999;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.25rem;">Contact Name *</label>
+      <input type="text" id="contactName" required
+        style="width:100%;background:#111;border:1px solid #333;color:#FFF;padding:0.75rem;font-size:1rem;border-radius:6px;margin-bottom:1rem;font-family:'Heebo',sans-serif;" />
+
+      <label style="display:block;color:#999;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.25rem;">Business Name *</label>
+      <input type="text" id="businessName" required
+        style="width:100%;background:#111;border:1px solid #333;color:#FFF;padding:0.75rem;font-size:1rem;border-radius:6px;margin-bottom:1rem;font-family:'Heebo',sans-serif;" />
+
+      <label style="display:block;color:#999;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.25rem;">Business Address *</label>
+      <input type="text" id="businessAddress" required
+        style="width:100%;background:#111;border:1px solid #333;color:#FFF;padding:0.75rem;font-size:1rem;border-radius:6px;margin-bottom:1rem;font-family:'Heebo',sans-serif;" />
+
+      <div class="two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+        <div>
+          <label style="display:block;color:#999;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.25rem;">Business Phone *</label>
+          <input type="tel" id="businessPhone" required
+            style="width:100%;background:#111;border:1px solid #333;color:#FFF;padding:0.75rem;font-size:1rem;border-radius:6px;font-family:'Heebo',sans-serif;" />
+        </div>
+        <div>
+          <label style="display:block;color:#999;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.25rem;">Customer Email</label>
+          <input type="email" id="customerEmail"
+            style="width:100%;background:#111;border:1px solid #333;color:#FFF;padding:0.75rem;font-size:1rem;border-radius:6px;font-family:'Heebo',sans-serif;" />
+        </div>
+      </div>
+
+      <div class="two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+        <div>
+          <label style="display:block;color:#999;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.25rem;">Service *</label>
+          <select id="service" required
+            style="width:100%;background:#111;border:1px solid #333;color:#FFF;padding:0.75rem;font-size:1rem;border-radius:6px;font-family:'Heebo',sans-serif;appearance:none;-webkit-appearance:none;">
+            <option value="" disabled selected>Select Service</option>
+            <option value="Hood Cleaning">Hood Cleaning</option>
+            <option value="Exhaust Fan Repair">Exhaust Fan Repair</option>
+            <option value="Fan & Hood Installation">Fan &amp; Hood Installation</option>
+            <option value="Parts & Installation">Parts &amp; Installation</option>
+            <option value="Grease Containment">Grease Containment</option>
+            <option value="Fire Suppression">Fire Suppression</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;color:#999;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.25rem;">Date of Service *</label>
+          <input type="date" id="dateOfService" required
+            style="width:100%;background:#111;border:1px solid #333;color:#FFF;padding:0.75rem;font-size:1rem;border-radius:6px;font-family:'Heebo',sans-serif;" />
+        </div>
+      </div>
+
+      <label style="display:block;color:#999;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.25rem;">Service Details / Notes</label>
+      <textarea id="details" rows="4" placeholder="Work performed, parts replaced, notes for customer..."
+        style="width:100%;background:#111;border:1px solid #333;color:#FFF;padding:0.75rem;font-size:1rem;border-radius:6px;margin-bottom:1.5rem;font-family:'Heebo',sans-serif;resize:vertical;"></textarea>
+
+      <button
+        id="generateBtn"
+        style="width:100%;background:#FF5E15;color:#FFF;border:none;padding:1rem;border-radius:8px;font-size:1.125rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;transition:transform 200ms ease,box-shadow 200ms ease;"
+        onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(255,94,21,0.3)'"
+        onmouseout="this.style.transform='';this.style.boxShadow=''"
+      >
+        Generate Receipt
+      </button>
+      <p id="formError" style="color:#E24B4A;margin-top:0.75rem;display:none;text-align:center;font-size:0.875rem;"></p>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION C: RECEIPT VIEW ===================== -->
+  <div id="viewSection" style="display:none;max-width:640px;margin:0 auto;padding:2rem;">
+    <div id="receiptCard" style="background:#1A1A1A;border:1px solid #FF5E15;border-radius:0.75rem;overflow:hidden;">
+      <div style="text-align:center;padding:2rem 2rem 1rem;">
+        <img src="/images/homepage/ddan-og-image.webp" alt="DDAN" style="max-width:140px;margin-bottom:0.5rem;" />
+        <h1 style="font-family:'Poppins',sans-serif;font-size:1.25rem;color:#FFF;margin:0;">Service Receipt</h1>
+      </div>
+
+      <div id="receiptBody" style="padding:0 2rem 1.5rem;"></div>
+
+      <div style="border-top:1px solid #333;padding:1.5rem 2rem;text-align:center;">
+        <p style="color:#D4D4D4;font-size:0.875rem;margin:0;">DDAN Hood Services</p>
+        <p style="color:#FF5E15;font-size:0.875rem;margin:0.25rem 0 0;">(615) 881-6968 &bull; service@ddanhoodservices.com</p>
+        <p style="color:#666;font-size:0.75rem;margin:0.5rem 0 0;">Licensed, Bonded &amp; Insured &bull; NFPA 96 Compliant &bull; Est. 2006</p>
+      </div>
+    </div>
+
+    <div id="statusBadge" style="text-align:center;margin:1.5rem 0;"></div>
+
+    <div class="action-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+      <button
+        id="pdfBtn"
+        style="background:#1A1A1A;color:#FF5E15;border:1px solid #FF5E15;padding:0.875rem;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;transition:all 200ms ease;"
+        onmouseover="this.style.background='#FF5E15';this.style.color='#FFF'"
+        onmouseout="this.style.background='#1A1A1A';this.style.color='#FF5E15'"
+      >
+        Download PDF
+      </button>
+      <button
+        id="sendBtn"
+        style="background:#FF5E15;color:#FFF;border:none;padding:0.875rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;transition:transform 200ms ease,box-shadow 200ms ease;"
+        onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(255,94,21,0.3)'"
+        onmouseout="this.style.transform='';this.style.boxShadow=''"
+      >
+        Send to Customer
+      </button>
+    </div>
+
+    <div style="text-align:center;margin-top:1rem;">
+      <a href="/receipts/" style="color:#999;text-decoration:none;font-size:0.875rem;">&larr; Create Another Receipt</a>
+    </div>
+    <p id="sendResult" style="text-align:center;margin-top:0.75rem;font-size:0.875rem;display:none;"></p>
+  </div>
+
+  <!-- ===================== SECTION D: ALL JAVASCRIPT ===================== -->
+  <script is:inline>
+    let currentReceipt = null;
+
+    // ── Helpers ──────────────────────────────────────────────────────────────
+
+    function show(id) { document.getElementById(id).style.display = ''; }
+    function hide(id) { document.getElementById(id).style.display = 'none'; }
+
+    function showSection(name) {
+      hide('gate');
+      hide('formSection');
+      hide('viewSection');
+      if (name === 'form') {
+        document.getElementById('formSection').style.display = 'block';
+      } else if (name === 'view') {
+        document.getElementById('viewSection').style.display = 'block';
+      }
+    }
+
+    // ── PIN Gate ─────────────────────────────────────────────────────────────
+
+    async function submitPin() {
+      const pin = document.getElementById('pinInput').value.trim();
+      if (!pin) return;
+
+      try {
+        const res = await fetch('/api/receipts/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pin })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          sessionStorage.setItem('ddan_receipts_auth', 'true');
+          document.getElementById('pinError').style.display = 'none';
+          afterAuth();
+        } else {
+          document.getElementById('pinInput').value = '';
+          document.getElementById('pinError').style.display = 'block';
+        }
+      } catch (e) {
+        document.getElementById('pinError').textContent = 'Connection error. Try again.';
+        document.getElementById('pinError').style.display = 'block';
+      }
+    }
+
+    document.getElementById('pinBtn').addEventListener('click', submitPin);
+    document.getElementById('pinInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') submitPin();
+    });
+
+    // ── Route detection — runs after auth ────────────────────────────────────
+
+    async function afterAuth() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+
+      if (id) {
+        await loadReceipt(id);
+      } else {
+        // Default today's date
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('dateOfService').value = today;
+        showSection('form');
+      }
+    }
+
+    // ── Receipt fetch + render ────────────────────────────────────────────────
+
+    async function loadReceipt(id) {
+      try {
+        const res = await fetch(`/api/receipts?id=${encodeURIComponent(id)}`);
+        if (!res.ok) {
+          showSection('form');
+          const err = document.getElementById('formError');
+          err.textContent = 'Receipt not found. Create a new one below.';
+          err.style.display = 'block';
+          return;
+        }
+        const receipt = await res.json();
+        currentReceipt = receipt;
+        renderReceipt(receipt);
+        showSection('view');
+      } catch (e) {
+        showSection('form');
+      }
+    }
+
+    function renderReceipt(r) {
+      const dateStr = new Date(r.dateOfService).toLocaleDateString('en-US', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+
+      const rows = [
+        ['SERVICE', r.service, true],
+        ['DATE', dateStr, false],
+        ['CUSTOMER', r.contactName, false],
+        ['BUSINESS', r.businessName, false],
+        ['ADDRESS', r.businessAddress, false],
+        ['PHONE', r.businessPhone, false],
+        r.customerEmail ? ['EMAIL', r.customerEmail, false] : null,
+        r.details ? ['DETAILS', r.details, false] : null,
+      ].filter(Boolean);
+
+      let html = '<table style="width:100%;border-collapse:collapse;">';
+      rows.forEach(([label, value, highlight]) => {
+        html += `<tr style="border-bottom:1px solid #333;">
+          <td style="color:#999;font-size:0.8rem;padding:12px 0;text-transform:uppercase;letter-spacing:0.05em;width:110px;vertical-align:top;">${label}</td>
+          <td style="color:${highlight ? '#FF5E15' : '#FFF'};font-size:0.95rem;padding:12px 0;">${value}</td>
+        </tr>`;
+      });
+      html += '</table>';
+
+      document.getElementById('receiptBody').innerHTML = html;
+
+      const badge = document.getElementById('statusBadge');
+      if (r.status === 'sent') {
+        const sentDate = new Date(r.sentAt).toLocaleString('en-US', {
+          timeZone: 'America/Chicago', dateStyle: 'medium', timeStyle: 'short'
+        });
+        badge.innerHTML = `<span style="background:#1D9E75;color:#FFF;padding:0.5rem 1.5rem;border-radius:20px;font-size:0.875rem;font-weight:600;">Sent ✓ — ${sentDate} CT</span>`;
+        const sendBtn = document.getElementById('sendBtn');
+        sendBtn.disabled = true;
+        sendBtn.style.opacity = '0.5';
+        sendBtn.style.cursor = 'not-allowed';
+        sendBtn.textContent = 'Already Sent';
+        sendBtn.onmouseover = null;
+        sendBtn.onmouseout = null;
+      } else {
+        badge.innerHTML = `<span style="background:#333;color:#FF5E15;padding:0.5rem 1.5rem;border-radius:20px;font-size:0.875rem;font-weight:600;">Draft — Not Yet Sent</span>`;
+      }
+    }
+
+    // ── Form submission ───────────────────────────────────────────────────────
+
+    document.getElementById('generateBtn').addEventListener('click', async () => {
+      const fields = {
+        contactName:     document.getElementById('contactName').value.trim(),
+        businessName:    document.getElementById('businessName').value.trim(),
+        businessAddress: document.getElementById('businessAddress').value.trim(),
+        businessPhone:   document.getElementById('businessPhone').value.trim(),
+        customerEmail:   document.getElementById('customerEmail').value.trim(),
+        service:         document.getElementById('service').value,
+        dateOfService:   document.getElementById('dateOfService').value,
+        details:         document.getElementById('details').value.trim(),
+      };
+
+      const required = ['contactName', 'businessName', 'businessAddress', 'businessPhone', 'service', 'dateOfService'];
+      const missing = required.filter(f => !fields[f]);
+      const errEl = document.getElementById('formError');
+
+      if (missing.length > 0) {
+        errEl.textContent = 'Please fill in all required fields.';
+        errEl.style.display = 'block';
+        return;
+      }
+      errEl.style.display = 'none';
+
+      const btn = document.getElementById('generateBtn');
+      btn.textContent = 'Saving...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/receipts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(fields)
+        });
+        const data = await res.json();
+
+        if (data.success && data.id) {
+          window.location.href = `/receipts/?id=${data.id}`;
+        } else {
+          errEl.textContent = data.error || 'Error saving receipt. Try again.';
+          errEl.style.display = 'block';
+          btn.textContent = 'Generate Receipt';
+          btn.disabled = false;
+        }
+      } catch (e) {
+        errEl.textContent = 'Connection error. Try again.';
+        errEl.style.display = 'block';
+        btn.textContent = 'Generate Receipt';
+        btn.disabled = false;
+      }
+    });
+
+    // ── PDF generation ────────────────────────────────────────────────────────
+
+    document.getElementById('pdfBtn').addEventListener('click', () => {
+      const r = currentReceipt;
+      if (!r) return;
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const dateStr = new Date(r.dateOfService).toLocaleDateString('en-US', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+
+      // Orange header bar
+      doc.setFillColor(255, 94, 21);
+      doc.rect(0, 0, 210, 30, 'F');
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(20);
+      doc.text('DDAN Hood Services', 105, 14, { align: 'center' });
+      doc.setFontSize(12);
+      doc.text('Service Receipt', 105, 23, { align: 'center' });
+
+      // Fields
+      doc.setTextColor(0, 0, 0);
+      let y = 45;
+      const fields = [
+        ['Service', r.service],
+        ['Date', dateStr],
+        ['Contact', r.contactName],
+        ['Business', r.businessName],
+        ['Address', r.businessAddress],
+        ['Phone', r.businessPhone],
+      ];
+      if (r.customerEmail) fields.push(['Email', r.customerEmail]);
+
+      fields.forEach(([label, value]) => {
+        doc.setFontSize(9);
+        doc.setTextColor(130, 130, 130);
+        doc.text(label.toUpperCase(), 20, y);
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.text(String(value || ''), 65, y);
+        y += 10;
+      });
+
+      if (r.details) {
+        y += 5;
+        doc.setFontSize(9);
+        doc.setTextColor(130, 130, 130);
+        doc.text('DETAILS', 20, y);
+        y += 7;
+        doc.setFontSize(11);
+        doc.setTextColor(0, 0, 0);
+        const lines = doc.splitTextToSize(r.details, 170);
+        doc.text(lines, 20, y);
+        y += lines.length * 6;
+      }
+
+      // Footer
+      y += 15;
+      doc.setDrawColor(255, 94, 21);
+      doc.setLineWidth(0.5);
+      doc.line(20, y, 190, y);
+      y += 10;
+      doc.setFontSize(9);
+      doc.setTextColor(130, 130, 130);
+      doc.text('DDAN Hood Services • (615) 881-6968 • service@ddanhoodservices.com', 105, y, { align: 'center' });
+      y += 5;
+      doc.text('Licensed, Bonded & Insured • NFPA 96 Compliant • Est. 2006', 105, y, { align: 'center' });
+
+      doc.save(`DDAN-Receipt-${r.id}.pdf`);
+    });
+
+    // ── Send to customer ──────────────────────────────────────────────────────
+
+    document.getElementById('sendBtn').addEventListener('click', async () => {
+      const r = currentReceipt;
+      if (!r) return;
+
+      const channels = r.customerEmail ? 'SMS and email' : 'SMS only (no email on file)';
+      if (!confirm(`Send this receipt to ${r.businessPhone} via ${channels}?`)) return;
+
+      const btn = document.getElementById('sendBtn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/receipts/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: r.id })
+        });
+        const data = await res.json();
+
+        const result = document.getElementById('sendResult');
+        result.style.display = 'block';
+
+        if (data.success) {
+          result.style.color = '#1D9E75';
+          result.textContent = 'Receipt sent successfully!';
+          btn.textContent = 'Sent ✓';
+          btn.style.opacity = '0.5';
+          btn.style.cursor = 'not-allowed';
+          btn.onmouseover = null;
+          btn.onmouseout = null;
+          currentReceipt = data.receipt;
+          const now = new Date().toLocaleString('en-US', {
+            timeZone: 'America/Chicago', dateStyle: 'medium', timeStyle: 'short'
+          });
+          document.getElementById('statusBadge').innerHTML = `<span style="background:#1D9E75;color:#FFF;padding:0.5rem 1.5rem;border-radius:20px;font-size:0.875rem;font-weight:600;">Sent ✓ — ${now} CT</span>`;
+        } else {
+          result.style.color = '#E24B4A';
+          result.textContent = 'Error: ' + (data.errors ? data.errors.join(', ') : 'Unknown error');
+          btn.textContent = 'Retry Send';
+          btn.disabled = false;
+        }
+      } catch (e) {
+        const result = document.getElementById('sendResult');
+        result.style.display = 'block';
+        result.style.color = '#E24B4A';
+        result.textContent = 'Connection error. Try again.';
+        btn.textContent = 'Retry Send';
+        btn.disabled = false;
+      }
+    });
+
+    // ── Boot ──────────────────────────────────────────────────────────────────
+
+    (function init() {
+      const isAuth = sessionStorage.getItem('ddan_receipts_auth') === 'true';
+      if (isAuth) {
+        hide('gate');
+        afterAuth();
+      }
+      // else: gate is already visible by default
+    })();
+  </script>
+
+</body>
+</html>
