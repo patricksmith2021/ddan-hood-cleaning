@@ -160,7 +160,7 @@ const schema = {
 <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
 <!-- ===================== SECTION 1: HERO SLIDESHOW ===================== -->
-<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden" id="hero">
+<section class="relative min-h-[82vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden" id="hero">
   <div class="absolute inset-0 z-0">
     <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-500 bg-cover bg-center" style="background-image:url('/images/homepage-hero/kitchen-exhaust-cleaning-services-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.webp')"></div>
     <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-500 bg-cover bg-center" style="background-image:url('/images/homepage-hero/vent-hood-cleaning-service-nashville-tn-DDAN-Hood-Cleaning-and-Repair-615-881-6968.webp')"></div>
@@ -555,7 +555,7 @@ const schema = {
 
   /* Hero rotating service line */
   .service-cycler { display: block; overflow: hidden; height: 1.3em; }
-  .service-cycler-track { display: block; transition: transform 0.62s cubic-bezier(0.76, 0, 0.24, 1); }
+  .service-cycler-track { display: block; transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1); }
   .service-cycler-track > span { display: block; height: 1.3em; line-height: 1.3em; color: #FF5E15; }
   @media (prefers-reduced-motion: reduce) {
     .service-cycler-track { transition: none; }
@@ -597,9 +597,9 @@ const schema = {
           void track.offsetHeight;
           track.style.transition = '';
           i = 0;
-        }, 640);
+        }, 520);
       }
-    }, 2600);
+    }, 2080);
   });
 
   // Truck Drive-In
