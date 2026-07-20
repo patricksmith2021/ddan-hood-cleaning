@@ -265,18 +265,6 @@
   transform: translateY(0);
 }
 
-/* === Hero Typing Animation === */
-.typing-cursor::after {
-  content: '|';
-  animation: blink 1s infinite;
-  color: var(--color-primary);
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
 /* === Truck Drive-In === */
 .truck-drive-in {
   transform: translateX(100%);
